@@ -21,11 +21,12 @@ jobs:
           set -euo pipefail
           DIR='6/02-metody-geografichnyh-doslidzhen/assets'
           mkdir -p "$DIR"
-          curl -L --fail --retry 3 'https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57723/land_ocean_ice_2048.jpg' -o "$DIR/earth-from-space.jpg"
-          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Survey_level_and_field_technician.jpg' -o "$DIR/field-survey.jpg"
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Earth_seen_from_Apollo_17.jpg' -o "$DIR/earth-from-space.jpg"
+          curl -L --fail --retry 3 'https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Field%20Survey.jpg' -o "$DIR/field-survey.jpg"
           curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Topographic_map_example.png' -o "$DIR/topographic-map.png"
-          curl -L --fail --retry 3 'https://eoimages.gsfc.nasa.gov/images/imagerecords/147000/147146/cafires_tmo_2020232_lrg.jpg' -o "$DIR/wildfire-satellite.jpg"
+          curl -L --fail --retry 3 'https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/147000/147146/cafires_tmo_2020232_lrg.jpg' -o "$DIR/wildfire-satellite.jpg"
           curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Physical_maps_of_Ukraine.jpg' -o "$DIR/physical-ukraine.jpg"
+          file "$DIR"/*
       - name: Commit assets
         shell: bash
         run: |
@@ -34,4 +35,5 @@ jobs:
           git add 6/02-metody-geografichnyh-doslidzhen/assets
           git diff --cached --quiet && exit 0
           git commit -m 'Add visual assets for grade 6 lesson 2'
+          git pull --rebase origin main
           git push
