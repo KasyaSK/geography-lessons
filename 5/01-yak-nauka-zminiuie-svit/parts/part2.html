@@ -1,0 +1,70 @@
+<section id="mission">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">14–18 хв • різнорівнева місія</div><h2>Інформаційна розвідка «Наука навколо нас»</h2><p class="note">Це саме практична діяльність, закладена у КТП: один факт → джерело → практична користь.</p></div><span class="time">4 хв</span></div>
+<div class="panel">
+<div class="mission-tabs" role="tablist"><button class="active" data-mission="base">Базовий</button><button data-mission="mid">Достатній</button><button data-mission="high">Високий</button></div>
+<div class="mission-pane active" id="mission-base"><h3>🔎 Знайти науку в предметі</h3><p>Оберіть один предмет поруч: телефон, ручку, пляшку води, вікно, лампу. Назвіть <strong>одне природниче знання</strong>, без якого цей предмет не працював би так, як працює.</p><div class="criteria"><span>1 предмет</span><span>1 знання</span><span>1 пояснення</span></div></div>
+<div class="mission-pane" id="mission-mid"><h3>🧩 Простежити ланцюжок</h3><p>Оберіть технологію й побудуйте ланцюг: <strong>спостереження природи → наукове знання → технічне рішення → користь для людини</strong>.</p><div class="criteria"><span>4 ланки</span><span>причинний зв’язок</span><span>конкретний приклад</span></div></div>
+<div class="mission-pane" id="mission-high"><h3>🕵️ Перевірити факт</h3><p>Знайдіть один науковий факт у підручнику або на сайті наукової установи. Поясніть, <strong>чому джерело заслуговує довіри</strong>, і назвіть, що ще варто перевірити, перш ніж поширювати факт.</p><div class="criteria"><span>факт</span><span>джерело</span><span>ознака надійності</span><span>межа висновку</span></div></div>
+<textarea class="write" id="missionText" placeholder="Запишіть коротку відповідь або тези для обговорення в парі…" style="margin-top:16px"></textarea>
+</div>
+</div>
+</section>
+<section id="viz">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">18–20 хв • інтерактивна візуалізація</div><h2>Компас природничих наук</h2></div><span class="time">2 хв</span></div>
+<div class="panel">
+<p><strong>Ситуація:</strong> <span id="caseText">У ставку раптово почала «цвісти» вода. Які науки допоможуть з’ясувати причину?</span></p>
+<div class="science-wheel" id="scienceWheel">
+<button class="field-btn" data-field="bio"><span class="emoji">🧬</span>Біологія</button>
+<button class="field-btn" data-field="chem"><span class="emoji">⚗️</span>Хімія</button>
+<button class="field-btn" data-field="phys"><span class="emoji">⚡</span>Фізика</button>
+<button class="field-btn" data-field="geo"><span class="emoji">🌍</span>Науки про Землю</button>
+<button class="field-btn" data-field="astro"><span class="emoji">🪐</span>Астрономія</button>
+</div>
+<div class="case-box"><strong>Завдання:</strong> оберіть <strong>дві</strong> науки, які дадуть найкорисніші дані для цього випадку. <button class="primary" id="checkFields" style="margin-left:8px">Перевірити</button><div class="feedback" id="fieldFeedback"></div></div>
+</div>
+</div>
+</section>
+<section id="theory">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">20–30 хв • основне вивчення</div><h2>Тепер називаємо те, що вже помітили</h2><p class="note">Теорія після досліджень: коротко, точно і з опорою на приклади.</p></div><span class="time">10 хв</span></div>
+<div class="theory-grid">
+<article class="concept" style="--bubble:#e9f8ff"><span class="ico">🔎</span><strong>Наука</strong><p>Спосіб пізнання світу, у якому люди ставлять запитання, збирають докази, перевіряють пояснення і можуть змінити висновок, якщо з’явилися кращі дані.</p></article>
+<article class="concept" style="--bubble:#ecfff5"><span class="ico">🌿</span><strong>Природничі науки</strong><p>Досліджують природу: живі організми, речовини, рух і енергію, Землю, космос та зв’язки між ними.</p></article>
+<article class="concept" style="--bubble:#fff7d8"><span class="ico">🏷️</span><strong>Науковий термін</strong><p>Точне слово або словосполучення з визначеним значенням. Термін допомагає всім говорити про явище однаково й без плутанини.</p></article>
+<article class="concept" style="--bubble:#f5ecff"><span class="ico">📌</span><strong>Науковий факт</strong><p>Твердження, підтверджене спостереженнями або вимірюваннями, які можна перевірити. «Мені здається» — ще не факт.</p></article>
+<article class="concept" style="--bubble:#fff0ee"><span class="ico">🛠️</span><strong>Техніка і технології</strong><p>Використовують знання, матеріали й способи дії для розв’язання практичних задач: від термометра до супутника.</p></article>
+<article class="concept" style="--bubble:#eaf3ff"><span class="ico">🧭</span><strong>Надійне джерело</strong><p>Має відомого автора або установу, пояснює походження даних, не приховує дату й дає можливість перевірити інформацію.</p></article>
+</div>
+<div aria-label="Як наука змінює світ" class="formula"><span>Запитання 🤔</span><b>→</b><span>Докази 🔎</span><b>→</b><span>Знання 🧠</span><b>→</b><span>Рішення 🛠️</span><b>→</b><span>Нові можливості 🌍</span></div>
+<div class="panel grid3" style="box-shadow:none">
+<div class="mini"><h3>🏥 Здоров’я</h3><p>Дослідження мікроорганізмів, клітин і речовин допомагають створювати методи діагностики, лікування й профілактики.</p></div>
+<div class="mini"><h3>🌦️ Погода</h3><p>Спостереження, супутники й моделі допомагають прогнозувати небезпечні явища та планувати дії.</p></div>
+<div class="mini"><h3>📱 Щоденні речі</h3><p>Екрани, батареї, зв’язок, навігація й очищення води спираються на природничі знання та інженерні рішення.</p></div>
+</div>
+</div>
+</section>
+<section id="duel">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">30–33 хв • логічний двобій</div><h2>Що звучить по-науковому?</h2></div><span class="time">3 хв</span></div>
+<div class="panel duel">
+<button data-duel="false"><strong>А.</strong> «Це точно правда, бо відео зібрало мільйон переглядів».</button><div class="vs">VS</div><button data-duel="true"><strong>Б.</strong> «Перевірмо, хто автор, звідки дані і чи підтверджують їх інші надійні джерела».</button>
+</div>
+<div class="feedback wrap" id="duelFeedback"></div>
+</div>
+</section>
+<section id="summary">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">33–35 хв • підсумок</div><h2>Повертаємося до головного питання</h2></div><span class="time">2 хв</span></div>
+<div class="panel">
+<p class="big-question">Як наука змінює наш світ — і як ми можемо впізнати надійне наукове твердження?</p>
+<div class="cer-grid" style="margin-top:18px">
+<div class="cer-card"><h3>Т — твердження</h3><textarea class="write" id="cerClaim" placeholder="Я вважаю, що наука змінює світ так…"></textarea></div>
+<div class="cer-card"><h3>Д — доказ</h3><textarea class="write" id="cerEvidence" placeholder="Один конкретний приклад або факт з уроку…"></textarea></div>
+<div class="cer-card"><h3>П — пояснення</h3><textarea class="write" id="cerReason" placeholder="Цей доказ підтримує мою думку, тому що…"></textarea></div>
+</div>
+<button class="primary" id="compareHyp" style="margin-top:12px">Порівняти з першою гіпотезою</button><div class="feedback warn" id="compareFeedback"></div>
+</div>
+</div>
+</section>
