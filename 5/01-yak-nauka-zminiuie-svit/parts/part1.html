@@ -1,0 +1,70 @@
+<section id="problem">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">0–3 хв • проблемне питання</div><h2>Уявіть день без науки</h2></div><span class="time">3 хв</span></div>
+<div class="panel grid2">
+<div><div class="question-mark">?</div><p class="big-question">Якби наука «зникла» на один день, що у Вашому звичайному житті перестало б працювати — і чому?</p><p class="note">Не шукайте «правильну» відповідь. Запишіть першу гіпотезу — до неї повернемося наприкінці.</p></div>
+<div><label for="hypothesis"><strong>Моя перша гіпотеза:</strong></label><textarea class="write" id="hypothesis" placeholder="Наприклад: без науки ми не змогли б... тому що..."></textarea><button class="primary" id="saveHyp">Зберегти гіпотезу</button><div class="feedback good" id="hypFeedback">Гіпотезу збережено на цьому пристрої. Наприкінці Ви зможете порівняти її з висновком.</div></div>
+</div>
+</div>
+</section>
+<section id="warmup">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">3–7 хв • швидке рішення</div><h2>Наука, техніка чи обидва?</h2><p class="note">Натискайте на картку, доки не виберете категорію. Потім перевірте себе.</p></div><span class="time">4 хв</span></div>
+<div class="panel">
+<div class="legend"><span class="l1">🔎 Наука — пояснює</span><span class="l2">🛠️ Техніка — застосовує</span><span class="l3">🔁 Обидва — працюють разом</span></div>
+<div class="sort-grid" id="sortGrid">
+<button class="sort-card" data-answer="both" data-state="none"><span class="icon">🌦️</span><strong>Прогноз погоди в телефоні</strong><span class="choice">Натисніть, щоб обрати →</span></button>
+<button class="sort-card" data-answer="science" data-state="none"><span class="icon">🧫</span><strong>Дослідження бактерій під мікроскопом</strong><span class="choice">Натисніть, щоб обрати →</span></button>
+<button class="sort-card" data-answer="technology" data-state="none"><span class="icon">🚲</span><strong>Конструкція гальм велосипеда</strong><span class="choice">Натисніть, щоб обрати →</span></button>
+<button class="sort-card" data-answer="science" data-state="none"><span class="icon">🪨</span><strong>Пояснення, як утворюються гірські породи</strong><span class="choice">Натисніть, щоб обрати →</span></button>
+<button class="sort-card" data-answer="both" data-state="none"><span class="icon">🛰️</span><strong>Супутник, що спостерігає за хмарами</strong><span class="choice">Натисніть, щоб обрати →</span></button>
+<button class="sort-card" data-answer="technology" data-state="none"><span class="icon">💡</span><strong>Світлодіодна лампа</strong><span class="choice">Натисніть, щоб обрати →</span></button>
+</div>
+<button class="primary" id="checkSort" style="margin-top:14px">Перевірити сортування</button><div class="feedback" id="sortFeedback"></div>
+</div>
+</div>
+</section>
+<section id="video1">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">7–9 хв • відеофрагмент</div><h2>Побачити науку навколо нас</h2></div><span class="time">2 хв фрагмент</span></div>
+<div class="panel video-card">
+<div class="video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube-nocookie.com/embed/2QLYymxJcUs" title="Як наука змінює світ — Пізнаємо природу 5 клас"></iframe></div>
+<div><h3>Дивимося з питанням</h3><p><strong>До перегляду:</strong> знайдіть щонайменше два приклади, де спочатку було наукове знання, а потім — корисна технологія.</p><p><strong>Після:</strong> чи може техніка розвиватися без нових знань про природу?</p><a href="https://www.youtube.com/watch?v=2QLYymxJcUs" rel="noopener" target="_blank">Відкрити відео окремо ↗</a><p class="note">Відео відповідає підручнику Біди, Гільберг, Колісник.</p></div>
+</div>
+</div>
+</section>
+<section id="evidence">
+<div class="wrap">
+<div class="section-head"><div><div class="kicker">9–14 хв • лабораторія доказів</div><h2>Що бачить науковець на знімку?</h2><p class="note">Працюємо з реальними супутниковими знімками NASA. Це не декоративна картинка, а дані спостереження.</p></div><span class="time">5 хв</span></div>
+<div class="grid2">
+<div class="panel">
+<div class="sat-tabs"><button class="active" data-sat="jan">Січень</button><button data-sat="jul">Липень</button></div>
+<div class="sat-stage"><img alt="Супутниковий знімок Альп у січні 2004 року, NASA" id="satImage" src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/content-feature/bluemarble/images/alps_01_lrg.jpg"/><div class="sat-caption" id="satCaption">Альпи • січень 2004 • NASA Earth Observatory</div></div>
+<p class="note">Перемикайте місяці й шукайте зміни снігового покриву та рослинності.</p>
+</div>
+<div class="panel">
+<h3>Які висновки підтримують ці зображення?</h3>
+<div class="evidence-options" id="evidenceOptions">
+<label><input type="checkbox" value="1"/> У липні площа снігового покриву на зображеній території менша, ніж у січні.</label>
+<label><input type="checkbox" value="2"/> За цими двома знімками можна точно визначити температуру кожного міста Альп.</label>
+<label><input type="checkbox" value="3"/> Сезонні зміни можна спостерігати за супутниковими даними.</label>
+<label><input type="checkbox" value="4"/> Два знімки доводять, якою буде погода в Альпах наступного року.</label>
+</div>
+<button class="primary" id="checkEvidence">Перевірити докази</button><div class="feedback" id="evidenceFeedback"></div>
+<p class="note"><strong>Ключ до наукового мислення:</strong> хороший висновок не говорить більше, ніж дозволяють дані.</p>
+</div>
+</div>
+<div class="panel" style="margin-top:18px">
+<div class="grid2">
+<div><h3>Детектор джерел</h3><p>Твердження: <strong>«Супутники допомагають досліджувати зміни на поверхні Землі».</strong> Які джерела найкраще перевірити першими?</p></div>
+<div class="source-grid" id="sourceGrid">
+<label class="source-card"><input type="checkbox" value="nasa"/><span><strong>NASA Earth Observatory</strong><small>наукова установа, опис даних і методів</small></span></label>
+<label class="source-card"><input type="checkbox" value="meme"/><span><strong>Мем у соцмережі</strong><small>автор невідомий, джерела не вказані</small></span></label>
+<label class="source-card"><input type="checkbox" value="textbook"/><span><strong>Підручник із грифом МОН</strong><small>автори та видавництво відомі</small></span></label>
+<label class="source-card"><input type="checkbox" value="chat"/><span><strong>Повідомлення «мені сказали»</strong><small>немає способу перевірити походження факту</small></span></label>
+</div>
+</div>
+<button class="primary" id="checkSources">Перевірити джерела</button><div class="feedback" id="sourceFeedback"></div>
+</div>
+</div>
+</section>
