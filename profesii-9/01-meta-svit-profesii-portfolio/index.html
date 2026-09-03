@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+  <meta name="description" content="Інтерактивний перший урок курсу «Професії» для 9 класу: мета курсу, світ професій і особисте портфоліо.">
+  <title>9 клас. Курс «Професії»: мета, світ професій і особисте портфоліо</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+(async()=>{
+  try{
+    for(const file of ["part-1.html","part-2.html","part-3.html"]){
+      const r=await fetch(file,{cache:"no-store"});
+      if(!r.ok) throw new Error(`${file}: ${r.status}`);
+      document.body.insertAdjacentHTML("beforeend",await r.text());
+    }
+    const s=document.createElement("script");s.src="app.js";document.body.appendChild(s);
+  }catch(e){document.body.insertAdjacentHTML("beforeend",`<main style="max-width:800px;margin:3rem auto;padding:1rem;font-family:system-ui"><h1>Не вдалося завантажити урок</h1><p>${e.message}</p></main>`);}
+})();
+</script>
+</body>
+</html>
