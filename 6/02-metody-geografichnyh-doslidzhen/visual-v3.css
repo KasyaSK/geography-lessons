@@ -1,0 +1,31 @@
+/* Visual upgrade v3 — maps, real images, richer lesson cards */
+.hero{grid-template-columns:1.05fr .95fr!important}
+.hero-media{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-photo,.gallery-card,.map-stage,.field-card{overflow:hidden;border:1px solid #d3e7f2;border-radius:22px;background:#fff;box-shadow:0 14px 38px rgba(31,86,120,.10)}
+.hero-photo img{width:100%;height:100%;min-height:260px;object-fit:cover;display:block}
+.hero-photo figcaption,.gallery-card .caption,.map-frame .map-caption{padding:10px 12px;background:#fff;color:#526d81;font-size:.9rem}
+.visual-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery-card{padding:0!important}
+.gallery-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#eaf4fa}
+.gallery-card .caption h3{margin:.1rem 0 .3rem;color:#17324d;font-size:1rem}
+.gallery-card .caption p{margin:0;color:#597286;font-size:.9rem}
+.map-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.map-tabs button{background:#eef8fd;color:#27566e;border:1px solid #cce3ef}
+.map-tabs button.active{background:#0b74c8;color:#fff;border-color:#0b74c8}
+.map-stage{box-shadow:none}
+.map-frame{display:none}
+.map-frame.active{display:block}
+.map-frame iframe,.map-frame img{display:block;width:100%;height:470px;border:0;object-fit:cover;background:#e7f1f7}
+.choice.with-photo{padding:0;overflow:hidden}
+.choice.with-photo img{width:100%;height:160px;object-fit:cover;display:block;background:#e7f1f7}
+.choice.with-photo .choice-body{padding:16px}
+.satellite-case{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.satellite-case figure{margin:0;border:1px solid #d2e6f1;border-radius:18px;overflow:hidden;background:#fff}
+.satellite-case img{width:100%;height:280px;object-fit:cover;display:block}
+.satellite-case figcaption{padding:10px 12px;font-size:.9rem;color:#587185}
+.visual-question{padding:14px;border-radius:16px;background:linear-gradient(135deg,#edf9ff,#fff8e6);border:1px solid #d1e8f4}
+.visual-question b{color:#0a669e}
+.image-credits{margin-top:12px;color:#718493;font-size:.78rem}
+.image-credits a{color:#52788f}
+@media(max-width:900px){.hero-media,.satellite-case{grid-template-columns:1fr}.visual-gallery{grid-template-columns:repeat(2,1fr)}.map-frame iframe,.map-frame img{height:390px}}
+@media(max-width:620px){.visual-gallery{grid-template-columns:1fr}.map-frame iframe,.map-frame img{height:340px}.hero-photo img{min-height:210px}}
