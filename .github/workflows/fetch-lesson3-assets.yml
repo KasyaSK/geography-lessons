@@ -1,0 +1,39 @@
+name: Fetch lesson 3 assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fetch-lesson3-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified lesson images
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='6/03-dzherela-geografichnoi-informatsii-sposterezhennia/assets'
+          mkdir -p "$DIR"
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/3/34/Atlas_-_book.jpg' -o "$DIR/atlas.jpg"
+          curl -L --fail --retry 3 'https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2009/06/a_united_europe_from_space/10238986-2-eng-GB/A_united_Europe_from_space_pillars.jpg' -o "$DIR/europe-satellite.jpg"
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Automatic_weather_station_learning.jpg' -o "$DIR/weather-station.jpg"
+          test -s "$DIR/atlas.jpg"
+          test -s "$DIR/europe-satellite.jpg"
+          test -s "$DIR/weather-station.jpg"
+          file "$DIR"/*
+      - name: Commit assets
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 6/03-dzherela-geografichnoi-informatsii-sposterezhennia/assets
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add visual assets for grade 6 lesson 3'
+          git pull --rebase origin main
+          git push
