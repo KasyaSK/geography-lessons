@@ -1,0 +1,119 @@
+  <section id="mission">
+    <div class="section-head">
+      <div><h2>Різнорівнева місія</h2><p class="sub">Оберіть рівень. Усі працюють із тією самою проблемою, але глибина мислення різна.</p></div>
+      <span class="time">14–18 хв</span>
+    </div>
+    <div class="level-grid">
+      <article class="level">
+        <span class="badge">Базовий</span>
+        <h3>Доберіть метод</h3>
+        <p>Для дослідження зміни русла річки оберіть <b>2 методи</b> й коротко поясніть роль кожного.</p>
+        <textarea placeholder="Метод 1… Метод 2…"></textarea>
+      </article>
+      <article class="level">
+        <span class="badge">Достатній</span>
+        <h3>Побудуйте доказ</h3>
+        <p>Поєднайте <b>супутниковий знімок + карту + польове спостереження</b> у причинний ланцюг: дані → висновок.</p>
+        <textarea placeholder="Спочатку… Потім… Це дозволяє зробити висновок…"></textarea>
+      </article>
+      <article class="level">
+        <span class="badge">Високий</span>
+        <h3>Знайдіть межу</h3>
+        <p>Назвіть, <b>чого не може довести</b> лише супутниковий знімок, і які дані потрібні, щоб перевірити альтернативне пояснення.</p>
+        <textarea placeholder="Знімок показує…, але не доводить… Для перевірки треба…"></textarea>
+      </article>
+    </div>
+  </section>
+
+  <section id="micro">
+    <div class="section-head">
+      <div><h2>Як дані стають рішенням: мікровізуалізація</h2><p class="sub">Сучасне дослідження — не «супутник зробив фото», а ланцюг перетворення даних.</p></div>
+      <span class="time">18–20 хв</span>
+    </div>
+    <div class="microviz">
+      <div class="node">🛰️ Спостереження</div>
+      <div class="node">🔢 Дані / пікселі</div>
+      <div class="node">🧩 Шари ГІС</div>
+      <div class="node">📊 Аналіз / модель</div>
+      <div class="node">🧭 Висновок / прогноз</div>
+    </div>
+    <div class="scenario-controls">
+      <button data-scenario="clear" class="active">Ясне небо</button>
+      <button data-scenario="clouds">Хмарність</button>
+      <button data-scenario="field">Є польова перевірка</button>
+      <button data-scenario="old">Застаріла карта</button>
+    </div>
+    <div id="scenarioFeedback" class="feedback">За ясного неба оптичний супутниковий знімок може бути дуже інформативним, але навіть він потребує правильної інтерпретації.</div>
+  </section>
+
+  <section id="theory">
+    <div class="section-head">
+      <div><h2>Теорія: точна мова для того, що ви вже зробили</h2><p class="sub">Поняття → механізм → просторовий прояв → зв’язки → значення → обмеження.</p></div>
+      <span class="time">20–30 хв</span>
+    </div>
+
+    <div class="theory-grid">
+      <article class="theory-card">
+        <h3>1. Що таке метод дослідження?</h3>
+        <p><b>Методи географічних досліджень</b> — способи й прийоми, за допомогою яких дослідники отримують, порівнюють, аналізують і пояснюють дані про географічні об’єкти, явища та процеси.</p>
+      </article>
+      <article class="theory-card">
+        <h3>2. Традиційні методи</h3>
+        <div class="pillrow">
+          <span class="pill">спостереження</span><span class="pill">описовий</span><span class="pill">порівняльний</span>
+          <span class="pill">картографічний</span><span class="pill">історичний</span><span class="pill">математичний</span>
+        </div>
+        <p>Вони не стали «застарілими». Навпаки, сучасні технології часто лише роблять їх точнішими й масштабнішими.</p>
+      </article>
+      <article class="theory-card">
+        <h3>3. Сучасні методи</h3>
+        <p><b>Дистанційні спостереження</b> отримують інформацію на відстані — наприклад, із супутників. <b>Географічний прогноз і моделювання</b> допомагають оцінити можливий майбутній стан. <b>ГІС</b> збирає, зберігає, поєднує та аналізує просторові дані.</p>
+      </article>
+      <article class="theory-card">
+        <h3>4. Чому географи поєднують методи?</h3>
+        <p>Карта добре показує <b>де</b>. Польове спостереження уточнює <b>що саме відбувається на місці</b>. Супутник бачить <b>великі території та зміни</b>. Модель допомагає перевірити <b>що може статися далі</b>.</p>
+      </article>
+      <article class="theory-card">
+        <h3>5. Реальні цифрові інструменти</h3>
+        <p><b>OpenStreetMap</b> — картографічні дані, які підтримує спільнота; <b>NASA Worldview</b> — супутникові шари Землі; <b>Copernicus Browser</b> — перегляд даних європейських супутникових місій; <b>Google Earth</b> — віртуальний глобус.</p>
+      </article>
+      <article class="theory-card">
+        <h3>6. Головне обмеження</h3>
+        <p><b>Жодне джерело не є «всевидючим».</b> Хмари можуть закрити поверхню на оптичному знімку; карта може бути застарілою; польове спостереження охоплює малу територію; модель залежить від введених даних і припущень.</p>
+      </article>
+    </div>
+    <div class="notice" style="margin-top:15px"><b>Типова помилка:</b> «сучасний метод автоматично кращий за традиційний». Насправді сильне дослідження добирає метод під запитання і перевіряє висновок кількома незалежними джерелами.</div>
+  </section>
+
+  <section id="duel">
+    <div class="section-head">
+      <div><h2>Логічний двобій</h2><p class="sub">Знайдіть помилку в міркуванні.</p></div>
+      <span class="time">30–33 хв</span>
+    </div>
+    <div class="duel">
+      <div class="myth">
+        <h3>❌ Твердження</h3>
+        <p>«На супутниковому знімку видно темну пляму на воді. Отже, це точно нафтова пляма».</p>
+      </div>
+      <div class="counter">
+        <h3>✅ Сильна відповідь</h3>
+        <p>Знімок показує <b>аномалію</b>, але не завжди доводить її природу. Потрібні додаткові дані: інші спектральні шари, повторне спостереження, польова перевірка або інше незалежне джерело.</p>
+      </div>
+    </div>
+    <p><b>Запитання класу:</b> який доказ був би найсильнішим контраргументом до слова «точно»?</p>
+  </section>
+
+  <section id="summary">
+    <div class="section-head">
+      <div><h2>Підсумок CER</h2><p class="sub">Поверніться до стартової гіпотези й дайте тепер доказову відповідь.</p></div>
+      <span class="time">33–35 хв</span>
+    </div>
+    <div class="cer">
+      <div><label for="cerC">Твердження</label><textarea id="cerC" placeholder="Супутники й цифрові карти можуть / не можуть…"></textarea></div>
+      <div><label for="cerE">Доказ</label><textarea id="cerE" placeholder="Наприклад, карта показує…, супутник показує…, польове спостереження…"></textarea></div>
+      <div><label for="cerR">Пояснення</label><textarea id="cerR" placeholder="Цей доказ підтримує твердження, тому що…"></textarea></div>
+    </div>
+    <button id="compareHyp" class="secondary" style="margin-top:12px">Порівняти з першою гіпотезою</button>
+    <div id="compareBox" class="feedback hidden"></div>
+  </section>
+
