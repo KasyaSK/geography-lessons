@@ -1,0 +1,35 @@
+name: Fetch lesson 4 assets
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fetch-lesson4-assets.yml'
+permissions:
+  contents: write
+jobs:
+  fetch-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified lesson images
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='6/04-forma-rozmiry-zemli-magellan/assets'
+          mkdir -p "$DIR"
+          curl -L --fail --retry 3 'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001016/GSFC_20171208_Archive_e001016~large.jpg' -o "$DIR/earth-nasa.jpg"
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Retrato_de_Hernando_de_Magallanes_(cropped).jpg?width=1000' -o "$DIR/magellan.jpg"
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Magellan_Elcano_Circumnavigation-en.svg' -o "$DIR/magellan-route.svg"
+          test -s "$DIR/earth-nasa.jpg"
+          test -s "$DIR/magellan.jpg"
+          test -s "$DIR/magellan-route.svg"
+      - name: Commit assets
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 6/04-forma-rozmiry-zemli-magellan/assets
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add visual assets for grade 6 lesson 4'
+          git pull --rebase origin main
+          git push
