@@ -1,0 +1,116 @@
+<section class="section section--wide" id="homework">
+      <div class="section-head">
+        <span class="kicker">Домашній блок · поза таймінгом уроку</span>
+        <h2>Закріпіть маршрут</h2>
+        <p class="section-note">У КТП до цього курсу не вказано окремого підручника чи параграфа, тому тут подано офіційні матеріали про курс і професійні назви робіт — без вигаданого §.</p>
+      </div>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Обов’язкове відео перед тестом</h3>
+          <p><strong>МОН України: «Вибір професії: покрокова інструкція».</strong> Під час перегляду занотуйте щонайменше три кроки вибору та один ризик поспішного рішення.</p>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube-nocookie.com/embed/YXry_zVYBt8" title="МОН України — Вибір професії: покрокова інструкція" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <p><a href="https://www.youtube.com/watch?v=YXry_zVYBt8" target="_blank" rel="noopener">Відкрити відео окремо ↗</a></p>
+        </div>
+        <div class="panel">
+          <h3>Матеріали для перевірки понять</h3>
+          <ul>
+            <li><a href="https://www.doccu.in.ua/post/prohrama-kursu-za-vyborom-profesii-otrymala-hryf-rekomendovano-ministerstvom-osvity-i-nauky-ukrainy" target="_blank" rel="noopener">Про мету курсу «Професії» — сторінка розробників програми</a>.</li>
+            <li><a href="https://me.gov.ua/Profession/List" target="_blank" rel="noopener">Офіційний Класифікатор професій — пошук назв професій і посад</a>.</li>
+            <li><a href="https://osvita.diia.gov.ua/prof-orientation-quiz" target="_blank" rel="noopener">Профорієнтаційний тест Дія.Освіта</a> — <strong>за бажанням</strong>; результат має рекомендаційний характер і не є «вироком».</li>
+          </ul>
+          <p class="privacy-note">Зовнішні ресурси потребують інтернету. Інтерактиви й тест на цій сторінці працюють локально.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top:1rem">
+        <div class="home-level"><b>Базовий рівень</b><p>Додайте до портфоліо одну свою роботу. Підпишіть: що зроблено, коли і яке уміння це показує.</p></div>
+        <div class="home-level"><b>Достатній рівень</b><p>Оберіть одну професію та знайдіть дві можливі посади в різних сферах. Поясніть різницю.</p></div>
+        <div class="home-level"><b>Високий рівень</b><p>Перевірте професійну назву в Класифікаторі. Складіть CER: чи достатньо самої назви, щоб зрозуміти реальні завдання? Яких даних бракує?</p></div>
+      </div>
+      <div class="panel panel--coral" style="margin-top:1rem">
+        <h3>Що надіслати вчителю</h3>
+        <p>1) фото або скриншот першої картки портфоліо; 2) виконане завдання одного рівня; 3) скриншот картки результату тесту нижче.</p>
+      </div>
+    </section>
+
+    <section class="section" id="test">
+      <div class="section-head">
+        <span class="kicker">Підсумковий тест · 10 балів</span>
+        <h2>Перевірте не пам’ять, а логіку</h2>
+        <p class="section-note">Тест відкриється лише після введення імені, прізвища та класу. Правильні відповіді не показуються до надсилання.</p>
+      </div>
+
+      <div class="quiz-gate" id="identityGate">
+        <div class="form-row">
+          <div class="field"><label for="fullName">Ім’я та прізвище</label><input id="fullName" autocomplete="name" placeholder="Наприклад, Олена Коваль"></div>
+          <div class="field"><label for="studentClass">Клас</label><input id="studentClass" value="9" placeholder="Наприклад, 9-А"></div>
+        </div>
+        <button class="primary" type="button" id="startQuiz" style="margin-top:1rem">Розпочати тест</button>
+        <div class="feedback" id="gateFeedback" role="alert" aria-live="polite">Введіть щонайменше два слова без цифр у полі ПІБ.</div>
+      </div>
+
+      <form id="quizForm" hidden novalidate>
+        <fieldset class="quiz-question" data-question="q1"><legend>1. У вакансії написано: «керівник відділу комунікацій у медичному центрі». Що тут є посадою?</legend><label class="option"><input type="radio" name="q1" value="a"> Медична сфера</label><label class="option"><input type="radio" name="q1" value="b"> Керівник відділу комунікацій</label><label class="option"><input type="radio" name="q1" value="c"> Комунікаційні компетентності</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q2"><legend>2. Який перший крок найбільше відповідає логіці курсу?</legend><label class="option"><input type="radio" name="q2" value="a"> Обрати одну престижну професію зі списку</label><label class="option"><input type="radio" name="q2" value="b"> Дочекатися поради дорослих і не перевіряти її</label><label class="option"><input type="radio" name="q2" value="c"> Дослідити себе й світ праці, потім перевіряти гіпотези діями</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q3"><legend>3. Який запис є найсильнішим доказом уміння працювати в команді?</legend><label class="option"><input type="radio" name="q3" value="a"> «Я командний гравець»</label><label class="option"><input type="radio" name="q3" value="b"> План проєкту з описом моєї ролі, результатом і відгуком команди</label><label class="option"><input type="radio" name="q3" value="c"> Сертифікат із лекції про командну роботу</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q4"><legend>4. Учениця змінила професійну гіпотезу після практичної проби. Який висновок найкращий?</legend><label class="option"><input type="radio" name="q4" value="a"> Вона не здатна приймати рішення</label><label class="option"><input type="radio" name="q4" value="b"> Перший вибір завжди правильний, тому змінювати його не слід</label><label class="option"><input type="radio" name="q4" value="c"> Новий досвід дав дані, тому уточнення маршруту є обґрунтованим</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q5"><legend>5. Оберіть усі елементи доказового портфоліо. Зараховується лише точний набір.</legend><label class="option"><input type="checkbox" name="q5" value="artifact"> Завершена робота з датою й описом ролі</label><label class="option"><input type="checkbox" name="q5" value="reflection"> Рефлексія про результат і наступний крок</label><label class="option"><input type="checkbox" name="q5" value="feedback"> Конкретний відгук про виконану дію</label><label class="option"><input type="checkbox" name="q5" value="slogan"> Гасло «Я можу все» без прикладу</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q6"><legend>6. Які дані треба перевірити, перш ніж робити висновок про професію з однієї вакансії? Оберіть точний набір.</legend><label class="option"><input type="checkbox" name="q6" value="requirements"> Вимоги й перелік завдань у кількох вакансіях</label><label class="option"><input type="checkbox" name="q6" value="conditions"> Умови праці та тип організації</label><label class="option"><input type="checkbox" name="q6" value="sources"> Актуальність і надійність джерел</label><label class="option"><input type="checkbox" name="q6" value="color"> Колір логотипа роботодавця</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q7"><legend>7. Установіть відповідність.</legend><div class="matching-grid"><label for="q7a">«Еколог»</label><select id="q7a"><option value="">Оберіть…</option><option value="profession">Професія</option><option value="position">Посада</option><option value="sphere">Сфера</option></select><label for="q7b">«Керівник лабораторії»</label><select id="q7b"><option value="">Оберіть…</option><option value="profession">Професія</option><option value="position">Посада</option><option value="sphere">Сфера</option></select><label for="q7c">«Охорона довкілля»</label><select id="q7c"><option value="">Оберіть…</option><option value="profession">Професія</option><option value="position">Посада</option><option value="sphere">Сфера</option></select></div><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q8"><legend>8. Розташуйте кроки перевірки професійної гіпотези від 1 до 4.</legend><div class="order-grid"><label for="q8a">Сформулювати гіпотезу</label><select id="q8a"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><label for="q8b">Виконати малу практичну пробу</label><select id="q8b"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><label for="q8c">Зібрати результат і зворотний зв’язок</label><select id="q8c"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><label for="q8d">Уточнити наступний крок</label><select id="q8d"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q9"><legend>9. Андрій має одну високу оцінку за презентацію й робить висновок, що професія ведучого йому точно підходить. Чого найбільше бракує?</legend><label class="option"><input type="radio" name="q9" value="a"> Назви конкретного університету</label><label class="option"><input type="radio" name="q9" value="b"> Рейтингу зарплат за один місяць</label><label class="option"><input type="radio" name="q9" value="c"> Кількох практичних проб, опису умов і зворотного зв’язку</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <fieldset class="quiz-question" data-question="q10"><legend>10. Оберіть логічно повний CER-висновок.</legend><label class="option"><input type="radio" name="q10" value="a"> Портфоліо корисне, бо це портфоліо.</label><label class="option"><input type="radio" name="q10" value="b"> Портфоліо допомагає уточнювати професійний маршрут, бо містить результати дій і відгуки; вони показують конкретні вміння, хоча один доказ ще не визначає професію назавжди.</label><label class="option"><input type="radio" name="q10" value="c"> Портфоліо гарантує правильний вибір, якщо в ньому багато сертифікатів.</label><div class="quiz-status" aria-live="polite"></div></fieldset>
+
+        <button class="primary" type="submit">Завершити й отримати результат</button>
+      </form>
+
+      <article class="result-card" id="resultCard" hidden aria-live="polite">
+        <div class="portfolio-card__label">Картка результату</div>
+        <div class="score" id="scoreText">0/10</div>
+        <h3 id="scoreComment">Результат</h3>
+        <div class="result-meta">
+          <div><strong>Учень / учениця</strong><br><span id="resultName"></span></div>
+          <div><strong>Клас</strong><br><span id="resultClass"></span></div>
+          <div><strong>Тема</strong><br>Курс «Професії»: мета, світ професій і особисте портфоліо</div>
+          <div><strong>Дата й час</strong><br><span id="resultDate"></span></div>
+        </div>
+        <p><strong>Зробіть скриншот цієї картки та надішліть учителю.</strong></p>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+          <button class="secondary" type="button" id="printResult">Друкувати картку</button>
+          <button class="secondary" type="button" id="retryQuiz">Пройти ще раз</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="section sources" id="sources">
+      <div class="panel">
+        <h2>Джерела й межі матеріалу</h2>
+        <ul>
+          <li>КТП курсу за вибором «Професії» для 9 класу, 2026–2027 н. р.: тема 1, очікувані результати й види діяльності.</li>
+          <li><a href="https://www.doccu.in.ua/post/prohrama-kursu-za-vyborom-profesii-otrymala-hryf-rekomendovano-ministerstvom-osvity-i-nauky-ukrainy" target="_blank" rel="noopener">Проєкт DECIDE / ГО ДОККУ: мета курсу «Професії»</a>.</li>
+          <li><a href="https://me.gov.ua/Profession/List" target="_blank" rel="noopener">Міністерство економіки: Національний класифікатор професій</a>.</li>
+          <li><a href="https://mon.gov.ua/osvita-2/profesiyno-tekhnichna-osvita/vstupna-kampaniya/vstup-2019-2022/vstup-2021-profosvita/video-4" target="_blank" rel="noopener">МОН України: серія відео з профорієнтації</a>.</li>
+        </ul>
+        <p><strong>Навчальна межа:</strong> схема секторів на сторінці показує різноманіття типів завдань, але не замінює офіційного Класифікатора професій і не може визначити «ідеальну професію» людини.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Автор: Скринченко К.А. · Василівський ліцей «Сузір’я»</strong></p>
+    <p>Курс «Професії» · 9 клас · урок 01 · 2026</p>
+    <a href="#start">Повернутися на початок ↑</a>
+  </footer>
+
+  
