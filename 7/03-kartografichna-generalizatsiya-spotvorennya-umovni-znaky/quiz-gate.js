@@ -1,0 +1,5 @@
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function validFullName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x))}
+$('#startQuiz').addEventListener('click',()=>{const name=$('#fullName').value.trim().replace(/\s+/g,' '),cls=$('#studentClass').value,st=$('#gateStatus');if(!validFullName(name)||!cls){st.textContent='Введіть ім’я, прізвище та клас. У ПІБ не повинно бути цифр.';return}st.textContent='';$('#identityGate').style.display='none';$('#quizForm').style.display='block';$('#quizForm').scrollIntoView({behavior:'smooth',block:'start'})});
+const ranks=['','Подивитися карту Меркатора','Порівняти з реальними площами / True Size','Перевірити рівновелику карту','Зробити висновок про спотворення'];
+$$('.rankSelect').forEach(s=>{s.innerHTML=ranks.map(v=>`<option value="${v}">${v||'— оберіть —'}</option>`).join('')});
