@@ -1,0 +1,15 @@
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const progress=$('#progress');
+function updateProgress(){const d=document.documentElement,max=d.scrollHeight-d.clientHeight;progress.style.width=(max?d.scrollTop/max*100:0)+'%'}
+document.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+const mapDialog=$('#mapDialog'),mapDialogImg=$('#mapDialogImg'),mapDialogTitle=$('#mapDialogTitle'),mapDialogCaption=$('#mapDialogCaption');
+$$('.map-open').forEach(btn=>btn.addEventListener('click',()=>{mapDialogImg.src=btn.dataset.src;mapDialogImg.alt=btn.dataset.title;mapDialogTitle.textContent=btn.dataset.title;mapDialogCaption.textContent=btn.dataset.desc;if(typeof mapDialog.showModal==='function')mapDialog.showModal()}));
+$('#closeMapDialog').addEventListener('click',()=>mapDialog.close());mapDialog.addEventListener('click',e=>{if(e.target===mapDialog)mapDialog.close()});
+$$('.tab-btn').forEach(btn=>btn.addEventListener('click',()=>{$$('.tab-btn').forEach(b=>b.classList.remove('active'));$$('.tabpane').forEach(p=>p.classList.remove('active'));btn.classList.add('active');$('#'+btn.dataset.tab).classList.add('active')}));
+const latRange=$('#latRange'),latValue=$('#latValue'),linearScale=$('#linearScale'),areaScale=$('#areaScale'),distortWord=$('#distortWord'),tissotCircle=$('#tissotCircle');
+function updateDistortion(){const lat=Number(latRange.value),rad=lat*Math.PI/180,k=1/Math.cos(rad),area=k*k;latValue.textContent=lat;linearScale.textContent=k.toFixed(2)+'×';areaScale.textContent=area.toFixed(2)+'×';distortWord.textContent=lat<25?'мінімальне':lat<50?'помітне':lat<70?'сильне':'дуже сильне';tissotCircle.style.transform=`translate(-50%, -50%) scale(${Math.min(5.5,k)})`}
+if(latRange){latRange.addEventListener('input',updateDistortion);updateDistortion()}
+$('#checkPrediction').addEventListener('click',()=>{const v=$('#prediction').value,st=$('#predictionStatus');if(!v){st.className='status bad';st.textContent='Спочатку зробіть прогноз.';return}const good=v==='shrink';st.className='status '+(good?'ok':'bad');st.textContent=good?'✓ Так. На Меркаторі високі широти візуально перебільшені, тому біля екватора Гренландія «зменшується».':'Подумайте ще раз: у високих широтах Меркатор розтягує площі сильніше.'});
+const scaleDemo=$('#scaleDemo');$$('.gen-step').forEach(btn=>btn.addEventListener('click',()=>{$$('.gen-step').forEach(b=>b.classList.remove('active-step'));btn.classList.add('active-step');scaleDemo.classList.remove('high','mid','low');scaleDemo.classList.add(btn.dataset.level)}));
+export function exactSet(a,b){a=[...a].sort();b=[...b].sort();return a.length===b.length&&a.every((v,i)=>v===b[i])}
+$('#checkGeneral').addEventListener('click',()=>{const vals=$$('#generalCheck input:checked').map(x=>x.value),good=exactSet(vals,['scale','purpose','read']),st=$('#generalStatus');st.className='status '+(good?'ok':'bad');st.textContent=good?'✓ Правильно. Генералізація пов’язана з масштабом, темою/призначенням і потрібна для читабельності.':'Спробуйте ще раз. Генералізація не означає вигадування даних і не вимагає показувати все без винятку.'});
