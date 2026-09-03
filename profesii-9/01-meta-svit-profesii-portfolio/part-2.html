@@ -1,0 +1,134 @@
+<section class="section" id="evidence">
+      <div class="section-head">
+        <span class="kicker">9–14 хв · лабораторія доказів</span>
+        <h2>Що справді доводить уміння?</h2>
+        <p class="section-note"><strong>Кейс:</strong> Марта вважає, що вміє організовувати командну роботу. Оберіть рівно чотири найсильніші матеріали для першого запису в її портфоліо.</p>
+      </div>
+      <div class="panel">
+        <div class="evidence-grid" id="evidenceGrid">
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="true"><span>📋</span>План шкільної події з датою, ролями й виконаними пунктами<small>Видно продукт і спосіб роботи</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="true"><span>💬</span>Короткий відгук команди з конкретним прикладом дії Марти<small>Є зовнішнє спостереження</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="true"><span>📷</span>Фото результату події з підписом, за що відповідала Марта<small>Є контекст і внесок</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="true"><span>↗</span>Рефлексія: що вдалося, що ні й що змінити наступного разу<small>Є висновок і розвиток</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="false"><span>⭐</span>Фраза «Я природжена лідерка» без прикладу<small>Твердження без доказу</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="false"><span>🎫</span>Квиток із події, де роль Марти не зазначена<small>Не показує її дій</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="false"><span>📈</span>Кількість підписників без пояснення, як її отримано<small>Показник без контексту</small></button>
+          <button class="evidence-card" type="button" aria-pressed="false" data-strong="false"><span>🧾</span>Сертифікат із випадкового вебінару, не пов’язаного з організацією<small>Документ є, зв’язку з умінням немає</small></button>
+        </div>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem">
+          <button class="primary" type="button" id="checkEvidence">Перевірити добір</button>
+          <span class="chip" id="evidenceCount">Обрано: 0 із 4</span>
+        </div>
+        <div class="feedback" id="evidenceFeedback" role="status" aria-live="polite">Сильний доказ відповідає на три питання: <strong>що зроблено, яка була Ваша роль, що це показує?</strong></div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="section-head">
+        <span class="kicker">14–18 хв · різнорівнева місія</span>
+        <h2>Запустіть особисте портфоліо</h2>
+        <p class="section-note">Не треба вже знати майбутню професію. Достатньо зафіксувати одну дію, один доказ і один наступний крок.</p>
+      </div>
+      <div class="grid-2">
+        <form class="panel portfolio-form" id="portfolioForm">
+          <div class="form-row">
+            <div class="field"><label for="portfolioName">Ім’я</label><input id="portfolioName" autocomplete="name" placeholder="Наприклад, Марта"></div>
+            <div class="field"><label for="portfolioDate">Дата</label><input id="portfolioDate" type="date"></div>
+          </div>
+          <div class="field"><label for="portfolioInterest">Що мені цікаво робити?</label><input id="portfolioInterest" placeholder="Не назва професії, а дія: пояснювати, малювати, ремонтувати…"><small>Базовий рівень: назвати одну конкретну дію.</small></div>
+          <div class="field"><label for="portfolioProof">Який уже маю доказ?</label><textarea id="portfolioProof" placeholder="Що я зробив/зробила? Яка була моя роль? Що вийшло?"></textarea><small>Достатній рівень: додати продукт або відгук і пояснити зв’язок з умінням.</small></div>
+          <div class="field"><label for="portfolioNext">Мій наступний малий експеримент</label><input id="portfolioNext" placeholder="Наприклад, змонтувати хвилинне відео для класу"><small>Високий рівень: зазначити критерій перевірки й можливе обмеження.</small></div>
+          <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+            <button class="primary" type="submit">Створити картку</button>
+            <button class="secondary" type="button" id="savePortfolio">Зберегти на цьому пристрої</button>
+            <button class="secondary" type="button" id="clearPortfolio">Очистити збережене</button>
+            <button class="secondary" type="button" id="printPortfolio">Друкувати</button>
+          </div>
+          <div class="feedback" id="portfolioFeedback" role="status" aria-live="polite">Поля не передаються в інтернет. Збереження, якщо Ви його оберете, відбувається лише у браузері на цьому пристрої.</div>
+        </form>
+
+        <article class="portfolio-card" id="portfolioPreview" aria-live="polite">
+          <div class="portfolio-card__label">Портфоліо · запис 001</div>
+          <h3 id="previewName">Моя перша доказова картка</h3>
+          <p id="previewDate">Дата: —</p>
+          <div class="portfolio-list">
+            <div><strong>Мені цікаво:</strong><br><span id="previewInterest">—</span></div>
+            <div><strong>Мій доказ:</strong><br><span id="previewProof">—</span></div>
+            <div><strong>Наступний експеримент:</strong><br><span id="previewNext">—</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="path">
+      <div class="section-head">
+        <span class="kicker">18–20 хв · логіка курсу</span>
+        <h2>Професійний вибір — це цикл перевірки гіпотез</h2>
+      </div>
+      <div class="pathway" aria-label="Схема професійної навігації з п’яти кроків">
+        <div class="path-step"><b>1</b><h3>Помічаю</h3><p>Інтереси, цінності, сильні сторони.</p></div>
+        <div class="path-step"><b>2</b><h3>Досліджую</h3><p>Професії, завдання, умови праці.</p></div>
+        <div class="path-step"><b>3</b><h3>Пробую</h3><p>Малий проєкт, екскурсія, розмова.</p></div>
+        <div class="path-step"><b>4</b><h3>Збираю докази</h3><p>Продукти, відгуки, рефлексії.</p></div>
+        <div class="path-step"><b>5</b><h3>Уточнюю маршрут</h3><p>Наступний крок замість «вироку назавжди».</p></div>
+      </div>
+    </section>
+
+    <section class="section section--wide" id="theory">
+      <div class="section-head">
+        <span class="kicker">20–30 хв · основне вивчення</span>
+        <h2>Точні поняття для розумного вибору</h2>
+        <p class="section-note">Розкривайте картки по черзі. Після кожної знайдіть власний приклад.</p>
+      </div>
+      <div class="theory-grid">
+        <details open><summary>Професія</summary><p>Здатність виконувати подібні роботи, що потребують певної кваліфікації. У шкільній мові — широкий тип професійної діяльності, для якої потрібні знання та вміння.</p></details>
+        <details><summary>Посада</summary><p>Конкретне місце людини в організації з визначеними завданнями, відповідальністю та повноваженнями. Та сама професія може вести до різних посад.</p></details>
+        <details><summary>Сфера діяльності</summary><p>Ширший простір, у якому поєднуються різні професії й посади: освіта, медицина, будівництво, ІТ, культура, сільське господарство тощо.</p></details>
+        <details><summary>Кваліфікація</summary><p>Здатність виконувати завдання й обов’язки певної роботи. Її підтверджують освіта, навчання, практичний досвід і результати.</p></details>
+        <details><summary>Компетентність</summary><p>Уміння застосувати знання, навички, ставлення та досвід у реальній ситуації. Вона проявляється в дії, а не лише в назві сертифіката.</p></details>
+        <details><summary>Портфоліо</summary><p>Відібрана колекція доказів розвитку: роботи, проєкти, відгуки, спостереження та рефлексії. Це не склад усіх грамот і не остаточний ярлик.</p></details>
+      </div>
+
+      <div class="grid-3" style="margin-top:1rem">
+        <article class="panel panel--coral"><h3>Головний механізм</h3><p><strong>Гіпотеза → дія → доказ → рефлексія → нова гіпотеза.</strong> Так невизначений інтерес стає перевіреним орієнтиром.</p></article>
+        <article class="panel panel--lime"><h3>Практичне значення</h3><p>Портфоліо допомагає пояснити не лише «що подобається», а й <strong>що Ви вже вмієте, звідки це відомо і що робитимете далі</strong>.</p></article>
+        <article class="panel"><h3>Межа висновку</h3><p>Одна вдала робота не доводить, що професію обрано назавжди. Вона підтверджує конкретне уміння в конкретній ситуації.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="duel">
+      <div class="section-head">
+        <span class="kicker">30–33 хв · логічний двобій</span>
+        <h2>Факт чи хибний висновок?</h2>
+        <p class="section-note">Визначте статус твердження. Система пояснить логічну помилку або межу висновку.</p>
+      </div>
+      <div class="myth-grid">
+        <article class="myth-card" data-truth="false"><h3>«Якщо учень добре малює, йому підходять усі творчі професії»</h3><div class="myth-actions"><button type="button" data-vote="true">Факт</button><button type="button" data-vote="false">Хибний висновок</button></div><div class="myth-result" aria-live="polite"></div></article>
+        <article class="myth-card" data-truth="true"><h3>«Одна професія може реалізовуватися в різних сферах і на різних посадах»</h3><div class="myth-actions"><button type="button" data-vote="true">Факт</button><button type="button" data-vote="false">Хибний висновок</button></div><div class="myth-result" aria-live="polite"></div></article>
+        <article class="myth-card" data-truth="false"><h3>«Сертифікат автоматично доводить, що людина вміє застосувати знання»</h3><div class="myth-actions"><button type="button" data-vote="true">Факт</button><button type="button" data-vote="false">Хибний висновок</button></div><div class="myth-result" aria-live="polite"></div></article>
+        <article class="myth-card" data-truth="true"><h3>«Професійне портфоліо можна почати до першого працевлаштування»</h3><div class="myth-actions"><button type="button" data-vote="true">Факт</button><button type="button" data-vote="false">Хибний висновок</button></div><div class="myth-result" aria-live="polite"></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <div class="section-head">
+        <span class="kicker">33–35 хв · CER-рефлексія</span>
+        <h2>Що робить професійний вибір усвідомленим?</h2>
+        <p class="section-note">Сформулюйте короткий висновок. Він не зберігається автоматично.</p>
+      </div>
+      <div class="panel panel--lime">
+        <div class="cer-grid">
+          <div class="cer-field"><label for="cerClaim"><strong>Твердження</strong></label><textarea id="cerClaim" placeholder="Професійний вибір стає усвідомленим, коли…"></textarea></div>
+          <div class="cer-field"><label for="cerEvidence"><strong>Доказ</strong></label><textarea id="cerEvidence" placeholder="Сьогодні це показало завдання / приклад…"></textarea></div>
+          <div class="cer-field"><label for="cerReason"><strong>Пояснення</strong></label><textarea id="cerReason" placeholder="Цей доказ підтримує твердження, тому що…"></textarea></div>
+          <div class="cer-field"><label for="cerLimit"><strong>Обмеження / питання</strong></label><textarea id="cerLimit" placeholder="Поки що цього недостатньо, щоб…"></textarea></div>
+        </div>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1rem">
+          <button class="primary" type="button" id="checkCer">Перевірити повноту</button>
+          <button class="secondary" type="button" id="copyCer">Копіювати висновок</button>
+        </div>
+        <div class="feedback" id="cerFeedback" role="status" aria-live="polite">Повна відповідь має чотири частини: твердження, конкретний доказ, зв’язок між ними та межу висновку.</div>
+      </div>
+    </section>
+
+    
