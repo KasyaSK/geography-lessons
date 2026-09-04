@@ -1,0 +1,46 @@
+<section id="lab">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">Мікровізуалізація</div><h2>Ті самі 6 регіонів — три зовсім різні карти</h2></div><p><span class="time">14–18 хв</span> Перемикайте показник. Це <strong>схематична навчальна карта</strong>: вона не зображає реальну територію.</p></div>
+    <div class="mini-lab">
+      <div class="lab-toolbar" role="group" aria-label="Оберіть показник карти">
+        <button class="lab-btn active" data-mode="population">Населення, тис.</button>
+        <button class="lab-btn" data-mode="density">Густота, ос./км²</button>
+        <button class="lab-btn" data-mode="birthrate">Народжуваність, ‰</button>
+      </div>
+      <div class="g2 grid">
+        <div class="mini-map">
+          <svg viewBox="0 0 640 390" role="img" aria-labelledby="mapTitle mapDesc">
+            <title id="mapTitle">Схематична карта шести регіонів</title><desc id="mapDesc">Колір шести умовних регіонів змінюється залежно від обраного показника.</desc>
+            <path id="rA" class="region" d="M55,50 L250,45 L275,155 L190,210 L60,170 Z"/><path id="rB" class="region" d="M250,45 L470,65 L455,185 L275,155 Z"/><path id="rC" class="region" d="M470,65 L590,110 L565,245 L455,185 Z"/><path id="rD" class="region" d="M60,170 L190,210 L235,350 L70,335 Z"/><path id="rE" class="region" d="M190,210 L455,185 L475,330 L235,350 Z"/><path id="rF" class="region" d="M455,185 L565,245 L545,345 L475,330 Z"/>
+            <text class="rlabel" x="120" y="115">A</text><text class="rvalue" id="vA" x="105" y="140"></text>
+            <text class="rlabel" x="355" y="115">B</text><text class="rvalue" id="vB" x="330" y="140"></text>
+            <text class="rlabel" x="505" y="160">C</text><text class="rvalue" id="vC" x="490" y="185"></text>
+            <text class="rlabel" x="125" y="285">D</text><text class="rvalue" id="vD" x="105" y="310"></text>
+            <text class="rlabel" x="340" y="275">E</text><text class="rvalue" id="vE" x="315" y="300"></text>
+            <text class="rlabel" x="500" y="285">F</text><text class="rvalue" id="vF" x="485" y="310"></text>
+          </svg>
+        </div>
+        <div>
+          <h3 id="labQuestion">Питання: де живе найбільше людей?</h3>
+          <p id="labExplain">Для абсолютної кількості населення площа регіону не є знаменником. Порівнюємо самі значення.</p>
+          <table class="lab-table"><thead><tr><th>Регіон</th><th>Площа, тис. км²</th><th>Населення, тис.</th><th>Густота</th><th>Народж., ‰</th></tr></thead><tbody>
+            <tr><td>A</td><td>10</td><td>920</td><td>92</td><td>8.2</td></tr><tr><td>B</td><td>45</td><td>2100</td><td>47</td><td>10.1</td></tr><tr><td>C</td><td>8</td><td>640</td><td>80</td><td>14.5</td></tr><tr><td>D</td><td>70</td><td>1200</td><td>17</td><td>11.0</td></tr><tr><td>E</td><td>20</td><td>1800</td><td>90</td><td>7.3</td></tr><tr><td>F</td><td>5</td><td>550</td><td>110</td><td>15.2</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="feedback warn" style="margin-top:16px"><strong>Ключ:</strong> абсолютне число відповідає на «скільки?», відносний показник — на «скільки на одиницю чогось?». Підміна одного іншим — одна з найтиповіших картографічних маніпуляцій.</div>
+    </div>
+  </div>
+</section>
+<section id="mission">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">Різнорівнева місія</div><h2>Оберіть рівень — і працюйте як картограф</h2></div><p><span class="time">18–20 хв</span> Рівні відрізняються не обсягом, а типом мислення.</p></div>
+    <div class="card mission">
+      <div class="level-tabs"><button class="level-tab active" data-level="base">Базовий</button><button class="level-tab" data-level="mid">Достатній</button><button class="level-tab" data-level="high">Високий</button></div>
+      <div class="level-panel active" id="level-base"><h3>Вибір способу</h3><p>Для карти «частка міського населення в областях» оберіть спосіб і поясніть, чому він підходить.</p><div class="option-row"><button class="choice mission-choice" data-answer="no">Картодіаграма</button><button class="choice mission-choice" data-answer="yes">Картограма</button><button class="choice mission-choice" data-answer="no">Лінійні знаки</button></div><div class="feedback mission-fb">Підказка: показник — частка (%), тобто відносна величина для територіальних одиниць.</div></div>
+      <div class="level-panel" id="level-mid"><h3>Два докази</h3><p>Ви хочете порівняти транспортну доступність трьох міст. Які <strong>два шари</strong> необхідні мінімально?</p><div class="option-row"><button class="choice mission-toggle" data-key="roads">Мережа автошляхів</button><button class="choice mission-toggle" data-key="rain">Середні опади</button><button class="choice mission-toggle" data-key="rail">Залізниці</button><button class="choice mission-toggle" data-key="soil">Ґрунти</button></div><button id="checkMid" class="primary" style="margin-top:12px">Перевірити</button><div id="midFb" class="feedback">Потрібно обрати два релевантні шари.</div></div>
+      <div class="level-panel" id="level-high"><h3>Контраргумент і межа висновку</h3><p><strong>Твердження:</strong> «На карті регіони з вищим ВВП на душу населення мають більше аеропортів, отже високий ВВП <em>спричиняє</em> появу аеропортів».</p><textarea id="highText" style="width:100%;min-height:105px;border:1px solid #ccd5e2;border-radius:13px;padding:10px" placeholder="Сформулюйте контраргумент і назвіть хоча б один додатковий показник, який треба перевірити…"></textarea><button id="checkHigh" class="primary" style="margin-top:10px">Перевірити логіку</button><div id="highFb" class="feedback">Шукаємо дві речі: чому кореляція ≠ причина і які дані потрібні додатково.</div></div>
+      <div class="rubric"><span>✓ правильне читання показника</span><span>✓ доречний спосіб</span><span>✓ доказ</span><span>✓ межа висновку</span></div>
+    </div>
+  </div>
+</section>
