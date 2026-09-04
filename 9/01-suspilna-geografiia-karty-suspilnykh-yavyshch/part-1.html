@@ -1,0 +1,70 @@
+<section id="problem">
+  <div class="shell">
+    <div class="problem">
+      <span class="time">0–3 хв</span>
+      <div class="kicker" style="color:#9edbd6;margin-top:12px">Проблемне питання</div>
+      <h3>Чи можна довіряти карті, якщо на ній усе намальовано «правильно»?</h3>
+      <p>Уявіть: дві карти побудовані на тих самих даних. На одній країна виглядає «лідером», на іншій — цілком пересічною. Жодна цифра не підроблена. Де виникає різниця?</p>
+      <div class="hypo">
+        <label for="hypothesis"><strong>Ваша перша гіпотеза — 1–2 речення:</strong></label>
+        <textarea id="hypothesis" placeholder="Я думаю, що карта може / не може вводити в оману, тому що…"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="warmup">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">Швидке рішення</div><h2>Що карта робить краще за таблицю?</h2></div><p><span class="time">3–6 хв</span> Оберіть два найсильніші варіанти. Тут важливе не вгадування, а аргумент.</p></div>
+    <div class="card">
+      <div class="option-row" id="warmChoices">
+        <button class="choice" data-key="a">Показує просторовий рисунок</button>
+        <button class="choice" data-key="b">Гарантує причинно-наслідковий зв’язок</button>
+        <button class="choice" data-key="c">Дозволяє швидко помітити кластери й контрасти</button>
+        <button class="choice" data-key="d">Завжди точніша за вихідні дані</button>
+        <button class="choice" data-key="e">Робить дату даних неважливою</button>
+      </div>
+      <button class="primary" id="checkWarm" style="margin-top:14px">Перевірити вибір</button>
+      <div id="warmFeedback" class="feedback" aria-live="polite">Оберіть рівно два варіанти.</div>
+    </div>
+  </div>
+</section>
+<section id="video1">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">Відео-гачок</div><h2>Що взагалі вивчає географія 9 класу?</h2></div><p><span class="time">6–9 хв</span> Перед переглядом: занотуйте два типи суспільних явищ, які мають просторові відмінності.</p></div>
+    <div class="g2 grid">
+      <div class="card">
+        <iframe class="video" src="https://www.youtube-nocookie.com/embed/aINjAadWooc?start=0&end=165" title="Всеукраїнська школа онлайн — Географія 9 клас. Вступ" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p class="video-note">Всеукраїнська школа онлайн • «9 клас. Географія. Вступ». Якщо вбудоване відео не відкривається: <a href="https://www.youtube.com/watch?v=aINjAadWooc" target="_blank" rel="noopener">відкрити на YouTube</a>.</p>
+      </div>
+      <div class="card">
+        <h3>Після перегляду</h3>
+        <p><strong>Швидка пара:</strong> назвіть один суспільний процес і один суспільний об’єкт, які можна картографувати.</p>
+        <div class="feedback">Приклад процесу: міграція, урбанізація, зміна зайнятості. Приклад об’єкта: місто, порт, підприємство, університет. Важливо: процес має <em>динаміку</em>, об’єкт — <em>локалізацію</em>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="evidence">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">Лабораторія доказів</div><h2>Чотири реальні карти — чотири різні питання</h2></div><p><span class="time">9–14 хв</span> Не намагайтесь «прочитати все». Спочатку визначте <strong>показник, одиницю, спосіб зображення і дату</strong>.</p></div>
+    <div class="notice"><strong>Важливо:</strong> карти нижче використовуються як приклади картографічної мови. Частина даних належить до 2020–2023 рр.; за ними <strong>не можна</strong> робити висновки про поточну демографічну ситуацію України 2026 року.</div>
+    <div class="map-grid" style="margin-top:18px">
+      <article class="card map-card" data-correct="картограма">
+        <figure><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Population_density_map_of_the_world.svg" alt="Карта густоти населення світу, Our World in Data"><figcaption>Густота населення світу, 2022 • Our World in Data, CC BY 4.0</figcaption></figure>
+        <div class="map-body"><h3>Карта A. Інтенсивність за територіями</h3><label>Який спосіб тут головний?</label><select class="map-select"><option value="">Оберіть…</option><option>картограма</option><option>картодіаграма</option><option>спосіб значків</option><option>лінійні знаки</option></select><button class="secondary map-check">Перевірити</button><div class="feedback map-fb">Підказка: значення показника передається інтенсивністю забарвлення територій.</div><p class="source"><a href="https://commons.wikimedia.org/wiki/File:Population_density_map_of_the_world.svg" target="_blank" rel="noopener">Джерело карти</a> • <a href="https://ourworldindata.org/grapher/population-density" target="_blank" rel="noopener">інтерактивні дані</a></p></div>
+      </article>
+      <article class="card map-card" data-correct="картограма">
+        <figure><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Population_density_in_Ukraine.png" alt="Карта густоти населення України за районами, 2020"><figcaption>Густота населення України за районами • NerdyMaps, 2020, CC BY-SA 4.0</figcaption></figure>
+        <div class="map-body"><h3>Карта B. Масштаб змінює рисунок</h3><label>Який спосіб тут головний?</label><select class="map-select"><option value="">Оберіть…</option><option>картограма</option><option>картодіаграма</option><option>точковий спосіб</option><option>ареали</option></select><button class="secondary map-check">Перевірити</button><div class="feedback map-fb">Дивіться на легенду: класи «осіб на км²» зафарбовують територіальні одиниці.</div><p class="source"><a href="https://commons.wikimedia.org/wiki/File:Population_density_in_Ukraine.png" target="_blank" rel="noopener">Джерело карти</a></p></div>
+      </article>
+      <article class="card map-card" data-correct="картограма">
+        <figure><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Gdp_per_capita_penn_world_table%2C_World%2C_2023_%28cropped%29.svg" alt="Карта ВВП на душу населення у світі, 2023"><figcaption>ВВП на душу населення, 2023 • Our World in Data / Penn World Table, CC BY 4.0</figcaption></figure>
+        <div class="map-body"><h3>Карта C. Показник «на одну особу»</h3><label>Який спосіб тут головний?</label><select class="map-select"><option value="">Оберіть…</option><option>картограма</option><option>картодіаграма</option><option>точковий спосіб</option><option>значки</option></select><button class="secondary map-check">Перевірити</button><div class="feedback map-fb">Колір території відповідає значенню відносного показника — це типова картограма.</div><p class="source"><a href="https://commons.wikimedia.org/wiki/File:Gdp_per_capita_penn_world_table,_World,_2023_(cropped).svg" target="_blank" rel="noopener">Джерело карти</a></p></div>
+      </article>
+      <article class="card map-card" data-correct="картодіаграма">
+        <figure><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Europe%27s_20_Busiest_Airports_%282023%29.jpg" alt="Карта найбільш завантажених аеропортів Європи з пропорційними колами"><figcaption>20 найзавантаженіших аеропортів Європи, 2023 • Samuel D Smith, CC BY 4.0</figcaption></figure>
+        <div class="map-body"><h3>Карта D. Розмір символу = величина</h3><label>Найближчий шкільний термін:</label><select class="map-select"><option value="">Оберіть…</option><option>картодіаграма</option><option>картограма</option><option>якісний фон</option><option>ізолінії</option></select><button class="secondary map-check">Перевірити</button><div class="feedback map-fb">Кількісні значення показані пропорційними колами. У шкільній класифікації це близько до картодіаграми / способу локалізованих діаграм.</div><p class="source"><a href="https://commons.wikimedia.org/wiki/File:Europe%27s_20_Busiest_Airports_(2023).jpg" target="_blank" rel="noopener">Джерело карти</a></p></div>
+      </article>
+    </div>
+  </div>
+</section>
