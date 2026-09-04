@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Інтерактивний урок 1 курсу за вибором «Професії» для 8 класу: Вступ. Цілі курсу «Професії».">
+<title>8 клас • Курс «Професії» • Урок 1 — Цілі курсу</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="lesson-root"></div>
+<noscript><p style="padding:2rem;font-family:system-ui">Для інтерактивного уроку увімкніть JavaScript.</p></noscript>
+<script>
+(async()=>{
+  const root=document.getElementById('lesson-root');
+  try{
+    const [a,b]=await Promise.all([fetch('part-1.html'),fetch('part-2.html')]);
+    if(!a.ok||!b.ok) throw new Error('Не вдалося завантажити вміст уроку');
+    root.innerHTML=(await a.text())+(await b.text());
+    const s=document.createElement('script');
+    s.src='script.js';
+    document.body.appendChild(s);
+  }catch(err){
+    root.innerHTML='<main style="padding:2rem;font-family:system-ui"><h1>Не вдалося завантажити урок</h1><p>Оновіть сторінку. Якщо помилка повторюється, повідомте вчителя.</p></main>';
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>
