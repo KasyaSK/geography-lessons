@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+  <meta name="description" content="Інтерактивний урок географії для 9 класу: суспільна географія та карти суспільних явищ і процесів.">
+  <title>9 клас. Суспільна географія та карти суспільних явищ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero" id="start">
+  <div class="shell">
+    <div class="eyebrow">🗺️ 9 клас • Географія • Урок 1</div>
+    <h1>Суспільна географія:<br>карта як <span style="color:var(--blue)">машина для висновків</span></h1>
+    <p class="lead">Не просто «що показано на карті?», а <strong>як саме дані перетворили на карту, що з неї можна довести — і де карта може підштовхнути до хибного висновку.</strong></p>
+    <div class="meta-grid">
+      <div class="meta"><b>КТП</b><span>Вступ • ГР2</span></div>
+      <div class="meta"><b>Тривалість</b><span>35 хв + Д/З</span></div>
+      <div class="meta"><b>Підручник</b><span>§§ 1–2</span></div>
+      <div class="meta"><b>Фокус</b><span>карта → дані → доказ</span></div>
+    </div>
+  </div>
+</header>
+<div class="nav-wrap">
+  <nav aria-label="Навігація уроком">
+    <a href="#problem">Проблема</a><a href="#warmup">Розігрів</a><a href="#video1">Відео</a><a href="#evidence">Карти-докази</a><a href="#lab">Лабораторія</a><a href="#mission">Місія</a><a href="#theory">Теорія</a><a href="#duel">Двобій</a><a href="#summary">CER</a><a href="#homework">Д/З + тест</a>
+  </nav>
+</div>
+<main id="lessonContent"></main>
+<script>
+(async()=>{
+  const host=document.getElementById('lessonContent');
+  const files=['part-1.html','part-2.html','part-3.html','part-4.html','part-5.html'];
+  for(const file of files){
+    const r=await fetch(file);
+    if(!r.ok) throw new Error('Не вдалося завантажити '+file);
+    host.insertAdjacentHTML('beforeend',await r.text());
+  }
+  const s=document.createElement('script'); s.src='script.js'; document.body.appendChild(s);
+})().catch(err=>{document.getElementById('lessonContent').innerHTML='<section><div class="shell"><div class="feedback bad">Помилка завантаження уроку: '+err.message+'</div></div></section>';});
+</script>
+
+<footer><div class="shell"><strong>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</strong><div class="footer-sub">Географія • 9 клас • інтерактивний HTML-урок • 2026/2027 н.р.</div></div></footer>
+<div class="float-tools no-print"><button id="textSize" title="Збільшити шрифт" aria-label="Збільшити шрифт">A+</button><button id="toTop" title="На початок" aria-label="На початок">↑</button></div>
+
+</body>
+</html>
