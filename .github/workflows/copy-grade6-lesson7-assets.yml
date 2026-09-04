@@ -1,0 +1,35 @@
+name: Copy grade 6 lesson 7 assets
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/copy-grade6-lesson7-assets.yml'
+permissions:
+  contents: write
+jobs:
+  copy-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy existing verified visual assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR='6/07-zobrazhennia-zemnoi-poverkhni/assets'
+          mkdir -p "$DIR"
+          cp '6/06-globus-vydy-umovni-znaky-napriamy/assets/blue-marble.jpg' "$DIR/blue-marble.jpg"
+          cp '6/03-dzherela-geografichnoi-informatsii-sposterezhennia/assets/europe-satellite.jpg' "$DIR/europe-satellite.jpg"
+          cp '6/03-dzherela-geografichnoi-informatsii-sposterezhennia/assets/atlas.jpg' "$DIR/atlas.jpg"
+          test -s "$DIR/blue-marble.jpg"
+          test -s "$DIR/europe-satellite.jpg"
+          test -s "$DIR/atlas.jpg"
+      - name: Commit assets
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add '6/07-zobrazhennia-zemnoi-poverkhni/assets'
+          git diff --cached --quiet && exit 0
+          git commit -m 'Add local assets for grade 6 lesson 7'
+          git pull --rebase origin main
+          git push
