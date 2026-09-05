@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>Урок 30 — Нагрівання атмосферного повітря. Добовий хід температури</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">6 клас • урок 30 • §25 • ГР1 + ГР2</span>
+      <h1>Нагрівання атмосферного повітря</h1>
+      <p class="lead">Чому найсильніше Сонце світить близько полудня, а найвища температура повітря часто буває пізніше? Розберемо це як задачу про потоки енергії, а не як правило для запам’ятовування.</p>
+      <div class="buttons"><a class="btn" href="#observe">Почати дослідження ↓</a><a class="btn alt" href="../">Усі уроки 6 класу</a></div>
+    </div>
+    <a class="photo" target="_blank" rel="noopener" href="https://science.nasa.gov/earth/earth-observatory/earths-limb-with-a-crescent-moon-150240/">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/150000/150240/iss066e086970_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=900&w=1350" alt="Освітлена атмосфера і поверхня Землі з МКС">
+      <span class="source">NASA Earth Observatory • МКС</span>
+    </a>
+  </div>
+</header>
+
+<nav><div class="wrap navin">
+<a href="#observe">1. Спостереження</a><a href="#chain">2. Модель</a><a href="#day">3. Добовий хід</a><a href="#surface">4. Поверхні</a><a href="#proof">5. Доказ</a><a href="#theory">6. Теорія</a><a href="#cer">7. CER</a><a href="#test">8. Тест</a>
+</div></nav>
+
+<main class="wrap">
+<section id="observe" class="section">
+<span class="pill">ДІЯЛЬНІСТЬ 1</span><h2>Що саме нагріває повітря біля нас?</h2>
+<div class="grid2">
+  <a class="card photo" href="https://earthobservatory.nasa.gov/features/EnergyBalance/page6.php" target="_blank" rel="noopener">
+    <img src="assets/surface-heating.svg" alt="Схема сонячної енергії, поверхні та атмосфери">
+    <h3>Енергетичний бюджет</h3>
+    <p>Частина сонячної енергії поглинається атмосферою, але значна частина доходить до земної поверхні. Нагріта поверхня передає енергію повітрю через теплопровідність, конвекцію, випаровування та інфрачервоне випромінювання.</p>
+    <span class="source">Схема за NASA Earth Observatory • Climate and Earth’s Energy Budget</span>
+  </a>
+  <div class="card activity">
+    <h3>Оберіть сильніший висновок</h3>
+    <p>Якщо вдень асфальт гарячий, а повітря над ним нагрівається, що логічніше?</p>
+    <div class="answers">
+      <button data-check="wrong">Сонячне світло нагріває лише повітря, а поверхня неважлива.</button>
+      <button data-check="right">Поверхня поглинає енергію, нагрівається і вже потім передає тепло нижнім шарам повітря.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</div>
+</section>
+
+<section id="chain" class="section">
+<span class="pill">ДІЯЛЬНІСТЬ 2</span><h2>Відновіть причинний ланцюг</h2>
+<p class="lead2">Натискайте етапи у правильній послідовності.</p>
+<div id="chainGame" class="chain">
+  <button data-order="3">Нижній шар повітря нагрівається й перемішується</button>
+  <button data-order="1">Короткохвильова сонячна енергія досягає поверхні</button>
+  <button data-order="4">Температура повітря змінюється протягом доби</button>
+  <button data-order="2">Земна поверхня поглинає частину енергії та нагрівається</button>
+</div>
+<div id="chainOut" class="feedback"></div>
+</section>
+
+<section id="day" class="section">
+<span class="pill">ДІЯЛЬНІСТЬ 3</span><h2>Пройдіть одну добу по годинах</h2>
+<div class="grid2">
+  <div class="card">
+    <img src="assets/diurnal-cycle.svg" alt="Схема добового ходу сонячної енергії та температури повітря">
+    <p class="source">Навчальна схема: сонячна енергія максимумує раніше, ніж температура повітря.</p>
+  </div>
+  <div class="card activity">
+    <label for="hour"><b>Час доби:</b> <span id="hourLabel">06:00</span></label>
+    <input id="hour" type="range" min="0" max="24" step="3" value="6">
+    <div class="thermo"><span id="tempBar"></span></div>
+    <p class="big">Температура: <b id="tempOut">7 °C</b></p>
+    <p id="dayComment">Поблизу сходу Сонця поверхня ще має нічні втрати тепла — у прикладі це добовий мінімум.</p>
+    <div class="mini-task">
+      <label>Добова амплітуда = Tmax − Tmin = <input id="amp" type="number" placeholder="?"> °C</label>
+      <button class="btn small" id="checkAmp">Перевірити</button>
+      <div id="ampOut" class="feedback"></div>
+    </div>
+  </div>
+</div>
+<div class="callout"><b>Дані моделі:</b> 00:00 — 10 °C; 03:00 — 8 °C; 06:00 — 7 °C; 09:00 — 12 °C; 12:00 — 18 °C; 15:00 — 21 °C; 18:00 — 17 °C; 21:00 — 13 °C; 24:00 — 10 °C. Це навчальний набір, а не прогноз для конкретного міста.</div>
+</section>
+
+<section id="surface" class="section">
+<span class="pill">ДІЯЛЬНІСТЬ 4</span><h2>Однакове Сонце — різна поверхня</h2>
+<p>NASA наголошує: <b>температура земної поверхні</b> — не те саме, що температура повітря на метеостанції. Супутник може «бачити» дах, ґрунт, траву, сніг чи воду, і вони нагріваються по-різному.</p>
+<div class="surface-grid">
+  <button class="surface-card" data-surface="asphalt"><span>🛣️</span><b>Темний асфальт</b><small>низьке відбиття, швидке нагрівання</small></button>
+  <button class="surface-card" data-surface="grass"><span>🌿</span><b>Трава</b><small>частина енергії йде на випаровування води</small></button>
+  <button class="surface-card" data-surface="water"><span>🌊</span><b>Вода</b><small>велика теплоємність, перемішування, повільніші зміни</small></button>
+</div>
+<div id="surfaceOut" class="card result">Оберіть поверхню й сформулюйте прогноз: де добові коливання біля поверхні будуть різкішими?</div>
+<div class="grid2">
+  <a class="card photo" target="_blank" rel="noopener" href="https://earthobservatory.nasa.gov/global-maps/MOD_LSTD_M">
+    <img src="https://eoimages.gsfc.nasa.gov/images/globalmaps/data/MOD_LSTD_M/2025-06-01/MOD_LSTD_M_2025-06-01_rgb_3600x1800.jpg" alt="Глобальна карта температури земної поверхні NASA MODIS" onerror="this.style.display='none';this.nextElementSibling.textContent='Відкрити актуальну карту температури поверхні NASA →'">
+    <h3>Температура поверхні з космосу</h3>
+    <p>MODIS показує, наскільки гарячою або холодною є саме поверхня, а не повітря на висоті 2 м.</p>
+    <span class="source">NASA Earth Observatory • MODIS Land Surface Temperature</span>
+  </a>
+  <div class="card activity">
+    <h3>Пастка інтерпретації</h3>
+    <p>Супутник показав дах +48 °C. Чи означає це, що метеостанція поруч обов’язково покаже +48 °C?</p>
+    <div class="answers"><button data-check="wrong">Так, це одна й та сама температура.</button><button data-check="right">Ні. Температура поверхні й температура повітря — різні величини.</button></div><div class="feedback"></div>
+  </div>
+</div>
+</section>
+
+<section id="proof" class="section proof">
+<span class="pill">ДОКАЗОВЕ ЗАВДАННЯ</span><h2>Чому максимум температури не зобов’язаний бути о 12:00?</h2>
+<p>Учень стверджує: «Якщо Сонце найвище близько полудня, то о 12:00 температура повітря обов’язково максимальна».</p>
+<div class="evidence">
+  <div><b>Факт A</b><p>Після полудня поверхня ще певний час отримує більше енергії, ніж віддає.</p></div>
+  <div><b>Факт B</b><p>Нагрівання поверхні та повітря має інерцію: температура реагує із запізненням.</p></div>
+  <div><b>Факт C</b><p>У навчальному наборі: 12:00 = 18 °C, 15:00 = 21 °C.</p></div>
+</div>
+<label><b>Ваш висновок:</b><textarea id="proofText" placeholder="Сформулюйте 2–3 речення, використавши щонайменше два факти..."></textarea></label>
+<button class="btn" id="proofCheck">Перевірити структуру доказу</button><div id="proofOut" class="feedback"></div>
+<div class="callout"><b>Наукова ідея:</b> максимум надходження сонячної енергії та максимум температури — не одна й та сама подія. Температура досягає максимуму тоді, коли надходження і втрати енергії змінюють співвідношення.</div>
+</section>
+
+<section class="section">
+<span class="pill">ПРАКТИЧНА РОБОТА</span><h2>Починаємо календар погоди</h2>
+<p>За КТП ведення календаря триває протягом місяця. Збережіть перший запис у браузері; потім доповнюйте його власними спостереженнями.</p>
+<div class="weather-form">
+<label>Дата<input id="wxDate" type="date"></label>
+<label>Час<input id="wxTime" type="time"></label>
+<label>Температура, °C<input id="wxTemp" type="number" step="0.1"></label>
+<button class="btn" id="saveWeather">Зберегти запис</button>
+</div>
+<div id="weatherSaved" class="feedback"></div>
+</section>
+
+<section class="section">
+<span class="pill">КОРОТКЕ ВІДЕО</span><h2>Модель енергетичного бюджету Землі</h2>
+<div class="video"><iframe src="https://www.youtube.com/embed/aH98YVwvrl0" title="NASA: Earth's Energy Budget Model" allowfullscreen loading="lazy"></iframe></div>
+<p class="source">My NASA Data • NASA Earth’s Energy Budget Model. Під час перегляду знайдіть: де енергія поглинається, де відбивається і як повертається в атмосферу.</p>
+</section>
+
+<section id="theory" class="section theory">
+<span class="pill">ТЕОРІЯ ПІСЛЯ ДІЯЛЬНОСТІ</span><h2>Збираємо правило</h2>
+<details open><summary>Як нагрівається повітря?</summary><p>Сонячне випромінювання проходить крізь атмосферу й значною мірою нагріває земну поверхню. Нагріта поверхня передає енергію повітрю біля неї. Тому в тропосфері важливим джерелом тепла є саме поверхня Землі.</p></details>
+<details><summary>Що таке добовий хід температури?</summary><p>Закономірна зміна температури повітря протягом доби. Типово температура знижується вночі, має мінімум поблизу сходу Сонця, зростає після сходу й часто досягає максимуму в післяполуденні години, але точний час залежить від хмарності, вітру, вологості, поверхні та проходження повітряних мас.</p></details>
+<details><summary>Що таке добова амплітуда?</summary><p>Різниця між максимальною та мінімальною температурами за добу: <b>A = Tmax − Tmin</b>. У нашому наборі: 21 − 7 = 14 °C.</p></details>
+<details><summary>Від чого залежать коливання?</summary><p>Від висоти Сонця, тривалості освітлення, хмарності, властивостей підстильної поверхні, вологості, вітру та переміщення повітряних мас. Тому однакова година не гарантує однакової температури в різні дні.</p></details>
+</section>
+
+<section id="cer" class="section cer">
+<span class="pill">CER</span><h2>Підсумок одним доказом</h2>
+<p><b>Питання:</b> «Чому найвища температура повітря протягом ясної доби часто буває після полудня?»</p>
+<div class="grid3"><label>Claim — твердження<textarea id="cerC" placeholder="Я стверджую, що..."></textarea></label><label>Evidence — доказ<textarea id="cerE" placeholder="Дані / спостереження..."></textarea></label><label>Reasoning — пояснення<textarea id="cerR" placeholder="Це доводить, тому що..."></textarea></label></div>
+<button class="btn" id="cerCheck">Перевірити CER</button><div id="cerOut" class="feedback"></div>
+</section>
+
+<section class="section homework">
+<span class="pill">ДОМАШНЄ ЗАВДАННЯ</span><h2>§25 + власні дані</h2>
+<p>1) Опрацюйте §25. 2) Упродовж наступних днів фіксуйте температуру приблизно в однаковий час і відмічайте хмарність. 3) Спробуйте пояснити один «неочікуваний» день доказами, а не фразою «погода змінилася».</p>
+<div class="buttons"><a class="btn" target="_blank" rel="noopener" href="https://lms.e-school.net.ua/">Електронний підручник / ВШО ↗</a><a class="btn alt" target="_blank" rel="noopener" href="https://earthobservatory.nasa.gov/">NASA Earth Observatory ↗</a></div>
+</section>
+
+<section id="test" class="section test">
+<span class="pill">ФІНАЛЬНИЙ ТЕСТ • 10 БАЛІВ</span><h2>Спочатку ідентифікація</h2>
+<div class="identity">
+<label>Прізвище<input id="surname" autocomplete="family-name"></label>
+<label>Ім’я<input id="name" autocomplete="given-name"></label>
+<label>Клас<input id="className" placeholder="6-А"></label>
+</div>
+<div id="testLock" class="lock">🔒 Тест відкриється, коли заповнені всі три поля.</div>
+<form id="quiz" hidden>
+<ol class="quiz">
+<li><p>Що є головним безпосереднім джерелом нагрівання нижнього шару повітря вдень?</p><label><input type="radio" name="q1" value="a"> Нагріта земна поверхня</label><label><input type="radio" name="q1" value="b"> Місяць</label><label><input type="radio" name="q1" value="c"> Магнітне поле</label></li>
+<li><p>Коли зазвичай спостерігається добовий мінімум температури за ясної сталої погоди?</p><label><input type="radio" name="q2" value="a"> Близько сходу Сонця</label><label><input type="radio" name="q2" value="b"> Рівно опівдні</label><label><input type="radio" name="q2" value="c"> Завжди о 18:00</label></li>
+<li><p>Чому максимум температури часто пізніше за сонячний полудень?</p><label><input type="radio" name="q3" value="a"> Поверхня ще має додатний енергетичний баланс і продовжує нагріватися</label><label><input type="radio" name="q3" value="b"> Сонце стає гарячішим після 12:00</label><label><input type="radio" name="q3" value="c"> Атмосфера перестає рухатися</label></li>
+<li><p>Tmax = +19 °C, Tmin = +6 °C. Добова амплітуда дорівнює:</p><label><input type="radio" name="q4" value="a"> 25 °C</label><label><input type="radio" name="q4" value="b"> 13 °C</label><label><input type="radio" name="q4" value="c"> 3 °C</label></li>
+<li><p>Яке твердження правильне?</p><label><input type="radio" name="q5" value="a"> Температура поверхні й температура повітря завжди однакові</label><label><input type="radio" name="q5" value="b"> Це різні величини й вони можуть сильно відрізнятися</label></li>
+<li><p>Що може зменшити добову амплітуду?</p><label><input type="radio" name="q6" value="a"> Суцільна хмарність</label><label><input type="radio" name="q6" value="b"> Абсолютно ясне сухе небо за інших рівних умов</label></li>
+<li><p>Яка поверхня зазвичай змінює температуру повільніше?</p><label><input type="radio" name="q7" value="a"> Вода</label><label><input type="radio" name="q7" value="b"> Сухий темний асфальт</label></li>
+<li><p>Добовий хід температури — це:</p><label><input type="radio" name="q8" value="a"> Зміна температури протягом доби</label><label><input type="radio" name="q8" value="b"> Зміна клімату за століття</label></li>
+<li><p>Який запис є доказом, а не припущенням?</p><label><input type="radio" name="q9" value="a"> «О 15:00 термометр показав +21 °C»</label><label><input type="radio" name="q9" value="b"> «Напевно завтра буде спекотно»</label></li>
+<li><p>Що найкраще пояснює різницю температур над різними поверхнями?</p><label><input type="radio" name="q10" value="a"> Поверхні по-різному поглинають, відбивають і накопичують енергію</label><label><input type="radio" name="q10" value="b"> Сонце світить на кожну поверхню різним хімічним елементом</label></li>
+</ol>
+<button class="btn" type="submit">Завершити тест</button>
+<div id="score" class="score"></div>
+</form>
+</section>
+</main>
+
+<footer><div class="wrap"><b>Автор: Скринченко К.А.</b> • Василівський ліцей «Сузір’я» <span>• Географія, 6 клас • 2026–2027</span></div></footer>
+<script src="script.js"></script>
+</body></html>

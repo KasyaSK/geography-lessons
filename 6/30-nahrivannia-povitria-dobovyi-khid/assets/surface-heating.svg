@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#bfeaff"/><stop offset="1" stop-color="#fff5cc"/></linearGradient><linearGradient id="land"><stop stop-color="#f3c767"/><stop offset="1" stop-color="#d88642"/></linearGradient></defs>
+<rect width="900" height="480" fill="url(#sky)"/><circle cx="120" cy="95" r="55" fill="#ffd43b"/><g stroke="#f0ac22" stroke-width="9" stroke-linecap="round" opacity=".75"><path d="M170 120 L380 245"/><path d="M155 145 L320 260"/><path d="M185 90 L430 230"/></g>
+<path d="M0 335 Q220 285 450 330 T900 310 V480 H0Z" fill="url(#land)"/>
+<g font-family="system-ui" font-weight="700" fill="#15394d"><text x="45" y="40" font-size="25">Сонячна енергія</text><text x="335" y="380" font-size="27">Поверхня поглинає енергію й нагрівається</text></g>
+<g stroke="#ef6f45" stroke-width="7" fill="none" marker-end="url(#a)"><path d="M410 330 C400 260 450 220 440 170"/><path d="M550 325 C570 260 535 220 570 165"/><path d="M665 320 C650 270 705 225 690 175"/></g>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#ef6f45"/></marker></defs>
+<text x="470" y="140" font-family="system-ui" font-weight="800" font-size="25" fill="#b84c32">тепло → повітрю</text><text x="610" y="55" font-family="system-ui" font-size="18" fill="#4a6c7b">Частина енергії поглинається/відбивається атмосферою</text>
+</svg>

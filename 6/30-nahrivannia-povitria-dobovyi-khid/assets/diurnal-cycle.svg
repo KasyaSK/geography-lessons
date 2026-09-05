@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+<rect width="900" height="500" rx="24" fill="#f8fcff"/><line x1="70" y1="405" x2="850" y2="405" stroke="#95aebb" stroke-width="2"/><line x1="70" y1="70" x2="70" y2="405" stroke="#95aebb" stroke-width="2"/>
+<g font-family="system-ui" font-size="16" fill="#5f7885"><text x="55" y="430">0</text><text x="240" y="430">6</text><text x="420" y="430">12</text><text x="600" y="430">18</text><text x="815" y="430">24 год</text></g>
+<path d="M70 360 C180 350 255 330 330 230 C390 145 440 100 480 95 C535 100 590 175 645 250 C720 345 785 365 850 360" fill="none" stroke="#f4b62d" stroke-width="10" stroke-linecap="round"/>
+<path d="M70 320 C160 360 230 370 275 345 C365 295 430 225 505 165 C555 130 600 135 645 185 C710 250 775 300 850 320" fill="none" stroke="#e65d55" stroke-width="10" stroke-linecap="round"/>
+<circle cx="480" cy="95" r="9" fill="#f4b62d"/><circle cx="585" cy="139" r="9" fill="#e65d55"/>
+<g font-family="system-ui" font-weight="800"><text x="500" y="82" fill="#b98408" font-size="20">максимум сонячного надходження</text><text x="600" y="130" fill="#bf4140" font-size="20">максимум температури пізніше</text></g>
+<g font-family="system-ui" font-size="20" font-weight="800"><text x="95" y="48" fill="#f4a91b">сонячна енергія</text><text x="315" y="48" fill="#d94d4d">температура повітря</text></g>
+<text x="92" y="468" font-family="system-ui" font-size="18" fill="#55717f">Схема показує часовий зсув, а не універсальні точні години для кожного дня.</text>
+</svg>
