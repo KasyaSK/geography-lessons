@@ -1,0 +1,84 @@
+<div class="quiz-gate" id="identityGate" style="margin-top:1rem">
+      <h3>Доступ до тесту</h3>
+      <div class="field"><label for="fullName">Ім’я та прізвище</label><input id="fullName" autocomplete="name" placeholder="Наприклад: Ірина Коваль"></div>
+      <div class="field"><label for="studentClass">Клас</label><input id="studentClass" value="10" placeholder="Наприклад: 10-А"></div>
+      <div id="gateError" class="feedback danger" hidden>Введіть ім’я, прізвище та клас.</div>
+      <div class="actions"><button class="btn" id="startQuiz">Розпочати тест</button></div>
+    </div>
+
+    <form id="quiz" class="quiz" hidden novalidate>
+      <div class="q"><div class="q-title">1. У звіті треба визначити кількість держав-членів ООН. Яке джерело має бути основним?</div>
+        <label class="option"><input type="radio" name="q1" value="a"> World Bank Data</label>
+        <label class="option"><input type="radio" name="q1" value="b"> Офіційний список Member States ООН</label>
+        <label class="option"><input type="radio" name="q1" value="c"> Туристичний атлас без року видання</label>
+        <label class="option"><input type="radio" name="q1" value="d"> Соцмережі</label>
+      </div>
+      <div class="q"><div class="q-title">2. У базі даних Greenland подано окремим рядком. Який висновок найкоректніший?</div>
+        <label class="option"><input type="radio" name="q2" value="a"> Це автоматично доводить суверенітет.</label>
+        <label class="option"><input type="radio" name="q2" value="b"> Треба прочитати методику бази й окремо перевірити політичний статус.</label>
+        <label class="option"><input type="radio" name="q2" value="c"> Рядок завжди означає членство в ООН.</label>
+        <label class="option"><input type="radio" name="q2" value="d"> Географічні бази не можуть містити територій.</label>
+      </div>
+      <div class="q"><div class="q-title">3. Для оцінки зміни забудови міста за 20 років найсильніша комбінація джерел:</div>
+        <label class="option"><input type="radio" name="q3" value="a"> два супутникові знімки різних років + карта</label>
+        <label class="option"><input type="radio" name="q3" value="b"> лише сучасний підручник</label>
+        <label class="option"><input type="radio" name="q3" value="c"> список держав-членів ООН</label>
+        <label class="option"><input type="radio" name="q3" value="d"> один фотоальбом без геоприв’язки</label>
+      </div>
+      <div class="q"><div class="q-title">4. Карта 1998 року потрібна для сучасного звіту. Коли її використання виправдане?</div>
+        <label class="option"><input type="radio" name="q4" value="a"> Як єдине актуальне джерело кордонів.</label>
+        <label class="option"><input type="radio" name="q4" value="b"> Для аналізу історичних змін у порівнянні з актуальною картою.</label>
+        <label class="option"><input type="radio" name="q4" value="c"> Щоб не перевіряти сучасні дані.</label>
+        <label class="option"><input type="radio" name="q4" value="d"> Лише тому, що друкована карта надійніша за цифрову.</label>
+      </div>
+      <fieldset class="q"><legend>5. Виберіть УСІ критерії надійності джерела для актуального географічного висновку.</legend>
+        <label class="option"><input type="checkbox" name="q5" value="author"> Автор/установа</label>
+        <label class="option"><input type="checkbox" name="q5" value="date"> Дата оновлення</label>
+        <label class="option"><input type="checkbox" name="q5" value="method"> Методика та одиниця обліку</label>
+        <label class="option"><input type="checkbox" name="q5" value="design"> Яскравість дизайну</label>
+      </fieldset>
+      <fieldset class="q"><legend>6. Які твердження коректно описують ООН і Світовий банк?</legend>
+        <label class="option"><input type="checkbox" name="q6" value="un193"> ООН має 193 держави-члени.</label>
+        <label class="option"><input type="checkbox" name="q6" value="observer"> Святий Престол і Держава Палестина мають статус держав-спостерігачів, які не є членами ООН.</label>
+        <label class="option"><input type="checkbox" name="q6" value="wbEconomy"> У World Bank термін country/economy не обов’язково означає політичну незалежність.</label>
+        <label class="option"><input type="checkbox" name="q6" value="same"> Усі міжнародні організації зобов’язані мати однакову кількість рядків у базах.</label>
+      </fieldset>
+      <div class="q"><div class="q-title">7. Установіть відповідність: джерело → найкраща роль.</div>
+        <div class="match-row"><span>UN Geospatial</span><select id="m1"><option value="">Оберіть...</option><option value="map">актуальна політична карта</option><option value="income">класифікація за доходом</option><option value="sat">динаміка земної поверхні</option><option value="status">список членів організації</option></select></div>
+        <div class="match-row"><span>World Bank Data</span><select id="m2"><option value="">Оберіть...</option><option value="map">актуальна політична карта</option><option value="income">класифікація за доходом</option><option value="sat">динаміка земної поверхні</option><option value="status">список членів організації</option></select></div>
+        <div class="match-row"><span>Google Earth / супутникові знімки</span><select id="m3"><option value="">Оберіть...</option><option value="map">актуальна політична карта</option><option value="income">класифікація за доходом</option><option value="sat">динаміка земної поверхні</option><option value="status">список членів організації</option></select></div>
+        <div class="match-row"><span>UN Member States</span><select id="m4"><option value="">Оберіть...</option><option value="map">актуальна політична карта</option><option value="income">класифікація за доходом</option><option value="sat">динаміка земної поверхні</option><option value="status">список членів організації</option></select></div>
+      </div>
+      <div class="q"><div class="q-title">8. Розташуйте алгоритм перевірки суперечливої цифри у правильній послідовності.</div>
+        <p class="hint">Натискайте кроки по черзі.</p>
+        <div class="seq-pool" id="seqPool">
+          <button type="button" data-seq="compare">Порівняти результати</button>
+          <button type="button" data-seq="question">Сформулювати, що саме рахуємо</button>
+          <button type="button" data-seq="method">Прочитати методику й визначення</button>
+          <button type="button" data-seq="sources">Знайти 2 авторитетні джерела</button>
+        </div>
+        <div class="seq-answer" id="seqAnswer">Послідовність ще не складена.</div><button type="button" class="btn alt" id="resetSeq" style="margin-top:.5rem">Скинути послідовність</button>
+      </div>
+      <div class="q"><div class="q-title">9. Яких даних достатньо, щоб довести: «територія X є незалежною державою»?</div>
+        <label class="option"><input type="radio" name="q9" value="a"> Окремого рядка в економічній таблиці.</label>
+        <label class="option"><input type="radio" name="q9" value="b"> Прапора на туристичному сайті.</label>
+        <label class="option"><input type="radio" name="q9" value="c"> Потрібне політико-правове підтвердження статусу; економічного рядка недостатньо.</label>
+        <label class="option"><input type="radio" name="q9" value="d"> Кількості населення.</label>
+      </div>
+      <div class="q"><div class="q-title">10. Який CER найкраще відповідає на початкову суперечність?</div>
+        <label class="option"><input type="radio" name="q10" value="a"> «Світовий банк помиляється, бо число більше».</label>
+        <label class="option"><input type="radio" name="q10" value="b"> «Суперечності немає: ООН рахує членство держав, а World Bank може обліковувати окремі економіки/території; це підтверджує методика обох джерел. Отже, перед порівнянням треба звірити одиницю обліку».</label>
+        <label class="option"><input type="radio" name="q10" value="c"> «Будь-яка нова карта завжди правильна».</label>
+        <label class="option"><input type="radio" name="q10" value="d"> «193 — це кількість усіх географічних об’єктів світу».</label>
+      </div>
+      <div class="actions"><button class="btn green" type="submit">Завершити тест</button></div>
+    </form>
+
+    <div id="resultCard" class="result-card" hidden>
+      <div class="eyebrow">Результат тесту</div><div class="result-score" id="resultScore">0/10</div>
+      <p><b id="resultName"></b> • <span id="resultClass"></span></p>
+      <p><b>Тема:</b> Джерела знань про регіони й країни. Сучасна політична карта світу</p>
+      <p id="resultComment"></p><p class="tiny" id="resultTime"></p>
+      <div class="callout success"><b>Зробіть скриншот цієї картки та надішліть учителю.</b></div>
+      <div class="actions no-print"><button class="btn alt" id="printResult" type="button">Друк / PDF</button><button class="btn gold" id="retryQuiz" type="button">Пройти ще раз</button></div>
+    </div>
