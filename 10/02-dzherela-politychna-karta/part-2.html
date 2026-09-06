@@ -1,0 +1,39 @@
+<section id="evidence">
+    <div class="section-head"><div><span class="tag">9–14 хв</span><h2>Лабораторія доказів: 193 чи понад 200?</h2><p class="hint">Оберіть рівно три джерела, які потрібні, щоб коректно пояснити різницю між списком держав-членів ООН і статистичною базою «країн/економік».</p></div><span class="time">5 хв</span></div>
+    <div class="grid grid-2" id="evidenceCards">
+      <div class="source-card"><label><input type="checkbox" value="unMembers"><span><b>ООН: Member States</b><br><span class="hint">Офіційний список членів і дати вступу.</span></span></label></div>
+      <div class="source-card"><label><input type="checkbox" value="wbDefinition"><span><b>Світовий банк: як класифікуються країни</b><br><span class="hint">Пояснює, що «country/economy» не обов’язково означає політично незалежну державу.</span></span></label></div>
+      <div class="source-card"><label><input type="checkbox" value="unObservers"><span><b>ООН: Non-Member Observer States</b><br><span class="hint">Пояснює окремий статус Святого Престолу та Держави Палестина.</span></span></label></div>
+      <div class="source-card"><label><input type="checkbox" value="travel"><span><b>Рейтинг «найкращих країн для відпустки»</b><br><span class="hint">Може бути цікавим, але не визначає міжнародно-правовий статус.</span></span></label></div>
+      <div class="source-card"><label><input type="checkbox" value="oldMap"><span><b>Політична карта 1991 року</b><br><span class="hint">Корисна для історії змін, але не для актуального підрахунку 2026 року.</span></span></label></div>
+      <div class="source-card"><label><input type="checkbox" value="social"><span><b>Дописи в соцмережі без посилань</b><br><span class="hint">Не дають методики підрахунку та статусу одиниць.</span></span></label></div>
+    </div>
+    <div class="actions"><button class="btn" id="checkEvidence">Перевірити добір доказів</button><button class="btn alt" id="resetEvidence">Скинути</button></div>
+    <div class="feedback" id="evidenceFeedback">Потрібні три взаємодоповнювальні джерела, а не три однакові.</div>
+  </section>
+
+  <section id="mission">
+    <div class="section-head"><div><span class="tag">14–18 хв</span><h2>Різнорівнева місія</h2><p class="hint">Оберіть рівень. Усі працюють з одним кейсом, але глибина висновку різна.</p></div><span class="time">4 хв</span></div>
+    <div class="mission-tabs" role="tablist" aria-label="Рівні місії">
+      <button class="active" data-mission="base">Базовий</button><button data-mission="mid">Достатній</button><button data-mission="high">Високий</button>
+    </div>
+    <div class="mission" id="missionBase"><b>Кейс:</b> у таблиці міжнародної організації «Greenland» наведено окремим рядком. Чи доводить це, що Гренландія — незалежна держава?<p>Напишіть коротку відповідь: <b>так/ні + яке джерело треба відкрити, щоб перевірити статус</b>.</p><textarea aria-label="Відповідь базового рівня" placeholder="Ваша відповідь..."></textarea></div>
+    <div class="mission" id="missionMid" hidden><b>Кейс:</b> база даних містить окремі рядки для суверенних держав і територій.<p>Складіть ланцюг: <b>мета бази → одиниця обліку → чому рядок ≠ автоматично держава</b>. Додайте два різні джерела для перевірки.</p><textarea aria-label="Відповідь достатнього рівня" placeholder="Ланцюг + 2 джерела..."></textarea></div>
+    <div class="mission" id="missionHigh" hidden><b>Кейс:</b> Ви створюєте карту для шкільного атласу й мусите вирішити, як показувати території зі спірним або частково визнаним статусом.<p>Запропонуйте <b>компромісне картографічне правило</b>: які межі/підписи показувати, як позначати невизначеність, на які джерела посилатися і якою буде ціна такого рішення.</p><textarea aria-label="Відповідь високого рівня" placeholder="Правило → джерела → обмеження → ціна компромісу..."></textarea></div>
+  </section>
+
+  <section id="maps">
+    <div class="section-head"><div><span class="tag">18–20 хв</span><h2>Реальні карти: одна Земля — різні інформаційні шари</h2><p class="hint">Кнопки перемикають не «декорації», а різні реальні картографічні представлення.</p></div><span class="time">2 хв</span></div>
+    <div class="layer-tabs" aria-label="Шари карти">
+      <button class="active" data-layer="sovereign">Суверенні держави</button><button data-layer="flags">Держави-члени ООН: прапори</button><button data-layer="osm">OpenStreetMap</button>
+    </div>
+    <div id="mapSovereign" class="map-panel map-large"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/BlankMap-World-Sovereign_Nations.svg" alt="Актуальна контурна карта суверенних держав світу" loading="lazy"></div>
+    <div id="mapFlags" class="map-panel map-large" hidden><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Flag_map_of_the_World.svg" alt="Карта світу з прапорами держав-членів ООН" loading="lazy"></div>
+    <div id="mapOsm" class="map-panel" hidden><iframe title="Інтерактивна карта світу OpenStreetMap" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-180%2C-70%2C180%2C80&amp;layer=mapnik"></iframe></div>
+    <div class="callout" style="margin-top:.8rem"><b>Завдання:</b> що можна надійно сказати за кожним шаром — і чого він <i>не</i> доводить? Наприклад, карта меж показує просторове представлення, але не сама по собі пояснює юридичну методику визнання.</div>
+    <div class="source-links" style="margin-top:.8rem">
+      <a class="source-link" href="https://www.un.org/geospatial/content/map-world-1" target="_blank" rel="noopener"><b>UN Geospatial — Map of the World, July 2026</b><span class="hint">Офіційна актуальна карта ООН.</span></a>
+      <a class="source-link" href="https://earth.google.com/web/" target="_blank" rel="noopener"><b>Google Earth</b><span class="hint">Супутникові дані та просторовий контекст.</span></a>
+      <a class="source-link" href="https://www.openstreetmap.org/" target="_blank" rel="noopener"><b>OpenStreetMap</b><span class="hint">Жива картографічна база з локальними деталями.</span></a>
+    </div>
+  </section>
