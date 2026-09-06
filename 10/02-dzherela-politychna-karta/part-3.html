@@ -1,0 +1,37 @@
+<section id="theory">
+    <div class="section-head"><div><span class="tag">20–30 хв</span><h2>Теорія після практики</h2><p class="hint">10 хвилин: називаємо точно те, що вже побачили на прикладах.</p></div><span class="time">10 хв</span></div>
+    <div class="theory-grid">
+      <article class="theory-card"><div class="num">1</div><h3>Джерело ≠ факт сам по собі</h3><p>Географічне джерело — це носій даних: карта, статистична база, супутниковий знімок, текст, GIS-шар, офіційний реєстр, польове спостереження. Перед використанням перевіряємо <b>автора/установу, дату, методику та одиницю обліку</b>.</p></article>
+      <article class="theory-card"><div class="num">2</div><h3>Держава, країна, територія</h3><p><b>Держава</b> — політико-правова організація з територією, населенням і суверенною владою. <b>Країна</b> в географічних і статистичних джерелах може вживатися ширше. <b>Територія</b> — просторове поняття, яке не гарантує суверенітету.</p></article>
+      <article class="theory-card"><div class="num">3</div><h3>Політична карта — динамічна модель</h3><p>Політична карта відображає держави, кордони, залежні території, столиці та інші політико-територіальні одиниці. Вона змінюється через утворення/розпад держав, об’єднання, зміни статусу й міжнародне визнання.</p></article>
+      <article class="theory-card"><div class="num">4</div><h3>Чому «193» — не універсальна відповідь</h3><p>ООН має <b>193 держави-члени</b>. Окремо статус держав-спостерігачів мають <b>Святий Престол</b> і <b>Держава Палестина</b>. Інші бази можуть містити більше рядків, бо включають території та окремі статистичні економіки.</p></article>
+      <article class="theory-card"><div class="num">5</div><h3>Методика важливіша за число</h3><p>Світовий банк прямо пояснює: слово <i>country</i> у його статистиці може означати <b>economy</b> і не є автоматично твердженням про політичну незалежність. Тому число рядків у таблиці не можна перетворювати на «кількість держав» без читання приміток.</p></article>
+      <article class="theory-card"><div class="num">6</div><h3>Межа висновку</h3><p>Навіть актуальна карта не відповідає на всі питання. Для статусу потрібні правові та дипломатичні джерела; для економіки — статистичні; для фактичного землекористування — супутникові/польові. <b>Один шар рідко достатній.</b></p></article>
+    </div>
+    <div class="media-card" style="margin-top:1rem">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/CIA_WorldFactBook-Political_world.svg" alt="Політична карта світу CIA World Factbook" loading="lazy">
+      <div class="body"><b>Карта — теж джерело з датою</b><p class="hint">Цей файл походить із CIA World Factbook і має історію оновлень. Саме тому для актуальної шкільної роботи ми паралельно даємо посилання на карту UN Geospatial 2026.</p><div class="caption">Wikimedia Commons / CIA World Factbook, public domain. Використовується для порівняння джерел і актуальності.</div></div>
+    </div>
+  </section>
+
+  <section id="duel">
+    <div class="section-head"><div><span class="tag">30–33 хв</span><h2>Логічний двобій: знайдіть помилку</h2></div><span class="time">3 хв</span></div>
+    <div class="myth">«У таблиці Світового банку є понад 200 країн/економік, отже у світі понад 200 незалежних держав».</div>
+    <div class="choice-grid" style="margin-top:.8rem" id="mythChoices">
+      <button class="choice-btn" data-myth="a"><strong>Висновок правильний</strong>Міжнародна організація не може мати зайвих рядків.</button>
+      <button class="choice-btn" data-myth="b"><strong>Помилка у визначенні одиниці</strong>Треба прочитати, що World Bank називає country/economy.</button>
+      <button class="choice-btn" data-myth="c"><strong>Помилка лише в даті</strong>Якщо таблиця нова, висновок автоматично правильний.</button>
+    </div>
+    <div class="feedback" id="mythFeedback">Оберіть найсильніший контраргумент.</div>
+  </section>
+
+  <section id="summary">
+    <div class="section-head"><div><span class="tag">33–35 хв</span><h2>Повертаємося до проблеми: CER</h2></div><span class="time">2 хв</span></div>
+    <p><b>Проблемне питання:</b> чи суперечать одне одному ООН із 193 державами-членами та база, де понад 200 країн/економік?</p>
+    <div class="cer-grid">
+      <div><div class="cer-label">Твердження</div><textarea id="cerClaim" placeholder="Моя відповідь..."></textarea></div>
+      <div><div class="cer-label">Доказ</div><textarea id="cerEvidence" placeholder="Конкретний факт або джерело..."></textarea></div>
+      <div><div class="cer-label">Пояснення + обмеження</div><textarea id="cerReason" placeholder="Чому доказ підтримує висновок і чого ще не доводить..."></textarea></div>
+    </div>
+    <div class="actions"><button class="btn green" id="checkCer">Перевірити повноту CER</button></div><div class="feedback" id="cerFeedback">Добрий CER має три різні функції: відповідь, конкретний доказ і логічний місток між ними.</div>
+  </section>
