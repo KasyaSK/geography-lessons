@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+  <meta name="description" content="11 клас. Урок 2. Топографічна карта: проєкція, розграфлення і номенклатура. Інтерактивний урок географії.">
+  <title>11 клас • Урок 2 • Топографічна карта: проєкція, розграфлення і номенклатура</title>
+  <style>
+    :root{
+      --ink:#17322d; --muted:#637973; --paper:#fbfff9; --paper2:#f2f8ef;
+      --line:#cfddd4; --green:#28654b; --green2:#3f8666; --moss:#6f8958;
+      --sand:#e8dfc6; --orange:#d87535; --blue:#39758e; --red:#b84a45;
+      --shadow:0 18px 50px rgba(30,63,50,.13);
+      --r:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--ink); background:
+        linear-gradient(rgba(255,255,255,.77),rgba(255,255,255,.86)),
+        repeating-linear-gradient(0deg,transparent 0 35px,rgba(59,104,80,.07) 35px 36px),
+        repeating-linear-gradient(90deg,transparent 0 35px,rgba(59,104,80,.07) 35px 36px),
+        #eef5eb;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      line-height:1.56;
+    }
+    img{max-width:100%;height:auto;display:block}
+    a{color:#1d6d6c}
+    button,input,select,textarea{font:inherit}
+    button,.btn,.choice{
+      min-height:44px; border-radius:14px; border:1px solid #b8cdbf; background:white;
+      color:var(--ink); cursor:pointer; transition:.18s transform,.18s box-shadow,.18s border-color;
+    }
+    button:hover,.btn:hover,.choice:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(40,101,75,.12);border-color:#6d9c83}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+      outline:3px solid #f0a45f; outline-offset:3px;
+    }
+    .wrap{width:min(1180px,92vw);margin:auto}
+    .hero{
+      position:relative; overflow:hidden; padding:76px 0 52px;
+      background:
+        linear-gradient(135deg,rgba(228,240,221,.98),rgba(255,251,235,.97)),
+        radial-gradient(circle at 75% 20%,rgba(57,117,142,.18),transparent 34%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero:before,.hero:after{
+      content:"";position:absolute;border:1px solid rgba(40,101,75,.22);border-radius:50%;pointer-events:none
+    }
+    .hero:before{width:480px;height:480px;right:-130px;top:-240px}
+    .hero:after{width:340px;height:340px;right:-60px;top:-170px}
+    .kicker{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:16px}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .75rem;border-radius:999px;background:#e5f2e7;border:1px solid #bdd3c1;font-weight:800;font-size:.84rem}
+    h1{font-size:clamp(2.5rem,6vw,5.4rem);line-height:.98;margin:.25rem 0 1rem;letter-spacing:-.045em;max-width:980px}
+    .lead{font-size:clamp(1.05rem,2vw,1.32rem);max-width:900px;color:#425f56}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:end}
+    .coord-card{
+      background:rgba(255,255,255,.82);border:1px solid #bfd1c4;border-radius:26px;padding:22px;box-shadow:var(--shadow)
+    }
+    .coord-card strong{font-size:2rem;display:block}
+    nav{
+      position:sticky;top:0;z-index:30;background:rgba(250,255,249,.93);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line)
+    }
+    .navin{display:flex;gap:8px;overflow:auto;padding:10px 0}
+    .navin a{white-space:nowrap;text-decoration:none;padding:.5rem .75rem;border-radius:10px;font-weight:800;font-size:.9rem}
+    .navin a:hover{background:#e6f1e7}
+    main{padding:26px 0 80px}
+    section{
+      scroll-margin-top:80px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--r);
+      padding:clamp(22px,4vw,42px);margin:22px 0;box-shadow:var(--shadow)
+    }
+    .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--green2)}
+    h2{font-size:clamp(1.7rem,4vw,3rem);line-height:1.08;margin:.35rem 0 1rem}
+    h3{font-size:1.22rem;margin:1.1rem 0 .55rem}
+    .sub{color:var(--muted);max-width:880px}
+    .time{display:inline-flex;padding:.25rem .55rem;border-radius:8px;background:#edf5ee;color:#41644f;font-weight:900;font-size:.78rem}
+    .grid2,.grid3,.grid4{display:grid;gap:16px}
+    .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{background:#fbfdf9;border:1px solid #d3e0d6;border-radius:20px;padding:18px}
+    .card b{display:block;margin-bottom:6px}
+    .note{padding:15px 17px;border-left:5px solid var(--orange);background:#fff8ef;border-radius:12px}
+    .good{padding:15px 17px;border-left:5px solid var(--green2);background:#edf7ef;border-radius:12px}
+    .warn{padding:15px 17px;border-left:5px solid var(--red);background:#fff0ef;border-radius:12px}
+    .big-question{
+      font-size:clamp(1.35rem,3vw,2.15rem);font-weight:900;line-height:1.2;
+      padding:24px;border:1px solid #bdd0c2;border-radius:20px;background:linear-gradient(135deg,#eef7ec,#fff9e8)
+    }
+    .choices{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .choice{padding:.65rem .85rem;font-weight:800}
+    .choice.active{background:#dceddf;border-color:#52856b}
+    .feedback{margin-top:12px;min-height:30px;font-weight:700}
+    .media-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start;margin-top:18px}
+    figure{margin:0;background:#f7fbf4;border:1px solid #d0ded3;border-radius:20px;overflow:hidden}
+    figure img{width:100%;background:#e8efe8}
+    figcaption{padding:12px 14px;color:#526c63;font-size:.86rem}
+    .map-frame{aspect-ratio:16/9;border:0;width:100%;border-radius:18px;background:#edf2ed}
+    .source{font-size:.78rem;color:#688077}
+    .source a{word-break:break-word}
+    .video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:18px;background:#132019}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .evidence-card{
+      position:relative;padding:17px;border:1px solid #ccdcd0;border-radius:18px;background:#fff;cursor:pointer
+    }
+    .evidence-card input{position:absolute;right:12px;top:12px;width:20px;height:20px}
+    .evidence-card.selected{border-color:#4e8869;background:#edf7ef}
+    .level{border-top:5px solid var(--green2)}
+    .level.high{border-top-color:var(--orange)}
+    .level.mid{border-top-color:var(--blue)}
+    .sheetbox{border:1px solid #c9d7cb;border-radius:20px;overflow:auto;background:#f6faf5;padding:14px}
+    .sheetgrid{
+      width:min(760px,100%);margin:auto;display:grid;grid-template-columns:repeat(12,1fr);gap:3px;
+      padding:8px;background:#d9e5dc;border:1px solid #b8c8bc;border-radius:10px
+    }
+    .sheetcell{aspect-ratio:1/1;border:0;border-radius:4px;background:white;min-height:34px;font-size:.72rem;font-weight:800;padding:0}
+    .sheetcell:hover{background:#fff0d7}
+    .sheetcell.pick{background:#f7c989;outline:2px solid #a86125}
+    .decoder{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px
+    }
+    .decoder span{padding:12px;border:1px solid #ccd8ce;border-radius:12px;background:#f8fbf7;text-align:center;font-weight:900}
+    .tablewrap{overflow:auto;border-radius:16px;border:1px solid #d2dfd5}
+    table{border-collapse:collapse;width:100%;min-width:720px;background:white}
+    th,td{padding:12px;border-bottom:1px solid #e1e9e2;text-align:left;vertical-align:top}
+    th{background:#edf5ee;position:sticky;top:0}
+    .myth{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:16px;border-radius:16px;border:1px solid #d4ddd6;margin:12px 0}
+    .cer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .cer textarea{width:100%;min-height:110px;border:1px solid #c7d7ca;border-radius:14px;padding:12px;background:white}
+    .home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .btnlink{display:inline-flex;align-items:center;text-decoration:none;padding:.7rem .95rem;border-radius:13px;background:#2c6e52;color:white;font-weight:900;margin:.25rem .3rem .25rem 0}
+    .btnlink.alt{background:#39758e}
+    .gate{
+      padding:20px;border:1px solid #bfcfc2;background:#f5faf4;border-radius:18px
+    }
+    .gate-row{display:grid;grid-template-columns:1fr 180px auto;gap:10px;margin-top:12px}
+    .gate input,.gate select,.quiz select{min-height:46px;border:1px solid #bfcfc5;border-radius:12px;padding:.6rem .75rem;background:white}
+    #quiz[hidden],#resultCard[hidden]{display:none!important}
+    .q{padding:18px;border:1px solid #d5e1d7;border-radius:18px;margin:14px 0;background:#fff}
+    .q fieldset{border:0;padding:0;margin:0}
+    .q legend{font-weight:900;margin-bottom:10px}
+    .option{display:flex;gap:10px;align-items:flex-start;margin:8px 0;padding:9px 10px;border-radius:10px}
+    .option:hover{background:#f3f8f3}
+    .matchrow,.orderrow{display:grid;grid-template-columns:1fr minmax(180px,260px);gap:12px;align-items:center;margin:9px 0}
+    .submit{padding:.8rem 1rem;background:#28654b;color:white;font-weight:900;border-color:#28654b}
+    .result{
+      margin-top:18px;padding:24px;border:2px solid #6f9c79;border-radius:20px;background:linear-gradient(135deg,#eff8ed,#fff9ea)
+    }
+    .score{font-size:3.4rem;font-weight:950;letter-spacing:-.04em}
+    footer{padding:30px 0 50px;color:#536c62;text-align:center}
+    .tiny{font-size:.79rem;color:#647c72}
+    @media(max-width:850px){
+      .hero-grid,.media-grid,.grid3,.grid4,.cer,.home-grid{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .gate-row{grid-template-columns:1fr}
+      .decoder{grid-template-columns:repeat(2,1fr)}
+      .sheetcell{min-height:30px;font-size:.66rem}
+    }
+    @media(max-width:520px){
+      .wrap{width:min(94vw,1180px)}
+      section{padding:20px}
+      .decoder{grid-template-columns:1fr}
+      .sheetgrid{gap:2px;padding:5px}
+      .sheetcell{min-height:26px;font-size:.58rem}
+      .matchrow,.orderrow{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+    @media print{
+      nav,.video,.no-print,button{display:none!important}
+      body{background:#fff}
+      section{box-shadow:none;break-inside:avoid}
+      #resultCard{display:block!important}
+    }
+  </style>
+</head>
+<body>
+<header class="hero" id="start">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">
+        <span class="pill">11 клас</span><span class="pill">Урок 2</span>
+        <span class="pill">Розділ І • Топографія та картографія</span><span class="pill">§ 2</span>
+      </div>
+      <h1>Топографічна карта: проєкція, розграфлення і номенклатура</h1>
+      <p class="lead">Сьогодні карта — не картинка території, а <b>адресна система</b>. Розберемося, як сферичну Землю переводять на площину, чому топокарта розрізана на аркуші та як із позначення <b>М‑36‑50‑В</b> витягнути просторову інформацію.</p>
+    </div>
+    <aside class="coord-card">
+      <span class="eyebrow">Картографічна адреса</span>
+      <strong>М‑36</strong>
+      <p>Базовий мільйонний аркуш, що охоплює Київ: 48–52° пн. ш. і 30–36° сх. д.</p>
+      <p class="tiny">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</p>
+    </aside>
+  </div>
+</header>
+<nav aria-label="Навігація уроком">
+  <div class="wrap navin">
+    <a href="#problem">Проблема</a><a href="#warmup">Розігрів</a><a href="#video1">Відео</a>
+    <a href="#evidence">Докази</a><a href="#mission">Місія</a><a href="#theory">Теорія</a>
+    <a href="#duel">Логічний двобій</a><a href="#summary">CER</a><a href="#homework">Домашнє</a><a href="#test">Тест</a>
+  </div>
+</nav>
+<main class="wrap">
+<section id="problem">
+  <span class="time">0–3 хв</span>
+  <div class="eyebrow">Стартова проблема</div>
+  <h2>GPS зник. Є тільки фрагмент карти без назви міста.</h2>
+  <div class="big-question">Чи можна лише за рамкою, масштабом і кодом аркуша визначити, <em>де</em> розташована територія і наскільки детально її показано?</div>
+  <p class="sub">Зафіксуйте першу гіпотезу. Наприкінці уроку повернемося до неї у форматі CER: твердження → доказ → пояснення.</p>
+  <div class="choices" id="hypothesisChoices">
+    <button class="choice" data-h="yes">Так, коду достатньо</button>
+    <button class="choice" data-h="partly">Частково: ще потрібен масштаб</button>
+    <button class="choice" data-h="no">Ні, без назви місцевості неможливо</button>
+  </div>
+  <div class="feedback" id="hypothesisFeedback" aria-live="polite"></div>
+</section>
+<section id="warmup">
+  <span class="time">3–7 хв</span>
+  <div class="eyebrow">Швидке рішення</div>
+  <h2>Що є «адресою» аркуша?</h2>
+  <p>Уявіть склад із тисячами топографічних аркушів. Треба за 20 секунд замовити карту Київщини потрібної деталізації.</p>
+  <div class="grid3">
+    <button class="card choice warm" data-answer="name"><b>Назва найбільшого міста</b><span>Зручно для людини, але не утворює глобальної системи.</span></button>
+    <button class="card choice warm" data-answer="nomen"><b>Номенклатура аркуша</b><span>Літерно-цифрове позначення, пов’язане з місцем і масштабом.</span></button>
+    <button class="card choice warm" data-answer="color"><b>Колір умовних знаків</b><span>Допомагає читати карту, але не знаходити потрібний аркуш.</span></button>
+  </div>
+  <div id="warmFeedback" class="feedback" aria-live="polite"></div>
+</section>
+<section id="video1">
+  <span class="time">7–9 хв</span>
+  <div class="eyebrow">Відео 1 • ВШО</div>
+  <h2>Як площина «приймає» сферичну Землю?</h2>
+  <div class="grid2">
+    <div>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/H6ihQGAMnPg" title="Всеукраїнська школа онлайн — Топографічна карта: проекція, географічні і прямокутні координати" allowfullscreen></iframe>
+      </div>
+      <p class="tiny">Перегляньте вступний фрагмент приблизно 2 хв. <a href="https://www.youtube.com/watch?v=H6ihQGAMnPg" target="_blank" rel="noopener">Відкрити відео окремо</a>.</p>
+    </div>
+    <div class="card">
+      <h3>До перегляду</h3>
+      <p>Чому для топографічної карти недостатньо просто «розплющити» глобус?</p>
+      <h3>Після перегляду</h3>
+      <p>Сформулюйте одним реченням: <b>яку проблему розв’язує картографічна проєкція?</b></p>
+      <div class="note">Не плутайте: <b>проєкція</b> — математичний спосіб перенесення поверхні; <b>розграфлення</b> — поділ карти на аркуші.</div>
+    </div>
+  </div>
+</section>
+<section id="evidence">
+  <span class="time">9–14 хв</span>
+  <div class="eyebrow">Лабораторія доказів</div>
+  <h2>Три реальні картографічні свідчення</h2>
+  <p class="sub">Працюємо не з декоративними схемами, а з картографічними матеріалами та рисунками з підручника. Оберіть докази, які справді допомагають пояснити, як знайти потрібний аркуш.</p>
+  <div class="media-grid">
+    <figure>
+      <img src="https://uahistory.co/pidruchniki/gilberg-geography-11-class-2019-standard-level/gilberg-geography-11-class-2019-standard-level.files/image006.jpg" alt="Проєктування шестиградусної зони на циліндр у проєкції Гаусса-Крюгера" loading="lazy">
+      <figcaption><b>Доказ A.</b> Схема 6‑градусної зони та поперечно-циліндричної проєкції Гаусса—Крюгера. Показує <em>як</em> поверхню переносять на площину, але сама по собі не дає номенклатури.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://uahistory.co/pidruchniki/gilberg-geography-11-class-2019-standard-level/gilberg-geography-11-class-2019-standard-level.files/image007.jpg" alt="Система розграфлення топографічної карти" loading="lazy">
+      <figcaption><b>Доказ B.</b> Система розграфлення. Саме вона пов’язує широтні пояси, колони та код аркуша.</figcaption>
+    </figure>
+  </div>
+  <div class="media-grid">
+    <figure>
+      <img src="https://uahistory.co/pidruchniki/gilberg-geography-11-class-2019-standard-level/gilberg-geography-11-class-2019-standard-level.files/image019.jpg" alt="Фрагмент реальної топографічної карти масштабу 1:50000" loading="lazy">
+      <figcaption><b>Доказ C.</b> Реальний фрагмент топографічної карти 1:50 000: рамка, кілометрова сітка, горизонталі, підписи висот і місцеві об’єкти.</figcaption>
+    </figure>
+    <div class="card">
+      <h3>Виберіть докази для твердження:</h3>
+      <p><b>«За номенклатурою можна встановити просторове положення аркуша і його масштабний рівень».</b></p>
+      <div class="grid2" id="evidenceCards">
+        <label class="evidence-card"><input type="checkbox" value="A"><b>A • Проєкція</b><span>Пояснює математичну основу.</span></label>
+        <label class="evidence-card"><input type="checkbox" value="B"><b>B • Розграфлення</b><span>Показує структуру коду аркуша.</span></label>
+        <label class="evidence-card"><input type="checkbox" value="C"><b>C • Реальна топокарта</b><span>Показує оформлення конкретного аркуша.</span></label>
+        <label class="evidence-card"><input type="checkbox" value="D"><b>D • Фото пейзажу</b><span>Може показати місцевість, але не систему аркушів.</span></label>
+      </div>
+      <button id="checkEvidence" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Перевірити добір доказів</button>
+      <div id="evidenceFeedback" class="feedback" aria-live="polite"></div>
+    </div>
+  </div>
+  <p class="source">Ілюстрації: Гільберг Т. Г., Савчук І. Г., Совенко В. В. «Географія. 11 клас», §2 (онлайн-дзеркало сторінок підручника).</p>
+</section>
+<section id="mission">
+  <span class="time">14–18 хв</span>
+  <div class="eyebrow">Різнорівнева місія</div>
+  <h2>Знайдіть аркуш усередині М‑36</h2>
+  <p>Аркуш М‑36 масштабу 1:1 000 000 має межі <b>48–52° пн. ш.</b> та <b>30–36° сх. д.</b>. Для масштабу 1:100 000 його ділять на <b>12 × 12 = 144</b> аркуші. Нумерація — зверху вниз, зліва направо.</p>
+  <div class="grid3">
+    <article class="card level"><b>Базовий</b><p>Що означають «М» і «36» у М‑36?</p><button class="choice levelbtn" data-level="base">Показати критерій</button><div class="feedback levelout"></div></article>
+    <article class="card level mid"><b>Достатній</b><p>Точка: <b>50°30′ пн. ш., 30°45′ сх. д.</b>. Який номер аркуша 1:100 000?</p><button class="choice levelbtn" data-level="mid">Підказка алгоритму</button><div class="feedback levelout"></div></article>
+    <article class="card level high"><b>Високий</b><p>Назвіть обмеження: чому сама номенклатура не дає повного опису місцевості?</p><button class="choice levelbtn" data-level="high">Критерій сильної відповіді</button><div class="feedback levelout"></div></article>
+  </div>
+  <h3>Інтерактивна сітка 1:100 000</h3>
+  <p class="sub">Для точки 50°30′ пн. ш., 30°45′ сх. д. визначте ряд і стовпець. Клікніть потрібний номер.</p>
+  <div class="sheetbox"><div class="sheetgrid" id="sheetGrid" aria-label="Сітка аркушів від 1 до 144"></div></div>
+  <div class="feedback" id="sheetFeedback" aria-live="polite"></div>
+</section>
+<section id="video2">
+  <span class="time">18–20 хв</span>
+  <div class="eyebrow">Відео 2 • Pi-stacja UA</div>
+  <h2>Розграфлення як «файлова система» Землі</h2>
+  <div class="grid2">
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/L3utR_tMFec" title="Pi-stacja UA — Використання топографічних карт" allowfullscreen></iframe></div>
+    <div class="card"><p><b>Фокус перегляду:</b> 00:32–02:47 — розграфлення, Україна на аркушах, початок номенклатури.</p><p><a href="https://www.youtube.com/watch?v=L3utR_tMFec" target="_blank" rel="noopener">Відкрити повне відео</a></p><div class="good">Після перегляду сформулюйте аналогію: номенклатура аркуша схожа на <b>адресу файлу</b>, бо крок за кроком уточнює «де» і «на якому рівні деталізації».</div></div>
+  </div>
+</section>
+<section id="theory">
+  <span class="time">20–30 хв</span><div class="eyebrow">Основне вивчення • 10 хв</div><h2>Від проєкції до коду аркуша</h2>
+  <div class="grid2">
+    <article class="card"><h3>1. Топографічна карта</h3><p>Великомасштабна загальногеографічна карта, що детально відображає природні та соціально-економічні об’єкти місцевості. Її ключова сила — точність положення, форм рельєфу, мереж і об’єктів.</p></article>
+    <article class="card"><h3>2. Проєкція Гаусса—Крюгера</h3><p>У підручнику для топографічних карт України описана поперечно-циліндрична рівнокутна проєкція. Земну поверхню розглядають у 6‑градусних зонах. Біля осьового меридіана спотворення мінімальні.</p></article>
+    <article class="card"><h3>3. Розграфлення</h3><p>Поділ багатоаркушевої карти на окремі листи. Базою є міжнародна карта 1:1 000 000: <b>4° за широтою × 6° за довготою</b>.</p></article>
+    <article class="card"><h3>4. Номенклатура</h3><p>Система позначення аркушів. На рівні 1:1 000 000 код складається з літери широтного поясу та номера колони: <b>М‑36</b> для Києва.</p></article>
+  </div>
+  <h3>Як код стає довшим</h3>
+  <div class="decoder" aria-label="Послідовність деталізації номенклатури"><span>М‑36<br><small>1:1 000 000</small></span><span>М‑36‑50<br><small>1:100 000</small></span><span>М‑36‑50‑В<br><small>1:50 000</small></span><span>М‑36‑50‑В‑в<br><small>1:25 000</small></span></div>
+  <p class="note"><b>Логіка:</b> кожен наступний елемент коду уточнює частину попереднього аркуша. Саме тому номенклатура одночасно несе інформацію про <b>положення</b> та <b>масштабний рівень</b>.</p>
+  <h3>Таблиця розграфлення</h3>
+  <div class="tablewrap"><table><thead><tr><th>Масштаб</th><th>Скільки аркушів у попередньому рівні</th><th>Розмір рамки</th><th>Приклад</th></tr></thead><tbody><tr><td>1:1 000 000</td><td>1</td><td>4° × 6°</td><td>М‑36</td></tr><tr><td>1:500 000</td><td>4 у мільйонному</td><td>2° × 3°</td><td>М‑36‑А</td></tr><tr><td>1:200 000</td><td>36 у мільйонному</td><td>40′ × 1°</td><td>М‑36‑XXI</td></tr><tr><td>1:100 000</td><td>144 у мільйонному</td><td>20′ × 30′</td><td>М‑36‑50</td></tr><tr><td>1:50 000</td><td>4 у стотисячному</td><td>10′ × 15′</td><td>М‑36‑50‑В</td></tr><tr><td>1:25 000</td><td>4 у п’ятдесятитисячному</td><td>5′ × 7′30″</td><td>М‑36‑50‑В‑в</td></tr></tbody></table></div>
+  <h3>Масштаб ≠ просто «розмір картинки»</h3>
+  <div class="grid3"><div class="card"><b>1:1 000 000</b><p>1 см = 10 км. Огляд великої території, менше деталей.</p></div><div class="card"><b>1:100 000</b><p>1 см = 1 км. Значно детальніше; 144 аркуші всередині одного мільйонного.</p></div><div class="card"><b>1:25 000</b><p>1 см = 250 м. Великомасштабний рівень, більше локальних об’єктів.</p></div></div>
+  <h3>Реальні цифрові карти: порівняйте масштабування</h3>
+  <iframe class="map-frame" title="OpenStreetMap — Київ, реальні геодані" src="https://www.openstreetmap.org/export/embed.html?bbox=30.34%2C50.37%2C30.70%2C50.55&amp;layer=mapnik"></iframe>
+  <p class="tiny">Це сучасна цифрова карта OpenStreetMap. Вона не замінює топографічний аркуш і має іншу логіку тайлів, але добре показує принцип рівнів деталізації при масштабуванні. Для КТП також рекомендовано <a href="https://earth.google.com/web/" target="_blank" rel="noopener">Google Earth</a>.</p>
+  <div class="warn"><b>Межа моделі:</b> код аркуша не повідомляє, чи актуальні дані, коли проведено знімання, як змінилася забудова або який стан дороги сьогодні. Номенклатура — це адреса аркуша, а не гарантія актуальності змісту.</div>
+</section>
+<section id="duel">
+  <span class="time">30–33 хв</span><div class="eyebrow">Логічний двобій</div><h2>Знайдіть слабке місце твердження</h2>
+  <div class="myth"><div><b>Твердження 1:</b> «Якщо два аркуші мають однакову літеру М, вони показують ту саму територію».</div><button class="choice duel" data-duel="1">Оцінити</button></div>
+  <div class="myth"><div><b>Твердження 2:</b> «Що більше знаменник масштабу, то більше деталей на карті».</div><button class="choice duel" data-duel="2">Оцінити</button></div>
+  <div class="myth"><div><b>Твердження 3:</b> «М‑36‑50‑В є уточненням частини аркуша М‑36‑50».</div><button class="choice duel" data-duel="3">Оцінити</button></div>
+  <div id="duelFeedback" class="feedback" aria-live="polite"></div>
+</section>
+<section id="summary">
+  <span class="time">33–35 хв</span><div class="eyebrow">Підсумок • CER</div><h2>Повертаємося до стартового питання</h2>
+  <p class="big-question">Чи можна без назви міста визначити, де розташована територія та наскільки детально вона показана?</p>
+  <div class="cer"><label class="card"><b>Твердження</b><textarea id="cerClaim" placeholder="Моя відповідь..."></textarea></label><label class="card"><b>Доказ</b><textarea id="cerEvidence" placeholder="Конкретний код, масштаб, межі аркуша..."></textarea></label><label class="card"><b>Пояснення + межа</b><textarea id="cerReason" placeholder="Як доказ підтримує висновок і чого він не доводить..."></textarea></label></div>
+  <button id="checkCer" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Перевірити повноту CER</button><div id="cerFeedback" class="feedback" aria-live="polite"></div>
+</section>
+<section id="homework">
+  <div class="eyebrow">Домашнє завдання • поза 35 хв</div><h2>§ 2 + карта + тест</h2>
+  <div class="home-grid">
+    <article class="card"><h3>1. Офіційний е-підручник</h3><p>Гільберг Т. Г., Савчук І. Г., Совенко В. В. «Географія (рівень стандарту). 11 клас».</p><a class="btnlink" href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Відкрити PDF ІМЗО</a><p><b>Опрацювати § 2</b> та запитання після параграфа.</p></article>
+    <article class="card"><h3>2. Обов’язкове відео</h3><p>Pi-stacja UA — «Використання топографічних карт #7». Повторіть розграфлення й номенклатуру.</p><a class="btnlink alt" href="https://www.youtube.com/watch?v=L3utR_tMFec" target="_blank" rel="noopener">Дивитися відео</a><p class="tiny">Відеоурок відповідає чинним вимогам МОН; автори — Pi-stacja UA / Katalyst Education.</p></article>
+    <article class="card"><h3>3. Практика з реальною картою</h3><p>Відкрийте Google Earth. Знайдіть Київ. Поясніть, чому координати міста узгоджуються з межами базового аркуша М‑36.</p><a class="btnlink" href="https://earth.google.com/web/" target="_blank" rel="noopener">Google Earth</a></article>
+    <article class="card"><h3>4. Завдання на вибір</h3><p><b>Базовий:</b> розшифруйте М‑36‑50.</p><p><b>Достатній:</b> поясніть перехід М‑36 → М‑36‑50 → М‑36‑50‑В.</p><p><b>Високий:</b> сформулюйте CER: чому номенклатура є ефективною глобальною адресою, але не гарантує актуальності карти.</p></article>
+  </div>
+</section>
+<section id="test">
+  <div class="eyebrow">Домашній тест • 10 балів</div><h2>Спочатку — ПІБ. Потім відкриється тест.</h2>
+  <div class="gate" id="identityGate"><b>Шлюз учня</b><div class="gate-row"><input id="fullName" autocomplete="name" placeholder="Ім’я та прізвище"><select id="studentClass"><option value="">Оберіть клас</option><option>11-А</option><option>11-Б</option><option>11</option></select><button id="startQuiz" class="submit">Розпочати тест</button></div><div id="gateError" class="feedback" aria-live="polite"></div></div>
+  <form id="quiz" hidden>
+    <div class="q"><fieldset><legend>1. Для чого на топографічних картах застосовують картографічну проєкцію?</legend><label class="option"><input type="radio" name="q1" value="a"> Щоб надати карті декоративну форму</label><label class="option"><input type="radio" name="q1" value="b"> Щоб математично перенести криволінійну поверхню Землі на площину</label><label class="option"><input type="radio" name="q1" value="c"> Щоб автоматично оновлювати об’єкти</label><label class="option"><input type="radio" name="q1" value="d"> Щоб замінити масштаб</label></fieldset></div>
+    <div class="q"><fieldset><legend>2. Яка пара найточніше описує базовий аркуш карти 1:1 000 000?</legend><label class="option"><input type="radio" name="q2" value="a"> 2° широти × 3° довготи</label><label class="option"><input type="radio" name="q2" value="b"> 4° широти × 6° довготи</label><label class="option"><input type="radio" name="q2" value="c"> 20′ широти × 30′ довготи</label><label class="option"><input type="radio" name="q2" value="d"> 10′ широти × 15′ довготи</label></fieldset></div>
+    <div class="q"><fieldset><legend>3. Дослідник отримав код М‑36‑50‑В. Який висновок найкращий?</legend><label class="option"><input type="radio" name="q3" value="a"> Це аркуш 1:50 000, уточнений усередині аркуша М‑36‑50</label><label class="option"><input type="radio" name="q3" value="b"> Це будь-яка карта Києва незалежно від масштабу</label><label class="option"><input type="radio" name="q3" value="c"> Це аркуш 1:1 000 000, а «В» — тип рельєфу</label><label class="option"><input type="radio" name="q3" value="d"> Код визначає тільки рік створення карти</label></fieldset></div>
+    <div class="q"><fieldset><legend>4. Яке твердження про масштаб правильне?</legend><label class="option"><input type="radio" name="q4" value="a"> 1:1 000 000 детальніший за 1:25 000</label><label class="option"><input type="radio" name="q4" value="b"> 1:25 000 є більшим масштабом і зазвичай показує більше деталей</label><label class="option"><input type="radio" name="q4" value="c"> Детальність не пов’язана з масштабом</label><label class="option"><input type="radio" name="q4" value="d"> Масштаб визначає лише колір карти</label></fieldset></div>
+    <div class="q"><fieldset><legend>5. Оберіть УСІ елементи, що входять у логіку номенклатури аркушів.</legend><label class="option"><input type="checkbox" name="q5" value="belt"> Широтний пояс</label><label class="option"><input type="checkbox" name="q5" value="column"> Колона</label><label class="option"><input type="checkbox" name="q5" value="subdivision"> Подальший поділ аркуша на частини</label><label class="option"><input type="checkbox" name="q5" value="weather"> Поточна погода</label></fieldset></div>
+    <div class="q"><fieldset><legend>6. Які твердження є обмеженнями номенклатури? Оберіть УСІ правильні.</legend><label class="option"><input type="checkbox" name="q6" value="fresh"> Код не гарантує актуальності даних</label><label class="option"><input type="checkbox" name="q6" value="state"> Код не описує поточний стан дороги чи забудови</label><label class="option"><input type="checkbox" name="q6" value="place"> Код узагалі не пов’язаний із положенням території</label><label class="option"><input type="checkbox" name="q6" value="forecast"> Код сам по собі не є прогнозом змін місцевості</label></fieldset></div>
+    <div class="q"><fieldset><legend>7. Установіть відповідність.</legend><div class="matchrow"><span>Розграфлення</span><select data-match="m1"><option value="">—</option><option value="a">Поділ карти на аркуші</option><option value="b">Система позначення аркушів</option><option value="c">Математичне перенесення поверхні на площину</option></select></div><div class="matchrow"><span>Номенклатура</span><select data-match="m2"><option value="">—</option><option value="a">Поділ карти на аркуші</option><option value="b">Система позначення аркушів</option><option value="c">Математичне перенесення поверхні на площину</option></select></div><div class="matchrow"><span>Проєкція</span><select data-match="m3"><option value="">—</option><option value="a">Поділ карти на аркуші</option><option value="b">Система позначення аркушів</option><option value="c">Математичне перенесення поверхні на площину</option></select></div></fieldset></div>
+    <div class="q"><fieldset><legend>8. Виберіть правильну послідовність переходу до більшої деталізації.</legend><label class="option"><input type="radio" name="q8" value="a"> М‑36 → М‑36‑50 → М‑36‑50‑В → М‑36‑50‑В‑в</label><label class="option"><input type="radio" name="q8" value="b"> М‑36‑50‑В‑в → М‑36 → М‑36‑50 → М‑36‑50‑В</label><label class="option"><input type="radio" name="q8" value="c"> М‑36 → М‑36‑В → М‑36‑50‑в → М‑36‑50</label></fieldset></div>
+    <div class="q"><fieldset><legend>9. Учень каже: «М‑36 означає, що карта точно актуальна». Яких даних бракує для такого висновку?</legend><label class="option"><input type="radio" name="q9" value="a"> Дати знімання/оновлення та відомостей про джерела даних</label><label class="option"><input type="radio" name="q9" value="b"> Лише назви материка</label><label class="option"><input type="radio" name="q9" value="c"> Кольору рамки</label><label class="option"><input type="radio" name="q9" value="d"> Номера класу учня</label></fieldset></div>
+    <div class="q"><fieldset><legend>10. Який CER найсильніше відповідає проблемі уроку?</legend><label class="option"><input type="radio" name="q10" value="a"> «Так, бо карти корисні».</label><label class="option"><input type="radio" name="q10" value="b"> «Частково: код М‑36 задає пояс і колону, а подальші елементи уточнюють масштабний аркуш; однак для оцінки актуальності потрібні дата та джерело оновлення».</label><label class="option"><input type="radio" name="q10" value="c"> «Ні, тому що без GPS карти не працюють».</label><label class="option"><input type="radio" name="q10" value="d"> «Так, бо літера М завжди означає Київ».</label></fieldset></div>
+    <button type="submit" class="submit">Завершити тест і отримати результат</button>
+  </form>
+  <div id="resultCard" class="result" hidden><div class="eyebrow">Картка результату</div><div class="score" id="scoreText">0/10</div><p><b id="resultName"></b> • <span id="resultClass"></span></p><p><b>Тема:</b> Топографічна карта: проєкція, розграфлення і номенклатура</p><p><b>Відсоток:</b> <span id="percentText"></span></p><p><b>Дата і час:</b> <span id="dateText"></span></p><p id="levelComment"></p><div class="good"><b>Зробіть скриншот цієї картки та надішліть учителю.</b></div><button id="retryQuiz" class="no-print" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Пройти ще раз</button><button type="button" onclick="window.print()" class="no-print" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Друк</button></div>
+</section>
+<section id="sources"><div class="eyebrow">Джерела</div><h2>На чому побудовано урок</h2><ul><li>КТП 11 класу: урок №2 — «Топографічна карта: проєкція, розграфлення і номенклатура»; §2; рекомендовано Google Earth.</li><li><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Офіційний електронний підручник ІМЗО</a>.</li><li><a href="https://www.youtube.com/watch?v=H6ihQGAMnPg" target="_blank" rel="noopener">Всеукраїнська школа онлайн: «Топографічна карта: проекція, географічні і прямокутні координати»</a>.</li><li><a href="https://www.youtube.com/watch?v=L3utR_tMFec" target="_blank" rel="noopener">Pi-stacja UA: «Використання топографічних карт #7»</a>.</li><li><a href="https://earth.google.com/web/" target="_blank" rel="noopener">Google Earth</a> та <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> для роботи з реальними геоданими.</li></ul></section>
+</main>
+<footer><div class="wrap"><b>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</b><br><span class="tiny">11 клас • Географія • 2026/2027 навчальний рік</span></div></footer>
+<script>
+(() => {
+  "use strict";
+  const $ = (s, root=document) => root.querySelector(s);
+  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  $$("#hypothesisChoices .choice").forEach(btn => btn.addEventListener("click", () => { $$("#hypothesisChoices .choice").forEach(x => x.classList.remove("active")); btn.classList.add("active"); const out = $("#hypothesisFeedback"); const msg = { yes:"Зафіксовано. Наприкінці перевіримо, чи код справді дає всю потрібну інформацію.", partly:"Зафіксовано. Це сильна гіпотеза: перевіримо роль масштабу й межі висновку.", no:"Зафіксовано. Спробуємо перевірити, чи може код працювати як адреса без назви міста." }; out.textContent = msg[btn.dataset.h]; }));
+  $$(".warm").forEach(btn => btn.addEventListener("click", () => { $$(".warm").forEach(x => x.classList.remove("active")); btn.classList.add("active"); $("#warmFeedback").textContent = btn.dataset.answer === "nomen" ? "Так. Номенклатура — системна «адреса» аркуша, що пов’язана з його положенням і масштабом." : "Це може допомагати читати карту, але не є глобальною системою адресації аркушів."; }));
+  $$("#evidenceCards input").forEach(inp => inp.addEventListener("change", () => { inp.closest(".evidence-card").classList.toggle("selected", inp.checked); }));
+  $("#checkEvidence").addEventListener("click", () => { const vals = $$("#evidenceCards input:checked").map(x=>x.value).sort().join(""); $("#evidenceFeedback").textContent = vals === "BC" ? "Сильний добір: B показує систему розграфлення, C — реальний аркуш. A пояснює проєкцію, але не доводить номенклатуру; D нерелевантний." : "Перегляньте критерій: потрібен доказ структури коду та доказ того, як виглядає конкретний аркуш. Не все візуально цікаве є релевантним доказом."; });
+  const levelText = { base:"Критерій: М — широтний пояс; 36 — номер колони. Обидва елементи разом задають базову трапецію.", mid:"Алгоритм: 1) визначити ряд від північної межі 52° вниз кроком 20′; 2) стовпець від 30° на схід кроком 30′; 3) номер = (ряд−1)×12 + стовпець.", high:"Сильна відповідь має назвати хоча б одне обмеження: код не повідомляє дату знімання, актуальність об’єктів, стан інфраструктури чи повний зміст карти." };
+  $$(".levelbtn").forEach(btn => btn.addEventListener("click", () => { btn.parentElement.querySelector(".levelout").textContent = levelText[btn.dataset.level]; }));
+  const grid = $("#sheetGrid");
+  for(let i=1;i<=144;i++){ const b=document.createElement("button"); b.type="button"; b.className="sheetcell"; b.textContent=i; b.dataset.n=i; b.setAttribute("aria-label","Аркуш "+i); b.addEventListener("click",()=>{ $$(".sheetcell",grid).forEach(x=>x.classList.remove("pick")); b.classList.add("pick"); $("#sheetFeedback").textContent = i===50 ? "Правильно: 50°30′ потрапляє у 5-й ряд від півночі, 30°45′ — у 2-й стовпець від заходу. (5−1)×12+2 = 50 → М‑36‑50." : "Не цей аркуш. Рахуйте ряд зверху вниз, а стовпець — зліва направо. Кроки: 20′ за широтою і 30′ за довготою."; }); grid.appendChild(b); }
+  $$(".duel").forEach(btn => btn.addEventListener("click",()=>{ const m={ "1":"Хибне: літера М задає лише широтний пояс; колон багато. Потрібна повна пара, наприклад М‑36.", "2":"Хибне: 1:25 000 — більший масштаб, ніж 1:1 000 000, і зазвичай показує більше деталей.", "3":"Правильне: «В» позначає одну з чотирьох частин аркуша 1:100 000, тобто аркуш масштабу 1:50 000." }; $("#duelFeedback").textContent=m[btn.dataset.duel]; }));
+  $("#checkCer").addEventListener("click",()=>{ const vals=[$("#cerClaim").value,$("#cerEvidence").value,$("#cerReason").value].map(x=>x.trim()); const lengths=vals.map(x=>x.length); $("#cerFeedback").textContent = lengths.every(n=>n>=25) ? "CER структурно повний. Перевірте якість: доказ має бути конкретним (наприклад М‑36, 4°×6°, 144 аркуші), а пояснення — показувати зв’язок і межу висновку." : "Заповніть усі три частини змістовно. Орієнтир: щонайменше одне повне речення в кожній частині."; });
+  function validFullName(value){ const parts=value.trim().replace(/\s+/g," ").split(" "); return parts.length>=2 && parts.every(p=>/^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(p)); }
+  let studentName="", studentClass="";
+  $("#startQuiz").addEventListener("click",()=>{ const n=$("#fullName").value, c=$("#studentClass").value; if(!validFullName(n)||!c){ $("#gateError").textContent="Введіть ім’я, прізвище та оберіть клас."; return; } studentName=n.trim().replace(/\s+/g," "); studentClass=c; $("#identityGate").hidden=true; $("#quiz").hidden=false; $("#gateError").textContent=""; $("#quiz").scrollIntoView({behavior:"smooth",block:"start"}); });
+  function radio(name){ return ($(`input[name="${name}"]:checked`)||{}).value||""; }
+  function exactChecks(name, expected){ const got=$$(`input[name="${name}"]:checked`).map(x=>x.value).sort(); const exp=[...expected].sort(); return got.length===exp.length && got.every((v,i)=>v===exp[i]); }
+  $("#quiz").addEventListener("submit",(e)=>{ e.preventDefault(); let score=0; if(radio("q1")==="b") score++; if(radio("q2")==="b") score++; if(radio("q3")==="a") score++; if(radio("q4")==="b") score++; if(exactChecks("q5",["belt","column","subdivision"])) score++; if(exactChecks("q6",["fresh","forecast","state"])) score++; const matches={m1:"a",m2:"b",m3:"c"}; const matchOK=$$("[data-match]").every(s=>s.value===matches[s.dataset.match]); if(matchOK) score++; if(radio("q8")==="a") score++; if(radio("q9")==="a") score++; if(radio("q10")==="b") score++; const pct=score*10; $("#scoreText").textContent=`${score}/10`; $("#percentText").textContent=`${pct}%`; $("#resultName").textContent=studentName; $("#resultClass").textContent=studentClass; $("#dateText").textContent=new Date().toLocaleString("uk-UA"); $("#levelComment").textContent = score<=4 ? "Рівень: варто повторити §2 і ще раз пройти алгоритм номенклатури." : score<=7 ? "Рівень: достатньо. Повторіть переходи між масштабами та межі висновку." : score<=9 ? "Рівень: добре. Ви впевнено працюєте з логікою розграфлення." : "Рівень: відмінно. Усі 10 завдань виконано правильно."; $("#resultCard").hidden=false; $("#resultCard").scrollIntoView({behavior:"smooth",block:"start"}); });
+  $("#retryQuiz").addEventListener("click",()=>{ if(!confirm("Пройти тест ще раз? ПІБ і клас буде збережено, відповіді очищено.")) return; $("#quiz").reset(); $("#resultCard").hidden=true; $("#quiz").scrollIntoView({behavior:"smooth",block:"start"}); });
+})();
+</script>
+</body>
+</html>
