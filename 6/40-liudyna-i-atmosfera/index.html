@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Інтерактивний урок географії 6 класу: Людина і атмосфера. Парниковий ефект, зміна клімату, сонячна й вітрова енергія, доказові завдання, CER і тест.">
+<title>Урок 40 — Людина і атмосфера</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">ГЕОГРАФІЯ • 6 КЛАС • УРОК 40 • §35 • ГР1</div>
+      <h1>Людина і атмосфера</h1>
+      <p class="lead">Чи можемо ми користуватися енергією, вирощувати їжу й розвивати міста так, щоб менше змінювати атмосферу?</p>
+      <div class="chips"><span>🌍 клімат</span><span>🌱 парниковий ефект</span><span>☀️ сонячна енергія</span><span>🌬️ вітер</span></div>
+    </div>
+    <figure class="hero-photo"><img src="assets/earth-nasa.jpg" alt="Земля з космосу"><figcaption>Земля з космосу: атмосфера — тонка оболонка, від якої залежить життя.</figcaption></figure>
+  </div>
+</header>
+<nav class="jump wrap" aria-label="Навігація уроку">
+<a href="#detective">1. Детектив</a><a href="#greenhouse">2. Парниковий ефект</a><a href="#energy">3. Енергія</a><a href="#data">4. Дані</a><a href="#theory">5. Теорія</a><a href="#cer">6. CER</a><a href="#test">7. Тест</a>
+</nav>
+<main class="wrap">
+<section class="card intro" id="detective">
+  <div class="section-tag">ДІЯЛЬНІСТЬ 1</div><h2>Атмосферний детектив: що тут робить людина?</h2>
+  <p>Спочатку не читайте теорію. Подивіться на три реальні зображення й визначте, <b>що є спостереженням</b>, а що — вже поясненням.</p>
+  <div class="photo-grid">
+    <figure><img src="assets/blue-marble.jpg" alt="Земля на знімку з космосу"><figcaption>Глобальний масштаб: атмосфера спільна для всієї планети.</figcaption></figure>
+    <figure><img src="assets/europe-satellite.jpg" alt="Супутниковий знімок Європи"><figcaption>Супутники дозволяють стежити за хмарами, поверхнею та великими атмосферними процесами.</figcaption></figure>
+    <figure><img src="assets/wildfire-satellite.jpg" alt="Супутниковий знімок диму від пожежі"><figcaption>Дим і аерозолі можуть переноситися повітряними потоками далеко від джерела.</figcaption></figure>
+  </div>
+  <div class="claim-lab">
+    <p><b>Твердження:</b> «Якщо на супутниковому знімку видно дим, це доводить глобальне потепління».</p>
+    <div class="choice-row" data-answer="no"><button data-v="yes">Так, доводить</button><button data-v="no">Ні, це лише локальне спостереження</button></div>
+    <p class="feedback"></p>
+  </div>
+</section>
+
+<section class="card" id="greenhouse">
+  <div class="section-tag">ДІЯЛЬНІСТЬ 2</div><h2>Парниковий ефект: корисний механізм чи проблема?</h2>
+  <div class="two">
+    <img class="diagram" src="assets/greenhouse-balance.svg" alt="Схема енергетичного балансу Землі">
+    <div>
+      <p>Перетягніть повзунок. Це <b>навчальна модель</b>, а не прогноз температури.</p>
+      <label class="range-label">Додаткові парникові гази <input id="ghg" type="range" min="0" max="100" value="35"><output id="ghgOut">35</output>%</label>
+      <div class="meter"><span id="heatBar"></span></div>
+      <p id="heatText" class="result"></p>
+      <div class="mini-task"><b>Пастка:</b> природний парниковий ефект треба «прибрати повністю»? <button class="reveal" data-target="trap1">Перевірити</button><p id="trap1" hidden>Ні. Природний парниковий ефект робить Землю значно теплішою й придатнішою для життя. Проблема — посилення цього ефекту через додаткові викиди парникових газів.</p></div>
+    </div>
+  </div>
+  <div class="source-strip"><a href="https://science.nasa.gov/climate-change/faq/what-is-the-greenhouse-effect/" target="_blank" rel="noopener">NASA: як працює парниковий ефект ↗</a><a href="https://science.nasa.gov/resource/the-greenhouse-effect-simplified/" target="_blank" rel="noopener">🎬 Коротке відео NASA/JPL (анімація) ↗</a></div>
+</section>
+
+<section class="card" id="energy">
+  <div class="section-tag">ДІЯЛЬНІСТЬ 3</div><h2>Енергетичний конструктор громади</h2>
+  <p>Розподіліть 100 умовних одиниць виробництва електроенергії. Мета: зменшити модельний вуглецевий слід, але не покладатися на одне джерело. <b>Бали тут відносні й навчальні.</b></p>
+  <div class="energy-grid">
+    <label>Вугілля <input class="mix" id="coal" type="range" min="0" max="100" value="25"><output>25</output></label>
+    <label>Газ <input class="mix" id="gas" type="range" min="0" max="100" value="25"><output>25</output></label>
+    <label>Сонце <input class="mix" id="solar" type="range" min="0" max="100" value="25"><output>25</output></label>
+    <label>Вітер <input class="mix" id="wind" type="range" min="0" max="100" value="25"><output>25</output></label>
+  </div>
+  <div class="dash"><div><span>Сума</span><b id="sumMix">100%</b></div><div><span>Модельний слід</span><b id="footprint">—</b></div><div><span>Різноманітність</span><b id="diversity">—</b></div></div>
+  <p id="mixAdvice" class="result"></p>
+  <div class="mapbox"><div><h3>Жива карта вітру</h3><p>Чи однаково доцільно ставити вітротурбіни будь-де? Подивіться на просторові відмінності швидкості вітру.</p></div><iframe title="Карта вітру Windy" src="https://embed.windy.com/embed2.html?lat=49.0&lon=31.0&detailLat=49.0&detailLon=31.0&width=650&height=420&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1" loading="lazy"></iframe></div>
+</section>
+
+<section class="card" id="data">
+  <div class="section-tag">ДІЯЛЬНІСТЬ 4</div><h2>Не «віримо на слово»: читаємо дані</h2>
+  <p>Copernicus повідомив для 2025 року глобальну концентрацію CO₂ близько <b>425,6 ppm</b>. Візьмемо для порівняння 2019 рік — <b>410,5 ppm</b>. Обчисліть зміну.</p>
+  <div class="calc"><label>Ваш результат <input id="co2Answer" type="number" step="0.1" placeholder="ppm"></label><button id="checkCo2">Перевірити</button><p id="co2Feedback"></p></div>
+  <div class="evidence-sort">
+    <h3>Що з цього є доказом, а що — висновком?</h3>
+    <div class="sort-grid">
+      <button class="evidence" data-kind="data">425,6 ppm CO₂ у 2025 році</button>
+      <button class="evidence" data-kind="claim">Людська діяльність посилює парниковий ефект</button>
+      <button class="evidence" data-kind="mechanism">Спалювання викопного палива додає CO₂ в атмосферу</button>
+      <button class="evidence" data-kind="data">Супутники вимірюють склад атмосфери</button>
+    </div><p id="sortResult">Натискайте картки: класифікація з’явиться тут.</p>
+  </div>
+  <div class="source-strip"><a href="https://climate.copernicus.eu/" target="_blank" rel="noopener">Copernicus Climate Change Service ↗</a><a href="https://climate.nasa.gov/" target="_blank" rel="noopener">NASA Climate ↗</a></div>
+</section>
+
+<section class="card" id="agri">
+  <div class="section-tag">ДІЯЛЬНІСТЬ 5 • ДОСЛІДЖЕННЯ З КТП</div><h2>Теплиця, сонце й вітер: рішення для місцевості</h2>
+  <div class="scenario">
+    <p><b>Умова:</b> господарство хоче продовжити сезон вирощування овочів у закритому ґрунті й частково забезпечити себе енергією. Виберіть найбільш доказове рішення.</p>
+    <label><input type="radio" name="farm" value="a"> Будувати лише теплицю: вона автоматично зменшить глобальні викиди.</label>
+    <label><input type="radio" name="farm" value="b"> Спочатку оцінити сонячний ресурс, вітер, потребу в теплі та електриці; після цього поєднати утеплення, керування теплом і доречні відновлювані джерела.</label>
+    <label><input type="radio" name="farm" value="c"> Поставити вітротурбіну, не вимірюючи вітер.</label>
+    <button id="farmCheck">Перевірити рішення</button><p id="farmFeedback"></p>
+  </div>
+</section>
+
+<section class="card theory" id="theory">
+  <div class="section-tag">ТЕОРІЯ — ПІСЛЯ ДОСЛІДЖЕННЯ</div><h2>Що треба зафіксувати</h2>
+  <div class="theory-grid">
+    <article><h3>1. Атмосфера реагує</h3><p>Люди змінюють склад повітря викидами газів і аерозолів, а землекористування впливає на обмін енергією, водою та вуглецем.</p></article>
+    <article><h3>2. Парниковий ефект природний</h3><p>Він утримує частину тепла біля поверхні. Додаткові парникові гази посилюють утримання тепла.</p></article>
+    <article><h3>3. Погода ≠ клімат</h3><p>Окремий холодний день не заперечує довготривалу зміну клімату. Для кліматичних висновків потрібні довгі ряди даних.</p></article>
+    <article><h3>4. Рішення залежать від місця</h3><p>Сонячна й вітрова енергетика потребують оцінки ресурсу, мережі, площі, екологічних обмежень і способів балансування.</p></article>
+  </div>
+</section>
+
+<section class="card cer" id="cer">
+  <div class="section-tag">ПІДСУМОК CER</div><h2>Чи може громада одночасно зменшувати вплив на клімат і підвищувати енергетичну стійкість?</h2>
+  <label><b>C — Claim / твердження</b><textarea id="cerC" placeholder="Сформулюйте коротку відповідь..."></textarea></label>
+  <label><b>E — Evidence / докази</b><textarea id="cerE" placeholder="Наведіть щонайменше два докази з уроку..."></textarea></label>
+  <label><b>R — Reasoning / міркування</b><textarea id="cerR" placeholder="Поясніть, як докази підтримують твердження..."></textarea></label>
+  <button id="cerCheck">Перевірити структуру CER</button><p id="cerFeedback"></p>
+</section>
+
+<section class="card homework">
+  <div class="section-tag">ДОМАШНЄ ЗАВДАННЯ</div><h2>§35 + мініаудит енергії</h2>
+  <p>Опрацюйте §35. Оберіть один об’єкт удома або в школі, який споживає енергію. Запишіть: <b>потреба → джерело енергії → можливий спосіб зменшити витрати → доказ, чому це працюватиме</b>.</p>
+  <a class="biglink" href="https://lms.e-school.net.ua/" target="_blank" rel="noopener">📘 Електронний підручник / ВШО ↗</a>
+</section>
+
+<section class="card test" id="test">
+  <div class="section-tag">КОНТРОЛЬ • 10 БАЛІВ</div><h2>Фінальний тест</h2>
+  <p>Тест відкриється лише після заповнення даних учня.</p>
+  <div class="identity" id="identity"><label>Прізвище<input id="surname" autocomplete="family-name"></label><label>Ім’я<input id="name" autocomplete="given-name"></label><label>Клас<input id="klass" placeholder="6-А"></label><button id="unlock">Відкрити тест</button><p id="gateMsg"></p></div>
+  <form id="quiz" hidden></form>
+  <div id="scoreBox" class="score" hidden></div>
+</section>
+</main>
+<footer><div class="wrap"><b>Автор: Скринченко К.А.</b><span>Василівський ліцей «Сузір’я»</span><a href="../">← Усі уроки 6 класу</a></div></footer>
+<script src="script.js"></script>
+</body></html>
