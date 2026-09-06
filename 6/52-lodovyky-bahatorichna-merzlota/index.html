@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="Скринченко К.А., Василівський ліцей «Сузір’я»">
+  <meta name="description" content="Інтерактивний урок географії для 6 класу: льодовики та багаторічна мерзлота">
+  <title>Урок 52 — Льодовики. Багаторічна мерзлота</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">ГЕОГРАФІЯ • 6 КЛАС • УРОК 52</div>
+      <h1>Льодовики.<br><span>Багаторічна мерзлота</span></h1>
+      <p class="lead">Не починаємо з визначень. Спершу з’ясуємо, <b>де лід справді є частиною суходолу, як він рухається і чому мерзлий ґрунт — це не льодовик</b>.</p>
+      <div class="chips"><span>§45</span><span>ГР1</span><span>дослідження + проєкт</span></div>
+    </div>
+    <div class="hero-card">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia26/pia26117/PIA26117.jpg?crop=faces%2Cfocalpoint&fit=clip&h=960&w=1440" alt="Льодовик Якобсгавн у Гренландії, супутникове зображення NASA/USGS" loading="eager">
+      <div class="caption">Якобсгавн, Гренландія • Landsat • NASA/USGS</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card hook">
+    <div class="step">01</div>
+    <div>
+      <h2>Знайдіть помилку</h2>
+      <p>Перед вами чотири твердження. Позначте те, яке <b>не можна</b> вважати правильним без уточнення.</p>
+      <div class="choice-grid" id="warmup">
+        <button data-ok="0">А. Льодовик утворюється на суходолі.</button>
+        <button data-ok="1">Б. Будь-який замерзлий ґрунт — багаторічна мерзлота.</button>
+        <button data-ok="0">В. Льодовик може повільно рухатися під дією сили тяжіння.</button>
+        <button data-ok="0">Г. Верхній шар ґрунту над мерзлотою може відтавати влітку.</button>
+      </div>
+      <div class="feedback" id="warmupFeedback">Оберіть твердження й аргументуйте подумки.</div>
+    </div>
+  </section>
+
+  <section class="section-title"><span>ДІЯЛЬНІСТЬ 1</span><h2>Лабораторія льодовика: коли сніг стає «річкою льоду»?</h2></section>
+  <section class="grid-2">
+    <div class="card">
+      <h3>Баланс маси</h3>
+      <p>Змініть накопичення снігу й танення. Модель показує, чи льодовик росте, стабільний або втрачає масу.</p>
+      <label>Накопичення снігу <b><span id="accVal">60</span></b>
+        <input id="acc" type="range" min="0" max="100" value="60">
+      </label>
+      <label>Танення й відколювання льоду <b><span id="ablVal">45</span></b>
+        <input id="abl" type="range" min="0" max="100" value="45">
+      </label>
+      <div class="balance" id="balanceBox"><strong>Баланс +15</strong><span>льодовик має тенденцію накопичувати масу</span></div>
+      <p class="micro">Модель спрощена: у природі баланс залежить від температури, опадів, висоти, сезону, океану та рельєфу.</p>
+    </div>
+    <div class="card visual-card">
+      <img src="assets/glacier-anatomy.svg" alt="Схема будови льодовика: зона накопичення, лінія рівноваги, зона танення">
+      <div class="prompt">Чому навіть «твердий» лід може рухатися вниз схилом?</div>
+      <textarea id="glacierReason" placeholder="Сформулюйте пояснення через силу тяжіння та масу льоду..."></textarea>
+    </div>
+  </section>
+
+  <section class="section-title"><span>ДІЯЛЬНІСТЬ 2</span><h2>Карта кріосфери: знайдіть географічну закономірність</h2></section>
+  <section class="card map-card">
+    <div class="map-toolbar">
+      <button class="map-btn active" data-place="greenland">Гренландія</button>
+      <button class="map-btn" data-place="alaska">Аляска</button>
+      <button class="map-btn" data-place="himalaya">Гімалаї</button>
+      <button class="map-btn" data-place="antarctica">Антарктида</button>
+    </div>
+    <div id="map"></div>
+    <div class="evidence-row">
+      <div><b>Широта:</b> <span id="latEvidence">висока</span></div>
+      <div><b>Висота:</b> <span id="elevEvidence">різна</span></div>
+      <div><b>Очікування:</b> <span id="iceEvidence">льодовиковий щит + мерзлота</span></div>
+    </div>
+    <p class="task">Сформулюйте закономірність: чому льодовики трапляються не лише біля полюсів?</p>
+  </section>
+
+  <section class="section-title"><span>ДІЯЛЬНІСТЬ 3</span><h2>Мерзлота ≠ просто холодна земля</h2></section>
+  <section class="grid-2">
+    <div class="card">
+      <img class="real-photo" src="https://assets.science.nasa.gov/dynamicimage/assets/science/cds/kids/nasa-kids-science/earth/what-is-permafrost/permafrost1.jpg?crop=faces%2Cfocalpoint&fit=clip&h=539&w=900" alt="Арктична поверхня над багаторічною мерзлотою, NASA" loading="lazy">
+      <div class="caption">Арктичний ландшафт над мерзлотою • NASA/JPL-Caltech</div>
+      <h3>Симулятор активного шару</h3>
+      <label>Умовна літня температура поверхні: <b><span id="tempVal">6</span> °C</b>
+        <input id="temp" type="range" min="-4" max="18" value="6">
+      </label>
+      <div class="active-layer"><div id="activeFill"></div><span id="activeText">активний шар відтає приблизно на 0,8 м</span></div>
+    </div>
+    <div class="card visual-card">
+      <img src="assets/permafrost-profile.svg" alt="Схема активного шару і багаторічної мерзлоти">
+      <div class="mini-quiz">
+        <p><b>Умова:</b> ґрунт промерз узимку, але повністю відтанув наступного літа.</p>
+        <button id="seasonalBtn">Це багаторічна мерзлота</button>
+        <button id="notPermafrostBtn">Це сезонно мерзлий ґрунт</button>
+        <div class="feedback" id="permaFeedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-title"><span>ДОКАЗИ</span><h2>Супутники бачать зміни, яких не видно за один урок</h2></section>
+  <section class="photo-grid">
+    <figure class="photo-card">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia26/pia26117/PIA26117.jpg?crop=faces%2Cfocalpoint&fit=clip&h=960&w=1440" alt="Якобсгавн, Гренландія NASA/USGS" loading="lazy">
+      <figcaption><b>Якобсгавн, Гренландія.</b> NASA/USGS порівнювали положення краю льодовика за Landsat у 1985 і 2022 роках.</figcaption>
+    </figure>
+    <figure class="photo-card">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia26/pia26118/PIA26118.jpg?crop=faces%2Cfocalpoint&fit=clip&h=1100&w=1440" alt="Захаріае Істрем, Гренландія NASA/USGS" loading="lazy">
+      <figcaption><b>Zachariae Isstrom.</b> Ще один льодовик Гренландії, чий відступ простежено супутниковими даними.</figcaption>
+    </figure>
+    <figure class="photo-card">
+      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia01/pia01909/PIA01909.jpg?crop=faces%2Cfocalpoint&fit=clip&h=900&w=1400" alt="Озеро Тешекпук, Аляска, супутникове зображення ASTER NASA" loading="lazy">
+      <figcaption><b>Тешекпук, Аляска.</b> ASTER/Terra: високі широти й ландшафти мерзлоти видно з орбіти як систему водойм, ґрунтів і льоду.</figcaption>
+    </figure>
+  </section>
+  <section class="card evidence-task">
+    <h3>Доказове завдання</h3>
+    <p>Чому фраза «льодовики завжди були мінливими, отже сучасний відступ нічого не доводить» є слабким аргументом?</p>
+    <div class="three-cols">
+      <input id="ev1" placeholder="1. Які дані треба порівняти?">
+      <input id="ev2" placeholder="2. Який часовий масштаб потрібен?">
+      <input id="ev3" placeholder="3. Який висновок можна робити лише після даних?">
+    </div>
+  </section>
+
+  <section class="section-title"><span>КОРОТКЕ ВІДЕО</span><h2>Як тане льодовик?</h2></section>
+  <section class="card video-card">
+    <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/P-uzKJAFVuQ" title="How do glaciers melt? NASA explains" allowfullscreen loading="lazy"></iframe></div>
+    <div><h3>Після перегляду</h3><p>Назвіть <b>два різні механізми</b>, через які льодовик може втрачати лід: танення і відколювання (кальвінг). Чому для морських льодовиків важлива температура океанічної води?</p></div>
+  </section>
+
+  <section class="section-title"><span>ПРОЄКТ КТП</span><h2>Зробіть пам’ятку з безпечної поведінки</h2></section>
+  <section class="card safety-lab">
+    <div class="safety-controls">
+      <label>Оберіть ситуацію
+        <select id="hazard">
+          <option value="ice">льодостав / тонкий лід</option>
+          <option value="flood">повінь або катастрофічний паводок</option>
+          <option value="icejam">льодохід / крижаний затор</option>
+          <option value="storm">шторм на березі водойми</option>
+          <option value="tsunami">цунамі</option>
+          <option value="bog">рух болотистою місцевістю</option>
+        </select>
+      </label>
+      <button id="buildMemo">Сформувати чернетку пам’ятки</button>
+    </div>
+    <div id="memo" class="memo"></div>
+    <p class="micro">Завдання: не переписуйте чернетку дослівно. Перевірте її за правилами місцевих служб цивільного захисту та адаптуйте до конкретної ситуації.</p>
+  </section>
+
+  <section class="section-title theory"><span>ТЕОРІЯ ПІСЛЯ ДІЯЛЬНОСТІ</span><h2>Тепер упорядкуємо поняття</h2></section>
+  <section class="concept-grid">
+    <article class="concept"><b>Льодовик</b><p>Багаторічна маса льоду на суходолі, яка утворилась зі снігу й рухається під дією власної ваги.</p></article>
+    <article class="concept"><b>Гірський льодовик</b><p>Лід, обмежений гірським рельєфом; рухається долинами вниз.</p></article>
+    <article class="concept"><b>Покривний льодовик / льодовиковий щит</b><p>Величезна маса льоду, що вкриває великі площі суходолу й не підпорядковується формі окремої долини.</p></article>
+    <article class="concept"><b>Багаторічна мерзлота</b><p>Ґрунт або гірські породи з температурою ≤ 0 °C щонайменше два роки поспіль. Це не обов’язково суцільний лід.</p></article>
+    <article class="concept"><b>Активний шар</b><p>Верхній шар над мерзлотою, який сезонно відтає і знову промерзає.</p></article>
+    <article class="concept"><b>Кріосфера</b><p>Усі частини системи Землі, де вода перебуває у твердому стані: сніг, льодовики, морський лід, мерзлий ґрунт тощо.</p></article>
+  </section>
+
+  <section class="section-title"><span>CER</span><h2>Висновок як наукове твердження</h2></section>
+  <section class="card cer">
+    <p class="cer-q">Питання: <b>Чи достатньо одного дуже теплого літа, щоб назвати відталий ґрунт «зниклою багаторічною мерзлотою»?</b></p>
+    <label>C — твердження<textarea id="cerC" placeholder="Моя відповідь..."></textarea></label>
+    <label>E — доказ<textarea id="cerE" placeholder="Яке визначення / спостереження це підтверджує?"></textarea></label>
+    <label>R — міркування<textarea id="cerR" placeholder="Як доказ логічно підтримує твердження?"></textarea></label>
+  </section>
+
+  <section class="section-title"><span>ДОМАШНЄ</span><h2>§45 + мініпродукт</h2></section>
+  <section class="card homework">
+    <div><h3>1. Опрацюйте §45</h3><p>Електронний підручник: Запотоцький С. П. та ін., «Географія», 6 клас (2023).</p>
+      <a class="link-btn" href="https://pidruchnyk.com.ua/2627-geografiia-6-klas-zapototskyi.html" target="_blank" rel="noopener">Відкрити електронний підручник ↗</a></div>
+    <div><h3>2. Завершіть пам’ятку</h3><p>Оберіть одну небезпечну ситуацію з проєктного блоку, зробіть 1 сторінку: <b>небезпека → 4 правила → що робити після події → джерело</b>.</p></div>
+  </section>
+
+  <section class="section-title"><span>ТЕСТ • 10 БАЛІВ</span><h2>Перевірка розуміння</h2></section>
+  <section class="card test-lock" id="testLock">
+    <h3>Спочатку ідентифікуйте роботу</h3>
+    <div class="identity">
+      <input id="surname" placeholder="Прізвище">
+      <input id="name" placeholder="Ім’я">
+      <select id="klass"><option value="">Клас</option><option>6-А</option><option>6-Б</option><option>6-В</option><option>6-Г</option><option>6</option></select>
+      <button id="unlock">Відкрити тест</button>
+    </div>
+    <div class="feedback" id="lockFeedback"></div>
+  </section>
+
+  <form class="card quiz hidden" id="quiz">
+    <div id="quizQuestions"></div>
+    <button type="submit" class="submit">Завершити тест</button>
+    <div id="result" class="result"></div>
+  </form>
+</main>
+
+<footer><div class="wrap"><b>Скринченко К.А.</b> • Василівський ліцей «Сузір’я» • Географія, 6 клас</div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="script.js"></script>
+</body>
+</html>
