@@ -1,0 +1,85 @@
+>
+      <label class="option"><input type="radio" name="q4" value="c"> 6 550 065</label>
+      <label class="option"><input type="radio" name="q4" value="d"> 6 066 550</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>5. Оберіть УСІ правильні твердження про географічні координати.</legend>
+      <label class="option"><input type="checkbox" name="q5" value="angle"> Вони є кутовими величинами</label>
+      <label class="option"><input type="checkbox" name="q5" value="global"> Вони утворюють глобальну систему</label>
+      <label class="option"><input type="checkbox" name="q5" value="dms"> Можуть записуватися у градусах, мінутах і секундах</label>
+      <label class="option"><input type="checkbox" name="q5" value="meters"> Завжди записуються тільки в метрах</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>6. Оберіть УСІ чинники, що обмежують точність координат, знятих із паперової топокарти.</legend>
+      <label class="option"><input type="checkbox" name="q6" value="scale"> Масштаб карти</label>
+      <label class="option"><input type="checkbox" name="q6" value="measure"> Точність вимірювання на карті</label>
+      <label class="option"><input type="checkbox" name="q6" value="basis"> Точність геодезичної/картографічної основи</label>
+      <label class="option"><input type="checkbox" name="q6" value="font"> Назва шрифту підписів</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>7. Установіть відповідність.</legend>
+      <div class="matchrow"><span>Широта φ</span><select data-match="m1"><option value="">—</option><option value="a">Кутова відстань від екватора</option><option value="b">Відстань у площині від екватора</option><option value="c">Положення у зоні за ординатою</option></select></div>
+      <div class="matchrow"><span>X</span><select data-match="m2"><option value="">—</option><option value="a">Кутова відстань від екватора</option><option value="b">Відстань у площині від екватора</option><option value="c">Положення у зоні за ординатою</option></select></div>
+      <div class="matchrow"><span>Y</span><select data-match="m3"><option value="">—</option><option value="a">Кутова відстань від екватора</option><option value="b">Відстань у площині від екватора</option><option value="c">Положення у зоні за ординатою</option></select></div>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>8. Оберіть правильний порядок визначення X точки всередині 1‑км квадрата.</legend>
+      <label class="option"><input type="radio" name="q8" value="a"> Взяти нижню горизонтальну лінію → прочитати X → виміряти зміщення на північ → додати</label>
+      <label class="option"><input type="radio" name="q8" value="b"> Взяти праву вертикальну лінію → відняти довготу → помножити на масштаб</label>
+      <label class="option"><input type="radio" name="q8" value="c"> Спочатку визначити номенклатуру → поділити на 60 → отримати X</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>9. Учень записав координату з карти 1:50 000 «X = 6 065 550,0000 м» і заявив точність до 0,1 мм. Чого бракує для такого висновку?</legend>
+      <label class="option"><input type="radio" name="q9" value="a"> Оцінки реальної точності карти, масштабу й способу вимірювання</label>
+      <label class="option"><input type="radio" name="q9" value="b"> Назви області</label>
+      <label class="option"><input type="radio" name="q9" value="c"> Кольору горизонталей</label>
+      <label class="option"><input type="radio" name="q9" value="d"> Номера параграфа</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>10. Який висновок найкраще пояснює, чому одна точка може мати і φ/λ, і X/Y?</legend>
+      <label class="option"><input type="radio" name="q10" value="a"> Бо це випадкові дублікати координат</label>
+      <label class="option"><input type="radio" name="q10" value="b"> Географічні координати описують положення кутами на Землі, а X/Y — положення в площині конкретної проєкції; обидві системи можуть описувати ту саму точку</label>
+      <label class="option"><input type="radio" name="q10" value="c"> Бо X завжди дорівнює широті, а Y — довготі</label>
+      <label class="option"><input type="radio" name="q10" value="d"> Бо масштаб автоматично створює нову точку</label>
+    </fieldset></div>
+
+    <button type="submit" class="submit">Завершити тест</button>
+  </form>
+
+  <div id="resultCard" class="result" hidden>
+    <div class="eyebrow">Картка результату</div>
+    <div class="score" id="scoreText">0/10</div>
+    <p><b id="resultName"></b> • <span id="resultClass"></span></p>
+    <p><b>Тема:</b> Географічні та прямокутні координати на топографічній карті</p>
+    <p><b>Відсоток:</b> <span id="percentText"></span></p>
+    <p><b>Дата і час:</b> <span id="dateText"></span></p>
+    <p id="levelComment"></p>
+    <div class="good"><b>Зробіть скриншот цієї картки та надішліть учителю.</b></div>
+    <button id="retryQuiz" class="no-print" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Пройти ще раз</button>
+    <button type="button" onclick="window.print()" class="no-print" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Друк</button>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="eyebrow">Джерела</div>
+  <h2>Джерела й картографічні матеріали</h2>
+  <ul>
+    <li>КТП 11 класу: урок №3 «Географічні та прямокутні координати на топографічній карті», §2, Google Earth.</li>
+    <li><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Гільберг Т. Г., Савчук І. Г., Совенко В. В. Географія. 11 клас — офіційний PDF ІМЗО.</a></li>
+    <li><a href="https://lms.e-school.net.ua/courses/course-v1%3AUIED%2BGeography-11th-grade%2B2020/course/" target="_blank" rel="noopener">Всеукраїнська школа онлайн, курс «Географія. 11 клас».</a></li>
+    <li><a href="https://www.youtube.com/watch?v=H6ihQGAMnPg" target="_blank" rel="noopener">ВШО: «Топографічна карта: проекція, географічні і прямокутні координати».</a></li>
+    <li><a href="https://www.youtube.com/watch?v=dptmz-QpbcQ" target="_blank" rel="noopener">«Географія ПРОСТО»: топографічна карта, розграфлення, географічні та прямокутні координати.</a></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Nsdi.gov.ua-map50k.png" target="_blank" rel="noopener">Основна державна топографічна карта України 1:50 000 — Wikimedia Commons / CC BY-SA 4.0.</a></li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:M-35-69-B-c,d_(compressed).png" target="_blank" rel="noopener">Аркуш топографічної карти ГШ ЗСУ 1:25 000 — Wikimedia Commons / public domain в Україні.</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</b><br>
+    <span class="tiny">11 клас • Географія • 2026/2027 навчальний рік</span>
+  </div>
+</footer>
+
