@@ -1,0 +1,107 @@
+td>3</td><td>Виміряти зміщення на північ</td><td>Виміряти зміщення на схід</td><td>Перевести відстань за масштабом у метри</td></tr>
+        <tr><td>4</td><td>Додати зміщення</td><td>Додати зміщення</td><td>Перевірити, що додаток < 1000 м для 1‑км квадрата</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Google Earth: третя форма запису</h3>
+  <div class="grid2">
+    <div class="card">
+      <p>Цифрові глобуси часто показують координати у <b>десяткових градусах</b>, наприклад 50.4501, 30.5234. Це ті самі географічні координати, лише інший формат запису.</p>
+      <a class="btnlink" href="https://earth.google.com/web/search/50.4501,30.5234" target="_blank" rel="noopener">Відкрити приклад у Google Earth</a>
+    </div>
+    <div class="warn"><b>Не плутати систему й формат.</b> DMS (градуси-мінути-секунди) та десяткові градуси — це два формати географічних координат. X/Y у метрах — уже інша, плоска координатна система.</div>
+  </div>
+</section>
+
+<section id="duel">
+  <span class="time">30–33 хв</span>
+  <div class="eyebrow">Логічний двобій</div>
+  <h2>Виявляємо типові помилки</h2>
+  <div class="myth"><div><b>1.</b> «X на топокарті визначають за вертикальними лініями, бо вісь X горизонтальна в шкільній математиці».</div><button class="choice duel" data-d="1">Перевірити</button></div>
+  <div class="myth"><div><b>2.</b> «Y = 500 км на осьовому меридіані — умовний зсув, який допомагає уникати від’ємних ординат».</div><button class="choice duel" data-d="2">Перевірити</button></div>
+  <div class="myth"><div><b>3.</b> «50°30′ пн. ш. — це прямокутна координата, бо містить число».</div><button class="choice duel" data-d="3">Перевірити</button></div>
+  <div class="myth"><div><b>4.</b> «Чим більший масштаб карти, тим потенційно точніше можна зняти положення точки».</div><button class="choice duel" data-d="4">Перевірити</button></div>
+  <div class="feedback" id="duelFeedback" aria-live="polite"></div>
+</section>
+
+<section id="summary">
+  <span class="time">33–35 хв</span>
+  <div class="eyebrow">Підсумок • CER</div>
+  <h2>Чому одна точка може мати дві правильні «адреси»?</h2>
+  <div class="cer">
+    <label class="card"><b>Твердження</b><textarea id="cerC" placeholder="Моя відповідь..."></textarea></label>
+    <label class="card"><b>Доказ</b><textarea id="cerE" placeholder="Наведіть приклад φ/λ або X/Y..."></textarea></label>
+    <label class="card"><b>Пояснення + межа</b><textarea id="cerR" placeholder="Поясніть різницю систем і від чого залежить точність..."></textarea></label>
+  </div>
+  <button id="checkCer" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Перевірити повноту CER</button>
+  <div class="feedback" id="cerFeedback" aria-live="polite"></div>
+</section>
+
+<section id="homework">
+  <div class="eyebrow">Домашнє завдання • поза 35 хв</div>
+  <h2>§ 2 + Google Earth + тест</h2>
+  <div class="home-grid">
+    <article class="card">
+      <h3>1. Підручник</h3>
+      <p>Гільберг Т. Г., Савчук І. Г., Совенко В. В. «Географія (рівень стандарту). 11 клас».</p>
+      <a class="btnlink" href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Офіційний PDF ІМЗО</a>
+      <p><b>Опрацювати § 2</b> і запитання після параграфа.</p>
+    </article>
+    <article class="card">
+      <h3>2. Обов’язкове відео</h3>
+      <p>«Географія ПРОСТО»: повторити фрагмент від 04:38 про географічні та прямокутні координати.</p>
+      <a class="btnlink alt" href="https://www.youtube.com/watch?v=dptmz-QpbcQ&t=278s" target="_blank" rel="noopener">Дивитися фрагмент</a>
+    </article>
+    <article class="card">
+      <h3>3. Google Earth</h3>
+      <p>Знайдіть три знайомі місця. Запишіть їхні координати у десяткових градусах. Одну пару перетворіть приблизно у градуси й мінути.</p>
+      <a class="btnlink" href="https://earth.google.com/web/" target="_blank" rel="noopener">Відкрити Google Earth</a>
+    </article>
+    <article class="card">
+      <h3>4. Рівень на вибір</h3>
+      <p><b>Базовий:</b> поясніть різницю між φ/λ та X/Y.</p>
+      <p><b>Достатній:</b> розв’яжіть приклад з квадратом 6508 і поясніть кожне додавання.</p>
+      <p><b>Високий:</b> CER: у якій ситуації прямокутні координати практичніші за географічні, і яке обмеження такого висновку?</p>
+    </article>
+  </div>
+</section>
+
+<section id="test">
+  <div class="eyebrow">Домашній тест • 10 балів</div>
+  <h2>Тест відкриється після ПІБ і класу</h2>
+  <div class="gate" id="identityGate">
+    <b>Шлюз учня</b>
+    <div class="gate-row">
+      <input id="fullName" autocomplete="name" placeholder="Ім’я та прізвище">
+      <select id="studentClass"><option value="">Оберіть клас</option><option>11-А</option><option>11-Б</option><option>11</option></select>
+      <button id="startQuiz" class="submit">Розпочати тест</button>
+    </div>
+    <div class="feedback" id="gateError" aria-live="polite"></div>
+  </div>
+
+  <form id="quiz" hidden>
+    <div class="q"><fieldset><legend>1. Які координати є географічними?</legend>
+      <label class="option"><input type="radio" name="q1" value="a"> X = 6 065 550; Y = 4 308 750</label>
+      <label class="option"><input type="radio" name="q1" value="b"> 50°27′15″ пн. ш.; 30°31′20″ сх. д.</label>
+      <label class="option"><input type="radio" name="q1" value="c"> М‑36‑50</label>
+      <label class="option"><input type="radio" name="q1" value="d"> 1:50 000</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>2. Координату X на топографічній карті визначають…</legend>
+      <label class="option"><input type="radio" name="q2" value="a"> за горизонтальними лініями кілометрової сітки та зміщенням точки на північ</label>
+      <label class="option"><input type="radio" name="q2" value="b"> лише за хвилинною рамкою</label>
+      <label class="option"><input type="radio" name="q2" value="c"> за вертикальними лініями без вимірювання</label>
+      <label class="option"><input type="radio" name="q2" value="d"> за номенклатурою аркуша</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>3. Для чого в системі Гаусса—Крюгера осьовому меридіану умовно надають Y = 500 000 м?</legend>
+      <label class="option"><input type="radio" name="q3" value="a"> Щоб Y завжди дорівнювала X</label>
+      <label class="option"><input type="radio" name="q3" value="b"> Щоб уникнути від’ємних ординат у межах зони</label>
+      <label class="option"><input type="radio" name="q3" value="c"> Щоб позначити висоту 500 м</label>
+      <label class="option"><input type="radio" name="q3" value="d"> Щоб змінити масштаб карти</label>
+    </fieldset></div>
+
+    <div class="q"><fieldset><legend>4. У квадраті 6508 точка лежить на 550 м північніше лінії X=6065 км. Яке X?</legend>
+      <label class="option"><input type="radio" name="q4" value="a"> 6 065 050</label>
+      <label class="option"><input type="radio" name="q4" value="b"> 6 065 550</label>
