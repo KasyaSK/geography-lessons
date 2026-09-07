@@ -1,0 +1,114 @@
+
+<header class="hero" id="start">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">
+        <span class="pill">11 клас</span><span class="pill">Урок 3</span>
+        <span class="pill">Розділ І • Топографія та картографія</span><span class="pill">§ 2</span>
+      </div>
+      <h1>Географічні та прямокутні координати на топографічній карті</h1>
+      <p class="lead">Одна точка може мати дві «адреси»: <b>50°27′ пн. ш., 30°31′ сх. д.</b> і водночас <b>X/Y у метрах</b>. Сьогодні з’ясуємо, чому обидві системи правильні, де кожна з них сильніша і як не переплутати осі.</p>
+    </div>
+    <aside class="coord-card">
+      <span class="eyebrow">Дві мови положення</span>
+      <div class="pair">
+        <div><strong>φ, λ</strong><span>градуси • мінути • секунди</span></div>
+        <div><strong>X, Y</strong><span>метри • кілометрова сітка</span></div>
+      </div>
+      <p class="tiny">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</p>
+    </aside>
+  </div>
+</header>
+
+<nav aria-label="Навігація уроком">
+  <div class="wrap navin">
+    <a href="#problem">Проблема</a><a href="#warmup">Розігрів</a><a href="#video1">Відео</a>
+    <a href="#evidence">Докази</a><a href="#mission">Місія</a><a href="#theory">Теорія</a>
+    <a href="#duel">Двобій</a><a href="#summary">CER</a><a href="#homework">Домашнє</a><a href="#test">Тест</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="problem">
+  <span class="time">0–3 хв</span>
+  <div class="eyebrow">Проблемне питання</div>
+  <h2>Дві пари чисел — одна точка. Як це можливо?</h2>
+  <div class="big-question">Рятувальник отримав координати <b>50°27′15″ пн. ш., 30°31′20″ сх. д.</b>, а топограф — <b>X = 5 590 000; Y = 4 323 000</b>. Чи можуть обидва вказувати на ту саму точку?</div>
+  <div class="choices" id="hypothesis">
+    <button class="choice" data-h="yes">Так: це різні системи</button>
+    <button class="choice" data-h="no">Ні: одна пара помилкова</button>
+    <button class="choice" data-h="maybe">Лише якщо масштаби однакові</button>
+  </div>
+  <div class="feedback" id="hypoFeedback" aria-live="polite"></div>
+</section>
+
+<section id="warmup">
+  <span class="time">3–7 хв</span>
+  <div class="eyebrow">Швидке рішення</div>
+  <h2>Які дані — до якої системи?</h2>
+  <p class="sub">Клацніть картку й визначте, чи вона належить до географічних координат, прямокутних координат або не є координатою.</p>
+  <div class="grid3" id="classifyGrid">
+    <button class="card choice classify" data-type="geo"><b>49°48′ пн. ш.</b><span>Кутова величина</span></button>
+    <button class="card choice classify" data-type="rect"><b>X = 6 065 550</b><span>Лінійна величина</span></button>
+    <button class="card choice classify" data-type="rect"><b>Y = 4 308 750</b><span>Лінійна величина</span></button>
+    <button class="card choice classify" data-type="geo"><b>24°02′ сх. д.</b><span>Кутова величина</span></button>
+    <button class="card choice classify" data-type="none"><b>М‑36‑50</b><span>Номенклатура аркуша</span></button>
+    <button class="card choice classify" data-type="none"><b>1:50 000</b><span>Масштаб</span></button>
+  </div>
+  <div class="feedback" id="classifyFeedback" aria-live="polite">Обирайте картки — система пояснюватиме їхню роль.</div>
+</section>
+
+<section id="video1">
+  <span class="time">7–9 хв</span>
+  <div class="eyebrow">Відео 1 • Всеукраїнська школа онлайн</div>
+  <h2>Від рамки до координати</h2>
+  <div class="grid2">
+    <div>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/H6ihQGAMnPg?start=275&end=455" title="ВШО — географічні та прямокутні координати на топографічній карті" allowfullscreen></iframe>
+      </div>
+      <p class="tiny">Фрагмент близько 3 хв: географічна рамка → хвилинні поділки → початок прямокутної сітки. <a href="https://www.youtube.com/watch?v=H6ihQGAMnPg" target="_blank" rel="noopener">Відкрити повне відео</a>.</p>
+    </div>
+    <div class="card">
+      <h3>До перегляду</h3>
+      <p>Чому на топокарті одночасно потрібні і градусні поділки рамки, і кілометрова сітка?</p>
+      <h3>Після перегляду</h3>
+      <p>Назвіть <b>одну перевагу</b> кожної системи координат.</p>
+      <div class="note"><b>Ключ:</b> географічні координати універсальні для всієї Землі; прямокутні зручні для точних вимірювань і розрахунків у межах зони.</div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <span class="time">9–14 хв</span>
+  <div class="eyebrow">Лабораторія доказів</div>
+  <h2>Реальні карти: де шукати координатну інформацію?</h2>
+
+  <div class="media-grid">
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/M-35-69-B-c%2Cd_%28compressed%29.png" alt="Український номенклатурний аркуш топографічної карти масштабу 1:25 000" loading="lazy">
+      <figcaption><b>Реальна українська топографічна карта 1:25 000.</b> Аркуш М‑35‑69‑Б‑в,г. На рамці й полі карти видно системи підписів, сітку, масштаб і картографічне оформлення. Джерело: Генеральний штаб ЗСУ / Wikimedia Commons, public domain в Україні.</figcaption>
+    </figure>
+    <div class="card">
+      <h3>Завдання: доберіть доказ</h3>
+      <p>Що найкраще підтвердить твердження <b>«прямокутні координати зручно визначати через кілометрову сітку»</b>?</p>
+      <div class="grid2" id="evidenceCards">
+        <label class="evidence-card"><input type="checkbox" value="grid"><b>Кілометрові лінії</b><span>Утворюють квадрати й мають числові підписи.</span></label>
+        <label class="evidence-card"><input type="checkbox" value="frame"><b>Хвилинна рамка</b><span>Потрібна насамперед для широти й довготи.</span></label>
+        <label class="evidence-card"><input type="checkbox" value="legend"><b>Легенда умовних знаків</b><span>Пояснює зміст об’єктів, а не X/Y.</span></label>
+        <label class="evidence-card"><input type="checkbox" value="photo"><b>Фото місцевості</b><span>Не дає координатної сітки.</span></label>
+      </div>
+      <button id="checkEvidence" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Перевірити</button>
+      <div id="evidenceFeedback" class="feedback" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Nsdi.gov.ua-map50k.png" alt="Основна державна топографічна карта України масштабу 1:50 000" loading="lazy">
+      <figcaption><b>Основна державна топографічна карта України 1:50 000.</b> Мозаїка аркушів показує, що точні координати й номенклатура працюють у великій системі, а не лише на одному листі. Джерело: Державна служба України з питань геодезії, картографії та кадастру / CC BY-SA 4.0.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Topographic_map_example.png" alt="Фрагмент топографічної карти USGS" loading="lazy">
+      <figcaption><b>Топографічний фрагмент USGS.</b> Інша картографічна традиція
