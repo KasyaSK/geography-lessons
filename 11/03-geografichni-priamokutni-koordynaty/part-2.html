@@ -1,0 +1,120 @@
+, але та сама логіка: координатна прив’язка + масштаб + топографічний зміст. Джерело: USGS / public domain.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="mission">
+  <span class="time">14–18 хв</span>
+  <div class="eyebrow">Різнорівнева місія</div>
+  <h2>Знайдіть координати точки А</h2>
+
+  <div class="coord-lab">
+    <h3>Місія 1. Географічні координати</h3>
+    <p>Навчальна схема імітує внутрішню та хвилинну рамки топографічного аркуша. Межі: захід <b>30°15′00″</b>, схід <b>30°20′00″</b>; південь <b>50°25′00″</b>, північ <b>50°30′00″</b>. Точка А лежить на 57% ширини від західної рамки та 39% висоти від північної.</p>
+    <div class="frame" aria-label="Навчальна схема топографічної рамки"><span class="pt a" title="Точка А"></span></div>
+    <div class="lab-grid">
+      <label>Широта, градуси<input id="latDeg" inputmode="numeric" placeholder="50"></label>
+      <label>Широта, мінути<input id="latMin" inputmode="numeric" placeholder="28"></label>
+      <label>Довгота, градуси<input id="lonDeg" inputmode="numeric" placeholder="30"></label>
+      <label>Довгота, мінути<input id="lonMin" inputmode="numeric" placeholder="17"></label>
+    </div>
+    <button id="checkGeo" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Перевірити наближено</button>
+    <div id="geoFeedback" class="feedback" aria-live="polite"></div>
+  </div>
+
+  <div class="coord-lab">
+    <h3>Місія 2. Прямокутні координати</h3>
+    <div class="grid2">
+      <div class="km-grid" aria-label="Навчальна кілометрова сітка">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <i class="mark" title="Точка М"></i>
+        <i class="axis-label x1">65</i><i class="axis-label x2">66</i>
+        <i class="axis-label y1">08</i><i class="axis-label y2">09</i>
+      </div>
+      <div class="card">
+        <p><b>Відомо:</b> точка М лежить у квадраті <b>6508</b>. Від південної лінії квадрата до точки — <b>550 м</b>, від західної — <b>750 м</b>.</p>
+        <p>Повні значення кілометрових ліній: <b>X = 6 065 км</b> і <b>Y = 4 308 км</b>.</p>
+        <label><b>Введіть X у метрах:</b><input id="rectX" inputmode="numeric" style="width:100%;min-height:44px;border:1px solid #bfd2d5;border-radius:11px;padding:.55rem;margin-top:6px" placeholder="6065550"></label>
+        <label><b>Введіть Y у метрах:</b><input id="rectY" inputmode="numeric" style="width:100%;min-height:44px;border:1px solid #bfd2d5;border-radius:11px;padding:.55rem;margin-top:6px" placeholder="4308750"></label>
+        <button id="checkRect" style="margin-top:12px;padding:.7rem .9rem;font-weight:900">Перевірити координати</button>
+        <div id="rectFeedback" class="feedback" aria-live="polite"></div>
+      </div>
+    </div>
+    <p class="tiny">Цей числовий приклад відповідає навчальному фрагменту з підручникової традиції: X = 6 065 550; Y = 4 308 750. Сітка вище — схематична, не геоприв’язана карта.</p>
+  </div>
+</section>
+
+<section id="video2">
+  <span class="time">18–20 хв</span>
+  <div class="eyebrow">Відео 2 • Географія ПРОСТО</div>
+  <h2>Алгоритм без плутанини X/Y</h2>
+  <div class="grid2">
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/dptmz-QpbcQ?start=278&end=525" title="Географія ПРОСТО — географічні та прямокутні координати" allowfullscreen></iframe>
+    </div>
+    <div class="card">
+      <p><b>Фокус:</b> приблизно 04:38–08:45 — географічні координати, хвилинна рамка, кілометрова сітка, X та Y.</p>
+      <p><a href="https://www.youtube.com/watch?v=dptmz-QpbcQ&t=278s" target="_blank" rel="noopener">Відкрити з потрібного фрагмента</a></p>
+      <div class="good">Мнемоніка: <b>X читаємо за горизонтальною лінією</b> — це відстань на північ від екватора; <b>Y — за вертикальною</b> — положення у зоні відносно осьового меридіана з умовним зсувом 500 км.</div>
+    </div>
+  </div>
+</section>
+
+<section id="theory">
+  <span class="time">20–30 хв</span>
+  <div class="eyebrow">Основне вивчення • 10 хв</div>
+  <h2>Дві координатні системи: що вони насправді вимірюють?</h2>
+
+  <div class="compare">
+    <article class="card">
+      <h3>Географічні координати</h3>
+      <p><b>Широта φ</b> — кутова відстань від екватора. <b>Довгота λ</b> — кутова відстань від початкового меридіана.</p>
+      <p>Одиниці: градуси (°), мінути (′), секунди (″) або десяткові градуси.</p>
+    </article>
+    <div class="vs">VS</div>
+    <article class="card">
+      <h3>Прямокутні координати</h3>
+      <p><b>X</b> і <b>Y</b> — лінійні координати у площині картографічної проєкції, зручні для вимірювань у метрах і кілометрах.</p>
+      <p>У системі Гаусса—Крюгера кожна 6‑градусна зона має власну плоску систему.</p>
+    </article>
+  </div>
+
+  <div class="grid3" style="margin-top:16px">
+    <article class="card">
+      <h3>1. Географічна рамка</h3>
+      <p>Внутрішня рамка топокарти проходить по паралелях і меридіанах. Хвилинна рамка ділить їх на кутові відрізки, за якими інтерполюють положення точки.</p>
+    </article>
+    <article class="card">
+      <h3>2. Кілометрова сітка</h3>
+      <p>Лінії прямокутної сітки проводять через фіксовані відстані. На карті 1:50 000 типовий крок між кілометровими лініями — 1 км.</p>
+    </article>
+    <article class="card">
+      <h3>3. Координата X</h3>
+      <p>Визначається за горизонтальними лініями сітки й показує відстань точки від екватора на північ у межах прийнятої проєкції.</p>
+    </article>
+    <article class="card">
+      <h3>4. Координата Y</h3>
+      <p>Визначається за вертикальними лініями. Щоб уникати від’ємних значень на захід від осьового меридіана, йому умовно надають Y = 500 000 м; у повному записі враховують номер зони.</p>
+    </article>
+    <article class="card">
+      <h3>5. Квадрат сітки</h3>
+      <p>Для швидкого орієнтування спочатку знаходять нижню горизонтальну та ліву вертикальну лінії квадрата, потім додають зміщення точки всередині нього.</p>
+    </article>
+    <article class="card">
+      <h3>6. Точність</h3>
+      <p>Точність не може бути кращою за точність самої карти, її масштабу, геодезичної основи та способу вимірювання.</p>
+    </article>
+  </div>
+
+  <h3>Алгоритм визначення прямокутних координат</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Крок</th><th>X</th><th>Y</th><th>Контроль помилки</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Знайти горизонтальну лінію нижче точки</td><td>Знайти вертикальну лінію ліворуч від точки</td><td>Не міняти місцями горизонталь/вертикаль</td></tr>
+        <tr><td>2</td><td>Прочитати її повне значення</td><td>Прочитати повне значення зони/ординати</td><td>Не втратити старші цифри</td></tr>
+        <tr><
