@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>Професії 8–11. Ринок праці без рожевих окулярів</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" aria-live="polite"></div>
+<script>
+const parts = ["part-1.html", "part-2.html", "part-3.html", "part-4.html", "part-5.html", "part-6.html", "part-7.html", "part-8.html", "part-9.html"];
+Promise.all(parts.map(p=>fetch(p).then(r=>{if(!r.ok) throw new Error(p); return r.text()})))
+  .then(html=>{document.getElementById('app').outerHTML=html.join('\n'); const s=document.createElement('script'); s.src='script.js'; document.body.appendChild(s);})
+  .catch(err=>{document.getElementById('app').innerHTML='<main style="padding:2rem;font-family:sans-serif"><h1>Не вдалося завантажити урок</h1><p>Оновіть сторінку. Технічний файл: '+err.message+'</p></main>';});
+</script>
+</body>
+</html>
