@@ -1,0 +1,117 @@
+name: Build self-contained NMT geography lesson
+
+on:
+  push:
+    paths:
+      - '.github/workflows/selfcontain-nmt.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Inline maps and images
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64, urllib.request, html as htmlmod
+
+          lesson = Path('nmt/01-geography-nmt-atlas/index.html')
+          s = lesson.read_text(encoding='utf-8')
+
+          def b64uri(data: bytes, mime: str):
+              return f'data:{mime};base64,' + base64.b64encode(data).decode('ascii')
+
+          def fetch(url: str):
+              req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 NMT-geography-lesson/1.0'})
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  return r.read(), r.headers.get_content_type()
+
+          def coord(lon, lat, x0, y0, w, h):
+              W,E,S,N = 21.5,40.7,44.1,52.7
+              x = x0 + (lon-W)/(E-W)*w
+              y = y0 + (N-lat)/(N-S)*h
+              return x,y
+
+          # Real Wikimedia map base preserving Ukraine's internationally recognized borders including Crimea.
+          uk_url = 'https://commons.wikimedia.org/wiki/Special:Redirect/file/Ukraine_%281991-2014%29_location_map.svg'
+          uk_bytes, _ = fetch(uk_url)
+          uk_inner = b64uri(uk_bytes, 'image/svg+xml')
+
+          x0,y0,w,h = 70,70,1060,610
+          grid = []
+          for lon in [24,28,32,36,40]:
+              x,_ = coord(lon,48,x0,y0,w,h)
+              grid.append(f'<line x1="{x:.1f}" y1="{y0}" x2="{x:.1f}" y2="{y0+h}" stroke="#2f6f78" stroke-width="1.4" stroke-dasharray="6 6" opacity=".62"/>')
+              grid.append(f'<text x="{x:.1f}" y="{y0+h+26}" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#244f59">{lon}° сх.д.</text>')
+          for lat in [46,48,50,52]:
+              _,y = coord(30,lat,x0,y0,w,h)
+              grid.append(f'<line x1="{x0}" y1="{y:.1f}" x2="{x0+w}" y2="{y:.1f}" stroke="#2f6f78" stroke-width="1.4" stroke-dasharray="6 6" opacity=".62"/>')
+              grid.append(f'<text x="{x0-12}" y="{y+6:.1f}" text-anchor="end" font-family="Arial,sans-serif" font-size="18" fill="#244f59">{lat}° пн.ш.</text>')
+
+          uk_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+          <rect width="1200" height="760" rx="24" fill="#f8fbf8"/>
+          <text x="70" y="38" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#284a54">Україна • координатна сітка</text>
+          <image href="{uk_inner}" x="{x0}" y="{y0}" width="{w}" height="{h}" preserveAspectRatio="none"/>
+          {''.join(grid)}
+          <rect x="70" y="708" width="1060" height="36" rx="12" fill="#fff4d6" stroke="#d8b65a"/>
+          <text x="600" y="733" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#5b4a18">Україна в міжнародно визнаних кордонах • АР Крим і м. Севастополь — Україна</text>
+          </svg>'''.encode('utf-8')
+          uk_data = b64uri(uk_svg, 'image/svg+xml')
+          s = s.replace('assets/ukraine_nmt_correct.svg', uk_data)
+
+          # Climate stations on the same real geographic base.
+          ax,ay = coord(24.03,49.84,x0,y0,w,h)
+          bx,by = coord(35.14,47.84,x0,y0,w,h)
+          station_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+          <rect width="1200" height="760" rx="24" fill="#f8fbf8"/>
+          <text x="70" y="38" font-family="Arial,sans-serif" font-size="26" font-weight="700" fill="#284a54">Положення кліматичних станцій A і B</text>
+          <image href="{uk_inner}" x="{x0}" y="{y0}" width="{w}" height="{h}" preserveAspectRatio="none"/>
+          <circle cx="{ax:.1f}" cy="{ay:.1f}" r="13" fill="#c86f57" stroke="white" stroke-width="4"/><text x="{ax+19:.1f}" y="{ay-15:.1f}" font-family="Arial,sans-serif" font-size="25" font-weight="800" fill="#7e3e30">A</text>
+          <circle cx="{bx:.1f}" cy="{by:.1f}" r="13" fill="#2f6f78" stroke="white" stroke-width="4"/><text x="{bx+19:.1f}" y="{by-15:.1f}" font-family="Arial,sans-serif" font-size="25" font-weight="800" fill="#244f59">B</text>
+          <rect x="70" y="708" width="1060" height="36" rx="12" fill="#edf7f8" stroke="#a8cbd2"/><text x="600" y="733" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#244f59">A — захід України • B — південний схід України</text>
+          </svg>'''.encode('utf-8')
+          station_data = b64uri(station_svg, 'image/svg+xml')
+          s = s.replace('assets/ukraine_climate_stations.svg', station_data)
+
+          # Inline all remaining local visual assets so GitHub Pages cannot lose paths.
+          for name in ['climate_A_v8.svg','climate_B_v8.svg','topo_nmt_v8.svg']:
+              p = lesson.parent / 'assets' / name
+              data = p.read_bytes()
+              s = s.replace('assets/' + name, b64uri(data, 'image/svg+xml'))
+
+          # Inline the two real Wikimedia thematic world maps.
+          remote_maps = {
+              'https://commons.wikimedia.org/wiki/Special:Redirect/file/Population_density%2C_World%2C_2026.svg': 'image/svg+xml',
+              'https://commons.wikimedia.org/wiki/Special:Redirect/file/GDP_per_capita_nominal_world_map_2026.svg': 'image/svg+xml',
+          }
+          for url,mime in remote_maps.items():
+              data,_ = fetch(url)
+              s = s.replace(url, b64uri(data, mime))
+
+          lesson.write_text(s, encoding='utf-8')
+          Path('nmt-geography.html').write_text(s, encoding='utf-8')
+          print('Built self-contained lesson:', len(s), 'characters')
+          assert 'assets/' not in s
+          assert 'commons.wikimedia.org/wiki/Special:Redirect/file/' not in s
+          PY
+
+      - name: Commit self-contained lesson
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nmt/01-geography-nmt-atlas/index.html nmt-geography.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Publish self-contained NMT geography lesson"
+            git push origin HEAD:main
+          fi
