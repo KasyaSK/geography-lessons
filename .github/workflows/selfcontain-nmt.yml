@@ -24,7 +24,7 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import base64, io, urllib.request, re
+          import base64, io, urllib.request, re, html
           from PIL import Image, ImageDraw, ImageFont
           import cairosvg
 
@@ -42,11 +42,14 @@ jobs:
               return 'data:image/png;base64,'+base64.b64encode(data).decode('ascii')
 
           def to_png(data, width=None, height=None):
-              # Many older assets in this repo are SVG wrappers around embedded WEBP.
-              # Decode that image directly instead of asking the browser to render nested SVG/data URIs.
-              m=re.search(br'data:image/(?:webp|png|jpeg);base64,([A-Za-z0-9+/=]+)',data)
+              # Older assets are SVG wrappers around embedded raster images.
+              # Extract the embedded image directly; allow line breaks/entities in base64.
+              m=re.search(br'data:image/(?:webp|png|jpeg);base64,([^\"]+)',data,re.S)
               if m:
-                  raw=base64.b64decode(m.group(1))
+                  txt=html.unescape(m.group(1).decode('ascii','ignore'))
+                  txt=''.join(txt.split())
+                  txt += '='*((4-len(txt)%4)%4)
+                  raw=base64.b64decode(txt)
                   im=Image.open(io.BytesIO(raw)).convert('RGB')
                   if width:
                       nh=round(im.height*width/im.width)
@@ -105,7 +108,7 @@ jobs:
           b=io.BytesIO(); st.convert('RGB').save(b,'PNG',optimize=True)
           s=s.replace('assets/ukraine_climate_stations.svg',png_uri(b.getvalue()))
 
-          # 3) Climate charts and topo: decode nested WEBP if present, then embed plain PNG.
+          # 3) Climate charts and topo: decode embedded raster and embed plain PNG.
           for name in ['climate_A_v8.svg','climate_B_v8.svg','topo_nmt_v8.svg']:
               data=(root/'assets'/name).read_bytes()
               s=s.replace('assets/'+name,png_uri(to_png(data,width=1400)))
