@@ -28,12 +28,13 @@ jobs:
                   s=subprocess.check_output(['git','show',f'{c}:nmt-geography.html']).decode('utf-8')
               except Exception:
                   continue
-              norm=re.sub(r'(<img\\b[^>]*\\bsrc=")[^"]*(")',r'\\1__IMG__\\2',s,flags=re.I)
-              norm=re.sub(r'(<a\\b[^>]*\\bhref=")[^"]*("[^>]*>\\s*🔎\\s*Відкрити карту окремо</a>)',r'\\1__HREF__\\2',norm,flags=re.I)
+              norm=re.sub(r'(<img[^>]*src=")[^"]*(")',r'\1__IMG__\2',s,flags=re.I)
+              norm=re.sub(r'(<a[^>]*href=")[^"]*("[^>]*>\s*🔎\s*Відкрити карту окремо</a>)',r'\1__HREF__\2',norm,flags=re.I)
               nh=hashlib.sha256(norm.encode()).hexdigest()
-              imgs=re.findall(r'<img\\b[^>]*\\bsrc="([^"]+)"[^>]*>',s,re.I)
+              imgs=re.findall(r'<img[^>]*src="([^"]+)"[^>]*>',s,re.I)
               print(c[:12],'size',len(s.encode()),'norm',nh,'imgs',len(imgs),'lens',[len(x) for x in imgs])
               if nh==target:
                   print('MATCH',c)
-                  for i,x in enumerate(imgs,1): print(' IMG',i,len(x),hashlib.sha256(x.encode()).hexdigest(),x[:80])
+                  for i,x in enumerate(imgs,1):
+                      print(' IMG',i,len(x),hashlib.sha256(x.encode()).hexdigest(),x[:80])
           PY
