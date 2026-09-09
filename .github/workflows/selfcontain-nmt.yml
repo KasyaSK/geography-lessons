@@ -19,17 +19,17 @@ jobs:
       - name: Install raster tools
         run: python3 -m pip install --quiet cairosvg pillow
 
-      - name: Rebuild lesson with PNG images only
+      - name: Rebuild all lesson visuals as plain PNG
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import base64, io, urllib.request, re, html
+          import base64, io, urllib.request, math
           from PIL import Image, ImageDraw, ImageFont
           import cairosvg
 
-          REPO='https://raw.githubusercontent.com/KasyaSK/geography-lessons/f38ee43892b73d5caac1fd07b0ced9538006b7f3/nmt/01-geography-nmt-atlas/index.html'
-          req=urllib.request.Request(REPO,headers={'User-Agent':'Mozilla/5.0'})
+          TEMPLATE='https://raw.githubusercontent.com/KasyaSK/geography-lessons/f38ee43892b73d5caac1fd07b0ced9538006b7f3/nmt/01-geography-nmt-atlas/index.html'
+          req=urllib.request.Request(TEMPLATE,headers={'User-Agent':'Mozilla/5.0'})
           s=urllib.request.urlopen(req,timeout=60).read().decode('utf-8')
           root=Path('nmt/01-geography-nmt-atlas')
 
@@ -41,84 +41,106 @@ jobs:
           def png_uri(data):
               return 'data:image/png;base64,'+base64.b64encode(data).decode('ascii')
 
-          def to_png(data, width=None, height=None):
-              # Older assets are SVG wrappers around embedded raster images.
-              # Extract the embedded image directly; allow line breaks/entities in base64.
-              m=re.search(br'data:image/(?:webp|png|jpeg);base64,([^\"]+)',data,re.S)
-              if m:
-                  txt=html.unescape(m.group(1).decode('ascii','ignore'))
-                  txt=''.join(txt.split())
-                  txt += '='*((4-len(txt)%4)%4)
-                  raw=base64.b64decode(txt)
-                  im=Image.open(io.BytesIO(raw)).convert('RGB')
-                  if width:
-                      nh=round(im.height*width/im.width)
-                      im=im.resize((width,nh),Image.Resampling.LANCZOS)
-                  elif height:
-                      nw=round(im.width*height/im.height)
-                      im=im.resize((nw,height),Image.Resampling.LANCZOS)
-                  b=io.BytesIO(); im.save(b,'PNG',optimize=True)
-                  return b.getvalue()
+          def svg_png(data,width=None):
               kw={}
               if width: kw['output_width']=width
-              if height: kw['output_height']=height
-              return cairosvg.svg2png(bytestring=data, **kw)
+              return cairosvg.svg2png(bytestring=data,**kw)
 
           def font(size,bold=False):
               p='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
               return ImageFont.truetype(p,size)
 
+          def save_png(im):
+              b=io.BytesIO(); im.convert('RGB').save(b,'PNG',optimize=True); return b.getvalue()
+
           def coord(lon,lat,x0,y0,w,h):
               W,E,S,N=21.5,40.7,44.1,52.7
               return x0+(lon-W)/(E-W)*w, y0+(N-lat)/(N-S)*h
 
-          # 1) Real Ukraine map from Wikimedia, rasterized first, then coordinate grid drawn onto PNG.
+          # --- Real Ukraine map + graticule, rasterized to PNG ---
           uk_url='https://commons.wikimedia.org/wiki/Special:Redirect/file/Ukraine_%281991-2014%29_location_map.svg'
           uk_svg=fetch(uk_url)
           x0,y0,w,h=70,72,1060,610
-          base_png=to_png(uk_svg,width=w)
+          base_png=svg_png(uk_svg,width=w)
           base_img=Image.open(io.BytesIO(base_png)).convert('RGBA').resize((w,h),Image.Resampling.LANCZOS)
-          canvas=Image.new('RGBA',(1200,760),(248,251,248,255))
-          canvas.alpha_composite(base_img,(x0,y0))
+          canvas=Image.new('RGBA',(1200,760),(248,251,248,255)); canvas.alpha_composite(base_img,(x0,y0))
           d=ImageDraw.Draw(canvas)
           d.text((70,24),'Україна • координатна сітка',font=font(26,True),fill='#284a54')
           for lon in [24,28,32,36,40]:
-              x,_=coord(lon,48,x0,y0,w,h)
-              d.line((x,y0,x,y0+h),fill='#2f6f78',width=2)
-              d.text((x-34,y0+h+10),f'{lon}° сх.д.',font=font(16),fill='#244f59')
+              x,_=coord(lon,48,x0,y0,w,h); d.line((x,y0,x,y0+h),fill='#2f6f78',width=2); d.text((x-34,y0+h+10),f'{lon}° сх.д.',font=font(16),fill='#244f59')
           for lat in [46,48,50,52]:
-              _,y=coord(30,lat,x0,y0,w,h)
-              d.line((x0,y,x0+w,y),fill='#2f6f78',width=2)
-              d.text((5,y-10),f'{lat}° пн.ш.',font=font(16),fill='#244f59')
+              _,y=coord(30,lat,x0,y0,w,h); d.line((x0,y,x0+w,y),fill='#2f6f78',width=2); d.text((5,y-10),f'{lat}° пн.ш.',font=font(16),fill='#244f59')
           d.rounded_rectangle((70,708,1130,746),radius=12,fill='#fff4d6',outline='#d8b65a',width=2)
           d.text((600,727),'Україна в міжнародно визнаних кордонах • АР Крим і м. Севастополь — Україна',font=font(16,True),fill='#5b4a18',anchor='mm')
-          b=io.BytesIO(); canvas.convert('RGB').save(b,'PNG',optimize=True)
-          s=s.replace('assets/ukraine_nmt_correct.svg',png_uri(b.getvalue()))
+          s=s.replace('assets/ukraine_nmt_correct.svg',png_uri(save_png(canvas)))
 
-          # 2) Climate stations map on the same geographic base.
-          st=Image.new('RGBA',(1200,760),(248,251,248,255)); st.alpha_composite(base_img,(x0,y0))
-          ds=ImageDraw.Draw(st)
+          # --- Climate stations on the same real map ---
+          st=Image.new('RGBA',(1200,760),(248,251,248,255)); st.alpha_composite(base_img,(x0,y0)); ds=ImageDraw.Draw(st)
           ds.text((70,24),'Положення кліматичних станцій A і B',font=font(26,True),fill='#284a54')
-          ax,ay=coord(24.03,49.84,x0,y0,w,h); bx,by=coord(35.14,47.84,x0,y0,w,h)
-          for x,y,label,fill,txt in [(ax,ay,'A','#c86f57','#7e3e30'),(bx,by,'B','#2f6f78','#244f59')]:
-              ds.ellipse((x-14,y-14,x+14,y+14),fill=fill,outline='white',width=4)
-              ds.text((x+18,y-34),label,font=font(24,True),fill=txt)
+          for lon,lat,label,fill,txt in [(24.03,49.84,'A','#c86f57','#7e3e30'),(35.14,47.84,'B','#2f6f78','#244f59')]:
+              x,y=coord(lon,lat,x0,y0,w,h); ds.ellipse((x-14,y-14,x+14,y+14),fill=fill,outline='white',width=4); ds.text((x+18,y-34),label,font=font(24,True),fill=txt)
           ds.rounded_rectangle((70,708,1130,746),radius=12,fill='#edf7f8',outline='#a8cbd2',width=2)
           ds.text((600,727),'A — захід України • B — південний схід України',font=font(16),fill='#244f59',anchor='mm')
-          b=io.BytesIO(); st.convert('RGB').save(b,'PNG',optimize=True)
-          s=s.replace('assets/ukraine_climate_stations.svg',png_uri(b.getvalue()))
+          s=s.replace('assets/ukraine_climate_stations.svg',png_uri(save_png(st)))
 
-          # 3) Climate charts and topo: decode embedded raster and embed plain PNG.
-          for name in ['climate_A_v8.svg','climate_B_v8.svg','topo_nmt_v8.svg']:
-              data=(root/'assets'/name).read_bytes()
-              s=s.replace('assets/'+name,png_uri(to_png(data,width=1400)))
+          # --- Climate charts generated directly as PNG ---
+          months=['С','Л','Б','К','Т','Ч','Л','С','В','Ж','Л','Г']
+          def climate_chart(title,temps,precips):
+              W,H=1100,700; im=Image.new('RGB',(W,H),'#fffdf8'); dr=ImageDraw.Draw(im)
+              dr.text((45,25),title,font=font(30,True),fill='#31545d')
+              left,top,right,bottom=90,95,1010,595
+              dr.rectangle((left,top,right,bottom),outline='#bac9c5',width=2)
+              # precip bars scaled 0..100
+              step=(right-left)/12
+              for i,p in enumerate(precips):
+                  x1=left+i*step+9; x2=left+(i+1)*step-9; y=bottom-(p/100)*(bottom-top)
+                  dr.rectangle((x1,y,x2,bottom),fill='#a8d8e3')
+              # temp line scaled -10..30
+              pts=[]
+              for i,t in enumerate(temps):
+                  x=left+(i+.5)*step; y=bottom-((t+10)/40)*(bottom-top); pts.append((x,y))
+              dr.line(pts,fill='#c86f57',width=5)
+              for x,y in pts: dr.ellipse((x-5,y-5,x+5,y+5),fill='#c86f57')
+              for i,m in enumerate(months): dr.text((left+(i+.5)*step,bottom+18),m,font=font(17),fill='#53676c',anchor='ma')
+              dr.text((45,620),'стовпчики — опади, мм',font=font(18),fill='#2f6f78')
+              dr.text((45,650),'лінія — середня місячна температура, °C',font=font(18),fill='#c86f57')
+              return save_png(im)
+          s=s.replace('assets/climate_A_v8.svg',png_uri(climate_chart('Станція A',['-4','-2','3','10','16','19','21','20','15','9','3','-2'] if False else [-4,-2,3,10,16,19,21,20,15,9,3,-2],[40,38,42,48,70,82,78,65,55,47,45,42])))
+          s=s.replace('assets/climate_B_v8.svg',png_uri(climate_chart('Станція B',[-6,-4,2,11,18,23,25,24,17,9,2,-3],[28,25,30,32,38,42,35,30,27,25,29,30])))
 
-          # 4) World thematic maps: rasterize remote SVGs to PNG and embed them too.
+          # --- Topographic training map generated directly as PNG ---
+          tw,th=1300,850; topo=Image.new('RGB',(tw,th),'#f3f0df'); td=ImageDraw.Draw(topo)
+          td.text((35,22),'Топографічний фрагмент • масштаб 1:25 000',font=font(30,True),fill='#42594d')
+          # km grid
+          gx0,gy0=90,90; cell=220
+          for i in range(5):
+              x=gx0+i*cell; td.line((x,gy0,x,gy0+3*cell),fill='#7f8d8b',width=2); td.text((x+5,gy0-28),str(47+i),font=font(20),fill='#52615e')
+          for j in range(4):
+              y=gy0+j*cell; td.line((gx0,y,gx0+4*cell,y),fill='#7f8d8b',width=2); td.text((gx0-38,y+5),str(52+j),font=font(20),fill='#52615e')
+          # contours hill
+          cx,cy=430,330
+          for k,r in enumerate([210,175,140,105,70]):
+              td.ellipse((cx-r,cy-r*.65,cx+r,cy+r*.65),outline='#9a7656',width=3)
+              td.text((cx+r-30,cy-r*.3),str(210+k*10),font=font(16),fill='#7b5d46')
+          td.text((cx-40,cy-18),'252,6',font=font(22,True),fill='#523d2e'); td.text((cx-68,cy+14),'г. Соколина',font=font(18),fill='#523d2e')
+          # lake
+          td.ellipse((770,350,1030,520),fill='#9fd4ea',outline='#4e8da8',width=4); td.text((860,420),'оз. Ясне',font=font(22,True),fill='#315f79'); td.text((885,455),'212 м',font=font(18),fill='#315f79')
+          # village in square 4852
+          for yy in [570,600,630]:
+              for xx in [350,390,430,470]: td.rectangle((xx,yy,xx+20,yy+13),fill='#a75f4f')
+          td.text((350,665),'с. Вербове',font=font(22,True),fill='#6f3f35')
+          # road/rail
+          td.line((120,720,1180,650),fill='#414141',width=6); td.line((120,710,1180,640),fill='white',width=2)
+          td.text((940,610),'залізниця',font=font(18),fill='#333')
+          s=s.replace('assets/topo_nmt_v8.svg',png_uri(save_png(topo)))
+
+          # --- Real world thematic maps: fetch SVG from Wikimedia, rasterize, embed PNG ---
           for url in [
             'https://commons.wikimedia.org/wiki/Special:Redirect/file/Population_density%2C_World%2C_2026.svg',
             'https://commons.wikimedia.org/wiki/Special:Redirect/file/GDP_per_capita_nominal_world_map_2026.svg'
           ]:
-              s=s.replace(url,png_uri(to_png(fetch(url),width=1600)))
+              raw=fetch(url)
+              s=s.replace(url,png_uri(svg_png(raw,width=1600)))
 
           assert 'assets/' not in s, 'Local image path remained in HTML'
           assert '<img src="http' not in s, 'Remote image URL remained in HTML'
