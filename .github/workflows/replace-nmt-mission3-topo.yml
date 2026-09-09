@@ -1,0 +1,91 @@
+name: Replace NMT Mission 3 topo image
+
+on:
+  push:
+    paths:
+      - '.github/workflows/replace-nmt-mission3-topo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Embed the original requested topographic image in Mission 3
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import base64, re
+
+          repo = Path('.')
+          asset = repo / 'nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.svg'
+          if not asset.exists():
+              raise SystemExit(f'Missing source asset: {asset}')
+
+          # This SVG is the original Mission 3 topographic image (it wraps the raster image).
+          uri = 'data:image/svg+xml;base64,' + base64.b64encode(asset.read_bytes()).decode('ascii')
+
+          targets = [
+              repo / 'nmt-geography.html',
+              repo / 'nmt/01-geography-nmt-atlas/index.html',
+          ]
+
+          for path in targets:
+              s = path.read_text(encoding='utf-8')
+              start = s.find('<section id="m3">')
+              if start < 0:
+                  raise SystemExit(f'Mission 3 section not found in {path}')
+              end = s.find('</section>', start)
+              if end < 0:
+                  raise SystemExit(f'Mission 3 section end not found in {path}')
+              section = s[start:end]
+
+              # Replace only the first image in Mission 3.
+              section, n_img = re.subn(
+                  r'(<img\s+src=")[^"]+("[^>]*>)',
+                  lambda m: m.group(1) + uri + m.group(2),
+                  section,
+                  count=1,
+              )
+
+              # Keep the “open separately” link pointing to the same embedded image.
+              section, n_link = re.subn(
+                  r'(<a[^>]+href=")[^"]+("[^>]*>\s*🔎\s*Відкрити карту окремо</a>)',
+                  lambda m: m.group(1) + uri + m.group(2),
+                  section,
+                  count=1,
+              )
+
+              if n_img != 1:
+                  raise SystemExit(f'Expected one Mission 3 image replacement in {path}, got {n_img}')
+              if n_link != 1:
+                  raise SystemExit(f'Expected one Mission 3 zoom-link replacement in {path}, got {n_link}')
+
+              marker = '<!-- mission3-topo: topo_nmt_v8.svg -->'
+              if marker not in section:
+                  section = marker + '\n' + section
+
+              s = s[:start] + section + s[end:]
+              path.write_text(s, encoding='utf-8')
+              print('Updated', path)
+
+          PY
+
+      - name: Commit Mission 3 image replacement
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nmt-geography.html nmt/01-geography-nmt-atlas/index.html
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Replace NMT Mission 3 topographic image"
+            git push origin HEAD:main
+          fi
