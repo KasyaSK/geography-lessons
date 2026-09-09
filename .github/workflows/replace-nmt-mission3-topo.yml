@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Embed the original requested topographic image in Mission 3
+      - name: Replace only the Mission 3 topographic image
         shell: bash
         run: |
           python3 - <<'PY'
@@ -25,59 +25,59 @@ jobs:
 
           repo = Path('.')
           asset = repo / 'nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.svg'
+          page = repo / 'nmt/01-geography-nmt-atlas/index.html'
+
           if not asset.exists():
               raise SystemExit(f'Missing source asset: {asset}')
+          if not page.exists():
+              raise SystemExit(f'Missing lesson page: {page}')
 
-          # This SVG is the original Mission 3 topographic image (it wraps the raster image).
+          # The requested topographic image already exists in the lesson assets.
+          # Embed that exact visual directly into the HTML so GitHub Pages cannot lose the image path.
           uri = 'data:image/svg+xml;base64,' + base64.b64encode(asset.read_bytes()).decode('ascii')
 
-          targets = [
-              repo / 'nmt-geography.html',
-              repo / 'nmt/01-geography-nmt-atlas/index.html',
-          ]
+          s = page.read_text(encoding='utf-8')
+          start = s.find('<section id="m3">')
+          if start < 0:
+              raise SystemExit('Mission 3 section not found in nested lesson page')
+          end = s.find('</section>', start)
+          if end < 0:
+              raise SystemExit('Mission 3 section end not found')
 
-          for path in targets:
-              s = path.read_text(encoding='utf-8')
-              start = s.find('<section id="m3">')
-              if start < 0:
-                  raise SystemExit(f'Mission 3 section not found in {path}')
-              end = s.find('</section>', start)
-              if end < 0:
-                  raise SystemExit(f'Mission 3 section end not found in {path}')
-              section = s[start:end]
+          section = s[start:end]
+          section, n_img = re.subn(
+              r'(<img\s+src=")[^"]+("[^>]*>)',
+              lambda m: m.group(1) + uri + m.group(2),
+              section,
+              count=1,
+          )
+          if n_img != 1:
+              raise SystemExit(f'Expected one Mission 3 image replacement, got {n_img}')
 
-              # Replace only the first image in Mission 3.
-              section, n_img = re.subn(
-                  r'(<img\s+src=")[^"]+("[^>]*>)',
-                  lambda m: m.group(1) + uri + m.group(2),
-                  section,
-                  count=1,
-              )
+          # If the zoom link exists, point it to the same embedded image as well.
+          section, n_link = re.subn(
+              r'(<a[^>]+href=")[^"]+("[^>]*>\s*🔎\s*Відкрити карту окремо</a>)',
+              lambda m: m.group(1) + uri + m.group(2),
+              section,
+              count=1,
+          )
 
-              # Keep the “open separately” link pointing to the same embedded image.
-              section, n_link = re.subn(
-                  r'(<a[^>]+href=")[^"]+("[^>]*>\s*🔎\s*Відкрити карту окремо</a>)',
-                  lambda m: m.group(1) + uri + m.group(2),
-                  section,
-                  count=1,
-              )
+          marker = '<!-- mission3-topo: requested topo_nmt_v8 visual -->'
+          if marker not in section:
+              section = marker + '\n' + section
 
-              if n_img != 1:
-                  raise SystemExit(f'Expected one Mission 3 image replacement in {path}, got {n_img}')
-              if n_link != 1:
-                  raise SystemExit(f'Expected one Mission 3 zoom-link replacement in {path}, got {n_link}')
+          s = s[:start] + section + s[end:]
+          page.write_text(s, encoding='utf-8')
 
-              marker = '<!-- mission3-topo: topo_nmt_v8.svg -->'
-              if marker not in section:
-                  section = marker + '\n' + section
+          # Keep the short public URL as a full copy of the corrected lesson.
+          (repo / 'nmt-geography.html').write_text(s, encoding='utf-8')
 
-              s = s[:start] + section + s[end:]
-              path.write_text(s, encoding='utf-8')
-              print('Updated', path)
-
+          print('Mission 3 image replaced:', n_img)
+          print('Mission 3 zoom link replaced:', n_link)
+          print('Synced nmt-geography.html with corrected lesson')
           PY
 
-      - name: Commit Mission 3 image replacement
+      - name: Commit corrected lesson
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -86,6 +86,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m "Replace NMT Mission 3 topographic image"
+            git commit -m "Use requested topographic map in NMT Mission 3"
             git push origin HEAD:main
           fi
