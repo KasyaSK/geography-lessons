@@ -24,7 +24,7 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import base64, io, urllib.request
+          import base64, io, urllib.request, re
           from PIL import Image, ImageDraw, ImageFont
           import cairosvg
 
@@ -41,11 +41,25 @@ jobs:
           def png_uri(data):
               return 'data:image/png;base64,'+base64.b64encode(data).decode('ascii')
 
-          def svg_to_png(svg_bytes, width=None, height=None):
+          def to_png(data, width=None, height=None):
+              # Many older assets in this repo are SVG wrappers around embedded WEBP.
+              # Decode that image directly instead of asking the browser to render nested SVG/data URIs.
+              m=re.search(br'data:image/(?:webp|png|jpeg);base64,([A-Za-z0-9+/=]+)',data)
+              if m:
+                  raw=base64.b64decode(m.group(1))
+                  im=Image.open(io.BytesIO(raw)).convert('RGB')
+                  if width:
+                      nh=round(im.height*width/im.width)
+                      im=im.resize((width,nh),Image.Resampling.LANCZOS)
+                  elif height:
+                      nw=round(im.width*height/im.height)
+                      im=im.resize((nw,height),Image.Resampling.LANCZOS)
+                  b=io.BytesIO(); im.save(b,'PNG',optimize=True)
+                  return b.getvalue()
               kw={}
               if width: kw['output_width']=width
               if height: kw['output_height']=height
-              return cairosvg.svg2png(bytestring=svg_bytes, **kw)
+              return cairosvg.svg2png(bytestring=data, **kw)
 
           def font(size,bold=False):
               p='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf' if bold else '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
@@ -55,12 +69,12 @@ jobs:
               W,E,S,N=21.5,40.7,44.1,52.7
               return x0+(lon-W)/(E-W)*w, y0+(N-lat)/(N-S)*h
 
-          # 1) Real Ukraine map from Wikimedia, rasterized first, then grid drawn as PNG.
+          # 1) Real Ukraine map from Wikimedia, rasterized first, then coordinate grid drawn onto PNG.
           uk_url='https://commons.wikimedia.org/wiki/Special:Redirect/file/Ukraine_%281991-2014%29_location_map.svg'
           uk_svg=fetch(uk_url)
           x0,y0,w,h=70,72,1060,610
-          base_png=svg_to_png(uk_svg,width=w,height=h)
-          base_img=Image.open(io.BytesIO(base_png)).convert('RGBA')
+          base_png=to_png(uk_svg,width=w)
+          base_img=Image.open(io.BytesIO(base_png)).convert('RGBA').resize((w,h),Image.Resampling.LANCZOS)
           canvas=Image.new('RGBA',(1200,760),(248,251,248,255))
           canvas.alpha_composite(base_img,(x0,y0))
           d=ImageDraw.Draw(canvas)
@@ -74,12 +88,11 @@ jobs:
               d.line((x0,y,x0+w,y),fill='#2f6f78',width=2)
               d.text((5,y-10),f'{lat}° пн.ш.',font=font(16),fill='#244f59')
           d.rounded_rectangle((70,708,1130,746),radius=12,fill='#fff4d6',outline='#d8b65a',width=2)
-          msg='Україна в міжнародно визнаних кордонах • АР Крим і м. Севастополь — Україна'
-          d.text((600,727),msg,font=font(16,True),fill='#5b4a18',anchor='mm')
+          d.text((600,727),'Україна в міжнародно визнаних кордонах • АР Крим і м. Севастополь — Україна',font=font(16,True),fill='#5b4a18',anchor='mm')
           b=io.BytesIO(); canvas.convert('RGB').save(b,'PNG',optimize=True)
           s=s.replace('assets/ukraine_nmt_correct.svg',png_uri(b.getvalue()))
 
-          # 2) Climate stations map on the same real Ukraine base.
+          # 2) Climate stations map on the same geographic base.
           st=Image.new('RGBA',(1200,760),(248,251,248,255)); st.alpha_composite(base_img,(x0,y0))
           ds=ImageDraw.Draw(st)
           ds.text((70,24),'Положення кліматичних станцій A і B',font=font(26,True),fill='#284a54')
@@ -92,26 +105,21 @@ jobs:
           b=io.BytesIO(); st.convert('RGB').save(b,'PNG',optimize=True)
           s=s.replace('assets/ukraine_climate_stations.svg',png_uri(b.getvalue()))
 
-          # 3) Local charts/topographic asset -> direct PNG data URIs.
+          # 3) Climate charts and topo: decode nested WEBP if present, then embed plain PNG.
           for name in ['climate_A_v8.svg','climate_B_v8.svg','topo_nmt_v8.svg']:
-              svg=(root/'assets'/name).read_bytes()
-              png=svg_to_png(svg,width=1400)
-              s=s.replace('assets/'+name,png_uri(png))
+              data=(root/'assets'/name).read_bytes()
+              s=s.replace('assets/'+name,png_uri(to_png(data,width=1400)))
 
-          # 4) World thematic maps -> fetch, rasterize, embed as PNG.
-          remotes=[
+          # 4) World thematic maps: rasterize remote SVGs to PNG and embed them too.
+          for url in [
             'https://commons.wikimedia.org/wiki/Special:Redirect/file/Population_density%2C_World%2C_2026.svg',
             'https://commons.wikimedia.org/wiki/Special:Redirect/file/GDP_per_capita_nominal_world_map_2026.svg'
-          ]
-          for url in remotes:
-              png=svg_to_png(fetch(url),width=1600)
-              s=s.replace(url,png_uri(png))
+          ]:
+              s=s.replace(url,png_uri(to_png(fetch(url),width=1600)))
 
-          # Fail the build if any image still depends on a path or remote URL.
           assert 'assets/' not in s, 'Local image path remained in HTML'
           assert '<img src="http' not in s, 'Remote image URL remained in HTML'
           assert s.count('data:image/png;base64,') >= 7, 'Not all seven visuals were embedded as PNG'
-
           (root/'index.html').write_text(s,encoding='utf-8')
           Path('nmt-geography.html').write_text(s,encoding='utf-8')
           print('PNG-only lesson built:',s.count('data:image/png;base64,'),'embedded visuals;',len(s),'characters')
