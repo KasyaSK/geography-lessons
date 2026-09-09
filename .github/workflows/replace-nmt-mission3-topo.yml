@@ -1,4 +1,4 @@
-name: Restore exact NMT lesson maps
+name: Find exact NMT source
 
 on:
   push:
@@ -6,104 +6,34 @@ on:
       - '.github/workflows/replace-nmt-mission3-topo.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  restore:
+  inspect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Restore first Ukraine map and exact Mission 3 topographic map
+      - name: Compare historical lesson versions
         shell: bash
         run: |
           python3 - <<'PY'
-          from pathlib import Path
-          import re
-
-          repo = Path('.')
-          page = repo / 'nmt/01-geography-nmt-atlas/index.html'
-          if not page.exists():
-              raise SystemExit(f'Missing lesson page: {page}')
-
-          s = page.read_text(encoding='utf-8')
-
-          # The lesson has seven visual blocks in a fixed order:
-          # 1 Ukraine coordinate map; 2 climate stations; 3-4 climateograms;
-          # 5 Mission 3 topographic map; 6-7 world thematic maps.
-          img_matches = list(re.finditer(r'<img\b[^>]*>', s, flags=re.I))
-          if len(img_matches) < 7:
-              raise SystemExit(f'Expected at least 7 lesson images, found {len(img_matches)}')
-
-          first_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.svg'
-          topo_src  = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.svg'
-
-          replacements = {
-              0: first_src,  # first image on the page
-              4: topo_src,   # fifth image = Mission 3 topographic map
-          }
-
-          # Replace from the end so character offsets stay valid.
-          spans = []
-          for idx, src in replacements.items():
-              m = img_matches[idx]
-              tag = m.group(0)
-              if re.search(r'\bsrc="[^"]*"', tag, flags=re.I):
-                  new_tag = re.sub(r'\bsrc="[^"]*"', f'src="{src}"', tag, count=1, flags=re.I)
-              else:
-                  new_tag = tag[:-1] + f' src="{src}">'
-              spans.append((m.start(), m.end(), new_tag))
-
-          for a,b,new in sorted(spans, reverse=True):
-              s = s[:a] + new + s[b:]
-
-          # Restore zoom/open-separately links by their order on the page.
-          zoom_matches = list(re.finditer(r'<a\b[^>]*>\s*🔎\s*Відкрити карту окремо</a>', s, flags=re.I))
-          if zoom_matches:
-              zoom_repls = []
-              # First zoom link belongs to Ukraine map.
-              z = zoom_matches[0]
-              tag = z.group(0)
-              new_tag = re.sub(r'\bhref="[^"]*"', f'href="{first_src}"', tag, count=1, flags=re.I)
-              zoom_repls.append((z.start(), z.end(), new_tag))
-              # Second zoom link, when present, belongs to Mission 3.
-              if len(zoom_matches) > 1:
-                  z = zoom_matches[1]
-                  tag = z.group(0)
-                  new_tag = re.sub(r'\bhref="[^"]*"', f'href="{topo_src}"', tag, count=1, flags=re.I)
-                  zoom_repls.append((z.start(), z.end(), new_tag))
-              for a,b,new in sorted(zoom_repls, reverse=True):
-                  s = s[:a] + new + s[b:]
-
-          # Add an explicit marker so this repair is easy to verify later.
-          marker = '<!-- exact-map-repair: image-1=ukraine_nmt_correct.svg; image-5=topo_nmt_v8.svg -->'
-          if marker not in s:
-              s = s.replace('</body>', marker + '\n</body>')
-
-          page.write_text(s, encoding='utf-8')
-          (repo / 'nmt-geography.html').write_text(s, encoding='utf-8')
-
-          # Verify the exact two sources are present in the resulting public file.
-          out = (repo / 'nmt-geography.html').read_text(encoding='utf-8')
-          imgs = list(re.finditer(r'<img\b[^>]*>', out, flags=re.I))
-          print('Total lesson images:', len(imgs))
-          print('Image 1:', imgs[0].group(0)[:300])
-          print('Image 5:', imgs[4].group(0)[:300])
-          assert first_src in imgs[0].group(0), 'First Ukraine map was not restored'
-          assert topo_src in imgs[4].group(0), 'Mission 3 topographic map was not restored'
+          import subprocess,re,hashlib
+          target='fdc1a28ebf4fd4f0b849165a8996c1b95a2a1103603a3cc5635dfb11d93e3b84'
+          commits=subprocess.check_output(['git','log','--all','--format=%H','--','nmt-geography.html'],text=True).split()
+          print('commits',len(commits))
+          for c in commits:
+              try:
+                  s=subprocess.check_output(['git','show',f'{c}:nmt-geography.html']).decode('utf-8')
+              except Exception:
+                  continue
+              norm=re.sub(r'(<img\\b[^>]*\\bsrc=")[^"]*(")',r'\\1__IMG__\\2',s,flags=re.I)
+              norm=re.sub(r'(<a\\b[^>]*\\bhref=")[^"]*("[^>]*>\\s*🔎\\s*Відкрити карту окремо</a>)',r'\\1__HREF__\\2',norm,flags=re.I)
+              nh=hashlib.sha256(norm.encode()).hexdigest()
+              imgs=re.findall(r'<img\\b[^>]*\\bsrc="([^"]+)"[^>]*>',s,re.I)
+              print(c[:12],'size',len(s.encode()),'norm',nh,'imgs',len(imgs),'lens',[len(x) for x in imgs])
+              if nh==target:
+                  print('MATCH',c)
+                  for i,x in enumerate(imgs,1): print(' IMG',i,len(x),hashlib.sha256(x.encode()).hexdigest(),x[:80])
           PY
-
-      - name: Commit exact map repair
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add nmt-geography.html nmt/01-geography-nmt-atlas/index.html
-          if git diff --cached --quiet; then
-            echo "No changes"
-          else
-            git commit -m "Restore Ukraine map and exact Mission 3 topographic map"
-            git push origin HEAD:main
-          fi
