@@ -32,49 +32,65 @@ jobs:
           if not page.exists():
               raise SystemExit(f'Missing lesson page: {page}')
 
-          # The requested topographic image already exists in the lesson assets.
-          # Embed that exact visual directly into the HTML so GitHub Pages cannot lose the image path.
+          # This is the original topographic visual requested for Mission 3.
+          # Embed it directly so the public page does not depend on a fragile relative image path.
           uri = 'data:image/svg+xml;base64,' + base64.b64encode(asset.read_bytes()).decode('ascii')
-
           s = page.read_text(encoding='utf-8')
-          start = s.find('<section id="m3">')
-          if start < 0:
-              raise SystemExit('Mission 3 section not found in nested lesson page')
-          end = s.find('</section>', start)
-          if end < 0:
-              raise SystemExit('Mission 3 section end not found')
+          low = s.lower()
 
-          section = s[start:end]
-          section, n_img = re.subn(
-              r'(<img\s+src=")[^"]+("[^>]*>)',
-              lambda m: m.group(1) + uri + m.group(2),
-              section,
-              count=1,
-          )
+          # Find the topographic block robustly, regardless of the exact section id used by the page.
+          anchors = []
+          for needle in ('топографічна карта', 'топографічний фрагмент', 'топограф'):
+              start = 0
+              while True:
+                  pos = low.find(needle, start)
+                  if pos < 0:
+                      break
+                  img = s.find('<img', pos)
+                  if img >= 0 and img - pos < 12000:
+                      anchors.append((img, pos, needle))
+                  start = pos + 1
+
+          if not anchors:
+              raise SystemExit('Could not locate the Mission 3 topographic image block')
+
+          img_pos, text_pos, needle = sorted(anchors)[0]
+          tag_end = s.find('>', img_pos)
+          if tag_end < 0:
+              raise SystemExit('Could not parse Mission 3 image tag')
+          tag = s[img_pos:tag_end+1]
+          new_tag, n_img = re.subn(r'src="[^"]*"', 'src="' + uri + '"', tag, count=1)
           if n_img != 1:
-              raise SystemExit(f'Expected one Mission 3 image replacement, got {n_img}')
+              raise SystemExit('Mission 3 image tag did not contain a replaceable src')
+          s = s[:img_pos] + new_tag + s[tag_end+1:]
 
-          # If the zoom link exists, point it to the same embedded image as well.
-          section, n_link = re.subn(
-              r'(<a[^>]+href=")[^"]+("[^>]*>\s*🔎\s*Відкрити карту окремо</a>)',
-              lambda m: m.group(1) + uri + m.group(2),
-              section,
-              count=1,
-          )
+          # Update the nearby “open separately” link if present.
+          link_text = 'Відкрити карту окремо'
+          link_pos = s.find(link_text, img_pos)
+          n_link = 0
+          if link_pos >= 0 and link_pos - img_pos < 200000:
+              a_start = s.rfind('<a', img_pos, link_pos)
+              a_end = s.find('>', a_start) if a_start >= 0 else -1
+              if a_start >= 0 and a_end >= 0:
+                  a_tag = s[a_start:a_end+1]
+                  new_a, n_link = re.subn(r'href="[^"]*"', 'href="' + uri + '"', a_tag, count=1)
+                  if n_link:
+                      s = s[:a_start] + new_a + s[a_end+1:]
 
           marker = '<!-- mission3-topo: requested topo_nmt_v8 visual -->'
-          if marker not in section:
-              section = marker + '\n' + section
+          if marker not in s:
+              insert_at = s.rfind('<', 0, text_pos)
+              if insert_at < 0:
+                  insert_at = text_pos
+              s = s[:insert_at] + marker + '\n' + s[insert_at:]
 
-          s = s[:start] + section + s[end:]
           page.write_text(s, encoding='utf-8')
-
-          # Keep the short public URL as a full copy of the corrected lesson.
           (repo / 'nmt-geography.html').write_text(s, encoding='utf-8')
 
+          print('Found topographic block using:', needle)
           print('Mission 3 image replaced:', n_img)
           print('Mission 3 zoom link replaced:', n_link)
-          print('Synced nmt-geography.html with corrected lesson')
+          print('Synced public nmt-geography.html')
           PY
 
       - name: Commit corrected lesson
