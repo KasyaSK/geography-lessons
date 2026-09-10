@@ -16,32 +16,36 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Convert the two SVG assets to PNG and patch both public lesson pages
+      - name: Extract browser-safe WebP images and patch both public lesson pages
         shell: bash
         run: |
-          python3 -m pip install --quiet cairosvg
           python3 - <<'PY'
           from pathlib import Path
-          import re
-          import cairosvg
+          import re, base64
 
           repo = Path('.')
           assets = repo / 'nmt/01-geography-nmt-atlas/assets'
           ukr_svg = assets / 'ukraine_nmt_correct.svg'
           topo_svg = assets / 'topo_nmt_v8.svg'
-          ukr_png = assets / 'ukraine_nmt_correct.png'
-          topo_png = assets / 'topo_nmt_v8.png'
+          ukr_webp = assets / 'ukraine_nmt_correct.webp'
+          topo_webp = assets / 'topo_nmt_v8.webp'
 
-          for p in (ukr_svg, topo_svg):
-              if not p.exists():
-                  raise SystemExit(f'Missing source asset: {p}')
+          def extract_webp(svg_path, out_path):
+              text = svg_path.read_text(encoding='utf-8')
+              m = re.search(r'data:image/webp;base64,([^"\']+)', text)
+              if not m:
+                  raise SystemExit(f'No embedded WebP found in {svg_path}')
+              raw = base64.b64decode(m.group(1))
+              if len(raw) < 10000 or raw[:4] != b'RIFF' or raw[8:12] != b'WEBP':
+                  raise SystemExit(f'Bad WebP payload in {svg_path}')
+              out_path.write_bytes(raw)
+              print(out_path, len(raw))
 
-          # Render browser-safe PNG copies from the exact existing map artwork.
-          cairosvg.svg2png(url=str(ukr_svg), write_to=str(ukr_png), output_width=1740)
-          cairosvg.svg2png(url=str(topo_svg), write_to=str(topo_png), output_width=1456)
+          extract_webp(ukr_svg, ukr_webp)
+          extract_webp(topo_svg, topo_webp)
 
-          first_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.png'
-          topo_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.png'
+          first_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.webp'
+          topo_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.webp'
 
           def patch_page(path):
               s = path.read_text(encoding='utf-8')
@@ -49,8 +53,7 @@ jobs:
               if len(imgs) < 5:
                   raise SystemExit(f'{path}: expected at least 5 images, found {len(imgs)}')
 
-              replacements = [(imgs[0], first_src), (imgs[4], topo_src)]
-              for m, src in sorted(replacements, key=lambda x: x[0].start(), reverse=True):
+              for m, src in sorted([(imgs[0], first_src), (imgs[4], topo_src)], key=lambda x: x[0].start(), reverse=True):
                   tag = m.group(0)
                   if re.search(r'\bsrc="[^"]*"', tag, flags=re.I):
                       new = re.sub(r'\bsrc="[^"]*"', f'src="{src}"', tag, count=1, flags=re.I)
@@ -58,19 +61,13 @@ jobs:
                       new = tag[:-1] + f' src="{src}">'
                   s = s[:m.start()] + new + s[m.end():]
 
-              # Keep the two “open separately” links aligned with the displayed images.
               links = list(re.finditer(r'<a\b[^>]*>\s*🔎\s*Відкрити карту окремо</a>', s, flags=re.I))
-              link_repls = []
-              if links:
-                  link_repls.append((links[0], first_src))
-              if len(links) > 1:
-                  link_repls.append((links[1], topo_src))
-              for m, src in sorted(link_repls, key=lambda x: x[0].start(), reverse=True):
+              for m, src in sorted(([(links[0], first_src)] if len(links) > 0 else []) + ([(links[1], topo_src)] if len(links) > 1 else []), key=lambda x: x[0].start(), reverse=True):
                   tag = m.group(0)
                   new = re.sub(r'\bhref="[^"]*"', f'href="{src}"', tag, count=1, flags=re.I)
                   s = s[:m.start()] + new + s[m.end():]
 
-              marker = '<!-- fixed-png-maps: first=ukraine_nmt_correct.png; mission3=topo_nmt_v8.png -->'
+              marker = '<!-- fixed-webp-maps: first=ukraine_nmt_correct.webp; mission3=topo_nmt_v8.webp -->'
               if marker not in s:
                   s = s.replace('</body>', marker + '\n</body>')
               path.write_text(s, encoding='utf-8')
@@ -80,17 +77,12 @@ jobs:
           patch_page(nested)
           short.write_text(nested.read_text(encoding='utf-8'), encoding='utf-8')
 
-          # Final verification: both HTML files must point to real PNG files.
           for page in (nested, short):
               out = page.read_text(encoding='utf-8')
               imgs = list(re.finditer(r'<img\b[^>]*>', out, flags=re.I))
-              assert first_src in imgs[0].group(0), f'{page}: first map not PNG'
-              assert topo_src in imgs[4].group(0), f'{page}: Mission 3 not PNG'
-          assert ukr_png.exists() and ukr_png.stat().st_size > 10000
-          assert topo_png.exists() and topo_png.stat().st_size > 10000
-          print('Ukraine PNG bytes:', ukr_png.stat().st_size)
-          print('Mission 3 PNG bytes:', topo_png.stat().st_size)
-          print('Both public pages now use the PNG assets.')
+              assert first_src in imgs[0].group(0), f'{page}: first map not WebP'
+              assert topo_src in imgs[4].group(0), f'{page}: Mission 3 not WebP'
+          print('Both public pages now use real WebP files for image 1 and Mission 3.')
           PY
 
       - name: Commit repaired images
@@ -99,11 +91,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add nmt-geography.html nmt/01-geography-nmt-atlas/index.html \
-                  nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.png \
-                  nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.png
+                  nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.webp \
+                  nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.webp
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m "Fix first map and Mission 3 images with PNG assets"
+            git commit -m "Fix first map and Mission 3 with browser-safe WebP files"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
