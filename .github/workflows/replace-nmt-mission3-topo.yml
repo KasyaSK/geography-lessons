@@ -1,4 +1,4 @@
-name: Find target images in historical NMT HTML
+name: Fix NMT first and Mission 3 images
 
 on:
   push:
@@ -6,50 +6,104 @@ on:
       - '.github/workflows/replace-nmt-mission3-topo.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  scan:
+  fix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Decode historical embedded images and compare
+
+      - name: Convert the two SVG assets to PNG and patch both public lesson pages
         shell: bash
         run: |
+          python3 -m pip install --quiet cairosvg
           python3 - <<'PY'
-          import subprocess,re,hashlib,base64
-          targets={
-            'img1':'730bb490b64c3eccb37b657d85b27f54618f270ab39e48b1db5a19fd9cf8a54d',
-            'img2':'c8ebc974c64e8603cd9a8bc076d82673e63e0dad0203b4b467863efb5655b496',
-            'img3':'519d6d8b6abb80d88a801ec232c6320b38b867922ad2d6051f3d6878c15802c6',
-            'img4':'9233885cd807c3b9fa40c5abed45c4c3e35a38daab3ea90794f64a2466238d09',
-            'img5':'3dba0f4095fb62af10cad3af41180e4d1901f2f8fa31f1eb9a5abc7161403f33',
-            'img6':'083e00e3453d9387e9a5f138d8afa33d544d3a9cc67a5728059afca757c3fb1b',
-            'img7':'b51757a4097c43f15167013d6c43a6548b51649dd1b10ef540309a599cc64061',
-          }
-          rev=subprocess.check_output(['git','log','--all','--format=%H','--','nmt-geography.html'],text=True).split()
-          found={}
-          for c in rev:
-              try: s=subprocess.check_output(['git','show',f'{c}:nmt-geography.html']).decode('utf-8')
-              except Exception: continue
-              srcs=re.findall(r'<img[^>]*src="([^"]+)"[^>]*>',s,re.I)
-              print('COMMIT',c,'IMAGES',len(srcs))
-              for i,src in enumerate(srcs,1):
-                  raw=None; mime=''
-                  if src.startswith('data:') and ';base64,' in src:
-                      head,b64=src.split(';base64,',1); mime=head[5:]
-                      try: raw=base64.b64decode(b64)
-                      except Exception: pass
-                  if raw is not None:
-                      h=hashlib.sha256(raw).hexdigest()
-                      print(' ',i,mime,len(raw),h)
-                      for name,t in targets.items():
-                          if h==t:
-                              print('  TARGET_MATCH',name,'commit',c,'index',i)
-                              found[name]=(c,i)
+          from pathlib import Path
+          import re
+          import cairosvg
+
+          repo = Path('.')
+          assets = repo / 'nmt/01-geography-nmt-atlas/assets'
+          ukr_svg = assets / 'ukraine_nmt_correct.svg'
+          topo_svg = assets / 'topo_nmt_v8.svg'
+          ukr_png = assets / 'ukraine_nmt_correct.png'
+          topo_png = assets / 'topo_nmt_v8.png'
+
+          for p in (ukr_svg, topo_svg):
+              if not p.exists():
+                  raise SystemExit(f'Missing source asset: {p}')
+
+          # Render browser-safe PNG copies from the exact existing map artwork.
+          cairosvg.svg2png(url=str(ukr_svg), write_to=str(ukr_png), output_width=1740)
+          cairosvg.svg2png(url=str(topo_svg), write_to=str(topo_png), output_width=1456)
+
+          first_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.png'
+          topo_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.png'
+
+          def patch_page(path):
+              s = path.read_text(encoding='utf-8')
+              imgs = list(re.finditer(r'<img\b[^>]*>', s, flags=re.I))
+              if len(imgs) < 5:
+                  raise SystemExit(f'{path}: expected at least 5 images, found {len(imgs)}')
+
+              replacements = [(imgs[0], first_src), (imgs[4], topo_src)]
+              for m, src in sorted(replacements, key=lambda x: x[0].start(), reverse=True):
+                  tag = m.group(0)
+                  if re.search(r'\bsrc="[^"]*"', tag, flags=re.I):
+                      new = re.sub(r'\bsrc="[^"]*"', f'src="{src}"', tag, count=1, flags=re.I)
                   else:
-                      print(' ',i,'non-data',src[:120])
-          print('FOUND',found)
+                      new = tag[:-1] + f' src="{src}">'
+                  s = s[:m.start()] + new + s[m.end():]
+
+              # Keep the two “open separately” links aligned with the displayed images.
+              links = list(re.finditer(r'<a\b[^>]*>\s*🔎\s*Відкрити карту окремо</a>', s, flags=re.I))
+              link_repls = []
+              if links:
+                  link_repls.append((links[0], first_src))
+              if len(links) > 1:
+                  link_repls.append((links[1], topo_src))
+              for m, src in sorted(link_repls, key=lambda x: x[0].start(), reverse=True):
+                  tag = m.group(0)
+                  new = re.sub(r'\bhref="[^"]*"', f'href="{src}"', tag, count=1, flags=re.I)
+                  s = s[:m.start()] + new + s[m.end():]
+
+              marker = '<!-- fixed-png-maps: first=ukraine_nmt_correct.png; mission3=topo_nmt_v8.png -->'
+              if marker not in s:
+                  s = s.replace('</body>', marker + '\n</body>')
+              path.write_text(s, encoding='utf-8')
+
+          nested = repo / 'nmt/01-geography-nmt-atlas/index.html'
+          short = repo / 'nmt-geography.html'
+          patch_page(nested)
+          short.write_text(nested.read_text(encoding='utf-8'), encoding='utf-8')
+
+          # Final verification: both HTML files must point to real PNG files.
+          for page in (nested, short):
+              out = page.read_text(encoding='utf-8')
+              imgs = list(re.finditer(r'<img\b[^>]*>', out, flags=re.I))
+              assert first_src in imgs[0].group(0), f'{page}: first map not PNG'
+              assert topo_src in imgs[4].group(0), f'{page}: Mission 3 not PNG'
+          assert ukr_png.exists() and ukr_png.stat().st_size > 10000
+          assert topo_png.exists() and topo_png.stat().st_size > 10000
+          print('Ukraine PNG bytes:', ukr_png.stat().st_size)
+          print('Mission 3 PNG bytes:', topo_png.stat().st_size)
+          print('Both public pages now use the PNG assets.')
           PY
+
+      - name: Commit repaired images
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nmt-geography.html nmt/01-geography-nmt-atlas/index.html \
+                  nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.png \
+                  nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.png
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Fix first map and Mission 3 images with PNG assets"
+            git push origin HEAD:main
+          fi
