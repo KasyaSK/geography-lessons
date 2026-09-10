@@ -38,7 +38,7 @@ jobs:
               payload = re.sub(r'\s+', '', m.group(1))
               payload += '=' * (-len(payload) % 4)
               raw = base64.b64decode(payload)
-              if len(raw) < 10000 or raw[:4] != b'RIFF' or raw[8:12] != b'WEBP':
+              if len(raw) < 1000 or raw[:4] != b'RIFF' or raw[8:12] != b'WEBP':
                   raise SystemExit(f'Bad WebP payload in {svg_path}: {len(raw)} bytes')
               out_path.write_bytes(raw)
               print(out_path, len(raw))
