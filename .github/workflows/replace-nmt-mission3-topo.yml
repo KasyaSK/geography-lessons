@@ -35,9 +35,11 @@ jobs:
               m = re.search(r'data:image/webp;base64,([^"\']+)', text)
               if not m:
                   raise SystemExit(f'No embedded WebP found in {svg_path}')
-              raw = base64.b64decode(m.group(1))
+              payload = re.sub(r'\s+', '', m.group(1))
+              payload += '=' * (-len(payload) % 4)
+              raw = base64.b64decode(payload)
               if len(raw) < 10000 or raw[:4] != b'RIFF' or raw[8:12] != b'WEBP':
-                  raise SystemExit(f'Bad WebP payload in {svg_path}')
+                  raise SystemExit(f'Bad WebP payload in {svg_path}: {len(raw)} bytes')
               out_path.write_bytes(raw)
               print(out_path, len(raw))
 
@@ -62,7 +64,10 @@ jobs:
                   s = s[:m.start()] + new + s[m.end():]
 
               links = list(re.finditer(r'<a\b[^>]*>\s*🔎\s*Відкрити карту окремо</a>', s, flags=re.I))
-              for m, src in sorted(([(links[0], first_src)] if len(links) > 0 else []) + ([(links[1], topo_src)] if len(links) > 1 else []), key=lambda x: x[0].start(), reverse=True):
+              pairs = []
+              if len(links) > 0: pairs.append((links[0], first_src))
+              if len(links) > 1: pairs.append((links[1], topo_src))
+              for m, src in sorted(pairs, key=lambda x: x[0].start(), reverse=True):
                   tag = m.group(0)
                   new = re.sub(r'\bhref="[^"]*"', f'href="{src}"', tag, count=1, flags=re.I)
                   s = s[:m.start()] + new + s[m.end():]
