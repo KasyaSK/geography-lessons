@@ -1,4 +1,4 @@
-name: Fix NMT first and Mission 3 images
+name: Repair NMT lesson images
 
 on:
   push:
@@ -9,45 +9,69 @@ permissions:
   contents: write
 
 jobs:
-  fix:
+  repair:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Extract browser-safe WebP images and patch both public lesson pages
+      - name: Restore first map and Mission 3 from known-good PNGs
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import re, base64
+          import subprocess, re, base64, struct
 
           repo = Path('.')
+          nested = repo / 'nmt/01-geography-nmt-atlas/index.html'
+          short = repo / 'nmt-geography.html'
           assets = repo / 'nmt/01-geography-nmt-atlas/assets'
-          ukr_svg = assets / 'ukraine_nmt_correct.svg'
-          topo_svg = assets / 'topo_nmt_v8.svg'
-          ukr_webp = assets / 'ukraine_nmt_correct.webp'
-          topo_webp = assets / 'topo_nmt_v8.webp'
+          assets.mkdir(parents=True, exist_ok=True)
 
-          def extract_webp(svg_path, out_path):
-              text = svg_path.read_text(encoding='utf-8')
-              m = re.search(r'data:image/webp;base64,([^"\']+)', text)
-              if not m:
-                  raise SystemExit(f'No embedded WebP found in {svg_path}')
-              payload = re.sub(r'\s+', '', m.group(1))
-              payload += '=' * (-len(payload) % 4)
-              raw = base64.b64decode(payload)
-              if len(raw) < 1000 or raw[:4] != b'RIFF' or raw[8:12] != b'WEBP':
-                  raise SystemExit(f'Bad WebP payload in {svg_path}: {len(raw)} bytes')
-              out_path.write_bytes(raw)
-              print(out_path, len(raw))
+          # This historical version is the last all-PNG copy of the same lesson.
+          good_commit = '043ded95972cd0ceab35f439f66c1755569f22ab'
+          old = subprocess.check_output(
+              ['git', 'show', f'{good_commit}:nmt-geography.html']
+          ).decode('utf-8')
 
-          extract_webp(ukr_svg, ukr_webp)
-          extract_webp(topo_svg, topo_webp)
+          old_srcs = re.findall(r'<img\b[^>]*?\bsrc="([^"]+)"[^>]*>', old, flags=re.I)
+          if len(old_srcs) < 5:
+              raise SystemExit(f'Known-good page has only {len(old_srcs)} images')
 
-          first_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.webp'
-          topo_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.webp'
+          def decode_png(src, label):
+              prefix = 'data:image/png;base64,'
+              if not src.startswith(prefix):
+                  raise SystemExit(f'{label} is not an embedded PNG')
+              raw = base64.b64decode(src[len(prefix):])
+              sig = b'\x89PNG\r\n\x1a\n'
+              if not raw.startswith(sig):
+                  raise SystemExit(f'{label} has invalid PNG signature')
+              if len(raw) < 24:
+                  raise SystemExit(f'{label} PNG is truncated')
+              w, h = struct.unpack('>II', raw[16:24])
+              if w < 500 or h < 300:
+                  raise SystemExit(f'{label} PNG dimensions are suspicious: {w}x{h}')
+              print(f'{label}: {w}x{h}, {len(raw)} bytes')
+              return raw
+
+          # Image 1 = Ukraine coordinate map; image 5 = Mission 3 topographic map.
+          first_png = decode_png(old_srcs[0], 'Ukraine map')
+          topo_png = decode_png(old_srcs[4], 'Mission 3 topo')
+
+          first_file = assets / 'ukraine_nmt_correct.png'
+          topo_file = assets / 'topo_nmt_v8.png'
+          first_file.write_bytes(first_png)
+          topo_file.write_bytes(topo_png)
+
+          first_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.png'
+          topo_src = '/geography-lessons/nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.png'
+
+          def replace_attr(tag, attr, value):
+              pat = rf'\b{attr}="[^"]*"'
+              if re.search(pat, tag, flags=re.I):
+                  return re.sub(pat, f'{attr}="{value}"', tag, count=1, flags=re.I)
+              return tag[:-1] + f' {attr}="{value}">' if tag.endswith('>') else tag
 
           def patch_page(path):
               s = path.read_text(encoding='utf-8')
@@ -55,53 +79,62 @@ jobs:
               if len(imgs) < 5:
                   raise SystemExit(f'{path}: expected at least 5 images, found {len(imgs)}')
 
-              for m, src in sorted([(imgs[0], first_src), (imgs[4], topo_src)], key=lambda x: x[0].start(), reverse=True):
-                  tag = m.group(0)
-                  if re.search(r'\bsrc="[^"]*"', tag, flags=re.I):
-                      new = re.sub(r'\bsrc="[^"]*"', f'src="{src}"', tag, count=1, flags=re.I)
-                  else:
-                      new = tag[:-1] + f' src="{src}">'
-                  s = s[:m.start()] + new + s[m.end():]
+              edits = [
+                  (imgs[0].start(), imgs[0].end(), replace_attr(imgs[0].group(0), 'src', first_src)),
+                  (imgs[4].start(), imgs[4].end(), replace_attr(imgs[4].group(0), 'src', topo_src)),
+              ]
+              for a, b, repl in sorted(edits, reverse=True):
+                  s = s[:a] + repl + s[b:]
 
+              # Fix map zoom links if present, based on the nearest image block order.
               links = list(re.finditer(r'<a\b[^>]*>\s*🔎\s*Відкрити карту окремо</a>', s, flags=re.I))
-              pairs = []
-              if len(links) > 0: pairs.append((links[0], first_src))
-              if len(links) > 1: pairs.append((links[1], topo_src))
-              for m, src in sorted(pairs, key=lambda x: x[0].start(), reverse=True):
-                  tag = m.group(0)
-                  new = re.sub(r'\bhref="[^"]*"', f'href="{src}"', tag, count=1, flags=re.I)
-                  s = s[:m.start()] + new + s[m.end():]
+              link_edits = []
+              if len(links) >= 1:
+                  m = links[0]
+                  link_edits.append((m.start(), m.end(), replace_attr(m.group(0), 'href', first_src)))
+              if len(links) >= 2:
+                  m = links[1]
+                  link_edits.append((m.start(), m.end(), replace_attr(m.group(0), 'href', topo_src)))
+              for a, b, repl in sorted(link_edits, reverse=True):
+                  s = s[:a] + repl + s[b:]
 
-              marker = '<!-- fixed-webp-maps: first=ukraine_nmt_correct.webp; mission3=topo_nmt_v8.webp -->'
-              if marker not in s:
-                  s = s.replace('</body>', marker + '\n</body>')
+              # Remove stale repair markers and leave one clear marker.
+              s = re.sub(r'<!--\s*(?:exact-map-repair|fixed-png-maps|fixed-webp-maps):.*?-->', '', s, flags=re.I|re.S)
+              marker = '<!-- repaired-maps: first=ukraine_nmt_correct.png; mission3=topo_nmt_v8.png -->'
+              s = s.replace('</body>', marker + '\n</body>')
               path.write_text(s, encoding='utf-8')
+              return s
 
-          nested = repo / 'nmt/01-geography-nmt-atlas/index.html'
-          short = repo / 'nmt-geography.html'
-          patch_page(nested)
-          short.write_text(nested.read_text(encoding='utf-8'), encoding='utf-8')
+          patched = patch_page(nested)
+          short.write_text(patched, encoding='utf-8')
 
+          # Verify exact public references and files before committing anything.
           for page in (nested, short):
-              out = page.read_text(encoding='utf-8')
-              imgs = list(re.finditer(r'<img\b[^>]*>', out, flags=re.I))
-              assert first_src in imgs[0].group(0), f'{page}: first map not WebP'
-              assert topo_src in imgs[4].group(0), f'{page}: Mission 3 not WebP'
-          print('Both public pages now use real WebP files for image 1 and Mission 3.')
+              text = page.read_text(encoding='utf-8')
+              imgs = list(re.finditer(r'<img\b[^>]*>', text, flags=re.I))
+              assert len(imgs) >= 5
+              assert first_src in imgs[0].group(0), f'{page}: first map reference incorrect'
+              assert topo_src in imgs[4].group(0), f'{page}: Mission 3 reference incorrect'
+
+          assert first_file.read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
+          assert topo_file.read_bytes().startswith(b'\x89PNG\r\n\x1a\n')
+          print('VERIFIED: first and Mission 3 images are real PNG files and both public pages point to them.')
           PY
 
-      - name: Commit repaired images
+      - name: Commit repaired lesson
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add nmt-geography.html nmt/01-geography-nmt-atlas/index.html \
-                  nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.webp \
-                  nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.webp
+          git add \
+            nmt-geography.html \
+            nmt/01-geography-nmt-atlas/index.html \
+            nmt/01-geography-nmt-atlas/assets/ukraine_nmt_correct.png \
+            nmt/01-geography-nmt-atlas/assets/topo_nmt_v8.png
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "No changes to commit"
           else
-            git commit -m "Fix first map and Mission 3 with browser-safe WebP files"
+            git commit -m "Restore working PNG maps in NMT lesson"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
