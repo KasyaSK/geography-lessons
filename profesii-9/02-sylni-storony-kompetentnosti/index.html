@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>9 клас • Професії • Урок 2 • Сильні сторони і компетентності</title>
+<style>body{margin:0;font-family:system-ui,sans-serif;background:#f8f8fd;color:#20253a;display:grid;place-items:center;min-height:100vh}.box{max-width:720px;margin:24px;padding:28px;border-radius:24px;background:#fff;border:1px solid #e1e3ef;box-shadow:0 20px 48px rgba(50,56,91,.12)}.muted{color:#677087}</style>
+</head>
+<body><div class="box" id="loader"><h1>Завантажуємо урок…</h1><p class="muted">Розгортаємо повну інтерактивну сторінку.</p></div>
+<script>
+(async()=>{
+  try{
+    if(typeof DecompressionStream==='undefined') throw new Error('Браузер не підтримує розпакування gzip. Оновіть браузер.');
+    const b64=(await (await fetch('payload.b64',{cache:'no-store'})).text()).trim();
+    const raw=atob(b64);
+    const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
+    const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    const html=await new Response(stream).text();
+    document.open();document.write(html);document.close();
+  }catch(e){document.getElementById('loader').innerHTML='<h1>Не вдалося відкрити урок</h1><p>'+String(e.message||e)+'</p>'}
+})();
+</script></body></html>
