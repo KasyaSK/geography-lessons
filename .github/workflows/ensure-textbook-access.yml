@@ -135,6 +135,8 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
+
           src = Path('assets/textbook-access.js').read_text(encoding='utf-8')
 
           required = [
@@ -147,14 +149,22 @@ jobs:
           if missing:
               raise SystemExit('textbook-access.js is incomplete: ' + ', '.join(missing))
 
-          forbidden = ['.pdf', 'drive.google.com', 'lib.imzo.gov.ua/wa-data', '/sites/default/files/ebooks/']
-          bad = [item for item in forbidden if item in src]
-          if bad:
-              raise SystemExit('Primary textbook access must be web-readable, not file-based. Found: ' + ', '.join(bad))
-
           online_urls = re.findall(r"url:\s*'([^']+)'", src)
-          if len(online_urls) != 7 or any(not u.startswith('https://uahistory.co/pidruchniki/') for u in online_urls):
-              raise SystemExit('All seven grade textbook URLs must be browser-readable online versions.')
+          if len(online_urls) != 7:
+              raise SystemExit(f'Expected 7 primary textbook URLs, found {len(online_urls)}.')
+
+          bad_urls = [u for u in online_urls if (
+              '.pdf' in u.lower()
+              or 'drive.google.com' in u.lower()
+              or 'lib.imzo.gov.ua/wa-data' in u.lower()
+              or '/sites/default/files/ebooks/' in u.lower()
+          )]
+          if bad_urls:
+              raise SystemExit('Primary textbook URLs must be browser-readable web versions: ' + ', '.join(bad_urls))
+
+          wrong_host = [u for u in online_urls if not u.startswith('https://uahistory.co/pidruchniki/')]
+          if wrong_host:
+              raise SystemExit('Unexpected textbook web URL(s): ' + ', '.join(wrong_host))
 
           print('Electronic textbook module: 7/7 grades use browser-readable web versions.')
           PY
