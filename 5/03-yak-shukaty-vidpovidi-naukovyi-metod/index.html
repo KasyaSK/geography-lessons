@@ -17,7 +17,9 @@
     const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
     const html=await new Response(stream).text();
-    document.open();document.write((/<\/body\s*>/i.test(html)?html.replace(/<\/body\s*>/i,'<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global" +'data-textbook-rehydrate="1"></scr'+'ipt>'+'</body>'):html+'<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global" +'data-textbook-rehydrate="1"></scr'+'ipt>'));document.close();
+    const textbookTag='<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global" data-textbook-rehydrate="1"></scr'+'ipt>';
+    const hydrated=/<\/body\s*>/i.test(html)?html.replace(/<\/body\s*>/i,textbookTag+'</body>'):html+textbookTag;
+    document.open();document.write(hydrated);document.close();
   }catch(e){document.getElementById('loader').innerHTML='<h1>Не вдалося відкрити урок</h1><p>'+String(e.message||e)+'</p>'}
 })();
 </script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
