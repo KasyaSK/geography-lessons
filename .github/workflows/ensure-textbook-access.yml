@@ -44,17 +44,20 @@ jobs:
           grades = ('5','6','7','8','9','10','11')
           script_url = 'https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911'
           tag = f'<script src="{script_url}" data-textbook-access="global"></script>'
-          # Safe JavaScript expression for pages that later replace the whole document.
-          # Splitting "script" prevents the wrapper's own closing </script> from being parsed early.
-          runtime_tag = (
-              "'<scr'+'ipt src=\"" + script_url + "\" data-textbook-access=\"global\" "
-              "+'data-textbook-rehydrate=\"1\"></scr'+'ipt>'"
+          runtime_code = (
+              "const textbookTag='<scr'+'ipt src=\"" + script_url +
+              "\" data-textbook-access=\"global\" data-textbook-rehydrate=\"1\"></scr'+'ipt>';"
+              "const hydrated=/<\\/body\\s*>/i.test(html)"
+              "?html.replace(/<\\/body\\s*>/i,textbookTag+'</body>')"
+              ":html+textbookTag;"
+              "document.write(hydrated)"
           )
 
           changed = []
           checked = []
           rewritten = []
           unsupported_rewriters = []
+          malformed = []
 
           for grade in grades:
               root = Path(grade)
@@ -80,17 +83,15 @@ jobs:
                   # Re-inject the shared module into the payload itself before it is written.
                   if re.search(r'document\.write\s*\(', text) and 'data-textbook-rehydrate' not in text:
                       pattern = r'document\.write\(\s*html\s*\)'
-                      replacement = (
-                          "document.write((/<\\/body\\s*>/i.test(html)"
-                          "?html.replace(/<\\/body\\s*>/i," + runtime_tag + "+'</body>')"
-                          ":html+" + runtime_tag + "))"
-                      )
-                      text2, n = re.subn(pattern, lambda m: replacement, text, count=1)
+                      text2, n = re.subn(pattern, lambda m: runtime_code, text, count=1)
                       if n:
                           text = text2
                           rewritten.append(page)
                       else:
                           unsupported_rewriters.append(page)
+
+                  if 'data-textbook-access="global" +\'data-textbook-rehydrate' in text:
+                      malformed.append(page)
 
                   if text != original:
                       page.write_text(text, encoding='utf-8')
@@ -107,6 +108,8 @@ jobs:
                   'Found document.write() loader(s) that need an explicit rehydration pattern: ' +
                   ', '.join(map(str, unsupported_rewriters))
               )
+          if malformed:
+              raise SystemExit('Malformed textbook rehydration code on: ' + ', '.join(map(str, malformed)))
 
           # Hard validation: every lesson index must contain the fallback, and every
           # document-rewriting loader must also contain the post-write rehydration marker.
@@ -150,5 +153,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add 5 6 7 8 9 10 11
-          git commit -m 'Keep textbook access after dynamic lesson loading'
+          git commit -m 'Ensure runtime-safe textbook access'
           git push origin HEAD:main
