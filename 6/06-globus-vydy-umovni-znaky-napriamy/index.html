@@ -43,4 +43,5 @@ function checkCer(){const t=document.getElementById('cer').value.trim();const fb
 function openTest(){const firstEl=document.getElementById('fname'),lastEl=document.getElementById('lname'),classEl=document.getElementById('classn'),quizEl=document.getElementById('quiz');const first=firstEl.value.trim(),last=lastEl.value.trim(),studentClass=classEl.value.trim();if(!first||!last||!studentClass){alert('Заповніть ім’я, прізвище та клас.');return}quizEl.classList.remove('hidden');quizEl.scrollIntoView({behavior:'smooth',block:'start'})}
 function grade(){let s=0;for(let i=1;i<=10;i++){const a=document.querySelector(`input[name=q${i}]:checked`);if(a&&a.value==='1')s++}const first=document.getElementById('fname').value.trim(),last=document.getElementById('lname').value.trim(),studentClass=document.getElementById('classn').value.trim();document.getElementById('result').textContent=`${first} ${last}, ${studentClass}: ${s}/10 балів.`}
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
 </body></html>

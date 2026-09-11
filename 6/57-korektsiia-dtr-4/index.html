@@ -97,4 +97,5 @@ const Q=[
 document.querySelector('#quizBody').innerHTML=Q.map((q,i)=>`<div class="quiz-q"><b>${i+1}. ${q[0]}</b>${q[1].map((x,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${x}</label>`).join('')}</div>`).join('');
 document.querySelector('#unlock').onclick=()=>{let ok=['surname','name','klass'].every(id=>document.querySelector('#'+id).value.trim());document.querySelector('#unlockFb').textContent=ok?'Тест відкрито.':'Заповніть прізвище, ім’я та клас.';if(ok)document.querySelector('#quiz').classList.remove('locked')};
 document.querySelector('#grade').onclick=()=>{let s=0;Q.forEach((q,i)=>{let a=document.querySelector(`input[name=q${i}]:checked`);if(a&&Number(a.value)===q[2])s++});document.querySelector('#result').textContent=`Результат: ${s}/10. ${s>=8?'Корекція засвоєна: пояснюйте свої кроки так само й надалі.':s>=6?'Є прогрес. Поверніться до станцій, де Ви вагалися.':'Потрібна повторна робота з 2–3 станціями за Вашим маршрутом.'}`};
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
+</body></html>

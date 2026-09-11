@@ -45,4 +45,5 @@ function unlockQuiz(){const s=document.getElementById('surname').value.trim(),n=
 function grade(){const ans={q1:'b',q2:'a',q3:'b',q4:'a',q5:'a',q6:'a',q7:'a',q8:'a',q9:'a',q10:'a'};let score=0,done=0;for(const q in ans){const x=document.querySelector(`input[name=${q}]:checked`);if(x){done++;if(x.value===ans[q])score++}}const r=document.getElementById('result');r.classList.add('show');r.innerHTML=`<b>Результат: ${score}/10</b><br>Відповіді дано на ${done}/10 завдань.${score<7?'<br>Поверніться до блоків про рифт, платформу та зв’язок геологічних структур із ресурсами.':'<br>Перевірте свій CER: чи є там конкретні картографічні докази?'}`}
 riftModel();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
 </body></html>

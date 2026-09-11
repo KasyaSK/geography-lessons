@@ -33,4 +33,5 @@ function v(id){return document.getElementById(id).value.trim()||'—'}
 function buildPassport(){passport.textContent=`КОНТИНЕНТ: ${v('continent')}\n\nПриродний каркас: ${v('elements')}\nІндекс стійкості: ${factorTotal.textContent}/18\nКлючовий компроміс: ${v('tradeoff')}\n\nРозселення: ${v('settlement')}\nЧому: ${v('settlementWhy')}\nКультурні регіони: ${v('cultures')}\nМеханізм співіснування: ${v('conflict')}\n\nПерші міста: ${v('cities')}\nГоловна вразливість: ${v('risk')}`}
 function finalize(){const ids=['mapObs','tradeoff','settlementWhy','conflict','ev1','ev2','ev3','continent','elements','cities','risk','claim','evidenceText','reasoning'];const missing=ids.filter(i=>!document.getElementById(i).value.trim());check.innerHTML=missing.length?'<div class="warn">Ще не завершено: заповніть '+missing.length+' поле(ів). Проєкт має бути доказовим, а не напівпорожнім.</div>':'<div class="ok"><b>Готово до оцінювання.</b> Є карта, природні чинники, культурна модель, три докази та CER.</div>'}
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
 </body></html>

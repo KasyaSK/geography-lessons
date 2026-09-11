@@ -27,4 +27,5 @@ const Q=[['Який висновок найкраще пояснює нерів�
 function unlockQuiz(){if(surname.value.trim()&&name.value.trim()&&klass.value.trim()){gate.style.display='none';quizBox.classList.add('show');renderQ()}else{gatefb.textContent='Заповніть прізвище, ім’я та клас.';gatefb.classList.add('show')}}
 function renderQ(){questions.innerHTML=Q.map((q,i)=>`<div class="q"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<label style="display:block;font-weight:500;margin:.35rem 0"><input style="width:auto" type="radio" name="q${i}" value="${j}"> ${o}</label>`).join('')}</div>`).join('')}
 function finishQuiz(){let s=0;Q.forEach((q,i)=>{let a=document.querySelector(`input[name=q${i}]:checked`);if(a&&+a.value===q[2])s++});prog.style.width=(s*10)+'%';result.innerHTML=`<p class="score">${s}/10</p><p><b>${surname.value} ${name.value}, ${klass.value}</b></p><p>${s>=8?'Сильний результат: причинні зв’язки читаєте впевнено.':s>=6?'База є. Перегляньте помилки й поверніться до карти та причинних ланцюгів.':'Поверніться до блоків «карта», «нічні вогні» й «екопроблеми»: тут важливо не вгадати, а пояснити.'}</p>`}
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
+</body></html>
