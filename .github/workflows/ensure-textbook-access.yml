@@ -1,0 +1,110 @@
+name: Ensure textbook access
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '5/**'
+      - '6/**'
+      - '7/**'
+      - '8/**'
+      - '9/**'
+      - '10/**'
+      - '11/**'
+      - 'assets/textbook-access.js'
+      - '.github/workflows/ensure-textbook-access.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ensure-textbook-access-main
+  cancel-in-progress: false
+
+jobs:
+  ensure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Inject reliable textbook access into every lesson page
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          grades = ('5','6','7','8','9','10','11')
+          script_url = 'https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911'
+          tag = f'<script src="{script_url}" data-textbook-access="global"></script>'
+
+          changed = []
+          checked = []
+          for grade in grades:
+              root = Path(grade)
+              if not root.exists():
+                  continue
+              for page in sorted(root.rglob('index.html')):
+                  # Skip only the class catalogue itself (e.g. 6/index.html).
+                  if page == root / 'index.html':
+                      continue
+                  checked.append(page)
+                  text = page.read_text(encoding='utf-8')
+                  if 'textbook-access.js' in text:
+                      continue
+                  if re.search(r'</body\s*>', text, flags=re.I):
+                      text = re.sub(r'</body\s*>', tag + '\n</body>', text, count=1, flags=re.I)
+                  else:
+                      text = text.rstrip() + '\n' + tag + '\n'
+                  page.write_text(text, encoding='utf-8')
+                  changed.append(page)
+
+          print(f'Checked lesson pages: {len(checked)}')
+          print(f'Pages patched: {len(changed)}')
+          for page in changed:
+              print(' +', page)
+
+          # Hard validation: every lesson index must now include the fallback.
+          missing = []
+          for page in checked:
+              text = page.read_text(encoding='utf-8')
+              if 'textbook-access.js' not in text:
+                  missing.append(str(page))
+          if missing:
+              raise SystemExit('Missing textbook access on: ' + ', '.join(missing))
+          PY
+
+      - name: Validate the shared access module
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          src = Path('assets/textbook-access.js').read_text(encoding='utf-8')
+          required = ["'5'", "'6'", "'7'", "'8'", "'9'", "'10'", "'11'",
+                      'global-textbook-access', 'Відкрити електронний підручник']
+          missing = [item for item in required if item not in src]
+          if missing:
+              raise SystemExit('textbook-access.js is incomplete: ' + ', '.join(missing))
+          print('Shared textbook access module: OK')
+          PY
+
+      - name: Commit automatic fixes when needed
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'All lesson pages already have textbook access.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 5 6 7 8 9 10 11
+          git commit -m 'Ensure textbook access on all lesson pages'
+          git push origin HEAD:main
