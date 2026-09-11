@@ -43,4 +43,5 @@ function openTest(){const s=document.getElementById('surname').value.trim(),n=do
 function grade(e){e.preventDefault();const key=['a','a','b','a','a','a','a','b','a','b'];let score=0;key.forEach((k,i)=>{const x=document.querySelector('input[name="q'+(i+1)+'"]:checked');if(x&&x.value===k)score++});const r=document.getElementById('result'),s=document.getElementById('surname').value.trim(),n=document.getElementById('name').value.trim(),c=document.getElementById('class').value;r.style.display='block';let msg=score>=9?'Дуже впевнене причинне мислення.':score>=7?'Добрий результат. Перегляньте ті зв’язки, де причина підмінювалась описом.':score>=5?'Основа є, але поверніться до моделі «чинник → процес → кліматичний наслідок».':'Поверніться до карти, циркуляції та блоку теорії й спробуйте ще раз.';r.innerHTML='<div class="big">'+score+'/10</div><b>'+s+' '+n+', '+c+'</b><p>'+msg+'</p>'}
 sim();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
