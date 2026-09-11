@@ -34,7 +34,7 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Inject reliable textbook access into every lesson page
+      - name: Inject online textbook access into every lesson page
         shell: bash
         run: |
           python - <<'PY'
@@ -42,7 +42,7 @@ jobs:
           import re
 
           grades = ('5','6','7','8','9','10','11')
-          script_url = 'https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911'
+          script_url = 'https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook'
           tag = f'<script src="{script_url}" data-textbook-access="global"></script>'
           runtime_code = (
               "const textbookTag='<scr'+'ipt src=\"" + script_url +
@@ -64,23 +64,27 @@ jobs:
               if not root.exists():
                   continue
               for page in sorted(root.rglob('index.html')):
-                  # Skip only the class catalogue itself (e.g. 6/index.html).
                   if page == root / 'index.html':
                       continue
                   checked.append(page)
                   text = page.read_text(encoding='utf-8')
                   original = text
 
-                  # Normal pages: add the shared fallback before </body>.
+                  # Normalize every old cached version of the shared module.
+                  text = re.sub(
+                      r'https://kasyask\.github\.io/geography-lessons/assets/textbook-access\.js\?v=[^"\'<> ]+',
+                      script_url,
+                      text
+                  )
+
                   if 'textbook-access.js' not in text:
                       if re.search(r'</body\s*>', text, flags=re.I):
                           text = re.sub(r'</body\s*>', tag + '\n</body>', text, count=1, flags=re.I)
                       else:
                           text = text.rstrip() + '\n' + tag + '\n'
 
-                  # Some loader pages use document.open()/document.write() after an async
-                  # payload fetch. That replaces the complete DOM and would erase the fallback.
-                  # Re-inject the shared module into the payload itself before it is written.
+                  # Loader pages that replace the complete document need the module
+                  # inserted into the final hydrated HTML as well.
                   if re.search(r'document\.write\s*\(', text) and 'data-textbook-rehydrate' not in text:
                       pattern = r'document\.write\(\s*html\s*\)'
                       text2, n = re.subn(pattern, lambda m: runtime_code, text, count=1)
@@ -100,58 +104,71 @@ jobs:
           print(f'Checked lesson pages: {len(checked)}')
           print(f'Pages patched this run: {len(changed)}')
           print(f'Document-rewriting loaders hardened: {len(rewritten)}')
-          for page in rewritten:
-              print(' rehydrate +', page)
 
           if unsupported_rewriters:
-              raise SystemExit(
-                  'Found document.write() loader(s) that need an explicit rehydration pattern: ' +
-                  ', '.join(map(str, unsupported_rewriters))
-              )
+              raise SystemExit('Unsupported document.write() loader(s): ' + ', '.join(map(str, unsupported_rewriters)))
           if malformed:
               raise SystemExit('Malformed textbook rehydration code on: ' + ', '.join(map(str, malformed)))
 
-          # Hard validation: every lesson index must contain the fallback, and every
-          # document-rewriting loader must also contain the post-write rehydration marker.
           missing = []
+          stale_version = []
           missing_rehydrate = []
           for page in checked:
               text = page.read_text(encoding='utf-8')
               if 'textbook-access.js' not in text:
                   missing.append(str(page))
+              if 'textbook-access.js?v=20260911-ebook' not in text:
+                  stale_version.append(str(page))
               if re.search(r'document\.write\s*\(', text) and 'data-textbook-rehydrate' not in text:
                   missing_rehydrate.append(str(page))
 
           if missing:
               raise SystemExit('Missing textbook access on: ' + ', '.join(missing))
+          if stale_version:
+              raise SystemExit('Old textbook module version on: ' + ', '.join(stale_version))
           if missing_rehydrate:
               raise SystemExit('Textbook access could be erased by document.write() on: ' + ', '.join(missing_rehydrate))
           PY
 
-      - name: Validate the shared access module
+      - name: Validate browser-readable electronic textbooks
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
           src = Path('assets/textbook-access.js').read_text(encoding='utf-8')
-          required = ["'5'", "'6'", "'7'", "'8'", "'9'", "'10'", "'11'",
-                      'global-textbook-access', 'Відкрити електронний підручник']
+
+          required = [
+              "'5'", "'6'", "'7'", "'8'", "'9'", "'10'", "'11'",
+              'global-textbook-access',
+              'Читати електронний підручник онлайн',
+              'uahistory.co/pidruchniki/'
+          ]
           missing = [item for item in required if item not in src]
           if missing:
               raise SystemExit('textbook-access.js is incomplete: ' + ', '.join(missing))
-          print('Shared textbook access module: OK')
+
+          forbidden = ['.pdf', 'drive.google.com', 'lib.imzo.gov.ua/wa-data', '/sites/default/files/ebooks/']
+          bad = [item for item in forbidden if item in src]
+          if bad:
+              raise SystemExit('Primary textbook access must be web-readable, not file-based. Found: ' + ', '.join(bad))
+
+          online_urls = re.findall(r"url:\s*'([^']+)'", src)
+          if len(online_urls) != 7 or any(not u.startswith('https://uahistory.co/pidruchniki/') for u in online_urls):
+              raise SystemExit('All seven grade textbook URLs must be browser-readable online versions.')
+
+          print('Electronic textbook module: 7/7 grades use browser-readable web versions.')
           PY
 
       - name: Commit automatic fixes when needed
         shell: bash
         run: |
           if git diff --quiet; then
-            echo 'All lesson pages already have runtime-safe textbook access.'
+            echo 'All lesson pages already use the current online textbook access module.'
             exit 0
           fi
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add 5 6 7 8 9 10 11
-          git commit -m 'Ensure runtime-safe textbook access'
+          git commit -m 'Use current online textbook access module on all lessons'
           git push origin HEAD:main
