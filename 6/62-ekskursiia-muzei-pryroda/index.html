@@ -26,5 +26,5 @@ const Q=[['Що є найкращим початком екскурсійног�
 quiz.innerHTML=Q.map((q,i)=>`<div class="q"><b>${i+1}. ${q[0]}</b>${q[1].map((a,j)=>`<label class="choice"><input type="radio" name="q${i}" value="${j}"> ${a}</label>`).join('')}</div>`).join('');
 function unlock(){if(!surname.value.trim()||!name.value.trim()||!klass.value){lockMsg.textContent='Заповніть прізвище, ім’я та клас.';return}quiz.classList.remove('test-lock');finish.disabled=false;lockMsg.textContent='Тест відкрито. 10 запитань = 10 балів.'}
 function finish(){let s=0;Q.forEach((q,i)=>{const a=document.querySelector(`input[name=q${i}]:checked`);if(a&&+a.value===q[2])s++});score.textContent=`${surname.value} ${name.value}, ${klass.value}: ${s}/10 балів.`}
-</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>

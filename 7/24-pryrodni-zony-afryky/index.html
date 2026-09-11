@@ -53,5 +53,5 @@ function unlockTest(){const s=surname.value.trim(),n=name.value.trim(),c=classNa
 function scoreTest(){const ans={q1:'b',q2:'a',q3:'a',q4:'b',q5:'a',q6:'a',q7:'b',q8:'b',q9:'a',q10:'b'};let sc=0,done=0;Object.keys(ans).forEach(q=>{const x=document.querySelector('input[name="'+q+'"]:checked');if(x){done++;if(x.value===ans[q])sc++}});if(done<10){scoreBox.innerHTML='<div class="task warn">Відповідайте на всі 10 завдань. Зараз заповнено '+done+'/10.</div>';return}scoreBox.innerHTML='<p class="score">'+sc+' / 10</p><p>'+(sc>=9?'Високий результат: перевірте, чи можете так само довести закономірність картою.':sc>=7?'Добре. Поверніться до завдань про винятки із широтної зональності.':sc>=5?'Повторіть зв’язок «режим опадів → рослинність → зона» й спробуйте CER ще раз.':'Поверніться до станцій A–D, карти й теорії; не вчіть назви без причинних зв’язків.')+'</p>';localStorage.setItem('africaZonesTest',JSON.stringify({surname:surname.value,name:name.value,className:className.value,score:sc,date:new Date().toISOString()}))}
 renderStation();
 </script>
-<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>

@@ -17,10 +17,10 @@
     const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
     const html=await new Response(stream).text();
-    const textbookTag='<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global" data-textbook-rehydrate="1"></scr'+'ipt>';
+    const textbookTag='<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global" data-textbook-rehydrate="1"></scr'+'ipt>';
     const hydrated=/<\/body\s*>/i.test(html)?html.replace(/<\/body\s*>/i,textbookTag+'</body>'):html+textbookTag;
     document.open();document.write(hydrated);document.close();
   }catch(e){document.getElementById('loader').innerHTML='<h1>Не вдалося відкрити урок</h1><p>'+String(e.message||e)+'</p>'}
 })();
-</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911" data-textbook-access="global"></script>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
