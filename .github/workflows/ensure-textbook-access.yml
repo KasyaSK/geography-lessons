@@ -44,9 +44,18 @@ jobs:
           grades = ('5','6','7','8','9','10','11')
           script_url = 'https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911'
           tag = f'<script src="{script_url}" data-textbook-access="global"></script>'
+          # Safe JavaScript expression for pages that later replace the whole document.
+          # Splitting "script" prevents the wrapper's own closing </script> from being parsed early.
+          runtime_tag = (
+              "'<scr'+'ipt src=\"" + script_url + "\" data-textbook-access=\"global\" "
+              "+'data-textbook-rehydrate=\"1\"></scr'+'ipt>'"
+          )
 
           changed = []
           checked = []
+          rewritten = []
+          unsupported_rewriters = []
+
           for grade in grades:
               root = Path(grade)
               if not root.exists():
@@ -57,28 +66,63 @@ jobs:
                       continue
                   checked.append(page)
                   text = page.read_text(encoding='utf-8')
-                  if 'textbook-access.js' in text:
-                      continue
-                  if re.search(r'</body\s*>', text, flags=re.I):
-                      text = re.sub(r'</body\s*>', tag + '\n</body>', text, count=1, flags=re.I)
-                  else:
-                      text = text.rstrip() + '\n' + tag + '\n'
-                  page.write_text(text, encoding='utf-8')
-                  changed.append(page)
+                  original = text
+
+                  # Normal pages: add the shared fallback before </body>.
+                  if 'textbook-access.js' not in text:
+                      if re.search(r'</body\s*>', text, flags=re.I):
+                          text = re.sub(r'</body\s*>', tag + '\n</body>', text, count=1, flags=re.I)
+                      else:
+                          text = text.rstrip() + '\n' + tag + '\n'
+
+                  # Some loader pages use document.open()/document.write() after an async
+                  # payload fetch. That replaces the complete DOM and would erase the fallback.
+                  # Re-inject the shared module into the payload itself before it is written.
+                  if re.search(r'document\.write\s*\(', text) and 'data-textbook-rehydrate' not in text:
+                      pattern = r'document\.write\(\s*html\s*\)'
+                      replacement = (
+                          "document.write((/<\\/body\\s*>/i.test(html)"
+                          "?html.replace(/<\\/body\\s*>/i," + runtime_tag + "+'</body>')"
+                          ":html+" + runtime_tag + "))"
+                      )
+                      text2, n = re.subn(pattern, lambda m: replacement, text, count=1)
+                      if n:
+                          text = text2
+                          rewritten.append(page)
+                      else:
+                          unsupported_rewriters.append(page)
+
+                  if text != original:
+                      page.write_text(text, encoding='utf-8')
+                      changed.append(page)
 
           print(f'Checked lesson pages: {len(checked)}')
-          print(f'Pages patched: {len(changed)}')
-          for page in changed:
-              print(' +', page)
+          print(f'Pages patched this run: {len(changed)}')
+          print(f'Document-rewriting loaders hardened: {len(rewritten)}')
+          for page in rewritten:
+              print(' rehydrate +', page)
 
-          # Hard validation: every lesson index must now include the fallback.
+          if unsupported_rewriters:
+              raise SystemExit(
+                  'Found document.write() loader(s) that need an explicit rehydration pattern: ' +
+                  ', '.join(map(str, unsupported_rewriters))
+              )
+
+          # Hard validation: every lesson index must contain the fallback, and every
+          # document-rewriting loader must also contain the post-write rehydration marker.
           missing = []
+          missing_rehydrate = []
           for page in checked:
               text = page.read_text(encoding='utf-8')
               if 'textbook-access.js' not in text:
                   missing.append(str(page))
+              if re.search(r'document\.write\s*\(', text) and 'data-textbook-rehydrate' not in text:
+                  missing_rehydrate.append(str(page))
+
           if missing:
               raise SystemExit('Missing textbook access on: ' + ', '.join(missing))
+          if missing_rehydrate:
+              raise SystemExit('Textbook access could be erased by document.write() on: ' + ', '.join(missing_rehydrate))
           PY
 
       - name: Validate the shared access module
@@ -99,12 +143,12 @@ jobs:
         shell: bash
         run: |
           if git diff --quiet; then
-            echo 'All lesson pages already have textbook access.'
+            echo 'All lesson pages already have runtime-safe textbook access.'
             exit 0
           fi
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add 5 6 7 8 9 10 11
-          git commit -m 'Ensure textbook access on all lesson pages'
+          git commit -m 'Keep textbook access after dynamic lesson loading'
           git push origin HEAD:main
