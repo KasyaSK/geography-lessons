@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
+<title id="t">Кліматичні ресурси та енергетика</title>
+<desc id="d">Схема переходу від сонячної радіації та вітру до вироблення електроенергії, з урахуванням мінливості, мережі та накопичення.</desc>
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8f7ff"/><stop offset="1" stop-color="#fff5cf"/></linearGradient>
+ <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd85c"/><stop offset="1" stop-color="#ff9f43"/></linearGradient>
+ <linearGradient id="wind" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7ed6df"/><stop offset="1" stop-color="#54a0ff"/></linearGradient>
+</defs>
+<rect width="1200" height="520" rx="34" fill="url(#sky)"/>
+<text x="60" y="65" font-family="system-ui,sans-serif" font-size="30" font-weight="800" fill="#17384d">Кліматичний ресурс ≠ готова електроенергія</text>
+<text x="60" y="100" font-family="system-ui,sans-serif" font-size="18" fill="#567286">Потрібні технологія, місце, мережа й спосіб працювати з мінливістю.</text>
+<g transform="translate(70 150)"><rect width="270" height="260" rx="26" fill="#fff" stroke="#cfe3ee"/><circle cx="72" cy="72" r="42" fill="url(#sun)"/><g stroke="#f4ad35" stroke-width="8" stroke-linecap="round"><path d="M72 10v20M72 114v20M10 72h20M114 72h20M29 29l14 14M101 101l14 14M115 29l-14 14M43 101l-14 14"/></g><text x="28" y="155" font-family="system-ui" font-size="24" font-weight="800" fill="#17384d">Сонце</text><text x="28" y="187" font-family="system-ui" font-size="17" fill="#567286">радіація • сезонність</text><text x="28" y="216" font-family="system-ui" font-size="17" fill="#567286">хмарність • тривалість дня</text></g>
+<g transform="translate(465 150)"><rect width="270" height="260" rx="26" fill="#fff" stroke="#cfe3ee"/><circle cx="72" cy="72" r="10" fill="#2789b6"/><g fill="url(#wind)" stroke="#2789b6" stroke-width="2"><path d="M72 72 C30 48,25 18,46 10 C65 4,78 31,72 72Z"/><path d="M72 72 C101 35,132 39,138 61 C143 81,113 90,72 72Z"/><path d="M72 72 C85 117,60 136,39 127 C21 119,32 90,72 72Z"/></g><path d="M72 82L72 140" stroke="#2789b6" stroke-width="8"/><text x="28" y="155" font-family="system-ui" font-size="24" font-weight="800" fill="#17384d">Вітер</text><text x="28" y="187" font-family="system-ui" font-size="17" fill="#567286">швидкість • висота</text><text x="28" y="216" font-family="system-ui" font-size="17" fill="#567286">рельєф • шорсткість поверхні</text></g>
+<g transform="translate(860 150)"><rect width="270" height="260" rx="26" fill="#fff" stroke="#cfe3ee"/><rect x="30" y="30" width="90" height="70" rx="8" fill="#1f6f8b"/><path d="M45 45h60M45 62h60M45 79h60M60 35v60M90 35v60" stroke="#9be7ff" stroke-width="3"/><path d="M150 92h80M190 55v75" stroke="#187a61" stroke-width="9" stroke-linecap="round"/><rect x="148" y="130" width="86" height="40" rx="8" fill="#b5ead7" stroke="#187a61"/><text x="28" y="205" font-family="system-ui" font-size="24" font-weight="800" fill="#17384d">Система</text><text x="28" y="237" font-family="system-ui" font-size="17" fill="#567286">генерація • мережа • накопичення</text></g>
+<path d="M350 280h95" stroke="#2b7da5" stroke-width="7"/><polygon points="445,280 425,268 425,292" fill="#2b7da5"/><path d="M745 280h95" stroke="#2b7da5" stroke-width="7"/><polygon points="840,280 820,268 820,292" fill="#2b7da5"/>
+<text x="425" y="455" font-family="system-ui" font-size="19" font-weight="700" fill="#17384d">Доказ → порівняння ресурсів → розрахунок → рішення → CER</text>
+</svg>
