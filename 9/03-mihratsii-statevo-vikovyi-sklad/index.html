@@ -1,2 +1,51 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»"><title>9 клас • Урок 3 • Міграції та статево-віковий склад</title><style>body{margin:0;font-family:system-ui,sans-serif;background:#f5fbfe;color:#153246;display:grid;place-items:center;min-height:100vh}.box{max-width:720px;margin:24px;padding:28px;border-radius:24px;background:#fff;border:1px solid #d8e8ef;box-shadow:0 20px 48px rgba(40,72,96,.12)}.muted{color:#60798a}</style></head><body><div class="box" id="loader"><h1>Завантажуємо урок…</h1><p class="muted">Розгортаємо повну інтерактивну сторінку.</p></div><script>(async()=>{try{if(typeof DecompressionStream==='undefined')throw new Error('Браузер не підтримує розпакування gzip. Оновіть браузер.');const b64=(await (await fetch('payload.b64',{cache:'no-store'})).text()).trim();const raw=atob(b64);const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));const html=await new Response(stream).text();document.open();const textbookTag='<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global" data-textbook-rehydrate="1"></scr'+'ipt>';const hydrated=/<\/body\s*>/i.test(html)?html.replace(/<\/body\s*>/i,textbookTag+'</body>'):html+textbookTag;document.write(hydrated);document.close()}catch(e){document.getElementById('loader').innerHTML='<h1>Не вдалося відкрити урок</h1><p>'+String(e.message||e)+'</p>'}})();</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Інтерактивний урок географії 9 класу: міграції, міграційне сальдо, статево-вікова структура, демографічна та міграційна політика.">
+<title>9 клас • Урок 3 • Міграції та статево-віковий склад</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero" id="start">
+  <div class="route route-a" aria-hidden="true"></div><div class="route route-b" aria-hidden="true"></div>
+  <div class="shell hero-grid">
+    <div>
+      <div class="eyebrow">9 клас • Географія • Урок 3 • ГР3</div>
+      <h1>Люди рухаються. <span>Разом із ними змінюється карта населення.</span></h1>
+      <p class="lead">Міграція — це не просто «хтось кудись поїхав». Вона змінює вікову структуру, ринок праці, міста, родини й демографічне майбутнє територій. Сьогодні працюємо як демографи: читаємо карту, рахуємо сальдо, аналізуємо піраміду й ловимо логічні пастки.</p>
+      <div class="hero-actions"><a class="btn primary" href="#problem">Почати урок</a><a class="btn ghost" href="#homework">Одразу до Д/З</a></div>
+    </div>
+    <div class="hero-card" aria-label="Паспорт уроку">
+      <div><b>КТП</b><span>Розділ І • ГР3</span></div>
+      <div><b>Тема</b><span>Міграції + статево-віковий склад</span></div>
+      <div><b>Тривалість</b><span>35 хв + домашнє</span></div>
+      <div><b>Підручник</b><span>§§ 4–5</span></div>
+    </div>
+  </div>
+</header>
+<div class="nav-wrap no-print"><nav aria-label="Навігація уроком">
+  <a href="#problem">Проблема</a><a href="#warmup">Міграція?</a><a href="#video1">Відео</a><a href="#evidence">Карта</a><a href="#balance">Сальдо</a><a href="#pyramid">Піраміда</a><a href="#mission">Місія</a><a href="#theory">Теорія</a><a href="#duel">Пастка</a><a href="#summary">CER</a><a href="#homework">Д/З</a>
+</nav></div>
+<main id="lessonContent"></main>
+<footer><div class="shell"><strong>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</strong><div class="small">Географія • 9 клас • урок 3 • 2026/2027 н.р. • Дані: UN DESA, IOM, UN WPP</div></div></footer>
+<div class="float-tools no-print"><button id="textSize" type="button" title="Збільшити шрифт" aria-label="Збільшити шрифт">A+</button><button id="toTop" type="button" title="На початок" aria-label="На початок">↑</button></div>
+<script>
+(async()=>{
+  const host=document.getElementById('lessonContent');
+  const files=['part-1.html','part-2.html','part-3.html','part-4.html'];
+  for(const file of files){
+    const r=await fetch(file,{cache:'no-store'});
+    if(!r.ok) throw new Error('Не вдалося завантажити '+file);
+    host.insertAdjacentHTML('beforeend',await r.text());
+  }
+  const s=document.createElement('script');s.src='script.js?v=20260914-fix';document.body.appendChild(s);
+})().catch(err=>{
+  document.getElementById('lessonContent').innerHTML='<section><div class="shell"><div class="feedback bad show"><b>Урок не завантажився.</b><br>'+String(err.message||err)+'<br><small>Оновіть сторінку. Якщо помилка лишається — повідомте вчителю.</small></div></div></section>';
+});
+</script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body>
+</html>
