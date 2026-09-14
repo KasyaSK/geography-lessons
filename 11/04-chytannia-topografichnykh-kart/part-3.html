@@ -1,0 +1,56 @@
+<section id="mission">
+  <div class="section-head"><div class="eyebrow">20–24 хв • різнорівнева місія</div><h2>Оберіть рівень не за настроєм, а за амбіцією</h2></div>
+  <div class="section-body">
+    <div class="level-tabs no-print">
+      <button class="btn secondary level-btn" data-level="base">Базовий</button>
+      <button class="btn secondary level-btn" data-level="mid">Достатній</button>
+      <button class="btn secondary level-btn" data-level="high">Високий</button>
+    </div>
+    <div class="level-panel active" id="level-base">
+      <div class="card"><strong>Базовий</strong><p>На карті 1:50 000 відстань між пунктами — 3,8 см. Обчисліть реальну відстань. Потім назвіть один чинник, через який реальний шлях може бути довшим.</p></div>
+    </div>
+    <div class="level-panel" id="level-mid">
+      <div class="card"><strong>Достатній</strong><p>Маршрут A по прямій — 4,7 см, маршрут B дорогою — 6,2 см на карті 1:50 000. Обчисліть обидва. Оберіть маршрут для велосипедиста, якщо A перетинає крутий схил і заболочену ділянку. Наведіть 2 докази.</p></div>
+    </div>
+    <div class="level-panel" id="level-high">
+      <div class="card"><strong>Високий</strong><p>Ви оцінили площу лісу за палеткою як 18 км². Межа проходить через 12 неповних клітин. Визначте реалістичний інтервал невизначеності й поясніть, які дані/метод зменшили б похибку. Додайте контраргумент до власної оцінки.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="theory">
+  <div class="section-head"><div class="eyebrow">24–31 хв • основне вивчення</div><h2>Теорія, яка вже має до чого «приклеїтися»</h2></div>
+  <div class="section-body">
+    <div class="steps">
+      <div class="step"><b>Читайте карту в правильному порядку.</b> Назва/аркуш → масштаб → легенда → сітка → рельєф → гідрографія → дороги/населені пункти → вимірювання. Вимірювати до розуміння карти — це швидкий спосіб отримати дуже точну неправильну відповідь.</div>
+      <div class="step"><b>Типи умовних знаків.</b> Площинні передають контур і площу (ліс, озеро), лінійні — протяжні об’єкти (дорога, річка), позамасштабні — невеликі об’єкти, розмір яких у масштабі не відтворюється (вежа, джерело), пояснювальні — підписи та числові характеристики.</div>
+      <div class="step"><b>Масштаб 1:n.</b> 1 одиниця на карті відповідає n таким самим одиницям на місцевості. Для 1:50 000: <span class="formula">1 см = 500 м = 0,5 км</span>.</div>
+      <div class="step"><b>Прямі й криві відстані.</b> Пряму вимірюють лінійкою. Криву — ниткою, розбиттям на короткі відрізки або курвіметром. Що сильніше звивається лінія, то гірше працює «один довгий відрізок».</div>
+      <div class="step"><b>Площа.</b> Прості фігури можна розкласти на прямокутники/трикутники. Нерегулярні контури оцінюють палеткою: повні клітинки + частки неповних. У цифрових ГІС площу рахує геометрія полігона — але результат усе одно залежить від точності контуру й проєкції.</div>
+      <div class="step"><b>Обмеження.</b> Відстань на топокарті — переважно горизонтальна проєкція. На крутому схилі фактична довжина шляху по поверхні більша. Старі карти можуть містити застарілі дороги, забудову й межі. Похибка вимірювання множиться на масштаб.</div>
+    </div>
+  </div>
+</section>
+
+<section id="duel">
+  <div class="section-head"><div class="eyebrow">31–33 хв • логічний двобій</div><h2>Знайдіть, де карта ні до чого — помилилась логіка</h2></div>
+  <div class="section-body duel">
+    <div class="duel-item"><b>A.</b> «Карта 1:25 000 дрібніша за 1:50 000, бо 25 000 менше». <button class="btn secondary duel-btn" data-answer="false" data-id="d1">Вердикт</button><div class="feedback" id="d1"></div></div>
+    <div class="duel-item"><b>B.</b> «Помилка вимірювання 1 мм на карті 1:50 000 дає близько 50 м похибки на місцевості». <button class="btn secondary duel-btn" data-answer="true" data-id="d2">Вердикт</button><div class="feedback" id="d2"></div></div>
+    <div class="duel-item"><b>C.</b> «Якщо шлях на карті 5 км, людина гарантовано пройде рівно 5 км». <button class="btn secondary duel-btn" data-answer="false" data-id="d3">Вердикт</button><div class="feedback" id="d3"></div></div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="section-head"><div class="eyebrow">33–35 хв • підсумок</div><h2>CER: твердження → доказ → пояснення</h2></div>
+  <div class="section-body">
+    <p><b>Питання:</b> чи достатньо найкоротшої відстані на карті, щоб обрати найкращий маршрут?</p>
+    <div class="cer">
+      <div><b>Твердження</b><textarea id="cerC" placeholder="Моя відповідь…"></textarea></div>
+      <div><b>Доказ</b><textarea id="cerE" placeholder="Конкретна ознака карти / вимір…"></textarea></div>
+      <div><b>Пояснення</b><textarea id="cerR" placeholder="Як доказ підтримує твердження…"></textarea></div>
+    </div>
+    <button class="btn" id="checkCer" style="margin-top:12px">Перевірити повноту CER</button>
+    <div class="feedback" id="cerFeedback"></div>
+  </div>
+</section>
