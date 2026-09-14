@@ -1,0 +1,46 @@
+<section id="balance" class="section soft">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">14–17 хв • Математика міграції</div><h2>Сальдо міграції: одна проста формула, багато неправильних висновків</h2></div><span class="time-chip">3 хв</span></div>
+    <div class="formula-card"><span>Сальдо міграції</span><strong>= імміграція − еміграція</strong><small>Додатне → прибуло більше, ніж вибуло. Від’ємне → вибуло більше.</small></div>
+    <div class="calculator card">
+      <div class="calc-fields"><label>Прибуло<input id="arrivals" type="number" min="0" value="12800"></label><label>Вибуло<input id="departures" type="number" min="0" value="17300"></label></div>
+      <button class="btn primary" id="calcBalance" type="button">Обчислити</button>
+      <div class="balance-result" id="balanceResult" aria-live="polite"></div>
+      <div class="trap-note"><b>Пастка:</b> від’ємне сальдо ще не доводить, що загальна чисельність населення зменшилася. Для цього потрібні ще дані про народжуваність і смертність.</div>
+    </div>
+  </div>
+</section>
+<section id="pyramid" class="section">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker">17–20 хв • Візуальний доказ</div><h2>Статево-вікова піраміда: «рентген» населення</h2></div><span class="time-chip">3 хв</span></div>
+    <div class="pyramid-layout">
+      <figure class="pyramid-figure">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ukraine_population_pyramid_2024.png" alt="Статево-вікова піраміда населення України 2024" loading="lazy">
+        <figcaption>Статево-вікова піраміда України, 2024. Візуалізація на основі оновлених даних ООН; Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+      </figure>
+      <div class="card pyramid-task">
+        <h3>Читаємо не «форму», а докази</h3>
+        <ol><li>Знайдіть вікові групи, де «виступи» або «провали» найбільші.</li><li>Порівняйте ширину молодших і середніх вікових груп.</li><li>Подивіться на співвідношення чоловіків і жінок у старших віках.</li></ol>
+        <div class="choice-row vertical" id="pyramidClaim">
+          <button type="button" data-value="a">Піраміда дозволяє точно назвати причину кожного провалу.</button>
+          <button type="button" data-value="b">Піраміда показує вікові диспропорції, але для причин потрібен історичний і міграційний контекст.</button>
+          <button type="button" data-value="c">Піраміда показує лише кількість жінок і чоловіків, а вік — ні.</button>
+        </div><div class="feedback" id="pyramidFeedback"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="mission" class="section dark">
+  <div class="shell">
+    <div class="section-head"><div><div class="kicker light">20–23 хв • Різнорівнева місія</div><h2>Ви — радники громади. Який висновок можна захищати?</h2></div><span class="time-chip">3 хв</span></div>
+    <div class="data-strip"><div><b>18–34 роки</b><span>частка зменшується</span></div><div><b>Сальдо</b><span>−4 500 за рік</span></div><div><b>65+</b><span>частка зростає</span></div><div><b>Вакансії</b><span>дефіцит кадрів</span></div></div>
+    <div class="level-tabs" role="tablist" aria-label="Рівень завдання"><button class="active" type="button" data-level="basic">Базовий</button><button type="button" data-level="middle">Достатній</button><button type="button" data-level="high">Високий</button></div>
+    <div class="level-content" id="levelContent"><div data-panel="basic"><h3>Базовий</h3><p>Оберіть два показники, які прямо свідчать про можливий відтік молодих дорослих. Поясніть зв’язок одним реченням.</p></div><div data-panel="middle" hidden><h3>Достатній</h3><p>Побудуйте ланцюг: <strong>від’ємне сальдо → зміна вікової структури → наслідок для ринку праці</strong>. Додайте одне альтернативне пояснення.</p></div><div data-panel="high" hidden><h3>Високий</h3><p>Мер каже: «Уся проблема громади — міграція». Сформулюйте контраргумент. Які <strong>ще 2 дані</strong> потрібні, щоб перевірити його твердження?</p></div></div>
+  </div>
+</section>
+<section id="video2" class="section video-soft">
+  <div class="shell video-grid reverse">
+    <div class="video-frame"><iframe title="Міграційні потоки у світі — Pi-stacja UA, фрагмент" src="https://www.youtube-nocookie.com/embed/9Ifhq1XIBbk?start=217&end=296&rel=0" loading="lazy" allowfullscreen></iframe><div class="caption">Pi-stacja UA • фрагмент 03:37–04:56</div></div>
+    <div><div class="kicker">23–25 хв • Відеофрагмент 2</div><h2>Напрямок ≠ причина</h2><p><strong>Під час перегляду:</strong> випишіть один напрямок міграції та один чинник. Не змішуйте їх: «куди?» і «чому?» — різні питання.</p><a class="text-link" href="https://www.youtube.com/watch?v=9Ifhq1XIBbk&t=217s" target="_blank" rel="noopener">Відкрити відео окремо ↗</a></div>
+  </div>
+</section>
