@@ -1,0 +1,91 @@
+<section id="maplab">
+  <div class="section-head"><div class="eyebrow">9–14 хв • лабораторія доказів</div><h2>Реальна українська навчальна топографічна карта</h2></div>
+  <div class="section-body">
+    <div class="callout tip"><b>Джерело:</b> навчальна карта N‑34‑37‑В, Державна служба геодезії та картографії України. Масштаб 1:50 000. На карті є кілометрова сітка, горизонталі, дороги, гідрографія, рослинність і підписи.</div>
+    <div class="map-tools no-print">
+      <button class="btn secondary" data-zoom="1">100%</button>
+      <button class="btn secondary" data-zoom="1.35">135%</button>
+      <button class="btn secondary" data-zoom="1.75">175%</button>
+      <a class="btn" href="https://kgf.com.ua/image/catalog/static/cartgeodep/topomap-3.jpg" target="_blank" rel="noopener">Відкрити карту окремо ↗</a>
+    </div>
+    <div class="map-frame" id="mapFrame">
+      <img id="topoMap" src="https://kgf.com.ua/image/catalog/static/cartgeodep/topomap-3.jpg" alt="Навчальна топографічна карта N-34-37-В масштабу 1:50 000">
+    </div>
+    <div class="figure-caption">Карта використовується як джерело даних, а не як декор. Якщо зображення не завантажиться, відкрийте його окремою кнопкою.</div>
+    <hr class="sep">
+    <div class="grid3">
+      <div class="card">
+        <strong>Доказ 1 • Вода</strong>
+        <p>Знайдіть велику річку. Які ознаки карти дозволяють відрізнити її від дороги?</p>
+        <button class="btn secondary reveal" data-target="ansWater">Показати критерії</button>
+        <div class="feedback" id="ansWater">Синій колір, берегова лінія, притоки/рукави, підписи гідрографії. Одна «схожа лінія» — ще не доказ.</div>
+      </div>
+      <div class="card">
+        <strong>Доказ 2 • Рельєф</strong>
+        <p>Де схил крутіший: там, де горизонталі густі, чи там, де вони розріджені?</p>
+        <button class="btn secondary reveal" data-target="ansRelief">Перевірити</button>
+        <div class="feedback" id="ansRelief">Густі горизонталі = швидка зміна висоти на малій горизонтальній відстані = крутіший схил.</div>
+      </div>
+      <div class="card">
+        <strong>Доказ 3 • Сітка</strong>
+        <p>Один квадрат кілометрової сітки має площу приблизно…</p>
+        <div class="choice-row" data-quick="gridArea">
+          <button class="choice" data-value="1">1 км²</button><button class="choice" data-value="10">10 км²</button><button class="choice" data-value="0.25">0,25 км²</button>
+        </div>
+        <div class="feedback" id="gridAreaFeedback"></div>
+      </div>
+    </div>
+    <p><img class="scale-strip" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Scale_from_Ukrainian_educational_topographic_map_N-34-37-%D0%92.png" alt="Лінійний масштаб 1:50 000 та схема магнітного схилення"></p>
+  </div>
+</section>
+
+<section id="measure">
+  <div class="section-head"><div class="eyebrow">14–20 хв • вимірювальна майстерня</div><h2>Від сантиметрів — до кілометрів</h2></div>
+  <div class="section-body">
+    <h3>1. Калькулятор прямої відстані</h3>
+    <div class="calc">
+      <div class="field"><label for="mapCm">Відстань на карті, см</label><input id="mapCm" type="number" step="0.1" value="6.2"></div>
+      <div class="field"><label for="scaleDen">Знаменник масштабу</label><input id="scaleDen" type="number" value="50000"></div>
+      <button class="btn" id="calcDistance">Обчислити</button>
+      <div class="output" id="distanceOut">—</div>
+    </div>
+    <p class="small">Формула: сантиметри на карті × знаменник масштабу = сантиметри на місцевості. Потім переводимо одиниці. Так, нулі треба не «відчути», а порахувати.</p>
+
+    <h3>2. Звивистий маршрут</h3>
+    <div class="grid2">
+      <div class="card">
+        <strong>Що робити?</strong>
+        <p>Розбийте криву на короткі відрізки, скористайтеся ниткою або курвіметром. Чим дрібніший крок — тим менша похибка, але тим довше вимірювати.</p>
+        <div class="callout">Курвіметр — прилад із коліщатком, яке прокочують по кривій лінії на карті. Він вимірює її довжину на папері; далі застосовують масштаб.</div>
+      </div>
+      <div>
+        <iframe class="video" src="https://www.youtube-nocookie.com/embed/CzXGxS4oTKc?start=87" title="Визначення відстаней і площ за топографічною картою — Pi-stacja UA" allowfullscreen></iframe>
+        <p class="small"><b>Фокус:</b> пряма, звивиста лінія, курвіметр і площа. <a href="https://www.youtube.com/watch?v=CzXGxS4oTKc" target="_blank" rel="noopener">Відкрити відео ↗</a></p>
+      </div>
+    </div>
+
+    <h3>3. Палетка: площа неправильного контуру</h3>
+    <div class="grid2">
+      <div class="paletka-wrap">
+        <svg class="paletka" viewBox="0 0 600 600" role="img" aria-label="Сіткова палетка з нерегулярним зеленим контуром">
+          <rect width="600" height="600" fill="#f8f3e2"/>
+          <path d="M72 455 C52 350,88 248,173 191 C236 148,265 91,355 100 C452 110,527 191,514 289 C506 359,469 407,421 464 C338 553,164 548,72 455Z" fill="#8eaa79" opacity=".78" stroke="#355941" stroke-width="5"/>
+          <g stroke="#6f786c" stroke-width="1.4" opacity=".85">
+            <path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600"/>
+            <path d="M0 100H600M0 200H600M0 300H600M0 400H600M0 500H600"/>
+          </g>
+          <g font-size="20" fill="#374137" font-family="system-ui">
+            <text x="14" y="28">1 клітинка = 1 км²</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card">
+        <strong>Оцініть площу зеленого контуру</strong>
+        <p>Порахуйте повні клітинки та приблизно половину неповних. Тут немає магічної «ідеально точної» відповіді — це оцінювання.</p>
+        <div class="field"><label for="areaGuess">Ваша оцінка, км²</label><input id="areaGuess" type="number" step="0.5" placeholder="Напр. 14,5"></div>
+        <button class="btn" id="checkArea">Перевірити оцінку</button>
+        <div class="feedback" id="areaFeedback"></div>
+      </div>
+    </div>
+  </div>
+</section>
