@@ -1,0 +1,90 @@
+<header class="hero" id="start">
+  <div class="wrap">
+    <div class="kicker">Географія • 11 клас • урок 4 • 35 хв</div>
+    <h1>Читання топографічних карт і вимірювання відстаней та площ</h1>
+    <p class="lead">Топокарта — це не «дуже деталізована картинка». Це інструмент, із якого можна витягти кількісну інформацію: скільки кілометрів пройти, яку площу займає ділянка, де шлях коротший, а де — лише виглядає коротшим.</p>
+    <div class="hero-grid">
+      <div>
+        <div class="badges">
+          <span class="badge">масштаб</span><span class="badge">умовні знаки</span><span class="badge">кілометрова сітка</span>
+          <span class="badge">курвіметр</span><span class="badge">палетка</span><span class="badge">похибка</span>
+        </div>
+      </div>
+      <div class="hero-note"><b>Проблема уроку:</b> чи достатньо знати найкоротшу відстань на карті, щоб обрати найкращий маршрут?</div>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Навігація уроком">
+  <div class="wrap nav-inner">
+    <a href="#problem">Старт</a><a href="#warmup">Розігрів</a><a href="#video1">Відео</a>
+    <a href="#maplab">Реальна карта</a><a href="#measure">Вимірюємо</a><a href="#mission">Місія</a>
+    <a href="#theory">Теорія</a><a href="#duel">Логічний двобій</a><a href="#summary">CER</a><a href="#homework">Д/З і тест</a>
+  </div>
+</nav>
+
+<main class="wrap">
+<section id="problem">
+  <div class="section-head"><div class="eyebrow">0–3 хв • проблемне питання</div><h2>«Коротше» не завжди означає «краще»</h2></div>
+  <div class="section-body">
+    <div class="problem">
+      Рятувальній групі треба дістатися від пункту <b>A</b> до пункту <b>B</b>. По прямій на карті — <b>6,2 см</b>. Дорогою — <b>8,0 см</b>. Масштаб карти 1:50 000.
+      <br><br>Який маршрут оберете? І головне: <b>яких даних ще бракує</b>, щоб рішення було не просто красивим, а розумним?
+    </div>
+    <div class="choice-row" data-quick="route">
+      <button class="choice" data-value="straight">По прямій: коротше</button>
+      <button class="choice" data-value="road">Дорогою: передбачуваніше</button>
+      <button class="choice" data-value="insufficient">Поки даних недостатньо</button>
+    </div>
+    <div class="feedback" id="routeFeedback"></div>
+  </div>
+</section>
+
+<section id="warmup">
+  <div class="section-head"><div class="eyebrow">3–7 хв • швидке рішення</div><h2>Масштаб без драматургії</h2></div>
+  <div class="section-body grid2">
+    <div class="card">
+      <strong>1. Яка карта детальніша?</strong>
+      <p>Оберіть без калькулятора. Так, знаменник тут навмисно намагається Вас підставити.</p>
+      <div class="choice-row" data-quick="scale">
+        <button class="choice" data-value="25000">1:25 000</button>
+        <button class="choice" data-value="50000">1:50 000</button>
+        <button class="choice" data-value="100000">1:100 000</button>
+      </div>
+      <div class="feedback" id="scaleFeedback"></div>
+    </div>
+    <div class="card">
+      <strong>2. Перекладіть масштаб</strong>
+      <p>1:50 000 означає: 1 см на карті = ? на місцевості.</p>
+      <div class="choice-row" data-quick="convert">
+        <button class="choice" data-value="50">50 м</button>
+        <button class="choice" data-value="500">500 м</button>
+        <button class="choice" data-value="5000">5 км</button>
+      </div>
+      <div class="feedback" id="convertFeedback"></div>
+    </div>
+  </div>
+</section>
+
+<section id="video1">
+  <div class="section-head"><div class="eyebrow">7–9 хв • відеофрагмент</div><h2>Що саме «читаємо» на топокарті</h2></div>
+  <div class="section-body video-grid">
+    <div>
+      <iframe class="video" src="https://www.youtube-nocookie.com/embed/IsHSs6D4kPA?start=100" title="Читання топографічних карт — Pi-stacja UA" allowfullscreen></iframe>
+      <p class="small"><b>Фокус перегляду:</b> масштаб і елементи карти. Перед переглядом назвіть 3 речі, без яких вимірювання не має сенсу. Після — перевірте себе.</p>
+      <p class="small"><a href="https://www.youtube.com/watch?v=IsHSs6D4kPA" target="_blank" rel="noopener">Відкрити відео окремо ↗</a></p>
+    </div>
+    <div class="card">
+      <strong>Мікрозавдання після відео</strong>
+      <p>Що потрібно перевірити <em>до</em> вимірювання?</p>
+      <div class="choice-row" data-quick="beforeMeasure">
+        <button class="choice" data-value="legend">умовні знаки</button>
+        <button class="choice" data-value="scale">масштаб</button>
+        <button class="choice" data-value="grid">сітку/одиниці</button>
+        <button class="choice" data-value="north">лише стрілку півночі</button>
+      </div>
+      <button class="btn secondary" id="checkBefore">Перевірити набір</button>
+      <div class="feedback" id="beforeFeedback"></div>
+    </div>
+  </div>
+</section>
