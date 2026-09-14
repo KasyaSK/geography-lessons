@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5-А — Обираємо команду</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f4f8ff;color:#203040}
+main{max-width:900px;margin:auto;padding:22px}
+.card{background:white;border-radius:24px;padding:24px;margin:16px 0;box-shadow:0 8px 24px #2342a018}
+h1{font-size:42px;margin:0 0 8px}
+h2{margin:0 0 12px}
+p{color:#607080}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input,select,button{font:inherit;padding:12px 14px;border-radius:14px;border:2px solid #dce5ef}
+input,select{background:white;flex:1;min-width:170px}
+button{border:0;background:#4d7cff;color:white;font-weight:800;cursor:pointer}
+button.alt{background:#edf2fa;color:#345}
+.choice{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:2px solid #e3eaf1;border-radius:16px;margin:8px 0}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.role{padding:13px;border-radius:16px;background:#f7faff}
+.result{padding:18px;text-align:center;background:#ecf9f2;border-radius:18px;font-size:24px;font-weight:900}
+.timer{position:sticky;top:8px;text-align:center;margin:auto;width:max-content;background:#24374a;color:white;padding:8px 15px;border-radius:999px;font-weight:900}
+.small{font-size:14px;color:#667}
+@media(max-width:600px){h1{font-size:32px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<main>
+<div class="timer">⏱ <span id="time">05:00</span> <button class="alt" id="timerBtn" style="padding:5px 9px;margin-left:6px">Старт</button></div>
+
+<div class="card">
+<h1>Хто за що відповідає? 🧩</h1>
+<p><b>5 хвилин:</b> обираємо старосту й швидко розподіляємо справи класу.</p>
+</div>
+
+<div class="card">
+<h2>1. Кандидати ⭐ <span class="small">≈ 1 хв</span></h2>
+<div class="row">
+<input id="name" placeholder="Ім'я кандидата">
+<button id="add">Додати</button>
+</div>
+<div id="candidates"></div>
+</div>
+
+<div class="card">
+<h2>2. Голосуємо 🗳️ <span class="small">≈ 2 хв</span></h2>
+<p>Кожен підходить до ноутбука і натискає на ім'я. Результат відкриваємо наприкінці.</p>
+<div id="ballot"></div>
+<div class="row">
+<button id="show">Показати результат</button>
+<button class="alt" id="clearVotes">Новий тур</button>
+</div>
+<div id="result"></div>
+</div>
+
+<div class="card">
+<h2>3. Розподіляємо справи 🤝 <span class="small">≈ 2 хв</span></h2>
+<div class="roles">
+<div class="role">🧹 <b>Порядок</b><br><span class="small">чергування, дошка</span></div>
+<div class="role">🎉 <b>Події</b><br><span class="small">свята, ідеї</span></div>
+<div class="role">📚 <b>Навчання</b><br><span class="small">нагадування, матеріали</span></div>
+<div class="role">🎨 <b>Оформлення</b><br><span class="small">дошка, плакати</span></div>
+</div>
+<br>
+<div class="row">
+<input id="student" placeholder="Ім'я">
+<select id="role">
+<option>Порядок</option>
+<option>Події</option>
+<option>Навчання</option>
+<option>Оформлення</option>
+<option>Заступник старости</option>
+</select>
+<button id="assign">Додати</button>
+</div>
+<div id="assigned"></div>
+</div>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+let names=[],votes={},sec=300,timer=null;
+
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+function render(){
+  $('candidates').innerHTML=names.map((n,i)=>`<div class="choice"><b>${esc(n)}</b><button class="alt" onclick="removeName(${i})">×</button></div>`).join('');
+  $('ballot').innerHTML=names.map(n=>`<button style="margin:5px" onclick="vote('${n.replace(/'/g,"\\'")}')">${esc(n)}</button>`).join('');
+}
+window.removeName=i=>{delete votes[names[i]];names.splice(i,1);render()}
+window.vote=n=>{votes[n]=(votes[n]||0)+1;$('result').innerHTML='<p>✅ Голос прийнято. Наступний!</p>'}
+
+$('add').onclick=()=>{
+ const n=$('name').value.trim();
+ if(!n||names.includes(n))return;
+ names.push(n);votes[n]=0;$('name').value='';render();
+};
+
+$('show').onclick=()=>{
+ if(!names.length)return;
+ const max=Math.max(...names.map(n=>votes[n]||0));
+ const win=names.filter(n=>(votes[n]||0)===max);
+ $('result').innerHTML=`<div class="result">🏆 ${win.map(esc).join(' / ')}<br><span class="small">${max} голос(ів)</span></div>`;
+};
+$('clearVotes').onclick=()=>{names.forEach(n=>votes[n]=0);$('result').innerHTML='';};
+
+$('assign').onclick=()=>{
+ const n=$('student').value.trim(),r=$('role').value;
+ if(!n)return;
+ $('assigned').insertAdjacentHTML('beforeend',`<div class="choice"><b>${esc(r)}</b><span>${esc(n)}</span></div>`);
+ $('student').value='';
+};
+
+function drawTime(){
+ const m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');
+ $('time').textContent=`${m}:${s}`;
+}
+$('timerBtn').onclick=()=>{
+ if(timer){clearInterval(timer);timer=null;$('timerBtn').textContent='Старт';return}
+ $('timerBtn').textContent='Пауза';
+ timer=setInterval(()=>{if(sec>0){sec--;drawTime()}else{clearInterval(timer);timer=null;$('timerBtn').textContent='Час!'}},1000);
+};
+drawTime();
+</script>
+</body>
+</html>
