@@ -17,7 +17,9 @@
     const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
     const html=await new Response(stream).text();
-    document.open();document.write(html);document.close();
+    const videoTag='<scr'+'ipt src="https://kasyask.github.io/geography-lessons/assets/lesson-videos.js?v=20260914-1" data-global-lesson-videos="true"></scr'+'ipt>';
+    const hydrated=/<\/body\s*>/i.test(html)?html.replace(/<\/body\s*>/i,videoTag+'</body>'):html+videoTag;
+    document.open();document.write(hydrated);document.close();
   }catch(e){document.getElementById('loader').innerHTML='<h1>Не вдалося відкрити урок</h1><p>'+String(e.message||e)+'</p>'}
 })();
 </script></body></html>
