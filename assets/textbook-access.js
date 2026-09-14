@@ -46,6 +46,17 @@
   };
 
   const segments = location.pathname.split('/').filter(Boolean);
+
+  // Current lessons may opt into a centrally maintained pack of short
+  // thematic video fragments. Loading the module here keeps large lesson
+  // files untouched and therefore does not risk their quizzes/interactives.
+  if (!document.querySelector('script[data-global-lesson-videos]')) {
+    const videoScript = document.createElement('script');
+    videoScript.src = 'https://kasyask.github.io/geography-lessons/assets/lesson-videos.js?v=20260914-1';
+    videoScript.dataset.globalLessonVideos = 'true';
+    document.head.appendChild(videoScript);
+  }
+
   if (segments.some(s => s.startsWith('profesii-'))) return;
 
   const gradeIndex = segments.findIndex(s => Object.prototype.hasOwnProperty.call(BOOKS, s));
