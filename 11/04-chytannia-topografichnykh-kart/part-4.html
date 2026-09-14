@@ -1,0 +1,132 @@
+<section id="homework">
+  <div class="section-head"><div class="eyebrow">Домашнє завдання • поза 35 хв</div><h2>§ 3 + коротке відео + тест + рівень на вибір</h2></div>
+  <div class="section-body">
+    <div class="grid2">
+      <div class="card">
+        <strong>1. Підручник</strong>
+        <p>Гільберг Т. Г., Савчук І. Г., Совенко В. В. <b>§ 3 «Читання топографічних карт і вимірювання на них»</b>, с. 14–20.</p>
+        <p><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Офіційний електронний підручник (ІМЗО) ↗</a></p>
+      </div>
+      <div class="card">
+        <strong>2. Обов’язкове відео</strong>
+        <p>«Визначення відстаней, площ за топографічною картою» — Pi-stacja UA. Перед тестом повторіть способи вимірювання прямої, кривої та площі.</p>
+        <p><a href="https://www.youtube.com/watch?v=CzXGxS4oTKc" target="_blank" rel="noopener">Переглянути ↗</a></p>
+      </div>
+    </div>
+    <h3>3. Завдання на вибір</h3>
+    <div class="grid3">
+      <div class="card"><strong>Базовий</strong><p>Складіть 3 власні задачі на масштаб 1:50 000 та розв’яжіть їх.</p></div>
+      <div class="card"><strong>Достатній</strong><p>Оберіть на топокарті 2 можливі маршрути між двома об’єктами. Порівняйте довжину й щонайменше 2 умови місцевості.</p></div>
+      <div class="card"><strong>Високий</strong><p>Оцініть площу нерегулярної ділянки за кілометровою сіткою, дайте інтервал похибки й поясніть, як GIS/точніший контур змінив би результат.</p></div>
+    </div>
+
+    <hr class="sep">
+    <h3>4. Підсумковий тест /10</h3>
+    <div class="quiz-gate" id="quizGate">
+      <div class="grid2">
+        <div class="field"><label for="studentName">Ім’я та прізвище</label><input id="studentName" autocomplete="name" placeholder="Напр. Ірина Коваль"></div>
+        <div class="field"><label for="studentClass">Клас</label><input id="studentClass" value="11-А" placeholder="11-А"></div>
+      </div>
+      <button class="btn" id="startQuiz" style="margin-top:12px">Розпочати тест</button>
+      <div class="feedback" id="gateFeedback"></div>
+    </div>
+
+    <form class="quiz" id="quizForm">
+      <div class="question" data-q="1">
+        <b>1. На карті 1:50 000 відстань між двома точками становить 3,6 см. Яка відстань на місцевості?</b>
+        <label class="option"><input type="radio" name="q1" value="0.18"> 0,18 км</label>
+        <label class="option"><input type="radio" name="q1" value="1.8"> 1,8 км</label>
+        <label class="option"><input type="radio" name="q1" value="18"> 18 км</label>
+        <label class="option"><input type="radio" name="q1" value="180"> 180 км</label>
+      </div>
+      <div class="question" data-q="2">
+        <b>2. Чим найкраще вимірювати довжину дуже звивистої річки на паперовій карті?</b>
+        <label class="option"><input type="radio" name="q2" value="ruler"> Лише прямою лінійкою від витоку до гирла</label>
+        <label class="option"><input type="radio" name="q2" value="curvi"> Курвіметром або ниткою вздовж русла з подальшим застосуванням масштабу</label>
+        <label class="option"><input type="radio" name="q2" value="grid"> Порахувати кілометрові квадрати</label>
+        <label class="option"><input type="radio" name="q2" value="az"> Визначити азимут</label>
+      </div>
+      <div class="question" data-q="3">
+        <b>3. Якщо похибка вимірювання на карті 1:50 000 становить 1 мм, якою буде приблизна похибка на місцевості?</b>
+        <label class="option"><input type="radio" name="q3" value="5"> 5 м</label>
+        <label class="option"><input type="radio" name="q3" value="50"> 50 м</label>
+        <label class="option"><input type="radio" name="q3" value="500"> 500 м</label>
+        <label class="option"><input type="radio" name="q3" value="5000"> 5 км</label>
+      </div>
+      <div class="question" data-q="4">
+        <b>4. Яка карта за однакового формату аркуша дасть більше деталей?</b>
+        <label class="option"><input type="radio" name="q4" value="25"> 1:25 000</label>
+        <label class="option"><input type="radio" name="q4" value="50"> 1:50 000</label>
+        <label class="option"><input type="radio" name="q4" value="100"> 1:100 000</label>
+        <label class="option"><input type="radio" name="q4" value="same"> Усі однаково деталізовані</label>
+      </div>
+      <div class="question" data-q="5">
+        <b>5. Оберіть ВСЕ, що треба перевірити перед обґрунтуванням маршруту на топокарті.</b>
+        <label class="option"><input type="checkbox" name="q5" value="scale"> Масштаб</label>
+        <label class="option"><input type="checkbox" name="q5" value="legend"> Умовні знаки</label>
+        <label class="option"><input type="checkbox" name="q5" value="relief"> Рельєф / горизонталі</label>
+        <label class="option"><input type="checkbox" name="q5" value="obstacles"> Водні перешкоди й дороги</label>
+        <label class="option"><input type="checkbox" name="q5" value="paper"> Колір паперу, на якому надрукована карта</label>
+      </div>
+      <div class="question" data-q="6">
+        <b>6. Які методи придатні для оцінювання площі нерегулярної ділянки?</b>
+        <label class="option"><input type="checkbox" name="q6" value="grid"> Сіткова палетка</label>
+        <label class="option"><input type="checkbox" name="q6" value="split"> Розкладання контуру на прості геометричні фігури</label>
+        <label class="option"><input type="checkbox" name="q6" value="gis"> Полігон у ГІС</label>
+        <label class="option"><input type="checkbox" name="q6" value="az"> Вимірювання азимута</label>
+      </div>
+      <div class="question" data-q="7">
+        <b>7. Установіть відповідність: тип умовного знака → приклад.</b>
+        <div class="match-grid">
+          <label>Лінійний знак<select name="q7a"><option value="">—</option><option value="road">дорога</option><option value="forest">ліс</option><option value="tower">вежа</option></select></label>
+          <label>Площинний знак<select name="q7b"><option value="">—</option><option value="road">дорога</option><option value="forest">ліс</option><option value="tower">вежа</option></select></label>
+          <label>Позамасштабний знак<select name="q7c"><option value="">—</option><option value="road">дорога</option><option value="forest">ліс</option><option value="tower">вежа</option></select></label>
+        </div>
+      </div>
+      <div class="question" data-q="8">
+        <b>8. Оберіть правильну послідовність вимірювання відстані.</b>
+        <label class="option"><input type="radio" name="q8" value="a"> Виміряти → знайти масштаб → перевести → оцінити похибку</label>
+        <label class="option"><input type="radio" name="q8" value="b"> Знайти масштаб → вибрати метод вимірювання → виміряти → перевести одиниці → оцінити похибку</label>
+        <label class="option"><input type="radio" name="q8" value="c"> Оцінити похибку → виміряти → знайти масштаб</label>
+        <label class="option"><input type="radio" name="q8" value="d"> Знайти північ → порахувати квадрати → виміряти азимут</label>
+      </div>
+      <div class="question" data-q="9">
+        <b>9. На карті школа і зупинка лежать за 2 км по прямій. Чи достатньо цього, щоб стверджувати: «пішки — рівно 20 хв»?</b>
+        <label class="option"><input type="radio" name="q9" value="yes"> Так, відстань усе визначає</label>
+        <label class="option"><input type="radio" name="q9" value="no"> Ні: потрібні маршрут, рельєф, перешкоди, тип дороги й припущення про швидкість</label>
+        <label class="option"><input type="radio" name="q9" value="scale"> Так, якщо масштаб 1:50 000</label>
+      </div>
+      <div class="question" data-q="10">
+        <b>10. Який CER-висновок найсильніший?</b>
+        <label class="option"><input type="radio" name="q10" value="a"> «Маршрут A кращий, бо він коротший».</label>
+        <label class="option"><input type="radio" name="q10" value="b"> «Маршрут B може бути кращим: він довший за масштабом, але проходить дорогою й оминає крутий схил та заболочену ділянку; отже, довжина — лише один із критеріїв».</label>
+        <label class="option"><input type="radio" name="q10" value="c"> «Усі маршрути однакові, бо карта плоска».</label>
+        <label class="option"><input type="radio" name="q10" value="d"> «Потрібно завжди йти по прямій».</label>
+      </div>
+      <button type="submit" class="btn">Завершити тест</button>
+    </form>
+
+    <div class="result" id="quizResult">
+      <div class="small" style="color:#dce6da">Картка результату</div>
+      <div class="score" id="scoreText"></div>
+      <div id="resultDetails"></div>
+      <p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p>
+      <button class="btn secondary no-print" id="printResult">Друк / PDF</button>
+      <button class="btn secondary no-print" id="retryQuiz">Пройти ще раз</button>
+    </div>
+
+    <hr class="sep">
+    <h3>Джерела уроку</h3>
+    <ul class="source-list">
+      <li>Навчальна карта N‑34‑37‑В — Державна служба геодезії та картографії України: <a href="https://kgf.com.ua/image/catalog/static/cartgeodep/topomap-3.jpg" target="_blank" rel="noopener">зображення</a>.</li>
+      <li>Гільберг Т. Г., Савчук І. Г., Совенко В. В. Географія, 11 клас, 2019 — § 3.</li>
+      <li>Pi-stacja UA — «Читання топографічних карт» та «Визначення відстаней, площ за топографічною картою».</li>
+      <li>Національний геопортал — сучасний приклад цифрового вимірювання відстаней: <a href="https://nsdi.gov.ua/docs/portal/2karta/tools.html" target="_blank" rel="noopener">документація ↗</a>.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><b>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</b><br><span class="small">11 клас • Географічний простір Землі • урок 4</span></div>
+</footer>
