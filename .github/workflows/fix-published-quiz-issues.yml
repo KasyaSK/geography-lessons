@@ -1,0 +1,33 @@
+name: Fix published quiz issues
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/fix_published_quiz_issues.py'
+      - '.github/workflows/fix-published-quiz-issues.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply targeted fixes
+        run: python scripts/fix_published_quiz_issues.py
+      - name: Commit fixed lesson files
+        run: |
+          if git diff --quiet; then
+            echo "No changes needed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 10/06-pryrodni-umovy-resursy-yevropy/index.html profesii-9/02-sylni-storony-kompetentnosti/payload.b64 scripts/audit_quiz_runtime.py
+          git commit -m "Fix published quiz gates and runtime error"
+          git push origin HEAD:main
