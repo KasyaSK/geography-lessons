@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import threading
 import time
@@ -14,7 +15,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT = ROOT / "quiz-audit.json"
+SHARD_INDEX = int(os.environ.get("SHARD_INDEX", "0"))
+SHARD_TOTAL = max(1, int(os.environ.get("SHARD_TOTAL", "1")))
+REPORT = ROOT / f"quiz-audit-{SHARD_INDEX}.json"
 LESSON_RE = re.compile(r"^(?:5|6|7|8|9|10|11|profesii-(?:8|9|10|11))/[^/]+/index\.html$")
 
 
@@ -152,21 +155,23 @@ def severe_js_errors(driver):
 
 
 def main():
-    lesson_files=sorted(p for p in ROOT.rglob("index.html") if LESSON_RE.match(p.relative_to(ROOT).as_posix()))
+    all_lessons=sorted(p for p in ROOT.rglob("index.html") if LESSON_RE.match(p.relative_to(ROOT).as_posix()))
+    lesson_files=[p for i,p in enumerate(all_lessons) if i % SHARD_TOTAL == SHARD_INDEX]
     server=ThreadingHTTPServer(("127.0.0.1", 8765), SimpleHTTPRequestHandler)
     server_thread=threading.Thread(target=server.serve_forever, daemon=True)
-    import os
     os.chdir(ROOT)
     server_thread.start()
 
     opts=webdriver.ChromeOptions()
+    opts.page_load_strategy="eager"
     opts.add_argument("--headless=new")
     opts.add_argument("--no-sandbox")
     opts.add_argument("--disable-dev-shm-usage")
+    opts.add_argument("--disable-gpu")
     opts.add_argument("--window-size=1440,1600")
     opts.set_capability("goog:loggingPrefs", {"browser":"ALL"})
     driver=webdriver.Chrome(options=opts)
-    driver.set_page_load_timeout(25)
+    driver.set_page_load_timeout(10)
 
     results=[]
     try:
@@ -176,7 +181,7 @@ def main():
             rec={"path":rel,"status":"unknown","errors":[]}
             try:
                 driver.get(url)
-                time.sleep(0.9)
+                time.sleep(0.55)
                 body=(driver.find_element(By.TAG_NAME,"body").text or "").lower()
                 start=find_start(driver)
                 if "тест" not in body and start is None:
@@ -201,12 +206,11 @@ def main():
                 fill_field(name,"Тест Учень")
                 fill_field(klass,grade_from_path(rel))
                 driver.execute_script("arguments[0].scrollIntoView({block:'center'});", start)
-                time.sleep(0.1)
                 try:
                     start.click()
                 except Exception:
                     driver.execute_script("arguments[0].click();", start)
-                time.sleep(0.7)
+                time.sleep(0.4)
                 after=quiz_state(driver)
                 js=severe_js_errors(driver)
                 if opened(before,after):
@@ -225,6 +229,9 @@ def main():
         server.shutdown()
 
     summary={
+        "all_lesson_pages":len(all_lessons),
+        "shard":SHARD_INDEX,
+        "shard_total":SHARD_TOTAL,
         "lesson_pages":len(results),
         "tests_ok":sum(r["status"]=="ok" for r in results),
         "broken":sum(r["status"]=="broken" for r in results),
