@@ -1,0 +1,23 @@
+name: Quiz diagnostics
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/quiz_diagnostics.py'
+      - '.github/workflows/quiz-diagnostics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/quiz_diagnostics.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quiz-diagnostics
+          path: quiz-diagnostics.json
