@@ -1,0 +1,40 @@
+name: Quiz runtime audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - '**/*.js'
+      - 'scripts/audit_quiz_runtime.py'
+      - '.github/workflows/quiz-runtime-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Selenium
+        run: python -m pip install --disable-pip-version-check selenium
+
+      - name: Audit every lesson quiz in Chrome
+        run: python scripts/audit_quiz_runtime.py
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quiz-audit-report
+          path: quiz-audit.json
+          if-no-files-found: warn
