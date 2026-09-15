@@ -116,8 +116,9 @@ def main():
             try:
                 d.get('http://127.0.0.1:8765/'+'/'.join(quote(x) for x in rel.split('/'))); time.sleep(.55)
                 body=(d.find_element(By.TAG_NAME,'body').text or '').lower(); start=find_start(d)
-                if 'тест' not in body and start is None: rec['status']='no-test'; results.append(rec); continue
-                if start is None: rec['status']='broken'; rec['errors'].append('Є тест/згадка тесту, але не знайдено видимої кнопки запуску.'); rec['errors']+=severe(d); results.append(rec); continue
+                has_quiz=bool(start) or bool(d.execute_script("return !!document.querySelector('#quiz,#test,.quiz,.test,[data-quiz],[data-test]') || document.querySelectorAll('input[type=radio],input[type=checkbox]').length>=5"))
+                if not has_quiz: rec['status']='no-test'; results.append(rec); continue
+                if start is None: rec['status']='broken'; rec['errors'].append('Є тестовий блок, але не знайдено видимої кнопки запуску.'); rec['errors']+=severe(d); results.append(rec); continue
                 before=state(d); name=find_field(d,'name'); klass=find_field(d,'class')
                 if name is None or klass is None: rec['status']='broken'; rec['errors'].append('Не знайдено видимі поля ПІБ і/або класу.'); rec['errors']+=severe(d); results.append(rec); continue
                 fill(name,'Тест Учень'); fill(klass,grade_from_path(rel)); d.execute_script("arguments[0].scrollIntoView({block:'center'});",start)
