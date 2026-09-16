@@ -1,0 +1,41 @@
+div><b>Пояснення</b><textarea placeholder="Як саме ці дані підтримують рішення?"></textarea></div>
+  </div>
+</section>
+
+<section id="home">
+  <div class="k">домашнє завдання • поза 35 хв</div>
+  <h2>Домашня робота</h2>
+  <div class="grid2">
+    <div class="card"><h3>📘 Підручник</h3><p><b>§ 3</b> — опрацювати запитання після параграфа відповідно до КТП.</p><p><a class="btn" href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Офіційний е-підручник (ІМЗО)</a></p></div>
+    <div class="card"><h3>🎬 Обов’язкове відео</h3><p>Всеукраїнська школа онлайн: <b>«Топографічна карта: використання азимутів»</b>. Перед тестом повторіть алгоритм визначення прямого і зворотного азимутів.</p><p><a class="btn secondary" href="https://www.youtube.com/watch?v=rztUFC7WoF0" target="_blank" rel="noopener">Відкрити відео</a></p></div>
+  </div>
+  <h3>Завдання на вибір</h3>
+  <div class="levels">
+    <div class="level base"><b>Базовий</b><p>Для точок A = 315 м і B = 470 м обчисліть відносну висоту. Для азимута 70° знайдіть зворотний.</p></div>
+    <div class="level mid"><b>Достатній</b><p>На будь-якому фрагменті топографічної карти знайдіть ділянку крутого й пологого схилу. Поясніть це щільністю горизонталей і вкажіть, яких даних ще потребуєте для числової оцінки крутості.</p></div>
+    <div class="level high"><b>Високий</b><p>Складіть коротке CER-рішення для маршруту через пересічену місцевість: напрям, прямий/зворотний азимут, сумарний набір висоти, найризикованіша ділянка профілю та одне обмеження ваших даних.</p></div>
+  </div>
+</section>
+
+<section id="quizSection">
+  <div class="k">домашній тест • 10 завдань</div>
+  <h2>Перевірка: карта не підказує, якщо не вміти її читати</h2>
+  <div id="identityGate" class="gate">
+    <div class="gate-grid">
+      <div class="field"><label for="fullName">Ім’я та прізвище</label><input id="fullName" autocomplete="name" placeholder="Наприклад: Марія Коваль"></div>
+      <div class="field"><label for="studentClass">Клас</label><select id="studentClass"><option value="">Оберіть</option><option>11-А</option><option>11-Б</option><option>11 клас</option></select></div>
+      <button class="primary" id="startQuiz">Розпочати тест</button>
+    </div>
+    <div id="gateError" class="feedback no"></div>
+  </div>
+  <form id="quiz" class="quiz hidden">
+    <div class="q"><p>1. Із точки A об’єкт лежить точно на південний схід. Який азимут найкраще відповідає напряму?</p><label><input type="radio" name="q1" value="45">45°</label><label><input type="radio" name="q1" value="135">135°</label><label><input type="radio" name="q1" value="225">225°</label><label><input type="radio" name="q1" value="315">315°</label></div>
+    <div class="q"><p>2. Прямий азимут маршруту — 250°. Який зворотний азимут?</p><label><input type="radio" name="q2" value="70">70°</label><label><input type="radio" name="q2" value="110">110°</label><label><input type="radio" name="q2" value="180">180°</label><label><input type="radio" name="q2" value="430">430°</label></div>
+    <div class="q"><p>3. Точка A має 420 м, точка B — 685 м. Яке твердження правильне?</p><label><input type="radio" name="q3" value="a">Абсолютна висота B = 265 м</label><label><input type="radio" name="q3" value="b">Відносна висота B над A = 265 м</label><label><input type="radio" name="q3" value="c">Відносна висота A = 420 м</label><label><input type="radio" name="q3" value="d">Абсолютна висота маршруту = 1105 м</label></div>
+    <div class="q"><p>4. Горизонталі проведені через 20 м. Якщо замкнені лінії послідовно підписані 200, 220, 240, 260 м і в центрі немає бергштрихів, що найімовірніше зображено?</p><label><input type="radio" name="q4" value="hill">Пагорб/вершину</label><label><input type="radio" name="q4" value="pit">Западину</label><label><input type="radio" name="q4" value="river">Русло річки</label><label><input type="radio" name="q4" value="plain">Абсолютно рівну поверхню</label></div>
+    <div class="q"><p>5. Оберіть <b>усі</b> ознаки крутішого схилу на одній і тій самій топографічній карті.</p><label><input type="checkbox" name="q5" value="close">Горизонталі розташовані ближче одна до одної</label><label><input type="checkbox" name="q5" value="far">Горизонталі розташовані далі одна від одної</label><label><input type="checkbox" name="q5" value="rise">Та сама різниця висот долається на коротшій горизонтальній відстані</label><label><input type="checkbox" name="q5" value="north">Схил обов’язково орієнтований на північ</label></div>
+    <div class="q"><p>6. Що потрібно для побудови профілю вздовж лінії A–B? Оберіть <b>усі необхідні</b> елементи.</p><label><input type="checkbox" name="q6" value="line">Лінія A–B</label><label><input type="checkbox" name="q6" value="intersections">Точки перетину з горизонталями</label><label><input type="checkbox" name="q6" value="elevations">Значення висот горизонталей</label><label><input type="checkbox" name="q6" value="weather">Прогноз погоди</label></div>
+    <div class="q"><p>7. Установіть відповідність.</p><div class="matchgrid"><span>Азимут</span><select id="m1"><option value="">—</option><option value="angle">Кут від півночі за годинниковою стрілкою</option><option value="sea">Висота над рівнем моря</option><option value="difference">Різниця висот двох точок</option><option value="section">Вертикальний переріз рельєфу</option></select><span>Абсолютна висота</span><select id="m2"><option value="">—</option><option value="angle">Кут від півночі за годинниковою стрілкою</option><option value="sea">Висота над рівнем моря</option><option value="difference">Різниця висот двох точок</option><option value="section">Вертикальний переріз рельєфу</option></select><span>Відносна висота</span><select id="m3"><option value="">—</option><option value="angle">Кут від півночі за годинниковою стрілкою</option><option value="sea">Висота над рівнем моря</option><option value="difference">Різниця висот двох точок</option><option value="section">Вертикальний переріз рельєфу</option></select><span>Профіль місцевості</span><select id="m4"><option value="">—</option><option value="angle">Кут від півночі за годинниковою стрілкою</option><option value="sea">Висота над рівнем моря</option><option value="difference">Різниця висот двох точок</option><option value="section">Вертикальний переріз рельєфу</option></select></div></div>
+    <div class="q"><p>8. Оберіть правильну послідовність побудови профілю.</p><select id="q8"><option value="">Оберіть варіант</option><option value="wrong1">Провести A–B → з’єднати профіль → знайти горизонталі → визначити висоти</option><option value="correct">Провести A–B → позначити перетини з горизонталями → перенести відстані → відкласти висоти → з’єднати точки</option><option value="wrong2">Визначити азимут → знайти північ → порахувати площу → побудувати профіль</option></select></div>
+    <div class="q"><p>9. Учень стверджує: «Схил X удвічі крутіший за схил Y», бо на X горизонталі розташовані приблизно удвічі ближче. Яких даних бракує для надійного кількісного висновку?</p><label><input type="radio" name="q9" value="scale">Масштабу карти та підтвердження однакової висоти перерізу рельєфу</label><label><input type="radio" name="q9" value="color">Кольору умовних знаків</label><label><input type="radio" name="q9" value="name">Назви найближчого населеного пункту</label><label><input type="radio" name="q9" value="north">Точного напрямку на північ</label></div>
+    <div class="q"><p>10. Маршрут 1 має 2,4 км і набір висоти 410 м; маршрут 2 — 3,1 км і набір 190 м. Який висновок є найкращим CER-аргументом?</p><label><input type="radio" name="q10" value="a">Маршрут 1 точно кращий, бо коротший.</label><label><input type="radio" name="q10" value="b">Маршрут 2 точно кращий, бо довший.</label><label><input type="radio" name="q10" value="c">Маршрут 2 може бути фізично легшим через менший набір висоти, але для остаточного рішення треба ще оцінити крутість, покриття й небезпечні
