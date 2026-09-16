@@ -1,0 +1,114 @@
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">🧭 11 КЛАС • УРОК 5 • §3 • ТОПОГРАФІЯ</span>
+    <h1>Азимути, абсолютні й відносні висоти, профіль місцевості</h1>
+    <p class="lead">Уявіть, що рятувальна група має дістатися з долини до точки на хребті. Карта є. Але «десь на південний схід» — не маршрут, а «гора висока» — не вимірювання. Сьогодні перетворюємо рельєф на числа, напрям — на кут, а карту — на профіль місцевості.</p>
+    <div class="pills"><span class="pill">35 хв</span><span class="pill">азимут 0–360°</span><span class="pill">абсолютна / відносна висота</span><span class="pill">горизонталі</span><span class="pill">профіль місцевості</span><span class="pill">10-бальний тест</span></div>
+  </div>
+</header>
+<nav class="nav" aria-label="Навігація уроком"><div class="wrap"><a href="#problem">Старт</a><a href="#azimuth">Азимут</a><a href="#maps">Карти</a><a href="#heights">Висоти</a><a href="#profile">Профіль</a><a href="#theory">Теорія</a><a href="#summary">Підсумок</a><a href="#home">Д/З</a></div></nav>
+<main class="wrap">
+
+<section id="problem">
+  <div class="k">0–3 хв • проблемне питання</div>
+  <h2>Маршрут, який не пробачає «приблизно»</h2>
+  <div class="grid2">
+    <div>
+      <p>Рятувальна група стоїть у точці <b>A</b>. Постраждалий — у точці <b>B</b> на іншому схилі. Є топографічна карта, компас і 35 хвилин до погіршення погоди.</p>
+      <p class="strong">Що треба знати, щоб обрати безпечний і достатньо короткий маршрут?</p>
+      <div class="logic-buttons">
+        <button onclick="priority(this,'yes')">Напрям і азимут</button>
+        <button onclick="priority(this,'yes')">Набір/втрата висоти</button>
+        <button onclick="priority(this,'yes')">Крутість схилів і профіль</button>
+      </div>
+      <div id="priorityFb" class="answer"></div>
+    </div>
+    <div class="callout warn"><b>Проблема уроку:</b><br>Як за плоскою картою відновити напрям руху й «третій вимір» рельєфу так, щоб рішення можна було обґрунтувати, а не вгадати?</div>
+  </div>
+</section>
+
+<section id="azimuth">
+  <div class="k">3–8 хв • інтерактив №1</div>
+  <h2>Азимут: перетворюємо напрям на число</h2>
+  <div class="compass-lab">
+    <div class="compass" aria-label="Інтерактивний компас">
+      <div class="tickring"></div><span class="dir north">Пн</span><span class="dir east">Сх</span><span class="dir south">Пд</span><span class="dir west">Зх</span>
+      <div id="targetNeedle" class="targetneedle"></div><div id="needle" class="needle"></div>
+    </div>
+    <div>
+      <span class="mission-badge">Місія: оцініть напрям на ціль</span>
+      <p class="muted">Помаранчева стрілка — напрям на об’єкт. Поверніть синю стрілку так, щоб вона збіглася з ціллю. Азимут відраховується <b>від півночі за годинниковою стрілкою</b>.</p>
+      <div class="az-value"><span id="azValue">0</span>°</div>
+      <input id="azSlider" type="range" min="0" max="359" value="0" step="1" aria-label="Азимут" oninput="setAzimuth(this.value)">
+      <p><button class="primary" onclick="checkAzimuth()">Перевірити</button> <button onclick="newAzMission()">Нова ціль</button></p>
+      <div id="azFb" class="feedback"></div>
+      <div class="callout info" style="margin-top:12px"><b>Контроль:</b> якщо прямий азимут 135°, зворотний дорівнює <b>315°</b>. Для зворотного азимута додаємо або віднімаємо 180°.</div>
+    </div>
+  </div>
+</section>
+
+<section id="video1">
+  <div class="k">8–10 хв • коротке пояснення</div>
+  <h2>Відео 1: азимути без магії компаса</h2>
+  <div class="video-card">
+    <iframe class="video" src="https://www.youtube-nocookie.com/embed/rztUFC7WoF0" title="11 клас. Географія. Топографічна карта: використання азимутів" allowfullscreen></iframe>
+    <p><b>Дивимося фрагмент 0:00–2:30.</b> Під час перегляду зафіксуйте: <b>від якого напряму</b> і <b>в який бік</b> відлічують азимут.</p>
+    <p class="tiny">Всеукраїнська школа онлайн. <a href="https://www.youtube.com/watch?v=rztUFC7WoF0" target="_blank" rel="noopener">Відкрити відео окремо</a>.</p>
+  </div>
+</section>
+
+<section id="maps">
+  <div class="k">10–15 хв • лабораторія доказів</div>
+  <h2>Реальна карта: рельєф треба вміти читати</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>1. Топографічна карта України</h3>
+      <img class="visual realmap" src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Topographic_map_of_Ukraine.svg" alt="Топографічна карта України">
+      <p class="credit">Amitchell125, Wikimedia Commons, CC BY-SA 4.0. Карта охоплює всю територію України, включно з Кримом.</p>
+      <p><b>Завдання:</b> назвіть дві області України з найбільшими перепадами висот. Який доказ дає саме карта рельєфу?</p>
+    </div>
+    <div class="card">
+      <h3>2. Фрагмент справжньої топографічної карти</h3>
+      <img class="visual" src="https://upload.wikimedia.org/wikipedia/commons/7/79/Topographic_map_example.png" alt="Приклад топографічної карти USGS із горизонталями">
+      <p class="credit">USGS, public domain. Інтервал горизонталей у вихідному аркуші — 20 футів (≈6,1 м).</p>
+      <p><b>Міні-детектор:</b> де схил крутіший — там, де горизонталі <b>зближені</b> чи <b>розріджені</b>?</p>
+      <button onclick="reveal('contourAnswer')">Перевірити</button>
+      <div id="contourAnswer" class="answer">Крутіший схил — там, де горизонталі <b>зближені</b>: та сама різниця висот припадає на меншу горизонтальну відстань.</div>
+    </div>
+  </div>
+  <div class="callout bad" style="margin-top:14px"><b>Логічна пастка:</b> «на карті лінії близько — отже там завжди круто». Не зовсім. Треба знати ще <b>висоту перерізу рельєфу</b> (через скільки метрів проведені горизонталі) і масштаб карти.</div>
+</section>
+
+<section id="realmap">
+  <div class="k">15–17 хв • карта місцевості</div>
+  <h2>А що показує звичайна цифрова карта?</h2>
+  <div class="grid2">
+    <iframe class="iframe" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=24.38%2C48.10%2C24.62%2C48.22&amp;layer=mapnik&amp;marker=48.1602%2C24.4997" title="OpenStreetMap: район Говерли"></iframe>
+    <div>
+      <h3>Говерла як реальний кейс</h3>
+      <p>Звичайна OSM-карта добре показує об’єкти, дороги, стежки й підписи. Але для оцінки крутості схилу вона <b>не дає достатньо доказів</b> сама по собі.</p>
+      <div class="callout info"><b>Питання високого рівня:</b> яких двох шарів або даних бракує, щоб перейти від «бачу маршрут» до «оцінюю вертикальну складність маршруту»?</div>
+      <button onclick="reveal('osmAnswer')">Показати орієнтир відповіді</button>
+      <div id="osmAnswer" class="answer">Потрібні щонайменше: <b>висотні дані</b> (горизонталі / цифрова модель рельєфу) і <b>масштаб/відстань</b>. Тоді можна оцінювати набір висоти, крутість і будувати профіль.</div>
+      <p><a class="btn secondary" href="https://www.openstreetmap.org/#map=13/48.1602/24.4997" target="_blank" rel="noopener">Відкрити карту окремо</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="heights">
+  <div class="k">17–21 хв • інтерактив №2</div>
+  <h2>Абсолютна vs відносна висота: одна точка, дві різні задачі</h2>
+  <div class="grid2">
+    <div class="height-figure" aria-label="Схема абсолютної та відносної висоти">
+      <div class="sea"></div><div class="mountain"></div>
+      <div class="hline" style="top:28%"></div><span class="hlabel" style="top:25%">900 м</span>
+      <div class="hline" style="top:50%"></div><span class="hlabel" style="top:47%">600 м</span>
+      <div class="hline" style="top:72%"></div><span class="hlabel" style="top:69%">300 м</span>
+      <div class="pointpin" style="left:54%;top:29%"><span>B • 917 м</span></div>
+      <div class="pointpin" style="left:31%;top:57%;background:#3f7b8f"><span>A • 642 м</span></div>
+    </div>
+    <div>
+      <div class="card"><b>Абсолютна висота</b><p>Висота точки відносно середнього рівня моря.</p></div>
+      <div class="card"><b>Відносна висота</b><p>Перевищення однієї точки над іншою.</p></div>
+      <div class="formula">Δh = |H<sub>B</sub> − H<sub>A</sub>|</div>
+      <label for="relHeight" 
