@@ -1,0 +1,81 @@
+ class="strong">Обчисліть перевищення B над A:</label>
+      <div style="display:flex;gap:8px;margin-top:6px"><input id="relHeight" type="number" placeholder="м" style="max-width:180px;padding:.7rem;border:1px solid #bec9bb;border-radius:11px"><button class="primary" onclick="checkHeight()">Перевірити</button></div>
+      <div id="heightFb" class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section id="video2">
+  <div class="k">21–23 хв • коротке пояснення</div>
+  <h2>Відео 2: висоти місцевості</h2>
+  <div class="video-card">
+    <iframe class="video" src="https://www.youtube-nocookie.com/embed/LmLTMpIEvnk" title="Географія. Абсолютна й відносна висота місцевості" allowfullscreen></iframe>
+    <p><b>Дивимося фрагмент 0:00–2:40.</b> Після перегляду сформулюйте одне речення, яке не дасть переплутати абсолютну та відносну висоту.</p>
+    <p class="tiny">Всеукраїнська школа онлайн. <a href="https://www.youtube.com/watch?v=LmLTMpIEvnk" target="_blank" rel="noopener">Відкрити відео окремо</a>.</p>
+  </div>
+</section>
+
+<section id="profile">
+  <div class="k">23–29 хв • інтерактив №3</div>
+  <h2>Профіль місцевості: «розрізаємо» рельєф уздовж лінії A–B</h2>
+  <p class="muted">Нижче — <b>схематична</b> навчальна карта. Горизонталі проведені через 50 м. Лінія A–B проходить через два підвищення і сідловину між ними.</p>
+  <div class="contour-wrap">
+    <svg class="contourmap" viewBox="0 0 900 470" role="img" aria-label="Схематична карта горизонталей з лінією A-B">
+      <rect width="900" height="470" fill="#f7f2df"/>
+      <path d="M45 380 C135 300 110 190 220 120 C310 62 393 115 415 215 C431 289 392 344 330 388" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <path d="M83 365 C160 296 151 211 231 157 C300 110 352 145 369 218 C382 276 354 318 305 355" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <path d="M127 345 C189 290 190 228 244 192 C292 160 328 180 337 226 C347 269 325 297 287 327" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <path d="M175 320 C213 286 220 244 254 222 C283 202 306 218 309 244 C313 269 299 286 274 304" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <text x="172" y="308" fill="#7b5a31" font-size="16" font-weight="800">350</text><text x="132" y="335" fill="#7b5a31" font-size="16" font-weight="800">300</text><text x="87" y="355" fill="#7b5a31" font-size="16" font-weight="800">250</text>
+      <path d="M455 358 C501 306 482 212 558 151 C646 80 771 104 838 193 C884 254 853 340 790 392" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <path d="M492 345 C535 301 523 228 584 183 C650 133 746 149 795 211 C833 259 811 323 763 362" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <path d="M530 329 C565 296 561 245 606 214 C656 180 724 191 760 235 C787 269 773 311 738 339" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <path d="M572 307 C595 285 597 259 624 242 C656 221 697 228 718 253 C735 273 727 298 704 315" fill="none" stroke="#a77e48" stroke-width="3"/>
+      <text x="574" y="298" fill="#7b5a31" font-size="16" font-weight="800">350</text><text x="530" y="321" fill="#7b5a31" font-size="16" font-weight="800">300</text><text x="494" y="340" fill="#7b5a31" font-size="16" font-weight="800">250</text>
+      <path d="M20 235 L880 235" stroke="#ba3f3a" stroke-width="5"/><circle cx="35" cy="235" r="10" fill="#ba3f3a"/><circle cx="865" cy="235" r="10" fill="#ba3f3a"/><text x="25" y="215" font-size="24" fill="#8d2d2a" font-weight="900">A</text><text x="853" y="215" font-size="24" fill="#8d2d2a" font-weight="900">B</text>
+      <path d="M0 430 C120 390 220 430 330 404 C410 386 476 431 573 410 C690 385 770 425 900 395" fill="none" stroke="#5f90a3" stroke-width="8" opacity=".55"/>
+      <text x="24" y="455" font-size="15" fill="#50778a">Схематична карта: горизонталі через 50 м</text>
+    </svg>
+  </div>
+  <p class="strong">Який із профілів найкраще відповідає лінії A–B?</p>
+  <div class="profile-options">
+    <div class="profile-option" tabindex="0" onclick="selectProfile('p1',this)"><b>Профіль A</b><svg viewBox="0 0 300 150"><path class="mini-axis" d="M20 125H285M28 15V125"/><polyline class="mini-profile wrong-profile" points="25,115 70,92 120,55 170,42 220,62 275,35"/></svg></div>
+    <div class="profile-option" tabindex="0" onclick="selectProfile('p2',this)"><b>Профіль B</b><svg viewBox="0 0 300 150"><path class="mini-axis" d="M20 125H285M28 15V125"/><polyline class="mini-profile" points="25,112 65,95 105,46 135,67 160,102 190,82 230,42 275,92"/></svg></div>
+    <div class="profile-option" tabindex="0" onclick="selectProfile('p3',this)"><b>Профіль C</b><svg viewBox="0 0 300 150"><path class="mini-axis" d="M20 125H285M28 15V125"/><polyline class="mini-profile wrong-profile" points="25,50 65,62 105,75 150,86 200,100 275,115"/></svg></div>
+  </div>
+  <p><button class="primary" onclick="checkProfile()">Перевірити профіль</button></p>
+  <div id="profileFb" class="feedback"></div>
+  <div class="callout warn" style="margin-top:12px"><b>Ключ до профілю:</b> кожний перетин лінії A–B з горизонталлю — це точка з відомою висотою. Переносимо ці точки на горизонтальну вісь, відкладаємо висоти на вертикальній і з’єднуємо плавною лінією.</div>
+</section>
+
+<section id="theory">
+  <div class="k">29–32 хв • теорія після дослідження</div>
+  <h2>Теорія, яку тепер є куди «прикрутити»</h2>
+  <div class="theory-grid">
+    <div class="theory"><h3>1. Азимут</h3><p>Кут між напрямком на північ і напрямком на об’єкт, відрахований за годинниковою стрілкою від 0° до 360°. Пн — 0°/360°, Сх — 90°, Пд — 180°, Зх — 270°.</p></div>
+    <div class="theory"><h3>2. Зворотний азимут</h3><p>Напрям повернення. Якщо A &lt; 180°, додаємо 180°. Якщо A ≥ 180°, віднімаємо 180°.</p><div class="formula">A<sub>зв</sub> = A ± 180°</div></div>
+    <div class="theory"><h3>3. Абсолютна висота</h3><p>Висота точки відносно прийнятого нульового рівня (середнього рівня моря). На карті читається за горизонталями та висотними відмітками.</p></div>
+    <div class="theory"><h3>4. Відносна висота</h3><p>Різниця абсолютних висот двох точок. Саме вона описує, скільки метрів треба набрати або скинути.</p><div class="formula">Δh = |H₂ − H₁|</div></div>
+    <div class="theory"><h3>5. Горизонталі</h3><p>Лінії, що сполучають точки з однаковою абсолютною висотою. Замкнені горизонталі можуть показувати пагорб або западину; форму уточнюють бергштрихи й підписи висот.</p></div>
+    <div class="theory"><h3>6. Профіль місцевості</h3><p>Вертикальний переріз рельєфу вздовж заданої лінії. Він показує послідовність підйомів, спусків, сідловин і крутість схилів.</p></div>
+  </div>
+  <div class="steps grid2" style="margin-top:12px">
+    <div class="theory">Провести лінію A–B на карті.</div><div class="theory">Позначити всі перетини з горизонталями й підписати їх висоти.</div><div class="theory">Перенести відстані на горизонтальну вісь профілю.</div><div class="theory">Відкласти висоти, поставити точки й з’єднати їх плавною лінією.</div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="k">32–35 хв • логічний двобій + CER</div>
+  <h2>Що карта справді доводить?</h2>
+  <div class="logic-buttons">
+    <button onclick="logic(this,'bad')"><b>Твердження 1:</b><br>«Точка B має абсолютну висоту 900 м, отже від A до B треба піднятися рівно на 900 м».</button>
+    <button onclick="logic(this,'good')"><b>Твердження 2:</b><br>«Для оцінки складності маршруту потрібні і відстань, і перепад висот, і форма схилів».</button>
+    <button onclick="logic(this,'bad')"><b>Твердження 3:</b><br>«Якщо маршрут коротший на карті, він автоматично швидший у реальності».</button>
+  </div>
+  <div id="logicFb" class="answer"></div>
+  <h3 style="margin-top:18px">CER-висновок</h3>
+  <p class="muted">Поверніться до ситуації рятувальної групи. Сформулюйте аргументоване рішення.</p>
+  <div class="cer-grid">
+    <div><b>Твердження</b><textarea placeholder="Який маршрут/напрям доцільніший?"></textarea></div>
+    <div><b>Доказ</b><textarea placeholder="Азимут, висоти, горизонталі, профіль..."></textarea></div>
+    <div
