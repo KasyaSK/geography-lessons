@@ -13,52 +13,90 @@ jobs:
   fix:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository with full history
         uses: actions/checkout@v4
         with:
           ref: main
           fetch-depth: 0
 
-      - name: Replace compressed browser loaders with plain HTML
+      - name: Recover newest valid olympiad HTML from Git history
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import base64, gzip, re
+          import base64, gzip, re, subprocess
 
-          changed = []
-          for grade in ('8','9','10','11'):
-              page = Path('olimpiady') / grade / 'index.html'
-              text = page.read_text(encoding='utf-8')
+          def git_show(commit, path):
+              p = subprocess.run(
+                  ['git', 'show', f'{commit}:{path}'],
+                  stdout=subprocess.PIPE,
+                  stderr=subprocess.DEVNULL,
+                  check=False,
+              )
+              if p.returncode:
+                  return None
+              return p.stdout.decode('utf-8', errors='strict')
 
-              # Current olympiad pages are tiny wrapper documents containing a
-              # base64-encoded gzip payload that relies on DecompressionStream
-              # in the visitor's browser. Decode it once in the repository so
-              # every browser receives normal HTML immediately.
+          def unwrap(text):
+              # Already a real page.
+              low = text.lower()
+              if '<html' in low and '</html>' in low and 'decompressionstream' not in low and 'завантаження олімпіадного комплекту' not in low:
+                  return text
+
+              # Compressed wrapper used by the broken published pages.
               match = re.search(r"const b='([^']+)';", text, flags=re.S)
               if not match:
-                  print(f'{page}: already plain HTML or no compressed payload found')
-                  continue
+                  return None
+              try:
+                  payload = base64.b64decode(match.group(1), validate=True)
+                  html = gzip.decompress(payload).decode('utf-8')
+              except Exception:
+                  return None
+              low = html.lower()
+              if '<html' not in low or '</html>' not in low:
+                  return None
+              return html
 
-              payload = base64.b64decode(match.group(1))
-              html = gzip.decompress(payload).decode('utf-8')
+          recovered = []
+          for grade in ('8','9','10','11'):
+              path = f'olimpiady/{grade}/index.html'
+              commits = subprocess.check_output(
+                  ['git', 'log', '--format=%H', '--', path],
+                  text=True,
+              ).splitlines()
 
-              if '<html' not in html.lower() or '</html>' not in html.lower():
-                  raise SystemExit(f'{page}: decoded payload is not a complete HTML document')
-              if len(html) < 5000:
-                  raise SystemExit(f'{page}: decoded payload is unexpectedly short ({len(html)} bytes)')
+              chosen = None
+              chosen_commit = None
+              for commit in commits:
+                  historic = git_show(commit, path)
+                  if historic is None:
+                      continue
+                  html = unwrap(historic)
+                  if html is None or len(html) < 5000:
+                      continue
+                  # Avoid accidentally selecting another grade's page.
+                  title_probe = re.search(r'<title>(.*?)</title>', html, flags=re.I|re.S)
+                  title = title_probe.group(1) if title_probe else ''
+                  if grade not in title and f'{grade} клас' not in html[:5000]:
+                      continue
+                  chosen = html
+                  chosen_commit = commit
+                  break
 
-              page.write_text(html, encoding='utf-8')
-              changed.append(str(page))
-              print(f'{page}: decompressed to {len(html)} characters')
+              if chosen is None:
+                  raise SystemExit(f'{path}: no valid historical olympiad page could be recovered')
 
-          if not changed:
-              print('No compressed olympiad loaders remained.')
-          else:
-              print('Changed: ' + ', '.join(changed))
+              current = Path(path).read_text(encoding='utf-8')
+              Path(path).write_text(chosen, encoding='utf-8')
+              task_mentions = len(re.findall(r'завдан', chosen, flags=re.I))
+              print(f'{path}: recovered from {chosen_commit[:12]}, {len(chosen)} chars, task-word matches={task_mentions}')
+              if current != chosen:
+                  recovered.append(path)
+
+          print('Recovered files: ' + ', '.join(recovered))
           PY
 
-      - name: Validate olympiad pages
+      - name: Validate recovered olympiad pages
         shell: bash
         run: |
           python - <<'PY'
@@ -72,8 +110,8 @@ jobs:
                   bad.append('still uses DecompressionStream')
               if 'Завантаження олімпіадного комплекту' in text:
                   bad.append('still contains loader placeholder')
-              if '<body' not in text.lower():
-                  bad.append('missing body')
+              if '<body' not in text.lower() or '</html>' not in text.lower():
+                  bad.append('incomplete HTML')
               if len(text) < 5000:
                   bad.append('content unexpectedly short')
               if bad:
@@ -81,7 +119,7 @@ jobs:
               print(f'{page}: OK ({len(text)} characters)')
           PY
 
-      - name: Commit fixed olympiad pages
+      - name: Commit recovered pages
         shell: bash
         run: |
           if git diff --quiet -- olimpiady/8/index.html olimpiady/9/index.html olimpiady/10/index.html olimpiady/11/index.html; then
@@ -92,5 +130,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add olimpiady/8/index.html olimpiady/9/index.html olimpiady/10/index.html olimpiady/11/index.html
-          git commit -m 'Render olympiad tasks as plain HTML'
+          git commit -m 'Restore olympiad tasks as plain HTML'
           git push origin HEAD:main
