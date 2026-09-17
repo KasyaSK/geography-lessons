@@ -19,116 +19,129 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Recover newest valid olympiad HTML from Git history
+      - name: Recover olympiad HTML and diagnose damaged histories
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import base64, gzip, re, subprocess
+          import base64, gzip, re, subprocess, zlib
 
           def git_show(commit, path):
-              p = subprocess.run(
-                  ['git', 'show', f'{commit}:{path}'],
-                  stdout=subprocess.PIPE,
-                  stderr=subprocess.DEVNULL,
-                  check=False,
-              )
+              p = subprocess.run(['git','show',f'{commit}:{path}'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
               if p.returncode:
                   return None
-              return p.stdout.decode('utf-8', errors='strict')
+              return p.stdout.decode('utf-8', errors='replace')
 
-          def unwrap(text):
-              # Already a real page.
-              low = text.lower()
-              if '<html' in low and '</html>' in low and 'decompressionstream' not in low and 'завантаження олімпіадного комплекту' not in low:
-                  return text
-
-              # Compressed wrapper used by the broken published pages.
-              match = re.search(r"const b='([^']+)';", text, flags=re.S)
-              if not match:
+          def extract_payload(text):
+              m = re.search(r"const b='([^']+)';", text, flags=re.S)
+              if not m:
                   return None
               try:
-                  payload = base64.b64decode(match.group(1), validate=True)
-                  html = gzip.decompress(payload).decode('utf-8')
+                  return base64.b64decode(m.group(1), validate=True)
               except Exception:
                   return None
-              low = html.lower()
-              if '<html' not in low or '</html>' not in low:
+
+          def strict_unwrap(text):
+              low=text.lower()
+              if '<html' in low and '</html>' in low and 'decompressionstream' not in low and 'завантаження олімпіадного комплекту' not in low:
+                  return text
+              payload=extract_payload(text)
+              if payload is None:
                   return None
-              return html
+              try:
+                  html=gzip.decompress(payload).decode('utf-8')
+              except Exception:
+                  return None
+              return html if '<html' in html.lower() and '</html>' in html.lower() else None
 
-          recovered = []
+          def partial_unwrap(text):
+              payload=extract_payload(text)
+              if payload is None:
+                  return ''
+              d=zlib.decompressobj(16+zlib.MAX_WBITS)
+              out=bytearray()
+              # Small chunks preserve all output up to the exact corruption point.
+              for i in range(0,len(payload),32):
+                  try:
+                      out.extend(d.decompress(payload[i:i+32]))
+                  except zlib.error:
+                      break
+              try:
+                  out.extend(d.flush())
+              except zlib.error:
+                  pass
+              return out.decode('utf-8',errors='ignore')
+
+          changed=[]
+          unresolved=[]
           for grade in ('8','9','10','11'):
-              path = f'olimpiady/{grade}/index.html'
-              commits = subprocess.check_output(
-                  ['git', 'log', '--format=%H', '--', path],
-                  text=True,
-              ).splitlines()
+              path=f'olimpiady/{grade}/index.html'
+              commits=subprocess.check_output(['git','log','--format=%H','--',path],text=True).splitlines()
+              chosen=None; chosen_commit=None; chosen_mode=None
+              partials=[]
 
-              chosen = None
-              chosen_commit = None
               for commit in commits:
-                  historic = git_show(commit, path)
-                  if historic is None:
-                      continue
-                  html = unwrap(historic)
-                  if html is None or len(html) < 5000:
-                      continue
-                  # Avoid accidentally selecting another grade's page.
-                  title_probe = re.search(r'<title>(.*?)</title>', html, flags=re.I|re.S)
-                  title = title_probe.group(1) if title_probe else ''
-                  if grade not in title and f'{grade} клас' not in html[:5000]:
-                      continue
-                  chosen = html
-                  chosen_commit = commit
-                  break
+                  historic=git_show(commit,path)
+                  if historic is None: continue
+                  html=strict_unwrap(historic)
+                  if html and len(html)>=5000:
+                      chosen=html; chosen_commit=commit; chosen_mode='strict'
+                      break
+                  part=partial_unwrap(historic)
+                  if part:
+                      partials.append((len(part), part.count('Завдання')+part.count('завдання'), commit, part))
 
               if chosen is None:
-                  raise SystemExit(f'{path}: no valid historical olympiad page could be recovered')
+                  partials.sort(reverse=True,key=lambda x:(x[0],x[1]))
+                  print(f'--- {path}: no strict candidate; partial candidates ---')
+                  for length,tasks,commit,part in partials[:5]:
+                      complete='YES' if '</html>' in part.lower() else 'NO'
+                      print(f'  {commit[:12]} len={length} taskLabels={tasks} completeHtml={complete} tail={part[-140:]!r}')
+                  # Safe use of a damaged gzip only if it nevertheless contains a complete HTML document.
+                  for length,tasks,commit,part in partials:
+                      if length>=5000 and '<html' in part.lower() and '</html>' in part.lower():
+                          chosen=part; chosen_commit=commit; chosen_mode='partial-complete'
+                          break
 
-              current = Path(path).read_text(encoding='utf-8')
-              Path(path).write_text(chosen, encoding='utf-8')
-              task_mentions = len(re.findall(r'завдан', chosen, flags=re.I))
-              print(f'{path}: recovered from {chosen_commit[:12]}, {len(chosen)} chars, task-word matches={task_mentions}')
-              if current != chosen:
-                  recovered.append(path)
+              if chosen is None:
+                  unresolved.append(path)
+                  print(f'{path}: UNRESOLVED')
+                  continue
 
-          print('Recovered files: ' + ', '.join(recovered))
+              current=Path(path).read_text(encoding='utf-8')
+              Path(path).write_text(chosen,encoding='utf-8')
+              labels=len(re.findall(r'завдан',chosen,flags=re.I))
+              print(f'{path}: recovered mode={chosen_mode} commit={chosen_commit[:12]} chars={len(chosen)} task-word-matches={labels}')
+              if current!=chosen: changed.append(path)
+
+          print('Changed: '+', '.join(changed))
+          print('Unresolved: '+', '.join(unresolved))
+          Path('/tmp/unresolved.txt').write_text('\n'.join(unresolved),encoding='utf-8')
           PY
 
-      - name: Validate recovered olympiad pages
+      - name: Validate and commit every recovered page
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-
           for grade in ('8','9','10','11'):
-              page = Path('olimpiady') / grade / 'index.html'
-              text = page.read_text(encoding='utf-8')
-              bad = []
+              page=Path('olimpiady')/grade/'index.html'
+              text=page.read_text(encoding='utf-8')
               if 'DecompressionStream' in text:
-                  bad.append('still uses DecompressionStream')
-              if 'Завантаження олімпіадного комплекту' in text:
-                  bad.append('still contains loader placeholder')
-              if '<body' not in text.lower() or '</html>' not in text.lower():
-                  bad.append('incomplete HTML')
-              if len(text) < 5000:
-                  bad.append('content unexpectedly short')
-              if bad:
-                  raise SystemExit(f'{page}: ' + '; '.join(bad))
-              print(f'{page}: OK ({len(text)} characters)')
+                  print(f'{page}: still unresolved loader')
+                  continue
+              if '<body' not in text.lower() or '</html>' not in text.lower() or len(text)<5000:
+                  raise SystemExit(f'{page}: recovered page is invalid')
+              print(f'{page}: plain HTML OK ({len(text)} chars)')
           PY
 
-      - name: Commit recovered pages
-        shell: bash
-        run: |
           if git diff --quiet -- olimpiady/8/index.html olimpiady/9/index.html olimpiady/10/index.html olimpiady/11/index.html; then
-            echo 'Nothing to commit.'
+            echo 'Nothing recovered in this run.'
             exit 0
           fi
           git diff --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add olimpiady/8/index.html olimpiady/9/index.html olimpiady/10/index.html olimpiady/11/index.html
-          git commit -m 'Restore olympiad tasks as plain HTML'
+          git commit -m 'Restore recoverable olympiad tasks as plain HTML'
           git push origin HEAD:main
