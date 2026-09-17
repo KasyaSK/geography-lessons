@@ -1,0 +1,114 @@
+name: Upgrade Sep 18 lessons
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/upgrade-sep18-lessons.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upgrade interactive lessons
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          MARK='interactive-upgrade-2026-09-18'
+
+          def replace_section(text, sid, new):
+              pat=rf'<section id="{re.escape(sid)}">.*?</section>'
+              out,n=re.subn(pat,new,text,count=1,flags=re.S)
+              if n!=1:
+                  raise SystemExit(f'Cannot replace section {sid}: {n}')
+              return out
+
+          # ---------- 5 CLASS: fully virtual practical work ----------
+          p=Path('5/05-praktychna-temperatura-povitria-vody/index.html')
+          t=p.read_text(encoding='utf-8')
+          if MARK not in t:
+              t=t.replace('<h1>Вимірюємо температуру повітря і води</h1>','<h1>Температурне бюро: повітря проти води</h1>')
+              t=t.replace('Сьогодні термометр — не декорація на стіні. Вчимося <b>безпечно вимірювати</b>, правильно читати шкалу, записувати дані й робити висновок із власних спостережень.','<b>Реальний термометр сьогодні не потрібен.</b> Працюємо як лабораторія-детектив: читаємо шкалу, ловимо помилки, запускаємо віртуальне вимірювання повітря й води та робимо висновок із отриманих даних.')
+              t=t.replace('<a href="#lab">Практична</a>','<a href="#lab">Віртуальна лабораторія</a>')
+              lab='''<section id="lab"><div class="wrap"><div class="head"><span class="step">5</span><div><h2>Практична робота №1 — без термометра в рюкзаку</h2><p>18–29 хв • Усі значення дає симуляція. Ваше завдання — правильно організувати вимірювання, записати дані й пояснити різницю.</p></div></div>
+              <div class="activity vlab"><div class="vscene"><div class="vwindow"><span>☀️</span></div><div class="vdesk"></div><div class="vglass"><i></i></div><div class="vsensor" id="vSensor">🌡️</div><div class="vlabel airlabel">повітря</div><div class="vlabel waterlabel">вода</div></div>
+              <div class="vpanel"><span class="tag">ВІРТУАЛЬНА ЛАБОРАТОРІЯ</span><h3>Крок 1. Де вимірювати повітря?</h3><div class="vchoices" id="vAirPlace"><button data-ok="0">На сонячному підвіконні</button><button data-ok="1">У центрі класу, подалі від батареї й сонця</button><button data-ok="0">Прямо над обігрівачем</button></div><div class="feedback" id="vPlaceFb"></div><h3>Крок 2. Проведіть два вимірювання</h3><div class="choiceRow"><button id="vAirBtn">🌬️ Виміряти повітря</button><button id="vWaterBtn">💧 Виміряти воду</button><button id="vResetBtn" class="secondary">↻ Новий дослід</button></div><div class="vread" id="vRead">Лабораторія чекає на перше вимірювання…</div><div class="vprogress"><i id="vProgress"></i></div></div></div>
+              <table class="labTable" style="margin-top:14px"><thead><tr><th>Що вимірюємо</th><th>Температура, °C</th><th>Умови</th></tr></thead><tbody><tr><td>Повітря в класі</td><td><input id="airT" type="number" readonly placeholder="—"></td><td>центр приміщення, без прямого нагрівання</td></tr><tr><td>Вода</td><td><input id="waterT" type="number" readonly placeholder="—"></td><td>датчик у воді, не торкається стінок</td></tr></tbody></table>
+              <div class="grid2" style="margin-top:14px"><div><button onclick="analyzeLab()">Побудувати порівняння</button><div id="labFb" class="feedback"></div><textarea id="conclusion" style="width:100%;min-height:105px;border:1px solid #c9dce4;border-radius:14px;padding:.75rem;font:inherit" placeholder="Після двох вимірювань тут з’явиться чернетка висновку."></textarea></div><div class="chart"><div class="barcol"><div class="bar air" id="airBar"><span id="airVal">—</span></div><b>Повітря</b></div><div class="barcol"><div class="bar water" id="waterBar"><span id="waterVal">—</span></div><b>Вода</b></div></div></div>
+              <div class="callout teal" style="margin-top:14px"><b>Що тут справжнє, а що модель?</b> Значення температур генерує симуляція, але алгоритм роботи з даними справжній: умови → вимірювання → запис → порівняння → висновок. Саме це й тренуємо.</div></div></section>'''
+              t=replace_section(t,'lab',lab)
+              t=t.replace('§5; завершити запис результатів і сформулювати висновок.','§5; завершити таблицю віртуального досліду й сформулювати висновок.')
+              t=t.replace('Перепишіть таблицю акуратно, обчисліть різницю температур і допишіть 2–3 речення висновку.','За даними віртуальної лабораторії запишіть дві температури, обчисліть різницю й допишіть 2–3 речення висновку.')
+              t=t.replace('що ми щойно довели вимірюванням','що ми щойно довели віртуальним вимірюванням')
+              t=t.replace('</body>',f'<!-- {MARK} -->\n</body>')
+              p.write_text(t,encoding='utf-8')
+
+              css=Path('5/05-praktychna-temperatura-povitria-vody/style.css')
+              c=css.read_text(encoding='utf-8')
+              c+='''\n/* interactive-upgrade-2026-09-18 */\n.vlab{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;background:linear-gradient(135deg,#eefaff,#fff9e8)}.vscene{position:relative;min-height:390px;border-radius:22px;overflow:hidden;background:linear-gradient(#bce7ff 0 48%,#f1dfc4 48%);border:1px solid var(--line)}.vwindow{position:absolute;left:8%;top:8%;width:34%;height:36%;border:10px solid #fff;background:#8dd3ff;display:grid;place-items:start end;padding:8px;font-size:2.2rem}.vdesk{position:absolute;left:10%;right:10%;bottom:12%;height:80px;background:#9a7157;border-radius:12px}.vglass{position:absolute;right:18%;bottom:29%;width:100px;height:105px;border:6px solid #fff;border-radius:8px 8px 26px 26px;background:#46b9d3}.vglass i{display:block;height:45%;margin-top:48px;background:#81d9e9}.vsensor{position:absolute;left:50%;top:18%;font-size:4.3rem;transition:.65s}.vsensor.waterPos{left:72%;top:40%}.vlabel{position:absolute;background:#fff;border:1px solid #cfe2ea;border-radius:999px;padding:.28rem .5rem;font-weight:900}.airlabel{left:43%;top:9%}.waterlabel{right:16%;bottom:18%}.vpanel{padding:4px}.vchoices{display:grid;gap:8px}.vchoices button{border:1px solid #c9dce4;background:#fff;border-radius:13px;padding:.65rem;text-align:left;font-weight:800;cursor:pointer}.vchoices button.ok{background:#e9f8f2;border-color:#78c6a4}.vchoices button.bad{background:#fff0f2;border-color:#eaa8b2}.vread{margin-top:12px;padding:.72rem;border-radius:13px;background:#fff;border:1px solid #cfe0e7;font-weight:900}.vprogress{height:10px;margin-top:9px;background:#dfecef;border-radius:999px;overflow:hidden}.vprogress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#238fd0,#23aa86);transition:.7s}@media(max-width:800px){.vlab{grid-template-columns:1fr}.vscene{min-height:320px}}\n'''
+              css.write_text(c,encoding='utf-8')
+
+              js=Path('5/05-praktychna-temperatura-povitria-vody/script.js')
+              j=js.read_text(encoding='utf-8')
+              j+='''\n// interactive-upgrade-2026-09-18\n(()=>{let a=Math.floor(Math.random()*7)+20,w=Math.floor(Math.random()*9)+15,busy=false;const q=s=>document.querySelector(s);function fresh(){a=Math.floor(Math.random()*7)+20;w=Math.floor(Math.random()*9)+15;airT.value='';waterT.value='';q('#vRead').textContent='Новий дослід готовий. Спочатку оберіть коректне місце для вимірювання повітря.';q('#vProgress').style.width='0';q('#vSensor').classList.remove('waterPos');q('#labFb').textContent='';q('#conclusion').value='';q('#airVal').textContent='—';q('#waterVal').textContent='—';q('#airBar').style.height='18px';q('#waterBar').style.height='18px'}document.querySelectorAll('#vAirPlace button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#vAirPlace button').forEach(x=>x.classList.remove('ok','bad'));const ok=b.dataset.ok==='1';b.classList.add(ok?'ok':'bad');q('#vPlaceFb').textContent=ok?'Так. Тут менше локального нагрівання, тому дані надійніші.':'Це місце може штучно завищити температуру повітря.'}));function measure(kind){if(busy)return;busy=true;q('#vProgress').style.width='0';q('#vRead').textContent='Показ стабілізується…';q('#vSensor').classList.toggle('waterPos',kind==='water');requestAnimationFrame(()=>q('#vProgress').style.width='100%');setTimeout(()=>{const v=kind==='air'?a:w;if(kind==='air')airT.value=v;else waterT.value=v;q('#vRead').textContent=(kind==='air'?'Повітря: ':'Вода: ')+v+' °C';if(airT.value&&waterT.value)analyzeLab();busy=false},850)}q('#vAirBtn')?.addEventListener('click',()=>measure('air'));q('#vWaterBtn')?.addEventListener('click',()=>measure('water'));q('#vResetBtn')?.addEventListener('click',fresh);fresh()})();\n'''
+              js.write_text(j,encoding='utf-8')
+
+          # ---------- 8 CLASS: add game-like portfolio boss fight ----------
+          p=Path('profesii-8/03-portfolio-osobysti-tsili/index.html')
+          t=p.read_text(encoding='utf-8')
+          if MARK not in t:
+              t=t.replace('<a href="#theory">Як це працює</a>','<a href="#bossfight">Бос-файт</a><a href="#theory">Як це працює</a>')
+              boss='''<section id="bossfight"><div class="wrap"><div class="sectionHead"><span class="step">🎮</span><div><h2>Бос-файт: врятуйте портфоліо від прикметників</h2><p>19–23 хв • Три кандидати хочуть показати свої сильні сторони. Хто дає найкращі докази?</p></div></div><div class="bossGrid" id="bossGrid"><button class="bossCard" data-score="0"><span>🦚</span><b>«Я дуже креативний, відповідальний і комунікабельний»</b><p>Жодної роботи, прикладу чи результату.</p></button><button class="bossCard" data-score="2"><span>🛠️</span><b>«Зробив афішу заходу, отримав 2 правки, переробив і встиг до дедлайну»</b><p>Є задача, дія, результат і робота з правками.</p></button><button class="bossCard" data-score="1"><span>🏅</span><b>«Маю 6 сертифікатів із різних курсів»</b><p>Добре, але без пояснення ще не видно, що саме людина вміє застосувати.</p></button></div><div id="bossFb" class="bossFeedback">Оберіть картку.</div><div class="bossRepair"><b>Ремонт слабкої фрази:</b><p>«Я добре працюю в команді» → натисніть, який доказ зробить її сильнішою.</p><div class="choiceRow" id="repairChoices"><button data-ok="0">Додати «дуже-дуже»</button><button data-ok="1">Описати свою роль у конкретному командному проєкті й результат</button><button data-ok="0">Змінити шрифт</button></div><div id="repairFb" class="feedback"></div></div></div></section>'''
+              t=t.replace('<section id="theory">',boss+'\n<section id="theory">',1)
+              t=t.replace('</body>',f'<!-- {MARK} -->\n</body>')
+              p.write_text(t,encoding='utf-8')
+
+              css=Path('profesii-8/03-portfolio-osobysti-tsili/style.css')
+              c=css.read_text(encoding='utf-8')
+              c+='''\n/* interactive-upgrade-2026-09-18 */\n.bossGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.bossCard{border:1px solid #e0d7eb;border-radius:20px;padding:16px;background:#fff;text-align:left;color:var(--ink);font:inherit;cursor:pointer;box-shadow:var(--shadow)}.bossCard span{display:block;font-size:2.2rem}.bossCard b{display:block;margin:.35rem 0}.bossCard.win{border-color:#71c4a5;background:#eefaf5;transform:translateY(-3px)}.bossCard.meh{border-color:#efc66f;background:#fff8e9}.bossCard.lose{border-color:#e9a6b4;background:#fff1f4}.bossFeedback{margin:12px 0;padding:12px 14px;border-radius:15px;background:linear-gradient(90deg,#f0eaff,#e9f8ff);font-weight:900}.bossRepair{border:1px solid #e0d7eb;border-radius:18px;padding:15px;background:#fff}.bossRepair button.ok{background:#eaf9f3!important;border-color:#72c5a3!important}.bossRepair button.bad{background:#fff0f3!important;border-color:#eaa7b5!important}@media(max-width:800px){.bossGrid{grid-template-columns:1fr}}\n'''
+              css.write_text(c,encoding='utf-8')
+
+              js=Path('profesii-8/03-portfolio-osobysti-tsili/script.js')
+              j=js.read_text(encoding='utf-8')
+              j+='''\n// interactive-upgrade-2026-09-18\n(()=>{const cards=[...document.querySelectorAll('.bossCard')],fb=document.getElementById('bossFb');cards.forEach(c=>c.addEventListener('click',()=>{cards.forEach(x=>x.classList.remove('win','meh','lose'));const s=+c.dataset.score;c.classList.add(s===2?'win':s===1?'meh':'lose');fb.textContent=s===2?'Бос переможений: це доказова фраза — задача → дія → результат.':s===1?'Непогано, але сертифікат ще треба розшифрувати: що навчився/лася робити?':'Прикметники без прикладів — декоративний дим. Потрібен конкретний доказ.'}));document.querySelectorAll('#repairChoices button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#repairChoices button').forEach(x=>x.classList.remove('ok','bad'));const ok=b.dataset.ok==='1';b.classList.add(ok?'ok':'bad');document.getElementById('repairFb').textContent=ok?'Так. Тепер твердження можна перевірити конкретною ситуацією.':'Ні. Косметика не перетворює заяву на доказ.'}))})();\n'''
+              js.write_text(j,encoding='utf-8')
+
+          # ---------- 9 CLASS: add offer battle ----------
+          p=Path('profesii-9/03-interesy-tsinnosti-priorytety/index.html')
+          t=p.read_text(encoding='utf-8')
+          if MARK not in t:
+              t=t.replace('<a href="#theory">Теорія</a>','<a href="#offerbattle">Офер-батл</a><a href="#theory">Теорія</a>')
+              offer='''<section id="offerbattle"><div class="wrap"><div class="head"><span class="step">⚔️</span><div><h2>Офер-батл: одна людина — різні «найкращі» роботи</h2><p>27–31 хв • Спочатку оберіть головний пріоритет, потім — офер. Система покаже, чому відповідь змінюється.</p></div></div><div class="activity offerGame"><div class="priorityPick" id="priorityPick"><button data-p="freedom">🕊️ Свобода</button><button data-p="stable">🧱 Стабільність</button><button data-p="meaning">🌱 Користь людям</button><button data-p="growth">🚀 Швидкий розвиток</button></div><div class="offerGrid" id="offerGrid"><button class="offer" data-freedom="5" data-stable="2" data-meaning="3" data-growth="5"><b>Креативна студія</b><span>гнучко • дедлайни • багато нових задач</span></button><button class="offer" data-freedom="2" data-stable="5" data-meaning="3" data-growth="2"><b>Велика стабільна компанія</b><span>процедури • прогнозованість • чіткі ролі</span></button><button class="offer" data-freedom="3" data-stable="3" data-meaning="5" data-growth="4"><b>Соціальний проєкт</b><span>вплив • команда • ресурсів іноді мало</span></button><button class="offer" data-freedom="4" data-stable="2" data-meaning="4" data-growth="5"><b>Молодий стартап</b><span>швидко • невизначено • багато відповідальності</span></button></div><div id="offerFb" class="offerFeedback">1) Оберіть пріоритет. 2) Оберіть офер. 3) Спробуйте інший пріоритет — і подивіться, як зміниться оцінка.</div></div></div></section>'''
+              t=t.replace('<section id="theory">',offer+'\n<section id="theory">',1)
+              t=t.replace('</body>',f'<!-- {MARK} -->\n</body>')
+              p.write_text(t,encoding='utf-8')
+
+              css=Path('profesii-9/03-interesy-tsinnosti-priorytety/style.css')
+              c=css.read_text(encoding='utf-8')
+              c+='''\n/* interactive-upgrade-2026-09-18 */\n.offerGame{background:linear-gradient(135deg,#effaf7,#f2efff)}.priorityPick{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.priorityPick button,.offer{border:1px solid #cddfe0;background:#fff;border-radius:14px;padding:.7rem .85rem;font:inherit;font-weight:850;color:var(--ink);cursor:pointer}.priorityPick button.active{background:#173f48;color:#fff;border-color:#173f48}.offerGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.offer{display:grid;gap:4px;text-align:left;min-height:90px}.offer span{font-size:.86rem;color:var(--muted);font-weight:600}.offer.best{border-color:#69bf9d;background:#edf9f4;box-shadow:0 0 0 3px rgba(71,171,132,.12)}.offer.picked{outline:3px solid rgba(49,90,168,.18)}.offerFeedback{margin-top:12px;padding:13px 14px;border-radius:15px;background:#fff;border:1px solid #cfe0e0;font-weight:850}@media(max-width:760px){.offerGrid{grid-template-columns:1fr}}\n'''
+              css.write_text(c,encoding='utf-8')
+
+              js=Path('profesii-9/03-interesy-tsinnosti-priorytety/script.js')
+              j=js.read_text(encoding='utf-8')
+              j+='''\n// interactive-upgrade-2026-09-18\n(()=>{let p=null;const pmap={freedom:'свобода',stable:'стабільність',meaning:'користь людям',growth:'швидкий розвиток'},pick=document.getElementById('priorityPick'),offers=[...document.querySelectorAll('.offer')],fb=document.getElementById('offerFb');function score(){offers.forEach(o=>o.classList.remove('best'));if(!p)return;const vals=offers.map(o=>+o.dataset[p]),m=Math.max(...vals);offers.forEach((o,i)=>o.classList.toggle('best',vals[i]===m))}pick?.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{pick.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');p=b.dataset.p;score();fb.textContent='Головний пріоритет: '+pmap[p]+'. Зеленим підсвічено модельно найсильніші офери. Тепер оберіть той, який Ви б прийняли.'}));offers.forEach(o=>o.addEventListener('click',()=>{offers.forEach(x=>x.classList.remove('picked'));o.classList.add('picked');if(!p){fb.textContent='Спочатку оберіть пріоритет — інакше «кращий офер» не має критерію.';return}const v=+o.dataset[p];fb.textContent=`Ви обрали «${o.querySelector('b').textContent}». За критерієм «${pmap[p]}» його умовна оцінка ${v}/5. Змініть пріоритет і перевірте, чи рішення залишиться тим самим.`}))})();\n'''
+              js.write_text(j,encoding='utf-8')
+
+          PY
+
+          git config user.name "KasyaSK"
+          git config user.email "149479602+KasyaSK@users.noreply.github.com"
+          git add 5/05-praktychna-temperatura-povitria-vody profesii-8/03-portfolio-osobysti-tsili profesii-9/03-interesy-tsinnosti-priorytety
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Make Sep 18 lessons more interactive"
+            git push
+          fi
