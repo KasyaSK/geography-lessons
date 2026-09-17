@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>9 клас • Практична робота • Демографічні піраміди та природний приріст</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">9 КЛАС • УРОК №4 • ПРАКТИЧНА РОБОТА • ГР1 + ГР2 + ГР3</span>
+    <h1>Населення під мікроскопом:<br>піраміди, приріст і демографічні сценарії</h1>
+    <p class="lead">Сьогодні не переписуємо визначення. Ви працюєте як демографічна аналітична група: читаєте реальні показники, відкриваєте справжні статево-вікові піраміди, порівнюєте країни та регіони України й формулюєте висновок, який має витримати запитання «а чим це доведено?».</p>
+    <div class="chips">
+      <span class="chip">📊 реальні дані</span><span class="chip">👥 статево-вікові піраміди</span>
+      <span class="chip">🇺🇦 регіони України</span><span class="chip">🧠 доказовий висновок</span>
+      <span class="chip">📝 без тесту — здаєте практичну роботу</span>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap">
+<a href="#passport">Паспорт</a><a href="#pyramids">Піраміди</a><a href="#analysis">Аналіз</a>
+<a href="#ukraine">Україна</a><a href="#scenario">Сценарій</a><a href="#report">Звіт</a>
+</div></nav>
+
+<main class="wrap">
+<section class="card" id="passport">
+<h2>1. Паспорт практичної роботи</h2>
+<div class="grid2">
+<div class="mini tip">
+<h3>Тема за КТП</h3>
+<p><b>Аналіз статево-вікових пірамід країн з різною демографічною ситуацією. Аналіз просторових відмінностей природного приросту населення в Україні та регіонах світу за картами і статистичною інформацією.</b></p>
+<p><span class="tag">35 хв</span> <span class="tag">практична робота</span> <span class="tag">висновок обов’язковий</span></p>
+</div>
+<div class="mini">
+<h3>Ваш продукт наприкінці уроку</h3>
+<ol>
+<li>порівняльна характеристика 3 країн;</li>
+<li>аналіз 6 регіонів України;</li>
+<li>2 демографічні прогнози;</li>
+<li>підсумковий CER-висновок: <b>твердження → докази → пояснення</b>.</li>
+</ol>
+</div>
+</div>
+<div class="warn mini">
+<b>Правило сьогодні:</b> слова «багато», «мало», «старе населення», «молоде населення» самі по собі не є висновком. До кожної важливої тези потрібен показник або ознака піраміди.
+</div>
+</section>
+
+<section class="card" id="pyramids">
+<h2>2. Три країни — три демографічні світи</h2>
+<p class="sub">Спочатку подивіться лише на показники. Назви країн приховані. Спробуйте визначити, де населення наймолодше, а де — найстаріше.</p>
+
+<div class="grid3">
+<div class="country locked" id="countryA">
+<div class="name">Країна A</div>
+<div class="reveal">
+<div class="stats">
+<div class="stat"><b>19,2</b><span>медіанний вік</span></div>
+<div class="stat"><b>40,5%</b><span>0–14 років</span></div>
+<div class="stat"><b>3,1%</b><span>65+</span></div>
+<div class="stat"><b>+24,6%</b><span>за 2015–2025</span></div>
+</div>
+<div class="agebar"><span>0–14</span><div class="track"><div class="fill c1" style="width:81%"></div></div><b>40,5%</b></div>
+<div class="agebar"><span>15–64</span><div class="track"><div class="fill c2" style="width:100%"></div></div><b>56,4%</b></div>
+<div class="agebar"><span>65+</span><div class="track"><div class="fill c3" style="width:6%"></div></div><b>3,1%</b></div>
+</div>
+<button class="btn soft" onclick="reveal('countryA','Нігерія')">Відкрити країну</button>
+</div>
+
+<div class="country locked" id="countryB">
+<div class="name">Країна B</div>
+<div class="reveal">
+<div class="stats">
+<div class="stat"><b>46,5</b><span>медіанний вік</span></div>
+<div class="stat"><b>13,9%</b><span>0–14 років</span></div>
+<div class="stat"><b>23,7%</b><span>65+</span></div>
+<div class="stat"><b>+2,4%</b><span>за 2015–2025</span></div>
+</div>
+<div class="agebar"><span>0–14</span><div class="track"><div class="fill c1" style="width:28%"></div></div><b>13,9%</b></div>
+<div class="agebar"><span>15–64</span><div class="track"><div class="fill c2" style="width:100%"></div></div><b>62,4%</b></div>
+<div class="agebar"><span>65+</span><div class="track"><div class="fill c3" style="width:38%"></div></div><b>23,7%</b></div>
+</div>
+<button class="btn soft" onclick="reveal('countryB','Німеччина')">Відкрити країну</button>
+</div>
+
+<div class="country locked" id="countryC">
+<div class="name">Країна C</div>
+<div class="reveal">
+<div class="stats">
+<div class="stat"><b>50,8</b><span>медіанний вік</span></div>
+<div class="stat"><b>11,2%</b><span>0–14 років</span></div>
+<div class="stat"><b>30,0%</b><span>65+</span></div>
+<div class="stat"><b>−3,3%</b><span>за 2015–2025</span></div>
+</div>
+<div class="agebar"><span>0–14</span><div class="track"><div class="fill c1" style="width:22%"></div></div><b>11,2%</b></div>
+<div class="agebar"><span>15–64</span><div class="track"><div class="fill c2" style="width:100%"></div></div><b>58,8%</b></div>
+<div class="agebar"><span>65+</span><div class="track"><div class="fill c3" style="width:51%"></div></div><b>30,0%</b></div>
+</div>
+<button class="btn soft" onclick="reveal('countryC','Японія')">Відкрити країну</button>
+</div>
+</div>
+
+<div class="task">
+<span class="tasknum">ЗАВДАННЯ 1</span>
+<p><b>До відкриття реальних пірамід</b> визначте, яка країна, на Вашу думку, має:</p>
+<div class="grid3">
+<div><label>Найширшу основу піраміди</label><select id="z1a"><option value="">Оберіть</option><option>A</option><option>B</option><option>C</option></select></div>
+<div><label>Найбільшу частку літніх</label><select id="z1b"><option value="">Оберіть</option><option>A</option><option>B</option><option>C</option></select></div>
+<div><label>Найвищий ризик скорочення населення</label><select id="z1c"><option value="">Оберіть</option><option>A</option><option>B</option><option>C</option></select></div>
+</div>
+<div class="actions"><button onclick="checkZ1()">Перевірити гіпотезу</button></div>
+<div id="fb-z1" class="feedback"></div>
+</div>
+
+<div class="task">
+<span class="tasknum">ЗАВДАННЯ 2 • РЕАЛЬНІ ПІРАМІДИ</span>
+<p>Тепер відкрийте реальні статево-вікові піраміди. Порівняйте <b>форму основи, середини й верхівки</b>, а також співвідношення чоловіків і жінок у старших вікових групах.</p>
+<div class="actions">
+<a class="btn" target="_blank" rel="noopener" href="https://www.populationpyramid.net/nigeria/2025/">Нігерія — реальна піраміда ↗</a>
+<a class="btn green" target="_blank" rel="noopener" href="https://www.populationpyramid.net/germany/2025/">Німеччина — реальна піраміда ↗</a>
+<a class="btn orange" target="_blank" rel="noopener" href="https://www.populationpyramid.net/japan/2025/">Японія — реальна піраміда ↗</a>
+</div>
+
+<div class="embed-grid">
+  <div class="framebox">
+    <h4>Нігерія • Population Pyramid 2025</h4>
+    <iframe loading="lazy" src="https://www.populationpyramid.net/nigeria/2025/" title="Статево-вікова піраміда Нігерії 2025"></iframe>
+    <div class="note">Якщо вбудоване вікно не завантажилось, натисніть кнопку вище й відкрийте піраміду в новій вкладці.</div>
+  </div>
+  <div class="framebox">
+    <h4>Німеччина • Population Pyramid 2025</h4>
+    <iframe loading="lazy" src="https://www.populationpyramid.net/germany/2025/" title="Статево-вікова піраміда Німеччини 2025"></iframe>
+    <div class="note">Порівняйте ширину основи, середніх вікових груп і верхівки з Нігерією та Японією.</div>
+  </div>
+  <div class="framebox">
+    <h4>Японія • Population Pyramid 2025</h4>
+    <iframe loading="lazy" src="https://www.populationpyramid.net/japan/2025/" title="Статево-вікова піраміда Японії 2025"></iframe>
+    <div class="note">Зверніть увагу на вузьку основу та значну частку старших вікових груп.</div>
+  </div>
+</div>
+
+<p class="small">Джерело візуалізацій: PopulationPyramid.net на основі <b>UN World Population Prospects 2024</b>. У самій практичній роботі наведено агреговані показники; детальну статево-вікову структуру аналізуйте за вбудованими пірамідами або відкривайте їх окремо.</p>
+</div>
+</section>
+
+<section class="card" id="analysis">
+<h2>3. Пірамідний детектив</h2>
+<p class="sub">Заповнюйте коротко. Одне сильне спостереження краще за пів сторінки туману.</p>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 3</span>
+<label>Нігерія: які дві ознаки піраміди доводять, що населення швидко зростає?</label>
+<textarea id="a3" placeholder="Наприклад: широка основа...; частка дітей..."></textarea>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 4</span>
+<label>Японія: чому вузька основа й широка верхня частина створюють економічну проблему через 10–20 років?</label>
+<textarea id="a4" placeholder="Пов’яжіть покоління дітей, майбутню робочу силу, пенсійну систему та медицину."></textarea>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 5</span>
+<label>Німеччина і Японія мають старе населення. Назвіть одну важливу відмінність, яку видно з показників.</label>
+<textarea id="a5" placeholder="Не пишіть лише «Японія старіша». Вкажіть конкретний показник."></textarea>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 6 • СТАТЬ + ВІК</span>
+<p>На реальних пірамідах подивіться на вікові групи <b>75+</b>. У якій країні найпомітніше переважання жінок серед найстарших груп? Чому це може виникати?</p>
+<textarea id="a6" placeholder="Країна + можливе демографічне пояснення."></textarea>
+</div>
+</section>
+
+<section class="card" id="ukraine">
+<h2>4. Україна: природний приріст — одна країна, різна інтенсивність скорочення</h2>
+<p class="sub">Для регіонального порівняння використано офіційні дані Держстату за 2021 рік — довоєнну зіставну базу. Показник: природний приріст / скорочення на 1000 осіб населення, ‰.</p>
+
+<table>
+<thead><tr><th>Територія</th><th>Природний приріст / скорочення, ‰</th><th>Що це означає</th></tr></thead>
+<tbody>
+<tr><td>Закарпатська обл.</td><td><b>−4,7</b></td><td>померлих більше, ніж народжених, але скорочення серед вибірки найменше</td></tr>
+<tr><td>Волинська обл.</td><td><b>−5,5</b></td><td>природне скорочення</td></tr>
+<tr><td>Івано-Франківська обл.</td><td><b>−7,4</b></td><td>природне скорочення</td></tr>
+<tr><td>Вінницька обл.</td><td><b>−11,3</b></td><td>скорочення близьке до загальноукраїнського рівня</td></tr>
+<tr><td>Дніпропетровська обл.</td><td><b>−14,5</b></td><td>значне природне скорочення</td></tr>
+<tr><td>Запорізька обл.</td><td><b>−15,8</b></td><td>найглибше скорочення серед цієї вибірки</td></tr>
+<tr><td><b>Україна загалом</b></td><td><b>−11,2</b></td><td>у 2021 році смертність суттєво перевищувала народжуваність</td></tr>
+</tbody>
+</table>
+
+<div class="ranklist">
+<div class="rankitem"><span>Закарпатська</span><div class="rankbar"><span style="width:30%"></span></div><b>−4,7‰</b></div>
+<div class="rankitem"><span>Волинська</span><div class="rankbar"><span style="width:35%"></span></div><b>−5,5‰</b></div>
+<div class="rankitem"><span>Івано-Франківська</span><div class="rankbar"><span style="width:47%"></span></div><b>−7,4‰</b></div>
+<div class="rankitem"><span>Вінницька</span><div class="rankbar"><span style="width:72%"></span></div><b>−11,3‰</b></div>
+<div class="rankitem"><span>Дніпропетровська</span><div class="rankbar"><span style="width:92%"></span></div><b>−14,5‰</b></div>
+<div class="rankitem"><span>Запорізька</span><div class="rankbar"><span style="width:100%"></span></div><b>−15,8‰</b></div>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 7</span>
+<p>Розташуйте області від <b>найменшого</b> до <b>найбільшого</b> природного скорочення.</p>
+<textarea id="a7" placeholder="1. ...  2. ...  3. ..."></textarea>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 8</span>
+<p>У скільки разів модуль природного скорочення Запорізької області більший, ніж Закарпатської? Обчисліть приблизно.</p>
+<div class="grid2"><input id="ratio" type="number" step="0.1" placeholder="Ваша відповідь"><button onclick="checkRatio()">Перевірити обчислення</button></div>
+<div id="fb-ratio" class="feedback"></div>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 9</span>
+<label>Чи можна за цими даними стверджувати, що в 2026 році регіони мають такі самі показники? Чому?</label>
+<textarea id="a9" placeholder="Згадайте дату набору даних і події, які могли різко змінити чисельність та структуру населення."></textarea>
+</div>
+
+<div class="warn mini">
+<b>Наукова обережність:</b> ці регіональні цифри — не «карта 2026 року». Це база для порівняння просторових відмінностей у 2021 році. Після 2022 року масштабні переміщення населення, втрати й зміни доступності статистики означають, що старі регіональні коефіцієнти не можна автоматично переносити на сьогодення.
+</div>
+</section>
+
+<section class="card" id="scenario">
+<h2>5. Демографічний симулятор: Ви — радники уряду</h2>
+<p class="sub">Оберіть країну й вирішіть, яку проблему треба ставити першою. Тут немає «чарівної кнопки» — рішення має відповідати структурі населення.</p>
+
+<div class="grid3">
+<div class="mini">
+<h3>🇳🇬 Нігерія</h3>
+<p>40,5% населення — діти до 15 років.</p>
+<label>Що стане головним викликом?</label>
+<select id="sN"><option value="">Оберіть</option><option value="schools">школи, робочі місця, житло</option><option value="pensions">лише пенсії</option><option value="empty">нестача дітей</option></select>
+<button onclick="scenario('sN','schools','fb-sN')">Перевірити</button><div id="fb-sN" class="feedback"></div>
+</div>
+<div class="mini">
+<h3>🇩🇪 Німеччина</h3>
+<p>23,7% населення — 65+.</p>
+<label>Що особливо важливо?</label>
+<select id="sG"><option value="">Оберіть</option><option value="workers">працівники, пенсії, медицина, міграція</option><option value="schools">масове будівництво лише дитсадків</option><option value="none">нічого не змінювати</option></select>
+<button onclick="scenario('sG','workers','fb-sG')">Перевірити</button><div id="fb-sG" class="feedback"></div>
+</div>
+<div class="mini">
+<h3>🇯🇵 Японія</h3>
+<p>30,0% населення — 65+, база піраміди вузька.</p>
+<label>Який ризик найбільший?</label>
+<select id="sJ"><option value="">Оберіть</option><option value="ageing">старіння + зменшення робочої сили</option><option value="boom">вибухове зростання дитячого населення</option><option value="none">надлишок молодих працівників</option></select>
+<button onclick="scenario('sJ','ageing','fb-sJ')">Перевірити</button><div id="fb-sJ" class="feedback"></div>
+</div>
+</div>
+
+<div class="task"><span class="tasknum">ЗАВДАННЯ 10 • ПРОГНОЗ</span>
+<label>Для Нігерії: що може статися через 15–20 років, якщо велике молоде покоління отримає якісну освіту та достатньо робочих місць?</label>
+<textarea id="a10" placeholder="Сформулюйте позитивний сценарій."></textarea>
+<label>Для Японії: що може статися, якщо частка працездатних продовжить зменшуватися?</label>
+<textarea id="a11" placeholder="Сформулюйте ризик для економіки й соціальної сфери."></textarea>
+</div>
+</section>
+
+<section class="card" id="report">
+<h2>6. Збираємо практичну роботу в один звіт</h2>
+<p class="sub">Заповніть висновок. Кнопка нижче збере Ваші відповіді в короткий текст, який можна показати вчителю або роздрукувати.</p>
+
+<div class="grid2">
+<div>
+<label>ПІБ</label><input id="studentName" placeholder="Ім’я та прізвище">
+<label>Клас</label><input id="studentClass" value="9-А / 9-Б">
+<label>Головне твердження</label><textarea id="claim" placeholder="Наприклад: форма статево-вікової піраміди дозволяє прогнозувати..."></textarea>
+<label>Доказ 1</label><textarea id="ev1" placeholder="Конкретний показник однієї країни."></textarea>
+<label>Доказ 2</label><textarea id="ev2" placeholder="Другий показник або регіональні дані України."></textarea>
+<label>Пояснення</label><textarea id="reason" placeholder="Як саме ці докази підтверджують твердження?"></textarea>
+</div>
+<div>
+<div class="report">
+<h3>Критерії якісного висновку</h3>
+<ul>
+<li>є <b>конкретні числа</b>;</li>
+<li>є порівняння щонайменше двох територій;</li>
+<li>не плутаєте природний приріст із загальною зміною населення;</li>
+<li>зазначаєте, що дані України мають конкретну дату;</li>
+<li>робите прогноз, але не видаєте його за гарантований факт.</li>
+</ul>
+<div class="actions no-print"><button class="btn green" onclick="buildReport()">Сформувати звіт</button><button class="btn soft" onclick="window.print()">Друкувати / PDF</button></div>
+</div>
+<div id="output" class="output">Тут з’явиться Ваш підсумковий звіт.</div>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h2>7. Після роботи — перевірка логіки</h2>
+<details><summary>Відкрити орієнтовні відповіді після завершення</summary>
+<ul>
+<li><b>Нігерія:</b> експансивна структура, дуже велика частка дітей, швидке зростання.</li>
+<li><b>Німеччина:</b> старе населення, але частка 65+ менша, ніж у Японії; населення за 2015–2025 не скоротилося так, як японське.</li>
+<li><b>Японія:</b> найстаріша з трьох, найвужча база, 30% населення — 65+, загальна чисельність скорочується.</li>
+<li><b>Українські регіони у вибірці:</b> найменше скорочення — Закарпатська, найбільше — Запорізька область.</li>
+<li><b>Співвідношення 15,8 / 4,7:</b> приблизно 3,4 раза.</li>
+</ul>
+</details>
+</section>
+</main>
+
+<footer><div class="wrap">
+Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»<br>
+Джерела даних: UN World Population Prospects 2024 / PopulationPyramid.net; Державна служба статистики України, регіональні показники природного руху населення за 2021 рік.
+</div></footer>
+
+<script src="script.js"></script>
+</body></html>
