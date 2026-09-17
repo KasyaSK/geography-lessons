@@ -1,0 +1,96 @@
+name: Fix olympiad loaders
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-olympiad-loaders.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Replace compressed browser loaders with plain HTML
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, gzip, re
+
+          changed = []
+          for grade in ('8','9','10','11'):
+              page = Path('olimpiady') / grade / 'index.html'
+              text = page.read_text(encoding='utf-8')
+
+              # Current olympiad pages are tiny wrapper documents containing a
+              # base64-encoded gzip payload that relies on DecompressionStream
+              # in the visitor's browser. Decode it once in the repository so
+              # every browser receives normal HTML immediately.
+              match = re.search(r"const b='([^']+)';", text, flags=re.S)
+              if not match:
+                  print(f'{page}: already plain HTML or no compressed payload found')
+                  continue
+
+              payload = base64.b64decode(match.group(1))
+              html = gzip.decompress(payload).decode('utf-8')
+
+              if '<html' not in html.lower() or '</html>' not in html.lower():
+                  raise SystemExit(f'{page}: decoded payload is not a complete HTML document')
+              if len(html) < 5000:
+                  raise SystemExit(f'{page}: decoded payload is unexpectedly short ({len(html)} bytes)')
+
+              page.write_text(html, encoding='utf-8')
+              changed.append(str(page))
+              print(f'{page}: decompressed to {len(html)} characters')
+
+          if not changed:
+              print('No compressed olympiad loaders remained.')
+          else:
+              print('Changed: ' + ', '.join(changed))
+          PY
+
+      - name: Validate olympiad pages
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          for grade in ('8','9','10','11'):
+              page = Path('olimpiady') / grade / 'index.html'
+              text = page.read_text(encoding='utf-8')
+              bad = []
+              if 'DecompressionStream' in text:
+                  bad.append('still uses DecompressionStream')
+              if 'Завантаження олімпіадного комплекту' in text:
+                  bad.append('still contains loader placeholder')
+              if '<body' not in text.lower():
+                  bad.append('missing body')
+              if len(text) < 5000:
+                  bad.append('content unexpectedly short')
+              if bad:
+                  raise SystemExit(f'{page}: ' + '; '.join(bad))
+              print(f'{page}: OK ({len(text)} characters)')
+          PY
+
+      - name: Commit fixed olympiad pages
+        shell: bash
+        run: |
+          if git diff --quiet -- olimpiady/8/index.html olimpiady/9/index.html olimpiady/10/index.html olimpiady/11/index.html; then
+            echo 'Nothing to commit.'
+            exit 0
+          fi
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add olimpiady/8/index.html olimpiady/9/index.html olimpiady/10/index.html olimpiady/11/index.html
+          git commit -m 'Render olympiad tasks as plain HTML'
+          git push origin HEAD:main
