@@ -4,7 +4,7 @@
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f7fc;color:#18243a}header{background:linear-gradient(135deg,#13294f,#5143a7);color:#fff;padding:34px 18px}.wrap,main{max-width:940px;margin:auto}h1{font-size:clamp(2rem,6vw,3.6rem);margin:.15em 0}.sub{line-height:1.5;opacity:.95}main{padding:18px 14px 60px}.card{background:#fff;border:1px solid #dbe4f0;border-radius:22px;padding:22px;margin:16px 0;box-shadow:0 8px 26px #20385b12}.level{display:inline-block;padding:6px 10px;border-radius:999px;background:#ebeaff;color:#4238a2;font-weight:900;font-size:.8rem}.time{float:right;font-weight:800;color:#62718a}.q{padding:17px 0;border-top:1px dashed #d6deea}.q:first-of-type{border-top:0}.q b{line-height:1.45}label{display:block;padding:8px 10px;margin:4px 0;border-radius:10px}label:hover{background:#f3f5ff}input[type=text],textarea{width:100%;padding:11px;border:1px solid #c7d3e4;border-radius:11px;font:inherit;margin-top:7px}textarea{min-height:90px}button{border:0;border-radius:13px;padding:13px 18px;background:#5143a7;color:#fff;font-weight:900;font-size:1rem;cursor:pointer}.hidden{display:none}.warn{color:#ad2937;font-weight:800}.info{background:#eef5ff;border-left:5px solid #4b69c6;padding:13px;border-radius:11px}.result{background:#eeefff;border:2px solid #9c95e8;border-radius:20px;padding:22px}.scale{font-family:monospace;font-size:1.15rem;letter-spacing:2px;background:#f4f7fb;padding:12px;border-radius:10px;overflow:auto}
 </style></head><body>
 <header><div class="wrap"><b>ПІЗНАЄМО ПРИРОДУ • 5 КЛАС</b><h1>Контрольна робота</h1><div class="sub">Розділ 1 «Пізнаємо світ науки» • §1–6<br><b>Час роботи: 35 хвилин</b></div></div></header><main>
-<div class="card" id="gate"><h2>Починаємо</h2><p>Введіть свої дані. Після цього відкриється контрольна робота.</p><label><b>Ім’я та прізвище</b><input id="name" type="text" placeholder="Марія Іваненко"></label><label><b>Клас</b><input id="klass" type="text" placeholder="5-А"></label><p id="gateMsg" class="warn"></p><button onclick="start()">Поїхали! Відкрити контрольну →</button></div>
+<div class="card" id="gate"><h2>Починаємо</h2><p>Введіть свої дані. Після цього відкриється контрольна робота.</p><label><b>Ім’я та прізвище</b><input id="name" type="text" placeholder="Марія Іваненко"></label><label><b>Клас</b><input id="klass" type="text" placeholder="5-А"></label><p id="gateMsg" class="warn"></p><button type="button" id="startBtn">Поїхали! Відкрити контрольну →</button></div>
 <div id="work" class="hidden">
 <div class="card info"><b>24 завдання • 35 хв.</b> Читайте умову повністю. Частина запитань має кілька правильних відповідей. У кінці є задачі, де треба пояснити хід думок.</div>
 
@@ -31,17 +31,42 @@
 <div class="card"><span class="level">Частина IV • Високий рівень</span><span class="time">≈ 5 хв</span><h2>23–24. Науковий детектив</h2>
 <div class="q"><b>23. Марко перевіряє, де вода випарується швидше. Він налив 50 мл води у широку тарілку й поставив на сонце, а 100 мл — у вузьку склянку й поставив у тінь. Через годину порівняв залишок.</b><p><b>Назвіть щонайменше ТРИ причини, чому такий дослід не дозволяє чесно визначити вплив сонячного освітлення.</b></p><textarea id="q23"></textarea></div>
 <div class="q"><b>24. Переплануйте дослід Марка так, щоб він перевіряв лише вплив перебування на сонці/в тіні. Напишіть: що змінюємо; що залишаємо однаковим; що і коли вимірюємо.</b><textarea id="q24"></textarea></div></div>
-<div class="card"><button onclick="finish()">Завершити контрольну →</button></div><div id="result" class="hidden result"></div></div></main>
+<div class="card"><button type="button" id="finishBtn">Завершити контрольну →</button></div><div id="result" class="hidden result"></div></div></main>
 <script>
-function start(){
-const nameEl=document.getElementById('name'), classEl=document.getElementById('klass'), msg=document.getElementById('gateMsg');
-const n=nameEl.value.trim(), k=classEl.value.trim();
-if(n.split(/\s+/).length<2||!k){msg.textContent='Введіть ім’я, прізвище та клас.';return;}
-document.getElementById('gate').classList.add('hidden');
-document.getElementById('work').classList.remove('hidden');
-window.scrollTo({top:0,behavior:'smooth'});
+(function(){
+"use strict";
+function byId(id){return document.getElementById(id);}
+function one(n){var x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:'';}
+function many(n){return Array.prototype.slice.call(document.querySelectorAll('input[name="'+n+'"]:checked')).map(function(x){return x.value;}).sort().join(',');}
+function startControl(){
+ var nameEl=byId('name'), classEl=byId('klass'), msg=byId('gateMsg');
+ var n=nameEl.value.replace(/^\s+|\s+$/g,''), k=classEl.value.replace(/^\s+|\s+$/g,'');
+ if(n.split(/\s+/).length<2 || !k){msg.textContent='Введіть ім’я, прізвище та клас.';return;}
+ msg.textContent='';
+ byId('gate').style.display='none';
+ byId('work').classList.remove('hidden');
+ byId('work').style.display='block';
+ window.scrollTo(0,0);
 }
-function one(n){let x=document.querySelector('[name="'+n+'"]:checked');return x?x.value:''}function many(n){return [...document.querySelectorAll('[name="'+n+'"]:checked')].map(x=>x.value).sort().join(',')}
-function finish(){const nameEl=document.getElementById('name'), classEl=document.getElementById('klass'), resultEl=document.getElementById('result'), q14El=document.getElementById('q14'), q22El=document.getElementById('q22');let key={q1:'a',q2:'b',q3:'b',q4:'a',q5:'b',q6:'b',q7:'b',q8:'b',q9:'a',q10:'b',q11:'b',q12:'c',q13:'b',q16:'a',q20:'a',q21:'a'};let correct=0,totalAuto=20;for(let k in key)if(one(k)===key[k])correct++;if(q14El.value.toLowerCase().replace(/\s/g,'').includes('37'))correct++;if(many('q17')==='a,b,d')correct++;if(many('q19')==='a,b,d,e')correct++;if(q22El.value.replace(/\s/g,'')==='2,4,5,3,1')correct++;let score=Math.round((correct/totalAuto)*9);score=Math.max(0,Math.min(9,score));resultEl.classList.remove('hidden');resultEl.innerHTML='<h2>Автоматична частина завершена</h2><p><b>'+nameEl.value+'</b> • '+classEl.value+'</p><p style="font-size:2.4rem;font-weight:900">'+score+' / 9</p><p><b>Це бал лише за завдання з автоматичною перевіркою.</b> Розгорнуті відповіді №15, 18, 23 і 24 у цей результат НЕ входять. Їх окремо перевірить учитель і додасть до 3 балів.</p><div style="margin-top:18px;padding:16px;border-radius:14px;background:#fff7d9;border:2px solid #e4b42e"><b>📸 Обов’язково зробіть скріншот цього результату та додайте його до відповіді на завдання.</b><br>На скріншоті мають бути видимі ваше ім’я, клас і бал /9.</div>';resultEl.scrollIntoView({behavior:'smooth'})}
+function finishControl(){
+ var key={q1:'a',q2:'b',q3:'b',q4:'a',q5:'b',q6:'b',q7:'b',q8:'b',q9:'a',q10:'b',q11:'b',q12:'c',q13:'b',q16:'a',q20:'a',q21:'a'};
+ var correct=0,totalAuto=20,k;
+ for(k in key){if(Object.prototype.hasOwnProperty.call(key,k)&&one(k)===key[k])correct++;}
+ if((byId('q14').value||'').replace(/\s/g,'').indexOf('37')!==-1)correct++;
+ if(many('q17')==='a,b,d')correct++;
+ if(many('q19')==='a,b,d,e')correct++;
+ if((byId('q22').value||'').replace(/\s/g,'')==='2,4,5,3,1')correct++;
+ var score=Math.round((correct/totalAuto)*9);score=Math.max(0,Math.min(9,score));
+ var r=byId('result');r.classList.remove('hidden');r.style.display='block';
+ r.innerHTML='<h2>Автоматична частина завершена</h2><p><b>'+byId('name').value+'</b> • '+byId('klass').value+'</p><p style="font-size:2.4rem;font-weight:900">'+score+' / 9</p><p><b>Це бал лише за завдання з автоматичною перевіркою.</b> Розгорнуті відповіді №15, 18, 23 і 24 у цей результат НЕ входять. Їх окремо перевірить учитель і додасть до 3 балів.</p><div style="margin-top:18px;padding:16px;border-radius:14px;background:#fff7d9;border:2px solid #e4b42e"><b>📸 Обов’язково зробіть скріншот цього результату та додайте його до відповіді на завдання.</b><br>На скріншоті мають бути видимі ваше ім’я, клас і бал /9.</div>';
+ r.scrollIntoView();
+}
+function bind(){
+ var s=byId('startBtn'),f=byId('finishBtn');
+ if(s){s.addEventListener('click',startControl);}
+ if(f){f.addEventListener('click',finishControl);}
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',bind);}else{bind();}
+})();
 </script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
