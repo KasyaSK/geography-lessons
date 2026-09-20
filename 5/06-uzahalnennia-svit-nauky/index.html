@@ -1,7 +1,7 @@
 <!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>5 клас • Контрольна робота • Пізнаємо світ науки</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f7fc;color:#18243a}header{background:linear-gradient(135deg,#13294f,#5143a7);color:#fff;padding:34px 18px}.wrap,main{max-width:940px;margin:auto}h1{font-size:clamp(2rem,6vw,3.6rem);margin:.15em 0}.sub{line-height:1.5;opacity:.95}main{padding:18px 14px 60px}.card{background:#fff;border:1px solid #dbe4f0;border-radius:22px;padding:22px;margin:16px 0;box-shadow:0 8px 26px #20385b12}.level{display:inline-block;padding:6px 10px;border-radius:999px;background:#ebeaff;color:#4238a2;font-weight:900;font-size:.8rem}.time{float:right;font-weight:800;color:#62718a}.q{padding:17px 0;border-top:1px dashed #d6deea}.q:first-of-type{border-top:0}.q b{line-height:1.45}label{display:block;padding:8px 10px;margin:4px 0;border-radius:10px}label:hover{background:#f3f5ff}input[type=text],textarea{width:100%;padding:11px;border:1px solid #c7d3e4;border-radius:11px;font:inherit;margin-top:7px}textarea{min-height:90px}button{border:0;border-radius:13px;padding:13px 18px;background:#5143a7;color:#fff;font-weight:900;font-size:1rem;cursor:pointer}.hidden{display:none}.warn{color:#ad2937;font-weight:800}.info{background:#eef5ff;border-left:5px solid #4b69c6;padding:13px;border-radius:11px}.result{background:#eeefff;border:2px solid #9c95e8;border-radius:20px;padding:22px}.q.wrong{background:#fff0f1;border:2px solid #e26772;border-radius:14px;padding:15px;margin:8px 0}.hint{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff7d9;border-left:4px solid #e2aa18;font-size:.95rem}.q.correct{background:#f0fbf5;border-radius:14px;padding:15px;margin:8px 0}.scale{font-family:monospace;font-size:1.15rem;letter-spacing:2px;background:#f4f7fb;padding:12px;border-radius:10px;overflow:auto}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f7fc;color:#18243a}header{background:linear-gradient(135deg,#13294f,#5143a7);color:#fff;padding:34px 18px}.wrap,main{max-width:940px;margin:auto}h1{font-size:clamp(2rem,6vw,3.6rem);margin:.15em 0}.sub{line-height:1.5;opacity:.95}main{padding:18px 14px 60px}.card{background:#fff;border:1px solid #dbe4f0;border-radius:22px;padding:22px;margin:16px 0;box-shadow:0 8px 26px #20385b12}.level{display:inline-block;padding:6px 10px;border-radius:999px;background:#ebeaff;color:#4238a2;font-weight:900;font-size:.8rem}.time{float:right;font-weight:800;color:#62718a}.q{padding:17px 0;border-top:1px dashed #d6deea}.q:first-of-type{border-top:0}.q b{line-height:1.45}label{display:block;padding:8px 10px;margin:4px 0;border-radius:10px}label:hover{background:#f3f5ff}input[type=text],textarea{width:100%;padding:11px;border:1px solid #c7d3e4;border-radius:11px;font:inherit;margin-top:7px}textarea{min-height:90px}button{border:0;border-radius:13px;padding:13px 18px;background:#5143a7;color:#fff;font-weight:900;font-size:1rem;cursor:pointer}.hidden{display:none}.warn{color:#ad2937;font-weight:800}.info{background:#eef5ff;border-left:5px solid #4b69c6;padding:13px;border-radius:11px}.result{background:#eeefff;border:2px solid #9c95e8;border-radius:20px;padding:22px}.q.wrong{background:#fff0f1!important;border:3px solid #e24b5b!important;border-radius:14px;padding:15px;margin:8px 0}.q.wrong label.chosen-wrong{background:#ffd8dc!important;border:2px solid #d93045!important;font-weight:800}.q.correct label.chosen-correct{background:#dff7e8!important;border:2px solid #3aa76d!important}.hint{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff7d9;border-left:4px solid #e2aa18;font-size:.95rem}.q.correct{background:#f0fbf5;border-radius:14px;padding:15px;margin:8px 0}.scale{font-family:monospace;font-size:1.15rem;letter-spacing:2px;background:#f4f7fb;padding:12px;border-radius:10px;overflow:auto}
 </style></head><body>
 <header><div class="wrap"><b>ПІЗНАЄМО ПРИРОДУ • 5 КЛАС</b><h1>Контрольна робота</h1><div class="sub">Розділ 1 «Пізнаємо світ науки» • §1–6<br><b>Час роботи: 35 хвилин</b></div></div></header><main>
 <div class="card" id="gate"><h2>Починаємо</h2><p>Введіть свої дані. Після цього відкриється контрольна робота.</p><label><b>Ім’я та прізвище</b><input id="name" type="text" placeholder="Марія Іваненко"></label><label><b>Клас</b><input id="klass" type="text" placeholder="5-А"></label><p id="gateMsg" class="warn"></p><button type="button" id="startBtn">Поїхали! Відкрити контрольну →</button></div>
@@ -49,12 +49,19 @@ function startControl(){
  window.scrollTo(0,0);
 }
 function finishControl(){
- var oldMarks=document.querySelectorAll('.q.wrong,.q.correct');for(var z=0;z<oldMarks.length;z++){oldMarks[z].classList.remove('wrong','correct');var oh=oldMarks[z].querySelector('.hint');if(oh)oh.parentNode.removeChild(oh);}
+ var oldMarks=document.querySelectorAll('.q.wrong,.q.correct');for(var z=0;z<oldMarks.length;z++){oldMarks[z].classList.remove('wrong','correct');var labs=oldMarks[z].querySelectorAll('.chosen-wrong,.chosen-correct');for(var y=0;y<labs.length;y++){labs[y].classList.remove('chosen-wrong','chosen-correct');}var oh=oldMarks[z].querySelector('.hint');if(oh)oh.parentNode.removeChild(oh);}
  function mark(name,isCorrect,hint){
-   var inp=document.querySelector('[name="'+name+'"]');if(!inp)return;
-   var box=inp.closest?inp.closest('.q'):inp.parentNode.parentNode;
-   if(isCorrect){box.classList.add('correct');}
-   else{box.classList.add('wrong');var h=document.createElement('div');h.className='hint';h.innerHTML='<b>💡 Підказка:</b> '+hint;box.appendChild(h);}
+   var inputs=document.querySelectorAll('input[name="'+name+'"]');if(!inputs.length)return;
+   var box=inputs[0].closest?inputs[0].closest('.q'):inputs[0].parentNode.parentNode;
+   var checked=box.querySelectorAll('input[name="'+name+'"]:checked');
+   if(isCorrect){
+     box.classList.add('correct');
+     for(var i=0;i<checked.length;i++){checked[i].parentNode.classList.add('chosen-correct');}
+   }else{
+     box.classList.add('wrong');
+     for(var j=0;j<checked.length;j++){checked[j].parentNode.classList.add('chosen-wrong');}
+     var h=document.createElement('div');h.className='hint';h.innerHTML='<b>💡 Підказка:</b> '+hint;box.appendChild(h);
+   }
  }
 
  var key={q1:'a',q2:'b',q3:'b',q4:'a',q5:'b',q6:'b',q7:'b',q8:'b',q9:'a',q10:'b',q11:'b',q12:'c',q13:'b',q16:'a',q20:'a',q21:'a'};
