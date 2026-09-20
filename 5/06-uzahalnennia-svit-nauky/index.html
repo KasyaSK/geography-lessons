@@ -1,7 +1,7 @@
 <!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>5 клас • Контрольна робота • Пізнаємо світ науки</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f7fc;color:#18243a}header{background:linear-gradient(135deg,#13294f,#5143a7);color:#fff;padding:34px 18px}.wrap,main{max-width:940px;margin:auto}h1{font-size:clamp(2rem,6vw,3.6rem);margin:.15em 0}.sub{line-height:1.5;opacity:.95}main{padding:18px 14px 60px}.card{background:#fff;border:1px solid #dbe4f0;border-radius:22px;padding:22px;margin:16px 0;box-shadow:0 8px 26px #20385b12}.level{display:inline-block;padding:6px 10px;border-radius:999px;background:#ebeaff;color:#4238a2;font-weight:900;font-size:.8rem}.time{float:right;font-weight:800;color:#62718a}.q{padding:17px 0;border-top:1px dashed #d6deea}.q:first-of-type{border-top:0}.q b{line-height:1.45}label{display:block;padding:8px 10px;margin:4px 0;border-radius:10px}label:hover{background:#f3f5ff}input[type=text],textarea{width:100%;padding:11px;border:1px solid #c7d3e4;border-radius:11px;font:inherit;margin-top:7px}textarea{min-height:90px}button{border:0;border-radius:13px;padding:13px 18px;background:#5143a7;color:#fff;font-weight:900;font-size:1rem;cursor:pointer}.hidden{display:none}.warn{color:#ad2937;font-weight:800}.info{background:#eef5ff;border-left:5px solid #4b69c6;padding:13px;border-radius:11px}.result{background:#eeefff;border:2px solid #9c95e8;border-radius:20px;padding:22px}.scale{font-family:monospace;font-size:1.15rem;letter-spacing:2px;background:#f4f7fb;padding:12px;border-radius:10px;overflow:auto}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3f7fc;color:#18243a}header{background:linear-gradient(135deg,#13294f,#5143a7);color:#fff;padding:34px 18px}.wrap,main{max-width:940px;margin:auto}h1{font-size:clamp(2rem,6vw,3.6rem);margin:.15em 0}.sub{line-height:1.5;opacity:.95}main{padding:18px 14px 60px}.card{background:#fff;border:1px solid #dbe4f0;border-radius:22px;padding:22px;margin:16px 0;box-shadow:0 8px 26px #20385b12}.level{display:inline-block;padding:6px 10px;border-radius:999px;background:#ebeaff;color:#4238a2;font-weight:900;font-size:.8rem}.time{float:right;font-weight:800;color:#62718a}.q{padding:17px 0;border-top:1px dashed #d6deea}.q:first-of-type{border-top:0}.q b{line-height:1.45}label{display:block;padding:8px 10px;margin:4px 0;border-radius:10px}label:hover{background:#f3f5ff}input[type=text],textarea{width:100%;padding:11px;border:1px solid #c7d3e4;border-radius:11px;font:inherit;margin-top:7px}textarea{min-height:90px}button{border:0;border-radius:13px;padding:13px 18px;background:#5143a7;color:#fff;font-weight:900;font-size:1rem;cursor:pointer}.hidden{display:none}.warn{color:#ad2937;font-weight:800}.info{background:#eef5ff;border-left:5px solid #4b69c6;padding:13px;border-radius:11px}.result{background:#eeefff;border:2px solid #9c95e8;border-radius:20px;padding:22px}.q.wrong{background:#fff0f1;border:2px solid #e26772;border-radius:14px;padding:15px;margin:8px 0}.hint{margin-top:10px;padding:10px 12px;border-radius:10px;background:#fff7d9;border-left:4px solid #e2aa18;font-size:.95rem}.q.correct{background:#f0fbf5;border-radius:14px;padding:15px;margin:8px 0}.scale{font-family:monospace;font-size:1.15rem;letter-spacing:2px;background:#f4f7fb;padding:12px;border-radius:10px;overflow:auto}
 </style></head><body>
 <header><div class="wrap"><b>ПІЗНАЄМО ПРИРОДУ • 5 КЛАС</b><h1>Контрольна робота</h1><div class="sub">Розділ 1 «Пізнаємо світ науки» • §1–6<br><b>Час роботи: 35 хвилин</b></div></div></header><main>
 <div class="card" id="gate"><h2>Починаємо</h2><p>Введіть свої дані. Після цього відкриється контрольна робота.</p><label><b>Ім’я та прізвище</b><input id="name" type="text" placeholder="Марія Іваненко"></label><label><b>Клас</b><input id="klass" type="text" placeholder="5-А"></label><p id="gateMsg" class="warn"></p><button type="button" id="startBtn">Поїхали! Відкрити контрольну →</button></div>
@@ -49,17 +49,45 @@ function startControl(){
  window.scrollTo(0,0);
 }
 function finishControl(){
+ var oldMarks=document.querySelectorAll('.q.wrong,.q.correct');for(var z=0;z<oldMarks.length;z++){oldMarks[z].classList.remove('wrong','correct');var oh=oldMarks[z].querySelector('.hint');if(oh)oh.parentNode.removeChild(oh);}
+ function mark(name,isCorrect,hint){
+   var inp=document.querySelector('[name="'+name+'"]');if(!inp)return;
+   var box=inp.closest?inp.closest('.q'):inp.parentNode.parentNode;
+   if(isCorrect){box.classList.add('correct');}
+   else{box.classList.add('wrong');var h=document.createElement('div');h.className='hint';h.innerHTML='<b>💡 Підказка:</b> '+hint;box.appendChild(h);}
+ }
+
  var key={q1:'a',q2:'b',q3:'b',q4:'a',q5:'b',q6:'b',q7:'b',q8:'b',q9:'a',q10:'b',q11:'b',q12:'c',q13:'b',q16:'a',q20:'a',q21:'a'};
  var correct=0,totalAuto=20,k;
  for(k in key){if(Object.prototype.hasOwnProperty.call(key,k)&&one(k)===key[k])correct++;}
- if((byId('q14').value||'').replace(/\s/g,'').indexOf('37')!==-1)correct++;
- if(many('q17')==='a,b,d')correct++;
- if(many('q19')==='a,b,d,e')correct++;
- if((byId('q22').value||'').replace(/\s/g,'')==='2,4,5,3,1')correct++;
+ var hints={
+ q1:'Подумай, що саме учениця робить регулярно: спостерігає явище та отримує числове значення.',
+ q2:'Гіпотеза — це припущення, яке можна перевірити дослідом.',
+ q3:'Кількісне вимірювання обов’язково має число та одиницю вимірювання.',
+ q4:'Висновок роблять не до отримання результатів, а після їх аналізу.',
+ q5:'Відчуття «гаряче/холодне» суб’єктивне. Потрібен вимірювальний прилад.',
+ q6:'Модель допомагає досліджувати те, що незручно, небезпечно або неможливо вивчати безпосередньо.',
+ q7:'Пригадай, яким приладом визначають довжину.',
+ q8:'Повторні вимірювання допомагають перевірити надійність результату.',
+ q9:'Одне поняття означає виявлення вже наявного, інше — створення нового.',
+ q10:'Науковий висновок спирається на конкретні результати досліду.',
+ q11:'Ціну поділки знайди так: різницю між підписаними значеннями поділи на кількість проміжків.',
+ q12:'В одному сантиметрі 10 міліметрів. Поділи 1 см на 10 проміжків.',
+ q13:'Від 20 °C пройди три поділки, кожна по 2 °C.',
+ q16:'Кілька близьких результатів краще передати діапазоном, а не вигаданим округленням.',
+ q20:'У чесному досліді навмисно змінюють лише фактор, вплив якого перевіряють.',
+ q21:'Потрібна величина, яка покаже саме швидкість розчинення.'
+ };
+ for(k in key){mark(k,one(k)===key[k],hints[k]||'Перечитай умову й перевір логіку відповіді.');}
+
+ var ok14=(byId('q14').value||'').replace(/\s/g,'').indexOf('37')!==-1;if(ok14)correct++;var b14=byId('q14').closest('.q');b14.classList.add(ok14?'correct':'wrong');if(!ok14){var h14=document.createElement('div');h14.className='hint';h14.innerHTML='<b>💡 Підказка:</b> Порівняй усі чотири значення. Одне дуже сильно відрізняється від трьох інших.';b14.appendChild(h14);}
+ var ok17=many('q17')==='a,b,d';if(ok17)correct++;mark('q17',ok17,'Шукай те, що можна записати числом разом з одиницею вимірювання.');
+ var ok19=many('q19')==='a,b,d,e';if(ok19)correct++;mark('q19',ok19,'Температура тут — фактор, який спеціально змінюють. Решта важливих умов мають бути однаковими.');
+ var ok22=(byId('q22').value||'').replace(/\s/g,'')==='2,4,5,3,1';if(ok22)correct++;var b22=byId('q22').closest('.q');b22.classList.add(ok22?'correct':'wrong');if(!ok22){var h22=document.createElement('div');h22.className='hint';h22.innerHTML='<b>💡 Підказка:</b> Спочатку формулюють запитання, потім припущення. Дослід проводять лише після того, як продумали його план.';b22.appendChild(h22);}
  var score=(correct/totalAuto)*9;score=Math.max(0,Math.min(9,score));score=Math.round(score*10)/10;
  var r=byId('result');r.classList.remove('hidden');r.style.display='block';
  r.innerHTML='<h2>Автоматична частина завершена</h2><p><b>'+byId('name').value+'</b> • '+byId('klass').value+'</p><p style="font-size:2.4rem;font-weight:900">'+score.toFixed(1).replace('.',',')+' / 9</p><p><b>Це бал лише за завдання з автоматичною перевіркою.</b> Розгорнуті відповіді №15, 18, 23 і 24 у цей результат НЕ входять. Їх окремо перевірить учитель і додасть до 3 балів.</p><div style="margin-top:18px;padding:16px;border-radius:14px;background:#fff7d9;border:2px solid #e4b42e"><b>📸 Обов’язково зробіть скріншот цього результату та додайте його до відповіді на завдання.</b><br>На скріншоті мають бути видимі ваше ім’я, клас і бал /9.</div>';
- r.scrollIntoView();
+ var firstWrong=document.querySelector('.q.wrong');if(firstWrong){firstWrong.scrollIntoView({behavior:'smooth',block:'center'});}else{r.scrollIntoView();}
 }
 function bind(){
  var s=byId('startBtn'),f=byId('finishBtn');
