@@ -56,9 +56,9 @@ function finishControl(){
  if(many('q17')==='a,b,d')correct++;
  if(many('q19')==='a,b,d,e')correct++;
  if((byId('q22').value||'').replace(/\s/g,'')==='2,4,5,3,1')correct++;
- var score=Math.round((correct/totalAuto)*9);score=Math.max(0,Math.min(9,score));
+ var score=(correct/totalAuto)*9;score=Math.max(0,Math.min(9,score));score=Math.round(score*10)/10;
  var r=byId('result');r.classList.remove('hidden');r.style.display='block';
- r.innerHTML='<h2>Автоматична частина завершена</h2><p><b>'+byId('name').value+'</b> • '+byId('klass').value+'</p><p style="font-size:2.4rem;font-weight:900">'+score+' / 9</p><p><b>Це бал лише за завдання з автоматичною перевіркою.</b> Розгорнуті відповіді №15, 18, 23 і 24 у цей результат НЕ входять. Їх окремо перевірить учитель і додасть до 3 балів.</p><div style="margin-top:18px;padding:16px;border-radius:14px;background:#fff7d9;border:2px solid #e4b42e"><b>📸 Обов’язково зробіть скріншот цього результату та додайте його до відповіді на завдання.</b><br>На скріншоті мають бути видимі ваше ім’я, клас і бал /9.</div>';
+ r.innerHTML='<h2>Автоматична частина завершена</h2><p><b>'+byId('name').value+'</b> • '+byId('klass').value+'</p><p style="font-size:2.4rem;font-weight:900">'+score.toFixed(1).replace('.',',')+' / 9</p><p><b>Це бал лише за завдання з автоматичною перевіркою.</b> Розгорнуті відповіді №15, 18, 23 і 24 у цей результат НЕ входять. Їх окремо перевірить учитель і додасть до 3 балів.</p><div style="margin-top:18px;padding:16px;border-radius:14px;background:#fff7d9;border:2px solid #e4b42e"><b>📸 Обов’язково зробіть скріншот цього результату та додайте його до відповіді на завдання.</b><br>На скріншоті мають бути видимі ваше ім’я, клас і бал /9.</div>';
  r.scrollIntoView();
 }
 function bind(){
