@@ -1,0 +1,105 @@
+<header class="hero" id="start">
+  <div class="wrap">
+    <span class="badge">11-Б • ГЕОГРАФІЯ • УРОК 6 ЗА КТП • 45 ХВ</span>
+    <h1>Практична робота №1:<br>топографічна карта без ворожіння</h1>
+    <p class="lead">Визначаємо координати, відстані, істинні й магнітні азимути, абсолютні та відносні висоти, падіння річки й читаємо рельєф. Основою є реальний фрагмент топографічної карти з підручника для 11 класу — не декоративна схема.</p>
+    <div class="hero-grid">
+      <div class="hero-note"><b>Результат роботи</b><span>Заповнений бланк із розрахунками, короткими доказами та висновком. Число без способу отримання в складних пунктах — це лише дуже впевнене число.</span></div>
+      <div class="hero-note"><b>Оцінювання</b><span>1–8 — основна частина на 10 балів. 9–10 — високий рівень, ще 2 бали. Разом — 12.</span></div>
+    </div>
+  </div>
+</header>
+<nav>
+  <div class="wrap">
+    <a href="#passport">Паспорт</a><a href="#map">Карта</a><a href="#coord">Координати</a><a href="#relief">Висоти</a><a href="#azimuth">Азимути</a><a href="#river">Річка</a><a href="#high">Високий рівень</a><a href="#finish">Завершення</a>
+    <button class="timerpill" id="timerBtn" type="button">⏱ 45:00 • старт</button>
+  </div>
+</nav>
+<main class="wrap">
+<section class="card" id="passport">
+  <div class="kicker">0–3 хв • організація роботи</div>
+  <h2>Паспорт практичної</h2>
+  <div class="grid3">
+    <div class="mini"><strong>Тема за КТП</strong>Практична робота «Визначення координат, азимутів, відстаней і висот».</div>
+    <div class="mini"><strong>Опора</strong>§§ 2–3: топографічна карта, координати, масштаб, горизонталі, кути орієнтування.</div>
+    <div class="mini"><strong>Обладнання</strong>Карта нижче, лінійка, транспортир, калькулятор. Атлас не потрібен.</div>
+  </div>
+  <div class="answer-grid two" style="margin-top:16px">
+    <div><label for="student">Ім’я та прізвище</label><input id="student" data-save placeholder="Наприклад: Марія Іваненко"></div>
+    <div><label for="studentClass">Клас</label><input id="studentClass" data-save value="11-Б"></div>
+  </div>
+  <div class="alert oknote" style="margin-top:14px"><b>Правило роботи:</b> спочатку знайдіть об’єкт на карті, потім визначте спосіб вимірювання, лише після цього записуйте число. Для азимутів обов’язково вказуйте, від якого напряму ведеться відлік.</div>
+  <div class="progressbox"><span>Заповнення</span><div class="bar"><i id="progressBar"></i></div><span class="progressnum" id="progressText">0%</span></div>
+</section>
+
+<section class="card">
+  <div class="kicker">Шпаргалка • не відповіді</div>
+  <h2>П’ять алгоритмів, які Вам сьогодні потрібні</h2>
+  <div class="cheat">
+    <div class="formula"><b>Географічні координати</b><code>φ — за рамкою широт<br>λ — за рамкою довгот</code><div class="subtle">Точність: до секунд.</div></div>
+    <div class="formula"><b>Прямокутні координати</b><code>X = X₀ + Δx<br>Y = Y₀ + Δy</code><div class="subtle">Від південної та західної ліній квадрата.</div></div>
+    <div class="formula"><b>Відстань</b><code>Lмісц = Lкарти × знаменник масштабу</code><div class="subtle">Масштаб карти: 1 : 50 000.</div></div>
+    <div class="formula"><b>Висота</b><code>Δh = H₁ − H₂</code><div class="subtle">Суцільні горизонталі проведені через 10 м.</div></div>
+    <div class="formula"><b>Магнітний азимут</b><code>східне схилення: Aм = Aі − δ<br>західне: Aм = Aі + δ</code><div class="subtle">Спочатку прочитайте схему під картою.</div></div>
+    <div class="formula"><b>Зворотний азимут</b><code>Aзв = A ± 180°</code><div class="subtle">Результат має бути у межах 0–360°.</div></div>
+    <div class="formula"><b>Падіння річки</b><code>П = Hвитоку − Hгирла</code><div class="subtle">Потрібні висоти урізу води / горизонталей.</div></div>
+    <div class="formula"><b>Швидкість течії</b><code>за інших рівних умов: більший ухил → більша швидкість</code><div class="subtle">Порівнюйте перепад висоти на однаковій/відомій довжині.</div></div>
+  </div>
+</section>
+
+<section class="card map-card" id="map">
+  <div class="map-top">
+    <div class="kicker">3–7 хв • головне джерело даних</div>
+    <h2>Фрагмент топографічної карти з підручника</h2>
+    <p>Працюємо з <b>мал. 16</b> із підручника Гільберг, Савчук, Совенко. На карті масштаб <b>1 : 50 000</b>, суцільні горизонталі через <b>10 м</b>. Не намагайтеся «вгадати по картинці» — користуйтеся рамкою, кілометровою сіткою, підписами висот і схемою магнітного схилення.</p>
+    <div class="map-toolbar">
+      <button type="button" id="zoomIn">＋ збільшити</button><button type="button" class="secondary" id="zoomOut">－ зменшити</button><button type="button" class="secondary" id="rotateBtn">↻ повернути</button><button type="button" class="secondary" id="resetMap">100%</button><button type="button" class="secondary" id="openModal">⛶ на весь екран</button>
+      <a class="btn source" href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf#page=19" target="_blank" rel="noopener">Офіційний PDF • с. 19</a>
+    </div>
+  </div>
+  <div class="map-viewport" id="mapViewport">
+    <div class="map-canvas" id="mapCanvas">
+      <img id="topoMap" alt="Фрагмент топографічної карти з підручника, малюнок 16" src="https://uahistory.co/pidruchniki/gilberg-geography-11-class-2019-standard-level/gilberg-geography-11-class-2019-standard-level.files/image019.jpg">
+      <div class="map-fallback" id="mapFallback">
+        <h3>Зображення карти не підвантажилося</h3>
+        <p>Нижче відкрито офіційний підручник. Перейдіть на сторінку 19 або натисніть кнопку «Офіційний PDF» вище.</p>
+        <iframe title="Офіційний підручник IMZO, сторінка 19" src="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf#page=19"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="map-caption"><b>Джерело карти:</b> Т. Г. Гільберг, І. Г. Савчук, В. В. Совенко, «Географія. Рівень стандарту. 11 клас», 2019, мал. 16. Для перевірки першоджерела використовуйте офіційний електронний підручник ІМЗО.</div>
+</section>
+
+<section class="card" id="coord">
+  <div class="kicker">7–18 хв • основна частина • 3 бали</div>
+  <h2>1. Координати та відстань</h2>
+  <div class="task">
+    <div class="task-head"><h3><span class="task-num">1</span>Башта МТФ і висотна точка 158,2</h3><span class="pts">3 бали</span></div>
+    <p>Знайдіть на карті <b>башту МТФ у смт Індустріальне</b> та <b>висотну точку 158,2</b>. Для кожного об’єкта визначте географічні координати з точністю до секунд, прямокутні координати — у метрах, а потім виміряйте відстань між ними.</p>
+    <div class="grid2">
+      <div class="mini"><strong>Башта МТФ</strong>
+        <div class="answer-grid two"><div><label>φ, пн. ш.</label><input data-save data-required placeholder="__° __′ __″"></div><div><label>λ, сх. д.</label><input data-save data-required placeholder="__° __′ __″"></div><div><label>X, м</label><input data-save data-required inputmode="numeric" placeholder="_______"></div><div><label>Y, м</label><input data-save data-required inputmode="numeric" placeholder="_______"></div></div>
+      </div>
+      <div class="mini"><strong>Висотна точка 158,2</strong>
+        <div class="answer-grid two"><div><label>φ, пн. ш.</label><input data-save data-required placeholder="__° __′ __″"></div><div><label>λ, сх. д.</label><input data-save data-required placeholder="__° __′ __″"></div><div><label>X, м</label><input data-save data-required inputmode="numeric" placeholder="_______"></div><div><label>Y, м</label><input data-save data-required inputmode="numeric" placeholder="_______"></div></div>
+      </div>
+    </div>
+    <div class="answer-grid two"><div><label>Відстань між об’єктами, км</label><input data-save data-required type="number" step="0.01" placeholder="0,00"></div><div><label>Як виміряли / короткий розрахунок</label><input data-save data-required placeholder="Напр.: 1,9 см × 500 м = ..."></div></div>
+    <details><summary>Алгоритм, якщо координати «поїхали»</summary><div class="hint">Географічні координати беріть із рамки карти, а прямокутні — з кілометрової сітки. Для X спочатку читаємо значення горизонтальної лінії на південь від точки й додаємо відстань на північ; для Y — вертикальну лінію на захід від точки й додаємо відстань на схід.</div></details>
+  </div>
+</section>
+
+<section class="card" id="relief">
+  <div class="kicker">18–24 хв • рельєф • 1,5 бала</div>
+  <h2>2–3. Абсолютні й відносні висоти</h2>
+  <div class="task">
+    <div class="task-head"><h3><span class="task-num">2</span>Церква та земляна гребля на р. Гнилий Яр</h3><span class="pts">1 бал</span></div>
+    <p>Визначте абсолютну висоту поверхні біля церкви в смт Індустріальне та біля земляної греблі. Потім обчисліть перевищення між ними.</p>
+    <div class="answer-grid three"><div><label>Церква, м</label><input data-save data-required type="number" step="0.1"></div><div><label>Гребля, м</label><input data-save data-required type="number" step="0.1"></div><div><label>Перевищення, м</label><input data-save data-required type="number" step="0.1"></div></div>
+    <details><summary>Що вважати висотою об’єкта?</summary><div class="hint">У цій роботі потрібна висота місцевості в точці розташування об’єкта, а не висота будівлі церкви чи конструкції греблі. Читайте горизонталі та висотні відмітки.</div></details>
+  </div>
+  <div class="task">
+    <div class="task-head"><h3><span class="task-num">3</span>Уріз води річки Гнилий Яр біля греблі</h3><span class="pts">0,5 бала</span></div>
+    <div class="answer-grid two"><div><label>Уріз води, м</label><input data-save data-required type="number" step="0.1"></div><div><label>На що спиралися</label><input data-save data-required placeholder="Підпис урізу / горизонталь / інше"></div></div>
+  </div>
+</section>
