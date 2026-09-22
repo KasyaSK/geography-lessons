@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Комбінований урок географії для 9–11 класів: комплексний тренажер НМТ, 30 авторських завдань, карти, статистика, розрахунки та завдання 3 із 7.">
+<title>9–11 класи • GEO NMT SPRINT • комплексна підготовка</title>
+<style>
+:root{
+  --bg:#06111c; --panel:#0b1b2b; --panel2:#10283a; --line:#23445a;
+  --text:#f6fbff; --muted:#a9c2d2; --cyan:#52d8ff; --lime:#b7f34b;
+  --orange:#ffad42; --pink:#ff6b9e; --red:#ff6b6b; --ok:#5ee6a8;
+  --shadow:0 18px 50px rgba(0,0,0,.28); --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 8% 2%,rgba(82,216,255,.13),transparent 24rem),
+ radial-gradient(circle at 92% 8%,rgba(183,243,75,.09),transparent 22rem),
+ linear-gradient(180deg,#06111c 0%,#081724 56%,#06111c 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.55}
+a{color:var(--cyan)}
+button,input,select{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+.hero{min-height:82vh;display:grid;align-items:center;padding:42px 0 34px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(82,216,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(82,216,255,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,#000 20%,transparent 88%);pointer-events:none}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;padding:8px 12px;border:1px solid rgba(82,216,255,.3);border-radius:999px;background:rgba(11,27,43,.72);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+h1{font-size:clamp(2.55rem,8vw,6.6rem);line-height:.88;margin:18px 0 20px;letter-spacing:-.065em;max-width:980px}
+h1 span{display:block;color:var(--lime)}
+.lead{font-size:clamp(1.05rem,2.1vw,1.35rem);max-width:780px;color:#d9e9f2}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:end}
+.hero-card{background:linear-gradient(145deg,rgba(16,40,58,.92),rgba(8,23,36,.94));border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.kpi{border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(6,17,28,.6)}.kpi b{display:block;font-size:1.65rem;color:var(--cyan)}.kpi span{font-size:.82rem;color:var(--muted)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.btn{border:1px solid var(--line);border-radius:14px;padding:11px 16px;background:#10283a;color:white;font-weight:800;min-height:46px}.btn:hover{transform:translateY(-1px);border-color:var(--cyan)}.btn.primary{background:linear-gradient(135deg,var(--lime),#7bdc36);color:#09200c;border:0}.btn.cyan{background:linear-gradient(135deg,#1aaedc,var(--cyan));color:#03121a;border:0}.btn.ghost{background:transparent}.btn.danger{border-color:rgba(255,107,107,.45);color:#ffd3d3}
+.sticky{position:sticky;top:0;z-index:20;background:rgba(6,17,28,.92);backdrop-filter:blur(16px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.navbar{display:flex;gap:8px;align-items:center;overflow:auto;padding:9px 0;scrollbar-width:none}.navbar::-webkit-scrollbar{display:none}.navlink{white-space:nowrap;text-decoration:none;color:#d7e8f1;padding:8px 11px;border-radius:11px;font-size:.9rem;font-weight:750}.navlink:hover{background:#10283a;color:white}.clock{margin-left:auto;display:flex;align-items:center;gap:8px;white-space:nowrap}.clock strong{font-variant-numeric:tabular-nums;color:var(--lime);font-size:1.05rem}
+main section{padding:64px 0;scroll-margin-top:64px}.section-head{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;margin-bottom:24px}.section-head h2{font-size:clamp(2rem,4.5vw,3.45rem);letter-spacing:-.045em;line-height:1;margin:0}.section-head p{max-width:720px;color:var(--muted);margin:10px 0 0}.tag{display:inline-flex;padding:6px 10px;border-radius:999px;font-size:.75rem;font-weight:850;letter-spacing:.04em;text-transform:uppercase;background:#10283a;border:1px solid var(--line);color:var(--cyan)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:linear-gradient(145deg,rgba(16,40,58,.78),rgba(8,23,36,.82));border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.16)}.card h3{margin:.15rem 0 .55rem;font-size:1.2rem}.card p{color:#c9dce7}.callout{border-left:4px solid var(--cyan);padding:14px 16px;background:rgba(82,216,255,.07);border-radius:0 14px 14px 0}.callout.orange{border-color:var(--orange);background:rgba(255,173,66,.08)}
+.route{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.route .step{background:#0c2031;border:1px solid var(--line);border-radius:16px;padding:14px}.route b{display:block;color:var(--lime);font-size:1.15rem}.route small{color:var(--muted)}
+.visual{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#071624}.visual svg{display:block;width:100%;height:auto}.visual-cap{padding:9px 12px;color:var(--muted);font-size:.82rem;background:#0c2031;border-top:1px solid var(--line)}
+.axis-label{font-size:11px;fill:#d9e9f2}.svg-title{font-size:15px;fill:#f6fbff;font-weight:800}.svg-muted{fill:#91adbd;font-size:10px}.svg-line{stroke:#45677a;stroke-width:1}.svg-grid{stroke:#19394e;stroke-width:1}.svg-accent{stroke:#52d8ff;stroke-width:3;fill:none}.svg-lime{stroke:#b7f34b;stroke-width:3;fill:none}
+.strategy{counter-reset:s}.strategy .card{position:relative;padding-left:64px}.strategy .card:before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:18px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--lime);color:#10200a;font-weight:900}
+.gate{display:grid;grid-template-columns:1.2fr .7fr auto;gap:10px;align-items:end}.field label{display:block;font-size:.8rem;color:var(--muted);font-weight:800;margin:0 0 6px}.field input,.field select{width:100%;background:#06111c;color:white;border:1px solid var(--line);border-radius:12px;padding:11px 12px;min-height:46px}.error{color:#ffb5b5;font-size:.88rem;min-height:1.3em;margin-top:8px}
+.modebar{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 20px}.seg{border:1px solid var(--line);background:#081724;color:#d8e8f1;border-radius:999px;padding:9px 13px;font-weight:800}.seg.active{background:var(--cyan);color:#04131b;border-color:transparent}
+.progress-wrap{position:sticky;top:58px;z-index:15;background:rgba(6,17,28,.95);border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin:0 0 18px;box-shadow:0 8px 28px rgba(0,0,0,.2)}.progress-line{height:8px;border-radius:999px;background:#10283a;overflow:hidden}.progress-line span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .3s}.progress-meta{display:flex;justify-content:space-between;gap:10px;margin-top:6px;color:var(--muted);font-size:.8rem}
+.q-list{display:grid;gap:14px}.question{background:linear-gradient(145deg,#0d2233,#091a28);border:1px solid var(--line);border-radius:20px;padding:18px;position:relative}.question.route-pick{border-color:rgba(183,243,75,.5);box-shadow:inset 0 0 0 1px rgba(183,243,75,.08)}.question.correct{border-color:rgba(94,230,168,.8)}.question.wrong{border-color:rgba(255,107,107,.8)}.qtop{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px}.qnum{display:flex;align-items:center;gap:8px;font-weight:900}.qnum span{width:31px;height:31px;border-radius:10px;background:#10283a;display:grid;place-items:center;color:var(--cyan)}.badges{display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:.7rem;font-weight:850;border:1px solid var(--line);border-radius:999px;padding:4px 7px;color:#cfe1eb}.badge.grade9{color:#ffd18b}.badge.grade10{color:#90e9ff}.badge.grade11{color:#d7ffa0}.qtext{font-size:1.02rem;font-weight:750;margin:10px 0 12px}.qcontext{color:var(--muted);font-size:.92rem;border-left:3px solid #2c5168;padding-left:10px;margin:8px 0 12px}.options{display:grid;gap:8px}.option{display:flex;align-items:flex-start;gap:10px;border:1px solid #23445a;background:#071624;border-radius:13px;padding:10px 11px;min-height:46px}.option:hover{border-color:#497b98;background:#0b2030}.option input{margin-top:4px;accent-color:#52d8ff}.short-answer{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.short-answer input{width:min(260px,100%);background:#06111c;color:white;border:1px solid var(--line);border-radius:12px;padding:11px}.unit{color:var(--muted);font-weight:800}.feedback{margin-top:10px;padding:10px 12px;border-radius:12px;display:none;font-size:.9rem}.feedback.show{display:block}.feedback.ok{background:rgba(94,230,168,.09);border:1px solid rgba(94,230,168,.35);color:#cffff0}.feedback.no{background:rgba(255,107,107,.09);border:1px solid rgba(255,107,107,.35);color:#ffd1d1}.mini-table{width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:.88rem}.mini-table th,.mini-table td{padding:8px;border:1px solid #24495f;text-align:center}.mini-table th{background:#10283a}.mini-table td:first-child{text-align:left;font-weight:800}.hint{font-size:.8rem;color:var(--muted);margin-top:8px}
+.submitbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}.scorecard{display:none;margin-top:18px;padding:20px;border-radius:20px;border:1px solid rgba(183,243,75,.45);background:linear-gradient(140deg,rgba(183,243,75,.08),rgba(82,216,255,.06))}.scorecard.show{display:block}.scorebig{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:950;color:var(--lime);letter-spacing:-.06em}.scoregrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.scoregrid div{padding:10px;background:#071624;border:1px solid var(--line);border-radius:12px}.scoregrid small{display:block;color:var(--muted)}
+.key{display:none}.key.show{display:block}.key-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.key-item{background:#071624;border:1px solid var(--line);border-radius:10px;padding:9px;text-align:center}.key-item b{color:var(--cyan)}
+footer{padding:34px 0 50px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.footer-flex{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.hidden{display:none!important}.teacher-note{font-size:.86rem;color:#bdd1dd}.pillline{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.pill{border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:#d4e7f0;font-size:.78rem}
+@media(max-width:900px){.hero-grid,.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.route{grid-template-columns:1fr 1fr}.gate{grid-template-columns:1fr}.scoregrid{grid-template-columns:1fr 1fr}.key-grid{grid-template-columns:repeat(3,1fr)}.clock{margin-left:0}.navbar{flex-wrap:nowrap}}
+@media(max-width:560px){.wrap{width:min(100% - 18px,1180px)}.hero{min-height:auto;padding-top:28px}.route{grid-template-columns:1fr}.section-head{grid-template-columns:1fr}.scoregrid{grid-template-columns:1fr}.key-grid{grid-template-columns:repeat(2,1fr)}.question{padding:14px}.sticky{position:relative}.progress-wrap{top:0;position:relative}h1{font-size:3rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{body{background:#fff;color:#111}.sticky,.hero-actions,.clock,.modebar,.progress-wrap,.submitbar,.teacher-tools{display:none!important}.card,.question,.scorecard{box-shadow:none;background:#fff;color:#111;border:1px solid #bbb}.question{break-inside:avoid}.qcontext,.hint,.teacher-note,.card p{color:#333}.visual{border-color:#aaa}.scorecard{display:block}.wrap{width:100%}main section{padding:18px 0}}
+</style>
+</head>
+<body>
+<header class="hero" id="start">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">GEO / 9–11 / NMT TRAINING LAB</div>
+      <h1>GEO NMT <span>SPRINT</span></h1>
+      <p class="lead">Комбінований урок для 9–11 класів. Не «згадайте визначення», а нормальна географія: читати карту, рахувати, бачити закономірність, відрізняти причину від красивої випадковості й не панікувати, коли у завданні є сім варіантів.</p>
+      <div class="pillline"><span class="pill">35 хв — основний маршрут</span><span class="pill">30 авторських завдань</span><span class="pill">карти + дані + розрахунки</span><span class="pill">макс. 46 балів у повному режимі</span></div>
+      <div class="hero-actions">
+        <a class="btn primary" href="#brief">Почати урок ↓</a>
+        <a class="btn cyan" href="#trainer">Одразу до тренажера</a>
+        <button class="btn ghost" id="startTimerHero" type="button">⏱ Запустити 35 хв</button>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Параметри уроку">
+      <div class="kpis">
+        <div class="kpi"><b>30</b><span>завдань у повному банку</span></div>
+        <div class="kpi"><b>15</b><span>у маршруті на 35 хв</span></div>
+        <div class="kpi"><b>7</b><span>змістових блоків НМТ</span></div>
+        <div class="kpi"><b>46</b><span>максимум тестових балів</span></div>
+      </div>
+      <div class="callout orange" style="margin-top:14px"><b>Правило уроку:</b> якщо відповідь «здається очевидною», знайдіть у даних доказ. Географія дуже любить карати за впевненість без карти.</div>
+    </aside>
+  </div>
+</header>
+
+<div class="sticky">
+  <div class="wrap navbar">
+    <a class="navlink" href="#brief">Маршрут</a><a class="navlink" href="#visuals">Візуальні задачі</a><a class="navlink" href="#strategy">Стратегія</a><a class="navlink" href="#trainer">30 завдань</a><a class="navlink" href="#result">Результат</a>
+    <div class="clock"><strong id="timerText">35:00</strong><button class="btn" id="timerToggle" type="button" style="padding:7px 10px;min-height:38px">Старт</button><button class="btn ghost" id="timerReset" type="button" style="padding:7px 10px;min-height:38px">↺</button></div>
+  </div>
+</div>
+
+<main>
+<section id="brief">
+  <div class="wrap">
+    <div class="section-head"><div><span class="tag">0–4 хв</span><h2>Маршрут: одна команда, різна глибина</h2><p>9 клас забирає сильну базу з населення й господарства; 10 клас — регіони, країни та просторові зв’язки; 11 клас — картографічну й розрахункову частину. Але відповідають усі: на НМТ «це ми ще не проходили цього року» — аргумент, на жаль, суто літературний.</p></div></div>
+    <div class="route">
+      <div class="step"><b>0–4 хв</b><strong>Розігрів</strong><small>масштаб, координати, базові рішення</small></div>
+      <div class="step"><b>4–11 хв</b><strong>Карта</strong><small>топографія, профіль, напрямки</small></div>
+      <div class="step"><b>11–19 хв</b><strong>Дані</strong><small>населення, міста, статистика</small></div>
+      <div class="step"><b>19–28 хв</b><strong>Господарство</strong><small>чинники, спеціалізація, Європа</small></div>
+      <div class="step"><b>28–35 хв</b><strong>NMT sprint</strong><small>числова + «3 із 7» + CER</small></div>
+    </div>
+    <div class="grid3" style="margin-top:16px">
+      <article class="card"><span class="tag">9 клас</span><h3>Населення → господарство</h3><p>Природний рух, міграції, урбанізація, сектори економіки, чинники розміщення. Головна навичка — не плутати показник із поясненням.</p></article>
+      <article class="card"><span class="tag">10 клас</span><h3>Європа → просторові зв’язки</h3><p>Положення, ресурси, населення, транспорт, спеціалізація. Головна навичка — бачити територію як систему потоків, а не колекцію столиць.</p></article>
+      <article class="card"><span class="tag">11 клас</span><h3>Карта → точна відповідь</h3><p>Координати, масштаб, висоти, азимути, профіль. Головна навичка — алгоритм і одиниці вимірювання. Так, нулі теж мають географічне значення.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="visuals">
+  <div class="wrap">
+    <div class="section-head"><div><span class="tag">візуальна лабораторія</span><h2>Перед тестом — три джерела, які треба вміти «читати»</h2><p>Ці схеми не дають готових відповідей. Вони показують тип інформації, яку треба витягувати: відстань і рельєф; координати; структуру населення.</p></div></div>
+    <div class="grid3">
+      <article class="card">
+        <h3>1. Топографічний фрагмент</h3>
+        <div class="visual">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Схематичний топографічний фрагмент із горизонталями, річкою, дорогою та двома точками">
+            <rect width="520" height="360" fill="#0a2230"/>
+            <g class="svg-grid"><path d="M0 60H520M0 120H520M0 180H520M0 240H520M0 300H520"/><path d="M65 0V360M130 0V360M195 0V360M260 0V360M325 0V360M390 0V360M455 0V360"/></g>
+            <path d="M-10 265 C90 210,120 300,210 245 S350 220,540 180" stroke="#52d8ff" stroke-width="20" fill="none" opacity=".8"/>
+            <path d="M-20 282 C100 230,145 325,220 267 S365 250,540 208" stroke="#bcefff" stroke-width="3" fill="none" opacity=".8"/>
+            <g fill="none" stroke="#b9955b" stroke-width="2" opacity=".9">
+              <ellipse cx="128" cy="112" rx="108" ry="75"/><ellipse cx="128" cy="112" rx="83" ry="57"/><ellipse cx="128" cy="112" rx="58" ry="40"/><ellipse cx="128" cy="112" rx="32" ry="22"/>
+              <ellipse cx="400" cy="98" rx="96" ry="65"/><ellipse cx="400" cy="98" rx="70" ry="46"/><ellipse cx="400" cy="98" rx="43" ry="28"/>
+            </g>
+            <path d="M30 315 C115 250,200 215,275 175 S420 125,505 78" stroke="#ffad42" stroke-width="8" fill="none"/>
+            <circle cx="128" cy="112" r="6" fill="#b7f34b"/><text x="140" y="108" class="axis-label">A • 186 м</text>
+            <circle cx="318" cy="219" r="6" fill="#ff6b9e"/><text x="330" y="216" class="axis-label">B • уріз 112 м</text>
+            <text x="18" y="28" class="svg-title">СХЕМАТИЧНА ТОПОКАРТА</text><text x="18" y="48" class="svg-muted">горизонталі через 20 м • масштаб 1:25 000</text>
+            <text x="390" y="338" class="svg-muted">пн ↑</text><path d="M415 332V300l-8 12m8-12 8 12" stroke="#f6fbff" stroke-width="2" fill="none"/>
+          </svg>
+          <div class="visual-cap">Схема навчальна, не реальна місцевість. Потрібно вміти бачити висоту, напрямок, перетин дороги з річкою й масштаб.</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>2. Географічна сітка</h3>
+        <div class="visual">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Схематична географічна сітка з точкою P">
+            <rect width="520" height="360" fill="#071d2a"/>
+            <g stroke="#356077" stroke-width="1.2"><path d="M90 30V320M190 30V320M290 30V320M390 30V320M490 30V320"/><path d="M40 70H500M40 140H500M40 210H500M40 280H500"/></g>
+            <g class="axis-label"><text x="72" y="340">20° сх.д.</text><text x="172" y="340">25°</text><text x="272" y="340">30°</text><text x="372" y="340">35°</text><text x="472" y="340">40°</text><text x="7" y="74">55° пн.ш.</text><text x="7" y="144">50°</text><text x="7" y="214">45°</text><text x="7" y="284">40°</text></g>
+            <circle cx="390" cy="140" r="9" fill="#b7f34b"/><circle cx="390" cy="140" r="18" fill="none" stroke="#b7f34b" opacity=".45"/><text x="412" y="135" class="svg-title">P</text>
+            <text x="18" y="24" class="svg-title">КООРДИНАТНА СІТКА</text>
+          </svg>
+          <div class="visual-cap">Точка P лежить на перетині паралелі 50° пн. ш. і меридіана 35° сх. д. Спочатку широта, потім довгота — географічний етикет.</div>
+        </div>
+      </article>
+      <article class="card">
+        <h3>3. Статево-вікова структура</h3>
+        <div class="visual">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Схематична статево-вікова піраміда зі звуженою основою">
+            <rect width="520" height="360" fill="#0a1c2b"/><line x1="260" y1="45" x2="260" y2="326" stroke="#527487"/>
+            <g fill="#52d8ff" opacity=".86"><rect x="210" y="285" width="50" height="24"/><rect x="195" y="250" width="65" height="24"/><rect x="175" y="215" width="85" height="24"/><rect x="157" y="180" width="103" height="24"/><rect x="164" y="145" width="96" height="24"/><rect x="178" y="110" width="82" height="24"/><rect x="199" y="75" width="61" height="24"/></g>
+            <g fill="#ff6b9e" opacity=".86"><rect x="260" y="285" width="48" height="24"/><rect x="260" y="250" width="68" height="24"/><rect x="260" y="215" width="90" height="24"/><rect x="260" y="180" width="110" height="24"/><rect x="260" y="145" width="110" height="24"/><rect x="260" y="110" width="102" height="24"/><rect x="260" y="75" width="82" height="24"/></g>
+            <g class="axis-label"><text x="236" y="302">0–14</text><text x="233" y="267">15–29</text><text x="233" y="232">30–44</text><text x="233" y="197">45–59</text><text x="233" y="162">60–69</text><text x="233" y="127">70–79</text><text x="236" y="92">80+</text></g>
+            <text x="18" y="28" class="svg-title">НАВЧАЛЬНА ПІРАМІДА «КРАЇНА X»</text><text x="84" y="340" class="svg-muted">чоловіки</text><text x="383" y="340" class="svg-muted">жінки</text>
+          </svg>
+          <div class="visual-cap">Вузька основа + відносно широкі старші віки = сигнал низької народжуваності та старіння. Але причини треба підтверджувати додатковими показниками.</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="strategy">
+  <div class="wrap">
+    <div class="section-head"><div><span class="tag">4 хв теорії, яку реально використаємо</span><h2>П’ять алгоритмів проти географічної паніки</h2><p>На НМТ часто перевіряють не пам’ять сама по собі, а правильний порядок дій. Ось короткий «операційний код».</p></div></div>
+    <div class="grid2 strategy">
+      <article class="card"><h3>Масштаб</h3><p><b>Карта → реальність.</b> Переведіть масштаб у зручну відповідність. 1:25 000 = 1 см на карті = 250 м на місцевості. Потім множте. Не навпаки. Не інтуїтивно. І не «десь півтора кілометра».</p></article>
+      <article class="card"><h3>Статистика</h3><p><b>Спочатку показник, потім причина.</b> Народжуваність 9‰ і смертність 14‰ дають природне скорочення −5‰. Це факт. «Бо країна розвинена» — уже гіпотеза, яку треба довести.</p></article>
+      <article class="card"><h3>Карта + текст</h3><p><b>Шукайте просторовий збіг.</b> Якщо підприємство тяжіє до сировини, перевірте, чи сировина масова/малотранспортабельна. Якщо до споживача — чи продукт швидко псується або дорога доставка.</p></article>
+      <article class="card"><h3>«Три із семи»</h3><p><b>Не шукайте три красиві фрази.</b> Перевіряйте кожну окремо: чи вона необхідна, чи просто може бути правдою. Тут зайві галочки коштують нервів, а не балів — але нервів шкода.</p></article>
+      <article class="card"><h3>Обмеження висновку</h3><p><b>Одна карта ≠ весь світ.</b> Карта щільності не доводить рівень доходів; частка міського населення не доводить якість урбанізації; кореляція не гарантує причинність.</p></article>
+      <article class="card"><h3>CER</h3><p><b>Твердження → доказ → пояснення.</b> «Завод варто розмістити біля сировини» → «сировина масова і дає великі відходи» → «перевезення готового продукту дешевше, ніж сирої маси».</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="trainer">
+  <div class="wrap">
+    <div class="section-head"><div><span class="tag">головна частина</span><h2>Тренажер: від 15 до 30 завдань</h2><p><b>35-хвилинний режим</b> показує 15 відібраних завдань. <b>Повний режим</b> відтворює офіційну структуру НМТ-2026: 20 × 1 бал, 4 × 2 бали, 6 завдань «3 із 7» до 3 балів кожне — максимум 46.</p></div></div>
+
+    <div class="card" id="identityCard">
+      <h3>Перед стартом</h3>
+      <p class="teacher-note">Якщо працює весь клас із одного екрана, можна ввести, наприклад, <b>«Команда Географів»</b> і вибрати <b>«9–11»</b>. Якщо учні проходять індивідуально — вводять власні дані.</p>
+      <div class="gate">
+        <div class="field"><label for="fullName">Ім’я та прізвище / назва команди</label><input id="fullName" autocomplete="name" placeholder="Напр.: Марія Іваненко"></div>
+        <div class="field"><label for="studentClass">Клас</label><select id="studentClass"><option value="">Оберіть</option><option>9</option><option>10</option><option>11</option><option>9–11</option></select></div>
+        <button class="btn primary" id="unlockBtn" type="button">Відкрити тренажер</button>
+      </div>
+      <div class="error" id="gateError"></div>
+    </div>
+
+    <div id="quizArea" class="hidden">
+      <div class="modebar" aria-label="Режим тренажера">
+        <button class="seg active" data-route="sprint" type="button">⚡ 35 хв • 15 завдань</button>
+        <button class="seg" data-route="full" type="button">🧭 Повний • 30 завдань</button>
+        <button class="seg" data-feedback="learn" type="button">Навчальний фідбек: увімк.</button>
+      </div>
+      <div class="progress-wrap"><div class="progress-line"><span id="progressBar"></span></div><div class="progress-meta"><span id="progressText">0 / 15 відповідей</span><span id="maxScoreText">максимум у режимі: 24 б.</span></div></div>
+      <div class="q-list" id="questionList"></div>
+      <div class="submitbar">
+        <button class="btn primary" id="submitQuiz" type="button">Завершити й отримати результат</button>
+        <button class="btn" id="clearQuiz" type="button">Очистити відповіді</button>
+        <span class="teacher-note" id="unansweredNote"></span>
+      </div>
+    </div>
+
+    <div id="result" class="scorecard" aria-live="polite">
+      <div class="tag">результат</div><div class="scorebig" id="scoreBig">0 / 0</div>
+      <h3 id="scoreTitle">Результат</h3><p id="scoreComment"></p>
+      <div class="scoregrid"><div><small>Учасник / команда</small><strong id="resName">—</strong></div><div><small>Клас</small><strong id="resClass">—</strong></div><div><small>Режим</small><strong id="resMode">—</strong></div><div><small>Дата й час</small><strong id="resTime">—</strong></div></div>
+      <div class="callout" style="margin-top:14px"><b>Для вчителя:</b> після перевірки натисніть «Показати розбір». Для учня: якщо помилка повторюється двічі, це вже не випадковість, а тема для повторення. Дуже зручно — мозок сам написав список домашнього.</div>
+      <div class="submitbar teacher-tools"><button class="btn cyan" id="showReview" type="button">Показати розбір відповідей</button><button class="btn" type="button" onclick="window.print()">Друк / PDF</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="after">
+  <div class="wrap">
+    <div class="section-head"><div><span class="tag">фініш • 2 хв</span><h2>CER-фініш: одна відповідь без туману</h2><p>Завершіть усно або в зошиті. У кожної команди — 30 секунд.</p></div></div>
+    <div class="grid3">
+      <article class="card"><h3>Твердження</h3><p>Який тип завдань сьогодні був для Вас найризикованішим: карта, розрахунок, статистика чи «3 із 7»?</p></article>
+      <article class="card"><h3>Доказ</h3><p>Назвіть конкретне завдання або помилку, яка це показала. «Мені так здалося» — не доказ. Ми ж географи, а не метеорологи настрою.</p></article>
+      <article class="card"><h3>Дія</h3><p>Сформулюйте один алгоритм, який завтра/на наступному тренуванні застосуєте автоматично.</p></article>
+    </div>
+    <div class="card teacher-tools" style="margin-top:16px">
+      <h3>Ключ учителя</h3><p class="teacher-note">Не відкривайте до завершення тренажера, якщо сторінка на проєкторі.</p>
+      <button class="btn danger" id="toggleKey" type="button">Показати / сховати ключ</button>
+      <div class="key" id="answerKey"><div class="key-grid" id="keyGrid" style="margin-top:12px"></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap footer-flex"><div><b>Автор: Скринченко К.А.</b> • Василівський ліцей «Сузір’я»</div><div>Комбінований урок географії • 9–11 класи • 2026</div><div>Структура тренажера орієнтована на офіційний формат НМТ-2026 з географії: testportal.gov.ua</div></div></footer>
+
+<script>
+const Q = [
+{n:1,type:'single',grades:'11',domain:'картографія',route:true,q:'Масштаб карти 1 : 500 000. Якій відстані на місцевості відповідає 1 см на карті?',o:['500 м','5 км','50 км','500 км'],a:1,e:'1 см × 500 000 = 500 000 см = 5 км.'},
+{n:2,type:'single',grades:'11',domain:'координати',route:true,q:'Точка А має координати 45° пн. ш., 30° сх. д., а точка B — 50° пн. ш., 30° сх. д. У якому напрямку від А розташована B?',o:['на північ','на південь','на схід','на захід'],a:0,e:'Довгота однакова, широта B більша — рух на північ.'},
+{n:3,type:'single',grades:'11',domain:'час',route:false,q:'На меридіані 30° сх. д. місцевий сонячний час 12:00. Який місцевий час приблизно на меридіані 45° сх. д.?',o:['11:00','12:30','13:00','14:00'],a:2,e:'Різниця 15° = 1 година; східніше час пізніший.'},
+{n:4,type:'single',grades:'11',domain:'літосфера',route:false,q:'Яке пояснення найкраще описує високу сейсмічність уздовж меж зближення літосферних плит?',o:['там найбільша річна амплітуда температур','накопичуються й вивільняються напруження під час взаємодії плит','там завжди найвища абсолютна висота','сейсмічність визначається лише кількістю опадів'],a:1,e:'Землетруси пов’язані з механічною взаємодією і раптовим вивільненням напружень у земній корі.'},
+{n:5,type:'single',grades:'9–11',domain:'клімат',route:true,q:'Для місцевості характерні високі температури протягом року, вологе літо й виразний сухий зимовий сезон. Який тип клімату найімовірніший?',o:['екваторіальний','субекваторіальний','помірний морський','арктичний'],a:1,e:'Субекваторіальний клімат має сезонне чергування вологого літа і сухої зими.'},
+{n:6,type:'single',grades:'9–11',domain:'води',route:false,q:'Річка помірних широт має різке весняне водопілля після танення снігу та відносну межень улітку. Яке живлення найбільше визначає такий режим?',o:['льодовикове','підземне','снігове','припливне'],a:2,e:'Весняне водопілля після танення снігу — класична ознака переважання снігового живлення.'},
+{n:7,type:'single',grades:'9–11',domain:'Україна',route:false,q:'Який ланцюг найкраще пояснює формування родючих чорноземів?',o:['надмірне зволоження → вимивання → тонкий гумусовий горизонт','трав’яниста рослинність → значна органічна маса → накопичення гумусу','багаторічна мерзлота → слабке розкладання → засолення','морські припливи → осадження солей → гумус'],a:1,e:'Потужна коренева система трав і помірне зволоження сприяють накопиченню гумусу.'},
+{n:8,type:'single',grades:'10–11',domain:'ресурси',route:false,q:'Для будівництва ГЕС найважливішим природним поєднанням є…',o:['великий стік і значний перепад висот','родючі ґрунти й висока лісистість','низька хмарність і сильні бризи','поклади кам’яного вугілля і густа мережа автошляхів'],a:0,e:'Потужність гідроенергії визначають водність і перепад висот.'},
+{n:9,type:'single',grades:'9',domain:'населення',route:true,q:'У країні коефіцієнт народжуваності 9‰, смертності 14‰. Який висновок правильний?',o:['природний приріст +5‰','природне скорочення −5‰','міграційний приріст +5‰','загальний приріст обов’язково від’ємний'],a:1,e:'9 − 14 = −5‰. Загальна зміна населення ще залежить від міграційного сальдо.'},
+{n:10,type:'single',grades:'9',domain:'міграції',route:true,q:'За рік із країни виїхало 420 тис. осіб, а в’їхало 300 тис. Яке міграційне сальдо?',o:['+720 тис.','+120 тис.','−120 тис.','−720 тис.'],a:2,e:'Сальдо = імміграція − еміграція = 300 − 420 = −120 тис.'},
+{n:11,type:'single',grades:'9–10',domain:'урбанізація',route:false,q:'Який показник безпосередньо характеризує рівень урбанізації країни?',o:['частка міського населення','кількість опадів у столиці','площа території держави','частка молоді серед населення'],a:0,e:'Рівень урбанізації — це насамперед частка населення, що проживає в містах.'},
+{n:12,type:'single',grades:'9',domain:'економіка',route:false,q:'До якого сектору економіки належить виробництво сталі?',o:['первинного','вторинного','третинного','четвертинного лише'],a:1,e:'Переробна промисловість належить до вторинного сектору.'},
+{n:13,type:'single',grades:'9–10',domain:'розміщення',route:false,q:'Цукровий завод тяжіє до районів вирощування цукрових буряків передусім через…',o:['науковий чинник','сировинний чинник','рекреаційний чинник','столичний чинник'],a:1,e:'Сировина масова, швидко втрачає якість і дає значну частку відходів, тому її невигідно далеко перевозити.'},
+{n:14,type:'single',grades:'10',domain:'Європа',route:true,q:'Чому водний шлях Рейн — один із ключових транспортних коридорів Західної Європи?',o:['поєднує густонаселені промислові райони з морськими портами','пролягає лише через сільськогосподарські райони','не має зв’язку з морем','використовується виключно для туризму'],a:0,e:'Рейн з’єднує великі промислові вузли та внутрішні райони з портами Північного моря.'},
+{n:15,type:'single',grades:'10',domain:'Європа',route:false,q:'Яка пара країн належить до Північної Європи?',o:['Норвегія і Швеція','Іспанія і Португалія','Італія і Греція','Австрія і Угорщина'],a:0,e:'Норвегія і Швеція — країни Північної Європи.'},
+{n:16,type:'single',grades:'9–10',domain:'сектори',route:false,q:'Яка ознака найбільш типова для постіндустріальної структури господарства?',o:['домінування натурального сільського господарства','висока частка сфери послуг і знаннємістких видів діяльності','переважання видобувної промисловості','мінімальна роль міст'],a:1,e:'Для постіндустріальної економіки характерні домінування послуг, інформації, науки й високотехнологічних функцій.'},
+{n:17,type:'single',grades:'9–10',domain:'світове господарство',route:true,q:'Міжнародний поділ праці проявляється насамперед у тому, що країни…',o:['виробляють абсолютно все самостійно','спеціалізуються на певних товарах і послугах та обмінюються ними','відмовляються від зовнішньої торгівлі','мають однакову структуру господарства'],a:1,e:'Спеціалізація та обмін — ядро міжнародного поділу праці.'},
+{n:18,type:'single',grades:'9–10',domain:'сільське господарство',route:true,q:'У якому регіоні світу природні умови та культура харчування найбільшою мірою сприяють великомасштабному вирощуванню рису?',o:['мусонна Азія','Сахара','Арктичні острови','центральна Австралія'],a:0,e:'Теплий вологий мусонний клімат і давні аграрні традиції роблять Азію головним регіоном рисівництва.'},
+{n:19,type:'single',grades:'9–10',domain:'промисловість',route:false,q:'Для сучасного підприємства з розробки мікрочипів вирішальним буде поєднання…',o:['наукової бази й висококваліфікованих кадрів','пасовищ і лісових ресурсів','великої кількості кам’яного вугілля','винятково близькості до морського узбережжя'],a:0,e:'Наукомісткі виробництва орієнтуються на дослідницькі центри, кадри та інноваційне середовище.'},
+{n:20,type:'single',grades:'9–11',domain:'сталий розвиток',route:true,q:'Який захід найкраще одночасно зменшує енергоспоживання і викиди парникових газів у містах?',o:['тепломодернізація будівель і підвищення енергоефективності','розширення площі парковок у центрі','збільшення втрат тепла в мережах','відмова від громадського транспорту'],a:0,e:'Енергоефективність зменшує попит на енергію, а отже й пов’язані з її виробництвом викиди.'},
+{n:21,type:'short',grades:'9–10',domain:'населення',route:true,q:'Умовна країна має 18,6 млн жителів і площу 310 тис. км². Обчисліть середню густоту населення, осіб/км². Відповідь запишіть цілим числом.',a:60,tol:0,unit:'осіб/км²',e:'18 600 000 ÷ 310 000 = 60 осіб/км².'},
+{n:22,type:'short',grades:'9',domain:'населення',route:true,q:'Коефіцієнт народжуваності — 15,2‰, смертності — 9,7‰. Обчисліть природний приріст, ‰.',a:5.5,tol:0.01,unit:'‰',e:'15,2 − 9,7 = 5,5‰.'},
+{n:23,type:'short',grades:'11',domain:'масштаб',route:false,q:'На карті масштабу 1 : 25 000 довжина маршруту 7,2 см. Яка реальна довжина маршруту в метрах?',a:1800,tol:0,unit:'м',e:'1 см = 250 м; 7,2 × 250 = 1800 м.'},
+{n:24,type:'short',grades:'11',domain:'висоти',route:true,q:'Абсолютна висота вершини — 214 м, урізу води — 126 м. Визначте відносну висоту вершини щодо урізу води.',a:88,tol:0,unit:'м',e:'214 − 126 = 88 м.'},
+{n:25,type:'multi',grades:'9',domain:'демографія',route:true,q:'Виберіть ТРИ ознаки, які найімовірніше свідчать про старіння населення.',o:['низька народжуваність','зростання частки людей 65+','висока середня тривалість життя','дуже висока частка дітей 0–14','демографічний вибух','переважання імміграції молодих працівників саме по собі','різке омолодження вікової структури'],a:[0,1,2],e:'Старіння підтримують низька народжуваність, зростання частки старших вікових груп і висока тривалість життя.'},
+{n:26,type:'multi',grades:'10',domain:'транспорт',route:false,q:'Виберіть ТРИ чинники, що сприяють формуванню великого морського порту.',o:['зручна глибоководна акваторія','потужні транспортні зв’язки з внутрішніми районами','значна вантажна база / потоки товарів','обов’язково високогірний рельєф','відсутність міських поселень','повна ізоляція від залізниць','винятково холодний клімат'],a:[0,1,2],e:'Порт потребує зручної акваторії, вантажів і зв’язків із хінтерландом.'},
+{n:27,type:'multi',grades:'9–10',domain:'сільське господарство',route:true,q:'Виберіть ТРИ ознаки інтенсивного сільського господарства.',o:['високі витрати капіталу й технологій на одиницю площі','висока врожайність / продуктивність','активне застосування сучасної агротехніки','постійне розширення площ як єдиний шлях зростання','мінімальні витрати праці й капіталу за будь-яких умов','відсутність селекції','обов’язково кочове тваринництво'],a:[0,1,2],e:'Інтенсивний шлях підвищує віддачу з одиниці площі через капітал, технології та продуктивність.'},
+{n:28,type:'multi',grades:'9–10',domain:'урбанізація',route:false,q:'Виберіть ТРИ процеси/наслідки, які часто супроводжують швидку урбанізацію.',o:['концентрація робочих місць і послуг у містах','розвиток приміської зони та маятникових міграцій','зростання навантаження на транспорт і житлову інфраструктуру','повне зникнення міграцій','автоматичне вирівнювання всіх доходів','обов’язкове скорочення міст','зникнення агломерацій'],a:[0,1,2],e:'Урбанізація концентрує функції, стимулює субурбанізацію і створює інфраструктурний тиск.'},
+{n:29,type:'multi',grades:'9–10',domain:'економіка',route:true,q:'Виберіть ТРИ ознаки економіки з високою роллю третинного та четвертинного секторів.',o:['велика частка послуг у зайнятості','значна роль освіти, ІТ, фінансів, досліджень','висока частка створення доданої вартості знаннємісткими видами діяльності','обов’язкова перевага видобування сировини','домінування натурального господарства','майже повна відсутність міст','заборона міжнародної торгівлі'],a:[0,1,2],e:'Послуги, знання, дослідження та інформаційні функції — ядро третинного/четвертинного секторів.'},
+{n:30,type:'multi',grades:'11',domain:'топографія',route:false,q:'Виберіть ТРИ елементи топографічної карти, які найважливіші для планування пішого маршруту з мінімальним набором висоти й безпечним перетином річки.',o:['горизонталі та відмітки висот','масштаб','мости / переправи та гідрографія','назва видавництва карти','колір рамки','кількість літер у назві села','декоративна заставка'],a:[0,1,2],e:'Для рельєфу потрібні висоти/горизонталі, для довжини — масштаб, для безпечного переходу — гідрографія і переправи.'}
+];
+
+const sprintSet = new Set(Q.filter(x=>x.route).map(x=>x.n));
+let mode='sprint', learning=true, unlocked=false, submitted=false;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+function maxFor(list){return list.reduce((s,q)=>s+(q.type==='short'?2:q.type==='multi'?3:1),0)}
+function currentQuestions(){return mode==='sprint'?Q.filter(q=>sprintSet.has(q.n)):Q}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function renderQuiz(){
+  const list=currentQuestions();
+  $('#questionList').innerHTML=list.map(q=>{
+    let body='';
+    if(q.type==='single') body=`<div class="options">${q.o.map((o,i)=>`<label class="option"><input type="radio" name="q${q.n}" value="${i}"><span><b>${String.fromCharCode(65+i)}.</b> ${esc(o)}</span></label>`).join('')}</div>`;
+    if(q.type==='multi') body=`<div class="options">${q.o.map((o,i)=>`<label class="option"><input type="checkbox" name="q${q.n}" value="${i}"><span><b>${i+1}.</b> ${esc(o)}</span></label>`).join('')}</div><div class="hint">Оберіть рівно три варіанти.</div>`;
+    if(q.type==='short') body=`<div class="short-answer"><input inputmode="decimal" aria-label="Числова відповідь до завдання ${q.n}" name="q${q.n}" placeholder="Введіть число"><span class="unit">${esc(q.unit)}</span></div>`;
+    return `<article class="question ${q.route?'route-pick':''}" data-q="${q.n}"><div class="qtop"><div class="qnum"><span>${q.n}</span>${q.type==='single'?'1 відповідь':q.type==='short'?'числова':'3 із 7'}</div><div class="badges"><span class="badge grade${q.grades.replace('–','').replace('9–11','11')}">${esc(q.grades)} кл.</span><span class="badge">${esc(q.domain)}</span></div></div><div class="qtext">${esc(q.q)}</div>${body}<div class="feedback" id="fb${q.n}"></div></article>`
+  }).join('');
+  attachAnswerListeners(); updateProgress(); submitted=false; $('#result').classList.remove('show');
+  $('#maxScoreText').textContent=`максимум у режимі: ${maxFor(list)} б.`;
+}
+function attachAnswerListeners(){
+  $$('#questionList input').forEach(el=>el.addEventListener('change',()=>{
+    if(el.type==='checkbox'){
+      const qn=Number(el.name.slice(1)); const checked=$$(`input[name="q${qn}"]:checked`); if(checked.length>3){el.checked=false; flashFeedback(qn,'no','Потрібно рівно три. Четверта відповідь уже починає власну кар’єру поза умовою.');}
+    }
+    updateProgress(); if(learning) checkOne(Number(el.name.slice(1)),false);
+  }));
+}
+function getAnswer(q){
+  if(q.type==='single'){const e=$(`input[name="q${q.n}"]:checked`);return e?Number(e.value):null}
+  if(q.type==='multi') return $$(`input[name="q${q.n}"]:checked`).map(e=>Number(e.value)).sort((a,b)=>a-b);
+  const e=$(`input[name="q${q.n}"]`); if(!e||!e.value.trim())return null; return Number(e.value.replace(',','.'));
+}
+function answered(q){const a=getAnswer(q); return q.type==='multi'?a.length===3:a!==null && !(q.type==='short'&&Number.isNaN(a))}
+function points(q,a){
+  if(q.type==='single') return a===q.a?1:0;
+  if(q.type==='short') return a!==null&&!Number.isNaN(a)&&Math.abs(a-q.a)<=q.tol?2:0;
+  if(q.type==='multi') return a.filter(v=>q.a.includes(v)).length; // official-style partial points for correct chosen answers
+  return 0;
+}
+function isFullyCorrect(q,a){return points(q,a)===(q.type==='short'?2:q.type==='multi'?3:1) && (q.type!=='multi'||a.length===3)}
+function flashFeedback(n,kind,msg){const f=$(`#fb${n}`); if(!f)return;f.className=`feedback show ${kind==='ok'?'ok':'no'}`;f.innerHTML=msg}
+function checkOne(n,force){const q=Q.find(x=>x.n===n); const a=getAnswer(q); if(!answered(q)) return; const ok=isFullyCorrect(q,a); if(learning||force) flashFeedback(n,ok?'ok':'no',`${ok?'✓ Добре.':'✗ Перевірте логіку.'} ${esc(q.e)}`)}
+function updateProgress(){const list=currentQuestions(); const done=list.filter(answered).length; $('#progressText').textContent=`${done} / ${list.length} відповідей`; $('#progressBar').style.width=`${Math.round(done/list.length*100)}%`;}
+function clearMarks(){ $$('.question').forEach(x=>x.classList.remove('correct','wrong')); $$('.feedback').forEach(x=>x.className='feedback'); }
+function submit(){
+  const list=currentQuestions(); const missing=list.filter(q=>!answered(q)); if(missing.length){$('#unansweredNote').textContent=`Без відповіді: ${missing.map(q=>q.n).join(', ')}. Можна завершити, але це будуть нулі.`} else $('#unansweredNote').textContent='';
+  let score=0; list.forEach(q=>{const a=getAnswer(q);const p=points(q,a);score+=p;const el=$(`.question[data-q="${q.n}"]`);el.classList.toggle('correct',isFullyCorrect(q,a));el.classList.toggle('wrong',!isFullyCorrect(q,a)); if(!learning) checkOne(q.n,true)});
+  const max=maxFor(list), pct=Math.round(score/max*100); submitted=true;
+  $('#scoreBig').textContent=`${score} / ${max}`; $('#resName').textContent=$('#fullName').value.trim(); $('#resClass').textContent=$('#studentClass').value; $('#resMode').textContent=mode==='sprint'?'35 хв':'повний'; $('#resTime').textContent=new Date().toLocaleString('uk-UA');
+  let comment=pct>=85?'Сильний результат. Тепер варто полювати не на легкі бали, а на повторювані типи помилок.':pct>=65?'Робочий рівень. Є база, але кілька алгоритмів ще не стали автоматичними.':pct>=45?'Є опорні знання, але стратегія нестабільна: повторіть карту, розрахунки й роботу з даними.':'Потрібен не ще один хаотичний тест, а повторення алгоритмів блоками: карта → населення → господарство.';
+  $('#scoreTitle').textContent=`${pct}% виконання`; $('#scoreComment').textContent=comment; $('#result').classList.add('show'); $('#result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function buildKey(){
+  $('#keyGrid').innerHTML=Q.map(q=>{let ans=q.type==='single'?String.fromCharCode(65+q.a):q.type==='short'?`${q.a} ${q.unit}`:q.a.map(i=>i+1).join(', ');return `<div class="key-item"><b>${q.n}</b><br>${ans}</div>`}).join('');
+}
+function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(x=>/^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(x))}
+$('#unlockBtn').addEventListener('click',()=>{const n=$('#fullName').value,c=$('#studentClass').value;if(!validName(n)||!c){$('#gateError').textContent='Введіть щонайменше два слова без цифр і виберіть клас.';return}$('#gateError').textContent='';unlocked=true;$('#quizArea').classList.remove('hidden');renderQuiz();$('#quizArea').scrollIntoView({behavior:'smooth',block:'start'})});
+$$('[data-route]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.route;$$('[data-route]').forEach(x=>x.classList.toggle('active',x===b));renderQuiz()}));
+$('[data-feedback]').addEventListener('click',e=>{learning=!learning;e.currentTarget.textContent=`Навчальний фідбек: ${learning?'увімк.':'вимк.'}`; if(!learning) clearMarks()});
+$('#submitQuiz').addEventListener('click',submit);
+$('#clearQuiz').addEventListener('click',()=>{if(!confirm('Очистити всі відповіді в поточному режимі?'))return; $$('#questionList input').forEach(e=>{if(e.type==='radio'||e.type==='checkbox')e.checked=false;else e.value=''});clearMarks();updateProgress();$('#result').classList.remove('show');$('#unansweredNote').textContent=''});
+$('#showReview').addEventListener('click',()=>{currentQuestions().forEach(q=>checkOne(q.n,true));$('#trainer').scrollIntoView({behavior:'smooth',block:'start'})});
+$('#toggleKey').addEventListener('click',()=>$('#answerKey').classList.toggle('show'));buildKey();
+
+let remaining=35*60, timer=null;
+function paintTimer(){const m=Math.floor(remaining/60),s=remaining%60;$('#timerText').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;if(remaining<=300)$('#timerText').style.color='#ffad42';else $('#timerText').style.color='var(--lime)'}
+function timerToggle(){if(timer){clearInterval(timer);timer=null;$('#timerToggle').textContent='Продовжити';return}$('#timerToggle').textContent='Пауза';timer=setInterval(()=>{remaining--;paintTimer();if(remaining<=0){clearInterval(timer);timer=null;$('#timerToggle').textContent='Час';alert('35 хв завершилися. Час підбити результат і зробити CER-висновок.')}},1000)}
+$('#timerToggle').addEventListener('click',timerToggle);$('#startTimerHero').addEventListener('click',()=>{if(!timer)timerToggle();document.querySelector('#brief').scrollIntoView({behavior:'smooth'})});$('#timerReset').addEventListener('click',()=>{if(timer){clearInterval(timer);timer=null}remaining=35*60;paintTimer();$('#timerToggle').textContent='Старт'});paintTimer();
+</script>
+</body>
+</html>
