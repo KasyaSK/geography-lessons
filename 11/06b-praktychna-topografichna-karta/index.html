@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11-Б • Практична робота №1 • Топографічна карта</title>
+<style>
+:root{
+  --bg:#f3f7f5;--paper:#fffefb;--ink:#173039;--muted:#5e7077;--line:#d6e0db;
+  --green:#2c6a4b;--green-soft:#eaf4ee;--blue:#2d6f8c;--blue-soft:#eef6fb;
+  --gold:#b5832f;--gold-soft:#fff7ea;--red:#9f4d3c;--red-soft:#fff4f1;
+  --shadow:0 16px 42px rgba(31,58,48,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:
+  radial-gradient(circle at top left,#dcefe4 0,transparent 23rem),
+  radial-gradient(circle at top right,#e6eef8 0,transparent 22rem),
+  var(--bg);line-height:1.6}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+.hero{padding:42px 0 22px}
+.badge{display:inline-block;padding:.46rem .76rem;border-radius:999px;background:var(--green-soft);color:#245740;font-size:.9rem;font-weight:800}
+h1{margin:.85rem 0 .7rem;font-size:clamp(2.1rem,5.4vw,4rem);line-height:1.04;letter-spacing:-.035em}
+.lead{max-width:960px;color:var(--muted);font-size:1.06rem}
+.lead b{color:var(--ink)}
+nav.sticky{position:sticky;top:0;z-index:10;background:rgba(243,247,245,.88);backdrop-filter:blur(10px);border-bottom:1px solid #d8e4de}
+nav.sticky .wrap{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0}
+nav.sticky a{display:inline-block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:.56rem .86rem;font-size:.92rem;font-weight:700}
+nav.sticky a:hover{background:#f7fbf8}
+.card{background:rgba(255,254,251,.96);border:1px solid var(--line);border-radius:24px;padding:22px;margin:14px 0;box-shadow:var(--shadow)}
+.card h2{margin:.1rem 0 .7rem;font-size:clamp(1.34rem,2.5vw,1.95rem)}
+.card p{margin:.55rem 0}
+.k{font-size:.83rem;color:#48635a;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.note{background:#f7fbf8;border-left:5px solid var(--green)}
+.warn{background:var(--gold-soft);border-left:5px solid var(--gold)}
+.danger{background:var(--red-soft);border-left:5px solid var(--red)}
+.grid2,.grid3,.grid4{display:grid;gap:14px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pill{display:inline-block;margin:0 .34rem .38rem 0;padding:.36rem .67rem;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.88rem;font-weight:700}
+ul.clean,ol.clean{margin:.45rem 0;padding-left:1.2rem}
+.steps{background:var(--blue-soft);border:1px solid #d8e8f1;border-radius:16px;padding:14px;margin:.9rem 0}
+.steps b{display:block;margin-bottom:.35rem}
+.legend-item,.region-card,.task-card,.mini{border:1px solid var(--line);border-radius:18px;padding:15px;background:#fff}
+.region-card h3,.task-card h3{margin:.1rem 0 .5rem}
+.region-card p:last-child,.task-card p:last-child{margin-bottom:0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:.85rem 0 1rem}
+button,.btn{appearance:none;border:0;cursor:pointer;padding:.7rem 1rem;border-radius:14px;background:var(--green);color:#fff;font-weight:800;text-decoration:none;display:inline-block;font:inherit}
+button.ghost,.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+button.gold{background:var(--gold)}
+.figure-help{font-size:.95rem;color:var(--muted)}
+.map-shell{border:1px solid var(--line);border-radius:20px;background:#edf2ee;overflow:hidden}
+.map-meta{display:flex;gap:10px;flex-wrap:wrap;padding:14px 16px}
+.map-scroll{overflow:auto;max-height:76vh;background:#dde7df;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.map-stage{position:relative;display:flex;align-items:center;justify-content:center;padding:20px;min-width:max-content;min-height:900px}
+#topoMap{display:block;max-width:none;border-radius:14px;border:1px solid #b9c8bf;box-shadow:0 14px 34px rgba(0,0,0,.09);transform-origin:center center}
+.horizontal-map{transform:rotate(90deg)}
+.marker{font-weight:800;color:var(--red)}
+details{border:1px dashed #cad8d0;border-radius:14px;padding:11px 13px;background:#fbfdfb}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:800}
+textarea,input{width:100%;padding:11px 12px;border-radius:12px;border:1px solid #cfdad4;background:#fff;color:var(--ink);font:inherit}
+textarea{min-height:88px;resize:vertical}
+.answer-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+.footer-space{height:24px}
+.screen-only{display:block}
+.print-line{display:none}
+@media (max-width:980px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.grid2,.grid3,.grid4,.answer-row{grid-template-columns:1fr}.map-scroll{max-height:56vh}.map-stage{min-height:700px}.hero{padding-top:30px}}
+@media print{nav.sticky,.toolbar,.screen-only{display:none!important}.card{box-shadow:none;break-inside:avoid}.map-scroll{max-height:none;overflow:visible}.map-stage{padding:8px}.print-line{display:block;height:18px;border-bottom:1px solid #333}body{background:#fff}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">11-Б • Географія • Практична робота №1</span>
+    <h1>Топографічна карта: читаємо, вимірюємо, обчислюємо</h1>
+    <p class="lead">Практична робота побудована на навчальному фрагменті топографічної карти з підручника для 11 класу. <b>Карту розгорнуто горизонтально</b>, а всі пояснення зведено до того, що реально допомагає виконувати завдання.</p>
+  </div>
+</header>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#what">Що це за карта</a>
+    <a href="#map">Карта</a>
+    <a href="#regions">Орієнтири</a>
+    <a href="#legend">Як читати</a>
+    <a href="#tasks">Завдання</a>
+    <a href="#finish">Завершення</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="card note" id="what">
+    <div class="k">Перед початком роботи</div>
+    <h2>Що саме ви бачите перед собою</h2>
+    <p>Перед вами <b>навчальний фрагмент топографічної карти</b> з підручника для 11 класу. Саме на цьому фрагменті виконують практичну роботу: знаходять об’єкти, визначають координати, обчислюють відстані, читають рельєф і встановлюють азимути.</p>
+    <div>
+      <span class="pill">Північ угорі карти</span>
+      <span class="pill">Кілометрова сітка допомагає знайти квадрат</span>
+      <span class="pill">Коричневі лінії — горизонталі</span>
+      <span class="pill">Синій колір — водні об’єкти</span>
+      <span class="pill">Чорні знаки — споруди та умовні позначення</span>
+    </div>
+    <div class="steps">
+      <b>Раціональний порядок дій:</b>
+      <ol class="clean">
+        <li>Спочатку знайдіть <b>підпис</b> потрібного об’єкта або <b>квадрат сітки</b>.</li>
+        <li>Потім перевірте <b>умовний знак</b> цього об’єкта.</li>
+        <li>Лише після цього переходьте до вимірювань і обчислень.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="card" id="map">
+    <div class="k">Робочий матеріал</div>
+    <h2>Карта в горизонтальному розміщенні</h2>
+    <p class="figure-help">Карту розгорнуто горизонтально, щоб її було легше роздивлятися. Якщо підписи дрібні, скористайтеся збільшенням.</p>
+    <div class="toolbar screen-only">
+      <button type="button" class="ghost" data-scale="0.9">90%</button>
+      <button type="button" class="ghost" data-scale="1.2">120%</button>
+      <button type="button" class="ghost" data-scale="1.5">150%</button>
+      <button type="button" class="ghost" data-scale="1.8">180%</button>
+      <button type="button" class="gold" id="fitBtn">Підігнати під вікно</button>
+      <button type="button" class="ghost" id="fullBtn">На весь екран</button>
+      <a class="btn ghost" href="https://uahistory.co/pidruchniki/gilberg-geography-11-class-2019-standard-level/3.php" target="_blank" rel="noopener">Джерело карти</a>
+    </div>
+    <div class="map-shell">
+      <div class="map-meta">
+        <span class="pill"><b>Основні об’єкти:</b> Індустріальне, Гнилий Яр, Ягідна, точки 107,6 і 158,2</span>
+        <span class="pill">Порада: збільшення 150–180% зазвичай найзручніше</span>
+      </div>
+      <div class="map-scroll" id="mapScroll">
+        <div class="map-stage" id="mapStage">
+          <img id="topoMap" class="horizontal-map" src="https://uahistory.co/pidruchniki/gilberg-geography-11-class-2019-standard-level/gilberg-geography-11-class-2019-standard-level.files/image019.jpg" alt="Частина аркуша топографічної карти, малюнок 16 з підручника Гільберг 11 клас">
+        </div>
+      </div>
+      <div class="map-meta">
+        <span class="pill">Для квадрата 4860 шукайте значення сітки на рамці</span>
+        <span class="pill">Для азимутів орієнтуйтесь від півночі карти</span>
+        <span class="pill">Для висот шукайте цифрові підписи й горизонталі</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="regions">
+    <div class="k">Орієнтири на карті</div>
+    <h2>Де що шукати</h2>
+    <div class="grid2">
+      <div class="region-card">
+        <h3>1. Смт Індустріальне</h3>
+        <p>Це головний орієнтир для кількох завдань. Знайдіть підпис <b>«Індустріальне»</b>, а далі перегляньте забудову навколо нього. Тут потрібно знайти <b>церкву</b>, <b>башту МТФ</b> і початок маршруту до складу хімічних добрив.</p>
+      </div>
+      <div class="region-card">
+        <h3>2. Річка Гнилий Яр</h3>
+        <p>Шукайте підпис <b>«Гнилий Яр»</b> біля синьої лінії. На цій річці потрібно знайти <b>земляну греблю</b> і визначити <b>уріз води</b> біля неї.</p>
+      </div>
+      <div class="region-card">
+        <h3>3. Квадрат 4860 і точка 107,6</h3>
+        <p>Спочатку знайдіть <b>квадрат 4860</b> за кілометровою сіткою, а потім уже в його межах — висотну точку <b>107,6</b>. Від неї треба прокласти напрямок до церкви та визначити азимут.</p>
+      </div>
+      <div class="region-card">
+        <h3>4. Витік річки Ягідна</h3>
+        <p>Знайдіть підпис <b>«Ягідна»</b> і простежте річку до місця, де вона починається. Початок річки — це її <b>витік</b>. Саме для цієї точки треба порівняти відстань до екватора і Північного полюса.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="legend">
+    <div class="k">Коротка пам’ятка</div>
+    <h2>Як читати цю карту</h2>
+    <div class="grid3">
+      <div class="legend-item"><b>Висотні точки 107,6 і 158,2</b><br>Це підписані абсолютні висоти окремих точок місцевості.</div>
+      <div class="legend-item"><b>Горизонталі</b><br>Лінії, що з’єднують точки з однаковою висотою. Чим вони ближчі — тим крутіший схил.</div>
+      <div class="legend-item"><b>Уріз води</b><br>Цифрове значення рівня водної поверхні в конкретному місці.</div>
+      <div class="legend-item"><b>Церква</b><br>Шукайте умовний знак культової споруди серед забудови Індустріального.</div>
+      <div class="legend-item"><b>Гребля</b><br>Споруда, яка перетинає русло. Перевіряйте, щоб не переплутати її з мостом.</div>
+      <div class="legend-item"><b>Кілометрова сітка</b><br>Допомагає визначати прямокутні координати та швидко знаходити квадрати.</div>
+    </div>
+    <details>
+      <summary>Як знайти квадрат 4860</summary>
+      <p>Знайдіть на рамці карти значення <b>48</b> та <b>60</b>, проведіть очима відповідні лінії сітки — і отримаєте потрібний квадрат. Уже в його межах шукайте точку 107,6.</p>
+    </details>
+    <details>
+      <summary>Як перейти від географічного азимуту до магнітного</summary>
+      <p>Спершу виміряйте географічний азимут від півночі карти. Далі врахуйте магнітне схилення, зазначене на схемі під рамкою карти, і обчисліть магнітний азимут.</p>
+    </details>
+  </section>
+
+  <section class="card" id="tasks">
+    <div class="k">Основна частина</div>
+    <h2>Практичні завдання</h2>
+
+    <div class="task-card">
+      <h3>1. Башта МТФ у смт Індустріальне і висотна точка 158,2</h3>
+      <div class="steps"><b>Що зробити:</b><ol class="clean"><li>Знайти башту МТФ у смт Індустріальне.</li><li>Знайти висотну точку 158,2.</li><li>Для обох об’єктів визначити географічні координати.</li><li>Для обох об’єктів визначити прямокутні координати.</li><li>Визначити відстань між об’єктами.</li></ol></div>
+      <div class="answer-row">
+        <textarea data-save placeholder="Башта МТФ: координати, як знаходили"></textarea>
+        <textarea data-save placeholder="Точка 158,2: координати, як знаходили"></textarea>
+      </div>
+      <textarea data-save placeholder="Відстань між об’єктами та спосіб обчислення"></textarea>
+    </div>
+
+    <div class="task-card">
+      <h3>2. Церква в Індустріальному і гребля на річці Гнилий Яр</h3>
+      <div class="steps"><b>Що зробити:</b><ol class="clean"><li>Знайти церкву.</li><li>Знайти греблю на річці Гнилий Яр.</li><li>Визначити абсолютні висоти обох точок.</li><li>Обчислити перевищення між ними.</li></ol></div>
+      <div class="answer-row">
+        <input data-save placeholder="Абсолютна висота церкви">
+        <input data-save placeholder="Абсолютна висота греблі">
+      </div>
+      <input data-save placeholder="Перевищення між ними">
+    </div>
+
+    <div class="task-card">
+      <h3>3. Уріз води річки Гнилий Яр біля земляної греблі</h3>
+      <textarea data-save placeholder="Запишіть значення урізу води та коротко поясніть, де саме ви його знайшли"></textarea>
+    </div>
+
+    <div class="task-card">
+      <h3>4. Географічний і магнітний азимути від точки 107,6 до церкви</h3>
+      <div class="steps"><b>Що зробити:</b><ol class="clean"><li>У квадраті 4860 знайти точку 107,6.</li><li>Провести напрямок до церкви в Індустріальному.</li><li>Виміряти географічний азимут.</li><li>З урахуванням магнітного схилення обчислити магнітний азимут.</li></ol></div>
+      <div class="answer-row">
+        <input data-save placeholder="Географічний азимут">
+        <input data-save placeholder="Магнітний азимут">
+      </div>
+    </div>
+
+    <div class="task-card">
+      <h3>5. Рух автомобіля до складу хімічних добрив</h3>
+      <p>Визначте, <b>за якими магнітними азимутами</b> рухається автомобіль дорогою з покриттям від смт Індустріальне до складу хімічних добрив.</p>
+      <textarea data-save placeholder="Перерахуйте азимути окремих ділянок маршруту"></textarea>
+    </div>
+
+    <div class="task-card">
+      <h3>6. Різниця відстаней від витоку Ягідної до екватора і Північного полюса</h3>
+      <textarea data-save placeholder="Запишіть широту витоку, хід обчислення і підсумкову різницю відстаней"></textarea>
+    </div>
+
+    <details>
+      <summary>Короткий алгоритм для завдання 6</summary>
+      <p>Визначте географічну широту витоку. Відстань до екватора приблизно дорівнює <b>широта × 111 км</b>. Відстань до Північного полюса — <b>(90° − широта) × 111 км</b>. Далі знайдіть різницю.</p>
+    </details>
+  </section>
+
+  <section class="card danger">
+    <div class="k">На що звернути увагу</div>
+    <h2>Типові помилки</h2>
+    <ul class="clean">
+      <li>Шукати об’єкт навмання, не знайшовши перед тим підпис або квадрат сітки.</li>
+      <li>Плутати абсолютну висоту точки з перевищенням між двома точками.</li>
+      <li>Відкладати азимут не від напрямку на північ, а від довільного краю карти.</li>
+      <li>Брати не той водний об’єкт: спочатку переконайтеся, що це саме Гнилий Яр або Ягідна.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="finish">
+    <div class="k">Фініш</div>
+    <h2>Що має бути в готовій роботі</h2>
+    <div class="grid4">
+      <div class="mini">□ координати башти МТФ</div>
+      <div class="mini">□ координати точки 158,2</div>
+      <div class="mini">□ відстань між ними</div>
+      <div class="mini">□ висоти церкви і греблі</div>
+      <div class="mini">□ перевищення між ними</div>
+      <div class="mini">□ уріз води</div>
+      <div class="mini">□ географічний і магнітний азимути</div>
+      <div class="mini">□ різниця відстаней до екватора і полюса</div>
+    </div>
+    <div class="toolbar screen-only">
+      <button type="button" class="ghost" id="saveBtn">Зберегти відповіді</button>
+      <button type="button" class="ghost" id="clearBtn">Очистити поля</button>
+      <button type="button" id="printBtn">Друк / PDF</button>
+    </div>
+  </section>
+
+  <div class="footer-space"></div>
+</main>
+
+<footer class="wrap" style="padding:0 0 34px;color:#687a72;font-size:.9rem">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</footer>
+
+<script>
+(() => {
+  const img = document.getElementById('topoMap');
+  const stage = document.getElementById('mapStage');
+  const scroll = document.getElementById('mapScroll');
+  const saveKey = 'geo11_practical_fixed_map_v3';
+  let scale = 1.2;
+
+  function updateMap(){
+    const nw = img.naturalWidth || 700;
+    const nh = img.naturalHeight || 1000;
+    const base = 760 * scale;
+    img.style.width = base + 'px';
+    const rotatedW = base * (nh / nw);
+    const rotatedH = base;
+    stage.style.width = (rotatedW + 70) + 'px';
+    stage.style.height = (rotatedH + 70) + 'px';
+    stage.style.minHeight = (rotatedH + 70) + 'px';
+  }
+  img.addEventListener('load', updateMap);
+  updateMap();
+
+  document.querySelectorAll('[data-scale]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      scale = parseFloat(btn.dataset.scale);
+      updateMap();
+    });
+  });
+
+  document.getElementById('fitBtn').addEventListener('click', () => {
+    const nw = img.naturalWidth || 700;
+    const nh = img.naturalHeight || 1000;
+    const targetRotatedWidth = Math.max(620, scroll.clientWidth - 44);
+    const neededBase = targetRotatedWidth / (nh / nw);
+    scale = neededBase / 760;
+    updateMap();
+  });
+
+  document.getElementById('fullBtn').addEventListener('click', async () => {
+    const shell = document.querySelector('.map-shell');
+    if (shell.requestFullscreen) await shell.requestFullscreen();
+  });
+
+  function fields(){ return [...document.querySelectorAll('[data-save]')]; }
+  function save(){
+    localStorage.setItem(saveKey, JSON.stringify(fields().map(el => el.value || '')));
+  }
+  function load(){
+    try{
+      const data = JSON.parse(localStorage.getItem(saveKey) || '[]');
+      fields().forEach((el,i)=>{ if(typeof data[i] === 'string') el.value = data[i]; });
+    }catch(e){}
+  }
+  fields().forEach(el => el.addEventListener('input', save));
+  load();
+
+  document.getElementById('saveBtn').addEventListener('click', () => { save(); alert('Відповіді збережено на цьому пристрої.'); });
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    if(confirm('Очистити всі введені відповіді?')){
+      fields().forEach(el => el.value = '');
+      localStorage.removeItem(saveKey);
+    }
+  });
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+})();
+</script>
+</body>
+</html>
