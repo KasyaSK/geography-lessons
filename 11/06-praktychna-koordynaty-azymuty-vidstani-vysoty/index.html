@@ -11,5 +11,6 @@
 <body>
 <div id="lesson-app"><div class="wrap" style="padding:4rem 0"><h1>Завантаження практичної роботи…</h1><p>Якщо сторінка не відкрилася автоматично, оновіть її.</p></div></div>
 <script>(async()=>{try{const files=['part-1.html','part-2.html'];const texts=await Promise.all(files.map(f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f);return r.text()})));document.getElementById('lesson-app').outerHTML=texts.join('');const s=document.createElement('script');s.src='script.js';document.body.appendChild(s)}catch(e){document.getElementById('lesson-app').innerHTML='<div class="wrap" style="padding:4rem 0"><h1>Не вдалося завантажити практичну роботу</h1><p>Оновіть сторінку або повідомте вчителя.</p></div>'}})();</script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body>
 </html>
