@@ -1,2 +1,566 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Скринченко К.А., Василівський ліцей «Сузір’я»"><title>Урок 7 — Як виміряти відстані на карті за масштабом</title><style>:root{--ink:#17344c;--muted:#60798a;--line:#d8e8f1;--blue:#168bd2;--green:#159a7c;--orange:#ef8a45;--bg:#f7fcff;--card:#fff}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 2%,#dff5ff,transparent 28rem),radial-gradient(circle at 96% 8%,#e7fff3,transparent 28rem),var(--bg);line-height:1.58}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}.hero{padding:62px 0 28px}.badge{display:inline-block;padding:.4rem .7rem;border-radius:999px;background:#e6f6ff;color:#0874b4;font-weight:900;font-size:.84rem}.hero h1{font-size:clamp(2.25rem,6vw,4.7rem);line-height:1.03;letter-spacing:-.04em;margin:.8rem 0}.lead{font-size:1.12rem;color:var(--muted);max-width:860px}.chips{display:flex;gap:9px;flex-wrap:wrap}.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.45rem .68rem;font-weight:800}.card{background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:24px;padding:22px;margin:16px 0;box-shadow:0 16px 40px rgba(43,82,107,.1)}h2{margin:.1rem 0 .65rem;font-size:clamp(1.45rem,3vw,2.05rem)}.grid2,.grid3{display:grid;gap:14px}.grid2{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.mini{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fbfeff}.map{width:100%;height:430px;border:0;border-radius:18px}.realimg,.asset{width:100%;border-radius:18px;border:1px solid var(--line);background:#eef6fa}.realimg{max-height:480px;object-fit:cover}.btn{border:0;border-radius:14px;padding:.72rem 1rem;background:#1287cc;color:#fff;font-weight:900;cursor:pointer}.btn.alt{background:#178f76}.btn.warn{background:#e67d35}.choice{display:flex;gap:9px;flex-wrap:wrap}.choice button{border:1px solid #bcdbe9;background:#fff;border-radius:13px;padding:.65rem .8rem;cursor:pointer;font-weight:800}.feedback{margin-top:10px;font-weight:800}label{display:block;font-weight:800;margin:.55rem 0 .2rem}input,select,textarea{width:100%;padding:.72rem;border:1px solid #bdd5e2;border-radius:12px;background:#fff;font:inherit}textarea{min-height:95px}.lab{background:linear-gradient(135deg,#eefaff,#f2fff8)}.warning{background:#fff8e8;border-color:#f0d18b}.quiz{display:none}.quiz.open{display:block}.q{padding:15px;border:1px solid var(--line);border-radius:16px;margin:10px 0;background:#fcfeff}.q label{font-weight:600;margin:.25rem 0}.result{font-size:1.15rem;font-weight:900;padding:14px;border-radius:14px;background:#eefaf5;margin-top:12px}.cer{border-left:5px solid var(--green)}.source{font-size:.88rem;color:var(--muted)}a{color:#0879b7;font-weight:800}footer{padding:28px 0 45px;color:var(--muted)}@media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}.map{height:350px}}</style></head><body><header class="hero"><div class="wrap"><span class="badge">7 КЛАС • УРОК №7 • §7 • ГР1</span><h1>Як виміряти відстані на карті за масштабом</h1><p class="lead">Сьогодні ви не просто «переведете сантиметри в кілометри». Ви перевірите, як масштаб перетворює карту на вимірювальний інструмент, навчитеся оцінювати похибку й порівняєте вимірювання на паперовій та цифровій карті.</p><div class="chips"><span class="chip">📏 масштаб</span><span class="chip">🗺️ OpenStreetMap</span><span class="chip">🌍 реальна карта</span><span class="chip">🧠 доказовий висновок</span><span class="chip">✅ тест /10</span></div></div></header><main class="wrap"><section class="card lab"><h2>1. Розігрів: що означає 1:5 000 000?</h2><p>Не шукайте правило в підручнику. Спробуйте пояснити зміст масштабу своїми словами.</p><div class="grid3"><div class="mini"><b>На карті:</b> 1 см</div><div class="mini"><b>На місцевості:</b> 5 000 000 см</div><div class="mini"><b>У кілометрах:</b> 50 км</div></div><div class="warning mini"><b>Пастка:</b> масштаб не означає, що «карта збільшена у 5 000 000 разів». Навпаки — лінійні розміри місцевості зменшені у стільки разів.</div></section><section class="card"><h2>2. Інтерактивна лабораторія масштабу</h2><img class="asset" src="assets/scale-lab.svg" alt="Схема лабораторії масштабу"><div class="grid2"><div class="mini"><label>Відстань на карті, см</label><input id="cm" type="number" min="0" step="0.1" value="4.6"><label>Знаменник масштабу</label><input id="den" type="number" min="1" step="1000" value="5000000"><button class="btn" onclick="calcScale()">Обчислити</button><div id="scaleOut" class="feedback"></div></div><div class="mini"><h3>Завдання</h3><p>Поставте 7,2 см і масштаб 1:2 500 000. Перед натисканням кнопки спрогнозуйте результат. Потім поясніть, де найімовірніше виникне помилка: в множенні, у переведенні сантиметрів у кілометри чи у самому вимірюванні лінійкою.</p><textarea placeholder="Мій прогноз і пояснення похибки"></textarea></div></div></section><section class="card"><h2>3. Реальна карта: вимірювання маршруту</h2><p>На карті нижче — Київ і Черкаси. Оцініть пряму відстань між містами, а потім відкрийте цифрову карту й порівняйте оцінку з фактичним вимірюванням сервісу.</p><iframe class="map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=29.6%2C49.1%2C32.5%2C51.1&amp;layer=mapnik&amp;marker=50.4501%2C30.5234"></iframe><p class="source">OpenStreetMap. Для вимірювання відстані можна відкрити повну карту й використати інструмент вимірювання або порівняти з геодезичною відстанню.</p><div class="grid2"><div class="mini"><label>Моя оцінка прямої відстані, км</label><input id="estimate" type="number" placeholder="Наприклад: 160"><label>Після перевірки, км</label><input id="checked" type="number" placeholder="Введіть результат сервісу"><button class="btn alt" onclick="errorCalc()">Обчислити різницю</button><div id="errOut" class="feedback"></div></div><div class="mini"><h3>Чому оцінка може не збігтися?</h3><textarea placeholder="Назвіть щонайменше дві причини: масштаб, товщина лінії, вибір центрів міст, кривизна Землі, точність вимірювання…"></textarea></div></div></section><section class="card"><h2>4. Масштаб і реальність: карта світу</h2><img class="realimg" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/74000/74218/world.topo.bathy.200412.3x5400x2700.jpg" alt="Топографічна карта світу NASA"><p class="source">NASA Earth Observatory / Blue Marble topography & bathymetry.</p><p>Уявіть, що на такій карті Африка має протяжність з півночі на південь 8,1 см, а масштаб карти 1:100 000 000. Обчисліть приблизну протяжність материка.</p><div class="choice"><button onclick="answer(this,false)">810 км</button><button onclick="answer(this,true)">8100 км</button><button onclick="answer(this,false)">81 000 км</button></div><div id="ans" class="feedback"></div><div class="mini"><b>Доказове завдання:</b> чи достатньо одного вимірювання «по прямій» для характеристики реальної протяжності материка? Поясніть, чому берегова лінія, напрям вимірювання і картографічна проєкція можуть впливати на результат.</div></section><section class="card"><h2>5. Відео з КТП</h2><div style="position:relative;padding-top:56.25%;border-radius:18px;overflow:hidden"><iframe src="https://www.youtube.com/embed/eSG973pCj0M" title="Масштаб карти" style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen></iframe></div><p class="source">Коротке відео до §7 з КТП.</p></section><section class="card"><h2>6. Теорія після діяльності</h2><div class="grid3"><div class="mini"><h3>Числовий масштаб</h3><p>1:n. Показує, у скільки разів лінійні розміри на карті менші за реальні.</p></div><div class="mini"><h3>Іменований масштаб</h3><p>Пояснює масштаб словами: наприклад, «в 1 см — 50 км».</p></div><div class="mini"><h3>Лінійний масштаб</h3><p>Графічна шкала, за якою відстань можна зчитати без додаткового перерахунку.</p></div></div><div class="warning mini"><b>Алгоритм:</b> 1) виміряйте відстань на карті; 2) помножте її на знаменник числового масштабу; 3) переведіть сантиметри у метри або кілометри; 4) оцініть похибку.</div></section><section class="card cer"><h2>7. Підсумок CER</h2><label>Claim — твердження</label><textarea placeholder="Масштаб дозволяє…"></textarea><label>Evidence — доказ</label><textarea placeholder="Наведіть конкретний результат одного зі своїх вимірювань"></textarea><label>Reasoning — міркування</label><textarea placeholder="Поясніть, чому цей результат підтверджує ваше твердження і де могла виникнути похибка"></textarea></section><section class="card"><h2>8. Домашнє завдання</h2><p><b>§7.</b> Оберіть дві пари міст України. Для кожної оцініть відстань за картою з відомим масштабом, потім перевірте в OpenStreetMap або іншому картографічному сервісі. Запишіть різницю й коротко поясніть її.</p><p><a href="https://cutt.ly/8eQ3vv8b" target="_blank" rel="noopener">Електронний підручник / §7 →</a></p></section><section class="card"><h2>9. Тест на 10 балів</h2><div class="grid3"><div><label>Прізвище</label><input id="surname"></div><div><label>Ім’я</label><input id="name"></div><div><label>Клас</label><input id="klass" placeholder="7-А"></div></div><button class="btn" onclick="unlockQuiz()">Відкрити тест</button><div id="gateMsg" class="feedback"></div><div id="quiz" class="quiz"><div class="q" data-a="b"><b>1. Що означає масштаб 1:1 000 000?</b><label><input type="radio" name="q1" value="a"> 1 см = 1 км</label><label><input type="radio" name="q1" value="b"> 1 см = 10 км</label><label><input type="radio" name="q1" value="c"> 1 см = 100 км</label></div><div class="q" data-a="c"><b>2. На карті 3 см, масштаб 1:2 000 000. Реальна відстань?</b><label><input type="radio" name="q2" value="a"> 6 км</label><label><input type="radio" name="q2" value="b"> 30 км</label><label><input type="radio" name="q2" value="c"> 60 км</label></div><div class="q" data-a="a"><b>3. Який масштаб найзручніше зчитувати лінійкою без обчислень?</b><label><input type="radio" name="q3" value="a"> лінійний</label><label><input type="radio" name="q3" value="b"> числовий</label><label><input type="radio" name="q3" value="c"> словесний</label></div><div class="q" data-a="b"><b>4. 5 см у масштабі 1:5 000 000 — це:</b><label><input type="radio" name="q4" value="a"> 25 км</label><label><input type="radio" name="q4" value="b"> 250 км</label><label><input type="radio" name="q4" value="c"> 2500 км</label></div><div class="q" data-a="c"><b>5. Найбільша причина різниці між виміром на карті й цифровим сервісом:</b><label><input type="radio" name="q5" value="a"> карта завжди неправильна</label><label><input type="radio" name="q5" value="b"> цифрові карти не мають масштабу</label><label><input type="radio" name="q5" value="c"> різна точність і спосіб вимірювання</label></div><div class="q" data-a="b"><b>6. 1 см = 25 км відповідає масштабу:</b><label><input type="radio" name="q6" value="a"> 1:250 000</label><label><input type="radio" name="q6" value="b"> 1:2 500 000</label><label><input type="radio" name="q6" value="c"> 1:25 000 000</label></div><div class="q" data-a="a"><b>7. Що треба зробити після множення сантиметрів на знаменник масштабу?</b><label><input type="radio" name="q7" value="a"> перевести одиниці</label><label><input type="radio" name="q7" value="b"> поділити на два</label><label><input type="radio" name="q7" value="c"> додати 100</label></div><div class="q" data-a="c"><b>8. Чому вимір берегової лінії складніший за відстань між двома містами?</b><label><input type="radio" name="q8" value="a"> бо масштаб не діє</label><label><input type="radio" name="q8" value="b"> бо море рухається</label><label><input type="radio" name="q8" value="c"> через звивистість і залежність від деталізації</label></div><div class="q" data-a="b"><b>9. 8 см у масштабі 1:10 000 000 — це:</b><label><input type="radio" name="q9" value="a"> 80 км</label><label><input type="radio" name="q9" value="b"> 800 км</label><label><input type="radio" name="q9" value="c"> 8000 км</label></div><div class="q" data-a="a"><b>10. Найкращий підсумок вимірювання:</b><label><input type="radio" name="q10" value="a"> результат + спосіб + оцінка похибки</label><label><input type="radio" name="q10" value="b"> тільки число</label><label><input type="radio" name="q10" value="c"> тільки назва карти</label></div><button class="btn alt" onclick="grade()">Перевірити тест</button><div id="result" class="result"></div></div></section></main><footer><div class="wrap">Скринченко К.А. • Василівський ліцей «Сузір’я»</div></footer><script>function calcScale(){let c=+cm.value,d=+den.value;if(!c||!d){scaleOut.textContent='Введіть обидва значення.';return}let km=c*d/100000;scaleOut.textContent=`${c} см × 1:${d.toLocaleString('uk-UA')} = приблизно ${km.toFixed(2)} км`; }function errorCalc(){let a=+estimate.value,b=+checked.value;if(!a||!b){errOut.textContent='Введіть обидва результати.';return}let diff=Math.abs(a-b),p=diff/b*100;errOut.textContent=`Різниця: ${diff.toFixed(1)} км (${p.toFixed(1)}%).`; }function answer(el,ok){document.getElementById('ans').textContent=ok?'Так. 8,1 см × 100 000 000 = 8100 км.':'Ні. Перевірте переведення сантиметрів у кілометри.';}function unlockQuiz(){if(!surname.value.trim()||!name.value.trim()||!klass.value.trim()){gateMsg.textContent='Спочатку введіть прізвище, ім’я та клас.';return}quiz.classList.add('open');gateMsg.textContent='Тест відкрито.';}function grade(){let s=0;document.querySelectorAll('.q').forEach((q,i)=>{let x=document.querySelector(`input[name=q${i+1}]:checked`);if(x&&x.value===q.dataset.a)s++});result.textContent=`${surname.value} ${name.value}, ${klass.value}: ${s}/10 балів.`;}</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="7 клас. Урок 7. Вимірювання відстаней на карті за масштабом: числовий, іменований і лінійний масштаб, практична робота з картами материків.">
+<title>7 клас • Урок 7 • Відстані на карті та масштаб</title>
+<style>
+:root{
+  --ink:#173347;--muted:#617985;--paper:#fffdf7;--card:#ffffff;
+  --sea:#dff4fb;--teal:#0c8f83;--blue:#1976b9;--navy:#123e5d;
+  --orange:#ef8a4c;--red:#c94a46;--green:#2c8a63;--line:#d6e4e7;
+  --shadow:0 18px 44px rgba(27,70,88,.12)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);line-height:1.58;background:
+  linear-gradient(rgba(23,80,104,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(23,80,104,.035) 1px,transparent 1px),
+  radial-gradient(circle at 8% 3%,#dff7ff 0,transparent 25rem),
+  radial-gradient(circle at 95% 5%,#fff1d9 0,transparent 28rem),
+  #f8fcfd;background-size:32px 32px,32px 32px,auto,auto,auto
+}
+a{color:#0875ad;font-weight:800}
+button,input,select,textarea{font:inherit}
+button{touch-action:manipulation}
+.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+.hero{padding:62px 0 26px;position:relative;overflow:hidden}
+.hero:after{
+  content:"";position:absolute;right:-70px;top:10px;width:330px;height:330px;border-radius:50%;
+  border:2px dashed rgba(25,118,185,.18);box-shadow:0 0 0 42px rgba(25,118,185,.03),0 0 0 84px rgba(25,118,185,.025);
+  pointer-events:none
+}
+.kicker,.time,.tag{
+  display:inline-flex;align-items:center;gap:.35rem;border-radius:999px;font-weight:900
+}
+.kicker{padding:.42rem .74rem;background:#e7f6fb;color:#0874a9;font-size:.84rem}
+.hero h1{font-size:clamp(2.35rem,6vw,5rem);line-height:1.01;letter-spacing:-.045em;margin:.8rem 0 .65rem;max-width:980px}
+.lead{max-width:900px;font-size:1.12rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.tag{padding:.45rem .7rem;background:#fff;border:1px solid var(--line);font-size:.88rem}
+.nav{
+  position:sticky;top:0;z-index:20;background:rgba(248,252,253,.92);backdrop-filter:blur(14px);
+  border-block:1px solid rgba(166,198,208,.55)
+}
+.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0;scrollbar-width:thin}
+.nav a{white-space:nowrap;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.5rem .75rem;color:var(--ink);font-size:.88rem}
+.card{
+  background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:26px;
+  padding:clamp(18px,3vw,28px);margin:18px 0;box-shadow:var(--shadow)
+}
+.card h2{font-size:clamp(1.45rem,3vw,2.15rem);line-height:1.15;margin:.1rem 0 .55rem}
+.card h3{margin:.2rem 0 .4rem}
+.time{padding:.3rem .62rem;background:#eef8fb;color:#26708d;font-size:.78rem;margin-bottom:8px}
+.problem{background:linear-gradient(135deg,#f0fbff,#fff9ed)}
+.problem .bigq{font-size:clamp(1.25rem,2.8vw,1.85rem);font-weight:900;max-width:880px}
+.grid2,.grid3,.grid4{display:grid;gap:14px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mini{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fbfeff}
+.mini.soft{background:#f5fbfd}
+.note{border-left:5px solid var(--orange);background:#fff8e9;border-radius:14px;padding:13px 15px;margin:12px 0}
+.goodnote{border-left-color:var(--green);background:#eefaf5}
+.choice{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+.btn,.choice button,.levelbtn{
+  border:0;border-radius:14px;padding:.72rem 1rem;min-height:44px;font-weight:900;cursor:pointer;
+  transition:transform .12s ease,box-shadow .12s ease
+}
+.btn:hover,.choice button:hover,.levelbtn:hover{transform:translateY(-1px)}
+.btn{background:var(--blue);color:#fff;box-shadow:0 8px 22px rgba(25,118,185,.18)}
+.btn.alt{background:var(--teal)}
+.btn.ghost{background:#eef5f7;color:var(--ink);box-shadow:none}
+.choice button,.levelbtn{background:#fff;color:var(--ink);border:1px solid #b9d5df}
+.choice button.selected,.levelbtn.active{background:#e8f6fb;border-color:#4b9fc2;color:#09577a}
+.feedback{font-weight:800;margin-top:10px;min-height:1.5em}
+label{display:block;font-weight:800;margin:.55rem 0 .25rem}
+input[type="text"],input[type="number"],select,textarea{
+  width:100%;padding:.72rem .82rem;border:1px solid #b9d1da;border-radius:12px;background:#fff;color:var(--ink)
+}
+input[type="radio"],input[type="checkbox"]{width:auto;accent-color:var(--teal)}
+textarea{min-height:98px;resize:vertical}
+.matchrow{display:grid;grid-template-columns:minmax(170px,.8fr) minmax(190px,1.2fr);gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #d7e4e8}
+.matchrow:last-child{border-bottom:0}
+.scaleNum{font:900 1.05rem ui-monospace,SFMono-Regular,Consolas,monospace;color:#0d557c}
+.videoWrap{position:relative;padding-top:56.25%;border-radius:19px;overflow:hidden;background:#102d3c}
+.videoWrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mapframe{background:#eaf6fa;border:1px solid #bfd8e0;border-radius:22px;padding:10px;margin-top:14px}
+.mapimg{display:block;width:100%;height:auto;border-radius:15px;background:#dff4fb}
+.maplegend{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.9rem;margin-top:9px}
+.maplegend span{background:#fff;border:1px solid var(--line);padding:.3rem .55rem;border-radius:999px}
+.measureBox{background:linear-gradient(145deg,#f0fbff,#f8fffb)}
+.rangeFeedback{font-weight:900}
+.leveltabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.levelpanel{display:none}
+.levelpanel.open{display:block}
+.theory{background:linear-gradient(135deg,#f8fdff,#fffdf7)}
+.formula{font:900 1.1rem ui-monospace,SFMono-Regular,Consolas,monospace;color:#0d5f7d;background:#edf8fb;padding:.65rem .8rem;border-radius:12px}
+.trap{background:linear-gradient(135deg,#fff7e9,#fff)}
+.zoomdemo{border:1px solid var(--line);border-radius:18px;padding:15px;background:#fff;overflow:auto}
+.zoomobject{transform-origin:left top;transition:width .2s ease}
+.demoScale{display:flex;align-items:flex-end;margin:12px 0 4px}
+.demoScale span{height:15px;width:70px;border:1px solid #173347}
+.demoScale span:nth-child(odd){background:#173347}
+.demoScale span:nth-child(even){background:#fff}
+.demoLine{height:4px;background:var(--red);width:280px;border-radius:3px;position:relative;margin:25px 0 10px}
+.demoLine:before,.demoLine:after{content:"";position:absolute;width:4px;height:22px;background:var(--red);top:-9px}
+.demoLine:before{left:0}.demoLine:after{right:0}
+.cer{border-left:6px solid var(--teal)}
+.checkline{display:flex;align-items:flex-start;gap:8px;margin:.35rem 0}
+.checkline label{margin:0;font-weight:600}
+.quiz{display:none;margin-top:18px}
+.quiz.open{display:block}
+.q{border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;background:#fcfeff}
+.q>label,.q .checkline label{font-weight:600}
+.qtitle{font-weight:900;margin-bottom:8px}
+.matchq{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:center;margin:.45rem 0}
+.sequenceRow{display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:center;margin:.45rem 0}
+.resultCard{display:none;margin-top:16px;border:2px solid #8ac7b0;background:#effbf5;border-radius:20px;padding:18px}
+.resultCard.show{display:block}
+.resultScore{font-size:2rem;font-weight:950;color:#17684b}
+.source{font-size:.88rem;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:15px;padding:11px 14px;background:#fff;margin:10px 0}
+summary{font-weight:900;cursor:pointer}
+footer{padding:28px 0 48px;color:var(--muted)}
+:focus-visible{outline:3px solid #f2aa4c;outline-offset:3px}
+@media(max-width:820px){
+ .grid2,.grid3,.grid4{grid-template-columns:1fr}
+ .matchrow,.matchq{grid-template-columns:1fr}
+ .hero{padding-top:44px}
+ .card{border-radius:20px}
+ .nav{position:static}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{
+ body{background:#fff}
+ .nav,.hero,.card:not(#homework),footer,.noPrint{display:none!important}
+ #homework{box-shadow:none;border:0;margin:0;padding:0}
+ #homework>*:not(.resultCard){display:none!important}
+ .resultCard{display:block!important;border:2px solid #333;background:#fff}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="start">
+  <div class="wrap">
+    <span class="kicker">7 КЛАС • УРОК №7 • §7 • ГР1 + ГР2</span>
+    <h1>Відстані на карті: масштаб без магії</h1>
+    <p class="lead">Сьогодні карта працює як вимірювальний прилад. Не вгадуємо відстані «на око», а доводимо їх масштабом, порівнюємо материки й ловимо одну дуже сучасну пастку: чому надрукований числовий масштаб може підвести на екрані.</p>
+    <div class="chips">
+      <span class="tag">📏 числовий → іменований → лінійний</span>
+      <span class="tag">🗺️ 3 карти з масштабною шкалою</span>
+      <span class="tag">🌍 Африка • Австралія • Південна Америка</span>
+      <span class="tag">🧠 доказ + похибка</span>
+      <span class="tag">⏱️ 35 хв</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Навігація уроком">
+  <div class="wrap">
+    <a href="#problem">Проблема</a><a href="#translator">Масштаб-перекладач</a><a href="#video">Відео</a>
+    <a href="#africa">Африка</a><a href="#mission">Місія</a><a href="#theory">Теорія</a>
+    <a href="#trap">Пастка</a><a href="#summary">CER</a><a href="#homework">Д/З + тест</a>
+  </div>
+</nav>
+
+<main class="wrap">
+<section class="card problem" id="problem">
+  <span class="time">0–3 хв</span>
+  <h2>1. Проблема: 6 см — це багато чи мало?</h2>
+  <p class="bigq">На двох картах відстань між крайніми точками материка дорівнює 6 см. Чи може на місцевості одна з цих відстаней бути у п’ять разів більшою?</p>
+  <div class="choice" role="group" aria-label="Перша гіпотеза">
+    <button type="button" onclick="problemVote(this,'yes')">Так, може</button>
+    <button type="button" onclick="problemVote(this,'no')">Ні, 6 см = 6 см</button>
+    <button type="button" onclick="problemVote(this,'need')">Без масштабу не довести</button>
+  </div>
+  <div id="problemFeedback" class="feedback" aria-live="polite"></div>
+  <div class="note"><b>Правило уроку:</b> відповідь без масштабу — це припущення. Відповідь із виміром, масштабом і поясненням похибки — це географічний доказ.</div>
+</section>
+
+<section class="card" id="translator">
+  <span class="time">3–7 хв</span>
+  <h2>2. Масштаб-перекладач</h2>
+  <p>Зіставте числовий та іменований масштаб. Тут важливе не везіння, а одиниці: <b>1 км = 100 000 см</b>.</p>
+  <div class="mini">
+    <div class="matchrow"><div class="scaleNum">1 : 1 000 000</div><select class="scale-select" data-answer="10"><option value="">оберіть відповідність</option><option value="1">в 1 см — 1 км</option><option value="10">в 1 см — 10 км</option><option value="25">в 1 см — 25 км</option><option value="200">в 1 см — 200 км</option></select></div>
+    <div class="matchrow"><div class="scaleNum">1 : 2 500 000</div><select class="scale-select" data-answer="25"><option value="">оберіть відповідність</option><option value="10">в 1 см — 10 км</option><option value="25">в 1 см — 25 км</option><option value="50">в 1 см — 50 км</option><option value="250">в 1 см — 250 км</option></select></div>
+    <div class="matchrow"><div class="scaleNum">1 : 5 000 000</div><select class="scale-select" data-answer="50"><option value="">оберіть відповідність</option><option value="5">в 1 см — 5 км</option><option value="50">в 1 см — 50 км</option><option value="500">в 1 см — 500 км</option><option value="5000">в 1 см — 5000 км</option></select></div>
+    <div class="matchrow"><div class="scaleNum">1 : 20 000 000</div><select class="scale-select" data-answer="200"><option value="">оберіть відповідність</option><option value="20">в 1 см — 20 км</option><option value="200">в 1 см — 200 км</option><option value="2000">в 1 см — 2000 км</option><option value="20000">в 1 см — 20 000 км</option></select></div>
+  </div>
+  <button class="btn" type="button" onclick="checkScaleMatch()">Перевірити відповідності</button>
+  <div id="matchFeedback" class="feedback" aria-live="polite"></div>
+  <details><summary>Підказка, якщо десь загубився нуль</summary><p>Щоб перетворити знаменник числового масштабу на кілометри для 1 см карти, поділіть його на 100 000. Наприклад: 5 000 000 ÷ 100 000 = 50 км.</p></details>
+</section>
+
+<section class="card" id="video">
+  <span class="time">7–9 хв</span>
+  <h2>3. 70 секунд: знайдіть три форми масштабу</h2>
+  <p><b>Перед переглядом:</b> запишіть три слова, які очікуєте почути: числовий, іменований, лінійний. Після — сформулюйте, чим лінійний масштаб відрізняється не за виглядом, а за способом використання.</p>
+  <div class="videoWrap">
+    <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/r39y-tJP_Po?start=260&amp;end=330" title="Короткий фрагмент про види масштабу" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <p class="source"><a href="https://www.youtube.com/watch?v=r39y-tJP_Po&t=260s" target="_blank" rel="noopener">Відкрити фрагмент окремо →</a></p>
+</section>
+
+<section class="card" id="africa">
+  <span class="time">9–15 хв</span>
+  <h2>4. Лабораторія доказів: Африка</h2>
+  <p>Карта нижче створена на основі векторних даних <b>Natural Earth 1:110m</b>. На ній є вбудована <b>лінійна шкала в кілометрах</b> і червоні лінії між крайніми точками материка. Вимірюйте саме за шкалою, а не за «сантиметрами екрана».</p>
+  <div class="mapframe">
+    <img class="mapimg" src="assets/africa-scale-map.svg" alt="Навчальна карта Африки з крайніми точками та лінійним масштабом у кілометрах">
+    <div class="maplegend"><span>🔴 N–S: північ → південь</span><span>🔴 W–E: захід → схід</span><span>📏 шкала: 0–2000 км</span></div>
+  </div>
+  <div class="grid2 measureBox mini">
+    <div>
+      <label for="afrNS">Протяжність Африки N–S, км</label>
+      <input id="afrNS" type="number" inputmode="numeric" min="0" step="50" placeholder="Наприклад: 8000">
+    </div>
+    <div>
+      <label for="afrWE">Протяжність Африки W–E, км</label>
+      <input id="afrWE" type="number" inputmode="numeric" min="0" step="50" placeholder="Ваш результат">
+    </div>
+  </div>
+  <button class="btn alt" type="button" onclick="checkAfrica()">Перевірити порядок величини</button>
+  <div id="africaFeedback" class="feedback" aria-live="polite"></div>
+  <details><summary>Немає лінійки? Є спосіб.</summary><p>Візьміть смужку паперу. Спочатку перенесіть на неї довжину відрізка шкали 0–2000 км, а потім «крокуйте» цією міткою вздовж червоної лінії. Це працює навіть тоді, коли карта збільшена на проєкторі.</p></details>
+  <div class="note goodnote"><b>Потрібний висновок:</b> не просто назвіть два числа. Скажіть, <i>яка протяжність більша, приблизно на скільки і що могло дати похибку</i>: вибір крайніх точок, товщина лінії, округлення, проєкція.</div>
+</section>
+
+<section class="card" id="mission">
+  <span class="time">15–20 хв</span>
+  <h2>5. Різнорівнева місія: друга карта — новий доказ</h2>
+  <p>Оберіть рівень. Високий рівень — не «більше писати», а працювати з додатковою картою та обмеженнями вимірювання.</p>
+  <div class="leveltabs" role="tablist" aria-label="Рівні завдань">
+    <button class="levelbtn active" id="tabBase" type="button" onclick="showLevel('base')">Базовий</button>
+    <button class="levelbtn" id="tabEnough" type="button" onclick="showLevel('enough')">Достатній</button>
+    <button class="levelbtn" id="tabHigh" type="button" onclick="showLevel('high')">Високий</button>
+  </div>
+
+  <div class="levelpanel open" id="levelBase">
+    <div class="mapframe"><img class="mapimg" loading="lazy" src="assets/australia-scale-map.svg" alt="Навчальна карта Австралії з крайніми точками та лінійним масштабом у кілометрах"></div>
+    <div class="grid2 mini">
+      <div><label for="ausNS">Австралія N–S, км</label><input id="ausNS" type="number" min="0" step="50" placeholder="Оцініть за шкалою"></div>
+      <div><label for="ausWE">Австралія W–E, км</label><input id="ausWE" type="number" min="0" step="50" placeholder="Оцініть за шкалою"></div>
+    </div>
+    <button class="btn alt" type="button" onclick="checkAustralia()">Перевірити</button>
+    <div id="australiaFeedback" class="feedback" aria-live="polite"></div>
+  </div>
+
+  <div class="levelpanel" id="levelEnough">
+    <div class="grid2">
+      <div class="mini"><h3>Критерій 1 — абсолютні розміри</h3><p>Порівняйте свої вимірювання Африки й Австралії. Який материк більший N–S? Який — W–E? Наведіть <b>два числа</b> як докази.</p></div>
+      <div class="mini"><h3>Критерій 2 — форма</h3><p>Який материк сильніше витягнутий із заходу на схід? Не дивіться лише на картинку: порівняйте W–E з N–S.</p></div>
+    </div>
+    <textarea id="enoughAnswer" placeholder="Мій висновок: … Доказ 1: … Доказ 2: …"></textarea>
+  </div>
+
+  <div class="levelpanel" id="levelHigh">
+    <div class="mapframe"><img class="mapimg" loading="lazy" src="assets/south-america-scale-map.svg" alt="Навчальна карта Південної Америки з крайніми точками та лінійним масштабом у кілометрах"></div>
+    <div class="grid2 mini">
+      <div><label for="saNS">Південна Америка N–S, км</label><input id="saNS" type="number" min="0" step="50" placeholder="За шкалою"></div>
+      <div><label for="saWE">Південна Америка W–E, км</label><input id="saWE" type="number" min="0" step="50" placeholder="За шкалою"></div>
+    </div>
+    <button class="btn alt" type="button" onclick="checkSouthAmerica()">Перевірити</button>
+    <div id="saFeedback" class="feedback" aria-live="polite"></div>
+    <label for="highLimit">Обмеження висновку</label>
+    <textarea id="highLimit" placeholder="Чому навіть акуратне вимірювання за шкалою не дає абсолютно точного числа? Назвіть щонайменше два джерела похибки."></textarea>
+  </div>
+</section>
+
+<section class="card theory" id="theory">
+  <span class="time">20–30 хв</span>
+  <h2>6. Теорія: тепер називаємо те, що вже зробили</h2>
+  <div class="grid3">
+    <div class="mini"><h3>1. Числовий</h3><p><b>1 : n</b> означає: 1 одиниця на карті відповідає n таким самим одиницям на місцевості.</p><div class="formula">Dкм = lсм × n ÷ 100 000</div></div>
+    <div class="mini"><h3>2. Іменований</h3><p>Перекладає числовий масштаб людською мовою: <b>«в 1 см — 50 км»</b>. Для 1:5 000 000 це саме так.</p></div>
+    <div class="mini"><h3>3. Лінійний</h3><p>Графічна шкала. Її головний плюс у вебуроці: <b>вона збільшується і зменшується разом із картою</b>.</p></div>
+    <div class="mini"><h3>4. Більший масштаб</h3><p>1:25 000 — <b>більший</b> масштаб, ніж 1:2 500 000. У знаменнику менше число → територія показана детальніше.</p></div>
+    <div class="mini"><h3>5. Алгоритм</h3><p>Знайти масштаб → виміряти відрізок → перевести одиниці → округлити розумно → оцінити похибку.</p></div>
+    <div class="mini"><h3>6. Не вся відстань пряма</h3><p>Звивисту річку або берег вимірюють ниткою, курвіметром або цифровим інструментом. Результат залежить від деталізації.</p></div>
+  </div>
+  <div class="note"><b>Ключова різниця:</b> «на карті 4 см» — це ще не географічна відстань. Масштаб перетворює ці 4 см на реальну величину.</div>
+</section>
+
+<section class="card trap" id="trap">
+  <span class="time">30–33 хв</span>
+  <h2>7. Картографічний детектор: пастка браузера</h2>
+  <p>Уявіть, що в підручнику карта надрукована в масштабі <b>1:50 000 000</b>. Її сфотографували й відкрили на сайті, а потім збільшили до 140%. Чи можна прикласти звичайну лінійку до екрана і користуватися числовим масштабом без поправки?</p>
+  <div class="zoomdemo">
+    <label for="zoomRange">Змініть «розмір картинки»: <span id="zoomValue">100%</span></label>
+    <input id="zoomRange" type="range" min="60" max="140" value="100" oninput="zoomDemo(this.value)">
+    <div id="zoomObject" class="zoomobject" style="width:100%">
+      <div class="demoLine" aria-label="Умовний вимірюваний відрізок"></div>
+      <div class="demoScale" aria-label="Лінійна шкала"><span></span><span></span><span></span><span></span></div>
+      <b>0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;500&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000 км</b>
+      <p><b>Надпис:</b> 1 : 50 000 000</p>
+    </div>
+  </div>
+  <div class="choice">
+    <button type="button" onclick="trapAnswer(this,false)">Так. Напис 1:50 000 000 усе вирішує.</button>
+    <button type="button" onclick="trapAnswer(this,true)">Ні. На екрані безпечніше користуватися лінійною шкалою.</button>
+    <button type="button" onclick="trapAnswer(this,false)">Ні, бо на цифрових картах масштабу взагалі немає.</button>
+  </div>
+  <div id="trapFeedback" class="feedback" aria-live="polite"></div>
+</section>
+
+<section class="card cer" id="summary">
+  <span class="time">33–35 хв</span>
+  <h2>8. Підсумок CER</h2>
+  <p><b>Питання:</b> який спосіб масштабу найнадійніший для вимірювання карти, що може змінювати розмір на екрані?</p>
+  <label for="cerClaim">C — твердження</label>
+  <textarea id="cerClaim" placeholder="Я вважаю, що…"></textarea>
+  <label for="cerEvidence">E — доказ</label>
+  <textarea id="cerEvidence" placeholder="Під час роботи з картою Африки / демонстрацією масштабування я побачив(-ла), що…"></textarea>
+  <label for="cerReason">R — пояснення</label>
+  <textarea id="cerReason" placeholder="Це підтверджує твердження, тому що…"></textarea>
+  <button class="btn ghost" type="button" onclick="saveCER()">Зберегти чернетку в цьому браузері</button>
+  <div id="cerStatus" class="feedback" aria-live="polite"></div>
+</section>
+
+<section class="card" id="homework">
+  <h2>9. Домашнє завдання</h2>
+  <div class="grid2">
+    <div class="mini">
+      <h3>Обов’язково</h3>
+      <p><b>§7.</b> Повторіть три форми масштабу та алгоритм вимірювання.</p>
+      <p><a href="https://cutt.ly/8eQ3vv8b" target="_blank" rel="noopener">Електронний підручник →</a></p>
+      <p><b>Коротке відео перед тестом:</b> фрагмент про числовий, іменований і лінійний масштаб.</p>
+      <p><a href="https://www.youtube.com/watch?v=r39y-tJP_Po&t=260s" target="_blank" rel="noopener">Відкрити відео →</a></p>
+    </div>
+    <div class="mini">
+      <h3>Завдання на вибір</h3>
+      <p><b>Базовий:</b> перетворіть 1:3 000 000, 1:7 500 000 і 1:20 000 000 на іменований масштаб.</p>
+      <p><b>Достатній:</b> за картою Австралії визначте N–S і W–E, запишіть різницю та поясніть, у якому напрямку материк витягнутий сильніше.</p>
+      <p><b>Високий:</b> за картою Південної Америки виконайте два вимірювання й складіть CER про похибку: що виміряли, який доказ отримали, чого карта не дозволяє довести абсолютно точно.</p>
+    </div>
+  </div>
+
+  <div class="mini">
+    <h3>Тест • 10 балів</h3>
+    <div id="identityGate">
+      <div class="grid2">
+        <div><label for="fullName">Ім’я та прізвище</label><input id="fullName" type="text" autocomplete="name" placeholder="Марія Іваненко"></div>
+        <div><label for="studentClass">Клас</label><input id="studentClass" type="text" placeholder="7-А"></div>
+      </div>
+      <button class="btn" type="button" onclick="unlockQuiz()">Розпочати тест</button>
+      <div id="gateMsg" class="feedback" aria-live="polite"></div>
+    </div>
+
+    <form id="quizBox" class="quiz" onsubmit="event.preventDefault();gradeQuiz();">
+      <div class="q"><div class="qtitle">1. На карті 6,4 см. Масштаб 1:2 500 000. Яка реальна відстань?</div>
+        <label><input type="radio" name="q1" value="a"> 16 км</label>
+        <label><input type="radio" name="q1" value="b"> 64 км</label>
+        <label><input type="radio" name="q1" value="c"> 160 км</label>
+        <label><input type="radio" name="q1" value="d"> 1600 км</label>
+      </div>
+
+      <div class="q"><div class="qtitle">2. Іменований масштаб «в 1 см — 80 км» відповідає:</div>
+        <label><input type="radio" name="q2" value="a"> 1:800 000</label>
+        <label><input type="radio" name="q2" value="b"> 1:8 000 000</label>
+        <label><input type="radio" name="q2" value="c"> 1:80 000 000</label>
+        <label><input type="radio" name="q2" value="d"> 1:8 000</label>
+      </div>
+
+      <div class="q"><div class="qtitle">3. Картинку з написом «1:50 000 000» у браузері збільшили до 150%. Учень приклав лінійку до екрана. Що найкраще зробити?</div>
+        <label><input type="radio" name="q3" value="a"> Користуватися числовим масштабом без змін.</label>
+        <label><input type="radio" name="q3" value="b"> Поділити результат на 150.</label>
+        <label><input type="radio" name="q3" value="c"> Користуватися вбудованою лінійною шкалою або повернути відомий фізичний розмір карти.</label>
+        <label><input type="radio" name="q3" value="d"> Масштаб узагалі більше не потрібен.</label>
+      </div>
+
+      <div class="q"><div class="qtitle">4. Яка карта має більший масштаб і зазвичай покаже більше деталей?</div>
+        <label><input type="radio" name="q4" value="a"> 1:25 000</label>
+        <label><input type="radio" name="q4" value="b"> 1:250 000</label>
+        <label><input type="radio" name="q4" value="c"> 1:2 500 000</label>
+        <label><input type="radio" name="q4" value="d"> 1:25 000 000</label>
+      </div>
+
+      <div class="q" id="q5"><div class="qtitle">5. Оберіть ВСІ записи, еквівалентні масштабу 1:5 000 000.</div>
+        <div class="checkline"><input id="q5a" type="checkbox" value="a"><label for="q5a">в 1 см — 5 км</label></div>
+        <div class="checkline"><input id="q5b" type="checkbox" value="b"><label for="q5b">в 1 см — 50 км</label></div>
+        <div class="checkline"><input id="q5c" type="checkbox" value="c"><label for="q5c">2 см на карті — 100 км на місцевості</label></div>
+        <div class="checkline"><input id="q5d" type="checkbox" value="d"><label for="q5d">5 см на карті — 50 км на місцевості</label></div>
+      </div>
+
+      <div class="q" id="q6"><div class="qtitle">6. Що справді може створити похибку під час вимірювання протяжності материка за картою? Оберіть ВСЕ правильне.</div>
+        <div class="checkline"><input id="q6a" type="checkbox" value="a"><label for="q6a">Неточний вибір крайніх точок.</label></div>
+        <div class="checkline"><input id="q6b" type="checkbox" value="b"><label for="q6b">Товщина нанесеної лінії та округлення.</label></div>
+        <div class="checkline"><input id="q6c" type="checkbox" value="c"><label for="q6c">Картографічна проєкція.</label></div>
+        <div class="checkline"><input id="q6d" type="checkbox" value="d"><label for="q6d">Те, що материк «стискається», коли на нього не дивляться.</label></div>
+      </div>
+
+      <div class="q"><div class="qtitle">7. Установіть відповідність.</div>
+        <div class="matchq"><span>1:1 000 000</span><select id="m1"><option value="">—</option><option value="a">1 см — 10 км</option><option value="b">1 см — 25 км</option><option value="c">1 см — 100 км</option><option value="d">1 см — 200 км</option></select></div>
+        <div class="matchq"><span>1:2 500 000</span><select id="m2"><option value="">—</option><option value="a">1 см — 10 км</option><option value="b">1 см — 25 км</option><option value="c">1 см — 100 км</option><option value="d">1 см — 200 км</option></select></div>
+        <div class="matchq"><span>1:10 000 000</span><select id="m3"><option value="">—</option><option value="a">1 см — 10 км</option><option value="b">1 см — 25 км</option><option value="c">1 см — 100 км</option><option value="d">1 см — 200 км</option></select></div>
+        <div class="matchq"><span>1:20 000 000</span><select id="m4"><option value="">—</option><option value="a">1 см — 10 км</option><option value="b">1 см — 25 км</option><option value="c">1 см — 100 км</option><option value="d">1 см — 200 км</option></select></div>
+      </div>
+
+      <div class="q"><div class="qtitle">8. Розташуйте кроки вимірювання у правильній послідовності: задайте номер 1–4.</div>
+        <div class="sequenceRow"><select id="s1"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span>Знайти та правильно прочитати масштаб.</span></div>
+        <div class="sequenceRow"><select id="s2"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span>Виміряти потрібний відрізок на карті.</span></div>
+        <div class="sequenceRow"><select id="s3"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span>Перевести вимір за масштабом у кілометри.</span></div>
+        <div class="sequenceRow"><select id="s4"><option value="">№</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span>Оцінити похибку й розумно округлити результат.</span></div>
+      </div>
+
+      <div class="q"><div class="qtitle">9. Учень стверджує: «Африка простягається з півночі на південь більш ніж на 7 000 км». Який набір доказів найкраще перевіряє це твердження?</div>
+        <label><input type="radio" name="q9" value="a"> Лише фотографія материка без масштабу.</label>
+        <label><input type="radio" name="q9" value="b"> Карта з крайніми точками та читабельною масштабною шкалою + виконане вимірювання.</label>
+        <label><input type="radio" name="q9" value="c"> Назва найбільшої країни Африки.</label>
+        <label><input type="radio" name="q9" value="d"> Кількість часових поясів.</label>
+      </div>
+
+      <div class="q"><div class="qtitle">10. Який CER-висновок найповніший?</div>
+        <label><input type="radio" name="q10" value="a"> «Лінійний масштаб найкращий, бо він мені подобається».</label>
+        <label><input type="radio" name="q10" value="b"> «На екрані доцільно користуватися лінійною шкалою: вона змінює розмір разом із картою, тому співвідношення довжин зберігається; однак проєкція й вибір точок усе одно дають похибку».</label>
+        <label><input type="radio" name="q10" value="c"> «Будь-який масштаб завжди дає абсолютно точний результат».</label>
+        <label><input type="radio" name="q10" value="d"> «Числовий масштаб не потрібний у географії».</label>
+      </div>
+
+      <button class="btn alt" type="submit">Завершити тест</button>
+    </form>
+
+    <div id="resultCard" class="resultCard" aria-live="polite">
+      <div id="resultScore" class="resultScore"></div>
+      <div id="resultMeta"></div>
+      <p id="resultComment"></p>
+      <p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p>
+      <div class="choice noPrint">
+        <button type="button" class="btn ghost" onclick="window.print()">Друк / PDF</button>
+        <button type="button" class="btn ghost" onclick="retakeQuiz()">Пройти ще раз</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</div></footer>
+
+<script>
+function selectButton(groupButton){
+  var p=groupButton.parentElement;
+  p.querySelectorAll('button').forEach(function(b){b.classList.remove('selected');});
+  groupButton.classList.add('selected');
+}
+function problemVote(btn,value){
+  selectButton(btn);
+  var out=document.getElementById('problemFeedback');
+  if(value==='yes') out.textContent='Так, може — якщо карти мають різні масштаби. Але саме число «у п’ять разів» ще треба довести масштабами.';
+  if(value==='no') out.textContent='6 см на папері однакові, але реальні відстані залежать від масштабу. Однаковий відрізок на різних картах може означати дуже різні кілометри.';
+  if(value==='need') out.textContent='Саме так: без масштабів ми не можемо перевести сантиметри карти у кілометри місцевості.';
+}
+function checkScaleMatch(){
+  var all=[].slice.call(document.querySelectorAll('.scale-select'));
+  var done=all.filter(function(s){return s.value;}).length;
+  var correct=all.filter(function(s){return s.value===s.dataset.answer;}).length;
+  var out=document.getElementById('matchFeedback');
+  if(done<all.length){out.textContent='Заповніть усі чотири відповідності.';return;}
+  out.textContent=correct===all.length?'4/4. Нулі приборкані. Тепер масштаб можна використовувати, а не боятися.':'Правильних: '+correct+'/4. Перевірте правило: знаменник ÷ 100 000 = кілометри в 1 см.';
+}
+function inRange(v,min,max){return Number.isFinite(v)&&v>=min&&v<=max}
+function checkAfrica(){
+  var ns=Number(document.getElementById('afrNS').value),we=Number(document.getElementById('afrWE').value);
+  var out=document.getElementById('africaFeedback');
+  if(!ns||!we){out.textContent='Потрібні обидва вимірювання.';return;}
+  var okNS=inRange(ns,7600,8500),okWE=inRange(we,7000,8000);
+  if(okNS&&okWE) out.textContent='Порядок величини правильний. Орієнтир: приблизно 8 100 км N–S і 7 500 км W–E. Невелика різниця між групами — нормальна похибка вимірювання.';
+  else out.textContent='Один із результатів вийшов далеко від очікуваного порядку величини. Орієнтир для самоперевірки: близько 8 тис. км N–S і 7,5 тис. км W–E. Перевірте, скільки разів шкала вкладається в червону лінію.';
+}
+function showLevel(level){
+  ['Base','Enough','High'].forEach(function(x){document.getElementById('level'+x).classList.remove('open');document.getElementById('tab'+x).classList.remove('active');});
+  var map={base:'Base',enough:'Enough',high:'High'};
+  document.getElementById('level'+map[level]).classList.add('open');
+  document.getElementById('tab'+map[level]).classList.add('active');
+}
+function checkAustralia(){
+  var ns=Number(document.getElementById('ausNS').value),we=Number(document.getElementById('ausWE').value);
+  var out=document.getElementById('australiaFeedback');
+  if(!ns||!we){out.textContent='Введіть два вимірювання.';return;}
+  if(inRange(ns,2900,3500)&&inRange(we,3650,4350)) out.textContent='Так: орієнтовно 3 200 км N–S і 4 000 км W–E. Отже, Австралія сильніше витягнута із заходу на схід.';
+  else out.textContent='Переміряйте за шкалою 0–1000 км. Орієнтири мають бути приблизно 3,2 тис. км N–S та 4,0 тис. км W–E.';
+}
+function checkSouthAmerica(){
+  var ns=Number(document.getElementById('saNS').value),we=Number(document.getElementById('saWE').value);
+  var out=document.getElementById('saFeedback');
+  if(!ns||!we){out.textContent='Введіть два результати.';return;}
+  if(inRange(ns,6900,7900)&&inRange(we,4700,5600)) out.textContent='Порядок величини правильний: приблизно 7,4 тис. км N–S і 5,2 тис. км W–E. Тут форма материка вже дуже виразно «меридіональна».';
+  else out.textContent='Спробуйте ще раз: очікуйте приблизно 7–8 тис. км N–S та близько 5 тис. км W–E.';
+}
+function zoomDemo(v){
+  document.getElementById('zoomValue').textContent=v+'%';
+  document.getElementById('zoomObject').style.width=v+'%';
+}
+function trapAnswer(btn,ok){
+  selectButton(btn);
+  document.getElementById('trapFeedback').textContent=ok
+    ?'Так. Якщо растрову або вебкартинку фізично змінили, «1 см на екрані» вже не відповідає початковому числовому масштабу. А лінійна шкала змінилася разом із зображенням, тому співвідношення можна зчитати.'
+    :'Не зовсім. Числовий масштаб правильний для заданого фізичного розміру карти. Після довільного масштабування зображення сантиметр на екрані вже інший; лінійна шкала безпечніша.';
+}
+function saveCER(){
+  var data={claim:document.getElementById('cerClaim').value,evidence:document.getElementById('cerEvidence').value,reason:document.getElementById('cerReason').value};
+  try{localStorage.setItem('geo7_lesson7_cer',JSON.stringify(data));document.getElementById('cerStatus').textContent='Чернетку збережено на цьому пристрої.';}
+  catch(e){document.getElementById('cerStatus').textContent='Браузер не дозволив локальне збереження. Текст лишається на сторінці до її закриття.';}
+}
+(function restoreCER(){
+  try{
+    var raw=localStorage.getItem('geo7_lesson7_cer');if(!raw)return;
+    var d=JSON.parse(raw);
+    document.getElementById('cerClaim').value=d.claim||'';
+    document.getElementById('cerEvidence').value=d.evidence||'';
+    document.getElementById('cerReason').value=d.reason||'';
+  }catch(e){}
+})();
+function validFullName(value){
+  var parts=value.trim().replace(/\s+/g,' ').split(' ');
+  return parts.length>=2 && parts.every(function(p){return /^[A-Za-zА-ЯІЇЄҐа-яіїєґ'’\-]+$/u.test(p);});
+}
+function unlockQuiz(){
+  var name=document.getElementById('fullName').value;
+  var klass=document.getElementById('studentClass').value.trim();
+  var msg=document.getElementById('gateMsg');
+  if(!validFullName(name)||!klass){msg.textContent='Введіть ім’я та прізвище щонайменше двома словами і вкажіть клас.';return;}
+  document.getElementById('quizBox').classList.add('open');
+  msg.textContent='Тест відкрито. У завданнях 5–6 потрібно вибрати точний набір відповідей.';
+}
+function radioValue(name){
+  var el=document.querySelector('input[name="'+name+'"]:checked');
+  return el?el.value:'';
+}
+function checkedSet(id){
+  return [].slice.call(document.querySelectorAll('#'+id+' input[type="checkbox"]:checked')).map(function(x){return x.value;}).sort().join(',');
+}
+function gradeQuiz(){
+  var score=0;
+  if(radioValue('q1')==='c')score++;
+  if(radioValue('q2')==='b')score++;
+  if(radioValue('q3')==='c')score++;
+  if(radioValue('q4')==='a')score++;
+  if(checkedSet('q5')==='b,c')score++;
+  if(checkedSet('q6')==='a,b,c')score++;
+  if(document.getElementById('m1').value==='a'&&document.getElementById('m2').value==='b'&&document.getElementById('m3').value==='c'&&document.getElementById('m4').value==='d')score++;
+  if(document.getElementById('s1').value==='1'&&document.getElementById('s2').value==='2'&&document.getElementById('s3').value==='3'&&document.getElementById('s4').value==='4')score++;
+  if(radioValue('q9')==='b')score++;
+  if(radioValue('q10')==='b')score++;
+  var pct=Math.round(score*10);
+  var comment=score<=4?'Повторіть перетворення масштабу та алгоритм вимірювання.':score<=7?'Достатній рівень: основна логіка працює, перевірте завдання на похибку й масштабування.':score<=9?'Добре: масштаб читаєте впевнено, залишилися окремі логічні пастки.':'Відмінно: обчислення, доказ і обмеження даних зійшлися.';
+  var now=new Date();
+  document.getElementById('resultScore').textContent=score+'/10 • '+pct+'%';
+  document.getElementById('resultMeta').textContent=document.getElementById('fullName').value.trim()+' • '+document.getElementById('studentClass').value.trim()+' • Урок 7: відстані за масштабом • '+now.toLocaleString('uk-UA');
+  document.getElementById('resultComment').textContent=comment;
+  document.getElementById('resultCard').classList.add('show');
+  document.getElementById('resultCard').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function retakeQuiz(){
+  document.getElementById('quizBox').reset();
+  document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('quizBox').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body>
+</html>
