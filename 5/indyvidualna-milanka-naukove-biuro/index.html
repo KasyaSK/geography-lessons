@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>Міланка • Наукове бюро: справа №5</title>
+<style>
+:root{
+  --ink:#17324a;--muted:#607487;--bg:#f4fbff;--card:#fff;--line:#d7e7f1;
+  --blue:#4c83ff;--teal:#2eb7b1;--yellow:#ffd469;--pink:#ff8cae;--purple:#836ff4;
+  --green:#3cbf89;--red:#eb6b6b;--navy:#163f64;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:Inter,"Segoe UI",system-ui,sans-serif;
+  background:
+    radial-gradient(circle at 8% 2%,#d9f6ff 0 8%,transparent 23%),
+    radial-gradient(circle at 92% 3%,#fff0b6 0 7%,transparent 22%),
+    linear-gradient(180deg,#f8fdff 0,#eef8ff 58%,#fff9ef 100%);
+}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.wrap{width:min(1040px,92vw);margin:auto}
+.hero{padding:30px 0 12px}
+.heroBox{
+  position:relative;overflow:hidden;border-radius:32px;padding:28px;
+  color:#fff;background:linear-gradient(135deg,#153b61,#246fa0 52%,#1c9996);
+  box-shadow:0 18px 50px #1c4f7130
+}
+.heroBox:before,.heroBox:after{content:"";position:absolute;border-radius:50%;background:#ffffff18}
+.heroBox:before{width:260px;height:260px;right:-100px;top:-130px}
+.heroBox:after{width:140px;height:140px;left:-60px;bottom:-75px}
+.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;font-weight:950;opacity:.86}
+h1{font-size:clamp(2rem,6vw,4.8rem);line-height:.98;margin:.4rem 0 .8rem}
+h2{font-size:clamp(1.45rem,3vw,2.25rem);margin:.2rem 0 .7rem}
+h3{margin:.2rem 0 .5rem}
+p{line-height:1.55}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+.badge{padding:7px 10px;border-radius:999px;border:1px solid #ffffff4c;background:#ffffff17;font-weight:850;font-size:.82rem}
+.progressDock{
+  position:sticky;top:8px;z-index:20;width:min(1040px,92vw);margin:9px auto 18px;
+  border:1px solid var(--line);border-radius:18px;background:#ffffffee;backdrop-filter:blur(10px);
+  padding:10px 12px;box-shadow:0 8px 24px #173c5a16;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center
+}
+.progress{height:10px;background:#e7eff5;border-radius:99px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--purple));transition:.25s}
+#progressText{font-size:.86rem;font-weight:900;color:#3c566b}
+.pill{font-size:.78rem;font-weight:900;padding:6px 9px;border-radius:999px;background:#eef5ff;color:#3c5f8a}
+.section{margin:18px 0;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:0 10px 28px #244d6b0d}
+.kicker{text-transform:uppercase;letter-spacing:.11em;font-size:.76rem;font-weight:950;color:#34799b}
+.taskHead{display:flex;gap:11px;align-items:flex-start}
+.num{display:grid;place-items:center;min-width:36px;height:36px;border-radius:12px;background:#e7f1ff;color:#285e9c;font-weight:950}
+.note{padding:14px 16px;border-radius:16px;background:#eef8ff;border-left:5px solid var(--blue)}
+.case{padding:16px;border-radius:20px;background:linear-gradient(135deg,#fff8d9,#f8fdff);border:1px solid #eadca7}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:18px;padding:15px;background:#fbfdff}
+.small{font-size:.88rem;color:var(--muted)}
+.evidenceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:12px}
+.evidence{
+  border:1px solid #cddfe9;border-radius:16px;padding:14px;background:#fff;text-align:left;color:var(--ink);min-height:92px
+}
+.evidence b{display:block;margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.tagbtn{border:1px solid #c7d9e5;background:#f8fbfd;border-radius:999px;padding:6px 9px;font-size:.77rem;font-weight:900;color:#496377}
+.tagbtn.active{background:#eae6ff;border-color:#8d7cf6;color:#4f3fc0}
+.feedback{min-height:25px;margin-top:9px;font-size:.92rem;font-weight:760}
+.good{color:#238265}.bad{color:#bd4949}
+.check{border:0;border-radius:13px;padding:11px 15px;background:var(--navy);color:#fff;font-weight:900;margin-top:10px}
+.secondary{background:#eaf2f7;color:#294c63}
+input[type=number],input[type=text],textarea{
+  border:1px solid #c9dce8;border-radius:13px;padding:10px 11px;background:#fff;color:var(--ink)
+}
+textarea{width:100%;min-height:92px;resize:vertical}
+.instrument{background:linear-gradient(145deg,#f0fbff,#fffdf4)}
+.instrument svg{width:100%;height:auto;display:block}
+.answerline{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.answerline input{width:125px}
+.data{width:100%;border-collapse:collapse;margin:12px 0}
+.data th,.data td{border:1px solid #cfe0ea;padding:9px;text-align:center}
+.data th{background:#eef7fb}
+.chartWrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#fcfeff;padding:10px}
+#plot{width:100%;min-width:560px;height:auto;display:block}
+.choice{display:flex;gap:10px;align-items:flex-start;padding:8px 0}
+input[type=checkbox],input[type=radio]{width:19px;height:19px;accent-color:#6477e8}
+.hotWrap{overflow:auto}
+.labSvg{width:100%;min-width:690px;height:auto;display:block;background:#f9fdff;border:1px solid var(--line);border-radius:20px}
+.hot{cursor:pointer;transition:.15s}
+.hot circle{fill:#ffffff00;stroke:#ffffff00;stroke-width:4}
+.hot text{fill:#17324a;font-weight:900;font-size:13px;opacity:0}
+.hot.found circle{fill:#ffdb6a55;stroke:#efaa22;stroke-width:4}
+.hot.found text{opacity:1}
+.hot:hover circle{stroke:#8d7cf6;stroke-dasharray:5 4}
+.orderList{display:grid;gap:9px;margin-top:12px}
+.orderItem{display:grid;grid-template-columns:auto 1fr auto;gap:9px;align-items:center;padding:12px;border:1px solid #cfe0ea;border-radius:15px;background:#fff}
+.orderNo{display:grid;place-items:center;width:31px;height:31px;border-radius:10px;background:#ecf4ff;font-weight:950}
+.orderBtns{display:flex;gap:5px}
+.orderBtns button{border:1px solid #c8d8e4;background:#f8fbfd;border-radius:9px;width:35px;height:35px;font-weight:950;color:#2c5068}
+.sourceCard{border:1px solid var(--line);border-radius:18px;padding:15px;background:#fff}
+.sourceMeta{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:.88rem;margin-top:10px}
+.sourceMeta b{color:#526a7c}
+.star{font-size:1.2rem}
+.saveNote{font-size:.78rem;color:#708494;margin-top:5px}
+.result{display:none}
+.result.show{display:block}
+.resultBox{background:linear-gradient(135deg,#163d62,#177d88);color:#fff;border-radius:24px;padding:22px}
+.locked{opacity:.55}
+footer{padding:30px 0 48px;text-align:center;color:#687a89;font-size:.88rem}
+@media(max-width:760px){
+  .grid2,.grid3,.evidenceGrid{grid-template-columns:1fr}.section{padding:18px}.progressDock{grid-template-columns:1fr}
+}
+@media print{
+  .progressDock,button{display:none!important}body{background:#fff}.section,.heroBox{box-shadow:none}.heroBox{color:#000;background:#fff;border:2px solid #9ab3c0}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero wrap">
+  <div class="heroBox">
+    <div class="eyebrow">Індивідуальна робота • 5 клас • 35 хв</div>
+    <h1>НАУКОВЕ БЮРО<br>Справа №5</h1>
+    <p><b>Міланко, сьогодні Ви не пишете ще одну контрольну.</b> Ви отримуєте окреме досьє дослідниці. Завдання пов’язані між собою: треба зібрати факти, перевірити вимірювання, знайти помилки експерименту й написати висновок, як це роблять у справжньому дослідженні.</p>
+    <div class="badges"><span class="badge">працюємо тихо й самостійно</span><span class="badge">можна помилятися й виправляти</span><span class="badge">8 етапів</span><span class="badge">не контрольна</span></div>
+  </div>
+</header>
+
+<div class="progressDock">
+  <div><div class="progress"><span id="bar"></span></div><div id="progressText">0 із 8 етапів завершено</div></div>
+  <div class="pill">Доказ → перевірка → висновок</div>
+</div>
+
+<main class="wrap">
+
+<section class="section">
+  <div class="kicker">Досьє справи</div>
+  <h2>Що сталося?</h2>
+  <div class="case">
+    <p>У навчальній лабораторії досліджували, як змінюється температура води після додавання льоду. Один учень зробив висновок дуже швидко — ще до того, як перевірив усі умови досліду. Ваше завдання: <b>вирішити, яким даним можна довіряти, знайти слабкі місця досліду та скласти кращий висновок.</b></p>
+  </div>
+</section>
+
+<section class="section" id="m1">
+  <div class="taskHead"><span class="num">1</span><div><div class="kicker">4 хв • Докази</div><h2>Розсортуйте картки досьє</h2></div></div>
+  <p>Для кожної картки позначте, що це: <b>спостереження</b>, <b>вимірювання</b> чи <b>припущення</b>. Натисніть потрібну мітку під карткою.</p>
+  <div class="evidenceGrid" id="evidenceGrid">
+    <div class="evidence" data-answer="obs"><b>Картка A</b>На зовнішній поверхні склянки з’явилися краплі води.<div class="tags"><button class="tagbtn" data-v="obs">спостереження</button><button class="tagbtn" data-v="measure">вимірювання</button><button class="tagbtn" data-v="hyp">припущення</button></div></div>
+    <div class="evidence" data-answer="measure"><b>Картка B</b>Через 4 хвилини термометр показав 15 °C.<div class="tags"><button class="tagbtn" data-v="obs">спостереження</button><button class="tagbtn" data-v="measure">вимірювання</button><button class="tagbtn" data-v="hyp">припущення</button></div></div>
+    <div class="evidence" data-answer="hyp"><b>Картка C</b>Мабуть, вода охолола тільки через те, що в кімнаті було прохолодно.<div class="tags"><button class="tagbtn" data-v="obs">спостереження</button><button class="tagbtn" data-v="measure">вимірювання</button><button class="tagbtn" data-v="hyp">припущення</button></div></div>
+    <div class="evidence" data-answer="measure"><b>Картка D</b>Об’єм води на початку досліду становив 100 мл.<div class="tags"><button class="tagbtn" data-v="obs">спостереження</button><button class="tagbtn" data-v="measure">вимірювання</button><button class="tagbtn" data-v="hyp">припущення</button></div></div>
+    <div class="evidence" data-answer="hyp"><b>Картка E</b>Лід розтанув швидше, бо склянка стояла не на тому столі.<div class="tags"><button class="tagbtn" data-v="obs">спостереження</button><button class="tagbtn" data-v="measure">вимірювання</button><button class="tagbtn" data-v="hyp">припущення</button></div></div>
+    <div class="evidence" data-answer="obs"><b>Картка F</b>Кубик льоду став меншим і змінив форму.<div class="tags"><button class="tagbtn" data-v="obs">спостереження</button><button class="tagbtn" data-v="measure">вимірювання</button><button class="tagbtn" data-v="hyp">припущення</button></div></div>
+  </div>
+  <button class="check" onclick="checkEvidence()">Перевірити сортування</button>
+  <div class="feedback" id="fb-m1"></div>
+</section>
+
+<section class="section" id="m2">
+  <div class="taskHead"><span class="num">2</span><div><div class="kicker">5 хв • Прилади</div><h2>Розшифруйте чотири покази</h2></div></div>
+  <div class="grid2">
+    <div class="card instrument">
+      <h3>Термометр</h3>
+      <svg viewBox="0 0 360 170" aria-label="Термометр">
+        <rect x="62" y="16" width="26" height="112" rx="13" fill="#fff" stroke="#55748a" stroke-width="3"/><circle cx="75" cy="139" r="22" fill="#ef6a6a" stroke="#55748a" stroke-width="3"/><rect x="71" y="72" width="8" height="69" rx="4" fill="#ef6a6a"/>
+        <g stroke="#55748a" stroke-width="2"><line x1="94" y1="28" x2="121" y2="28"/><line x1="94" y1="50" x2="112" y2="50"/><line x1="94" y1="72" x2="121" y2="72"/><line x1="94" y1="94" x2="112" y2="94"/><line x1="94" y1="116" x2="121" y2="116"/></g>
+        <g fill="#3d586c" font-size="16" font-family="system-ui"><text x="130" y="34">30</text><text x="130" y="78">20</text><text x="130" y="122">10</text></g>
+        <text x="190" y="78" font-size="17" fill="#3d586c" font-family="system-ui">Рівень між 20 і 30,</text><text x="190" y="101" font-size="17" fill="#3d586c" font-family="system-ui">на 2 поділки вище 20.</text>
+      </svg>
+      <div class="answerline"><input id="aTemp" type="number"><span>°C</span></div>
+    </div>
+    <div class="card instrument">
+      <h3>Мірний циліндр</h3>
+      <svg viewBox="0 0 360 170" aria-label="Мірний циліндр">
+        <rect x="70" y="15" width="80" height="135" rx="10" fill="#fff" stroke="#55748a" stroke-width="3"/><rect x="74" y="64" width="72" height="82" fill="#8bdaf060"/>
+        <g stroke="#55748a" stroke-width="2"><line x1="150" y1="30" x2="177" y2="30"/><line x1="150" y1="52" x2="168" y2="52"/><line x1="150" y1="74" x2="177" y2="74"/><line x1="150" y1="96" x2="168" y2="96"/><line x1="150" y1="118" x2="177" y2="118"/></g>
+        <g fill="#3d586c" font-size="16" font-family="system-ui"><text x="185" y="36">100 мл</text><text x="185" y="80">60 мл</text><text x="185" y="124">20 мл</text></g>
+        <text x="205" y="151" font-size="15" fill="#3d586c" font-family="system-ui">Рівень на 70 мл</text>
+      </svg>
+      <div class="answerline"><input id="aVol" type="number"><span>мл</span></div>
+    </div>
+    <div class="card instrument">
+      <h3>Лінійка</h3>
+      <svg viewBox="0 0 360 150" aria-label="Лінійка">
+        <rect x="25" y="70" width="315" height="50" rx="7" fill="#fff1ad" stroke="#9a8030" stroke-width="3"/>
+        <g stroke="#715f28" stroke-width="2">
+          <line x1="50" y1="70" x2="50" y2="103"/><line x1="100" y1="70" x2="100" y2="103"/><line x1="150" y1="70" x2="150" y2="103"/><line x1="200" y1="70" x2="200" y2="103"/><line x1="250" y1="70" x2="250" y2="103"/><line x1="300" y1="70" x2="300" y2="103"/>
+        </g>
+        <g fill="#66551f" font-size="14" font-family="system-ui"><text x="46" y="116">0</text><text x="96" y="116">1</text><text x="146" y="116">2</text><text x="196" y="116">3</text><text x="246" y="116">4</text><text x="296" y="116">5</text></g>
+        <rect x="125" y="38" width="190" height="24" rx="10" fill="#846ff4"/>
+        <text x="40" y="26" font-size="15" fill="#3d586c" font-family="system-ui">Предмет: від 1,5 см до 5,3 см</text>
+      </svg>
+      <div class="answerline"><input id="aLen" type="number" step="0.1"><span>см</span></div>
+    </div>
+    <div class="card instrument">
+      <h3>Секундомір</h3>
+      <svg viewBox="0 0 360 150" aria-label="Секундомір">
+        <circle cx="105" cy="79" r="52" fill="#fff" stroke="#55748a" stroke-width="4"/><rect x="88" y="10" width="34" height="14" rx="5" fill="#55748a"/>
+        <text x="68" y="88" font-size="25" font-weight="900" fill="#17324a" font-family="system-ui">2:35</text>
+        <text x="185" y="72" font-size="17" fill="#3d586c" font-family="system-ui">Переведіть час</text><text x="185" y="96" font-size="17" fill="#3d586c" font-family="system-ui">у секунди.</text>
+      </svg>
+      <div class="answerline"><input id="aTime" type="number"><span>с</span></div>
+    </div>
+  </div>
+  <button class="check" onclick="checkInstruments()">Перевірити покази</button>
+  <div class="feedback" id="fb-m2"></div>
+</section>
+
+<section class="section" id="m3">
+  <div class="taskHead"><span class="num">3</span><div><div class="kicker">5 хв • Дані</div><h2>Відновіть історію за таблицею</h2></div></div>
+  <p>Одна склянка води мала такі покази після додавання льоду:</p>
+  <table class="data">
+    <tr><th>Час</th><th>0 хв</th><th>2 хв</th><th>4 хв</th><th>6 хв</th><th>8 хв</th></tr>
+    <tr><th>Температура</th><td>24 °C</td><td>18 °C</td><td>15 °C</td><td>13 °C</td><td>12 °C</td></tr>
+  </table>
+  <div class="grid2">
+    <div class="card"><b>A.</b> На скільки градусів температура зменшилася за 8 хв?<div class="answerline"><input id="drop8" type="number"><span>°C</span></div></div>
+    <div class="card"><b>B.</b> У який двохвилинний проміжок охолодження було найбільшим?<div class="answerline"><input id="fastInterval" type="text" placeholder="Напр. 2–4 хв"></div></div>
+  </div>
+  <p><b>C.</b> Яке твердження таблиця <u>дійсно підтримує</u>?</p>
+  <label class="choice"><input type="radio" name="tableClaim" value="a"> Через 20 хв вода обов’язково замерзне.</label>
+  <label class="choice"><input type="radio" name="tableClaim" value="b"> Упродовж перших 8 хв після додавання льоду температура води знижувалася.</label>
+  <label class="choice"><input type="radio" name="tableClaim" value="c"> Будь-яка вода з льодом завжди охолоджується так само.</label>
+  <button class="check" onclick="checkData()">Перевірити аналіз</button>
+  <div class="feedback" id="fb-m3"></div>
+  <div class="chartWrap">
+    <svg id="plot" viewBox="0 0 650 270" aria-label="Графік температури">
+      <rect x="0" y="0" width="650" height="270" fill="#fcfeff"/>
+      <g stroke="#d7e5ee" stroke-width="1">
+        <line x1="70" y1="35" x2="610" y2="35"/><line x1="70" y1="75" x2="610" y2="75"/><line x1="70" y1="115" x2="610" y2="115"/><line x1="70" y1="155" x2="610" y2="155"/><line x1="70" y1="195" x2="610" y2="195"/><line x1="70" y1="235" x2="610" y2="235"/>
+      </g>
+      <g stroke="#38586f" stroke-width="2"><line x1="70" y1="25" x2="70" y2="235"/><line x1="70" y1="235" x2="620" y2="235"/></g>
+      <g fill="#587083" font-size="14" font-family="system-ui"><text x="24" y="40">25°</text><text x="24" y="80">20°</text><text x="24" y="120">15°</text><text x="24" y="160">10°</text><text x="24" y="200">5°</text><text x="65" y="258">0</text><text x="198" y="258">2</text><text x="331" y="258">4</text><text x="464" y="258">6</text><text x="596" y="258">8 хв</text></g>
+      <polyline points="70,43 205,91 340,115 475,131 610,139" fill="none" stroke="#4c83ff" stroke-width="5"/>
+      <g fill="#fff" stroke="#4c83ff" stroke-width="4"><circle cx="70" cy="43" r="7"/><circle cx="205" cy="91" r="7"/><circle cx="340" cy="115" r="7"/><circle cx="475" cy="131" r="7"/><circle cx="610" cy="139" r="7"/></g>
+    </svg>
+  </div>
+</section>
+
+<section class="section" id="m4">
+  <div class="taskHead"><span class="num">4</span><div><div class="kicker">4 хв • Лабораторія помилок</div><h2>Знайдіть 4 проблеми в досліді</h2></div></div>
+  <p>Дослідник стверджує, що порівнює <b>дві однакові склянки води з однаковими кубиками льоду</b>. На схемі щось пішло дуже не по-науковому. Натисніть на <b>чотири проблемні місця</b>.</p>
+  <div class="hotWrap">
+    <svg class="labSvg" viewBox="0 0 760 360" aria-label="Схема досліду з помилками">
+      <rect x="25" y="260" width="710" height="28" rx="9" fill="#b78d67"/>
+      <rect x="560" y="55" width="145" height="120" rx="16" fill="#ffe5b5" stroke="#e39c40" stroke-width="3"/><path d="M575 80 h115 M575 105 h115 M575 130 h115 M575 155 h115" stroke="#e39c40" stroke-width="8"/><text x="592" y="42" fill="#84531c" font-size="17" font-family="system-ui">батарея</text>
+      <rect x="120" y="118" width="120" height="142" rx="14" fill="#fff" stroke="#53738a" stroke-width="4"/><rect x="126" y="175" width="108" height="78" fill="#89d8ef88"/>
+      <rect x="440" y="118" width="120" height="142" rx="14" fill="#fff" stroke="#53738a" stroke-width="4"/><rect x="446" y="145" width="108" height="108" fill="#89d8ef88"/>
+      <rect x="155" y="159" width="48" height="30" rx="5" fill="#dff8ff" stroke="#78b8d2"/><rect x="472" y="129" width="62" height="40" rx="5" fill="#dff8ff" stroke="#78b8d2"/>
+      <text x="126" y="307" fill="#27495e" font-size="18" font-family="system-ui">Склянка А: 100 мл, 22 °C</text>
+      <text x="420" y="307" fill="#27495e" font-size="18" font-family="system-ui">Склянка Б: 150 мл, 28 °C</text>
+      <text x="112" y="94" fill="#27495e" font-size="17" font-family="system-ui">1 кубик льоду</text><text x="431" y="94" fill="#27495e" font-size="17" font-family="system-ui">великий кубик льоду</text>
+
+      <g class="hot" data-hot="1" transform="translate(500 197)"><circle r="39"/><text x="-31" y="-46">знайдено</text></g>
+      <g class="hot" data-hot="2" transform="translate(610 126)"><circle r="58"/><text x="-31" y="-66">знайдено</text></g>
+      <g class="hot" data-hot="3" transform="translate(498 306)"><circle r="52"/><text x="-31" y="-60">знайдено</text></g>
+      <g class="hot" data-hot="4" transform="translate(491 147)"><circle r="47"/><text x="-31" y="-55">знайдено</text></g>
+      <g class="hot fake" data-hot="x" transform="translate(182 211)"><circle r="43"/></g>
+      <g class="hot fake" data-hot="y" transform="translate(200 306)"><circle r="55"/></g>
+    </svg>
+  </div>
+  <p id="hotCount" class="small"><b>Знайдено:</b> 0 із 4.</p>
+  <button class="check" onclick="checkHotspots()">Зафіксувати знахідки</button>
+  <div class="feedback" id="fb-m4"></div>
+</section>
+
+<section class="section" id="m5">
+  <div class="taskHead"><span class="num">5</span><div><div class="kicker">4 хв • Проєктування</div><h2>Полагодьте дослід: складіть протокол</h2></div></div>
+  <p>Перетягувати нічого не треба: переставляйте етапи кнопками ↑ ↓ так, щоб вийшов логічний план дослідження.</p>
+  <div class="orderList" id="orderList"></div>
+  <button class="check" onclick="checkOrder()">Перевірити порядок</button>
+  <div class="feedback" id="fb-m5"></div>
+</section>
+
+<section class="section" id="m6">
+  <div class="taskHead"><span class="num">6</span><div><div class="kicker">4 хв • Джерела</div><h2>Кому довірити факт?</h2></div></div>
+  <p>Треба перевірити довідковий факт для навчальної роботи. Не дивіться лише на красиву назву — оцініть <b>автора, дату й тип джерела</b>.</p>
+  <div class="grid3">
+    <div class="sourceCard"><div class="star">📱</div><h3>«ScienceWOW!!!»</h3><div class="sourceMeta"><b>Автор:</b><span>не вказаний</span><b>Дата:</b><span>не вказана</span><b>Формат:</b><span>короткий пост</span></div><label class="choice"><input type="radio" name="sourcePick" value="a"> обрати</label></div>
+    <div class="sourceCard"><div class="star">🏫</div><h3>Електронний підручник</h3><div class="sourceMeta"><b>Автор:</b><span>вказаний</span><b>Дата:</b><span>вказана</span><b>Формат:</b><span>навчальне видання</span></div><label class="choice"><input type="radio" name="sourcePick" value="b"> обрати</label></div>
+    <div class="sourceCard"><div class="star">💬</div><h3>Коментар «мій дядько казав»</h3><div class="sourceMeta"><b>Автор:</b><span>нікнейм</span><b>Дата:</b><span>учора</span><b>Формат:</b><span>коментар</span></div><label class="choice"><input type="radio" name="sourcePick" value="c"> обрати</label></div>
+  </div>
+  <p><b>Позначте три ознаки, які роблять джерело сильнішим:</b></p>
+  <label class="choice"><input type="checkbox" name="sourceWhy" value="author"> зрозуміло, хто автор або установа</label>
+  <label class="choice"><input type="checkbox" name="sourceWhy" value="date"> є дата / можна перевірити актуальність</label>
+  <label class="choice"><input type="checkbox" name="sourceWhy" value="evidence"> інформація подається як навчальна/наукова, а не як чутка</label>
+  <label class="choice"><input type="checkbox" name="sourceWhy" value="caps"> у заголовку багато знаків оклику</label>
+  <button class="check" onclick="checkSource()">Перевірити рішення</button>
+  <div class="feedback" id="fb-m6"></div>
+</section>
+
+<section class="section" id="m7">
+  <div class="taskHead"><span class="num">7</span><div><div class="kicker">5 хв • Польова міні-місія</div><h2>Дослідіть один реальний предмет поруч</h2></div></div>
+  <div class="note"><b>Оберіть будь-який безпечний предмет на столі або поруч:</b> ручку, пенал, пляшку, зошит, гумку, лінійку тощо. Нічого не розбирайте й не куштуйте. Наука це переживе.</div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="card"><b>Назва предмета</b><br><input id="objName" type="text" style="width:100%;margin-top:7px"></div>
+    <div class="card"><b>Одна ознака, яку можна виміряти або оцінити числом</b><br><input id="objMeasure" type="text" placeholder="напр. довжина ≈ 14 см" style="width:100%;margin-top:7px"></div>
+  </div>
+  <p><b>Три об’єктивні спостереження</b> — без «гарний», «класний», «мені подобається».</p>
+  <textarea id="objObs" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+  <p><b>Одне дослідницьке запитання про цей предмет</b></p>
+  <textarea id="objQuestion" placeholder="Що можна було б перевірити дослідом?"></textarea>
+  <button class="check" onclick="checkField()">Зберегти польову картку</button>
+  <div class="feedback" id="fb-m7"></div>
+  <div class="saveNote">Текст зберігається в цьому браузері автоматично.</div>
+</section>
+
+<section class="section" id="m8">
+  <div class="taskHead"><span class="num">8</span><div><div class="kicker">4 хв • Фінальне досьє</div><h2>Складіть висновок за формулою «твердження → доказ → пояснення»</h2></div></div>
+  <p>Поверніться до таблиці температур із етапу 3. Напишіть коротко, але так, щоб висновок тримався на даних.</p>
+  <div class="card"><b>ТВЕРДЖЕННЯ</b><textarea id="cerC" placeholder="Що сталося з температурою води?"></textarea></div>
+  <div class="card" style="margin-top:10px"><b>ДОКАЗ</b><textarea id="cerE" placeholder="Наведіть щонайменше два конкретні числа з таблиці."></textarea></div>
+  <div class="card" style="margin-top:10px"><b>ПОЯСНЕННЯ</b><textarea id="cerR" placeholder="Поясніть, як ці числа підтверджують твердження."></textarea></div>
+  <button class="check" onclick="checkCER()">Закрити справу</button>
+  <div class="feedback" id="fb-m8"></div>
+</section>
+
+<section class="section result" id="result">
+  <div class="kicker">Справу закрито</div>
+  <h2>Наукове досьє завершене</h2>
+  <div class="resultBox">
+    <h3 id="resultTitle">Міланка • готово</h3>
+    <p id="resultText"></p>
+    <p><b>Покажіть цю картку Каріні Андріївні.</b> Усі розгорнуті відповіді вже залишилися на сторінці.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">Якщо залишився час</div>
+    <h3>Створіть наукову пастку 😈</h3>
+    <p>Вигадайте <b>неправильний висновок</b>, який хтось міг би зробити за таблицею з етапу 3. Потім одним реченням поясніть, чому цей висновок дані не доводять.</p>
+    <textarea id="bonus" placeholder="Хибний висновок: ...&#10;Чому це не доведено: ..."></textarea>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="kicker">Тизер наступного розділу</div>
+    <h3>Одне маленьке питання на потім</h3>
+    <p>Склянка — це предмет. А скло — те, з чого вона зроблена. Чи завжди один предмет складається тільки з чогось одного? <b>Відповідати зараз не треба.</b> Це вже двері в наступну тему.</p>
+  </div>
+</section>
+
+</main>
+<footer class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»<br>Індивідуальна робота після контрольної за вступним розділом курсу «Пізнаємо природу».</footer>
+
+<script>
+const done=new Set();
+let strong=0;
+function mark(id,ok=true){
+  if(!done.has(id)){done.add(id);if(ok)strong++}
+  document.getElementById('bar').style.width=(done.size/8*100)+'%';
+  document.getElementById('progressText').textContent=`${done.size} із 8 етапів завершено`;
+  if(done.size===8)finish();
+}
+function fb(id,msg,ok){
+  const e=document.getElementById('fb-'+id);e.textContent=msg;e.className='feedback '+(ok?'good':'bad');
+}
+
+/* 1 */
+document.querySelectorAll('.evidence .tagbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const card=btn.closest('.evidence');card.querySelectorAll('.tagbtn').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');card.dataset.pick=btn.dataset.v;
+  });
+});
+function checkEvidence(){
+  const cards=[...document.querySelectorAll('.evidence')];
+  if(cards.some(c=>!c.dataset.pick)){fb('m1','На кількох картках ще немає мітки.',false);return}
+  const correct=cards.filter(c=>c.dataset.pick===c.dataset.answer).length;
+  const ok=correct===cards.length;
+  fb('m1',ok?'Усі 6 карток розкладено правильно: факт не плутаємо з поясненням факту.':`Правильно ${correct} із 6. Перегляньте картки, де причина лише припускається.`,ok);
+  mark('m1',ok);
+}
+
+/* 2 */
+function checkInstruments(){
+  const t=Number(document.getElementById('aTemp').value);
+  const v=Number(document.getElementById('aVol').value);
+  const l=Number(document.getElementById('aLen').value);
+  const s=Number(document.getElementById('aTime').value);
+  const ok=t===22&&v===70&&Math.abs(l-3.8)<.01&&s===155;
+  fb('m2',ok?'Код приладів розшифровано: 22 °C, 70 мл, 3,8 см, 155 с.':'Є неточність. Пам’ятайте: довжина = кінець − початок, а 2 хв 35 с = 120 + 35 секунд.',ok);
+  mark('m2',ok);
+}
+
+/* 3 */
+function norm(s){return s.toLowerCase().replace(/\s/g,'').replace('–','-').replace('—','-')}
+function checkData(){
+  const d=Number(document.getElementById('drop8').value);
+  const interval=norm(document.getElementById('fastInterval').value);
+  const claim=document.querySelector('input[name=tableClaim]:checked')?.value;
+  const intervalOk=['0-2хв','0-2','0до2хв','0до2'].includes(interval);
+  const ok=d===12&&intervalOk&&claim==='b';
+  fb('m3',ok?'Так: за 8 хв температура знизилася на 12 °C, а найбільша зміна була в перші 2 хв. Висновок не виходить за межі таблиці.':'Перевірте три речі: 24 − 12; різницю між сусідніми вимірюваннями; і чи не обіцяє висновок того, чого таблиця не показує.',ok);
+  mark('m3',ok);
+}
+
+/* 4 */
+const found=new Set();
+document.querySelectorAll('.hot').forEach(h=>{
+  h.addEventListener('click',()=>{
+    const id=h.dataset.hot;
+    if(id==='x'||id==='y'){h.classList.remove('found');document.getElementById('hotCount').innerHTML='<b>Знайдено:</b> '+found.size+' із 4. Це місце саме по собі не є помилкою.';return}
+    found.add(id);h.classList.add('found');
+    document.getElementById('hotCount').innerHTML='<b>Знайдено:</b> '+found.size+' із 4.';
+  })
+});
+function checkHotspots(){
+  const ok=found.size===4;
+  fb('m4',ok?'Є всі чотири: різні об’єми, різні початкові температури, різні розміри льоду й склянка Б біля батареї. Так порівняння нечесне.':'Шукайте умови, які повинні бути однаковими, якщо ми хочемо перевірити лише один фактор.',ok);
+  mark('m4',ok);
+}
+
+/* 5 */
+let steps=[
+  {id:3,t:'Провести вимірювання через однакові проміжки часу.'},
+  {id:1,t:'Сформулювати запитання, яке хочемо перевірити.'},
+  {id:5,t:'Порівняти результати й сформулювати висновок.'},
+  {id:2,t:'Визначити, що змінюємо, а що залишаємо однаковим.'},
+  {id:4,t:'Повторити дослід або зробити кілька вимірювань.'}
+];
+function renderOrder(){
+  const box=document.getElementById('orderList');box.innerHTML='';
+  steps.forEach((s,i)=>{
+    const el=document.createElement('div');el.className='orderItem';
+    el.innerHTML=`<span class="orderNo">${i+1}</span><div>${s.t}</div><div class="orderBtns"><button aria-label="вище" onclick="moveStep(${i},-1)">↑</button><button aria-label="нижче" onclick="moveStep(${i},1)">↓</button></div>`;
+    box.appendChild(el);
+  })
+}
+function moveStep(i,d){const j=i+d;if(j<0||j>=steps.length)return;[steps[i],steps[j]]=[steps[j],steps[i]];renderOrder()}
+function checkOrder(){
+  const ok=steps.map(s=>s.id).join(',')==='1,2,3,4,5';
+  fb('m5',ok?'Протокол логічний: питання → умови → вимірювання → повторення → висновок.':'Щось стоїть зарано або запізно. Висновок точно не може бути раніше за дані.',ok);
+  mark('m5',ok);
+}
+renderOrder();
+
+/* 6 */
+function checkSource(){
+  const pick=document.querySelector('input[name=sourcePick]:checked')?.value;
+  const vals=[...document.querySelectorAll('input[name=sourceWhy]:checked')].map(x=>x.value).sort();
+  const target=['author','date','evidence'].sort();
+  const ok=pick==='b'&&JSON.stringify(vals)===JSON.stringify(target);
+  fb('m6',ok?'Рішення сильне: відомий автор/видання, є дата й зрозумілий навчальний контекст.':'Перевірте не «красивість» джерела, а авторство, дату й можливість перевірити інформацію.',ok);
+  mark('m6',ok);
+}
+
+/* 7 */
+['objName','objMeasure','objObs','objQuestion','cerC','cerE','cerR','bonus'].forEach(id=>{
+  const el=document.getElementById(id);const saved=localStorage.getItem('milanka_case_'+id);if(saved)el.value=saved;
+  el.addEventListener('input',()=>localStorage.setItem('milanka_case_'+id,el.value));
+});
+function checkField(){
+  const n=document.getElementById('objName').value.trim(),m=document.getElementById('objMeasure').value.trim(),o=document.getElementById('objObs').value.trim(),q=document.getElementById('objQuestion').value.trim();
+  const ok=n.length>=2&&m.length>=3&&o.length>=25&&q.length>=12;
+  fb('m7',ok?'Польова картка готова. Це вже Ваш власний маленький об’єкт дослідження.':'Потрібні назва предмета, числова/вимірювана ознака, три спостереження й повне дослідницьке запитання.',ok);
+  if(ok)mark('m7',true);
+}
+
+/* 8 */
+function checkCER(){
+  const c=document.getElementById('cerC').value.trim(),e=document.getElementById('cerE').value.trim(),r=document.getElementById('cerR').value.trim();
+  const hasNumbers=(e.match(/\d+/g)||[]).length>=2;
+  const ok=c.length>=18&&e.length>=20&&r.length>=20&&hasNumbers;
+  fb('m8',ok?'Фінальний висновок має всі три частини: твердження, конкретний доказ і пояснення зв’язку.':'У доказі потрібні щонайменше два числа з таблиці, а в поясненні — зв’язок між ними та Вашим твердженням.',ok);
+  if(ok)mark('m8',true);
+}
+
+function finish(){
+  const r=document.getElementById('result');r.classList.add('show');
+  document.getElementById('resultText').textContent=strong>=7
+   ?'Ви завершили повну дослідницьку справу: від первинних даних до аргументованого висновку.'
+   :'Справу завершено. Деякі етапи довелося виправляти — саме так і працює нормальне дослідження: перевірив, знайшов слабке місце, виправив.';
+  r.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
