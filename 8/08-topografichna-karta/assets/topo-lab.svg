@@ -1,1 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="t d"><title id="t">Навчальний фрагмент топографічної карти</title><desc id="d">Умовна топографічна схема з горизонталями, річкою, лісом, дорогою, мостом і висотною відміткою для тренування читання карти.</desc><rect width="1200" height="650" fill="#fffdf2"/><g fill="none" stroke="#a06f45" stroke-width="3" opacity=".78"><path d="M25 120 C180 15 340 40 470 155 S770 290 930 175 S1120 55 1180 100"/><path d="M10 165 C170 65 335 80 460 190 S760 335 940 220 S1100 100 1190 145"/><path d="M0 215 C145 120 315 120 445 235 S755 380 950 270 S1110 150 1200 190"/><path d="M0 270 C145 175 300 175 430 280 S740 430 970 325 S1120 205 1200 245"/><path d="M20 330 C170 240 305 235 420 325 S715 480 990 385 S1140 260 1190 300"/><path d="M40 400 C190 305 315 300 430 390 S700 525 1000 445 S1150 335 1190 365"/></g><g fill="#cfe8c5" stroke="#5a8a4c" stroke-width="2"><path d="M70 365 C160 315 265 330 315 405 C355 470 290 545 185 555 C85 565 25 505 45 435 Z"/><path d="M850 390 C930 345 1045 355 1115 420 C1170 475 1130 550 1025 565 C930 575 830 525 820 455 Z"/></g><g fill="#4e8b45" opacity=".9"><circle cx="110" cy="420" r="8"/><circle cx="145" cy="450" r="8"/><circle cx="195" cy="410" r="8"/><circle cx="230" cy="475" r="8"/><circle cx="280" cy="430" r="8"/><circle cx="900" cy="450" r="8"/><circle cx="960" cy="405" r="8"/><circle cx="1010" cy="470" r="8"/><circle cx="1080" cy="435" r="8"/></g><path d="M600 -20 C540 85 665 135 590 225 S660 350 575 450 S640 575 590 680" fill="none" stroke="#3aa7d8" stroke-width="18"/><path d="M-30 555 C200 500 370 465 555 390 S880 265 1230 210" fill="none" stroke="#e5cf70" stroke-width="34"/><path d="M-30 555 C200 500 370 465 555 390 S880 265 1230 210" fill="none" stroke="#444" stroke-width="4" stroke-dasharray="24 10"/><rect x="550" y="380" width="85" height="22" fill="#f2f2f2" stroke="#333" stroke-width="3" transform="rotate(-19 592 391)"/><g font-family="Inter,Arial,sans-serif" fill="#17324a"><text x="625" y="88" font-size="28" font-weight="800">▲ 214,6 м</text><text x="622" y="120" font-size="19">висотна відмітка</text><text x="615" y="320" font-size="24" fill="#0a79ad" font-weight="700">р. Синя</text><text x="120" y="520" font-size="24" fill="#3d7237" font-weight="700">мішаний ліс</text><text x="900" y="535" font-size="24" fill="#3d7237" font-weight="700">ліс</text><text x="270" y="490" font-size="22" font-weight="700">дорога</text><text x="580" y="365" font-size="20" font-weight="700">міст</text><text x="55" y="70" font-size="26" font-weight="900">НАВЧАЛЬНИЙ ФРАГМЕНТ • переріз горизонталей 10 м</text></g><g stroke="#17324a" stroke-width="3"><path d="M1100 70 v85"/><path d="M1085 90 l15-20 15 20"/></g><text x="1087" y="180" font-family="Arial" font-size="24" font-weight="800">Пн</text><rect x="52" y="590" width="300" height="20" fill="#17324a"/><rect x="52" y="590" width="150" height="20" fill="#fff" stroke="#17324a" stroke-width="2"/><text x="52" y="635" font-family="Arial" font-size="22" fill="#17324a">0        500 м        1 км</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" role="img" aria-labelledby="t d">
+<title id="t">Навчальна топографічна карта для уроку 8</title>
+<desc id="d">Схематична топографічна карта з горизонталями, висотною відміткою, річкою, лісом, садом, селом, дорогами, мостом, масштабом, північчю та двома варіантами маршруту від табору А до точки B.</desc>
+<defs>
+  <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="#a7b9ad" stroke-width="1" opacity=".42"/></pattern>
+  <pattern id="forest" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="11" cy="12" r="7" fill="#4b8a57"/><path d="M11 19v8" stroke="#315b3a" stroke-width="2"/><circle cx="28" cy="25" r="6" fill="#6aa16c"/><path d="M28 31v5" stroke="#315b3a" stroke-width="2"/></pattern>
+</defs>
+<rect width="1400" height="820" fill="#fbf7e8"/>
+<rect x="35" y="40" width="1330" height="680" rx="8" fill="url(#grid)" stroke="#53695d" stroke-width="3"/>
+<g fill="none" stroke="#a36f43" stroke-width="3">
+ <path d="M575 120C700 45 945 40 1190 112C1320 150 1360 235 1315 335C1260 455 1110 520 905 545C720 565 610 490 575 385C540 285 525 190 575 120Z"/>
+ <path d="M665 158C790 95 980 100 1215 155C1300 178 1330 238 1295 315C1250 410 1115 468 930 486C775 500 682 445 650 360C625 280 620 210 665 158Z"/>
+ <path d="M755 194C875 145 1030 150 1228 195C1283 208 1302 248 1275 302C1240 370 1130 418 960 430C830 440 755 400 735 335C715 270 720 225 755 194Z"/>
+ <path d="M840 228C945 190 1070 195 1235 228C1270 235 1281 260 1264 295C1238 342 1145 375 995 385C900 391 842 360 825 315C810 275 815 245 840 228Z"/>
+ <path d="M930 257C1025 232 1120 235 1230 255C1254 260 1260 274 1248 292C1226 322 1150 343 1030 350C970 354 930 332 920 305C912 282 914 266 930 257Z"/>
+ <path d="M1020 280C1095 266 1160 268 1228 281C1240 284 1244 291 1238 300C1225 317 1170 329 1080 334C1040 336 1018 322 1013 307C1008 295 1010 285 1020 280Z"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#8a5d37"><text x="600" y="180">160</text><text x="700" y="220">170</text><text x="792" y="255">180</text><text x="875" y="290">190</text><text x="955" y="310">200</text><text x="1045" y="320">210</text></g>
+<path d="M470 40C440 120 500 170 465 235C430 300 480 350 445 420C410 490 452 535 420 610C405 648 395 680 390 720" fill="none" stroke="#cceef9" stroke-width="38"/>
+<path d="M470 40C440 120 500 170 465 235C430 300 480 350 445 420C410 490 452 535 420 610C405 648 395 680 390 720" fill="none" stroke="#2587b3" stroke-width="9"/>
+<ellipse cx="275" cy="645" rx="14" ry="9" fill="#2587b3"/><path d="M275 645C318 635 342 624 372 598" fill="none" stroke="#2587b3" stroke-width="5"/>
+<path d="M70 185C145 120 280 125 340 205C390 270 355 365 275 405C175 455 75 400 65 315C58 255 45 220 70 185Z" fill="#d9eed7" stroke="#4f8659" stroke-width="2"/>
+<path d="M70 185C145 120 280 125 340 205C390 270 355 365 275 405C175 455 75 400 65 315C58 255 45 220 70 185Z" fill="url(#forest)" opacity=".82"/>
+<rect x="655" y="565" width="180" height="95" rx="10" fill="#d9e8ae" stroke="#82965a" stroke-width="2"/>
+<g fill="#6f9250"><circle cx="680" cy="590" r="7"/><circle cx="720" cy="590" r="7"/><circle cx="760" cy="590" r="7"/><circle cx="800" cy="590" r="7"/><circle cx="680" cy="625" r="7"/><circle cx="720" cy="625" r="7"/><circle cx="760" cy="625" r="7"/><circle cx="800" cy="625" r="7"/></g>
+<path d="M85 640C240 585 345 548 448 488C565 420 670 395 800 350C930 305 1080 245 1330 180" fill="none" stroke="#fff" stroke-width="26"/>
+<path d="M85 640C240 585 345 548 448 488C565 420 670 395 800 350C930 305 1080 245 1330 180" fill="none" stroke="#525252" stroke-width="6"/>
+<path d="M95 638C245 585 355 548 450 493C560 430 675 401 802 356C950 304 1080 255 1320 190" fill="none" stroke="#f4d268" stroke-width="4" stroke-dasharray="18 12"/>
+<g transform="translate(425 476) rotate(-29)"><rect x="-20" y="-17" width="82" height="34" fill="#f7f7f7" stroke="#303b35" stroke-width="4"/><path d="M-10-9V9M7-9V9M24-9V9M41-9V9" stroke="#303b35" stroke-width="2"/></g>
+<g fill="#d5c2a0" stroke="#6e5941" stroke-width="2"><rect x="560" y="600" width="42" height="28"/><rect x="615" y="625" width="40" height="26"/><rect x="865" y="590" width="48" height="31"/><rect x="925" y="625" width="44" height="28"/><rect x="990" y="590" width="44" height="29"/></g>
+<path d="M735 640C830 615 905 610 1035 604" fill="none" stroke="#7e7e7e" stroke-width="3" stroke-dasharray="9 7"/>
+<path d="M165 505C255 520 350 515 448 488C610 430 765 370 920 327C1000 304 1065 287 1110 280" fill="none" stroke="#16775f" stroke-width="10" stroke-linecap="round" stroke-dasharray="22 13" opacity=".92"/>
+<path d="M165 505C330 460 515 420 690 378C850 340 995 305 1110 280" fill="none" stroke="#a24438" stroke-width="9" stroke-linecap="round" stroke-dasharray="10 13" opacity=".88"/>
+<g font-family="Inter,Arial,sans-serif" fill="#17342c">
+ <text x="75" y="78" font-size="26" font-weight="900">НАВЧАЛЬНА ТОПОГРАФІЧНА КАРТА</text>
+ <text x="75" y="108" font-size="18">Масштаб 1 : 25 000 • переріз горизонталей 10 м • 1 клітинка сітки = 250 м</text>
+ <circle cx="165" cy="505" r="19" fill="#fff" stroke="#17342c" stroke-width="3"/><text x="158" y="513" font-size="21" font-weight="900">A</text><text x="90" y="480" font-size="22" font-weight="850">табір</text>
+ <circle cx="1110" cy="280" r="19" fill="#fff" stroke="#17342c" stroke-width="3"/><text x="1103" y="288" font-size="21" font-weight="900">B</text><text x="1045" y="245" font-size="21" font-weight="850">оглядова точка</text>
+ <text x="505" y="425" font-size="22" fill="#1d78a2" font-weight="850" transform="rotate(78 505 425)">р. Вільшанка</text>
+ <text x="115" y="230" font-size="22" fill="#3c6f48" font-weight="850">мішаний ліс</text>
+ <text x="670" y="548" font-size="20" fill="#6f7d45" font-weight="850">сад</text>
+ <text x="427" y="455" font-size="20" font-weight="850">міст М</text>
+ <text x="1075" y="350" font-size="22" font-weight="900">▲ 214,6 м</text>
+ <text x="245" y="683" font-size="18" fill="#1d78a2">джерело</text>
+ <text x="720" y="690" font-size="21" font-weight="850">с. Луг</text>
+ <text x="648" y="420" font-size="19" font-weight="900" fill="#16775f">Маршрут 1 • через міст</text>
+ <text x="662" y="354" font-size="19" font-weight="900" fill="#a24438">Маршрут 2 • майже прямо</text>
+</g>
+<g transform="translate(1210 590)" font-family="Arial,sans-serif"><rect width="120" height="100" rx="12" fill="#fffdf7" stroke="#8a9b90"/><path d="M60 72V20" stroke="#17342c" stroke-width="4"/><path d="M60 20L47 43H73Z" fill="#17342c"/><text x="49" y="91" font-size="18" font-weight="900" fill="#17342c">Пн</text></g>
+<g transform="translate(90 748)" font-family="Arial,sans-serif" fill="#17342c"><rect width="180" height="16" fill="#17342c"/><rect width="90" height="16" fill="#fff" stroke="#17342c" stroke-width="2"/><text x="0" y="44" font-size="18">0</text><text x="80" y="44" font-size="18">250 м</text><text x="170" y="44" font-size="18">500 м</text></g>
+<g transform="translate(875 610)" font-family="Inter,Arial,sans-serif"><rect width="300" height="105" rx="14" fill="#fffef9" stroke="#9aa99f"/><text x="16" y="27" font-size="18" font-weight="900" fill="#17342c">Ключ до маршруту</text><path d="M18 51H88" stroke="#16775f" stroke-width="8" stroke-dasharray="18 10"/><text x="102" y="57" font-size="17" fill="#17342c">1 — через міст</text><path d="M18 80H88" stroke="#a24438" stroke-width="8" stroke-dasharray="9 10"/><text x="102" y="86" font-size="17" fill="#17342c">2 — коротший напрямок</text></g>
+</svg>
