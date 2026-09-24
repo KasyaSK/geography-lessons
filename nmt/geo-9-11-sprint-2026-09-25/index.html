@@ -1,1 +1,147 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>GEO NMT LAB • 9–11 класи • Міста, господарство, картографічні спотворення</title>
+<style>
+:root{--bg:#07131a;--panel:#0d2028;--panel2:#112c34;--ink:#eef8f5;--muted:#a9c4c0;--a:#70e1c2;--b:#ffd36e;--c:#ff8b78;--line:#28505a;--ok:#8ae6a4;--bad:#ff9b9b}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:
+radial-gradient(circle at 12% 8%,#173a42 0,transparent 26rem),
+linear-gradient(160deg,#061016,#0b1b22 55%,#081419);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header,main,footer{max-width:1180px;margin:auto}.hero{padding:42px 22px 24px}.kicker{color:var(--a);font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{font-size:clamp(2rem,5vw,4.4rem);line-height:1;margin:.25em 0}.hero p{max-width:850px;color:var(--muted);font-size:1.08rem}
+.badges{display:flex;flex-wrap:wrap;gap:8px}.badge{border:1px solid var(--line);background:#0b1c23cc;padding:7px 11px;border-radius:999px}
+nav{position:sticky;top:0;z-index:10;background:#07131ae8;backdrop-filter:blur(12px);border-block:1px solid var(--line);padding:8px 16px;display:flex;gap:8px;overflow:auto}
+nav a{color:var(--ink);text-decoration:none;padding:8px 11px;border-radius:10px;white-space:nowrap}nav a:hover,nav a:focus{background:#17353d;outline:2px solid var(--a)}
+section{margin:18px 14px;padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#0d2028e8,#0a1920e8);box-shadow:0 18px 50px #0005}
+h2{font-size:clamp(1.45rem,3vw,2.2rem);margin-top:0}h3{color:var(--b)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.card{padding:16px;border-radius:16px;background:#102a32;border:1px solid #28505a}.time{color:var(--b);font-weight:800}.teacher{border-left:4px solid var(--a);padding:12px 16px;background:#0b2528;border-radius:10px}.task{border-left:4px solid var(--b);padding:12px 16px;background:#28251155;border-radius:10px}.trap{border-left:4px solid var(--c);padding:12px 16px;background:#321b1b66;border-radius:10px}
+button,.btn{min-height:44px;border:1px solid #3b6871;border-radius:12px;background:#173740;color:white;padding:10px 14px;font-weight:700;cursor:pointer}button:hover,button:focus,.btn:hover,.btn:focus{outline:2px solid var(--a);background:#20505b}
+.answer{display:none;margin-top:10px;padding:12px;border-radius:10px;background:#0a171d;border:1px dashed #4d7780}.answer.show{display:block}
+svg{width:100%;height:auto;background:#e8efe8;border-radius:14px;border:1px solid #42656c}.legend{font-size:.92rem;color:var(--muted)}table{width:100%;border-collapse:collapse;background:#0b1a20}th,td{border:1px solid #31535c;padding:9px;text-align:left}th{background:#14323a}
+.q{padding:16px;margin:12px 0;border:1px solid #2c525b;border-radius:14px;background:#0d222a}.opts label{display:block;padding:8px;margin:5px 0;border-radius:9px;background:#122c34}.opts input{margin-right:9px}.mini{font-size:.92rem;color:var(--muted)}input[type=text],input[type=number]{width:100%;max-width:420px;min-height:44px;padding:10px;border-radius:10px;border:1px solid #52727a;background:#08161b;color:white}
+.result{font-size:1.1rem;padding:18px;border-radius:14px;background:#112c34}.hidden{display:none!important}.score{font-size:2.4rem;font-weight:900;color:var(--a)}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:760px){.cols3{grid-template-columns:1fr}section{margin:10px 8px;padding:17px}.hero{padding:28px 16px}}
+@media print{nav,button{display:none!important}body{background:white;color:black}section,.card,.q{background:white;color:black;box-shadow:none;border-color:#777}.mini,.legend,.hero p{color:#333}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hero" id="start">
+<div class="kicker">Комбінований урок • 9–11 класи • 35 хв • НМТ-режим</div>
+<h1>Місто росте. Економіка рухається. Карта… бреше?</h1>
+<p>Три наступні теми КТП зведено в одну НМТ-лабораторію: <b>9 клас</b> — порівняння міст-мільйонників та агломерацій; <b>10 клас</b> — первинний сектор економіки Європи; <b>11 клас</b> — картографічні проєкції та спотворення. Усі працюють разом: одна задача, одна карта, одна логіка доказу.</p>
+<div class="badges"><span class="badge">один ноутбук / проєктор</span><span class="badge">паперова чернетка</span><span class="badge">без відео</span><span class="badge">карти й дані вбудовані</span><span class="badge">18 завдань у пропорції НМТ</span></div>
+</header>
+<nav aria-label="Навігація"><a href="#problem">Старт</a><a href="#lab">Лабораторія</a><a href="#theory">Теорія</a><a href="#sprint">НМТ-спринт</a><a href="#summary">Фініш</a></nav>
+<main>
+<section id="problem">
+<h2><span class="time">0–4 хв</span> • Проблема: де вигідніше будувати новий логістично-харчовий хаб?</h2>
+<div class="teacher"><b>Учитель:</b> «Є інвестор. Йому потрібне велике місто, доступ до сировини первинного сектору й карта, яка не змусить його випадково повірити, що Гренландія — конкурент Африки за площею. Маємо 35 хв. НМТ теж не дуже сентиментальний до часу».</div>
+<div class="grid">
+<div class="card"><h3>Кандидат A</h3><p>Агломерація 5,2 млн; порт; навколо — інтенсивне землеробство; 310 км до великого ринку збуту.</p></div>
+<div class="card"><h3>Кандидат B</h3><p>Місто 1,1 млн; гірничодобувний район; немає морського порту; 90 км до кордону ЄС.</p></div>
+<div class="card"><h3>Кандидат C</h3><p>Агломерація 3,4 млн; транспортний вузол; сільське господарство обмежене природними умовами; сильний сектор послуг.</p></div>
+</div>
+<div class="task"><b>Чернетка, 60 секунд:</b> оберіть A/B/C. Запишіть <u>2 докази</u> і <u>1 дані, яких бракує</u>. Не треба вгадувати «правильну країну» — оцінюємо географічну логіку.</div>
+</section>
+
+<section id="lab">
+<h2><span class="time">4–17 хв</span> • Лабораторія доказів: три лінзи</h2>
+<div class="cols3">
+<div class="card"><h3>Лінза 9 класу: місто ≠ агломерація</h3><p>Місто — адміністративно окреслений населений пункт. Агломерація — система центрального міста та пов'язаних із ним поселень, між якими є інтенсивні трудові, транспортні й сервісні зв'язки.</p><button onclick="toggle('a9')">Показати пастку НМТ</button><div id="a9" class="answer">Рейтинг «міст» може використовувати населення в адміністративних межах, міській зоні або агломерації. Порівнювати цифри без однакової методики — логічна помилка.</div></div>
+<div class="card"><h3>Лінза 10 класу: первинний сектор</h3><p>Сільське, лісове, рибне господарство та добувна промисловість безпосередньо залежать від природної ресурсної бази, але сучасне розміщення змінюють транспорт, технології та ринок.</p><button onclick="toggle('a10')">Показати пастку НМТ</button><div id="a10" class="answer">«Є ресурс → тут обов'язково найбільше виробництво» — занадто простий висновок. Потрібні ще капітал, доступність, інфраструктура, попит, екологічні обмеження.</div></div>
+<div class="card"><h3>Лінза 11 класу: карта спотворює</h3><p>Будь-яка плоска карта спотворює хоча б одну властивість: площі, форми, відстані або напрями. Проєкцію обирають під задачу.</p><button onclick="toggle('a11')">Показати пастку НМТ</button><div id="a11" class="answer">Не існує «найточнішої карти світу» для всіх цілей. Рівновелика проєкція зберігає співвідношення площ, але може спотворювати форму.</div></div>
+</div>
+
+<h3>Реальні карти для лабораторії</h3>
+<div class="grid">
+<div class="card"><h3>9 клас • Агломерації світу: WUP 2025</h3><img src="https://citygeographics.org/wp-content/uploads/2025/11/worldcitypopulationsmap_wup2025.png" alt="World City Populations 1975–2050, UN World Urbanization Prospects 2025" style="width:100%;height:auto;max-height:650px;object-fit:contain;border-radius:14px;background:white" loading="eager"><p class="mini">Карта D. A. Smith (CASA UCL) на основі <b>UN World Urbanization Prospects 2025</b>: кола пропорційні людності агломерацій; показано 1975, 2000, 2025 і прогноз 2050. <a class="btn" target="_blank" rel="noopener" href="https://citygeographics.org/2025/11/19/world-city-population-map-update-with-the-new-world-urbanization-prospects-2025/">відкрити джерело →</a></p><div class="task"><b>Завдання:</b> порівняйте просторову концентрацію найбільших агломерацій у 2025 р. Назвіть два регіони з найбільшою концентрацією та поясніть, чому «агломерація» і «місто в адміністративних межах» не можна механічно порівнювати.</div></div>
+<div class="card"><h3>10 клас • Землекористування ЄС, 2022</h3><img src="https://ec.europa.eu/eurostat/statistics-explained/images/thumb/8/8d/Principal_land_use%2C_2022_LUCAS2025.png/800px-Principal_land_use%2C_2022_LUCAS2025.png" alt="Eurostat Principal land use 2022" style="width:100%;height:auto;max-height:650px;object-fit:contain;border-radius:14px;background:white" loading="eager"><p class="mini">Офіційна карта <b>Eurostat • Principal land use, 2022</b>. Вона показує домінантний тип землекористування в державах ЄС. <a class="btn" target="_blank" rel="noopener" href="https://ec.europa.eu/eurostat/en/web/lucas/visualisations">Eurostat LUCAS →</a></p><div class="task"><b>Завдання:</b> виділіть країни з домінуванням сільського господарства та лісового господарства. Сформулюйте один висновок, який карта дозволяє зробити, і один, якого з неї робити не можна.</div></div>
+</div>
+<div class="card"><h3>11 клас • Наскільки бреше Меркатор?</h3><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Tissot_indicatrix_world_map_Mercator_proj.svg" alt="Mercator projection with Tissot indicatrices" style="width:100%;height:auto;max-height:720px;object-fit:contain;border-radius:14px;background:white" loading="eager"><p class="mini">Проєкція Меркатора з індикатрисами Тіссо: кожна червона фігура відповідає однаковому колу на поверхні Землі. Зростання кіл до полюсів наочно показує спотворення масштабу й площ. Джерело: Eric Gaba (Sting), Wikimedia Commons, CC BY-SA. <a class="btn" target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Tissot_indicatrix_world_map_Mercator_proj.svg">відкрити оригінал →</a></p><div class="task"><b>Завдання:</b> простежте зміну індикатрис від екватора до 60–80° широти. Поясніть, чому за картою Меркатора не можна візуально порівнювати площі Гренландії, Африки та Антарктиди.</div></div>
+<div class="trap"><b>Спільна НМТ-пастка:</b> карта — це джерело даних, а не декорація. Перед висновком назвіть: <b>джерело → рік → показник → одиницю/методику → властивість проєкції</b>.</div>
+</section>
+
+<section id="theory">
+<h2><span class="time">17–25 хв</span> • Теорія після доказів: 8 хвилин, без підручникового болота</h2>
+<table>
+<tr><th>Тема</th><th>Ядро</th><th>Що любить НМТ</th></tr>
+<tr><td>9 клас: міста й агломерації</td><td>Людність, межі міста, агломерація, субурбанізація, маятникові міграції, рейтинг за єдиною методикою.</td><td>Порівняти таблицю/карту; знайти некоректне порівняння; пояснити, чому рейтинг змінюється.</td></tr>
+<tr><td>10 клас: первинний сектор Європи</td><td>Землеробство, тваринництво, лісове/рибне господарство, видобування; природні й суспільні чинники розміщення.</td><td>Встановити зв'язок «ресурс → спеціалізація», але перевірити транспорт, ринок, технології та екологічні обмеження.</td></tr>
+<tr><td>11 клас: проєкції</td><td>Куля/еліпсоїд → площина = неминучі спотворення. Рівнокутні краще зберігають кути/локальні форми; рівновеликі — площі; довільні шукають компроміс.</td><td>Визначити, яка властивість важлива для задачі; не робити висновків про площі з карти, що їх не зберігає.</td></tr>
+</table>
+<p class="mini">Для реального НМТ-2026 географія має 30 завдань: 20 з однією правильною відповіддю, 4 з короткою числовою відповіддю і 6 із вибором трьох із семи. Цей урок стискає пропорцію до 18 завдань: 12 + 2 + 4.</p>
+</section>
+
+<section id="sprint">
+<h2><span class="time">25–33 хв</span> • НМТ-спринт: 18 завдань</h2>
+<p>Працюємо швидко. Для класу можна відповідати командами на папері; нижче є електронна перевірка для вчителя.</p>
+<div id="quiz">
+<h3>1–12. Одна правильна відповідь</h3>
+<div class="q"><b>1.</b> Два рейтинги дають 1,6 млн і 3,0 млн для того самого міста. Найімовірніше пояснення?<div class="opts"><label><input type="radio" name="q1" value="a">один рейтинг помилковий</label><label><input type="radio" name="q1" value="b">різні просторові межі обліку</label><label><input type="radio" name="q1" value="c">місто втратило 1,4 млн за день</label><label><input type="radio" name="q1" value="d">різні часові пояси</label></div></div>
+<div class="q"><b>2.</b> Ознака міської агломерації —<div class="opts"><label><input type="radio" name="q2" value="a">однакова площа всіх поселень</label><label><input type="radio" name="q2" value="b">інтенсивні зв'язки ядра й супутників</label><label><input type="radio" name="q2" value="c">лише спільний клімат</label><label><input type="radio" name="q2" value="d">відсутність передмість</label></div></div>
+<div class="q"><b>3.</b> Який показник найменше придатний сам по собі для рейтингу «впливовості» міста?<div class="opts"><label><input type="radio" name="q3" value="a">людність</label><label><input type="radio" name="q3" value="b">транспортні функції</label><label><input type="radio" name="q3" value="c">фінансові функції</label><label><input type="radio" name="q3" value="d">географічна широта</label></div></div>
+<div class="q"><b>4.</b> Найпряміший природний чинник спеціалізації рослинництва —<div class="opts"><label><input type="radio" name="q4" value="a">клімат і ґрунти</label><label><input type="radio" name="q4" value="b">форма правління</label><label><input type="radio" name="q4" value="c">мовний склад</label><label><input type="radio" name="q4" value="d">часовий пояс</label></div></div>
+<div class="q"><b>5.</b> Чому наявність руди не гарантує великої металургії поруч?<div class="opts"><label><input type="radio" name="q5" value="a">руди не є ресурсом</label><label><input type="radio" name="q5" value="b">важливі також енергія, транспорт, капітал і ринок</label><label><input type="radio" name="q5" value="c">промисловість не залежить від сировини</label><label><input type="radio" name="q5" value="d">усі руди імпортують</label></div></div>
+<div class="q"><b>6.</b> Для порівняння реальних площ держав найдоречніша —<div class="opts"><label><input type="radio" name="q6" value="a">рівновелика проєкція</label><label><input type="radio" name="q6" value="b">будь-яка карта метро</label><label><input type="radio" name="q6" value="c">лише топографічний профіль</label><label><input type="radio" name="q6" value="d">карта без масштабу</label></div></div>
+<div class="q"><b>7.</b> Причина спотворень на карті світу —<div class="opts"><label><input type="radio" name="q7" value="a">помилки друкарні</label><label><input type="radio" name="q7" value="b">перенесення кривої поверхні на площину</label><label><input type="radio" name="q7" value="c">зміна часових поясів</label><label><input type="radio" name="q7" value="d">магнітне поле</label></div></div>
+<div class="q"><b>8.</b> Якщо карта зберігає кути, але сильно збільшує площі у високих широтах, то висновок «Гренландія майже як Африка» —<div class="opts"><label><input type="radio" name="q8" value="a">правильний</label><label><input type="radio" name="q8" value="b">ненадійний через властивості проєкції</label><label><input type="radio" name="q8" value="c">доводить зміну клімату</label><label><input type="radio" name="q8" value="d">залежить лише від масштабу</label></div></div>
+<div class="q"><b>9.</b> Підприємству потрібні зерно, великий ринок і порт. Найкращий набір карт —<div class="opts"><label><input type="radio" name="q9" value="a">кліматична + мов</label><label><input type="radio" name="q9" value="b">с/г спеціалізація + населення + транспорт</label><label><input type="radio" name="q9" value="c">часові пояси + тектонічна</label><label><input type="radio" name="q9" value="d">політична + фізична без тематичних даних</label></div></div>
+<div class="q"><b>10.</b> Який висновок є кореляцією, а не доведеною причиною?<div class="opts"><label><input type="radio" name="q10" value="a">в агломераціях більше пасажиропотоків; отже саме людність є єдиною причиною</label><label><input type="radio" name="q10" value="b">рівновелика карта придатна для площ</label><label><input type="radio" name="q10" value="c">рослинництво залежить від тепла і вологи</label><label><input type="radio" name="q10" value="d">карта має легенду</label></div></div>
+<div class="q"><b>11.</b> Для порівняння агломерацій найважливіше спочатку —<div class="opts"><label><input type="radio" name="q11" value="a">вирівняти методику та рік даних</label><label><input type="radio" name="q11" value="b">вибрати красивішу карту</label><label><input type="radio" name="q11" value="c">округлити все до мільйонів</label><label><input type="radio" name="q11" value="d">відкинути передмістя завжди</label></div></div>
+<div class="q"><b>12.</b> Яке твердження найточніше?<div class="opts"><label><input type="radio" name="q12" value="a">усі карти однаково спотворюють усе</label><label><input type="radio" name="q12" value="b">проєкцію обирають відповідно до мети карти</label><label><input type="radio" name="q12" value="c">масштаб усуває спотворення проєкції</label><label><input type="radio" name="q12" value="d">цифрові карти не мають проєкцій</label></div></div>
+
+<h3>13–14. Коротка числова відповідь</h3>
+<div class="q"><b>13.</b> Агломерація мала 2,40 млн осіб, стала 2,64 млн. На скільки <b>відсотків</b> зросла людність? <input type="number" id="q13" step="0.1" placeholder="Відповідь, %"></div>
+<div class="q"><b>14.</b> На карті масштабу 1:2 000 000 відстань між двома вузлами 7,5 см. Скільки це кілометрів? <input type="number" id="q14" step="1" placeholder="Відповідь, км"></div>
+
+<h3>15–18. Оберіть рівно три правильні з семи</h3>
+<div class="q" data-multi="q15"><b>15.</b> Оберіть три ознаки/процеси, характерні для агломерації.<div class="opts">
+<label><input type="checkbox" value="a">маятникові міграції</label><label><input type="checkbox" value="b">спільні транспортні потоки</label><label><input type="checkbox" value="c">функціональні зв'язки ядра й супутників</label><label><input type="checkbox" value="d">однакова адміністративна назва</label><label><input type="checkbox" value="e">однаковий вік забудови</label><label><input type="checkbox" value="f">відсутність передмість</label><label><input type="checkbox" value="g">однакова густота населення всюди</label></div></div>
+<div class="q" data-multi="q16"><b>16.</b> Оберіть три чинники розміщення первинного сектору.<div class="opts">
+<label><input type="checkbox" value="a">земельні ресурси</label><label><input type="checkbox" value="b">клімат</label><label><input type="checkbox" value="c">мінерально-сировинна база</label><label><input type="checkbox" value="d">алфавіт країни</label><label><input type="checkbox" value="e">колір прапора</label><label><input type="checkbox" value="f">номер телефонного коду</label><label><input type="checkbox" value="g">форма герба</label></div></div>
+<div class="q" data-multi="q17"><b>17.</b> Які три твердження про картографічні проєкції правильні?<div class="opts">
+<label><input type="checkbox" value="a">плоска карта неминуче має спотворення</label><label><input type="checkbox" value="b">рівновеликі проєкції зберігають співвідношення площ</label><label><input type="checkbox" value="c">вибір проєкції залежить від мети</label><label><input type="checkbox" value="d">цифрові карти не спотворюють</label><label><input type="checkbox" value="e">масштаб усуває всі спотворення</label><label><input type="checkbox" value="f">усі проєкції однаково зберігають кути</label><label><input type="checkbox" value="g">проєкція важлива лише для паперових карт</label></div></div>
+<div class="q" data-multi="q18"><b>18.</b> Для вибору місця харчового логістичного хабу оберіть три найрелевантніші набори даних.<div class="opts">
+<label><input type="checkbox" value="a">виробництво с/г сировини</label><label><input type="checkbox" value="b">транспортна доступність</label><label><input type="checkbox" value="c">людність/ринок збуту</label><label><input type="checkbox" value="d">середня висота букв у назвах міст</label><label><input type="checkbox" value="e">кольори адміністративних меж</label><label><input type="checkbox" value="f">кількість меридіанів на карті</label><label><input type="checkbox" value="g">форма рамки карти</label></div></div>
+<button onclick="grade()">Перевірити спринт</button>
+<div id="res" class="result hidden"></div>
+</div>
+</section>
+
+<section id="summary">
+<h2><span class="time">33–35 хв</span> • CER-фініш</h2>
+<div class="task"><b>Твердження:</b> оберіть A/B/C для хабу ще раз.<br><b>Доказ:</b> назвіть один доказ із теми міст і один — із теми первинного сектору.<br><b>Пояснення:</b> поясніть зв'язок.<br><b>Обмеження:</b> назвіть, як картографічна проєкція або методика статистики може ввести в оману.</div>
+<h3>Домашнє — коротко</h3>
+<p><b>9 клас:</b> практична робота — порівняти рейтинги міст-мільйонників та агломерацій за людністю; сформулювати висновок.<br>
+<b>10 клас:</b> § 6 — первинний сектор економіки країн Європи; 5 НМТ-тез у чернетці.<br>
+<b>11 клас:</b> § 5 — карта, її елементи, проєкції й спотворення; пояснити на одному прикладі, чому «виглядає більшим» ≠ «є більшим».<br>
+<b>Усім:</b> Тест — пройти повторно цей НМТ-спринт і зафіксувати слабкі місця.</p>
+</section>
+</main>
+<footer style="padding:28px 20px 50px;color:#a9c4c0;text-align:center">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • 2026/2027</footer>
+<script>
+function toggle(id){document.getElementById(id).classList.toggle('show')}
+function radio(name){let x=document.querySelector('input[name="'+name+'"]:checked');return x?x.value:null}
+function multi(q){return [...document.querySelector('[data-multi="'+q+'"]').querySelectorAll('input:checked')].map(x=>x.value).sort().join('')}
+function grade(){
+ const key={q1:'b',q2:'b',q3:'d',q4:'a',q5:'b',q6:'a',q7:'b',q8:'b',q9:'b',q10:'a',q11:'a',q12:'b'};
+ let raw=0,max=28, details=[];
+ for(let i=1;i<=12;i++){let ok=radio('q'+i)===key['q'+i]; if(ok)raw+=1; details.push(ok)}
+ let n13=parseFloat(document.getElementById('q13').value), n14=parseFloat(document.getElementById('q14').value);
+ if(Math.abs(n13-10)<0.05)raw+=2;
+ if(Math.abs(n14-150)<0.05)raw+=2;
+ const mk={q15:'abc',q16:'abc',q17:'abc',q18:'abc'};
+ for(const q of Object.keys(mk)){
+   let sel=multi(q), good=new Set(mk[q].split('')), chosen=new Set(sel.split('').filter(Boolean));
+   let pts=0; for(const v of chosen) if(good.has(v))pts++; raw+=pts;
+ }
+ let pct=Math.round(raw/max*100);
+ let msg=pct>=85?'Сильний результат: перевіряйте вже не терміни, а логічні пастки.':pct>=65?'Робочий рівень: знайдіть 2–3 типи помилок і допрацюйте їх.':'Потрібне повторення: спочатку поняття, потім карти й задачі.';
+ let r=document.getElementById('res');r.classList.remove('hidden');
+ r.innerHTML='<div class="score">'+raw+' / '+max+'</div><b>'+pct+'%</b><p>'+msg+'</p><p class="mini">Короткі відповіді: №13 = 10%; №14 = 150 км. Для завдань 15–18 нараховано по 1 балу за кожний правильно вибраний варіант із трьох.</p>';
+ r.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body></html>
