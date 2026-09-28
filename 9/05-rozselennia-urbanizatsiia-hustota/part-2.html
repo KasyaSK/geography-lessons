@@ -1,0 +1,37 @@
+<section class="card" id="density">
+<h2>12–16 хв • Лабораторія густоти населення</h2>
+<p class="sub"><b>Густота населення</b> — це не «скільки людей у країні», а співвідношення кількості людей і площі території.</p>
+<div class="density-lab">
+  <div class="mini">
+    <div class="range-row"><label>Населення умовної території: <b><span id="popOut">500 000</span> осіб</b></label><input id="popRange" type="range" min="100000" max="1000000" step="50000" value="500000" oninput="updateDensity()"></div>
+    <div class="range-row"><label>Площа: <b><span id="areaOut">2 500</span> км²</b></label><input id="areaRange" type="range" min="100" max="5000" step="100" value="2500" oninput="updateDensity()"></div>
+    <div class="formula">густота = населення ÷ площа</div>
+    <p>Результат: <span class="metric"><span id="densityOut">200</span></span> осіб/км²</p>
+    <div class="task"><span class="tasknum">ШВИДКА МІСІЯ</span><p>Не змінюючи населення, зменште площу приблизно вдвічі. Що відбудеться з густотою?</p><select id="densityHyp"><option value="">Ваш прогноз…</option><option value="up">приблизно подвоїться</option><option value="same">не зміниться</option><option value="down">зменшиться</option></select><button class="soft" onclick="checkDensityHyp()">Перевірити</button><div id="fb-density" class="feedback"></div></div>
+  </div>
+  <div class="mini"><h3>Візуальна модель</h3><p class="small">Крапки — умовні групи населення. Це модель, а не карта.</p><div id="dots" class="dots" aria-label="Схематичне зображення густоти населення"></div><p class="small">Однакова кількість людей може «розтягнутися» на велику територію або бути сконцентрована на малій.</p></div>
+</div>
+<div class="mini warn"><b>Реальні дані для критичного читання:</b> Світовий банк подає для України середню густоту близько <b>65 осіб/км² за 2023 р.</b> Це агрегований показник для всієї країни, а не опис кожного регіону; до того ж під час війни оцінки населення мають підвищену невизначеність.</div>
+</section>
+
+<section class="card" id="urban">
+<h2>16–20 хв • Урбанізація: не просто «люди їдуть у місто»</h2>
+<div class="grid2">
+<div>
+  <p><b>Урбанізація</b> — зростання ролі міст і міського способу життя, зокрема частки населення, що живе в міських поселеннях.</p>
+  <p>За <b>World Urbanization Prospects 2025</b>, якщо застосовувати гармонізований підхід ООН «Degree of Urbanization», у 2025 році приблизно <b>45%</b> населення світу живе у містах, <b>36%</b> — у містечках/напівщільних поселеннях і <b>19%</b> — у сільській місцевості.</p>
+  <div class="worldbar" aria-label="Структура населення світу за ступенем урбанізації у 2025 році"><div class="city" style="width:45%">45% міста</div><div class="town" style="width:36%">36% містечка</div><div class="rural" style="width:19%">19% село</div></div>
+  <div class="legend"><span class="lc">міста</span><span class="lt">містечка / напівщільні</span><span class="lr">сільські території</span></div>
+  <p class="small">За національними визначеннями «urban» глобальна частка у 2025 р. вища — близько 58%. Це хороший приклад того, як <b>визначення показника змінює число</b>.</p>
+</div>
+<figure class="visual">
+<svg viewBox="0 0 620 330" role="img" aria-labelledby="urbTitle"><title id="urbTitle">Схематичний профіль урбанізаційних процесів</title>
+<rect width="620" height="330" fill="#eef8fa"/><path d="M0 262 C120 248 190 266 310 240 C430 214 500 232 620 205 L620 330 L0 330Z" fill="#b9dfc6"/>
+<rect x="45" y="190" width="54" height="72" rx="4" fill="#4d8799"/><rect x="106" y="160" width="72" height="102" rx="4" fill="#2d6577"/><rect x="186" y="125" width="78" height="137" rx="4" fill="#1c5369"/><rect x="272" y="177" width="58" height="85" rx="4" fill="#568e9b"/>
+<path d="M330 252 C395 210 443 198 510 215" fill="none" stroke="#d68b36" stroke-width="12" stroke-linecap="round"/><g fill="#d68b36"><circle cx="354" cy="238" r="9"/><circle cx="397" cy="216" r="9"/><circle cx="445" cy="207" r="9"/><circle cx="495" cy="213" r="9"/></g>
+<g fill="#fff"><rect x="58" y="204" width="8" height="10"/><rect x="78" y="204" width="8" height="10"/><rect x="121" y="176" width="10" height="10"/><rect x="147" y="176" width="10" height="10"/><rect x="205" y="144" width="12" height="12"/><rect x="232" y="144" width="12" height="12"/></g>
+<text x="35" y="48" font-size="22" font-weight="800" fill="#1b4a5a">Місто → передмістя → мережа поселень</text><text x="35" y="77" font-size="15" fill="#57727c">Урбанізація змінює не лише кількість жителів, а й транспорт, зайнятість, забудову та спосіб життя.</text>
+</svg><figcaption>Схема: урбанізація може супроводжуватися субурбанізацією — переміщенням частини населення й функцій у передмістя.</figcaption></figure>
+</div>
+<div class="task"><span class="tasknum">ВІДЕО • 4 ХВ</span><p>Перегляньте початок уроку Pi-stacja UA «Міське й сільське населення. Урбанізація #2» (особливо 00:20–04:10). Під час перегляду знайдіть <b>дві ознаки</b>, за якими урбанізацію не можна звести лише до «зростання міста».</p><div class="actions"><a class="btn blue" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=unyntfX-IcQ">Відкрити відео ↗</a></div></div>
+</section>
