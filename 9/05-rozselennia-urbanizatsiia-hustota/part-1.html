@@ -1,0 +1,47 @@
+<header class="hero" id="start"><div class="wrap">
+  <span class="badge">9 КЛАС • УРОК №5 • ГР3 • §§ 6–7 • 35 ХВ</span>
+  <h1>Де живуть люди — і чому міста ростуть?</h1>
+  <p class="lead">Типи населених пунктів, густота населення й урбанізація. Сьогодні вчимося не плутати <b>«велике місто»</b>, <b>«густо заселена територія»</b> і <b>«високоурбанізована країна»</b>. Бо це три різні речі, хоча статистика дуже любить удавати, що все просто.</p>
+  <div class="chips"><span class="chip">🏙️ поселення</span><span class="chip">📐 густота</span><span class="chip">🌍 урбанізація</span><span class="chip">🧩 агломерації</span><span class="chip">🧠 доказове мислення</span></div>
+</div></header>
+<nav><div class="wrap"><a href="#problem">Старт</a><a href="#settlements">Поселення</a><a href="#photos">Фото</a><a href="#density">Густота</a><a href="#urban">Урбанізація</a><a href="#videos">Відео</a><a href="#evidence">Докази</a><a href="#theory">Теорія</a><a href="#summary">Підсумок</a><a href="#homework">Д/З</a><a href="#quiz">Тест</a></div></nav>
+<main class="wrap">
+
+<section class="card" id="problem">
+<h2>0–3 хв • Географічна пастка</h2>
+<p class="sub">Перед Вами три твердження. Одне з них звучить логічно, але є хибним. Оберіть його <b>до</b> вивчення матеріалу.</p>
+<div class="grid3">
+  <label class="mini"><input type="radio" name="myth" value="a"> А. Країна може мати високу частку міського населення, але невелику середню густоту.</label>
+  <label class="mini"><input type="radio" name="myth" value="b"> Б. Місто з більшим населенням завжди має вищу густоту населення.</label>
+  <label class="mini"><input type="radio" name="myth" value="c"> В. Дві країни з однаковою густотою можуть мати різний рівень урбанізації.</label>
+</div>
+<div class="actions"><button onclick="checkMyth()">Зафіксувати гіпотезу</button></div><div id="fb-myth" class="feedback"></div>
+<div class="callout"><b>Проблемне питання уроку:</b> чи можна за одним показником — кількістю жителів, густотою або часткою міського населення — надійно описати систему розселення країни?</div>
+</section>
+
+<section class="card" id="settlements">
+<h2>3–8 хв • Хто тут місто, а хто ні?</h2>
+<p class="sub">В Україні категорії населених пунктів визначені законом. І тут є нюанс: слово «великий» саме по собі нічого не доводить.</p>
+<div class="city-cards">
+  <div class="settlement"><div class="sky"><span class="house" style="left:15px"></span><span class="house" style="left:62px"></span><span class="tree" style="right:35px"></span></div><span class="tag">СЦЕНАРІЙ A</span><h3>4 200 жителів</h3><p>Переважно садибна забудова.</p><select id="sA"><option value="">Категорія…</option><option value="city">місто</option><option value="town">селище</option><option value="village">село</option></select></div>
+  <div class="settlement"><div class="sky"><span class="house" style="left:10px"></span><span class="house" style="left:52px"></span><span class="house" style="left:95px"></span><span class="tree" style="right:25px"></span></div><span class="tag">СЦЕНАРІЙ B</span><h3>6 800 жителів</h3><p>Переважно садибна забудова.</p><select id="sB"><option value="">Категорія…</option><option value="city">місто</option><option value="town">селище</option><option value="village">село</option></select></div>
+  <div class="settlement"><div class="sky"><span class="bld" style="left:18px;width:28px;height:67px"></span><span class="bld" style="left:52px;width:38px;height:86px"></span><span class="bld" style="left:97px;width:34px;height:52px"></span><span class="bld" style="right:18px;width:42px;height:76px"></span></div><span class="tag">СЦЕНАРІЙ C</span><h3>22 000 жителів</h3><p>Переважно компактна забудова.</p><select id="sC"><option value="">Категорія…</option><option value="city">місто</option><option value="town">селище</option><option value="village">село</option></select></div>
+</div>
+<div class="actions"><button onclick="checkSettlements()">Перевірити класифікацію</button><a class="btn soft" target="_blank" rel="noopener" href="https://zakon.rada.gov.ua/laws/show/3285-20#Text">Відкрити чинний Закон України ↗</a></div><div id="fb-settle" class="feedback"></div>
+<div class="mini info"><b>Актуально для України:</b> за Законом №3285-IX місто — населений пункт із переважно компактною забудовою та не менш як 10 тис. жителів; селище — переважно садибна забудова й не менш як 5 тис.; село — садибна забудова й менш як 5 тис. жителів. У різних країнах світу критерії «міста» можуть бути іншими.</div>
+</section>
+
+<section class="card" id="photos">
+<h2>8–12 хв • Фото-галерея: як виглядають різні типи поселень насправді</h2>
+<p class="sub">Тут уже не умовні квадратики, а <b>реальні фото</b>. Подивіться на щільність забудови, поверховість, транспорт, функції, зв’язки з навколишньою територією. Ваше завдання — не просто «красиво/некрасиво», а <b>побачити тип поселення й пояснити, чому Ви так вирішили</b>.</p>
+<div class="photo-grid">
+  <article class="photo-card"><img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Manhattan_New_York_skyline_by_Don_Ramey_Logan.jpg" alt="Манхеттен, Нью-Йорк — щільна багатоповерхова забудова мегаполіса"><div class="photo-body"><span class="kicker">МЕГАПОЛІС</span><h3>Манхеттен, Нью-Йорк</h3><p>Дуже щільна висотна забудова, потужні ділові функції, складна транспортна система, концентрація робочих місць.</p><p class="media-note">Ознаки для аналізу: вертикальна забудова, щільність, економічні функції.</p></div></article>
+  <article class="photo-card"><img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo%20-%20Sunset%20Skyline.jpg" alt="Токіо — велике багатоядерне місто Азії"><div class="photo-body"><span class="kicker">НАЙБІЛЬША АГЛОМЕРАЦІЯ</span><h3>Токіо</h3><p>Яскравий приклад великої міської агломерації: безперервна забудова, ділові квартали, житлові масиви, вузли швидкісного транспорту.</p><p class="media-note">Питання: де тут закінчується «місто» і починаються «передмістя»?</p></div></article>
+  <article class="photo-card"><img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rotterdam-Skyline.jpg" alt="Роттердам — портове місто з сучасною забудовою"><div class="photo-body"><span class="kicker">ПОРТОВЕ МІСТО</span><h3>Роттердам</h3><p>Сучасне місто з важливими транспортними та логістичними функціями. Міста часто ростуть там, де є вигідне транспортно-географічне положення.</p><p class="media-note">Зверніть увагу: вода, мости, транспорт, ділова забудова.</p></div></article>
+  <article class="photo-card"><img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Little%20Market%20square%20(S),%20Old%20Town,%20Krak%C3%B3w,%20Poland.jpg" alt="Краків — історичне європейське місто"><div class="photo-body"><span class="kicker">ІСТОРИЧНЕ МІСТО</span><h3>Краків</h3><p>Не кожне місто — це ліс хмарочосів. Місто можуть визначати історичні функції, послуги, щільна мережа вулиць і центральні громадські простори.</p><p class="media-note">Подумайте: які функції виконує центральна площа?</p></div></article>
+  <article class="photo-card"><img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Suburban%20neighborhood%20(Unsplash).jpg" alt="Передмістя з малоповерховою житловою забудовою"><div class="photo-body"><span class="kicker">ПЕРЕДМІСТЯ</span><h3>Субурбанізований район</h3><p>Переважає житлова забудова, нижча поверховість, багато приватних будинків, але жителі часто щодня пов’язані з містом працею та послугами.</p><p class="media-note">Ключове поняття: <b>субурбанізація</b>.</p></div></article>
+  <article class="photo-card"><img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kolansk,%20Ivatsevichy%20District,%20Decorated%20village%20house%20(2022-07-10).jpg" alt="Сільське поселення з садибною забудовою"><div class="photo-body"><span class="kicker">СІЛЬСЬКЕ ПОСЕЛЕННЯ</span><h3>Село із садибною забудовою</h3><p>Невисока забудова, присадибні ділянки, інший характер зайнятості та простору. Село — це не «менше місто», а інший тип розселення.</p><p class="media-note">Ознаки: садибна забудова, менша щільність, інший ритм простору.</p></div></article>
+</div>
+<div class="task"><span class="tasknum">МІКРОЗАВДАННЯ</span><p>Оберіть <b>будь-які три фото</b> й коротко запишіть: 1) тип поселення; 2) дві візуальні ознаки; 3) яку функцію або проблему можна припустити за фото.</p><textarea placeholder="Наприклад: Роттердам — місто; ознаки: порт, висотна забудова; функція: транспортно-логістичний вузол."></textarea></div>
+<div class="mini info"><b>Педагогічний нюанс:</b> за фото ми можемо висувати обґрунтовану гіпотезу, але не маємо права підміняти нею статистику. Фото допомагає <i>побачити</i> ознаки, а дані — <i>довести</i> висновок. Гарна звичка, між іншим.</div>
+</section>
