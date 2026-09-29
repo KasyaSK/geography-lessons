@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<title>5-А • Класна година-квест • 30 хв</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="lessonApp">
+  <div style="max-width:900px;margin:60px auto;padding:24px;font-family:system-ui,sans-serif">
+    Завантажую класну годину…
+  </div>
+</div>
+<script>
+(async () => {
+  try {
+    const files = ['part-1.html','part-2.html','part-3.html'];
+    const parts = await Promise.all(files.map(async (file) => {
+      const r = await fetch(file, {cache:'no-store'});
+      if (!r.ok) throw new Error(file + ': ' + r.status);
+      return await r.text();
+    }));
+    document.getElementById('lessonApp').outerHTML = parts.join('');
+    const s = document.createElement('script');
+    s.src = 'script.js';
+    document.body.appendChild(s);
+  } catch (err) {
+    document.getElementById('lessonApp').innerHTML =
+      '<div style="max-width:900px;margin:60px auto;padding:24px;font-family:system-ui,sans-serif;background:#fff3cd;border-radius:18px"><b>Не вдалося завантажити урок.</b><br>Оновіть сторінку. Якщо помилка повториться — повідомте вчителя.</div>';
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>
