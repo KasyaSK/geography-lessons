@@ -1,0 +1,71 @@
+<section id="r3" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--violet)">📚</div>
+      <div><h2>3. Книжковий батл</h2><p>До Всеукраїнського дня бібліотек: не «хто більше назв згадає», а хто краще читає підказки.</p></div>
+      <div class="timechip">7–12 хв</div>
+    </div>
+    <div class="body two">
+      <div class="photo-card big">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Reading_books_in_a_library_with_child.jpg?width=1200" alt="Дитина читає у бібліотеці" onerror="this.style.display='none'">
+        <div class="cap">Реальна бібліотека. Подивіться 10 секунд: які деталі допомагають зрозуміти, що людина справді читає, а не просто позує біля книжок?</div>
+      </div>
+      <div>
+        <div class="book-cards">
+          <div class="book">
+            <div><b>Детектив 1</b><p>Двоє хлопців, грандіозні плани, пригоди і талант спочатку робити, а потім думати.</p></div>
+            <button onclick="toggleAns('b1')">Відкрити</button><div id="b1" class="hiddenans">«Тореадори з Васюківки»</div>
+          </div>
+          <div class="book">
+            <div><b>Детектив 2</b><p>Дуже розумна дівчинка, любов до книжок і дорослі, які не завжди поводяться мудро.</p></div>
+            <button onclick="toggleAns('b2')">Відкрити</button><div id="b2" class="hiddenans">«Матильда»</div>
+          </div>
+          <div class="book">
+            <div><b>Детектив 3</b><p>До іншого світу можна потрапити через звичайний предмет меблів.</p></div>
+            <button onclick="toggleAns('b3')">Відкрити</button><div id="b3" class="hiddenans">«Хроніки Нарнії»</div>
+          </div>
+        </div>
+        <div class="quest">
+          <strong>⭐ Книжковий зорепад</strong>
+          <p>Кожен називає одну книжку й завершує: <b>«Я рекомендую її людині, яка хоче навчитися…»</b></p>
+          <div class="swipe"><span>сміливості</span><span>допитливості</span><span>справедливості</span><span>не здаватися</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="r4" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--blue)">🏛️</div>
+      <div><h2>4. Фото-пастка: Січ</h2><p>Історична тяглість без міфологізації. Спершу дивимося на доказ.</p></div>
+      <div class="timechip">12–17 хв</div>
+    </div>
+    <div class="body two">
+      <div class="photo-card big">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Khortytsya_Reserve._Zaporizka_Sich_historical-cultural_complex.jpg?width=1200" alt="Історико-культурний комплекс Запорозька Січ на Хортиці" onerror="this.style.display='none'">
+        <div class="cap">Національний заповідник «Хортиця», історико-культурний комплекс «Запорозька Січ».</div>
+      </div>
+      <div>
+        <div class="quest">
+          <strong>Фото справжньої Січі XVII століття?</strong>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,false,'sichfb')">Так, це збережені будівлі.</button>
+            <button class="choice" onclick="answer(this,true,'sichfb')">Ні, це сучасний історико-культурний комплекс / реконструкція.</button>
+          </div>
+          <div id="sichfb" class="feedback">Так. Фото показує комплекс на Хортиці, а не «заморожений у часі» оригінал. Це хороший приклад того, чому джерело треба називати точно. +2 ⭐</div>
+        </div>
+        <div class="fact"><b>Цікавинка:</b> історична тяглість не означає, що сучасна Україна є копією козацької спільноти. Ми можемо говорити про пам’ять, традиції, символи, досвід самоорганізації — але не стирати кілька століть змін.</div>
+        <div class="quest">
+          <strong>Що спільного між класом і будь-якою спільнотою?</strong>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,true,'commfb')">Потрібні правила, відповідальність і спосіб вирішувати конфлікти.</button>
+            <button class="choice" onclick="answer(this,false,'commfb')">Усі мають думати однаково.</button>
+          </div>
+          <div id="commfb" class="feedback">Саме так. Команда не вимагає однаковості — вона потребує домовленостей. +2 ⭐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
