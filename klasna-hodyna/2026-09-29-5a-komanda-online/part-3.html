@@ -1,0 +1,120 @@
+<section id="r5" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--pink)">🐾</div>
+      <div><h2>5. Допомога тварині: що справді працює?</h2><p>Не «ми любимо котиків», а відповідальність у реальних умовах війни.</p></div>
+      <div class="timechip">17–22 хв</div>
+    </div>
+    <div class="body two">
+      <div class="photo-card big">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Reception_points_for_Ukrainian_refugees_in_Poland_%28P-055646-00-14%29.jpg?width=1200" alt="Українська біженка з собакою в центрі прийому" onerror="this.style.display='none'">
+        <div class="cap">Українська біженка з собакою в центрі прийому, Польща, березень 2022 року. Фото Європейської Комісії.</div>
+      </div>
+      <div>
+        <div class="quest">
+          <strong>Що тут є прикладом відповідальності?</strong>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,true,'petfb1')">Тварину не залишили під час евакуації.</button>
+            <button class="choice" onclick="answer(this,false,'petfb1')">Можна брати руками будь-яку налякану тварину.</button>
+            <button class="choice" onclick="answer(this,true,'petfb1')">Для тварини потрібні вода, переноска/повідець, документи та корм.</button>
+            <button class="choice" onclick="answer(this,false,'petfb1')">У небезпеці тварини самі розберуться.</button>
+          </div>
+          <div id="petfb1" class="feedback">Відповідальність — продумати потреби тварини до критичного моменту. +2 ⭐</div>
+        </div>
+        <div class="quest">
+          <strong>Поранений незнайомий собака. Перша дія?</strong>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,false,'petfb2')">Одразу обійняти й узяти на руки.</button>
+            <button class="choice" onclick="answer(this,true,'petfb2')">Покликати дорослого, оцінити небезпеку й організувати безпечну допомогу.</button>
+          </div>
+          <div id="petfb2" class="feedback">Так. Налякана чи травмована тварина може захищатися. Допомога не повинна створювати ще одну травму. +2 ⭐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="r6" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--red)">🚌</div>
+      <div><h2>6. Фото-задача: автобус зник із поля зору?</h2><p>Після висадки найбільша пастка — обмежений огляд.</p></div>
+      <div class="timechip">22–26 хв</div>
+    </div>
+    <div class="body two">
+      <div class="photo-card big">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bus_stop_and_pedestrian_crossing_on_Main_Street%2C_Dundrum_-_geograph.org.uk_-_8018928.jpg?width=1200" alt="Автобусна зупинка та пішохідний перехід" onerror="this.style.display='none'">
+        <div class="cap">Автобусна зупинка та пішохідний перехід. Шукаємо, де безпечніше переходити.</div>
+      </div>
+      <div>
+        <div class="quest">
+          <strong>Ситуація:</strong>
+          <p>Ви вийшли з автобуса. Друг каже: «Швидко перебіжімо перед ним — машин наче нема».</p>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,false,'busfb')">Нормально, якщо дуже швидко.</button>
+            <button class="choice" onclick="answer(this,true,'busfb')">Ні. Автобус закриває огляд і вам, і водіям.</button>
+          </div>
+          <div id="busfb" class="feedback">Головна пастка: «не бачу машину» ≠ «машини немає». +2 ⭐</div>
+        </div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox"> Не вибігати на дорогу одразу після висадки.</label>
+          <label class="check"><input type="checkbox"> Дочекатися нормального огляду.</label>
+          <label class="check"><input type="checkbox"> Іти до дозволеного місця переходу.</label>
+          <label class="check"><input type="checkbox"> Оцінити рух з обох боків.</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="r7" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--green)">🤝</div>
+      <div><h2>7. Фінальний контракт + секретний сигнал</h2><p>Ніяких довгих рефлексій. Одна дія для класу й один приватний канал для допомоги.</p></div>
+      <div class="timechip">26–30 хв</div>
+    </div>
+    <div class="body two">
+      <div class="secret">
+        <h3 style="margin-top:0">Контракт 5-А</h3>
+        <p><b>«У жовтні я можу зробити наш клас кращим, якщо…»</b></p>
+        <textarea placeholder="Одна конкретна дія..."></textarea>
+        <div class="swipe">
+          <button class="vote" onclick="this.classList.toggle('active')">слухатиму</button>
+          <button class="vote" onclick="this.classList.toggle('active')">допомагатиму</button>
+          <button class="vote" onclick="this.classList.toggle('active')">не мовчатиму про проблему</button>
+          <button class="vote" onclick="this.classList.toggle('active')">відповідатиму за обіцяне</button>
+        </div>
+      </div>
+      <div class="quest">
+        <strong>🕵️ Секретний папірець</strong>
+        <p>Можна без імені. Напишіть лише одне:</p>
+        <ol>
+          <li>«У школі мені зараз найскладніше…»</li>
+          <li>«Було б легше, якби…»</li>
+          <li>«Хочу, щоб Каріна Андріївна знала…»</li>
+        </ol>
+        <p><b>«+»</b> у кутку означає: «Я хочу, щоб Ви поговорили зі мною особисто». Якщо урок проходить повністю онлайн — це можна надіслати Каріні Андріївні приватним повідомленням.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap finish">
+    <h2>Місію виконано. ⚡</h2>
+    <p>30 хвилин — і ми встигли поговорити про адаптацію, правила спільноти, книжки, історію, тварин і безпеку без шестисерійної лекції.</p>
+    <p><b>Фінальний рахунок:</b> ⭐ <span id="finalScore">0</span></p>
+  </div>
+</section>
+
+</main>
+
+<footer style="padding:30px 0 50px">
+  <div class="wrap mini-source">
+    <b>Автор:</b> Скринченко К.А. • Василівський ліцей «Сузір’я».<br>
+    Фото: Wikimedia Commons — Class Group Photo Memories with Schoolmates; Reading books in a library with child;
+    The Khortytsya Reserve. Zaporizka Sich historical-cultural complex; Reception points for Ukrainian refugees in Poland;
+    Bus stop and pedestrian crossing on Main Street, Dundrum. Ліцензії та автори вказані на сторінках файлів Wikimedia Commons.
+  </div>
+</footer>
