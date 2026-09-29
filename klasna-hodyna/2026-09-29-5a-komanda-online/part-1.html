@@ -1,0 +1,112 @@
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo">⚡ 5-А КВЕСТ</div>
+    <div class="progress"><span id="progressFill"></span></div>
+    <div class="score">⭐ <span id="score">0</span></div>
+    <div class="clock">⏱ <span id="clock">30:00</span></div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kicker">класна година • максимум 30 хв</span>
+      <h1>5-А:<br>місія «Команда»</h1>
+      <p>Сьогодні не буде довгої виховної бесіди. Буде сім коротких раундів: рішення, фотографії, пастки, бали, книжковий батл і фінальний секретний сигнал учителю.</p>
+      <p><b>Формат саме наш:</b> Google Classroom, онлайн-уроки, чат, мікрофони, посилання й домашні. Тобто все те, де іноді головний квест — не знайти дракона, а знайти правильний клас і правильне завдання.</p>
+      <div class="meta">
+        <div>⚡ 7 раундів</div><div>📸 Реальні фото</div><div>⭐ Командні бали</div><div>⏱ 30 хв</div>
+      </div>
+      <div class="controls">
+        <button class="btn yellow" onclick="startTimer()">Стартувати 30 хв</button>
+        <a class="btn" href="#r1" style="text-decoration:none">Раунд 1 ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Class_Group_Photo_Memories_with_Schoolmates.jpg?width=1400"
+        alt="Учні разом у класі"
+        onerror="this.style.display='none'">
+      <div class="hero-caption">
+        <b>Команда — це не коли всі однакові.</b>
+        Це коли різні люди вміють діяти разом.
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="r1" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--orange)">🧭</div>
+      <div><h2>1. Радар першого місяця</h2><p>Швидко перевіряємо, як ми адаптувалися до дистанційного 5 класу — без публічного «а в кого проблеми?».</p></div>
+      <div class="timechip">0–3 хв</div>
+    </div>
+    <div class="body two">
+      <div>
+        <div class="callout">Учитель читає 5 тверджень. Діти показують пальцями: <b>1 — виходить, 2 — ще вчуся, 3 — потрібна допомога.</b></div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox"> Я знаю, у якому Google Classroom шукати тему, матеріали й домашнє завдання.</label>
+          <label class="check"><input type="checkbox"> Я розумію, кому й де написати, якщо не відкривається завдання або щось незрозуміло.</label>
+          <label class="check"><input type="checkbox"> Я вже не гублюся в розкладі, Google Classroom і посиланнях на уроки.</label>
+          <label class="check"><input type="checkbox"> Навіть онлайн у мене є люди в класі, з якими мені комфортно спілкуватися.</label>
+          <label class="check"><input type="checkbox"> Навіть через екран я почуваюся частиною 5-А.</label>
+        </div>
+
+        <div class="quest" style="margin-top:12px">
+          <strong>💻 Онлайн-перевірка: що робимо, якщо…</strong>
+          <p><b>…посилання на урок не відкривається?</b></p>
+          <div class="choices">
+            <button class="choice" onclick="answer(this,true,'onlinefb1')">Пишу вчителю коротко: що саме не відкривається + додаю скриншот, якщо можу.</button>
+            <button class="choice" onclick="answer(this,false,'onlinefb1')">Просто зникаю з уроку й нічого не кажу.</button>
+          </div>
+          <div id="onlinefb1" class="feedback">Так. Онлайн-навчання працює краще, коли проблема описана чітко: що сталося, де саме і що вже спробував/ла зробити. +2 ⭐</div>
+        </div>
+      </div>
+      <div class="quest">
+        <strong>⚡ Мікрорішення класу</strong>
+        <p>На жовтень можна взяти лише <b>одну</b> спільну ціль. Яку?</p>
+        <div class="choices">
+          <button class="choice" onclick="pickOpen(this,1)">Не говорити всім одночасно в мікрофон</button>
+          <button class="choice" onclick="pickOpen(this,1)">Допомагати знайти пропущене в Google Classroom</button>
+          <button class="choice" onclick="pickOpen(this,1)">Вчасно писати, якщо не працює посилання або завдання</button>
+          <button class="choice" onclick="pickOpen(this,1)">Нормально спілкуватися в чатах і не влаштовувати там хаос</button>
+        </div>
+        <div class="feedback">Тут немає «правильної» відповіді. Важливо, щоб клас сам обрав одну реальну ціль, а не десять красивих.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="r2" data-stage>
+  <div class="wrap stage">
+    <div class="stage-head">
+      <div class="icon" style="background:var(--yellow);color:#684b00">🛡️</div>
+      <div><h2>2. Побудуй товариство</h2><p>Відповідальність важливіша за пафос. У вас лише 5 правил.</p></div>
+      <div class="timechip">3–7 хв</div>
+    </div>
+    <div class="body">
+      <div class="counter">Обрано: <span id="ruleCount">0</span>/5</div>
+      <div class="rulegrid" id="rules">
+        <button class="rule">Не принижувати через помилку.</button>
+        <button class="rule">Допомагати тому, хто пропустив онлайн-урок.</button>
+        <button class="rule">Не говорити всім одночасно в мікрофон.</button>
+        <button class="rule">Виконувати обіцяне.</button>
+        <button class="rule">Не робити скриншоти/записи інших без дозволу.</button>
+        <button class="rule">Уміти визнавати свою помилку.</button>
+        <button class="rule">Не скидати готові відповіді в чат замість допомоги.</button>
+        <button class="rule">Попереджати про небезпеку.</button>
+        <button class="rule">Поважати іншу думку.</button>
+        <button class="rule">Не засмічувати чат випадковими повідомленнями під час уроку.</button>
+      </div>
+      <div class="controls">
+        <button class="btn yellow" onclick="ruleTrap()">Перевірити пастку</button>
+        <button class="btn ghost" onclick="resetRules()">Скинути</button>
+      </div>
+      <div class="feedback" id="ruleFeedback"></div>
+    </div>
+  </div>
+</section>
