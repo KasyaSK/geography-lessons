@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+  <meta name="description" content="11 клас. Географія. Урок 7: Мета картографування міст.">
+  <title>11 клас • Урок 7 • Мета картографування міст</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <style>
+    :root{
+      --ink:#173147; --muted:#5d7280; --line:#d8e6ee; --card:#ffffff; --bg:#f4fbff;
+      --blue:#1982c4; --teal:#127a6d; --orange:#eb8c3a; --violet:#6c63d9; --green:#299c64; --red:#cf5b5b;
+      --shadow:0 18px 45px rgba(27,73,99,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);line-height:1.58;background:
+      radial-gradient(circle at 7% -5%, rgba(81,181,255,.18), transparent 26rem),
+      radial-gradient(circle at 93% 7%, rgba(81,210,162,.16), transparent 25rem),
+      var(--bg);
+    }
+    a{color:var(--blue)}
+    .wrap{width:min(1140px,92vw);margin:auto}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(130deg,#103047,#155c6d 55%, #2356a2);color:#fff;padding:4.6rem 0 3.2rem}
+    .hero:before,.hero:after{content:"";position:absolute;pointer-events:none;opacity:.18}
+    .hero:before{right:-120px;bottom:-90px;width:760px;height:260px;background:
+      repeating-linear-gradient(90deg,transparent 0 33px,#fff 34px 35px),
+      repeating-linear-gradient(0deg,transparent 0 33px,#fff 34px 35px);transform:perspective(420px) rotateX(62deg) rotateZ(-8deg)}
+    .hero:after{right:8%;top:-95px;width:250px;height:250px;border:32px solid rgba(255,255,255,.25);border-radius:50%}
+    .badge{display:inline-block;padding:.42rem .78rem;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);font-weight:900;font-size:.83rem;letter-spacing:.05em}
+    h1{font-size:clamp(2.35rem,6vw,4.9rem);line-height:1;letter-spacing:-.045em;margin:.9rem 0 1rem;max-width:980px}
+    .lead{max-width:75ch;color:#ddf4ff;font-size:1.08rem}
+    .chips{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:1rem}
+    .chip{padding:.38rem .65rem;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);font-weight:800;font-size:.83rem}
+    nav{position:sticky;top:0;z-index:40;background:rgba(244,251,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    nav .wrap{display:flex;gap:.35rem;overflow:auto;padding:.6rem 0}
+    nav a{text-decoration:none;color:#284252;padding:.55rem .75rem;border-radius:12px;font-weight:850;white-space:nowrap}
+    nav a:hover{background:#eaf5fb}
+    main{padding:1.2rem 0 4rem}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:clamp(1rem,2.8vw,2rem);margin:1.15rem 0}
+    .card h2{font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.08;margin:.1rem 0 .55rem}
+    .card h3{margin:.15rem 0 .45rem}
+    .sub{color:var(--muted);max-width:78ch}
+    .grid2,.grid3,.grid4{display:grid;gap:1rem}
+    .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .mini{border:1px solid var(--line);background:#fbfeff;border-radius:18px;padding:1rem}
+    .tip{background:#eefbf7;border-color:#c5ebde}
+    .warn{background:#fff7eb;border-color:#f2d7aa}
+    .info{background:#eef5ff;border-color:#cadbff}
+    .danger{background:#fff1ef;border-color:#f0c0ba}
+    .task{margin-top:1rem;padding:1rem;border:1px dashed #97b8c8;border-radius:18px;background:linear-gradient(180deg,#fff,#fbfeff)}
+    .tasknum{display:inline-block;background:var(--teal);color:#fff;padding:.25rem .55rem;border-radius:8px;font-size:.76rem;font-weight:900;letter-spacing:.04em}
+    .actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:.8rem}
+    .btn,button{border:0;border-radius:12px;padding:.72rem .95rem;background:var(--teal);color:#fff;font-weight:900;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+    .btn.blue,button.blue{background:var(--blue)}
+    .btn.orange,button.orange{background:var(--orange)}
+    .btn.violet,button.violet{background:var(--violet)}
+    .btn.soft,button.soft{background:#eaf3f8;color:#234355;border:1px solid #cfe0ea}
+    label{display:block;font-weight:800;margin:.42rem 0 .35rem}
+    select,input[type=text],input[type=number],textarea{width:100%;padding:.72rem .78rem;border:1px solid #bfd1dc;border-radius:12px;background:#fff;color:var(--ink);font:inherit}
+    textarea{min-height:92px;resize:vertical}
+    .feedback{display:none;margin-top:.8rem;padding:.8rem .9rem;border-radius:14px;font-weight:700}
+    .feedback.show{display:block}
+    .good{background:#e9fbf2;color:#156946;border:1px solid #bfe8d0}
+    .bad{background:#fff2f0;color:#964444;border:1px solid #efc0bb}
+    .neutral{background:#eef6ff;color:#24527f;border:1px solid #cadcf7}
+    .tag{display:inline-block;padding:.28rem .55rem;border-radius:999px;background:#ebf5ff;color:#1a6fb6;font-size:.78rem;font-weight:900}
+    .goal-card{height:100%}
+    .goal-card ul{padding-left:1.1rem;margin:.5rem 0}
+    .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .photo-card{overflow:hidden;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 8px 24px rgba(10,54,62,.08)}
+    .photo-card img{display:block;width:100%;height:240px;object-fit:cover;background:#e9f2f5}
+    .photo-body{padding:1rem}
+    .mapgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .map-svg{width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:#f8fcff}
+    #cityMap{height:420px;border-radius:20px;border:1px solid var(--line);overflow:hidden}
+    .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .video-card{border:1px solid var(--line);border-radius:20px;background:#fff;padding:1rem}
+    .video-card iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#d9e7ef}
+    .tablewrap{overflow:auto}
+    table{width:100%;border-collapse:collapse;min-width:760px}
+    th,td{padding:.75rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{background:#edf7fc;color:#2b4657}
+    .quizgate{padding:1rem;border-radius:18px;background:#edf7fc}
+    .quiz{display:none}
+    .q{padding:1rem 0;border-bottom:1px solid var(--line)}
+    .opt{display:block;margin:.35rem 0;padding:.58rem .65rem;border:1px solid #d2e0e8;border-radius:11px;background:#fff}
+    .opt input{margin-right:.45rem}
+    .result{display:none;margin-top:1rem;padding:1rem;border-radius:20px;background:#102d41;color:#fff}
+    .result .big{font-size:2.2rem;font-weight:950}
+    footer{padding:2rem 0 3rem;color:#637686;border-top:1px solid var(--line)}
+    .small{font-size:.88rem;color:var(--muted)}
+
+    .card{box-shadow:0 16px 40px rgba(24,67,92,.10)}
+    .card>h2{letter-spacing:-.018em}
+    .sub{font-size:1.01rem}
+    .photo-card{transition:transform .18s ease, box-shadow .18s ease}
+    .photo-card:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(20,64,88,.12)}
+    .photo-card img{height:265px}
+    .credit{font-size:.76rem;color:#6b7f8d;margin-top:.55rem}
+    .credit a{color:#4a7087}
+    .real-map-card{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(20,64,88,.07)}
+    .real-map-card .mapbox{height:330px;background:#edf4f8}
+    .real-map-card .mapbody{padding:1rem}
+    .real-map-card h3{margin:.18rem 0 .4rem}
+    .map-source{font-size:.8rem;color:#6a7d8a;margin-top:.55rem}
+    .map-source a{color:#496d84}
+    .layer-legend{display:flex;gap:.5rem;flex-wrap:wrap;margin:.6rem 0}
+    .layer-legend span{display:inline-flex;align-items:center;gap:.35rem;padding:.28rem .5rem;border-radius:999px;background:#f0f6f9;border:1px solid #d6e4eb;font-size:.78rem;font-weight:800;color:#385267}
+    .layer-dot{width:.7rem;height:.7rem;border-radius:50%;display:inline-block;background:#1b83c7}
+    .video-card{box-shadow:0 8px 24px rgba(20,64,88,.07)}
+    .video-card h3{font-size:1.08rem}
+    .video-meta{font-size:.82rem;color:#6c7e8b;margin:.25rem 0 .65rem}
+    .section-note{border-left:4px solid #1c83c6;background:#f2f8fd;padding:.75rem .9rem;border-radius:0 14px 14px 0;color:#385165}
+
+    @media (max-width:920px){.grid2,.grid3,.grid4,.gallery,.mapgrid,.video-grid{grid-template-columns:1fr}.real-map-card .mapbox{height:310px}}
+    @media print{nav,.no-print,.actions,.quizgate{display:none!important}.card{box-shadow:none;break-inside:avoid}body{background:#fff}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge">11 КЛАС • ГЕОГРАФІЯ • УРОК 7 • 45 ХВ</span>
+      <h1>Мета картографування міст</h1>
+      <p class="lead">Міська карта — це інструмент просторового аналізу. Вона допомагає <b>планувати транспорт</b>, <b>оцінювати щільність і характер забудови</b>, <b>розміщувати соціальні об’єкти</b>, <b>виявляти ризики</b> та <b>керувати розвитком території</b>. На уроці працюємо з реальними фотографіями, офіційними картографічними сервісами та ГІС-шарами, щоб зрозуміти, <i>яку саме проблему розв’язує кожна карта</i>.</p>
+      <div class="chips">
+        <span class="chip">🗺 картографування</span>
+        <span class="chip">🏙 місто</span>
+        <span class="chip">🚇 транспорт</span>
+        <span class="chip">🌳 довкілля</span>
+        <span class="chip">📊 тематичні карти</span>
+        <span class="chip">🧠 кейси і тест</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#start">Старт</a>
+      <a href="#goals">Мета картографування</a>
+      <a href="#photos">Фото</a>
+      <a href="#maps">Мапи</a>
+      <a href="#interactive">Інтерактивна карта</a>
+      <a href="#videos">Відео</a>
+      <a href="#practice">Практика</a>
+      <a href="#case">Кейс</a>
+      <a href="#summary">Підсумок</a>
+      <a href="#homework">Д/З</a>
+      <a href="#quiz">Тест</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section class="card" id="start">
+      <h2>0–5 хв • Проблемна ситуація</h2>
+      <p class="sub">Міська рада хоче відкрити <b>новий ліцей</b>. Маємо житлові квартали, зупинки транспорту, щільність населення, зелені зони та небезпечну підтоплювану ділянку. Яка карта потрібна перш за все?</p>
+      <div class="grid3">
+        <label class="mini"><input type="radio" name="warm" value="a"> Лише красива туристична карта з пам’ятками.</label>
+        <label class="mini"><input type="radio" name="warm" value="b"> Комплексна карта розселення, транспортної доступності та обмежень території.</label>
+        <label class="mini"><input type="radio" name="warm" value="c"> Фізична карта світу, бо міста десь там теж є.</label>
+      </div>
+      <div class="actions"><button onclick="checkWarmup()">Зафіксувати відповідь</button></div>
+      <div id="fb-warm" class="feedback"></div>
+      <div class="task">
+        <span class="tasknum">НА ЩО ВИЙДЕМО</span>
+        <p>Наприкінці уроку Ви зможете: <b>1)</b> пояснити мету картографування міст; <b>2)</b> розрізняти основні типи міських карт; <b>3)</b> добирати карту під конкретну міську проблему; <b>4)</b> аргументувати рішення на основі просторових даних.</p>
+      </div>
+    </section>
+
+    <section class="card" id="goals">
+      <h2>5–13 хв • Для чого картографують міста?</h2>
+      <p class="sub">Картографування міст — це створення й використання карт для вивчення, планування та управління міським простором. Тобто не просто «намалювати район», а <b>показати просторові зв’язки</b>, які впливають на життя людей.</p>
+      <div class="grid3">
+        <div class="mini goal-card tip">
+          <span class="tag">1. Інвентаризація</span>
+          <h3>Що де розміщене?</h3>
+          <ul>
+            <li>вулиці, квартали, будівлі;</li>
+            <li>школи, лікарні, парки;</li>
+            <li>межі районів, адреси, об’єкти інфраструктури.</li>
+          </ul>
+        </div>
+        <div class="mini goal-card info">
+          <span class="tag">2. Планування</span>
+          <h3>Що і де доцільно будувати?</h3>
+          <ul>
+            <li>функціональне зонування;</li>
+            <li>розміщення житла й сервісів;</li>
+            <li>аналіз доступності та обмежень.</li>
+          </ul>
+        </div>
+        <div class="mini goal-card warn">
+          <span class="tag">3. Транспорт</span>
+          <h3>Як люди пересуваються?</h3>
+          <ul>
+            <li>схеми маршрутів і вузлів;</li>
+            <li>перевантажені ділянки;</li>
+            <li>час доступу до об’єктів.</li>
+          </ul>
+        </div>
+        <div class="mini goal-card">
+          <span class="tag">4. Соціальна сфера</span>
+          <h3>Чи всім однаково зручно?</h3>
+          <ul>
+            <li>забезпеченість школами та садочками;</li>
+            <li>доступність лікарень;</li>
+            <li>просторові нерівності.</li>
+          </ul>
+        </div>
+        <div class="mini goal-card danger">
+          <span class="tag">5. Ризики</span>
+          <h3>Де небезпечно?</h3>
+          <ul>
+            <li>підтоплення і зсуви;</li>
+            <li>транспортна аварійність;</li>
+            <li>техногенні та екологічні загрози.</li>
+          </ul>
+        </div>
+        <div class="mini goal-card tip">
+          <span class="tag">6. Моніторинг</span>
+          <h3>Як місто змінюється?</h3>
+          <ul>
+            <li>розростання забудови;</li>
+            <li>зміни землекористування;</li>
+            <li>оновлення мереж і сервісів.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mini info" style="margin-top:1rem"><b>Ключова ідея:</b> мета картографування міста завжди пов’язана з рішенням практичної задачі. Якщо карта не допомагає відповісти на запитання — вона або підібрана невдало, або зроблена «для краси». А це, погодьтеся, для 11 класу вже трохи замало.</div>
+    </section>
+
+    <section class="card" id="photos">
+      <h2>10–15 хв • Міський простір у реальних зображеннях</h2>
+      <p class="sub">Перед Вами чотири реальні київські сюжети. Фото тут не декоративні: вони дають первинне спостереження, після якого ми визначаємо, <b>які просторові дані потрібно додати</b>, щоб перейти від враження до обґрунтованого рішення.</p>
+      <div class="gallery">
+        <article class="photo-card">
+          <img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kyiv%20Centre.jpg" alt="Центр Києва">
+          <div class="photo-body">
+            <span class="tag">ЦЕНТР МІСТА</span>
+            <h3>Щільна центральна забудова</h3>
+            <p>Для аналізу потрібні шари функціонального використання території, висотності, громадських функцій, транспортної доступності та пішохідних потоків.</p>
+            <p class="credit">Фото: Wikimedia Commons, <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Kyiv_Centre.jpg">Kyiv Centre.jpg</a>.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Metro%20station%20(Kyiv,%20Ukraine)%20(34947003782).jpg" alt="Станція метро у Києві">
+          <div class="photo-body">
+            <span class="tag">ТРАНСПОРТНИЙ ВУЗОЛ</span>
+            <h3>Метро як елемент міської мережі</h3>
+            <p>Саме фото не покаже пасажиропотік. Для рішення потрібні карта маршрутів, станцій, пересадок, інтенсивності руху та зон пішої доступності.</p>
+            <p class="credit">Фото: Sasha India / Wikimedia Commons, <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Metro_station_(Kyiv,_Ukraine)_(34947003782).jpg">джерело</a>.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/2018-07-13%20Aerial%20view%20of%20Berezniaky,%20Kiev,%20Ukraine.jpg" alt="Аерофото житлового масиву Березняки в Києві">
+          <div class="photo-body">
+            <span class="tag">ЖИТЛОВИЙ МАСИВ</span>
+            <h3>Бережняки: забудова, вода, магістралі</h3>
+            <p>Тут доцільно поєднати щільність населення, житлові квартали, школи, медичні заклади, зупинки та часову доступність сервісів.</p>
+            <p class="credit">Фото: Wikimedia Commons, <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:2018-07-13_Aerial_view_of_Berezniaky,_Kiev,_Ukraine.jpg">джерело</a>.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img loading="lazy" referrerpolicy="no-referrer" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kiev%20Hydropark%20(40415238232).jpg" alt="Гідропарк у Києві">
+          <div class="photo-body">
+            <span class="tag">РЕКРЕАЦІЯ Й ДОВКІЛЛЯ</span>
+            <h3>Гідропарк і заплавний простір</h3>
+            <p>Для аналізу потрібні не лише межі парку, а й гідрографія, зелені зони, рекреаційне навантаження, транспортна доступність і природні обмеження.</p>
+            <p class="credit">Фото: Jorge Franganillo / Wikimedia Commons, <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Kiev_Hydropark_(40415238232).jpg">джерело</a>.</p>
+          </div>
+        </article>
+      </div>
+      <div class="task">
+        <span class="tasknum">АНАЛІЗ ФОТО</span>
+        <p>Оберіть <b>два сюжети</b>. Для кожного запишіть: <b>1)</b> яку проблему можна досліджувати; <b>2)</b> яких даних на фото бракує; <b>3)</b> який картографічний шар треба додати першим.</p>
+        <textarea placeholder="Наприклад: житловий масив — доступність шкіл; бракує кількості мешканців і шкільних округів; перший шар — щільність населення."></textarea>
+      </div>
+    </section>
+
+    <section class="card" id="maps">
+      <h2>15–25 хв • Реальні картографічні сервіси: чотири різні задачі</h2>
+      <p class="sub">Замість умовних схем — реальні картографічні сервіси. Кожен із них показує інший тип просторових даних. Масштабуйте карти, переміщуйтеся та дивіться, що саме вони дозволяють побачити.</p>
+      <div class="mapgrid">
+        <article class="real-map-card">
+          <div id="densityMap" class="mapbox" aria-label="Карта щільності населення WorldPop"></div>
+          <div class="mapbody">
+            <span class="tag">РЕАЛЬНІ ДАНІ • WORLDPOP</span>
+            <h3>Щільність населення</h3>
+            <p>Растровий шар WorldPop показує просторовий розподіл населення. Така карта потрібна, коли середнє значення по району приховує локальні осередки концентрації.</p>
+            <p class="map-source">Джерело: <a target="_blank" rel="noopener" href="https://worldpop.arcgis.com/arcgis/rest/services/WorldPop_Population_Density_1km/ImageServer">WorldPop Population Density 1 km</a>.</p>
+          </div>
+        </article>
+        <article class="real-map-card">
+          <div id="transportMap" class="mapbox" aria-label="Офіційна карта громадського транспорту Києва"></div>
+          <div class="mapbody">
+            <span class="tag">ОФІЦІЙНІ ДАНІ КИЄВА</span>
+            <h3>Громадський транспорт</h3>
+            <p>Офіційний міський сервіс містить зупинки, маршрутні таксі, метрополітен і фунікулер. Це вже не «лінії на схемі», а шар просторової інфраструктури.</p>
+            <p class="map-source">Джерело: <a target="_blank" rel="noopener" href="https://gisserver.kyivcity.gov.ua/mayno/rest/services/KYIV_API/transport_public/MapServer">КМДА, transport_public MapServer</a>.</p>
+          </div>
+        </article>
+        <article class="real-map-card">
+          <div id="urbanAtlasMap" class="mapbox" aria-label="Copernicus Urban Atlas — землекористування Варшави"></div>
+          <div class="mapbody">
+            <span class="tag">COPERNICUS URBAN ATLAS</span>
+            <h3>Функціональне використання території</h3>
+            <p>Urban Atlas класифікує міське землекористування: житлові, промислові, транспортні, зелені та інші території. Для прикладу відкрито Варшаву, де цей набір даних має повне покриття.</p>
+            <p class="map-source">Джерело: <a target="_blank" rel="noopener" href="https://copernicus.discomap.eea.europa.eu/ArcGIS/rest/services/UrbanAtlas/UA_UrbanAtlas_2018/MapServer">Copernicus Urban Atlas 2018</a>.</p>
+          </div>
+        </article>
+        <article class="real-map-card">
+          <div id="shelterMap" class="mapbox" aria-label="Офіційна карта укриттів Києва"></div>
+          <div class="mapbody">
+            <span class="tag">МІСЬКА БЕЗПЕКА</span>
+            <h3>Картографування цивільного захисту</h3>
+            <p>Офіційний шар укриттів показує, як карта працює в задачах безпеки: де розміщені об’єкти та чи є просторові «прогалини» в доступності.</p>
+            <p class="map-source">Джерело: <a target="_blank" rel="noopener" href="https://gisserver.kyivcity.gov.ua/mayno/rest/services/KYIV_API/Public_protection/MapServer">КМДА, Public protection MapServer</a>.</p>
+          </div>
+        </article>
+      </div>
+      <div class="task">
+        <span class="tasknum">ПОРІВНЯЙТЕ КАРТИ</span>
+        <p>Для кожної карти сформулюйте одне запитання, на яке вона справді може відповісти, і одне — на яке <b>не може</b> без додаткових шарів.</p>
+        <textarea placeholder="Наприклад: транспортна карта показує мережу маршрутів, але без даних пасажиропотоку не доводить, де найбільше перевантаження."></textarea>
+      </div>
+    </section>
+
+    <section class="card" id="interactive">
+      <h2>25–30 хв • Один простір — кілька шарів</h2>
+      <p class="sub">У цій карті поєднано реальну підоснову OpenStreetMap з двома офіційними шарами Києва: <b>громадський транспорт</b> і <b>об’єкти цивільного захисту</b>. Увімкніть та вимкніть шари у правому верхньому куті.</p>
+      <div id="cityMap"></div>
+      <div class="layer-legend"><span><i class="layer-dot" style="background:#167fc0"></i> базова карта OSM</span><span><i class="layer-dot" style="background:#d15c5c"></i> укриття</span><span><i class="layer-dot" style="background:#238a6e"></i> транспорт</span></div>
+      <div class="section-note"><b>Питання до карти:</b> чи достатньо бачити лише місця розташування об’єктів? Ні. Для реальної оцінки доступності ще потрібні населення, вулична мережа, час руху та фізичні бар’єри. Саме тому ГІС працює шарами.</div>
+    </section>
+
+    <section class="card" id="videos">
+      <h2>30–34 хв • Два відео, які реально доповнюють тему</h2>
+      <p class="sub">Перше пояснює ГІС як технологію прийняття рішень. Друге прямо показує зв’язок ГІС з міським плануванням.</p>
+      <div class="video-grid">
+        <article class="video-card">
+          <span class="tag">ESRI • 2024</span>
+          <h3>What is GIS?</h3>
+          <p class="video-meta">Esri • про ГІС як технологію просторового аналізу та підтримки рішень</p>
+          <iframe src="https://www.youtube.com/embed/WpoSofhf9Y0" title="Esri — What is GIS?" loading="lazy" allowfullscreen></iframe>
+          <p class="small">Для уроку достатньо фрагмента <b>01:07–04:03</b>: GIS for Decision Making. Учні мають знайти, що робить ГІС більшою, ніж просто електронна карта.</p>
+          <div class="actions"><a class="btn blue" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=WpoSofhf9Y0">Відкрити на YouTube ↗</a></div>
+        </article>
+        <article class="video-card">
+          <span class="tag">PLANETIZEN</span>
+          <h3>GIS and Urban Planning</h3>
+          <p class="video-meta">Planetizen Courses • введення в GIS з прямим акцентом на міське планування</p>
+          <iframe src="https://www.youtube.com/embed/AGWbKVp0rWc" title="Planetizen — What is GIS? An introduction to Geographical Information Systems" loading="lazy" allowfullscreen></iframe>
+          <p class="small">Особливо корисний фрагмент <b>01:51–03:10</b>: карти, аналітика та планувальні рішення.</p>
+          <div class="actions"><a class="btn orange" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AGWbKVp0rWc">Відкрити на YouTube ↗</a></div>
+        </article>
+      </div>
+      <div class="task">
+        <span class="tasknum">ПІСЛЯ ПЕРЕГЛЯДУ</span>
+        <p>Запишіть три тези: <b>1)</b> чим ГІС відрізняється від звичайної карти; <b>2)</b> чому міський планувальник працює з кількома шарами; <b>3)</b> який шар Ви додали б до транспортної карти свого міста.</p>
+        <textarea placeholder="Короткі нотатки..."></textarea>
+      </div>
+    </section>
+
+    <section class="card" id="practice">
+      <h2>34–39 хв • Практичне застосування</h2>
+      <p class="sub">Доберіть тип картографування до кожної ситуації та перевірте, чи справді обраний шар дає потрібну інформацію.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Ситуація</th><th>Ваш вибір</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Треба знайти райони, де не вистачає шкіл.</td>
+              <td>
+                <select id="p1">
+                  <option value="">Оберіть…</option>
+                  <option value="social">Карта соціальної інфраструктури й густоти населення</option>
+                  <option value="tourist">Туристична карта пам’яток</option>
+                  <option value="climate">Кліматична карта світу</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>2. Потрібно прокласти ефективніший автобусний маршрут.</td>
+              <td>
+                <select id="p2">
+                  <option value="">Оберіть…</option>
+                  <option value="transport">Транспортна карта потоків і вузлів</option>
+                  <option value="soil">Карта ґрунтів</option>
+                  <option value="vegetation">Карта рослинності</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>3. Місто хоче заборонити забудову в небезпечних місцях.</td>
+              <td>
+                <select id="p3">
+                  <option value="">Оберіть…</option>
+                  <option value="risk">Карта ризиків і природних обмежень</option>
+                  <option value="ethnic">Етнічна карта</option>
+                  <option value="trade">Карта світової торгівлі</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>4. Треба визначити, як місто розростається з часом.</td>
+              <td>
+                <select id="p4">
+                  <option value="">Оберіть…</option>
+                  <option value="monitor">Серія карт моніторингу землекористування</option>
+                  <option value="ocean">Карта течій Світового океану</option>
+                  <option value="tour">Туристичний буклет</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions"><button onclick="checkPractice()">Перевірити</button></div>
+      <div id="fb-practice" class="feedback"></div>
+    </section>
+
+    <section class="card" id="case">
+      <h2>39–43 хв • Аналітичний кейс</h2>
+      <p class="sub">Уявіть, що Ви консультуєте міську раду. Потрібно запропонувати <b>місце для нової амбулаторії</b> у великому житловому районі.</p>
+      <div class="grid2">
+        <div class="mini info">
+          <h3>Вихідні умови</h3>
+          <ul>
+            <li>район швидко забудовується;</li>
+            <li>є дві великі транспортні магістралі;</li>
+            <li>частина території далеко від наявної лікарні;</li>
+            <li>біля річки — ризик підтоплення;</li>
+            <li>поруч має бути зупинка громадського транспорту.</li>
+          </ul>
+        </div>
+        <div class="mini tip">
+          <h3>Які шари Вам потрібні?</h3>
+          <ul>
+            <li>густота населення;</li>
+            <li>мережа медичних закладів;</li>
+            <li>радіуси доступності / час доїзду;</li>
+            <li>транспортні маршрути;</li>
+            <li>карта ризиків / підтоплення.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="task">
+        <span class="tasknum">CER</span>
+        <label>Твердження</label>
+        <textarea id="cer1" placeholder="Де варто розмістити амбулаторію?"></textarea>
+        <label>Докази</label>
+        <textarea id="cer2" placeholder="Які карти / шари даних це підтверджують?"></textarea>
+        <label>Пояснення</label>
+        <textarea id="cer3" placeholder="Чому саме ця ділянка краща за інші?"></textarea>
+      </div>
+    </section>
+
+    <section class="card" id="summary">
+      <h2>43–45 хв • Підсумкова рамка</h2>
+      <div class="grid3">
+        <div class="mini"><h3>Запам’ятайте</h3><p>Міське картографування потрібне для <b>аналізу, планування, управління і безпеки</b>.</p></div>
+        <div class="mini"><h3>Не плутайте</h3><p><b>Одна карта ≠ відповідь на всі питання.</b> Під різні задачі потрібні різні тематичні карти.</p></div>
+        <div class="mini"><h3>Головне уміння</h3><p>Не просто читати карту, а <b>розуміти, яке рішення вона допомагає ухвалити</b>.</p></div>
+      </div>
+    </section>
+
+    <section class="card" id="homework">
+      <h2>Домашнє завдання</h2>
+      <div class="grid2">
+        <div class="mini tip">
+          <h3>Обов’язкове</h3>
+          <ol>
+            <li>Опрацювати матеріал цього уроку.</li>
+            <li>Переглянути щонайменше <b>одне</b> із запропонованих відео.</li>
+            <li>Пройти <b>Тест /10</b> нижче та зробити скриншот результату.</li>
+          </ol>
+        </div>
+        <div class="mini warn">
+          <h3>Завдання на вибір</h3>
+          <p><b>Базовий рівень:</b> наведіть 3 приклади, для чого місту потрібні карти.</p>
+          <p><b>Достатній рівень:</b> доберіть по 1 типу карти для школи, транспорту, ризиків і зелених зон.</p>
+          <p><b>Високий рівень:</b> коротко опишіть, які дані потрібні для картографування проблем Вашого населеного пункту.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="quiz">
+      <h2>Тест • 10 балів</h2>
+      <p class="sub">Перевіряємо не тільки терміни, а й уміння співвідносити карту з реальною міською задачею.</p>
+      <div class="quizgate" id="quizGate">
+        <div class="grid2">
+          <div>
+            <label for="fullName">Ім’я та прізвище</label>
+            <input id="fullName" type="text" placeholder="Наприклад: Марія Іваненко">
+          </div>
+          <div>
+            <label for="studentClass">Клас</label>
+            <input id="studentClass" type="text" placeholder="11-А">
+          </div>
+        </div>
+        <div class="actions"><button onclick="startQuiz()">Розпочати тест</button></div>
+        <div id="gateError" class="feedback"></div>
+      </div>
+
+      <form id="quizForm" class="quiz" onsubmit="return gradeQuiz(event)">
+        <div class="q">
+          <h3>1. Основна мета картографування міст:</h3>
+          <label class="opt"><input type="radio" name="q1" value="a"> створити красивий постер міста</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> отримати просторову основу для аналізу, планування та управління</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> замінити всі статистичні дані одним малюнком</label>
+        </div>
+        <div class="q">
+          <h3>2. Яка карта найбільше допоможе визначити, де бракує шкіл?</h3>
+          <label class="opt"><input type="radio" name="q2" value="a"> карта густоти населення і соціальної інфраструктури</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> карта корисних копалин</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> карта океанічних течій</label>
+        </div>
+        <div class="q">
+          <h3>3. Для планування автобусних маршрутів потрібна насамперед:</h3>
+          <label class="opt"><input type="radio" name="q3" value="a"> транспортна карта потоків і пересадок</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> карта національного складу світу</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> геологічна карта материка</label>
+        </div>
+        <div class="q">
+          <h3>4. Яка карта потрібна, щоб уникати забудови в зонах підтоплення?</h3>
+          <label class="opt"><input type="radio" name="q4" value="a"> карта ризиків</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> карта туристичних об’єктів</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> карта кліматичних поясів</label>
+        </div>
+        <div class="q">
+          <h3>5. Оберіть усі функції міського картографування:</h3>
+          <label class="opt"><input type="checkbox" name="q5" value="plan"> планування розвитку міста</label>
+          <label class="opt"><input type="checkbox" name="q5" value="transport"> організація транспорту</label>
+          <label class="opt"><input type="checkbox" name="q5" value="risk"> оцінка ризиків</label>
+          <label class="opt"><input type="checkbox" name="q5" value="astrology"> складання астрологічних прогнозів</label>
+        </div>
+        <div class="q">
+          <h3>6. Яка карта покаже, як місто розросталося в часі?</h3>
+          <label class="opt"><input type="radio" name="q6" value="a"> серія карт землекористування / забудови за різні роки</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> одна політична карта Європи</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> карта природних зон світу</label>
+        </div>
+        <div class="q">
+          <h3>7. Установіть відповідність.</h3>
+          <div class="grid2">
+            <label>А. Карта щільності населення
+              <select name="q7a"><option value="">—</option><option value="1">де живе більше людей</option><option value="2">як їде транспорт</option><option value="3">де є підтоплення</option></select>
+            </label>
+            <label>Б. Транспортна карта
+              <select name="q7b"><option value="">—</option><option value="1">де живе більше людей</option><option value="2">як їде транспорт</option><option value="3">де є підтоплення</option></select>
+            </label>
+            <label>В. Карта ризиків
+              <select name="q7c"><option value="">—</option><option value="1">де живе більше людей</option><option value="2">як їде транспорт</option><option value="3">де є підтоплення</option></select>
+            </label>
+          </div>
+        </div>
+        <div class="q">
+          <h3>8. Що таке «шар даних» у ГІС?</h3>
+          <label class="opt"><input type="radio" name="q8" value="a"> окремий набір просторової інформації одного типу</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> назва рамки карти</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> лише легенда</label>
+        </div>
+        <div class="q">
+          <h3>9. Чому однієї карти міста часто недостатньо?</h3>
+          <label class="opt"><input type="radio" name="q9" value="a"> бо карти завжди неточні</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> бо різні міські задачі потребують різних типів даних і карт</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> бо так цікавіше дизайнеру</label>
+        </div>
+        <div class="q">
+          <h3>10. Найповніший висновок:</h3>
+          <label class="opt"><input type="radio" name="q10" value="a"> місто треба картографувати лише для туристів</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> картографування міст потрібне для планування, транспорту, сервісів, безпеки й моніторингу змін</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> достатньо будь-якої однієї карти</label>
+        </div>
+        <div class="actions"><button type="submit">Завершити тест</button></div>
+      </form>
+
+      <div id="quizResult" class="result">
+        <div class="big" id="scoreLine"></div>
+        <div id="resultMeta"></div>
+        <p id="levelComment"></p>
+        <p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p>
+        <div class="actions no-print">
+          <button class="soft" onclick="window.print()">Друк / PDF</button>
+          <button class="soft" onclick="retryQuiz()">Пройти ще раз</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="sources">
+      <h2>Джерела та дані</h2>
+      <ul>
+        <li><b>OpenStreetMap</b> — базова картографічна підоснова інтерактивних карт.</li>
+        <li><b>WorldPop</b> — сервіс Population Density 1 km для реального растрового шару щільності населення.</li>
+        <li><b>Київська міська державна адміністрація</b> — офіційні ArcGIS MapServer-шари громадського транспорту та цивільного захисту.</li>
+        <li><b>Copernicus / European Environment Agency</b> — Urban Atlas 2018, високодетальні дані землекористування для функціональних міських ареалів Європи.</li>
+        <li><b>Wikimedia Commons</b> — реальні фотографії Києва з відкритими ліцензіями; посилання на кожне фото наведено безпосередньо під ним.</li>
+        <li><b>Esri</b> та <b>Planetizen</b> — навчальні відео про ГІС і міське планування.</li>
+      </ul>
+      <p class="small">Урок використовує реальні зовнішні веб-ресурси, тому для фото, картографічних шарів і відео потрібне підключення до інтернету.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <b>Скринченко К.А. • Василівський ліцей «Сузір’я»</b><br>
+      <span class="small">11 клас • Географія • Урок 7 • Мета картографування міст</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/esri-leaflet@3.0.15/dist/esri-leaflet.js"></script>
+  <script>
+    function show(id,text,type='neutral'){
+      const el=document.getElementById(id);
+      el.textContent=text;
+      el.className='feedback show '+type;
+    }
+
+    function checkWarmup(){
+      const v=document.querySelector('input[name="warm"]:checked');
+      if(!v){show('fb-warm','Оберіть варіант. Телепатичне картографування ми поки що не викладаємо.','bad');return;}
+      if(v.value==='b') show('fb-warm','Так. Для такого рішення потрібна комплексна просторово-аналітична карта: населення, доступність, транспорт, обмеження території.','good');
+      else show('fb-warm','Не зовсім. Або зовсім не. Для реального міського рішення потрібна не декоративна, а аналітична карта з потрібними шарами даних.','bad');
+    }
+
+    function checkPractice(){
+      const ok = document.getElementById('p1').value==='social' &&
+                 document.getElementById('p2').value==='transport' &&
+                 document.getElementById('p3').value==='risk' &&
+                 document.getElementById('p4').value==='monitor';
+      if(ok) show('fb-practice','Чудово. Ви правильно співвіднесли міські задачі з відповідними типами карт. Саме так і працює прикладне картографування.','good');
+      else show('fb-practice','Є помилки. Згадайте: школи = населення + інфраструктура; транспорт = потоки та вузли; забудова = ризики; динаміка міста = моніторинг змін.','bad');
+    }
+
+    function validFullName(v){
+      const parts=v.trim().replace(/\s+/g,' ').split(' ');
+      return parts.length>=2 && parts.every(p=>/^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(p));
+    }
+
+    function startQuiz(){
+      const n=document.getElementById('fullName').value;
+      const c=document.getElementById('studentClass').value.trim();
+      if(!validFullName(n) || !c){show('gateError','Введіть ім’я, прізвище та клас.','bad');return;}
+      document.getElementById('quizGate').style.display='none';
+      document.getElementById('quizForm').style.display='block';
+      document.getElementById('quizForm').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function exactChecked(name,expected){
+      const got=[...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value).sort();
+      const exp=expected.slice().sort();
+      return got.length===exp.length && got.every((v,i)=>v===exp[i]);
+    }
+
+    function val(name){
+      const x=document.querySelector(`[name="${name}"]:checked`);
+      return x ? x.value : '';
+    }
+
+    function gradeQuiz(e){
+      e.preventDefault();
+      let s=0;
+      if(val('q1')==='b') s++;
+      if(val('q2')==='a') s++;
+      if(val('q3')==='a') s++;
+      if(val('q4')==='a') s++;
+      if(exactChecked('q5',['plan','transport','risk'])) s++;
+      if(val('q6')==='a') s++;
+      if(document.querySelector('[name="q7a"]').value==='1' && document.querySelector('[name="q7b"]').value==='2' && document.querySelector('[name="q7c"]').value==='3') s++;
+      if(val('q8')==='a') s++;
+      if(val('q9')==='b') s++;
+      if(val('q10')==='b') s++;
+      const pct=s*10;
+      const now=new Date();
+      const name=document.getElementById('fullName').value.trim().replace(/\s+/g,' ');
+      const cls=document.getElementById('studentClass').value.trim();
+      document.getElementById('scoreLine').textContent=`${s}/10 • ${pct}%`;
+      document.getElementById('resultMeta').innerHTML=`<b>${name}</b> • ${cls}<br>Тема: Мета картографування міст<br>${now.toLocaleString('uk-UA')}`;
+      document.getElementById('levelComment').textContent =
+        s<=4 ? 'Потрібно повторити, які карти використовують для різних міських задач.' :
+        s<=7 ? 'Хороший результат. Ви розумієте базову логіку міського картографування, але ще варто уважніше співвідносити карту з практичною проблемою.' :
+               'Відмінно. Ви вже мислите як людина, яка не просто дивиться на карту, а використовує її для рішення міських задач.';
+      document.getElementById('quizResult').style.display='block';
+      document.getElementById('quizForm').style.display='none';
+      document.getElementById('quizResult').scrollIntoView({behavior:'smooth',block:'start'});
+      return false;
+    }
+
+    function retryQuiz(){
+      if(!confirm('Очистити відповіді тесту? Ім’я та клас залишаться.')) return;
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizResult').style.display='none';
+      document.getElementById('quizForm').style.display='block';
+      document.getElementById('quizForm').scrollIntoView({behavior:'smooth'});
+    }
+
+    // Реальні картографічні сервіси
+    const osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const osmAttr='&copy; OpenStreetMap contributors';
+
+    function addOsmBase(map){
+      return L.tileLayer(osmUrl,{maxZoom:19,attribution:osmAttr}).addTo(map);
+    }
+
+    try{
+      const densityMap=L.map('densityMap',{zoomControl:true}).setView([50.45,30.52],8);
+      addOsmBase(densityMap);
+      if(L.esri && L.esri.imageMapLayer){
+        L.esri.imageMapLayer({url:'https://worldpop.arcgis.com/arcgis/rest/services/WorldPop_Population_Density_1km/ImageServer',opacity:.72}).addTo(densityMap);
+      }
+
+      const transportMap=L.map('transportMap').setView([50.45,30.52],11);
+      addOsmBase(transportMap);
+      if(L.esri){
+        L.esri.dynamicMapLayer({url:'https://gisserver.kyivcity.gov.ua/mayno/rest/services/KYIV_API/transport_public/MapServer',opacity:.92}).addTo(transportMap);
+      }
+
+      const urbanAtlasMap=L.map('urbanAtlasMap').setView([52.2297,21.0122],11);
+      addOsmBase(urbanAtlasMap);
+      if(L.esri){
+        L.esri.dynamicMapLayer({url:'https://copernicus.discomap.eea.europa.eu/ArcGIS/rest/services/UrbanAtlas/UA_UrbanAtlas_2018/MapServer',opacity:.78}).addTo(urbanAtlasMap);
+      }
+
+      const shelterMap=L.map('shelterMap').setView([50.45,30.52],11);
+      addOsmBase(shelterMap);
+      if(L.esri){
+        L.esri.dynamicMapLayer({url:'https://gisserver.kyivcity.gov.ua/mayno/rest/services/KYIV_API/Public_protection/MapServer',opacity:.9}).addTo(shelterMap);
+      }
+
+      const cityMap=L.map('cityMap').setView([50.45,30.52],11);
+      const base=addOsmBase(cityMap);
+      const overlays={};
+      if(L.esri){
+        const transport=L.esri.dynamicMapLayer({url:'https://gisserver.kyivcity.gov.ua/mayno/rest/services/KYIV_API/transport_public/MapServer',opacity:.9}).addTo(cityMap);
+        const shelters=L.esri.dynamicMapLayer({url:'https://gisserver.kyivcity.gov.ua/mayno/rest/services/KYIV_API/Public_protection/MapServer',opacity:.9});
+        overlays['Громадський транспорт']=transport;
+        overlays['Цивільний захист']=shelters;
+      }
+      L.control.layers({'OpenStreetMap':base},overlays,{collapsed:false}).addTo(cityMap);
+    }catch(err){
+      ['densityMap','transportMap','urbanAtlasMap','shelterMap','cityMap'].forEach(id=>{
+        const el=document.getElementById(id);
+        if(el) el.innerHTML='<div style="padding:1rem;color:#516773">Карта не завантажилася. Скористайтеся посиланням на джерело під блоком.</div>';
+      });
+      console.error(err);
+    }
+  </script>
+</body>
+</html>
