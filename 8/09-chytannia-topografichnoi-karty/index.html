@@ -4,200 +4,419 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
-<title>8 клас. Практична робота: читання реальної топографічної карти</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<title>8 клас • Урок 9 • Складна практична робота з топографічною картою</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--ink:#18322d;--muted:#5f756f;--bg:#f2f5ee;--card:#fffdf7;--line:#d8dfd3;--forest:#315d47;--moss:#6e8b5c;--amber:#d49a38;--blue:#3f7190;--red:#a34f45;--shadow:0 14px 36px rgba(44,71,57,.11)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#dfe9d8 0,#f6f2df 24rem,var(--bg) 24rem);line-height:1.55}.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
-.hero{padding:58px 0 34px;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.55),transparent 30%)}.ey{display:inline-block;background:#fffdf7;border:1px solid var(--line);padding:.38rem .7rem;border-radius:999px;font-weight:900}.hero h1{font-size:clamp(2.25rem,5vw,4.9rem);line-height:1.02;margin:.75rem 0;max-width:980px}.lead{max-width:920px;font-size:1.1rem;color:#405950}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{background:#fffdf7;border:1px solid var(--line);border-radius:999px;padding:.42rem .7rem;font-weight:850}
-.nav{position:sticky;top:0;z-index:999;background:rgba(255,253,247,.96);backdrop-filter:blur(9px);border-block:1px solid var(--line)}.nav .wrap{display:flex;gap:7px;overflow:auto;padding:8px 0}.nav a{text-decoration:none;color:var(--ink);font-weight:850;white-space:nowrap;padding:.5rem .65rem;border-radius:10px}.nav a:hover,.nav a:focus{background:#e8efe6}
-main{padding:18px 0 60px}section{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,3vw,31px);margin:16px 0;box-shadow:var(--shadow)}h2{font-size:clamp(1.5rem,3vw,2.35rem);margin:.15rem 0 1rem}.k{font-size:.78rem;letter-spacing:.11em;font-weight:950;color:var(--forest);text-transform:uppercase}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card,.task{border:1px solid var(--line);border-radius:17px;padding:15px;background:#fff}.task{position:relative}.task b{font-size:1.03rem}.task .n{position:absolute;right:12px;top:10px;font-weight:950;color:var(--forest);opacity:.6}
-.call{border-left:5px solid var(--blue);padding:13px 15px;border-radius:13px;background:#eef6f8}.warn{border-left-color:var(--amber);background:#fff7e4}.ok{border-left-color:var(--forest);background:#edf7ef}.danger{border-left-color:var(--red);background:#fff0ed}
-#realMap{height:560px;border-radius:18px;border:1px solid var(--line);overflow:hidden;background:#dfe8d7}.mapwrap{position:relative}.mapnote{font-size:.88rem;color:var(--muted);margin-top:8px}.leaflet-control-attribution{font-size:10px!important}
-.legend{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.legend span{padding:.36rem .58rem;border-radius:999px;background:#eef2ea;font-weight:800;font-size:.86rem}.data{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.datum{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fbfcf8}.datum strong{display:block;font-size:1.35rem;color:var(--forest)}
-.answer{width:100%;min-height:86px;border:1px solid #bccbc0;border-radius:11px;padding:10px;background:#fff;font:inherit;margin-top:7px}.short{min-height:48px}.calc{background:#f4f7f0;border:1px dashed #b7c5b8;border-radius:14px;padding:13px}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#1f342b;color:#eef8ef;padding:11px 13px;border-radius:12px;overflow:auto}
-button,.btn,input,select,textarea{font:inherit}.btn,button{border:0;border-radius:12px;min-height:44px;padding:.68rem .95rem;font-weight:850;cursor:pointer}.btn{display:inline-block;text-decoration:none;background:var(--forest);color:#fff}.soft{background:#e7efe7;color:var(--ink)}.accent{background:var(--amber);color:#252010}.btnline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-input,select{width:100%;border:1px solid #bccbc0;border-radius:11px;padding:9px 10px;background:#fff}.row{display:grid;grid-template-columns:2fr 1fr;gap:10px}.hidden{display:none!important}.gate{max-width:760px;background:#f8fbf5;border:1px solid var(--line);border-radius:16px;padding:16px}
-.q{padding:14px 0;border-bottom:1px solid var(--line)}.q label{display:block;padding:5px}.result{margin-top:16px;border:2px solid var(--forest);border-radius:18px;background:#eff8f0;padding:18px}.score{font-size:2.1rem;font-weight:950;color:var(--forest)}
-.rubric{width:100%;border-collapse:collapse}.rubric th,.rubric td{border:1px solid var(--line);padding:9px;vertical-align:top}.rubric th{background:#edf2e9;text-align:left}
-.sourcebox{font-size:.92rem;color:#4f645c}.sourcebox a{color:#245d74}
-footer{text-align:center;color:var(--muted);padding:10px 0 40px}
-@media(max-width:800px){.grid2,.grid3,.data,.row{grid-template-columns:1fr}#realMap{height:470px}}
-@media print{.nav,.leaflet-control-container,button,.btn{display:none!important}section{box-shadow:none;break-inside:avoid}#realMap{height:430px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{--ink:#172c29;--muted:#5b6f69;--bg:#eef2ea;--paper:#fffdf7;--line:#d4ddd1;--deep:#244d3b;--green:#46785c;--sand:#e4b861;--blue:#3e738e;--red:#a94c43;--violet:#705989;--shadow:0 16px 38px rgba(35,69,53,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#dce9db 0,#f4eedb 28rem,var(--bg) 28rem);line-height:1.58}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+.hero{padding:58px 0 36px;background:radial-gradient(circle at 82% 20%,rgba(255,255,255,.72),transparent 31%)}.ey{display:inline-block;padding:.38rem .72rem;background:#fffdf7;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:900}.hero h1{max-width:1050px;margin:.75rem 0;font-size:clamp(2.25rem,5vw,5rem);line-height:1.02}.lead{max-width:980px;color:#40584f;font-size:1.11rem}.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.pill{padding:.42rem .7rem;border-radius:999px;background:#fffdf7;border:1px solid var(--line);font-weight:850}
+.nav{position:sticky;top:0;z-index:1000;background:rgba(255,253,247,.96);backdrop-filter:blur(9px);border-block:1px solid var(--line)}.nav .wrap{display:flex;gap:7px;overflow:auto;padding:8px 0}.nav a{text-decoration:none;color:var(--ink);font-weight:850;white-space:nowrap;padding:.52rem .68rem;border-radius:10px}.nav a:hover,.nav a:focus{background:#e5eee5}
+main{padding:18px 0 60px}section{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,3vw,32px);margin:16px 0;box-shadow:var(--shadow)}h2{margin:.15rem 0 1rem;font-size:clamp(1.55rem,3vw,2.4rem)}h3{margin:.2rem 0 .7rem}.k{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;font-weight:950;color:var(--deep)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.card,.task,.calc{border:1px solid var(--line);border-radius:17px;padding:15px;background:#fff}.task{position:relative}.task .n{position:absolute;right:12px;top:10px;font-size:1.15rem;font-weight:950;color:var(--deep);opacity:.65}.task b{font-size:1.02rem}
+.call{padding:13px 15px;border-radius:13px;border-left:5px solid var(--blue);background:#eef6f7}.warn{border-left-color:var(--sand);background:#fff7e6}.ok{border-left-color:var(--green);background:#eef8ef}.bad{border-left-color:var(--red);background:#fff0ed}.violet{border-left-color:var(--violet);background:#f4eff9}
+.mapbox{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#dfe7dc}.map{height:540px}.maptools{display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:#f4f7f0;border-top:1px solid var(--line)}.measureout{font-weight:900;color:var(--deep);padding:.55rem .7rem}.caption{padding:9px 12px;color:var(--muted);font-size:.88rem;background:#fbfcf7}.leaflet-control-attribution{font-size:10px!important}.candidate{font-weight:950}
+.data{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.datum{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fbfcf8}.datum strong{display:block;font-size:1.32rem;color:var(--deep)}
+textarea,input,select{font:inherit}textarea,.textinput{width:100%;border:1px solid #b9c8bd;border-radius:11px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:98px;resize:vertical}.short{min-height:52px}input[type="number"],input[type="text"]{width:100%;border:1px solid #b9c8bd;border-radius:10px;padding:8px;background:#fff}
+button,.btn{font:inherit;border:0;border-radius:12px;min-height:44px;padding:.68rem .95rem;font-weight:850;cursor:pointer}.btn{display:inline-block;text-decoration:none;background:var(--deep);color:#fff}.soft{background:#e7eee5;color:var(--ink)}.accent{background:var(--sand);color:#29220f}.dangerBtn{background:#f2ded9;color:#6d2c26}.btnline{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#1f342b;color:#edf8ef;padding:11px 13px;border-radius:12px;overflow:auto}.calc{background:#f8faf5}
+.tablewrap{overflow:auto}.rubric{width:100%;border-collapse:collapse}.rubric th,.rubric td{border:1px solid var(--line);padding:9px;vertical-align:top}.rubric th{background:#eaf0e5;text-align:left}.rubric input{min-width:90px}
+details{border:1px dashed #b9c6ba;border-radius:12px;padding:10px 12px;background:#fafbf7;margin-top:9px}summary{cursor:pointer;font-weight:850}.small{font-size:.9rem;color:var(--muted)}.hidden{display:none!important}
+.gate{max-width:800px;background:#f8fbf5;border:1px solid var(--line);border-radius:16px;padding:16px}.row{display:grid;grid-template-columns:2fr 1fr;gap:10px}.q{padding:14px 0;border-bottom:1px solid var(--line)}.q label{display:block;padding:5px}.result{margin-top:16px;border:2px solid var(--deep);border-radius:18px;background:#eff8f0;padding:18px}.score{font-size:2.15rem;font-weight:950;color:var(--deep)}
+.checklist{display:grid;gap:8px}.checkitem{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff}.checkitem input{width:auto;margin-top:4px}
+footer{text-align:center;color:var(--muted);padding:8px 0 40px}
+@media(max-width:900px){.grid2,.grid3,.grid4,.data,.row{grid-template-columns:1fr}.map{height:470px}}@media print{.nav,.maptools,.leaflet-control-container,button,.btn{display:none!important}section{box-shadow:none;break-inside:avoid}.map{height:430px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap">
-<span class="ey">🧭 ГЕОГРАФІЯ • 8 КЛАС • ПРАКТИЧНА РОБОТА</span>
-<h1>Читання реальної топографічної карти: маршрут «Заросляк → Говерла»</h1>
-<p class="lead">Тут не буде декоративної карти, де всі висоти чемно підписані спеціально для вас. Перед вами реальна місцевість у Чорногорі. Треба прочитати рельєф, зіставити два маршрути, виконати розрахунки й захистити рішення так, щоб воно витримало запитання «а чому саме так?».</p>
-<div class="pills"><span class="pill">35 хв</span><span class="pill">реальні топографічні дані</span><span class="pill">масштаб + рельєф + маршрут</span><span class="pill">12 балів</span></div>
+<span class="ey">🧭 ГЕОГРАФІЯ • 8 КЛАС • УРОК 9 • § 9</span>
+<h1>Топографічна карта: прочитати місцевість, а не впізнати значок</h1>
+<p class="lead">Складна практична робота на реальних картах Ворохти та Чорногори. Сьогодні карта має дати вам не слова «ліс», «річка» і «дорога», а висновок: <b>де долина, який схил крутіший, куди тече вода, чому поселення й транспорт розміщені саме так, який маршрут складніший і де даних карти вже недостатньо.</b></p>
+<div class="pills"><span class="pill">35 хв</span><span class="pill">ГР1 + ГР2</span><span class="pill">реальна топографічна карта</span><span class="pill">12 балів</span><span class="pill">аналіз → доказ → висновок</span></div>
 </div></header>
 
 <nav class="nav"><div class="wrap">
-<a href="#mission">Ситуація</a><a href="#map">Реальна карта</a><a href="#read">Читання</a><a href="#math">Розрахунки</a><a href="#decision">Рішення</a><a href="#audit">Перевірка</a><a href="#report">Звіт</a><a href="#test">Фініш</a>
+<a href="#start">Старт</a><a href="#mapA">Ворохта</a><a href="#practiceA">Практична I</a><a href="#mapB">Говерла</a><a href="#practiceB">Практична II</a><a href="#decision">Рішення</a><a href="#logic">Логічна пастка</a><a href="#cer">CER</a><a href="#quiz">Тест</a>
 </div></nav>
 
 <main class="wrap">
-<section id="mission">
-<div class="k">0–4 хв • реальна задача</div>
-<h2>Ви — група планування маршруту</h2>
-<div class="call warn"><b>Ситуація.</b> Навчальна група має пройти від високогірної бази «Заросляк» до вершини Говерли. На карті існують два основні промарковані варіанти: коротший і крутіший та довший і пологіший. Після дощу ґрунт вологий. У групі є учасники з рюкзаками. Треба обрати варіант підйому й спуску та довести рішення картою і розрахунками.</div>
-<p><b>Ваш продукт:</b> короткий польовий висновок із 4 частин: маршрут → 3 докази → розрахунок → обмеження даних.</p>
-<div class="danger call"><b>Важливо:</b> це навчальна картографічна симуляція, а не інструкція для самостійного походу. Реальний гірський маршрут потребує актуальної перевірки погоди, стану стежок, правил парку та підготовки групи.</div>
+<section id="start">
+<div class="k">0–3 хв • постановка задачі</div>
+<h2>Ситуація: GPS є. Але думати все одно доведеться.</h2>
+<div class="call warn"><b>Ви — географічна група.</b> Треба підготувати польове обстеження Карпат. У вас є топографічна карта, супутниковий шар і обмежений час. Частину маршруту потрібно пройти долиною, частину — схилом. Ви маєте знайти придатну точку спостереження та пояснити, чому вона краща за альтернативи.</div>
+<p><b>Правило уроку:</b> жодне «мені здається» не зараховується без ознаки з карти. Для сильного висновку потрібно щонайменше <b>два незалежні докази</b>.</p>
+<div class="grid3">
+<div class="card"><b>Доказ рельєфу</b><p>Горизонталі, абсолютні висоти, форма схилу.</p></div>
+<div class="card"><b>Доказ об'єктів</b><p>Річка, дорога, залізниця, забудова, ліс, стежка.</p></div>
+<div class="card"><b>Перевірка</b><p>Інший шар карти, вимірювання або другий показник.</p></div>
+</div>
 </section>
 
-<section id="map">
-<div class="k">4–10 хв • джерело №1</div>
-<h2>Реальна топографічна карта</h2>
-<div class="mapwrap"><div id="realMap" aria-label="Інтерактивна топографічна карта району Говерли"></div></div>
-<p class="mapnote">Карта: OpenTopoMap на даних OpenStreetMap та SRTM. Масштабна лінійка внизу ліворуч. Наближайте карту, рухайте її, шукайте стежки, водотоки, лінії рельєфу та підписи. Якщо шар не завантажився — відкрийте <a href="https://www.opentopomap.org/#map=15/48.162/24.519" target="_blank" rel="noopener">OpenTopoMap окремо</a>.</p>
+<section id="mapA">
+<div class="k">3–7 хв • джерело А</div>
+<h2>Карта А. Ворохта: долина, поселення, транспорт, схили</h2>
+<div class="mapbox">
+<div id="mapVorokhta" class="map" aria-label="Реальна топографічна карта Ворохти"></div>
+<div class="maptools">
+<button class="soft" id="measureAStart">📏 Вимірювати</button>
+<button class="dangerBtn" id="measureAReset">Очистити</button>
+<span class="measureout" id="measureAOut">0 м</span>
+</div>
+<div class="caption">Перемикайте шари у правому верхньому куті: <b>Топографічна</b> → <b>Супутникова</b> → <b>OSM</b>. На карті позначені реальні об'єкти та три навчальні кандидатні точки А, Б, В.</div>
+</div>
 <div class="data">
-<div class="datum"><span>Старт</span><strong>48.16431° N</strong><small>24.53804° E • «Заросляк»</small></div>
-<div class="datum"><span>Фініш</span><strong>2061 м</strong><small>Говерла • 48.16019° N, 24.50010° E</small></div>
-<div class="datum"><span>Синій маршрут</span><strong>≈ 3,7 км</strong><small>коротший, крутіший</small></div>
-<div class="datum"><span>Зелений маршрут</span><strong>≈ 4,3 км</strong><small>довший, пологіший</small></div>
-</div>
-<div class="legend"><span>🔵 3,7 км</span><span>🟢 4,3 км</span><span>↥ набір висоти ≈ 770 м</span><span>📏 пряма між точками ≈ 2,85 км</span></div>
-</section>
-
-<section id="read">
-<div class="k">10–16 хв • читання рельєфу</div>
-<h2>Не «що бачите?», а що з цього випливає?</h2>
-<div class="grid2">
-<div class="task"><span class="n">1</span><b>Орієнтування</b><p>Від старту до вершини визначте загальний напрямок руху за сторонами горизонту. Не пишіть лише «ліворуч» — карта не знає, де у вас ліва рука.</p><textarea class="answer short" data-save="a1" placeholder="Напрямок + коротке обґрунтування"></textarea></div>
-<div class="task"><span class="n">2</span><b>Горизонталі як доказ</b><p>Знайдіть ділянки, де горизонталі зближуються найбільше. Що це означає для крутизни? Назвіть конкретну частину схилу, а не загальне правило.</p><textarea class="answer" data-save="a2" placeholder="Ділянка → ознака на карті → висновок"></textarea></div>
-<div class="task"><span class="n">3</span><b>Вода і форма рельєфу</b><p>Знайдіть водотоки на східному схилі. Як вигинаються горизонталі в долині? За формою горизонталей визначте, де верхів'я долини, а де напрямок стоку.</p><textarea class="answer" data-save="a3" placeholder="Спостереження + правило + висновок"></textarea></div>
-<div class="task"><span class="n">4</span><b>Помилка «коротше = легше»</b><p>Знайдіть на карті ознаки, які можуть спростувати цю фразу. Потрібно щонайменше два різні докази.</p><textarea class="answer" data-save="a4" placeholder="Доказ 1; доказ 2; висновок"></textarea></div>
+<div class="datum"><span>Станція Ворохта</span><strong>реальний об'єкт</strong><small>транспортний вузол у долині Пруту</small></div>
+<div class="datum"><span>Кам'яний віадук</span><strong>реальний об'єкт</strong><small>позначений окремим маркером</small></div>
+<div class="datum"><span>Церква Різдва Богородиці</span><strong>реальний об'єкт</strong><small>орієнтир на південній частині карти</small></div>
+<div class="datum"><span>Кандидати А / Б / В</span><strong>навчальні точки</strong><small>їх треба оцінити, а не вгадати</small></div>
 </div>
 </section>
 
-<section id="math">
-<div class="k">16–23 хв • розрахунок</div>
-<h2>Тепер карта має перейти в числа</h2>
+<section id="practiceA">
+<div class="k">7–18 хв • практична робота I • 6 балів</div>
+<h2>Розберіть карту Ворохти як систему</h2>
+
+<div class="task"><span class="n">1</span><h3>Дешифрування без списування легенди • 1 бал</h3>
+<p>Знайдіть на карті <b>не менше шести різних об'єктів</b>. Розподіліть їх на площинні, лінійні та точкові. Для двох об'єктів поясніть, <b>чому саме таким способом їх доцільно зображати на карті</b>.</p>
+<textarea data-save="p1" placeholder="Площинні: …  Лінійні: …  Точкові: …  Пояснення: …"></textarea>
+<details><summary>Підказка, якщо зависли</summary><p>Думайте не про назву об'єкта, а про те, чи важлива на карті його площа, довжина чи лише місцеположення.</p></details>
+</div>
+
+<div class="grid2" style="margin-top:14px">
+<div class="task"><span class="n">2</span><h3>Рельєф долини • 1 бал</h3>
+<p>Знайдіть вісь долини Пруту. Порівняйте схили по обидва боки долини в районі станції. <b>Який схил крутіший?</b> Наведіть дві картографічні ознаки.</p>
+<textarea data-save="p2" placeholder="Крутіший … схил. Доказ 1: … Доказ 2: …"></textarea>
+</div>
+<div class="task"><span class="n">3</span><h3>Куди тече Прут? • 1 бал</h3>
+<p>Визначте напрямок течії річки в межах видимої ділянки. Не користуйтеся знанням «Прут тече кудись там». Потрібно довести напрямок <b>формою горизонталей / зміною висот / конфігурацією долини</b>.</p>
+<textarea data-save="p3" placeholder="Напрямок: … Докази: …"></textarea>
+</div>
+</div>
+
+<div class="task" style="margin-top:14px"><span class="n">4</span><h3>Причинний ланцюг: чому Ворохта має саме таку форму? • 1 бал</h3>
+<p>Побудуйте причинний ланцюг із чотирьох ланок:</p>
+<div class="formula">РЕЛЬЄФ → ДОЛИНА → ТРАНСПОРТ → ЗАБУДОВА</div>
+<p>Поясніть, чому залізниця, головні дороги та щільніша забудова тяжіють до певної частини місцевості. Додайте <b>один виняток</b>, де забудова виходить на схил, і поясніть, що це показує.</p>
+<textarea data-save="p4" placeholder="Рельєф обмежує… → долина дає… → транспорт… → забудова… Виняток: …"></textarea>
+</div>
+
+<div class="grid2" style="margin-top:14px">
+<div class="task"><span class="n">5</span><h3>Вимірювання: карта проти реального шляху • 1 бал</h3>
+<p>Інструментом над картою виміряйте:</p>
+<ol><li>пряму від станції до віадука;</li><li>шлях, який максимально повторює видиму транспортну лінію між ними.</li></ol>
+<p>Запишіть обидва значення та обчисліть коефіцієнт:</p>
+<div class="formula">K = довжина реального шляху / пряма відстань</div>
+<textarea data-save="p5" placeholder="Пряма ≈ … м; шлях ≈ … м; K ≈ …; різниця виникає тому, що…"></textarea>
+</div>
+<div class="task"><span class="n">6</span><h3>Перевірка другим шаром • 1 бал</h3>
+<p>Перемкніть карту на супутниковий шар. Знайдіть <b>один висновок</b>, який супутникове зображення підтверджує, і <b>один</b>, який топографічна карта показує краще.</p>
+<textarea data-save="p6" placeholder="Супутник підтверджує… Топокарта краще показує… тому що…"></textarea>
+</div>
+</div>
+</section>
+
+<section id="mapB">
+<div class="k">18–21 хв • джерело Б</div>
+<h2>Карта Б. Говерла: коли «коротше» зовсім не означає «простіше»</h2>
+<div class="mapbox">
+<div id="mapHoverla" class="map" aria-label="Реальна топографічна карта Говерли і Заросляка"></div>
+<div class="maptools">
+<button class="soft" id="measureBStart">📏 Вимірювати</button>
+<button class="dangerBtn" id="measureBReset">Очистити</button>
+<span class="measureout" id="measureBOut">0 м</span>
+</div>
+<div class="caption">На топографічному шарі знайдіть «Заросляк», вершину Говерли, стежки, долини водотоків і ділянки з різною щільністю горизонталей.</div>
+</div>
+<div class="data">
+<div class="datum"><span>Говерла</span><strong>2061 м</strong><small>найвища вершина України</small></div>
+<div class="datum"><span>Синій маршрут</span><strong>≈ 3,7 км</strong><small>коротший і стрімкіший</small></div>
+<div class="datum"><span>Зелений маршрут</span><strong>≈ 4,3 км</strong><small>довший і пологіший</small></div>
+<div class="datum"><span>Набір висоти</span><strong>≈ 770 м</strong><small>для навчального порівняння маршрутів</small></div>
+</div>
+</section>
+
+<section id="practiceB">
+<div class="k">21–27 хв • практична робота II • 3 бали</div>
+<h2>Рельєф треба не описати, а кількісно порівняти</h2>
 <div class="grid2">
 <div class="calc">
-<b>А. Середній ухил маршруту</b>
-<p>Для навчальної оцінки використайте:</p>
-<div class="formula">середній ухил, % ≈ набір висоти / довжина маршруту × 100</div>
-<p>Для обох маршрутів візьміть набір висоти 770 м.</p>
-<label>Синій: <input id="blueSlope" inputmode="decimal" placeholder="... %"></label>
-<label>Зелений: <input id="greenSlope" inputmode="decimal" placeholder="... %"></label>
-<div class="btnline"><button class="soft" onclick="checkSlope()">Перевірити числа</button></div>
+<h3>7. Середній ухил двох маршрутів • 1 бал</h3>
+<div class="formula">середній ухил (%) ≈ набір висоти / довжина маршруту × 100</div>
+<p>Обчисліть середній ухил обох маршрутів.</p>
+<label>Синій маршрут, % <input type="text" id="blueSlope" placeholder="..."></label>
+<label>Зелений маршрут, % <input type="text" id="greenSlope" placeholder="..."></label>
+<div class="btnline"><button class="soft" onclick="checkSlope()">Перевірити обчислення</button></div>
 <div id="slopeFeedback" class="call hidden"></div>
 </div>
-<div class="calc">
-<b>Б. Час за спрощеною моделлю</b>
-<p>Не для походу, а для порівняння двох варіантів:</p>
-<div class="formula">час, год ≈ відстань / 4 + набір висоти / 600</div>
-<p>Обчисліть орієнтовний час підйому для 3,7 км та 4,3 км. Потім поясніть, чому ця модель <b>не може</b> точно передбачити реальний час.</p>
-<textarea class="answer" data-save="a5" placeholder="Синій ≈ ...; зелений ≈ ...; модель не враховує..."></textarea>
+<div class="task"><span class="n">8</span><h3>Локальна крутизна проти середньої • 1 бал</h3>
+<p>Знайдіть на карті ділянку, де горизонталі значно щільніші, ніж у середньому. Поясніть, чому число «20,8%» або «17,9%» <b>не означає</b>, що весь маршрут має такий самий ухил.</p>
+<textarea data-save="p8" placeholder="На ділянці … горизонталі … Середній ухил не показує…"></textarea>
 </div>
 </div>
-<div class="call ok" style="margin-top:12px"><b>Складніша частина.</b> Пряма між «Заросляком» і вершиною — близько 2,85 км, але реальний маршрут довший. Поясніть, чому різниця між прямою та стежкою сама по собі вже є інформацією про рельєф і прохідність.</div>
-<textarea class="answer" data-save="a6" placeholder="Чому реальний шлях не дорівнює прямій відстані?"></textarea>
+
+<div class="task" style="margin-top:14px"><span class="n">9</span><h3>Чи видно вершину зі старту? • 1 бал</h3>
+<p>Учень каже: «На карті між Заросляком і Говерлою немає будинків, тому вершину зі старту точно видно». Розберіть помилку. Яка інформація потрібна, щоб <b>довести</b> взаємну видимість двох точок?</p>
+<textarea data-save="p9" placeholder="Помилка в тому, що… Потрібно побудувати / перевірити…"></textarea>
+<details><summary>Що тут перевіряється?</summary><p>Не пам'ять терміна, а розуміння меж двовимірної карти. Відсутність забудови нічого не говорить про те, чи перекриває промінь зору проміжний рельєф.</p></details>
+</div>
 </section>
 
 <section id="decision">
-<div class="k">23–29 хв • багатокритеріальне рішення</div>
-<h2>Який маршрут обираєте?</h2>
-<p>Ви не маєте права відповісти одним словом. Оцініть кожен варіант за чотирма критеріями.</p>
+<div class="k">27–31 хв • синтез • 2 бали</div>
+<h2>Кейс: де поставити тимчасовий пункт польових спостережень?</h2>
+<p>На карті Ворохти позначено три кандидати — <b>А, Б, В</b>. Умови:</p>
+<div class="grid4">
+<div class="card"><b>1</b><p>не на днищі річкової долини;</p></div>
+<div class="card"><b>2</b><p>не на дуже крутому схилі;</p></div>
+<div class="card"><b>3</b><p>до 900 м від станції за реально доступним шляхом;</p></div>
+<div class="card"><b>4</b><p>не всередині найщільнішої забудови.</p></div>
+</div>
+
+<div class="tablewrap" style="margin-top:14px">
 <table class="rubric">
-<thead><tr><th>Критерій</th><th>Синій ≈ 3,7 км</th><th>Зелений ≈ 4,3 км</th></tr></thead>
+<thead><tr><th>Критерій</th><th>А</th><th>Б</th><th>В</th></tr></thead>
 <tbody>
-<tr><td>Довжина</td><td>коротший</td><td>довший</td></tr>
-<tr><td>Середній ухил за вашим розрахунком</td><td><input data-save="b1" placeholder="%"></td><td><input data-save="b2" placeholder="%"></td></tr>
-<tr><td>Щільність горизонталей на ключових ділянках</td><td><input data-save="b3" placeholder="що показує карта?"></td><td><input data-save="b4" placeholder="що показує карта?"></td></tr>
-<tr><td>Поведінка після дощу</td><td><input data-save="b5" placeholder="ризик / аргумент"></td><td><input data-save="b6" placeholder="ризик / аргумент"></td></tr>
+<tr><td>Ризик розміщення на днищі долини: 0 — високий, 2 — низький</td><td><input data-save="a1" placeholder="0–2"></td><td><input data-save="b1" placeholder="0–2"></td><td><input data-save="c1" placeholder="0–2"></td></tr>
+<tr><td>Крутизна: 0 — дуже круто, 2 — полого</td><td><input data-save="a2" placeholder="0–2"></td><td><input data-save="b2" placeholder="0–2"></td><td><input data-save="c2" placeholder="0–2"></td></tr>
+<tr><td>Доступність: 0 — погано, 2 — добре</td><td><input data-save="a3" placeholder="0–2"></td><td><input data-save="b3" placeholder="0–2"></td><td><input data-save="c3" placeholder="0–2"></td></tr>
+<tr><td>Забудова: 0 — щільна, 2 — мінімальна</td><td><input data-save="a4" placeholder="0–2"></td><td><input data-save="b4" placeholder="0–2"></td><td><input data-save="c4" placeholder="0–2"></td></tr>
 </tbody>
 </table>
-<div class="grid2" style="margin-top:12px">
-<div class="task"><b>Рішення 1 • підйом</b><textarea class="answer" data-save="a7" placeholder="Обираю ... тому що... 3 докази"></textarea></div>
-<div class="task"><b>Рішення 2 • спуск</b><textarea class="answer" data-save="a8" placeholder="Обираю ... тому що... 3 докази"></textarea></div>
+</div>
+<div class="task" style="margin-top:14px"><span class="n">10</span><h3>Ваше рішення • 2 бали</h3>
+<p>Оберіть одну точку. Обов'язково наведіть <b>три докази з карти</b> і <b>один контраргумент</b> проти власного вибору.</p>
+<textarea data-save="p10" style="min-height:135px" placeholder="Обираю точку … Доказ 1… Доказ 2… Доказ 3… Контраргумент: …"></textarea>
 </div>
 </section>
 
-<section id="audit">
-<div class="k">29–32 хв • критичне мислення</div>
-<h2>А тепер зламайте власний висновок</h2>
+<section id="logic">
+<div class="k">31–33 хв • детектор слабкого висновку</div>
+<h2>Карта не гарантує, що об'єкт сьогодні існує в тому самому стані</h2>
+<div class="call violet"><b>Твердження:</b> «На топографічній карті позначений міст, отже експедиція точно може перейти ним річку зараз».</div>
+<p>Розберіть твердження за схемою:</p>
 <div class="grid3">
-<div class="task"><b>Чого карта не показує?</b><p>Назвіть мінімум 3 фактори, без яких реальне рішення лишається неповним.</p><textarea class="answer" data-save="a9" placeholder="Напр.: актуальний стан стежки..."></textarea></div>
-<div class="task"><b>Який доказ найслабший?</b><p>Оберіть один зі своїх доказів і поясніть, чому він може ввести в оману без другого джерела.</p><textarea class="answer" data-save="a10"></textarea></div>
-<div class="task"><b>Другий показник</b><p>Якими даними ви перевірили б висновок про «безпечніший» маршрут: погодою, профілем висот, GPX, звітом парку, фото схилу? Оберіть два й поясніть.</p><textarea class="answer" data-save="a11"></textarea></div>
+<div class="card"><b>Що карта доводить?</b><textarea data-save="l1" class="short" placeholder="…"></textarea></div>
+<div class="card"><b>Чого карта не доводить?</b><textarea data-save="l2" class="short" placeholder="…"></textarea></div>
+<div class="card"><b>Яке друге джерело потрібне?</b><textarea data-save="l3" class="short" placeholder="…"></textarea></div>
 </div>
 </section>
 
-<section id="report">
-<div class="k">32–34 хв • CER</div>
-<h2>Польовий висновок у 5 реченнях</h2>
-<div class="call">Формула: <b>твердження → доказ із карти → числовий доказ → пояснення → обмеження.</b></div>
-<textarea class="answer" style="min-height:150px" data-save="report" placeholder="Ми обираємо... На карті видно... Розрахунок показує... Це важливо, тому що... Однак остаточне рішення потребує..."></textarea>
+<section id="cer">
+<div class="k">33–35 хв • підсумок</div>
+<h2>CER: доведіть, що ви справді читаєте карту</h2>
+<div class="grid3">
+<div class="card"><b>C — Claim</b><p>Сформулюйте один важливий висновок про місцевість.</p></div>
+<div class="card"><b>E — Evidence</b><p>Наведіть два конкретні докази з карти або вимірювань.</p></div>
+<div class="card"><b>R — Reasoning</b><p>Поясніть причинний зв'язок і межу висновку.</p></div>
+</div>
+<textarea data-save="cer" style="min-height:150px;margin-top:12px" placeholder="Твердження: … Доказ 1: … Доказ 2: … Пояснення: … Обмеження: …"></textarea>
+<div class="btnline"><button class="accent" onclick="window.print()">🖨️ Роздрукувати / зберегти PDF</button></div>
 </section>
 
-<section id="test">
-<div class="k">34–35 хв • самоперевірка</div>
-<h2>Експрес-фініш • 4 бали</h2>
-<div class="gate" id="gate">
-<p><b>Введіть дані учня.</b> Відповіді у відкритих завданнях оцінює вчитель; тут лише коротка автоматична перевірка логіки.</p>
-<input id="name" placeholder="Прізвище та ім’я">
-<div class="row" style="margin-top:8px"><input id="klass" placeholder="Клас, напр. 8-А"><button onclick="openQuiz()">Відкрити</button></div>
-<div id="gateMsg" class="danger call hidden" style="margin-top:10px">Введіть прізвище, ім’я та клас.</div>
-</div>
-<div id="quiz" class="hidden">
-<div class="q"><b>1. На якій ділянці схил крутіший?</b><label><input type="radio" name="q1" value="1"> Там, де горизонталі зближені</label><label><input type="radio" name="q1" value="0"> Там, де горизонталі рідкі</label></div>
-<div class="q"><b>2. Чому 3,7 км не доводять, що синій маршрут легший?</b><label><input type="radio" name="q2" value="1"> Потрібно врахувати набір висоти, крутизну, покриття та умови</label><label><input type="radio" name="q2" value="0"> Бо кілометри на топографічній карті не використовують</label></div>
-<div class="q"><b>3. Що найкраще перевіряє висновок про крутизну другим показником?</b><label><input type="radio" name="q3" value="1"> Профіль висот / дані GPX</label><label><input type="radio" name="q3" value="0"> Колір назви вершини</label></div>
-<div class="q"><b>4. Чому модель часу має обмеження?</b><label><input type="radio" name="q4" value="1"> Вона не враховує реальний стан стежки, погоду, темп групи та зупинки</label><label><input type="radio" name="q4" value="0"> Тому що відстань ніколи не впливає на час</label></div>
-<button style="margin-top:14px;background:var(--forest);color:#fff" onclick="grade()">Показати результат</button>
-<div id="result" class="result hidden"></div>
-</div>
-</section>
-
-<section id="criteria">
+<section id="rubric">
 <h2>Оцінювання практичної роботи • 12 балів</h2>
+<div class="tablewrap">
 <table class="rubric">
-<tr><th>Що оцінюється</th><th>Бали</th></tr>
-<tr><td>Правильно прочитано напрямок, горизонталі, долини/водотоки та характер схилу</td><td>0–3</td></tr>
-<tr><td>Коректні розрахунки ухилу й часу, одиниці та логіка</td><td>0–3</td></tr>
-<tr><td>Рішення про маршрут спирається мінімум на 3 різні докази</td><td>0–3</td></tr>
-<tr><td>Є контраргумент, обмеження карти та пропозиція другого джерела перевірки</td><td>0–3</td></tr>
+<tr><th>Блок</th><th>Що має бути в роботі</th><th>Бали</th></tr>
+<tr><td>Читання карти Ворохти</td><td>Об'єкти, рельєф, напрямок течії, причинний зв'язок, вимірювання, перевірка супутниковим шаром.</td><td>0–6</td></tr>
+<tr><td>Аналіз рельєфу Говерли</td><td>Коректний розрахунок середнього ухилу, розуміння локальної крутизни, межі висновку про видимість.</td><td>0–3</td></tr>
+<tr><td>Просторове рішення</td><td>Оцінка кандидатних точок, вибір із трьома доказами та контраргументом.</td><td>0–2</td></tr>
+<tr><td>CER</td><td>Логічно повне твердження + 2 докази + пояснення + обмеження.</td><td>0–1</td></tr>
 </table>
+</div>
 </section>
 
-<section class="sourcebox">
-<h2>Дані й джерела</h2>
-<p>Топографічний шар: <a href="https://www.opentopomap.org/" target="_blank" rel="noopener">OpenTopoMap</a>; картографічні дані — OpenStreetMap, висотні дані — SRTM. Висота Говерли — 2061 м. Координати «Заросляка» та вершини подані за відкритими картографічними джерелами. Для навчального порівняння використано описи двох промаркованих маршрутів від «Заросляка»: синій близько 3,7 км, зелений близько 4,3 км, із сумарним набором висоти близько 770 м. Числа округлені, тому розрахунки є навчальною моделлю, а не польовою навігаційною інструкцією.</p>
+<section id="quiz">
+<div class="k">домашня перевірка • 10 завдань</div>
+<h2>Тест: тут уже не вийде вгадувати за довжиною відповіді</h2>
+<div class="gate" id="gate">
+<p><b>Введіть прізвище, ім'я та клас.</b></p>
+<input class="textinput" id="studentName" placeholder="Прізвище та ім’я">
+<div class="row" style="margin-top:8px"><input id="studentClass" placeholder="Клас, напр. 8-А"><button onclick="openQuiz()">Розпочати тест</button></div>
+<div id="gateMsg" class="call bad hidden" style="margin-top:10px">Потрібні прізвище, ім'я та клас.</div>
+</div>
+
+<div id="quizBody" class="hidden">
+<div class="q"><b>1. На топокарті горизонталі на західному схилі розташовані через 2–3 мм, на східному — через 7–9 мм. Інші умови однакові. Який висновок найкращий?</b>
+<label><input type="radio" name="q1" value="1"> Західний схил крутіший.</label>
+<label><input type="radio" name="q1" value="0"> Східний схил крутіший.</label>
+<label><input type="radio" name="q1" value="0"> Можна визначити лише висоту, але не крутизну.</label>
+</div>
+
+<div class="q"><b>2. Горизонталі перетинають долину V-подібними вигинами. У який бік зазвичай спрямована вершина «V»?</b>
+<label><input type="radio" name="q2" value="1"> У бік вищої частини долини, проти течії.</label>
+<label><input type="radio" name="q2" value="0"> Завжди вниз за течією.</label>
+<label><input type="radio" name="q2" value="0"> Уздовж паралелі.</label>
+</div>
+
+<div class="q"><b>3. Два маршрути мають однаковий набір висоти, але один на 20% коротший. Який висновок допустимий без додаткових даних?</b>
+<label><input type="radio" name="q3" value="1"> Його середній ухил більший, але окремі ділянки другого маршруту все одно можуть бути крутішими.</label>
+<label><input type="radio" name="q3" value="0"> Він гарантовано небезпечніший на кожній ділянці.</label>
+<label><input type="radio" name="q3" value="0"> Він гарантовано проходиться швидше.</label>
+</div>
+
+<div class="q"><b>4. Пряма між двома точками 700 м, а виміряний шлях дорогою 980 м. Що найкраще пояснює різницю?</b>
+<label><input type="radio" name="q4" value="1"> Шлях обходить елементи рельєфу та інші перешкоди й не може всюди йти геометричною прямою.</label>
+<label><input type="radio" name="q4" value="0"> Масштаб автоматично додає 280 м до будь-якої дороги.</label>
+<label><input type="radio" name="q4" value="0"> На місцевості всі дороги довші на 40%.</label>
+</div>
+
+<div class="q"><b>5. Оберіть ВСІ дані, потрібні для обґрунтованої оцінки прохідності маршруту.</b>
+<label><input type="checkbox" name="q5" value="a"> Щільність горизонталей</label>
+<label><input type="checkbox" name="q5" value="b"> Водотоки й заболочені ділянки</label>
+<label><input type="checkbox" name="q5" value="c"> Типи доріг / стежок</label>
+<label><input type="checkbox" name="q5" value="d"> Лише назва найближчого села</label>
+</div>
+
+<div class="q"><b>6. Оберіть ВСІ причини, чому топографічну карту треба перевіряти сучасним джерелом.</b>
+<label><input type="checkbox" name="q6" value="a"> Міст або дорога могли змінитися.</label>
+<label><input type="checkbox" name="q6" value="b"> Карта може бути створена / оновлена раніше за поточний стан місцевості.</label>
+<label><input type="checkbox" name="q6" value="c"> Топографічна карта взагалі не показує рельєф.</label>
+<label><input type="checkbox" name="q6" value="d"> Стан стежки після негоди може змінитися швидше, ніж картографічні дані.</label>
+</div>
+
+<div class="q"><b>7. Установіть відповідність: виберіть правильний тип зображення для кожного об'єкта.</b>
+<div class="grid3">
+<label>Річка<select id="m1"><option value="">—</option><option value="line">лінійний</option><option value="area">площинний</option><option value="point">точковий</option></select></label>
+<label>Лісовий масив<select id="m2"><option value="">—</option><option value="line">лінійний</option><option value="area">площинний</option><option value="point">точковий</option></select></label>
+<label>Окрема вежа<select id="m3"><option value="">—</option><option value="line">лінійний</option><option value="area">площинний</option><option value="point">точковий</option></select></label>
+</div>
+</div>
+
+<div class="q"><b>8. Яка послідовність найкраща для складного читання незнайомої топографічної карти?</b>
+<select id="q8">
+<option value="">Оберіть</option>
+<option value="1">масштаб і орієнтація → рельєф → гідрографія → шляхи/забудова → взаємозв'язки → висновок</option>
+<option value="0">назва карти → один умовний знак → готовий висновок</option>
+<option value="0b">спочатку супутник → ігнорувати горизонталі → виміряти тільки пряму</option>
+</select>
+</div>
+
+<div class="q"><b>9. Учень стверджує: «Точка В найкраща для пункту спостереження, бо вона вище за А». Чого бракує для достатнього доказу?</b>
+<label><input type="radio" name="q9" value="1"> Даних про крутизну, доступність, положення відносно долини та забудови.</label>
+<label><input type="radio" name="q9" value="0"> Нічого: більша висота автоматично робить точку найкращою.</label>
+<label><input type="radio" name="q9" value="0"> Лише кольору умовного знака.</label>
+</div>
+
+<div class="q"><b>10. Який CER-висновок логічно найповніший?</b>
+<label><input type="radio" name="q10" value="1"> «Точка Б менш придатна: горизонталі біля неї щільніші й доступ до дороги гірший; це вказує на крутіший і менш доступний схил. Однак для остаточного рішення треба перевірити сучасний стан стежки».</label>
+<label><input type="radio" name="q10" value="0"> «Точка Б погана, бо мені так здається».</label>
+<label><input type="radio" name="q10" value="0"> «Точка Б вище, отже вона точно найкраща».</label>
+</div>
+
+<button style="margin-top:14px;background:var(--deep);color:#fff" onclick="gradeQuiz()">Завершити тест</button>
+<div id="quizResult" class="result hidden"></div>
+</div>
+</section>
+
+<section>
+<h2>Домашнє завдання</h2>
+<p><b>§ 9.</b> Завершити незаповнені пункти практичної роботи. Обов'язково пройти тест і зробити скриншот картки результату. За бажанням: знайти на OpenTopoMap знайому місцевість і сформулювати один висновок про її рельєф, який можна довести мінімум двома ознаками карти.</p>
+<p><a class="btn" href="https://lms.e-school.net.ua/" target="_blank" rel="noopener">Електронний підручник / ВШО</a></p>
+</section>
+
+<section class="small">
+<h2>Джерела картографічних даних</h2>
+<p>Топографічний шар — OpenTopoMap (дані OpenStreetMap + SRTM); супутниковий шар — Esri World Imagery. Координати станції Ворохта звірено за OpenStreetMap/Mapcarta; координати Ворохтянського віадука та церкви — за відкритими туристичними картографічними джерелами. Для навчального порівняння маршрутів Заросляк—Говерла використано описи синього маршруту ≈3,7 км, зеленого ≈4,3 км і набору висоти ≈770 м. Це навчальна робота з читання карти, а не польова навігаційна інструкція.</p>
 </section>
 </main>
 
-<footer>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія, 8 клас</footer>
+<footer>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія України, 8 клас</footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const start=[48.16431,24.53804], summit=[48.160185,24.500104];
-const map=L.map('realMap',{scrollWheelZoom:true}).setView([48.1623,24.5195],15);
-L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{
- maxZoom:17,
- attribution:'Map data: © OpenStreetMap contributors, SRTM | Map style: © OpenTopoMap (CC-BY-SA)'
-}).addTo(map);
-L.control.scale({imperial:false,maxWidth:160}).addTo(map);
-L.marker(start).addTo(map).bindPopup('<b>Старт: «Заросляк»</b><br>48.16431° N, 24.53804° E');
-L.marker(summit).addTo(map).bindPopup('<b>Говерла, 2061 м</b><br>48.16019° N, 24.50010° E');
-L.polyline([start,summit],{color:'#9a4f45',weight:3,dashArray:'7 8',opacity:.75}).addTo(map).bindTooltip('Пряма між точками ≈ 2,85 км — НЕ туристичний маршрут');
-const savedEls=document.querySelectorAll('[data-save]');
-savedEls.forEach(el=>{const key='topo8_'+el.dataset.save;const v=localStorage.getItem(key);if(v!==null)el.value=v;el.addEventListener('input',()=>localStorage.setItem(key,el.value))});
-function n(v){return Number(String(v).replace(',','.').replace('%','').trim())}
+const topoUrl='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+const osmUrl='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+const satUrl='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+const attrTopo='Map data © OpenStreetMap contributors, SRTM | Map style © OpenTopoMap (CC-BY-SA)';
+const attrOsm='© OpenStreetMap contributors';
+const attrSat='Tiles © Esri';
+function baseLayers(){
+ const topo=L.tileLayer(topoUrl,{maxZoom:17,attribution:attrTopo});
+ const osm=L.tileLayer(osmUrl,{maxZoom:19,attribution:attrOsm});
+ const sat=L.tileLayer(satUrl,{maxZoom:18,attribution:attrSat});
+ return {topo,osm,sat};
+}
+function addMeasure(map,startId,resetId,outId,color){
+ let active=false, pts=[], line=L.polyline([],{color:color||'#a94c43',weight:4,dashArray:'8 7'}).addTo(map), dots=[];
+ const out=document.getElementById(outId),start=document.getElementById(startId),reset=document.getElementById(resetId);
+ function update(){
+   let d=0; for(let i=1;i<pts.length;i++)d+=map.distance(pts[i-1],pts[i]);
+   out.textContent=d<1000?Math.round(d)+' м':(d/1000).toFixed(2).replace('.',',')+' км';
+ }
+ start.addEventListener('click',()=>{active=!active;start.textContent=active?'✅ Клацайте по карті':'📏 Вимірювати'});
+ reset.addEventListener('click',()=>{pts=[];line.setLatLngs([]);dots.forEach(x=>map.removeLayer(x));dots=[];out.textContent='0 м'});
+ map.on('click',e=>{if(!active)return;pts.push(e.latlng);line.setLatLngs(pts);dots.push(L.circleMarker(e.latlng,{radius:4,color:color||'#a94c43',fillOpacity:1}).addTo(map));update()});
+}
+function labelMarker(map,latlng,label,text){
+ return L.marker(latlng).addTo(map).bindPopup('<b>'+label+'</b><br>'+text).bindTooltip(label,{direction:'top'});
+}
+function candidate(map,latlng,label,color){
+ return L.circleMarker(latlng,{radius:10,color:color,weight:3,fillColor:'#fff',fillOpacity:.9}).addTo(map).bindTooltip('<span class="candidate">'+label+'</span>',{permanent:true,direction:'top',offset:[0,-8]});
+}
+if(window.L){
+ const A=baseLayers();
+ const mapA=L.map('mapVorokhta',{layers:[A.topo],scrollWheelZoom:true}).setView([48.2912,24.5648],15);
+ L.control.layers({'Топографічна':A.topo,'OSM':A.osm,'Супутникова':A.sat},null,{collapsed:false}).addTo(mapA);
+ L.control.scale({imperial:false,maxWidth:160}).addTo(mapA);
+ labelMarker(mapA,[48.29325,24.56484],'Станція Ворохта','Реальна залізнична станція');
+ labelMarker(mapA,[48.29721,24.56599],'Кам’яний віадук','Реальний орієнтир');
+ labelMarker(mapA,[48.28405,24.57035],'Церква Різдва Богородиці','Реальний орієнтир');
+ candidate(mapA,[48.2927,24.5680],'А','#c48a28');
+ candidate(mapA,[48.2900,24.5550],'Б','#8d4b77');
+ candidate(mapA,[48.2880,24.5710],'В','#2d7851');
+ addMeasure(mapA,'measureAStart','measureAReset','measureAOut','#a94c43');
+
+ const B=baseLayers();
+ const mapB=L.map('mapHoverla',{layers:[B.topo],scrollWheelZoom:true}).setView([48.1620,24.5195],14);
+ L.control.layers({'Топографічна':B.topo,'OSM':B.osm,'Супутникова':B.sat},null,{collapsed:false}).addTo(mapB);
+ L.control.scale({imperial:false,maxWidth:160}).addTo(mapB);
+ labelMarker(mapB,[48.16431,24.53804],'Заросляк','Старт популярних маршрутів');
+ labelMarker(mapB,[48.160814,24.500119],'Говерла • 2061 м','Вершина');
+ L.polyline([[48.16431,24.53804],[48.160814,24.500119]],{color:'#a94c43',weight:2,dashArray:'6 8',opacity:.65}).addTo(mapB).bindTooltip('Пряма між точками — не маршрут');
+ addMeasure(mapB,'measureBStart','measureBReset','measureBOut','#705989');
+}else{
+ document.querySelectorAll('.map').forEach(x=>x.innerHTML='<div class="call bad" style="margin:20px">Карта не завантажилась. Відкрийте OpenTopoMap у новій вкладці.</div>');
+}
+document.querySelectorAll('[data-save]').forEach(el=>{
+ const key='geo8topo_'+el.dataset.save; const v=localStorage.getItem(key); if(v!==null)el.value=v;
+ el.addEventListener('input',()=>localStorage.setItem(key,el.value));
+});
+function num(v){return Number(String(v).replace(',','.').replace('%','').trim())}
 function checkSlope(){
- const b=n(document.getElementById('blueSlope').value),g=n(document.getElementById('greenSlope').value),f=document.getElementById('slopeFeedback');
- f.classList.remove('hidden','ok','danger');
- if(Math.abs(b-20.8)<.8&&Math.abs(g-17.9)<.8){f.classList.add('ok');f.innerHTML='<b>Так.</b> Приблизно 20,8% для синього і 17,9% для зеленого. Це лише середній ухил: окремі ділянки можуть бути значно крутішими або пологішими.'}
- else{f.classList.add('danger');f.innerHTML='Перевірте формулу: 770/3700×100 та 770/4300×100. Не забудьте перевести кілометри в метри.'}
+ const b=num(document.getElementById('blueSlope').value),g=num(document.getElementById('greenSlope').value),f=document.getElementById('slopeFeedback');
+ f.classList.remove('hidden','ok','bad');
+ if(Math.abs(b-20.8)<.7&&Math.abs(g-17.9)<.7){
+  f.classList.add('ok'); f.innerHTML='<b>Розрахунок правильний:</b> синій ≈20,8%, зелений ≈17,9%. Але це лише середні значення для всього маршруту — вони не описують найкрутіші окремі відрізки.';
+ }else{
+  f.classList.add('bad'); f.innerHTML='Перевірте одиниці: 3,7 км = 3700 м; 4,3 км = 4300 м. Далі: 770/довжина×100.';
+ }
 }
 function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x))}
-function openQuiz(){const nm=document.getElementById('name').value.trim(),cl=document.getElementById('klass').value.trim();if(!validName(nm)||!cl){document.getElementById('gateMsg').classList.remove('hidden');return}document.getElementById('gateMsg').classList.add('hidden');document.getElementById('gate').classList.add('hidden');document.getElementById('quiz').classList.remove('hidden')}
-function grade(){let s=0;['q1','q2','q3','q4'].forEach(q=>{const x=document.querySelector('input[name="'+q+'"]:checked');if(x)s+=Number(x.value)});const r=document.getElementById('result');r.classList.remove('hidden');const now=new Date();r.innerHTML='<div class="score">'+s+'/4</div><p><b>'+document.getElementById('name').value+'</b>, '+(s===4?'логіка читання карти працює. Тепер головне — щоб відкриті відповіді мали конкретні докази.':s>=2?'основа є, але поверніться до горизонталей і обмежень даних.':'не поспішайте з маршрутом: спочатку карта, потім висновок.')+'</p><small>'+document.getElementById('klass').value+' • '+now.toLocaleString('uk-UA')+'</small>'}
+function openQuiz(){
+ const n=document.getElementById('studentName').value.trim(),c=document.getElementById('studentClass').value.trim();
+ if(!validName(n)||!c){document.getElementById('gateMsg').classList.remove('hidden');return}
+ document.getElementById('gateMsg').classList.add('hidden');document.getElementById('gate').classList.add('hidden');document.getElementById('quizBody').classList.remove('hidden');
+}
+function exactChecks(name,need){
+ const vals=[...document.querySelectorAll('input[name="'+name+'"]:checked')].map(x=>x.value).sort();
+ return vals.length===need.length&&vals.every((v,i)=>v===need.slice().sort()[i]);
+}
+function radio(name){const x=document.querySelector('input[name="'+name+'"]:checked');return x?Number(x.value):0}
+function gradeQuiz(){
+ let s=0;
+ ['q1','q2','q3','q4','q9','q10'].forEach(q=>s+=radio(q));
+ if(exactChecks('q5',['a','b','c']))s++;
+ if(exactChecks('q6',['a','b','d']))s++;
+ if(document.getElementById('m1').value==='line'&&document.getElementById('m2').value==='area'&&document.getElementById('m3').value==='point')s++;
+ if(document.getElementById('q8').value==='1')s++;
+ const now=new Date(),r=document.getElementById('quizResult');r.classList.remove('hidden');
+ const pct=s*10;
+ const comment=s<=4?'Потрібно ще раз пройти рельєф, водотоки та логіку доказів.':s<=7?'База є, але складні висновки ще треба підсилити другим доказом.':s<=9?'Добре: карта читається як система, а не набір значків.':'Відмінно: ви не лише читаєте карту, а й контролюєте межі власного висновку.';
+ r.innerHTML='<div class="score">'+s+'/10</div><p><b>'+document.getElementById('studentName').value+'</b> • '+document.getElementById('studentClass').value+'</p><p>'+comment+'</p><p>'+pct+'% • '+now.toLocaleString('uk-UA')+'</p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p>';
+}
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+</body>
+</html>
