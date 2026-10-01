@@ -1,0 +1,1279 @@
+<!doctype html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Геологічний атлас Землі — від Гадею до сьогодення</title>
+<style>
+:root{--bg:#071014;--panel:#0c171c;--ink:#edf4ef;--muted:#9fb0aa;--line:#213239;--gold:#d6b66d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% -10%,#193037 0,#071014 38%,#050b0e 100%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E")}
+a{color:inherit}.hero{min-height:94vh;display:grid;place-items:center;padding:8vw 5vw 4vw;position:relative;overflow:hidden}.hero:after{content:"4.567 Ga → NOW";position:absolute;right:-1vw;bottom:-3vw;font-size:clamp(4rem,13vw,12rem);font-weight:900;letter-spacing:-.08em;color:#fff;opacity:.025}
+.hero-inner{max-width:1180px;width:100%;position:relative;z-index:2}.kicker{text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font-size:.76rem;font-weight:800}h1{font-family:Georgia,serif;font-size:clamp(3.2rem,9vw,8.4rem);line-height:.86;letter-spacing:-.06em;margin:.25em 0}h1 em{font-weight:400;color:#9ac2b2}.lede{max-width:760px;font-size:clamp(1.05rem,2vw,1.4rem);color:#bfd0ca}
+.hero-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}.pill{border:1px solid #385057;background:#0b171bcc;border-radius:999px;padding:.6rem 1rem;font-size:.84rem}
+.sticky{position:sticky;top:0;z-index:30;background:#071014e8;backdrop-filter:blur(18px);border-block:1px solid #1d3036;overflow:auto}.nav{display:flex;gap:.5rem;min-width:max-content;padding:.7rem max(1rem,calc((100vw - 1180px)/2))}.nav a{text-decoration:none;border-left:3px solid var(--c);padding:.35rem .65rem;color:#b8c8c2;font-size:.78rem}
+.overview{max-width:1180px;margin:5rem auto;padding:0 1.2rem}.overview h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,4rem);margin:0 0 1rem}.timeline{display:grid;grid-template-columns:repeat(15,1fr);height:130px;border-radius:22px;overflow:hidden;border:1px solid #294047}.time-seg{position:relative;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 72%,#101820),color-mix(in srgb,var(--c) 25%,#071014));text-decoration:none;min-width:0}.time-seg span{position:absolute;writing-mode:vertical-rl;transform:rotate(180deg);bottom:10px;left:50%;font-size:.66rem;white-space:nowrap}
+.note{border-left:3px solid var(--gold);padding:1rem 1.2rem;background:#0b171b;margin:2rem 0;color:#b7c8c2}.period{max-width:1180px;margin:0 auto;padding:8rem 1.2rem 3rem;border-top:1px solid #21343a;scroll-margin-top:60px}.period-head{display:flex;justify-content:space-between;align-items:end;gap:1rem}.eyebrow,.card-label{text-transform:uppercase;letter-spacing:.18em;color:var(--accent);font-weight:800;font-size:.72rem}.period h2{font-family:Georgia,serif;font-size:clamp(3.3rem,8vw,7rem);letter-spacing:-.055em;line-height:.9;margin:.12em 0}.range{font-size:1.15rem;color:#b8c8c2}.epoch-number{font-size:6rem;line-height:1;font-weight:900;color:var(--accent);opacity:.14}
+.hero-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2.5rem 0}.feature,.map-card,.mineral-card,.facts{background:linear-gradient(145deg,#0e1b20,#091216);border:1px solid #22373e;border-radius:24px;padding:1.5rem;box-shadow:0 24px 80px #0004}.feature h3,.facts h3{margin:.1rem 0 .6rem;font-size:1rem;color:var(--accent)}.feature p,.map-card p,.mineral-card p{color:#c5d1cd;margin-bottom:0}.geo-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}.map-card svg{width:100%;margin-top:1rem}.ocean{fill:#071d27}.land{fill:var(--accent);stroke:#e8f4ef;stroke-width:2;opacity:.8}.gridlines path{stroke:#fff;stroke-width:.5;opacity:.12}small{color:#718680}.ore-orb{font-size:6rem;color:var(--accent);filter:drop-shadow(0 0 22px var(--accent));line-height:1;margin:1rem 0}.warning{font-size:.78rem;color:#8fa29b;border-top:1px solid #24383e;padding-top:1rem;margin-top:1rem}.facts{margin:1rem 0}.facts ol{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;padding-left:1.2rem;margin-bottom:0}.facts li{padding-left:.4rem;color:#c8d4d0}
+.gallery-title{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin:3rem 0 1rem}.gallery-title span{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:800}.gallery-title h3{font-family:Georgia,serif;font-size:1.55rem;margin:.2rem 0}button{border:1px solid #35505a;background:#0b171c;color:#dce8e3;border-radius:999px;padding:.7rem 1rem;cursor:pointer}.gallery{columns:4 240px;column-gap:.85rem}.img-card{break-inside:avoid;margin:0 0 .85rem;border:1px solid #263a41;background:#0a1418;border-radius:18px;overflow:hidden;position:relative}.img-card img{display:block;width:100%;height:auto;min-height:120px;background:#102027}.img-card figcaption{padding:.7rem .8rem;font-size:.72rem;color:#9eb0aa}.img-card a{text-decoration:none}.skeleton{height:210px;background:linear-gradient(90deg,#0d1a1f,#14262c,#0d1a1f);background-size:200%;animation:sh 1.5s infinite;border-radius:18px;margin-bottom:.85rem;break-inside:avoid}@keyframes sh{to{background-position:-200%}}
+footer{max-width:1180px;margin:5rem auto;padding:3rem 1.2rem 6rem;border-top:1px solid #24363d;color:#93a69f}footer h2{font-family:Georgia,serif;color:#e7efe9}.sources{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.sources a{color:#cbb274}
+@media(max-width:760px){.hero-grid,.geo-grid,.facts ol,.sources{grid-template-columns:1fr}.epoch-number{display:none}.timeline{grid-template-columns:repeat(15,42px);overflow:auto}.period{padding-top:5rem}}
+@media(prefers-reduced-motion:no-preference){.reveal{opacity:0;transform:translateY(18px);transition:.7s ease}.reveal.on{opacity:1;transform:none}}
+</style>
+<style>
+/* v2 — museum / editorial visual system */
+.period{position:relative}.period:before{content:"";position:absolute;left:-7vw;right:-7vw;top:5.8rem;height:34rem;background:radial-gradient(circle at 18% 20%,color-mix(in srgb,var(--accent) 19%,transparent),transparent 45%);pointer-events:none}
+.animal-zone{margin:3.2rem 0}.animal-title span{color:var(--accent);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:900}.animal-title h3{font:400 clamp(1.8rem,4vw,3.2rem)/1.05 Georgia,serif;margin:.3rem 0 1.2rem}
+.animal-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}.animal-hero{margin:0;min-height:360px;position:relative;border-radius:26px;overflow:hidden;background:#101b1e;border:1px solid #33484e;box-shadow:0 30px 90px #0007}.animal-hero img{width:100%;height:360px;object-fit:cover;display:block;transition:.5s}.animal-hero:hover img{transform:scale(1.035)}.animal-hero:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#061014ee)}.animal-hero figcaption{position:absolute;z-index:2;left:1.2rem;right:1.2rem;bottom:1.1rem}.animal-hero b{display:block;font:400 1.45rem Georgia,serif}.animal-hero span{display:block;color:#adc0ba;font-size:.72rem;margin-top:.25rem}
+.gallery{columns:5 205px;column-gap:.7rem}.img-card{border-radius:14px;margin-bottom:.7rem}.img-card img{filter:saturate(.94) contrast(1.03);transition:.35s}.img-card:hover img{transform:scale(1.025)}.img-card figcaption{background:#091317}
+.feature{position:relative;overflow:hidden}.feature:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;top:-35px;background:var(--accent);opacity:.08}
+@media(max-width:700px){.animal-hero,.animal-hero img{height:300px;min-height:300px}.gallery{columns:2 150px}}
+</style>
+
+<style>
+.real-map{padding:0!important;overflow:hidden}.real-map .card-label{padding:1.2rem 1.4rem .6rem}.real-map>a{display:block;background:#061015}.real-map img{display:block;width:100%;height:360px;object-fit:cover}.real-map h3,.real-map p{padding:0 1.4rem}.real-map p{padding-bottom:1.2rem}.map-live-target{padding:0 1rem}.map-live-target .img-card{margin:0}.map-live-target .img-card img{width:100%;max-height:360px;object-fit:cover}
+.deep-dive{margin:3.5rem 0;border-top:1px solid color-mix(in srgb,var(--accent) 45%,#26383e);padding-top:2rem}.deep-title span{color:var(--accent);letter-spacing:.2em;font-size:.68rem;font-weight:900}.deep-title h3{font:400 clamp(2rem,4.5vw,3.8rem)/1 Georgia,serif;margin:.3rem 0 1.5rem}.deep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.deep-grid article{min-height:280px;padding:1.5rem;border-radius:24px;background:linear-gradient(155deg,color-mix(in srgb,var(--accent) 10%,#0c171b),#081115);border:1px solid #263b42}.deep-grid b{font:700 3rem Georgia,serif;color:var(--accent);opacity:.35}.deep-grid h4{font:400 1.45rem Georgia,serif;margin:.6rem 0}.deep-grid p{color:#b8c8c2}.media-row{display:grid;grid-template-columns:repeat(3,1fr);margin-top:1rem;border:1px solid #263a40;border-radius:20px;overflow:hidden}.media-row>div{padding:1rem 1.2rem;border-right:1px solid #263a40}.media-row>div:last-child{border:0}.media-row span{color:var(--accent);font-weight:800}.media-row p{font-size:.78rem;color:#93a69f;margin:.2rem 0}
+.gallery-title{position:sticky;top:50px;z-index:8;background:#071014e8;backdrop-filter:blur(14px);padding:.9rem 0;border-bottom:1px solid #263940}.gallery{columns:4 250px}.img-card figcaption{font-size:.78rem;line-height:1.35}.period:nth-of-type(even) .deep-grid article:nth-child(2){transform:translateY(18px)}
+@media(max-width:760px){.deep-grid,.media-row{grid-template-columns:1fr}.deep-grid article{min-height:auto}.media-row>div{border-right:0;border-bottom:1px solid #263a40}.real-map img{height:auto}.gallery-title{position:static}.period:nth-of-type(even) .deep-grid article:nth-child(2){transform:none}}
+</style>
+
+<style>
+.ore-orb{display:none!important}.period{padding-top:7rem}.hero-grid{grid-template-columns:repeat(4,1fr)}.feature{min-height:220px}
+.mega-facts{padding:2rem!important}.mega-facts h3{font:400 clamp(1.7rem,3.5vw,2.8rem)/1.05 Georgia,serif!important;margin:.4rem 0 1.4rem!important}.mega-facts ol{display:grid!important;grid-template-columns:repeat(2,1fr)!important;counter-reset:item;list-style:none;padding:0!important;gap:.7rem!important}.mega-facts li{position:relative;padding:1rem 1rem 1rem 3.5rem!important;background:#ffffff05;border:1px solid #ffffff0d;border-radius:15px}.mega-facts li:before{counter-increment:item;content:counter(item,decimal-leading-zero);position:absolute;left:1rem;top:.85rem;color:var(--accent);font:700 .85rem Georgia,serif}
+.gallery{display:grid!important;grid-template-columns:repeat(4,1fr)!important;columns:auto!important;gap:.65rem!important}.img-card{margin:0!important;min-height:220px}.img-card a{height:100%;display:flex;flex-direction:column}.img-card img{width:100%;height:250px!important;object-fit:cover}.img-card.wide{grid-column:span 2;grid-row:span 2}.img-card.wide img{height:530px!important}.img-card figcaption{margin-top:auto}.img-card figcaption strong{display:block;color:#dce8e3;font-weight:600}.img-card figcaption span{display:block;color:#718780;font-size:.65rem;margin-top:.3rem}.real-map img{height:auto!important;max-height:520px;object-fit:contain!important;background:#061015}.gallery-title h3{max-width:800px}.gallery-title:after{content:"ФОТО · СКАМ’ЯНІЛОСТІ · ПАЛЕОАРТ · МУЗЕЙНІ ЕКСПОНАТИ";font-size:.58rem;letter-spacing:.14em;color:#6f8680}
+@media(max-width:1000px){.hero-grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(3,1fr)!important}}
+@media(max-width:650px){.hero-grid,.mega-facts ol{grid-template-columns:1fr!important}.gallery{grid-template-columns:repeat(2,1fr)!important}.img-card.wide{grid-column:span 2}.img-card img{height:190px!important}.img-card.wide img{height:390px!important}}
+</style>
+<style>
+.visual-policy{max-width:1500px;margin:1.2rem auto 0;padding:1rem 1.3rem;border:1px solid #35505a;border-radius:18px;background:#0b171bcc;display:flex;gap:1rem;align-items:center}.visual-policy b{color:#e4b86a;white-space:nowrap;font-size:.7rem;letter-spacing:.14em}.visual-policy span{color:#a9bbb5;font-size:.78rem}
+.gallery{grid-template-columns:repeat(5,1fr)!important}.img-card img{height:225px!important}.img-card.wide img{height:475px!important}
+@media(max-width:1200px){.gallery{grid-template-columns:repeat(4,1fr)!important}}
+@media(max-width:850px){.gallery{grid-template-columns:repeat(3,1fr)!important}.visual-policy{margin-left:1rem;margin-right:1rem}}
+@media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr)!important}.visual-policy{display:block}.visual-policy b{display:block;margin-bottom:.35rem}}
+</style>
+<style id="grade7-wow">
+:root{--bg:#07100f;--panel:#0d1917;--text:#f6f1e6;--soft:#b7c6be;--gold:#ffc85a}
+body{background:#07100f!important;color:var(--text)!important;overflow-x:hidden}
+body:before{display:none!important}
+.wow-intro{min-height:94vh;display:flex;flex-direction:column;justify-content:center;padding:8vh max(5vw,calc((100vw - 1500px)/2));position:relative;overflow:hidden;background:
+radial-gradient(circle at 78% 28%,#1f655b55,transparent 28%),
+radial-gradient(circle at 25% 80%,#9f5c2444,transparent 28%),
+linear-gradient(145deg,#06100e,#10231e 55%,#07100f)}
+.wow-intro:after{content:"4 600 000 000";position:absolute;right:-.03em;bottom:-.12em;font:900 clamp(5rem,18vw,18rem)/1 sans-serif;color:#ffffff06;letter-spacing:-.08em}
+.wow-kicker{font-weight:900;letter-spacing:.22em;color:#ffc85a;font-size:.72rem}.wow-intro h1{font:700 clamp(4.2rem,10vw,10rem)/.82 Georgia,serif;letter-spacing:-.065em;margin:.4em 0 .22em;max-width:1250px}.wow-intro h1 em{color:#89d6bf;font-weight:400}.wow-intro p{max-width:780px;font-size:clamp(1rem,1.5vw,1.35rem);line-height:1.65;color:#c9d7d0}.scroll-cue{margin-top:4rem;color:#82958d;font-size:.65rem;letter-spacing:.17em;font-weight:800}
+.period{max-width:1500px!important;margin:0 auto!important;padding:8rem 4vw!important;background:#07100f!important;color:#f5f0e5!important;border-bottom:1px solid #24342f!important}
+.period:before{opacity:.35!important}
+.period h2{font:700 clamp(4rem,8vw,8rem)/.85 Georgia,serif!important;color:#fff7e9!important;letter-spacing:-.055em!important}
+.period h3,.period h4{color:#fff4e0!important}
+.period p{color:#b8c8c1!important;font-size:1rem;line-height:1.7}
+.hero-grid{display:grid!important;grid-template-columns:repeat(12,1fr)!important;gap:10px!important;background:transparent!important;border:0!important;overflow:visible!important}
+.feature{grid-column:span 4!important;background:#0e1b18!important;border:1px solid #233630!important;border-radius:22px!important;color:#f4eee1!important;padding:1.5rem!important;min-height:220px!important}
+.feature:first-child{grid-column:span 8!important;grid-row:span 2!important;min-height:460px!important;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 22%,#0b1714),#0c1715)!important}
+.feature h3{color:#fff1d8!important}.feature p{color:#adbbb5!important}
+.deep-dive{margin:6rem 0!important;border:0!important}.deep-title{border:0!important;display:block!important}.deep-title span,.card-label{color:var(--accent)!important;font-weight:900;letter-spacing:.18em}.deep-title h3{font:700 clamp(3rem,6vw,6rem)/.9 Georgia,serif!important;color:#fff5e5!important}
+.deep-grid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:12px!important}.deep-grid article{background:#101e1b!important;border:1px solid #263a34!important;border-radius:26px!important;min-height:300px!important;color:#fff!important}.deep-grid article:nth-child(2){transform:none!important}.deep-grid b{color:var(--accent)!important}.deep-grid p{color:#aebdb6!important}
+.media-row{display:none!important}
+.animal-zone{background:linear-gradient(140deg,#13231f,#08110f)!important;margin:6rem -4vw!important;padding:4rem 4vw!important;border-radius:0!important}.animal-title h3{font:700 clamp(3rem,6vw,6rem)/.9 Georgia,serif!important;color:#fff3dc!important}.animal-strip{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:8px!important}.animal-hero{border-radius:18px!important;border:0!important;min-height:420px!important}.animal-hero img{height:420px!important;object-fit:cover!important}
+.real-map{background:#0e1b18!important;border:1px solid #294038!important;border-radius:28px!important;overflow:hidden!important}.real-map img{width:100%!important;max-height:620px!important;object-fit:contain!important;background:#091310!important}.real-map h3{color:#fff!important}.real-map p{color:#aebdb6!important}
+.mega-facts{margin:7rem -4vw!important;padding:5rem 4vw!important;background:#f0c96f!important;color:#17201d!important;border-radius:0!important}.mega-facts:before{display:none!important}.mega-facts h3{font:700 clamp(3rem,6vw,6rem)/.9 Georgia,serif!important;color:#17201d!important}.mega-facts .card-label{color:#5c461a!important}.mega-facts ol{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:8px!important;background:transparent!important}.mega-facts li{background:#f7df9f!important;color:#1a2420!important;border:0!important;border-radius:16px!important;min-height:130px!important;padding:1.3rem 1.2rem 1.3rem 4rem!important}.mega-facts li:before{color:#71561c!important}
+.gallery-title{position:static!important;background:transparent!important;border:0!important;margin:7rem 0 1.5rem!important;padding:0!important;display:block!important}.gallery-title h3{font:700 clamp(3.2rem,7vw,7rem)/.85 Georgia,serif!important;color:#fff4df!important}.gallery-title:after{display:none!important}
+.gallery{display:grid!important;grid-template-columns:repeat(12,1fr)!important;grid-auto-flow:dense!important;gap:8px!important;columns:auto!important}.img-card{grid-column:span 3!important;margin:0!important;border:0!important;border-radius:16px!important;overflow:hidden!important;background:#0e1916!important;min-height:0!important}.img-card:nth-child(9n+1),.img-card:nth-child(13n+4){grid-column:span 6!important;grid-row:span 2!important}.img-card img{display:block;width:100%!important;height:260px!important;object-fit:cover!important;filter:none!important}.img-card:nth-child(9n+1) img,.img-card:nth-child(13n+4) img{height:528px!important}.img-card figcaption{padding:.7rem .85rem!important;background:#0e1916!important;color:#d8e0dc!important;font-size:.72rem!important}.img-card figcaption span{display:none!important}
+button,.reload{background:var(--accent)!important;color:#07100f!important;border:0!important;border-radius:999px!important;font-weight:900!important}
+@media(max-width:900px){.feature,.feature:first-child{grid-column:span 6!important;min-height:auto!important}.deep-grid,.animal-strip,.mega-facts ol{grid-template-columns:1fr 1fr!important}.gallery{grid-template-columns:repeat(6,1fr)!important}.img-card{grid-column:span 2!important}.img-card:nth-child(9n+1),.img-card:nth-child(13n+4){grid-column:span 4!important}}
+@media(max-width:600px){.wow-intro{padding:5rem 1.2rem}.period{padding:5rem 1rem!important}.hero-grid{display:block!important}.feature{margin-bottom:8px}.deep-grid,.animal-strip,.mega-facts ol{grid-template-columns:1fr!important}.animal-zone,.mega-facts{margin-left:-1rem!important;margin-right:-1rem!important;padding-left:1rem!important;padding-right:1rem!important}.gallery{grid-template-columns:repeat(2,1fr)!important}.img-card,.img-card:nth-child(n){grid-column:span 1!important}.img-card:nth-child(9n+1){grid-column:span 2!important}.img-card img{height:210px!important}.img-card:nth-child(9n+1) img{height:428px!important}}
+</style>
+
+<style id="grade7-bright-redesign">
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap');
+
+:root{--paper:#F7F3EA;--paper2:#FFFDF8;--navy:#102A36;--ink:#17323E;--soft:#607780;--cyan:#29C7D8;--coral:#FF6B55;--sun:#FFD35A}
+html,body{background:var(--paper)!important;color:var(--ink)!important;font-family:"Manrope","Segoe UI",sans-serif!important}
+body:before{display:none!important}
+h1,h2,h3,h4,.kicker,.eyebrow,.card-label,.wow-kicker,.gallery-title span,.explosion-kicker{font-family:"Unbounded","Arial Black",sans-serif!important}
+.hero,.wow-intro{
+ min-height:92vh!important;background:
+ radial-gradient(circle at 82% 18%,#FFD65A 0 8%,transparent 8.3%),
+ radial-gradient(circle at 78% 25%,#FF745D55 0 18%,transparent 18.3%),
+ radial-gradient(circle at 18% 78%,#29C7D844 0 22%,transparent 22.3%),
+ linear-gradient(135deg,#073A48,#0B2037 58%,#271B46)!important;color:white!important;
+}
+.wow-intro h1,.hero h1{font-family:"Unbounded",sans-serif!important;font-weight:800!important;letter-spacing:-.055em!important;line-height:.87!important;text-transform:uppercase}
+.wow-intro h1 em,.hero h1 em{font-style:normal!important;color:#FFD85B!important;-webkit-text-stroke:0!important}
+.wow-intro p,.lede{color:#D9EEF0!important;font-size:clamp(1.05rem,1.5vw,1.35rem)!important}
+.scroll-cue,.kicker,.wow-kicker{color:#72E5EA!important}
+.sticky{background:#102A36F2!important;border:0!important;box-shadow:0 7px 24px #0a263344!important}.nav a{color:#E8F7F5!important;font-weight:700;border:0!important;border-radius:999px!important;padding:.55rem .9rem!important;background:#ffffff10}.nav a:hover{background:var(--c)!important;color:#102A36!important}
+.overview{max-width:1280px!important}.overview h2{font-family:"Unbounded",sans-serif!important;color:var(--navy)!important}.timeline{border:0!important;box-shadow:0 16px 50px #18313d20!important;background:white!important}
+.period{max-width:1280px!important;background:var(--paper)!important;color:var(--ink)!important;border:0!important;padding:7rem 1.4rem!important;position:relative!important}
+.period:before{content:"";position:absolute!important;left:0!important;right:auto!important;top:0!important;width:110px!important;height:12px!important;background:var(--accent)!important;border-radius:0 0 12px 12px!important;opacity:1!important}
+.period-head{align-items:flex-start!important}.period h2{font-family:"Unbounded",sans-serif!important;color:var(--navy)!important;font-size:clamp(3.4rem,7vw,7rem)!important;line-height:.9!important;letter-spacing:-.055em!important;text-transform:uppercase}.range{color:var(--soft)!important;font-weight:700}.epoch-number{font-family:"Unbounded",sans-serif!important;color:var(--accent)!important;opacity:.18!important}
+.hero-grid{display:grid!important;grid-template-columns:repeat(12,1fr)!important;gap:12px!important;background:transparent!important;border:0!important;margin:2.8rem 0 4rem!important}
+.feature{grid-column:span 6!important;background:white!important;color:var(--ink)!important;border:2px solid #17323E10!important;border-radius:26px!important;box-shadow:0 15px 45px #17323E12!important;min-height:210px!important;padding:1.6rem!important}
+.feature:first-child{grid-column:span 7!important;grid-row:auto!important;min-height:260px!important;background:color-mix(in srgb,var(--accent) 17%,white)!important}
+.feature:nth-child(2){grid-column:span 5!important}.feature h3{color:var(--navy)!important;font-size:1.15rem!important}.feature p{color:#536A73!important}
+.deep-dive{margin:5rem 0!important}.deep-title{display:block!important;border:0!important}.deep-title span{color:var(--accent)!important}.deep-title h3{font-family:"Unbounded",sans-serif!important;color:var(--navy)!important;font-size:clamp(2.5rem,5vw,5rem)!important;line-height:.98!important}
+.deep-grid{grid-template-columns:repeat(3,1fr)!important;gap:12px!important}.deep-grid article{background:white!important;border:0!important;border-radius:28px!important;box-shadow:0 12px 32px #18313d14!important;min-height:270px!important;padding:1.6rem!important}.deep-grid b{font-family:"Unbounded",sans-serif!important;color:var(--accent)!important;font-size:3.5rem!important}.deep-grid h4{color:var(--navy)!important;font-family:"Unbounded",sans-serif!important;font-size:1.05rem!important;line-height:1.3!important}.deep-grid p{color:#587078!important}
+.real-map{background:#102A36!important;border:0!important;border-radius:30px!important;box-shadow:0 20px 55px #112B3826!important;margin:4rem 0!important}.real-map .card-label{color:#FFD65A!important}.real-map h3{font-family:"Unbounded",sans-serif!important;color:#fff!important;font-size:1.6rem!important}.real-map p{color:#CBE0E1!important}.real-map img{background:#0A222C!important}
+.animal-zone{background:linear-gradient(125deg,#0B3947,#12253F)!important;color:white!important;border-radius:34px!important;margin:5rem 0!important;padding:3.2rem!important}.animal-title span{color:#72E5EA!important}.animal-title h3{font-family:"Unbounded",sans-serif!important;color:white!important;line-height:1!important}.animal-hero{border-radius:22px!important}.animal-hero b{font-family:"Unbounded",sans-serif!important;font-size:1rem!important}
+.mega-facts{background:var(--accent)!important;color:#102A36!important;margin:5rem 0!important;padding:3.2rem!important;border-radius:34px!important}.mega-facts .card-label{color:#102A36!important}.mega-facts h3{font-family:"Unbounded",sans-serif!important;color:#102A36!important;font-size:clamp(2.4rem,5vw,4.8rem)!important;line-height:.98!important}.mega-facts ol{grid-template-columns:repeat(2,1fr)!important;background:transparent!important;gap:10px!important}.mega-facts li{background:#FFFDF8E8!important;color:#17323E!important;border:0!important;border-radius:18px!important;min-height:110px!important}.mega-facts li:before{color:#102A36!important;font-family:"Unbounded",sans-serif!important}
+.visual-explosion{margin:6rem -1.4rem 4rem;padding:4rem 1.4rem;background:#102A36;color:white;border-radius:38px}
+.explosion-kicker{font-size:.7rem;letter-spacing:.18em;color:#72E5EA;font-weight:800}.visual-explosion>h3{font-size:clamp(2.8rem,6vw,5.8rem);line-height:.93;margin:.2rem 0 1rem;color:white!important}.visual-explosion>p{max-width:760px;color:#C7DCDD!important}
+.image-bank{margin:2.2rem 0 3rem}.bank-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:.75rem}.bank-head h4{font-size:1.25rem;color:white!important;margin:0}.bank-head span{color:#82A1A7;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.bank-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-flow:dense;gap:8px}.bank-card{margin:0;overflow:hidden;border-radius:16px;background:#0A1E27;position:relative;min-height:180px}.bank-card.bank-hero{grid-column:span 2;grid-row:span 2}.bank-card a{display:block;height:100%;text-decoration:none}.bank-card img{width:100%;height:210px;object-fit:cover;display:block;transition:.35s}.bank-card.bank-hero img{height:428px}.bank-card:hover img{transform:scale(1.04)}.bank-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:2rem .8rem .7rem;background:linear-gradient(transparent,#07161ed9);font-size:.65rem;color:#EDF7F5;opacity:0;transition:.25s}.bank-card:hover figcaption{opacity:1}.bank-skel{height:210px;border-radius:16px;background:linear-gradient(110deg,#173541,#204A56,#173541);background-size:200%;animation:sh 1.3s infinite}.bank-note{color:#B7D1D4;padding:1rem}
+.gallery-title{margin:5rem 0 1.2rem!important;border:0!important}.gallery-title span{color:var(--accent)!important}.gallery-title h3{font-family:"Unbounded",sans-serif!important;color:var(--navy)!important;font-size:clamp(2.4rem,5vw,4.8rem)!important;line-height:1!important}.gallery-title button{background:var(--navy)!important;color:white!important}
+.gallery{display:grid!important;grid-template-columns:repeat(12,1fr)!important;grid-auto-flow:dense!important;gap:8px!important}.img-card{grid-column:span 3!important;border:0!important;border-radius:18px!important;background:white!important;box-shadow:0 8px 25px #17323e12!important}.img-card:nth-child(10n+1){grid-column:span 6!important;grid-row:span 2!important}.img-card img{height:250px!important}.img-card:nth-child(10n+1) img{height:508px!important}.img-card figcaption{background:white!important;color:#405963!important}.img-card figcaption strong{color:#17323E!important}.img-card figcaption span{display:none!important}
+footer{max-width:none!important;background:#102A36!important;color:#C9DDDF!important;margin:5rem 0 0!important;padding:4rem max(1.2rem,calc((100vw - 1280px)/2))!important}.sources a{color:#72E5EA!important}
+@media(max-width:900px){.bank-grid{grid-template-columns:repeat(3,1fr)}.feature,.feature:first-child,.feature:nth-child(2){grid-column:span 6!important}.deep-grid{grid-template-columns:1fr 1fr!important}.gallery{grid-template-columns:repeat(6,1fr)!important}.img-card{grid-column:span 2!important}.img-card:nth-child(10n+1){grid-column:span 4!important}}
+@media(max-width:620px){.period{padding:5rem 1rem!important}.hero-grid{display:block!important}.feature{margin-bottom:10px}.deep-grid,.mega-facts ol{grid-template-columns:1fr!important}.visual-explosion{margin-left:-1rem;margin-right:-1rem;padding:2.5rem 1rem;border-radius:0}.bank-grid{grid-template-columns:repeat(2,1fr)}.bank-card.bank-hero{grid-column:span 2}.bank-card img{height:170px}.bank-card.bank-hero img{height:348px}.gallery{grid-template-columns:repeat(2,1fr)!important}.img-card,.img-card:nth-child(n){grid-column:span 1!important}.img-card:nth-child(10n+1){grid-column:span 2!important}}
+</style>
+
+<style id="precambrian-breakdown-v7">
+.subeon-explainer{
+  margin:5rem 0 4rem;
+  padding:3rem 1.3rem;
+  border-radius:34px;
+  background:linear-gradient(145deg,#fffdf8,#f3efe6);
+  box-shadow:0 18px 50px #17323e14;
+}
+.subeon-kicker{
+  font-family:"Unbounded",sans-serif;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  color:var(--accent);
+  font-weight:800;
+}
+.subeon-explainer h3{
+  font-family:"Unbounded",sans-serif;
+  font-size:clamp(2.1rem,4.5vw,4.3rem);
+  line-height:1.02;
+  margin:.4rem 0 .8rem;
+  color:var(--navy);
+}
+.subeon-explainer>p{
+  max-width:900px;
+  color:#4f666d!important;
+  margin-bottom:1.7rem;
+}
+.subeon-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.proto-grid{grid-template-columns:repeat(3,1fr)}
+.subeon-grid article{
+  background:white;
+  border-radius:28px;
+  padding:1.4rem;
+  box-shadow:0 10px 30px #17323e10;
+  overflow:hidden;
+}
+.sub-time{
+  display:inline-block;
+  background:color-mix(in srgb,var(--accent) 18%,white);
+  color:var(--navy);
+  border-radius:999px;
+  padding:.45rem .8rem;
+  font-weight:800;
+  font-size:.85rem;
+  margin-bottom:.7rem;
+}
+.subeon-grid h4{
+  font-family:"Unbounded",sans-serif;
+  color:var(--navy)!important;
+  font-size:1.15rem;
+  margin:.25rem 0 .7rem;
+}
+.subeon-grid ul{
+  margin:.4rem 0 1rem 1.2rem;
+  color:#4f666d;
+  line-height:1.65;
+}
+.scientist-note{
+  background:#f6fbff;
+  border-left:5px solid var(--accent);
+  padding:.9rem 1rem;
+  border-radius:0 14px 14px 0;
+  color:#425760!important;
+  margin:0 0 1rem;
+}
+.subeon-grid .bank-head{
+  margin:.9rem 0 .5rem!important;
+}
+.subeon-grid .bank-head h4{
+  margin:0!important;
+  font-size:1rem!important;
+}
+.subeon-grid .bank-head span{
+  color:#8aa1a8!important;
+  font-size:.72rem!important;
+}
+.bank-note{
+  grid-column:1/-1;
+  color:#9ab2b8;
+  background:#0d2230;
+  border-radius:16px;
+  padding:1rem;
+}
+@media(max-width:900px){
+  .subeon-grid,.proto-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-inner">
+<div class="kicker">Інтерактивний науково-популярний атлас · 2026</div>
+<h1>Історія <em>живої</em><br>планети</h1>
+<p class="lede">Від розпеченої ранньої Землі до льодовикових циклів четвертинного періоду: клімат, катастрофи, еволюція, рослини, тварини, рух материків і корисні копалини, що формувалися в різні інтервали геологічного часу.</p>
+<div class="hero-meta"><span class="pill">15 великих інтервалів</span><span class="pill">понад 1 500 потенційних візуальних матеріалів, включно з окремими добірками для Архею та Протерозою</span><span class="pill">реальні палеокарти · ресурси · катастрофи</span><span class="pill">адаптивний дизайн</span></div>
+</div></header>
+<div class="sticky"><nav class="nav"><a href="#hadean" style="--c:#ef6a3a">Гадей</a><a href="#archean" style="--c:#d98b42">Архей</a><a href="#proterozoic" style="--c:#c85b73">Протерозой</a><a href="#cambrian" style="--c:#7bbf6a">Кембрій</a><a href="#ordovician" style="--c:#55b6a4">Ордовик</a><a href="#silurian" style="--c:#72c5a6">Силур</a><a href="#devonian" style="--c:#c79a55">Девон</a><a href="#carboniferous" style="--c:#4f9b68">Карбон</a><a href="#permian" style="--c:#e06b55">Перм</a><a href="#triassic" style="--c:#9c63a9">Тріас</a><a href="#jurassic" style="--c:#4e9fc8">Юра</a><a href="#cretaceous" style="--c:#7ebd59">Крейда</a><a href="#paleogene" style="--c:#e3a94b">Палеоген</a><a href="#neogene" style="--c:#e9c64c">Неоген</a><a href="#quaternary" style="--c:#f2e06e">Четвертинний період</a></nav></div>
+<main><section class="wow-intro">
+      <div class="wow-kicker">7 КЛАС · ПОДОРОЖ У ГЛИБОКИЙ ЧАС</div>
+      <h1>Земля, якої<br><em>Ви не впізнаєте.</em></h1>
+      <p>Уявіть: доба, коли не було ані трави, ані дерев. Потім — ліси з рослин, схожих на гігантські плауни. Моря з п’ятиокими істотами. Континенти, яких сьогодні не існує. А далі — динозаври, астероїд і льодовиковий світ мамонтів.</p>
+      <div class="scroll-cue">↓ ПРОКРУЧУЙТЕ · 4,6 МЛРД РОКІВ ЗА ОДИН УРОК</div>
+    </section>
+<section class="overview reveal"><div class="kicker">Масштаб часу</div><h2>4,567 мільярда років — в одному маршруті</h2><p>Геологічна шкала ієрархічна: еон → ера → період → епоха → вік. На цій сторінці для читабельності окремими великими розділами подано докембрійські еони та періоди фанерозою. Межі звірено з актуальною Міжнародною хроностратиграфічною шкалою ICS; числові оцінки меж можуть уточнюватися.</p><div class="timeline"><a href="#hadean" class="time-seg" style="--c:#ef6a3a" title="Гадей: ≈ 4,567–4,000 млн років тому"><span>Гадей</span></a><a href="#archean" class="time-seg" style="--c:#d98b42" title="Архей: 4,000–2,500 млн років тому"><span>Архей</span></a><a href="#proterozoic" class="time-seg" style="--c:#c85b73" title="Протерозой: 2,500–538,8 млн років тому"><span>Протерозой</span></a><a href="#cambrian" class="time-seg" style="--c:#7bbf6a" title="Кембрій: 538,8–≈486,9 млн років тому"><span>Кембрій</span></a><a href="#ordovician" class="time-seg" style="--c:#55b6a4" title="Ордовик: ≈486,9–443,8 млн років тому"><span>Ордовик</span></a><a href="#silurian" class="time-seg" style="--c:#72c5a6" title="Силур: 443,8–419,2 млн років тому"><span>Силур</span></a><a href="#devonian" class="time-seg" style="--c:#c79a55" title="Девон: 419,2–358,9 млн років тому"><span>Девон</span></a><a href="#carboniferous" class="time-seg" style="--c:#4f9b68" title="Карбон: 358,9–298,9 млн років тому"><span>Карбон</span></a><a href="#permian" class="time-seg" style="--c:#e06b55" title="Перм: 298,9–251,902 млн років тому"><span>Перм</span></a><a href="#triassic" class="time-seg" style="--c:#9c63a9" title="Тріас: 251,902–201,4 млн років тому"><span>Тріас</span></a><a href="#jurassic" class="time-seg" style="--c:#4e9fc8" title="Юра: 201,4–≈145,0 млн років тому"><span>Юра</span></a><a href="#cretaceous" class="time-seg" style="--c:#7ebd59" title="Крейда: ≈145,0–66,0 млн років тому"><span>Крейда</span></a><a href="#paleogene" class="time-seg" style="--c:#e3a94b" title="Палеоген: 66,0–23,03 млн років тому"><span>Палеоген</span></a><a href="#neogene" class="time-seg" style="--c:#e9c64c" title="Неоген: 23,03–2,58 млн років тому"><span>Неоген</span></a><a href="#quaternary" class="time-seg" style="--c:#f2e06e" title="Четвертинний період: 2,58 млн років тому — сучасність"><span>Четвертинний період</span></a></div>
+<div class="note"><b>Як читати карти:</b> палеогеографічні блоки використовують реальні опубліковані реконструкції або матеріали Wikimedia Commons. Для карт із PALEOMAP та наукових публікацій збережено посилання на сторінку оригінального файла й джерело.</div></section>
+
+<section class="period" id="hadean" style="--accent:#FF5B4D">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Докембрій · 01</span><h2>Гадей</h2><p class="range">≈ 4,567–4,000 млн років тому</p></div>
+    <div class="epoch-number">01</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Початкова Земля була дуже гарячою; після охолодження кори з’явилися океани. Атмосфера — без вільного кисню, з водяною парою, CO₂, N₂ та вулканічними газами.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Акреція Землі; диференціація ядра й мантії; гігантське зіткнення, пов’язане з походженням Місяця; інтенсивний вулканізм і метеоритне бомбардування.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Надійних викопних свідчень життя немає. Наприкінці інтервалу могли існувати середовища, придатні для пребіотичної хімії.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Рослин не існувало.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="hadean">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Циркони — найважливіші «капсули часу» ранньої кори. Формувалися первинні магматичні комплекси; пізніша переробка майже стерла цей запис.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>8 речей, які роблять цей час особливим</h3><ol><li>Місяць, імовірно, сформувався після гігантського зіткнення молодої Землі з протопланетою.</li><li>Найдавніші земні циркони старші за 4,3 млрд років.</li><li>Ізотопи в цирконах допускають існування рідкої води дуже рано.</li><li>Земна кора Гадею майже повністю перероблена пізнішою тектонікою.</li><li>Доба не була безперервним «океаном лави»: після ранніх гарячих фаз поверхня охолоджувалася.</li><li>Вільного кисню в атмосфері практично не було.</li><li>Молоде Сонце світило слабше, ніж сьогодні.</li><li>Назва походить від Гадеса, але сучасне уявлення про Гадей менш «пекельне», ніж старі реконструкції.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Як народилася планета</h4><p>Акреція пилу й планетезималей; розігрів від ударів і радіоактивного розпаду; диференціація залізного ядра; рання кора багаторазово переплавлялася.</p></article>
+        <article><b>02</b><h4>Океани й атмосфера</h4><p>Після охолодження водяна пара конденсувалася. Дані цирконів допускають існування рідкої води дуже рано, хоча поверхня переживала потужні удари.</p></article>
+        <article><b>03</b><h4>Що шукати у породах</h4><p>Майже весь первинний запис знищено. Головні свідки — циркони, ізотопні системи та моделі ранньої диференціації.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🌋 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Hadean early Earth reconstruction magma ocean Moon formation" id="bank-hadean-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>💎 Реальні свідки</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Jack Hills zircon oldest zircon geology" id="bank-hadean-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌍 Молода Земля</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="early Earth artist reconstruction Hadean landscape" id="bank-hadean-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>☄️ Удари й космос</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="late heavy bombardment Earth Moon reconstruction" id="bank-hadean-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('hadean')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-hadean" data-multi-query="Hadean early Earth reconstruction|oldest zircon Jack Hills|early Earth Moon formation" data-query="Hadean Earth early Earth zircon Moon formation geology"></div>
+</section>
+<section class="period" id="archean" style="--accent:#FF8A34" data-rank="еон">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Докембрій · 02</span><h2>Архей</h2><p class="range"><strong>АРХЕЙ · ЕОН</strong> · 4,000–2,500 млн років тому</p></div>
+    <div class="epoch-number">02</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Сонце було тьмянішим, але парникові гази підтримували рідку воду. Атмосфера майже не містила O₂; океани були багаті розчиненим Fe²⁺.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Швидкий ріст континентальної кори, формування кратонів і зеленокам’яних поясів; дуже активний вулканізм.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Прокаріотичне життя; мікробні мати; строматоліти. Фотосинтез поступово змінював хімію океану й атмосфери.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Наземних рослин немає; фотосинтез здійснювали мікроорганізми, зокрема ціанобактерії.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="archean">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Золото в зеленокам’яних поясах, Ni-Cu сульфіди, хроміти; початок масштабного утворення смугастих залізистих формацій.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>8 речей, які роблять цей час особливим</h3><ol><li>Мантія була гарячішою, тому утворювалися коматіїти — ультраосновні лави, рідкісні пізніше.</li><li>Строматоліти будувалися мікробними матами, а не однією істотою.</li><li>Більша частина атмосферного кисню ще зв’язувалася з відновленими речовинами.</li><li>Саме давні кратони зберігають одні з найстаріших золотих провінцій.</li><li>Океан містив багато розчиненого двовалентного заліза.</li><li>Ціанобактеріальний фотосинтез підготував майбутню кисневу революцію.</li><li>Сучасних рослин, тварин і грибів не існувало.</li><li>Деякі архейські породи пережили кілька циклів деформації й метаморфізму.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Світ мікробів</h4><p>Екосистеми були мікробними. Строматоліти формувалися шарами мікробних матів у мілководних середовищах.</p></article>
+        <article><b>02</b><h4>Залізні океани</h4><p>До насичення атмосфери киснем океан переносив багато Fe²⁺; окиснення сприяло випадінню заліза та формуванню BIF.</p></article>
+        <article><b>03</b><h4>Тектоніка молодої Землі</h4><p>Мантія була гарячішою. Зеленокам’яні пояси й тоналіт-трондьєміт-гранодіоритові комплекси фіксують раннє зростання кори.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div>
+<section class="subeon-explainer reveal">
+  <div class="subeon-kicker">ДОКЕМБРІЙ ДЕТАЛЬНО</div>
+  <h3>Архей — це не «одна епоха», а цілий еон із 4 великими ерами</h3>
+  <p>У шкільних матеріалах Архей часто подають одним блоком, але насправді він тривав приблизно <b>1,5 мільярда років</b> і включав кілька дуже різних стадій розвитку Землі. Нижче — детальний поділ та те, що вчені припускають про вигляд планети в різні інтервали Архею.</p>
+  <div class="subeon-grid">
+    <article>
+      <div class="sub-time">4,0–3,6 млрд р. т.</div>
+      <h4>Еоархей</h4>
+      <ul>
+        <li>формуються найдавніші відомі уламки стабільної кори;</li>
+        <li>планета ще дуже гаряча, мантія активніша, ніж сьогодні;</li>
+        <li>можливі ранні океани та гідротермальні системи;</li>
+        <li>є гіпотези про дуже раннє мікробне життя, але доказів мало.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> Земля могла виглядати як світ темних вулканічних островів, гарячих морів і густої атмосфери без кисню.</p>
+      <div class="bank-head"><h4>Реальні моделі Землі</h4><span>Еоархей · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Eoarchean Earth reconstruction scientific early Earth ocean volcanic islands"></div>
+    </article>
+    <article>
+      <div class="sub-time">3,6–3,2 млрд р. т.</div>
+      <h4>Палеоархей</h4>
+      <ul>
+        <li>розвиваються зеленокам’яні пояси та ранні кратони;</li>
+        <li>з’являються кращі свідчення мікробного життя;</li>
+        <li>можуть існувати строматолітоподібні структури;</li>
+        <li>океани багаті розчиненим залізом.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> у світі з тьмянішим Сонцем атмосфера з CO₂ і CH₄ могла втримувати рідку воду.</p>
+      <div class="bank-head"><h4>Земля і життя</h4><span>Палеоархей · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Paleoarchean Earth reconstruction stromatolite early life scientific"></div>
+    </article>
+    <article>
+      <div class="sub-time">3,2–2,8 млрд р. т.</div>
+      <h4>Мезоархей</h4>
+      <ul>
+        <li>зростають великі блоки континентальної кори;</li>
+        <li>добре розвинені мікробні мати та строматоліти;</li>
+        <li>можливі перші великі континентальні ядра;</li>
+        <li>поширені коматіїти — дуже гарячі ультраосновні лави.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> Земля могла мати багато дрібних протоконтинентів і теплі, мілкі моря з мікробним життям.</p>
+      <div class="bank-head"><h4>Породи і реконструкції</h4><span>Мезоархей · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Mesoarchean Earth reconstruction komatiite stromatolite scientific"></div>
+    </article>
+    <article>
+      <div class="sub-time">2,8–2,5 млрд р. т.</div>
+      <h4>Неоархей</h4>
+      <ul>
+        <li>активно формуються кратони, що стали ядрами сучасних материків;</li>
+        <li>ціанобактерії відіграють дедалі більшу роль;</li>
+        <li>готується ґрунт для майбутньої кисневої революції;</li>
+        <li>деякі моделі пов’язують цей час із ранніми суперконтинентними об’єднаннями.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> хоча кисню в атмосфері ще мало, біосфера вже починає змінювати геохімію планети.</p>
+      <div class="bank-head"><h4>Пізній Архей</h4><span>Неоархей · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Neoarchean Earth reconstruction cyanobacteria early continents scientific"></div>
+    </article>
+  </div>
+</section>
+<section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🌊 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Archean Earth ocean reconstruction" id="bank-archean-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦠 Життя</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="stromatolite microbial mat fossil" id="bank-archean-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🪨 Породи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Archean greenstone belt komatiite geology" id="bank-archean-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌫 Атмосфера</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="early Earth Archean atmosphere reconstruction" id="bank-archean-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('archean')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-archean" data-multi-query="Archean Earth reconstruction|stromatolite fossil|greenstone belt komatiite" data-query="Archean stromatolite greenstone belt early Earth geology"></div>
+</section>
+<section class="period" id="proterozoic" style="--accent:#D957A8" data-rank="еон">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Докембрій · 03</span><h2>Протерозой</h2><p class="range"><strong>ПРОТЕРОЗОЙ · ЕОН</strong> · 2,500–538,8 млн років тому</p></div>
+    <div class="epoch-number">03</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Від Великої кисневої події до епізодів глобального зледеніння «Земля-сніжка». Наприкінці — потепління та зростання кисню.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Велика киснева подія; поява еукаріотів; суперконтиненти Нуна/Колумбія, Родинія, Паннотія; кріогенійські зледеніння.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Еукаріоти, багатоклітинні водорості; наприкінці — едіакарська біота, перші великі складні організми.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Наземних рослин ще немає; поширені морські фотосинтетики та водорості.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="proterozoic">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Гігантські BIF-залізорудні басейни, Mn, уранові родовища; великі осадові басейни й рудні провінції, пов’язані з рифтами.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>8 речей, які роблять цей час особливим</h3><ol><li>Велика киснева подія радикально змінила геохімію планети.</li><li>Кисень був токсичним для багатьох анаеробних організмів.</li><li>Родинія була суперконтинентом задовго до Пангеї.</li><li>Кріогенійські льодовики могли досягати тропічних широт.</li><li>Після великих зледенінь відкладалися характерні «шапкові карбонати».</li><li>Еукаріотична клітина виникла через ключові ендосимбіотичні події.</li><li>Наприкінці еону з’являються великі едіакарські організми.</li><li>Частина найбільших світових залізорудних ресурсів пов’язана з докембрійськими BIF.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Киснева революція</h4><p>Кисень, вироблений фотосинтетиками, спершу реагував із відновленими речовинами. Лише після заповнення великих геохімічних «поглиначів» його частка в атмосфері суттєво зросла.</p></article>
+        <article><b>02</b><h4>Земля-сніжка</h4><p>У кріогенії льодовики поширювалися до дуже низьких широт. Наскільки суцільним був крижаний покрив океану — предмет наукових дискусій.</p></article>
+        <article><b>03</b><h4>Перед тваринним вибухом</h4><p>Едіакарські організми демонструють великі тіла та незвичні плани будови ще до кембрійської радіації.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div>
+<section class="subeon-explainer reveal proto">
+  <div class="subeon-kicker">ДОКЕМБРІЙ ДЕТАЛЬНО</div>
+  <h3>Протерозой — величезний еон із 3 ерами і гігантськими змінами Землі</h3>
+  <p>Саме в Протерозої атмосфера стає багатшою на кисень, з’являються еукаріоти, формуються великі суперконтиненти, а планета кілька разів переживає дуже сильні зледеніння. Тому Протерозой теж потрібно розглядати по частинах.</p>
+  <div class="subeon-grid proto-grid">
+    <article>
+      <div class="sub-time">2,5–1,6 млрд р. т.</div>
+      <h4>Палеопротерозой</h4>
+      <ul>
+        <li>Велика киснева подія змінює атмосферу й океани;</li>
+        <li>формуються масивні залізисті товщі та інші докембрійські рудні комплекси;</li>
+        <li>відбуваються гуронські зледеніння;</li>
+        <li>континенти укрупнюються.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> це один із найважливіших переломів усієї історії Землі — світ стає менш «безкисневим».</p>
+      <div class="bank-head"><h4>Киснева революція</h4><span>Палеопротерозой · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Paleoproterozoic Earth reconstruction Great Oxidation Event banded iron formation scientific"></div>
+    </article>
+    <article>
+      <div class="sub-time">1,6–1,0 млрд р. т.</div>
+      <h4>Мезопротерозой</h4>
+      <ul>
+        <li>виникають і поширюються еукаріотичні організми;</li>
+        <li>формується суперконтинент Родинія;</li>
+        <li>зростає різноманіття водоростей;</li>
+        <li>Земля виглядає стабільнішою, ніж у ранньому Протерозої.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> океани могли бути спокійнішими, а мікроскопічне життя — складнішим і різноманітнішим.</p>
+      <div class="bank-head"><h4>Родинія і еукаріоти</h4><span>Мезопротерозой · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Mesoproterozoic Earth reconstruction Rodinia eukaryotes algae scientific"></div>
+    </article>
+    <article>
+      <div class="sub-time">1,0 млрд–538,8 млн р. т.</div>
+      <h4>Неопротерозой</h4>
+      <ul>
+        <li>розпадається Родинія;</li>
+        <li>відбуваються кріогенійські зледеніння — «Земля-сніжка»;</li>
+        <li>з’являються едіакарські багатоклітинні організми;</li>
+        <li>формуються передумови кембрійського вибуху.</li>
+      </ul>
+      <p class="scientist-note"><b>Припущення вчених:</b> Земля могла мати майже глобальний льодовий покрив, а після потепління — зовсім новий біологічний світ.</p>
+      <div class="bank-head"><h4>Земля-сніжка та едіакарська біота</h4><span>Неопротерозой · 12+ зображень</span></div>
+      <div class="bank-grid" data-bank-query="Neoproterozoic Snowball Earth Ediacaran biota reconstruction scientific"></div>
+    </article>
+  </div>
+</section>
+<section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>❄️ Земля-сніжка</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Snowball Earth Cryogenian reconstruction" id="bank-proterozoic-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🪸 Життя</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Ediacaran biota Dickinsonia fossil reconstruction" id="bank-proterozoic-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🧲 Породи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="banded iron formation Proterozoic" id="bank-proterozoic-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌍 Суперконтиненти</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Rodinia reconstruction paleogeography" id="bank-proterozoic-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('proterozoic')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-proterozoic" data-multi-query="Snowball Earth reconstruction|Ediacaran biota fossil reconstruction|banded iron formation" data-query="Proterozoic Snowball Earth Ediacaran banded iron stromatolite"></div>
+</section>
+<section class="period" id="cambrian" style="--accent:#78C850">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Палеозой · 04</span><h2>Кембрій</h2><p class="range">538,8–≈486,9 млн років тому</p></div>
+    <div class="epoch-number">04</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Переважно теплий парниковий клімат, високий рівень моря, великі мілководні епіконтинентальні моря.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Кембрійський вибух — швидке урізноманітнення тварин із твердими скелетами; кілька криз біорізноманіття.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Трилобіти, аномалокаридиди, губки, брахіоподи, ранні хордові; складні морські екосистеми.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Наземних рослин ще немає; морські водорості та мікробні мати.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="cambrian">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Фосфорити, морські карбонати, солі; деякі стратиформні Pb-Zn та інші осадово-гідротермальні руди.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Opabinia мала п’ять очей і довгий хоботоподібний придаток.</li><li>Anomalocaris спершу реконструювали неправильно, бо окремі частини його тіла вважали різними організмами.</li><li>Кембрійський «вибух» тривав мільйони років, а не одну мить.</li><li>Трилобіти вже мали складні фасеткові очі.</li><li>Pikaia — один із відомих ранніх хордових.</li><li>Hallucigenia десятиліттями реконструювали догори ногами.</li><li>Бурджес-Шейл знаменитий винятковим збереженням м’яких тканин.</li><li>Хижацтво стало важливим драйвером еволюційної «гонки озброєнь».</li><li>Чимало кембрійських тварин належать до стовбурових груп сучасних типів.</li></ol></article>
+  <div class="animal-zone reveal"><div class="animal-title"><span>Ключові організми</span><h3>Не іконки — справжні палеонтологічні зображення</h3></div><div class="animal-strip"><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Anomalocaris.jpg" alt="Anomalocaris"><figcaption><b>Anomalocaris</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/20191108%20Opabinia%20regalis%20with%20lobopods.png" alt="Opabinia"><figcaption><b>Opabinia</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Burgess%20Shale%20reconstruction.jpg" alt="Біота Burgess Shale"><figcaption><b>Біота Burgess Shale</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure></div></div><div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Еволюційний експеримент</h4><p>За геологічно короткий час різко зросла морфологічна різноманітність тварин. Мінералізовані скелети, активне хижацтво й складні харчові мережі змінили моря.</p></article>
+        <article><b>02</b><h4>Море дивних форм</h4><p>Anomalocaris, Opabinia, Hallucigenia, Wiwaxia та Marrella показують, наскільки незвичною була кембрійська фауна.</p></article>
+        <article><b>03</b><h4>Лагерштетти</h4><p>Бурджес-Шейл та Ченцзян зберегли м’які тканини, тому дають набагато повнішу картину екосистем, ніж звичайний викопний запис.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cambrian animals life reconstruction paleoart fossil" id="bank-cambrian-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cambrian landscape ecosystem life reconstruction prehistoric" id="bank-cambrian-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cambrian fossil skeleton skull specimen museum" id="bank-cambrian-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cambrian fossil plants forest flora reconstruction" id="bank-cambrian-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('cambrian')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-cambrian" data-multi-query="Burgess Shale life reconstruction|Anomalocaris fossil reconstruction|Opabinia fossil|Hallucigenia fossil|trilobite Cambrian" data-query="Cambrian Burgess Shale trilobite Anomalocaris Opabinia fossil"></div>
+</section>
+<section class="period" id="ordovician" style="--accent:#2FC7B6">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Палеозой · 05</span><h2>Ордовик</h2><p class="range">≈486,9–443,8 млн років тому</p></div>
+    <div class="epoch-number">05</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Спочатку теплий парниковий світ; наприкінці — різке зледеніння Гондвани та падіння рівня моря.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Велика ордовицька біодиверсифікація; наприкінці — перше з «великої п’ятірки» масових вимирань.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Граптоліти, брахіоподи, трилобіти, наутилоїди, корали; перші безщелепні хребетні стають помітнішими.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Ймовірні перші дуже прості наземні рослини/спори; суходіл ще майже без зеленого покриву.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Ordovician_470.svg" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ordovician%20470.svg" alt="Палеогеографічна карта: ordovician"></a>
+          <h3>470 млн років тому · Torsvik & Cocks reconstruction</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Карбонатні товщі, фосфорити, локальні Pb-Zn; ордовицькі вапняки — важлива будівельна сировина.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>8 речей, які роблять цей час особливим</h3><ol><li>Морське різноманіття різко зросло під час Великої ордовицької біодиверсифікації.</li><li>Гігантські прямораковинні головоногі були великими морськими хижаками.</li><li>Граптоліти надзвичайно корисні для датування морських товщ.</li><li>Наприкінці періоду Гондвана опинилася біля Південного полюса.</li><li>Зледеніння знизило рівень моря й знищило великі площі шельфових екосистем.</li><li>Пізньоордовицьке вимирання відбулося кількома імпульсами.</li><li>Є спорові свідчення дуже ранньої наземної флори.</li><li>Більшість складного життя все ще була морською.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Вибух різноманіття №2</h4><p>Велика ордовицька біодиверсифікація особливо збільшила різноманіття морських родів і складність екосистем.</p></article>
+        <article><b>02</b><h4>Океанічні хижаки</h4><p>Великі наутилоїдні головоногі були серед найпомітніших хижаків; граптоліти стали ключовими індексними викопними.</p></article>
+        <article><b>03</b><h4>Льодовиковий фінал</h4><p>Швидке зледеніння Гондвани знизило рівень моря; потім потепління та океанічні зміни створили другу хвилю екологічного стресу.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Ordovician animals life reconstruction paleoart fossil" id="bank-ordovician-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Ordovician landscape ecosystem life reconstruction prehistoric" id="bank-ordovician-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Ordovician fossil skeleton skull specimen museum" id="bank-ordovician-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Ordovician fossil plants forest flora reconstruction" id="bank-ordovician-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('ordovician')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-ordovician" data-multi-query="Ordovician life reconstruction|orthocone nautiloid fossil|graptolite fossil|Ordovician trilobite" data-query="Ordovician fossils graptolite orthocone sea life reconstruction"></div>
+</section>
+<section class="period" id="silurian" style="--accent:#58D39A">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Палеозой · 06</span><h2>Силур</h2><p class="range">443,8–419,2 млн років тому</p></div>
+    <div class="epoch-number">06</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Після ордовицького льодовикового епізоду — загалом теплий і стабільніший клімат, високий рівень моря.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Відновлення морських екосистем; розвиток рифів; каледонське горотворення.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Евриптериди, щелепні риби, корали, брахіоподи; членистоногі освоюють суходіл.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Перші добре відомі судинні наземні рослини, зокрема Cooksonia; низькорослі прибережні угруповання.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Mollweide_Paleographic_Map_of_Earth,_420_Ma_(P%C5%99%C3%ADdol%C3%AD_Epoch).png" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mollweide%20Paleographic%20Map%20of%20Earth%2C%20420%20Ma%20%28P%C5%99%C3%ADdol%C3%AD%20Epoch%29.png" alt="Палеогеографічна карта: silurian"></a>
+          <h3>420 млн років тому · PALEOMAP/Scotese et al.</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Евапорити, карбонати; рудоутворення, пов’язане з каледонськими орогенними та гідротермальними системами.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>8 речей, які роблять цей час особливим</h3><ol><li>Cooksonia була крихітною — силурійська суша ще не нагадувала ліс.</li><li>Евриптериди були родичами павукоподібних, а не справжніми скорпіонами.</li><li>Деякі «морські скорпіони» сягали гігантських розмірів.</li><li>Щелепні риби почали помітно диверсифікуватися.</li><li>Рослинний покрив прискорював утворення ґрунтів.</li><li>Каледонське горотворення пов’язане зі зближенням Лаврентії, Балтики й Авалонії.</li><li>Рифові екосистеми відновилися після ордовицької кризи.</li><li>Наземні членистоногі вже освоювали нові екологічні ніші.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Зелений плацдарм</h4><p>Низькорослі судинні рослини закріпилися на вологому суходолі. Це ще не ліси, але вже принципово новий наземний світ.</p></article>
+        <article><b>02</b><h4>Щелепи змінюють море</h4><p>Щелепні хребетні диверсифікуються; риби стають дедалі важливішими компонентами екосистем.</p></article>
+        <article><b>03</b><h4>Рифи повертаються</h4><p>Після ордовицької кризи коралово-строматопороідні рифові системи знову займають мілководдя.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Silurian animals life reconstruction paleoart fossil" id="bank-silurian-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Silurian landscape ecosystem life reconstruction prehistoric" id="bank-silurian-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Silurian fossil skeleton skull specimen museum" id="bank-silurian-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Silurian fossil plants forest flora reconstruction" id="bank-silurian-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('silurian')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-silurian" data-multi-query="Silurian life reconstruction|eurypterid fossil reconstruction|Cooksonia fossil|Silurian fish fossil" data-query="Silurian Cooksonia eurypterid jawed fish reef fossil reconstruction"></div>
+</section>
+<section class="period" id="devonian" style="--accent:#E5A23E">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Палеозой · 07</span><h2>Девон</h2><p class="range">419,2–358,9 млн років тому</p></div>
+    <div class="epoch-number">07</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Переважно теплий; у пізньому девоні — коливання клімату, аноксія океанів і тенденція до похолодання.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>«Вік риб»; перші ліси; вихід хребетних на суходіл; серія пізньодевонських криз.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Панцирні риби, акули, кистепері; ранні тетраподи; амоніти; рифові системи.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Перші дерева й ліси (Archaeopteris та ін.); глибші корені прискорюють ґрунтоутворення та вуглецевий цикл.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Eastern_North_American_Paleogeograpy_Middle_Devonian.png" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eastern%20North%20American%20Paleogeograpy%20Middle%20Devonian.png" alt="Палеогеографічна карта: devonian"></a>
+          <h3>середній девон · реконструкція Ron Blakey</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Чорні сланці — важливі джерельні породи нафти й газу; Pb-Zn, Fe; локальні вугленосні товщі.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Dunkleosteus не мав звичайних зубів: різальні краї формували кісткові щелепні пластини.</li><li>Tiktaalik мав рухливішу шию та міцні елементи плавців, але залишався водною твариною.</li><li>Перші справжні ліси радикально змінили річки й ерозію.</li><li>Archaeopteris був деревом, але не квітковою рослиною.</li><li>Глибокі корені могли посилити хімічне вивітрювання й вилучення CO₂.</li><li>Пізньодевонське вимирання — серія криз, а не одна катастрофа.</li><li>У морях процвітали величезні рифові системи.</li><li>Ранні тетраподи мали більше п’яти пальців на кінцівках.</li><li>«Вік риб» включав набагато більше ліній, ніж сучасні кісткові риби.</li></ol></article>
+  <div class="animal-zone reveal"><div class="animal-title"><span>Ключові організми</span><h3>Не іконки — справжні палеонтологічні зображення</h3></div><div class="animal-strip"><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tiktaalik%20reconstruction.jpg" alt="Tiktaalik"><figcaption><b>Tiktaalik</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure></div></div><div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Вік риб</h4><p>Плакодерми, ранні акули, променепері та кистепері створюють надзвичайно різноманітні водні екосистеми.</p></article>
+        <article><b>02</b><h4>Лісова революція</h4><p>Глибокі корені, деревина й великі дерева змінили ерозію, ґрунти, стік поживних речовин і глобальний вуглецевий цикл.</p></article>
+        <article><b>03</b><h4>Вихід хребетних</h4><p>Тетраподоморфи на кшталт Tiktaalik демонструють мозаїку водних і «наземних» ознак; ранні тетраподи ще тісно пов’язані з водою.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Devonian animals life reconstruction paleoart fossil" id="bank-devonian-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Devonian landscape ecosystem life reconstruction prehistoric" id="bank-devonian-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Devonian fossil skeleton skull specimen museum" id="bank-devonian-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Devonian fossil plants forest flora reconstruction" id="bank-devonian-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('devonian')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-devonian" data-multi-query="Devonian life reconstruction|Dunkleosteus reconstruction fossil|Tiktaalik fossil reconstruction|Archaeopteris fossil" data-query="Devonian Dunkleosteus Tiktaalik Archaeopteris forest fossil reconstruction"></div>
+</section>
+<section class="period" id="carboniferous" style="--accent:#2DB36D">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Палеозой · 08</span><h2>Карбон</h2><p class="range">358,9–298,9 млн років тому</p></div>
+    <div class="epoch-number">08</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Вологі екваторіальні болота чергувалися з льодовиковими фазами на Гондвані; O₂ в атмосфері був дуже високим.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Масштабне накопичення торфу й майбутнього кам’яного вугілля; формування Пангеї; радіація амніот.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Великі членистоногі, земноводні, ранні рептилії; багата морська фауна.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Лепідодендрони, сигілярії, каламіти, насінні папороті — гігантські заболочені ліси.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="carboniferous">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Кам’яне вугілля — головна «візитівка» періоду; також циклотеми з вапняками, сланцями й пісковиками.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Arthropleura була найбільшим відомим наземним членистоногим.</li><li>Meganeura була не бабкою в сучасному таксономічному сенсі, а її великою родичкою.</li><li>Високий кисень допомагав великим трахейним членистоногим, але не був єдиною причиною гігантизму.</li><li>Лепідодендрони могли сягати десятків метрів.</li><li>Кам’яновугільні болота не покривали всю планету.</li><li>Вугілля виникало через поєднання високої продуктивності, заболочення, поховання й тектонічного просідання.</li><li>Амніотичне яйце дозволило хребетним менше залежати від водойм при розмноженні.</li><li>Гондвана переживала масштабне зледеніння, поки екваторіальні області були болотистими.</li><li>Рівень моря багаторазово коливався, утворюючи циклотеми.</li></ol></article>
+  <div class="animal-zone reveal"><div class="animal-title"><span>Ключові організми</span><h3>Не іконки — справжні палеонтологічні зображення</h3></div><div class="animal-strip"><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Arthropleura%20Reconstruction.jpg" alt="Arthropleura"><figcaption><b>Arthropleura</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Reconstruction%20of%20Arthropleura%20sp.%20MNHNF.F.SOT002123.jpg" alt="Arthropleura — анатомічна реконструкція"><figcaption><b>Arthropleura — анатомічна реконструкція</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure></div></div><div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Вугільні болота</h4><p>Торф накопичувався у просідаючих вологих басейнах. Поховання органіки, тектоніка та повторні морські трансгресії створили циклічні товщі.</p></article>
+        <article><b>02</b><h4>Гігантські членистоногі</h4><p>Високий O₂ — один із чинників, що дозволяв деяким трахейним членистоногим досягати великих розмірів; екологія та еволюційна історія теж важливі.</p></article>
+        <article><b>03</b><h4>Амніотичне яйце</h4><p>Амніоти отримали репродуктивну незалежність від відкритої води, що відкрило нові сухіші наземні ніші.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Carboniferous animals life reconstruction paleoart fossil" id="bank-carboniferous-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Carboniferous landscape ecosystem life reconstruction prehistoric" id="bank-carboniferous-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Carboniferous fossil skeleton skull specimen museum" id="bank-carboniferous-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Carboniferous fossil plants forest flora reconstruction" id="bank-carboniferous-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('carboniferous')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-carboniferous" data-multi-query="Carboniferous forest reconstruction|Arthropleura fossil reconstruction|Meganeura fossil|Lepidodendron fossil" data-query="Carboniferous coal forest Meganeura Lepidodendron Arthropleura fossil"></div>
+</section>
+<section class="period" id="permian" style="--accent:#F06455">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Палеозой · 09</span><h2>Перм</h2><p class="range">298,9–251,902 млн років тому</p></div>
+    <div class="epoch-number">09</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Внутрішні райони Пангеї — дуже континентальні й посушливі; великі сезонні контрасти.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Пангея повністю зібрана; наприкінці — найбільше відоме масове вимирання, пов’язане з масштабним вулканізмом Сибірських трапів і каскадом кліматично-океанічних змін.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Синапсиди, терапсиди, парейазаври; різноманітні комахи; морські брахіоподи й амоноїдеї.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Глосоптерисові флори на півдні, хвойні та насінні рослини в сухіших регіонах.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Paleogeographic_map_of_Earth_289_Ma_(Artinskian,_Cisuralian_(Early_Permian)).png" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Paleogeographic%20map%20of%20Earth%20289%20Ma%20%28Artinskian%2C%20Cisuralian%20%28Early%20Permian%29%29.png" alt="Палеогеографічна карта: permian"></a>
+          <h3>289 млн років тому · рання перм</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Великі евапоритові басейни (солі, калійні солі), вугілля Гондвани, Cu та інші руди в осадових басейнах.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Диметродон — не динозавр; він належить до синапсидної гілки, ближчої до ссавців.</li><li>Пангея створила величезні посушливі внутрішні області.</li><li>Glossopteris допомогла Вегенеру обґрунтовувати зв’язок південних материків.</li><li>Терапсиди включали форми з дедалі «ссавцеподібнішою» анатомією.</li><li>Сибірські трапи вивергалися в масштабах, незрівнянних із історичними виверженнями.</li><li>Кінець пермі — найбільша відома біотична криза фанерозою.</li><li>Океанічна аноксія та закиснення були частинами каскаду катастрофи.</li><li>Після вимирання екосистеми відновлювалися мільйони років.</li><li>Величезні пермські евапоритові басейни сьогодні містять солі й калійні ресурси.</li></ol></article>
+  <div class="animal-zone reveal"><div class="animal-title"><span>Ключові організми</span><h3>Не іконки — справжні палеонтологічні зображення</h3></div><div class="animal-strip"><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gorgonopsian.jpg" alt="Горгонопс"><figcaption><b>Горгонопс</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure></div></div><div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Пангея</h4><p>Єдиний суперконтинент створив величезні внутрішні області далеко від океану, з різкою сезонністю та аридністю.</p></article>
+        <article><b>02</b><h4>Синапсидний світ</h4><p>До динозаврів наземні екосистеми були багаті синапсидами — від ранніх форм до терапсид, близьких до предків ссавців.</p></article>
+        <article><b>03</b><h4>Велике вимирання</h4><p>Сибірські трапи викидали колосальні обсяги газів. Потепління, закиснення, аноксія й порушення циклів речовин утворили каскад глобальної кризи.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Permian animals life reconstruction paleoart fossil" id="bank-permian-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Permian landscape ecosystem life reconstruction prehistoric" id="bank-permian-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Permian fossil skeleton skull specimen museum" id="bank-permian-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Permian fossil plants forest flora reconstruction" id="bank-permian-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('permian')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-permian" data-multi-query="Permian life reconstruction|gorgonopsian reconstruction fossil|Dimetrodon fossil reconstruction|Glossopteris fossil" data-query="Permian Dimetrodon gorgonopsid Glossopteris Pangea fossil reconstruction"></div>
+</section>
+<section class="period" id="triassic" style="--accent:#9A67D8">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Мезозой · 10</span><h2>Тріас</h2><p class="range">251,902–201,4 млн років тому</p></div>
+    <div class="epoch-number">10</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Переважно жаркий парниковий клімат; внутрішня Пангея дуже суха, сильні мусонні системи.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Відновлення після пермської катастрофи; поява динозаврів, птерозаврів і перших ссавців; наприкінці — масове вимирання на тлі вулканізму Центрально-Атлантичної магматичної провінції.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Архозаври, ранні динозаври, морські рептилії, терапсиди, перші ссавці.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Хвойні, цикадові, гінкгові, папороті; квіткових рослин ще немає.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Mollweide_Paleographic_Map_of_Earth,_250_Ma_(Olenekian_Age).png" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mollweide%20Paleographic%20Map%20of%20Earth%2C%20250%20Ma%20%28Olenekian%20Age%29.png" alt="Палеогеографічна карта: triassic"></a>
+          <h3>250 млн років тому · PALEOMAP/Scotese et al.</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Евапорити, червоноколірні товщі; руди й магматичні комплекси, пов’язані з рифтингом Пангеї.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Перші динозаври були невеликими й спочатку не домінували.</li><li>Postosuchus був крокодилолінійним архозавром, а не динозавром.</li><li>Plateosaurus був двоногим раннім завроподоморфом.</li><li>Перші справжні ссавці були невеликими й походили від цинодонтів.</li><li>Пангея створювала потужну сезонність і мусонну циркуляцію.</li><li>Карнійський плювіальний епізод тимчасово зробив частину світу значно вологішою.</li><li>Іхтіозаври вже мали дуже спеціалізовану морську будову.</li><li>Наприкінці тріасу вулканізм CAMP супроводжував розкриття Атлантики.</li><li>Кінцевотріасове вимирання звільнило багато ніш для юрських динозаврів.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Світ після катастрофи</h4><p>Відновлення після пермського вимирання було довгим і нерівномірним. «Катастрофічні» екосистеми поступово поступилися складнішим угрупованням.</p></article>
+        <article><b>02</b><h4>Архозаврова революція</h4><p>Крокодилова лінія архозаврів спочатку була дуже різноманітною; динозаври стали домінувати не відразу.</p></article>
+        <article><b>03</b><h4>Перші ссавці</h4><p>Невеликі ранні ссавці виникають із цинодонтної гілки терапсид і займають переважно дрібні екологічні ніші.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Triassic animals life reconstruction paleoart fossil" id="bank-triassic-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Triassic landscape ecosystem life reconstruction prehistoric" id="bank-triassic-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Triassic fossil skeleton skull specimen museum" id="bank-triassic-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Triassic fossil plants forest flora reconstruction" id="bank-triassic-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('triassic')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-triassic" data-multi-query="Triassic life reconstruction|Coelophysis fossil reconstruction|Plateosaurus fossil reconstruction|Postosuchus fossil reconstruction" data-query="Triassic Coelophysis Lystrosaurus ichthyosaur Plateosaurus reconstruction fossil"></div>
+</section>
+<section class="period" id="jurassic" style="--accent:#35B7E5">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Мезозой · 11</span><h2>Юра</h2><p class="range">201,4–≈145,0 млн років тому</p></div>
+    <div class="epoch-number">11</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Теплий парниковий світ, без великих полярних льодовикових щитів; значні регіональні відмінності вологості.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Активний розпад Пангеї; розквіт великих динозаврів; поява ранніх птахів.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Зауроподи, стегозаври, тероподи; птерозаври; іхтіозаври й плезіозаври; амоніти.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Хвойні, саговники, бенетити, гінкгові, папороті; ландшафти без трав’яних луків сучасного типу.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Paleogeographic_map_Africa,_Europe_%26_Asia_160_Mya.png" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Paleogeographic%20map%20Africa%2C%20Europe%20%26%20Asia%20160%20Mya.png" alt="Палеогеографічна карта: jurassic"></a>
+          <h3>160 млн років тому · пізня юра</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Морські чорні сланці та карбонати — важливі нафтогазові системи; Fe-руди, вугілля в окремих басейнах.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Пір’я виникло до польоту й не було унікальним для птахів.</li><li>Archaeopteryx мав зуби, довгий кістковий хвіст і кігтисті пальці.</li><li>Зауроподи полегшували скелет системою повітряних порожнин.</li><li>Деякі завроподи перевищували 20–30 метрів завдовжки.</li><li>Стегозавр жив ближче в часі до Tyrannosaurus, ніж до перших динозаврів тріасу.</li><li>Амоніти швидко еволюціонували й чудово працюють як індексні викопні.</li><li>Пангея вже активно розколювалася.</li><li>Юрські моря були домом іхтіозаврів і плезіозаврів.</li><li>Квіткові рослини ще не формували звичних нам ландшафтів.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Гіганти суходолу</h4><p>Зауроподи створили унікальну конструкцію гігантського тіла: пневматизований скелет, довга шия, ефективне живлення без пережовування.</p></article>
+        <article><b>02</b><h4>Походження птахів</h4><p>Пернаті тероподи показують, що пір’я виникло до активного польоту. Archaeopteryx — лише одна гілка ранньої історії птахів.</p></article>
+        <article><b>03</b><h4>Моря рептилій</h4><p>Плезіозаври й іхтіозаври займали різні хижацькі ніші, тоді як амоніти були надзвичайно поширеними головоногими.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Jurassic animals life reconstruction paleoart fossil" id="bank-jurassic-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Jurassic landscape ecosystem life reconstruction prehistoric" id="bank-jurassic-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Jurassic fossil skeleton skull specimen museum" id="bank-jurassic-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Jurassic fossil plants forest flora reconstruction" id="bank-jurassic-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('jurassic')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-jurassic" data-multi-query="Jurassic life reconstruction|Allosaurus fossil reconstruction|Stegosaurus fossil reconstruction|Diplodocus fossil reconstruction|Archaeopteryx fossil" data-query="Jurassic Archaeopteryx Stegosaurus Diplodocus ammonite fossil reconstruction"></div>
+</section>
+<section class="period" id="cretaceous" style="--accent:#72C84A">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Мезозой · 12</span><h2>Крейда</h2><p class="range">≈145,0–66,0 млн років тому</p></div>
+    <div class="epoch-number">12</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Один із найтепліших інтервалів фанерозою; високий рівень моря, великі внутрішні моря; наприкінці — загальна тенденція до похолодання.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Радіація квіткових рослин; надзвичайно високі моря; наприкінці — удар Чиксулуба, деканський вулканізм і K–Pg масове вимирання.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Тиранозавриди, цератопси, гадрозаври; птахи; мозазаври; амоніти; різноманітні комахи-запилювачі.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Покритонасінні швидко диверсифікуються, поряд із хвойними, папоротями та іншими групами.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:Mollweide_Paleogeographic_Map_of_Earth,_90_Ma_(Turonian_Age).png" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mollweide%20Paleogeographic%20Map%20of%20Earth%2C%2090%20Ma%20%28Turonian%20Age%29.png" alt="Палеогеографічна карта: cretaceous"></a>
+          <h3>90 млн років тому · PALEOMAP/Scotese et al.</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Крейда й мергелі, фосфорити; значні нафтогазоносні морські басейни; боксити в теплих вологих областях.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>10 речей, які роблять цей час особливим</h3><ol><li>Tyrannosaurus жив ближче до сучасної людини в часі, ніж до Stegosaurus.</li><li>Птахи — єдина динозаврова лінія, що пережила K–Pg.</li><li>Квіткові рослини змінили взаємодію рослин і комах.</li><li>Високий рівень моря створив внутрішні моря на континентах.</li><li>Мозазаври були ящірками, а не динозаврами.</li><li>Чиксулубський кратер має приблизно 180 км у діаметрі.</li><li>Після удару різке затемнення могло обвалити фотосинтез і харчові мережі.</li><li>Деканські трапи вивергалися приблизно в той самий геологічний інтервал.</li><li>Амоніти зникли на межі K–Pg, але наутилуси пережили кризу.</li><li>У крейдовому світі існували полярні ліси.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Квіткова революція</h4><p>Покритонасінні швидко диверсифікуються; разом із комахами вони перебудовують наземні харчові мережі.</p></article>
+        <article><b>02</b><h4>Високі моря</h4><p>Швидкий спрединг океанічного дна та теплий клімат сприяли високому рівню моря; континенти розтинали епіконтинентальні моря.</p></article>
+        <article><b>03</b><h4>Останній день мезозою</h4><p>Удар астероїда Чиксулуб спричинив пил, аерозолі, пожежі й різке падіння первинної продукції. Деканський вулканізм був важливим додатковим стресором.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cretaceous animals life reconstruction paleoart fossil" id="bank-cretaceous-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cretaceous landscape ecosystem life reconstruction prehistoric" id="bank-cretaceous-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cretaceous fossil skeleton skull specimen museum" id="bank-cretaceous-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Cretaceous fossil plants forest flora reconstruction" id="bank-cretaceous-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('cretaceous')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-cretaceous" data-multi-query="Cretaceous life reconstruction|Tyrannosaurus fossil reconstruction|Triceratops fossil reconstruction|Mosasaurus fossil reconstruction|Cretaceous flowering plant fossil" data-query="Cretaceous Tyrannosaurus Triceratops flowering plants mosasaur ammonite fossil"></div>
+</section>
+<section class="period" id="paleogene" style="--accent:#F2B33E">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Кайнозой · 13</span><h2>Палеоген</h2><p class="range">66,0–23,03 млн років тому</p></div>
+    <div class="epoch-number">13</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Після K–Pg — загалом теплий світ; максимум тепла на межі палеоцену–еоцену; потім тривале охолодження й поява льоду в Антарктиді.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Радіація ссавців і птахів; PETM; формування Антарктичного льодовикового щита наприкінці еоцену/на початку олігоцену.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Ранні примати, копитні, хижі, кажани, кити; гігантські нелітаючі птахи в деяких регіонах.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Теплолюбні ліси поширені далеко на північ; з охолодженням — перебудова флор і відкритіші ландшафти.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <a href="https://commons.wikimedia.org/wiki/File:035Ma_Mollweide_Paleographic_Map_of_Earth.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/035Ma%20Mollweide%20Paleographic%20Map%20of%20Earth.jpg" alt="Палеогеографічна карта: paleogene"></a>
+          <h3>35 млн років тому · PALEOMAP/Scotese et al.</h3>
+          <p>Клік по карті відкриває сторінку оригінального файла з авторством, науковим джерелом і ліцензією.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Буре вугілля, нафта й газ у великих осадових басейнах; фосфорити; боксити в тропічних зонах.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Предки китів були наземними парнокопитними родичами.</li><li>Basilosaurus, попри назву, був китом, а не рептилією.</li><li>У ранньому еоцені ліси існували в дуже високих широтах.</li><li>PETM супроводжувався великим негативним вуглецево-ізотопним зсувом.</li><li>Перші відомі кажани вже були здатні до активного польоту.</li><li>Після K–Pg ссавці швидко урізноманітнили розміри та дієти.</li><li>Зіткнення Індії з Азією стало частиною історії формування Гімалаїв.</li><li>На межі еоцену й олігоцену Антарктида швидко заледеніла.</li><li>Деякі палеогенові нелітаючі птахи були великими наземними хижаками.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Світ після динозаврів</h4><p>Ссавці швидко займають ніші, звільнені після K–Pg, але їхня еволюційна історія почалася задовго до цього.</p></article>
+        <article><b>02</b><h4>Від суші до китів</h4><p>Ранні китоподібні за кілька десятків мільйонів років пройшли шлях від наземних форм до повністю морських.</p></article>
+        <article><b>03</b><h4>PETM</h4><p>Близько 56 млн років тому відбулося швидке надходження вуглецю й сильне потепління — важливий природний аналог для дослідження реакцій системи Землі.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Paleogene Eocene animals life reconstruction paleoart fossil" id="bank-paleogene-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Paleogene Eocene landscape ecosystem life reconstruction prehistoric" id="bank-paleogene-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Paleogene Eocene fossil skeleton skull specimen museum" id="bank-paleogene-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Paleogene Eocene fossil plants forest flora reconstruction" id="bank-paleogene-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('paleogene')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-paleogene" data-multi-query="Eocene life reconstruction|Basilosaurus fossil reconstruction|Eocene mammal fossil|Paleogene forest reconstruction" data-query="Paleogene Eocene mammals Basilosaurus Hyracotherium fossil reconstruction"></div>
+</section>
+<section class="period" id="neogene" style="--accent:#F0D34F">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Кайнозой · 14</span><h2>Неоген</h2><p class="range">23,03–2,58 млн років тому</p></div>
+    <div class="epoch-number">14</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Загальна тенденція до охолодження й висушення; розширення трав’янистих біомів; посилення сезонності.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Розвиток сучасних типів екосистем; радіація пасовищних ссавців; еволюція гомінінів; Мессінська соленосна криза.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Мастодонти, коні, антилопи, шаблезубі коти, мегалодон; ранні гомініни.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Широке поширення злакових угруповань, особливо C4-трав у пізньому міоцені; ліси скорочуються в багатьох регіонах.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="neogene">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Нафта й газ, діатоміти, евапорити Середземномор’я; молоді порфірові Cu-Au системи в активних орогенах.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>9 речей, які роблять цей час особливим</h3><ol><li>Мегалодон ніколи не зустрічався з непташиними динозаврами.</li><li>У міоцені існували екосистеми, що не мають точних сучасних аналогів.</li><li>У деяких міоценових місцезнаходженнях співіснувало багато видів коней.</li><li>Поширення відкритих біомів сприяло висококоронковим зубам у травоїдних.</li><li>C4-трави різко розширилися в багатьох регіонах пізнього міоцену.</li><li>Мессінська криза залишила величезні товщі солей під Середземним морем.</li><li>Панамський перешийок перебудував міграції тварин між Америками.</li><li>Гомініни з’явилися задовго до роду Homo.</li><li>Підняття молодих гір змінювало мусони, стік і вивітрювання.</li></ol></article>
+  <div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Планета трав</h4><p>Розширення відкритих ландшафтів змінює зуби, травлення й локомоцію травоїдних; разом із ними еволюціонують хижаки.</p></article>
+        <article><b>02</b><h4>Гомініни</h4><p>У Африці диверсифікуються гомініни. Прямоходіння з’являється задовго до великого мозку Homo.</p></article>
+        <article><b>03</b><h4>Молоді гори</h4><p>Гімалаї, Анди та інші орогени впливають на мусони, вивітрювання, річкові системи й локальні осередки рудоутворення.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Miocene Pliocene animals life reconstruction paleoart fossil" id="bank-neogene-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Miocene Pliocene landscape ecosystem life reconstruction prehistoric" id="bank-neogene-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Miocene Pliocene fossil skeleton skull specimen museum" id="bank-neogene-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Miocene Pliocene fossil plants forest flora reconstruction" id="bank-neogene-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('neogene')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-neogene" data-multi-query="Miocene life reconstruction|Megalodon fossil reconstruction|Miocene mammals reconstruction|Pliocene mammals reconstruction" data-query="Miocene Pliocene Megalodon hominin grassland mammal fossil reconstruction"></div>
+</section>
+<section class="period" id="quaternary" style="--accent:#9FD8F5">
+  <div class="period-head reveal">
+    <div><span class="eyebrow">Кайнозой · 15</span><h2>Четвертинний період</h2><p class="range">2,58 млн років тому — сучасність</p></div>
+    <div class="epoch-number">15</div>
+  </div>
+  <div class="hero-grid reveal">
+    <article class="feature"><h3>🌡 Клімат і атмосфера</h3><p>Цикли льодовикових і міжльодовикових епох, керовані орбітальними ритмами та підсилені зворотними зв’язками кліматичної системи; голоцен — нинішній міжльодовиковий інтервал.</p></article>
+    <article class="feature"><h3>☄️ Події й катастрофи</h3><p>Багаторазові зледеніння; поширення Homo; пізньоплейстоценові вимирання мегафауни; голоценова трансформація ландшафтів людиною.</p></article>
+    <article class="feature"><h3>🦴 Тваринний світ</h3><p>Мамонти, шерстисті носороги, великі коти, бізони; Homo sapiens та інші представники Homo.</p></article>
+    <article class="feature"><h3>🌿 Рослинність</h3><p>Тундра-степ, бореальні й помірні ліси зміщуються слідом за кліматичними зонами; в голоцені — масштабне землеробство.</p></article>
+  </div>
+  <div class="geo-grid reveal">
+    <article class="map-card real-map live-map" data-map-period="quaternary">
+          <div class="card-label">ЯК ВИГЛЯДАЛА ЗЕМЛЯ</div>
+          <div class="map-live-target"><div class="skeleton"></div></div>
+          <p>Палеогеографічне зображення завантажується з Wikimedia Commons. Жодних авторських «схемок» материків.</p>
+        </article>
+    <article class="mineral-card">
+      <div class="card-label">Ресурси, що формувалися</div>
+      <div class="ore-orb">◆</div><h3>Геологічний спадок</h3><p>Плейстоценові розсипи золота, олова, алмазів; торф, будівельні піски й гравій; сучасні алювіальні та прибережні розсипи.</p>
+      <div class="warning">Важливо: вік родовища ≠ вік породи-колектора; багато ресурсів зазнавали пізнішої міграції, метаморфізму або ремобілізації.</div>
+    </article>
+  </div>
+  <article class="facts reveal mega-facts"><div class="card-label">ВАУ-ФАКТИ</div><h3>10 речей, які роблять цей час особливим</h3><ol><li>Мамонти жили на острові Врангеля ще тоді, коли в Єгипті вже стояли піраміди.</li><li>Під час льодовикових максимумів рівень моря був приблизно на сотню метрів нижчим за сучасний.</li><li>Берингия була не лише «мостом», а великою холодною степовою областю.</li><li>Неандертальці й Homo sapiens схрещувалися.</li><li>Льодовиковий період складався з багатьох холодних і теплих фаз.</li><li>Сахара в голоцені переживала «зелені» фази з озерами й саванами.</li><li>Причини вимирання мегафауни різняться між континентами; клімат і люди мали різну вагу.</li><li>Голоцен формально залишається сучасною епохою.</li><li>Антропоцен не ратифікований ICS як формальна геологічна епоха.</li><li>Льодовики залишили морени, ескери, друмліни та величезні озерні басейни.</li></ol></article>
+  <div class="animal-zone reveal"><div class="animal-title"><span>Ключові організми</span><h3>Не іконки — справжні палеонтологічні зображення</h3></div><div class="animal-strip"><figure class="animal-hero"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Smilodon%20reconstructed.jpg" alt="Smilodon — реконструкція голови"><figcaption><b>Smilodon — реконструкція голови</b><span>реальне наукове зображення / реконструкція · Wikimedia Commons</span></figcaption></figure></div></div><div class="deep-dive reveal">
+      <div class="deep-title"><span>ЗАНУРЕННЯ В ЕПОХУ</span><h3>Як виглядав цей світ?</h3></div>
+      <div class="deep-grid">
+        <article><b>01</b><h4>Льодовиковий метроном</h4><p>Орбітальні цикли Міланковича змінюють сезонний розподіл сонячної енергії; льодовики, CO₂ та альбедо підсилюють відповідь клімату.</p></article>
+        <article><b>02</b><h4>Мегафауна</h4><p>Мамонти, мастодонти, гігантські лінивці та великі хижаки населяли різні континенти. Причини пізніх вимирань різняться за регіонами.</p></article>
+        <article><b>03</b><h4>Людина як геологічний фактор</h4><p>Землеробство, урбанізація, видобуток, бетон, пластики, зміни біогеохімічних циклів і клімату залишають глобальні сигнали в осадах.</p></article>
+      </div>
+      <div class="media-row">
+        <div><span>Тварини</span><p>Реконструкції + музейні моделі + справжні скам’янілості</p></div>
+        <div><span>Рослини</span><p>Флора, спори, листки, деревина та реконструкції екосистем</p></div>
+        <div><span>Геологія</span><p>Породи, стратиграфія, вулканізм, рудоутворення й палеогеографія</p></div>
+      </div>
+    </div><section class="visual-explosion reveal">
+      <div class="explosion-kicker">ВІЗУАЛЬНЕ ЗАНУРЕННЯ</div>
+      <h3>Подивіться, яким був цей світ</h3>
+      <p>Окремо — живі істоти, середовище, справжні скам’янілості та рослинність. Без скрінів статей, графіків і таблиць.</p>
+      <div class="image-bank">
+          <div class="bank-head"><h4>🦖 Тварини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Pleistocene Ice Age animals life reconstruction paleoart fossil" id="bank-quaternary-1"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌎 Світ епохи</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Pleistocene Ice Age landscape ecosystem life reconstruction prehistoric" id="bank-quaternary-2"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🦴 Скам’янілості</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Pleistocene Ice Age fossil skeleton skull specimen museum" id="bank-quaternary-3"></div>
+        </div><div class="image-bank">
+          <div class="bank-head"><h4>🌿 Рослини</h4><span>ще 12+ зображень</span></div>
+          <div class="bank-grid" data-bank-query="Pleistocene Ice Age fossil plants forest flora reconstruction" id="bank-quaternary-4"></div>
+        </div>
+    </section><div class="gallery-title reveal"><div><span>ПОБАЧИТИ НА ВЛАСНІ ОЧІ</span><h3>велика додаткова галерея: тварини, викопні рештки, реконструкції, рослини, породи</h3></div><button onclick="reloadGallery('quaternary')">↻ інша добірка</button></div>
+  <div class="gallery" id="gallery-quaternary" data-multi-query="Pleistocene megafauna reconstruction|woolly mammoth fossil reconstruction|Smilodon fossil reconstruction|giant ground sloth reconstruction" data-query="Pleistocene mammoth Smilodon cave art glacier human fossil reconstruction"></div>
+</section>
+</main>
+<footer><h2>Наукова примітка та джерела</h2><p>Часові межі спираються на International Commission on Stratigraphy (International Chronostratigraphic Chart, актуалізація 2026/06). Візуальна галерея завантажує до 32 релевантних файлів для кожного розділу безпосередньо через відкритий API Wikimedia Commons; підпис і посилання ведуть на сторінку конкретного файла, де вказані автор і ліцензія. Пошукова видача Commons автоматична, тому окремі зображення можуть бути ширшими за конкретний часовий інтервал — вони слугують візуальним атласом, а не доказом віку об’єкта.</p>
+<div class="sources"><a href="https://stratigraphy.org/chart" target="_blank">International Commission on Stratigraphy — Chart</a><a href="https://pubs.usgs.gov/gip/geotime/" target="_blank">USGS — Geologic Time</a><a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons — зображення та ліцензії</a><a href="https://www.usgs.gov/" target="_blank">U.S. Geological Survey — геологічні довідкові матеріали</a></div></footer>
+<script>
+const galleries=[...document.querySelectorAll('.gallery')];
+const esc=s=>(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+async function loadGallery(el,offset=0){
+  el.innerHTML=Array.from({length:24},()=>'<div class="skeleton"></div>').join('');
+  const qs=(el.dataset.multiQuery||el.dataset.query||'').split('|').filter(Boolean);
+  const reject=/\b(article|paper|journal|research|study|figure|fig\.|graph|chart|diagram|cladogram|phylogen|table|plate\s*\d|page\s*\d|pdf|doi|supplement|manuscript|poster|presentation|lecture|conference|abstract|dataset|plot|histogram|scatter|map of localit|stratigraphic column|cross.?section|microscopy|micrograph|thin section|SEM|CT scan)\b/i;
+  const prefer=/\b(life restoration|life reconstruction|reconstruction|paleoart|fossil|skeleton|skull|museum|diorama|animal|forest|landscape|specimen|footprint|trackway|tooth|shell)\b/i;
+  try{
+    const batches=await Promise.all(qs.map(async q=>{
+      const search=q+' -article -paper -journal -diagram -graph -table -figure';
+      const url='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(search)+'&gsrnamespace=6&gsrlimit=20&gsroffset='+offset+'&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=1200&format=json&origin=*';
+      const d=await (await fetch(url)).json();
+      return Object.values(d.query?.pages||{}).filter(p=>p.imageinfo?.[0]?.thumburl);
+    }));
+    const seen=new Set();
+    let pages=batches.flat().filter(p=>{
+      const ii=p.imageinfo[0],m=ii.extmetadata||{};
+      const txt=((m.ImageDescription?.value||'')+' '+p.title).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ');
+      const u=ii.thumburl||'';
+      if(seen.has(u)||reject.test(txt)) return false;
+      seen.add(u); return true;
+    });
+    pages.sort((x,y)=>{
+      const tx=((x.imageinfo[0].extmetadata?.ImageDescription?.value||'')+' '+x.title).replace(/<[^>]*>/g,' ');
+      const ty=((y.imageinfo[0].extmetadata?.ImageDescription?.value||'')+' '+y.title).replace(/<[^>]*>/g,' ');
+      return Number(prefer.test(ty))-Number(prefer.test(tx));
+    });
+    pages=pages.slice(0,60);
+    if(!pages.length) throw 0;
+    el.innerHTML=pages.map((p,n)=>{
+      const ii=p.imageinfo[0],m=ii.extmetadata||{};
+      const raw=(m.ImageDescription?.value||p.title.replace('File:','')).replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
+      const cap=raw.slice(0,125);
+      return `<figure class="img-card"><a href="${ii.descriptionurl}" target="_blank" rel="noopener"><img loading="lazy" src="${ii.thumburl}" alt="${esc(cap)}" onerror="this.closest('figure').remove()"><figcaption><strong>${esc(cap||p.title)}</strong></figcaption></a></figure>`;
+    }).join('');
+  }catch(e){el.innerHTML='<div class="note">Для великої галереї потрібне підключення до інтернету.</div>'}
+}
+function reloadGallery(id){const el=document.getElementById('gallery-'+id); loadGallery(el,Math.floor(Math.random()*40));}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+const gio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){loadGallery(e.target);gio.unobserve(e.target)}}),{rootMargin:'800px'});
+galleries.forEach(x=>gio.observe(x));
+</script>
+<script>
+async function loadRealMap(card){
+ const pid=card.dataset.mapPeriod;
+ const names={hadean:'Hadean Earth reconstruction',archean:'Archean Earth reconstruction',proterozoic:'Proterozoic paleogeography reconstruction',cambrian:'Cambrian paleogeographic map Earth',carboniferous:'Carboniferous paleogeographic map Earth',neogene:'Miocene paleogeographic map Earth',quaternary:'Pleistocene paleogeographic map Earth'};
+ const q=names[pid]||pid+' paleogeographic map Earth';
+ const url='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(q)+'&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=1200&format=json&origin=*';
+ try{const d=await (await fetch(url)).json();const pages=Object.values(d.query?.pages||{}).filter(p=>p.imageinfo?.[0]?.thumburl);if(!pages.length)throw 0;
+ const p=pages[0],ii=p.imageinfo[0],cap=(ii.extmetadata?.ImageDescription?.value||p.title).replace(/<[^>]*>/g,'').slice(0,180);
+ card.querySelector('.map-live-target').innerHTML=`<figure class="img-card"><a href="${ii.descriptionurl}" target="_blank"><img loading="lazy" src="${ii.thumburl}" alt="${cap.replace(/"/g,'&quot;')}"><figcaption>${cap} · Wikimedia Commons ↗</figcaption></a></figure>`;
+ }catch(e){card.querySelector('.map-live-target').innerHTML='<div class="note">Не вдалося завантажити карту. Перевірте підключення до інтернету.</div>'}
+}
+document.querySelectorAll('.live-map').forEach(loadRealMap);
+</script>
+
+<script id="visual-banks-js">
+const BANK_REJECT=/\b(article|paper|journal|research|study|figure|fig\.|graph|chart|diagram|cladogram|phylogen|table|page\s*\d|pdf|doi|supplement|manuscript|poster|presentation|lecture|conference|abstract|dataset|plot|histogram|scatter|stratigraphic column|cross.?section|SEM|CT scan|micrograph)\b/i;
+async function loadBank(el){
+  const q=el.dataset.bankQuery;
+  el.innerHTML=Array.from({length:8},()=>'<div class="bank-skel"></div>').join('');
+  try{
+    const search=q+' -article -paper -journal -diagram -graph -table -figure';
+    const url='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(search)+'&gsrnamespace=6&gsrlimit=20&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=850&format=json&origin=*';
+    const d=await (await fetch(url)).json();
+    let pages=Object.values(d.query?.pages||{}).filter(p=>p.imageinfo?.[0]?.thumburl);
+    pages=pages.filter(p=>{
+      const ii=p.imageinfo[0],m=ii.extmetadata||{};
+      const txt=((m.ImageDescription?.value||'')+' '+p.title).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ');
+      return !BANK_REJECT.test(txt);
+    }).slice(0,14);
+    el.innerHTML=pages.map((p,n)=>{
+      const ii=p.imageinfo[0],m=ii.extmetadata||{};
+      const raw=(m.ImageDescription?.value||p.title.replace('File:','')).replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
+      const cap=raw.slice(0,90);
+      return `<figure class="bank-card ${n===0?'bank-hero':''}"><a href="${ii.descriptionurl}" target="_blank" rel="noopener"><img loading="lazy" src="${ii.thumburl}" alt="${esc(cap)}" onerror="this.closest('figure').remove()"><figcaption>${esc(cap||p.title)}</figcaption></a></figure>`;
+    }).join('');
+  }catch(e){el.innerHTML='<div class="bank-note">Зображення підвантажаться після підключення до інтернету.</div>'}
+}
+document.querySelectorAll('.bank-grid').forEach(loadBank);
+</script>
+</body></html><style>
+body{background:#eee7d8!important;color:#17201d!important;font-family:Inter,system-ui,sans-serif!important} .period{max-width:1480px!important;margin:0 auto 7rem!important;padding:4rem 2rem!important}.period h2{font-family:Georgia,serif!important;font-size:clamp(3.5rem,8vw,8rem)!important;letter-spacing:-.05em!important}.hero-grid{display:grid!important;grid-template-columns:1.4fr 1fr 1fr!important;gap:2px!important;background:#bfb5a3!important;border-radius:28px!important;overflow:hidden!important}.feature{background:#f8f2e7!important;color:#17201d!important;border:0!important;border-radius:0!important;min-height:250px!important}.feature:first-child{grid-row:span 2;min-height:500px!important}.deep-title{border-bottom:3px solid #17201d!important}.deep-title h3,.gallery-title h3{font-family:Georgia,serif!important;font-size:clamp(3rem,6vw,6rem)!important;color:#17201d!important}.deep-grid article{background:#f8f2e7!important;color:#17201d!important;border:1px solid #c9bfad!important;border-radius:3px 3px 32px 3px!important}.deep-grid h4,.deep-grid p{color:#17201d!important}.mega-facts{background:#ead9b6!important;color:#17201d!important;border-radius:0!important;padding:4rem 2rem!important}.mega-facts ol{grid-template-columns:repeat(3,1fr)!important;gap:2px!important}.mega-facts li{background:#f8edd6!important;color:#17201d!important;border:0!important;border-radius:0!important}.animal-zone{background:#0d1815!important;padding:4rem 2rem!important;border-radius:42px!important}.animal-title h3{font-family:Georgia,serif!important;font-size:clamp(2.7rem,5vw,5rem)!important;color:#f7eedf!important}.real-map{background:#111c19!important;border-radius:38px!important;overflow:hidden!important}.real-map h3{font-family:Georgia,serif!important;color:#fff!important}.gallery-title{position:static!important;background:transparent!important;border-bottom:3px solid #17201d!important}.gallery{display:grid!important;grid-template-columns:repeat(12,1fr)!important;grid-auto-flow:dense!important;gap:8px!important}.img-card{grid-column:span 3!important;border-radius:2px!important;position:relative!important;overflow:hidden!important}.img-card:nth-child(7n+1){grid-column:span 6!important;grid-row:span 2!important}.img-card:nth-child(11n+3){grid-column:span 4!important}.img-card img{width:100%!important;height:290px!important;object-fit:cover!important}.img-card:nth-child(7n+1) img{height:588px!important}.img-card figcaption{position:absolute!important;inset:auto 0 0!important;padding:4rem 1rem 1rem!important;background:linear-gradient(transparent,#06100eee)!important;opacity:0;transition:.3s;color:#fff!important}.img-card:hover figcaption{opacity:1}.img-card:hover img{transform:scale(1.04)}.visual-policy{background:#17221e!important;border-radius:0!important;color:#fff!important}.chapter-mark{font-weight:900;letter-spacing:.2em;font-size:.65rem;color:#6b5c45;margin-bottom:1rem}@media(max-width:900px){.hero-grid{grid-template-columns:1fr 1fr!important}.mega-facts ol{grid-template-columns:1fr 1fr!important}.gallery{grid-template-columns:repeat(6,1fr)!important}.img-card{grid-column:span 2!important}}@media(max-width:600px){.hero-grid,.mega-facts ol{grid-template-columns:1fr!important}.gallery{grid-template-columns:repeat(2,1fr)!important}.img-card{grid-column:span 1!important}.img-card:nth-child(7n+1){grid-column:span 2!important}.img-card figcaption{opacity:1}}
+</style>
+<script>document.querySelectorAll('section.period').forEach((s,i)=>{const d=document.createElement('div');d.className='chapter-mark';d.textContent='РОЗДІЛ '+String(i+1).padStart(2,'0')+' · DEEP TIME';s.prepend(d)});</script>
