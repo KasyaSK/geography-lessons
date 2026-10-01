@@ -470,7 +470,7 @@ function logicPick(el,ok){
   document.getElementById('logicFeedback').innerHTML=ok?'<b>Витримує перевірку.</b> Координати залежать від системи; різниця чисел ще не є доказом помилки.':'Твердження містить логічний стрибок. Потрібні дані про систему координат і реальну точність.';
 }
 function validFullName(v){
-  const parts=v.trim().replace(/s+/g,' ').split(' ');
+  const parts=v.trim().replace(/\s+/g,' ').split(' ');
   return parts.length>=2 && parts.every(p=>/^[А-ЯІЇЄҐа-яіїєґ'’-]+$/.test(p));
 }
 function openQuiz(){
