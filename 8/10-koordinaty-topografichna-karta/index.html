@@ -90,7 +90,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
   <h2>Місія «Знайти точку»</h2>
   <div class="grid2">
     <div>
-      <p><b>Ситуація.</b> Пошукова група отримала два повідомлення про один і той самий об’єкт:</p>
+      <p><b>Ситуація.</b> Пошукова група отримала два координатні повідомлення з різних джерел:</p>
       <div class="card"><strong class="big">A:</strong> 50.4501° N, 30.5234° E</div>
       <div class="card" style="margin-top:8px"><strong class="big">B:</strong> X = 5 522 650 м; Y = 4 314 300 м</div>
       <p>Обидва записи можуть бути правильними. Але один з них майже будь-який онлайн-навігатор зрозуміє одразу, а другий без додаткових даних — ні.</p>
@@ -104,7 +104,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="warmup">
-  <div class="k">3–6 хв • швидкий детектор</div>
+  <div class="k">3–5 хв • швидкий детектор</div>
   <h2>Що саме Вам надіслали?</h2>
   <p>Натисніть на картки, які є <b>географічними координатами</b>. Не шукайте «схожі цифри» — шукайте ознаки системи.</p>
   <div class="choice-grid" id="coordCards">
@@ -120,7 +120,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="geo">
-  <div class="k">6–11 хв • онлайн-карта + точність</div>
+  <div class="k">5–10 хв • онлайн-карта + рамка топокарти</div>
   <h2>Лабораторія 1. Географічна адреса точки</h2>
   <div class="grid2">
     <div class="map">
@@ -137,10 +137,47 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
       <p class="small">Для навчальних вправ беріть публічні об’єкти. Не публікуйте точні координати власного житла в спільних чатах.</p>
     </div>
   </div>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="svgbox">
+      <svg viewBox="0 0 720 470" role="img" aria-label="Схематична градусна рамка топографічної карти з точкою P">
+        <rect width="720" height="470" fill="#fbfdf7"/>
+        <rect x="100" y="70" width="520" height="320" fill="#f3f7ee" stroke="#315f4b" stroke-width="3"/>
+        <g stroke="#8ca99b" stroke-width="1.5" stroke-dasharray="7 7">
+          <line x1="403.3" y1="70" x2="403.3" y2="390"/>
+          <line x1="100" y1="200" x2="620" y2="200"/>
+        </g>
+        <g fill="#2b5544" font-family="system-ui,sans-serif" font-size="18" font-weight="800">
+          <text x="88" y="425">30°28′ сх. д.</text>
+          <text x="540" y="425">30°34′ сх. д.</text>
+          <text x="12" y="395">50°26′</text>
+          <text x="12" y="83">50°30′</text>
+        </g>
+        <g stroke="#315f4b" stroke-width="2">
+          <path d="M100 390v12M186.7 390v12M273.3 390v12M360 390v12M446.7 390v12M533.3 390v12M620 390v12"/>
+          <path d="M88 390h12M88 310h12M88 230h12M88 150h12M88 70h12"/>
+        </g>
+        <circle cx="403.3" cy="200" r="10" fill="#d56d31" stroke="#fff" stroke-width="4"/>
+        <text x="420" y="192" font-family="system-ui,sans-serif" font-size="22" font-weight="900" fill="#7a3d1d">P</text>
+        <text x="114" y="98" font-family="system-ui,sans-serif" font-size="15" fill="#5f7469">Схематична рамка: 1 поділ = 1′</text>
+      </svg>
+    </div>
+    <div>
+      <h3>Міні-вправа: зчитайте рамку</h3>
+      <p>Точка P лежить посередині між 50°28′ і 50°29′ пн. ш. та між 30°31′ і 30°32′ сх. д. Який запис найточніший?</p>
+      <div class="logic">
+        <button onclick="framePick(this,true)">50°28′30″ пн. ш.; 30°31′30″ сх. д.</button>
+        <button onclick="framePick(this,false)">30°31′30″ пн. ш.; 50°28′30″ сх. д.</button>
+        <button onclick="framePick(this,false)">50°31′30″ пн. ш.; 30°28′30″ сх. д.</button>
+      </div>
+      <div id="frameFeedback" class="feedback"></div>
+      <p class="small"><b>Алгоритм:</b> широту зчитуємо за південною/північною рамкою, довготу — за західною/східною; положення між хвилинними поділками уточнюємо в секундах.</p>
+    </div>
+  </div>
 </section>
 
 <section id="gridlab">
-  <div class="k">11–18 хв • інтерактивна кілометрова сітка</div>
+  <div class="k">10–17 хв • інтерактивна кілометрова сітка</div>
   <h2>Лабораторія 2. Поставте точку за X/Y</h2>
   <p>Це <b>схематична навчальна модель</b> кілометрової сітки: один квадрат = 1 км × 1 км. X зростає на північ, Y — на схід. Оберіть місію й клацніть у тому місці, де має бути точка.</p>
   <div class="lab">
@@ -191,7 +228,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="decoder">
-  <div class="k">18–23 хв • алгоритм і виправлення помилки</div>
+  <div class="k">17–22 хв • алгоритм і виправлення помилки</div>
   <h2>Координатний декодер</h2>
   <p>Учень визначив квадрат правильно: нижня лінія <b>X = 5522 км</b>, ліва лінія <b>Y = 4314 км</b>. Від точки до нижньої лінії — <b>650 м</b>, до лівої — <b>300 м</b>.</p>
   <div class="calc">
@@ -209,7 +246,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="evidence">
-  <div class="k">23–28 хв • лабораторія доказів</div>
+  <div class="k">22–27 хв • лабораторія доказів</div>
   <h2>Яких даних достатньо, щоб знайти точку?</h2>
   <p><b>Сценарій:</b> Ви отримали «X = 5 522 650; Y = 4 314 300». Позначте дані, які потрібно перевірити, перш ніж вважати точку однозначно визначеною на реальній карті.</p>
   <div class="choice-grid" id="evidenceCards">
@@ -231,7 +268,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="theory">
-  <div class="k">28–32 хв • теорія після практики</div>
+  <div class="k">27–31 хв • теорія після практики</div>
   <h2>Тепер формалізуємо те, що Ви вже зробили</h2>
   <div class="theory">
     <div><b>1. Географічні координати</b><p><b>Широта φ</b> — кутова відстань від екватора; <b>довгота λ</b> — кутова відстань від початкового меридіана. Записують у градусах (за потреби — хвилинах і секундах або десяткових градусах).</p></div>
@@ -255,7 +292,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="duel">
-  <div class="k">32–34 хв • логічний двобій</div>
+  <div class="k">31–33 хв • логічний двобій</div>
   <h2>Яке твердження витримає перевірку?</h2>
   <div class="logic">
     <button onclick="logicPick(this,false)">«Якщо X/Y різні, значить одна з карт помиляється».</button>
@@ -266,7 +303,7 @@ footer{text-align:center;padding:20px 0 42px;color:var(--muted)}
 </section>
 
 <section id="cer">
-  <div class="k">34–35 хв • підсумок</div>
+  <div class="k">33–35 хв • підсумок</div>
   <h2>CER: самі числа ще не є адресою</h2>
   <div class="grid3">
     <div class="card"><b>C — твердження</b><p>Коли географічні координати практичніші за прямокутні, а коли — навпаки?</p></div>
@@ -464,8 +501,14 @@ function calcXY(){
 function checkOleh(v){
   document.getElementById('olehFeedback').innerHTML=v==='right'?'<b>Саме так.</b> Східний зсув — це ΔY, північний — ΔX.':'Ні. «Перша координата» не пояснює напрям. 300 м на схід додаються до <b>Y</b>.';
 }
+function framePick(el,ok){
+  const box=el.closest('.logic');
+  [...box.querySelectorAll('button')].forEach(b=>b.classList.remove('correct','wrong'));
+  el.classList.add(ok?'correct':'wrong');
+  document.getElementById('frameFeedback').innerHTML=ok?'<b>Правильно.</b> 30 секунд — це половина хвилинного інтервалу. Широта читається за горизонтальними межами, довгота — за вертикальними.':'Перевірте, що Ви не поміняли місцями широту й довготу та правильно оцінили половину хвилини.';
+}
 function logicPick(el,ok){
-  $$('#duel .logic button').forEach(b=>b.classList.remove('correct','wrong'));
+  $('#duel .logic button').forEach(b=>b.classList.remove('correct','wrong'));
   el.classList.add(ok?'correct':'wrong');
   document.getElementById('logicFeedback').innerHTML=ok?'<b>Витримує перевірку.</b> Координати залежать від системи; різниця чисел ще не є доказом помилки.':'Твердження містить логічний стрибок. Потрібні дані про систему координат і реальну точність.';
 }
