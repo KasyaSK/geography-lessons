@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="8 клас, курс «Професії», урок 5. Конструктивний зворотний зв’язок, перевірка компетентностей, коригування профілю, рефлексія та тест /10.">
+<title>8 клас • Урок 5 • Зворотний зв’язок і компетентності</title>
+<style>
+:root{
+  --bg:#08121b;--panel:#101e2b;--panel2:#14283a;--ink:#f3f8fb;--muted:#aec0cc;
+  --cyan:#66e3d1;--violet:#b29cff;--amber:#ffd166;--rose:#ff8fa3;--line:#294155;
+  --ok:#7ee7a7;--bad:#ff8f8f;--shadow:0 20px 55px rgba(0,0,0,.28)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 10% -10%,#1c4661 0,transparent 30rem),radial-gradient(circle at 95% 8%,#402c65 0,transparent 28rem),var(--bg);color:var(--ink);font:16px/1.58 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#9ee9ff;font-weight:800}
+.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+.hero{padding:62px 0 34px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:auto -10% -86px;height:160px;border-top:3px solid #66e3d144;border-radius:50%;transform:rotate(-2deg)}
+.eyebrow,.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:.45rem .72rem;font-weight:900}
+.eyebrow{background:#132d3d;border:1px solid #345a6c;color:var(--cyan)}
+.pill{background:#ffffff0b;border:1px solid #ffffff20;color:#dce9f0}
+h1{font-size:clamp(2.35rem,6vw,5rem);line-height:.98;letter-spacing:-.045em;margin:.75rem 0;max-width:980px}
+h1 em{font-style:normal;color:var(--amber)}
+.lead{font-size:clamp(1.05rem,2vw,1.24rem);max-width:900px;color:#d3e0e7}
+.meta,.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+nav{position:sticky;top:0;z-index:20;background:#08121bea;border-block:1px solid #ffffff16;backdrop-filter:blur(12px)}
+nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0}
+nav a{white-space:nowrap;text-decoration:none;color:#e8f5f8;border:1px solid #ffffff1c;border-radius:999px;padding:.45rem .7rem}
+main{padding:18px 0 58px}
+section{background:linear-gradient(180deg,#101e2bea,#0d1925eb);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,3vw,30px);margin:17px 0;box-shadow:var(--shadow)}
+section.accent{background:linear-gradient(135deg,#173447,#181f3e)}
+h2{font-size:clamp(1.55rem,3vw,2.3rem);line-height:1.15;margin:.1rem 0 .8rem}
+h3{color:#bdeee6;margin-bottom:.45rem}.time{font-size:.78rem;font-weight:950;color:var(--amber);letter-spacing:.1em;text-transform:uppercase}
+.grid2,.grid3,.grid4{display:grid;gap:13px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:#ffffff09;border:1px solid #ffffff18;border-radius:17px;padding:16px}.card strong{color:#fff}.soft{color:var(--muted)}
+.case{border-left:5px solid var(--cyan);background:#0a1721;padding:15px 17px;border-radius:0 15px 15px 0}.case.warn{border-left-color:var(--amber)}
+.btn{appearance:none;border:0;border-radius:13px;padding:.75rem .95rem;min-height:44px;background:var(--cyan);color:#061218;font-weight:950;cursor:pointer;transition:.18s transform,.18s filter}.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}.btn.alt{background:#ffffff0b;color:var(--ink);border:1px solid #ffffff25}.btn.violet{background:var(--violet)}.btn.rose{background:var(--rose)}.btn.sel{outline:3px solid var(--amber);outline-offset:2px}
+.feedback{margin-top:10px;min-height:45px;border-radius:12px;background:#07121b;padding:11px 13px;border:1px solid #ffffff12;color:#dbe7ed}.feedback.ok{border-color:#7ee7a777;background:#0c251a}.feedback.bad{border-color:#ff8f8f66;background:#2b1319}
+.badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;background:#ffffff10;border:1px solid #ffffff18;font-size:.78rem;font-weight:900;color:#d7e4eb}
+.editor{display:grid;gap:10px}.editor-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#ffffff08;border:1px solid #ffffff17;border-radius:14px;padding:12px}.editor-row select,.editor-row input{width:100%}
+input,select,textarea{background:#08131d;color:var(--ink);border:1px solid #3a5062;border-radius:12px;padding:.72rem;min-height:44px;font:inherit}textarea{width:100%;min-height:100px;resize:vertical}
+.signal{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.meter{height:16px;border-radius:999px;background:#ffffff12;overflow:hidden}.meter>span{display:block;height:100%;width:10%;background:linear-gradient(90deg,var(--rose),var(--amber),var(--cyan));transition:width .5s ease}
+.protocol{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.protocol .step{background:#ffffff08;border:1px solid #ffffff17;border-radius:16px;padding:14px;min-height:135px}.protocol b{display:block;color:var(--amber);font-size:1.2rem;margin-bottom:4px}
+.profile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.skillbox{background:#ffffff08;border:1px solid #ffffff18;border-radius:16px;padding:14px}.skillbox input[type=range]{width:100%;padding:0;border:0;background:transparent}
+.theory details{background:#ffffff08;border:1px solid #ffffff16;border-radius:14px;padding:12px 14px;margin:9px 0}.theory summary{font-weight:900;cursor:pointer;color:#eaf8f5}
+.quizq{padding:15px;border:1px solid #ffffff18;border-radius:16px;margin:13px 0;background:#ffffff07}.quizq label{display:block;padding:7px 0}.quizq input[type=radio],.quizq input[type=checkbox]{width:auto;min-height:0;margin-right:8px}.matchgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:center}.ordergrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.hidden{display:none!important}.result{border:2px solid #66e3d166;background:#0b2924}.result h3{font-size:1.6rem;color:var(--ok)}
+.video{aspect-ratio:16/9;width:100%;border:0;border-radius:16px;background:#000}.small{font-size:.9rem;color:var(--muted)}
+footer{border-top:1px solid #ffffff18;padding:28px 0 42px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+@media(max-width:850px){.grid3,.grid4,.protocol,.profile{grid-template-columns:repeat(2,minmax(0,1fr))}.ordergrid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.grid2,.grid3,.grid4,.signal,.protocol,.profile,.matchgrid,.ordergrid{grid-template-columns:1fr}.hero{padding-top:42px}section{padding:17px}.editor-row{grid-template-columns:1fr}nav .wrap{padding-inline:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+@media print{nav,.btn,.video{display:none!important}body{background:#fff;color:#111}.hero,section,.card,.quizq{background:#fff!important;color:#111!important;box-shadow:none;border-color:#bbb}.soft,.small{color:#555}a{color:#000}.wrap{width:100%}}
+
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">Професії • 8 клас • урок 5 • 35 хв</span>
+  <h1>Зворотний зв’язок: <em>що інші бачать у моїх компетентностях</em></h1>
+  <p class="lead">Чужа думка може бути корисним датчиком, а може бути просто шумом. Сьогодні вчимося відрізняти одне від іншого — без ярликів, «розносу особистості» й магії «мені так здається».</p>
+  <div class="chips"><span class="pill">ціль: дати й отримати корисний фідбек</span><span class="pill">результат: уточнений профіль компетентностей</span><span class="pill">формула: факт → вплив → наступний крок</span></div>
+  <p class="small">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</p>
+</div></header>
+<nav><div class="wrap"><a href="#start">Старт</a><a href="#radar">Радар</a><a href="#editor">Редактор</a><a href="#protocol">Протокол</a><a href="#theory">Матеріал</a><a href="#profile">Профіль</a><a href="#home">Д/З + тест</a></div></nav>
+<main class="wrap">
+<section id="start" class="accent">
+  <div class="time">0–4 хв • проблемний старт</div>
+  <h2>«Ти дуже дивна людина» — це фідбек?</h2>
+  <div class="case"><p><b>Ситуація.</b> Команда готувала шкільний ярмарок. Після нього троє людей сказали Марку різне:</p></div>
+  <div class="grid3" style="margin-top:12px">
+    <button class="btn alt start-choice" data-kind="noise">«Ти якийсь контрол-фрік»</button>
+    <button class="btn alt start-choice" data-kind="signal">«Коли ми розгубилися, ти розподілив задачі й ми встигли до початку»</button>
+    <button class="btn alt start-choice" data-kind="mixed">«Ти молодець, але говорив надто багато»</button>
+  </div>
+  <div id="startFeedback" class="feedback">Оберіть вислів, який дає Марку найбільше корисної інформації про його компетентності.</div>
+  <p><b>Проблемне питання:</b> як зрозуміти, коли чужа думка допомагає побачити себе точніше, а коли лише тисне на самооцінку?</p>
+</section>
+
+<section id="radar">
+  <div class="time">4–9 хв • радар сигналу</div>
+  <h2>Сильний фідбек має «координати»</h2>
+  <p class="soft">Натискайте ознаки, які роблять фідбек сильнішим. Радар покаже, наскільки повідомлення схоже на корисний сигнал.</p>
+  <div class="grid4">
+    <button class="btn alt radar" data-points="25">Є конкретна ситуація</button>
+    <button class="btn alt radar" data-points="25">Описана дія, а не «тип людини»</button>
+    <button class="btn alt radar" data-points="25">Зрозуміло, який був наслідок</button>
+    <button class="btn alt radar" data-points="25">Є наступний крок або запитання</button>
+  </div>
+  <div class="signal"><div class="card"><b>Сила сигналу</b><div class="meter"><span id="signalBar"></span></div><p id="signalText" class="small">0/100 — поки що це просто враження.</p></div><div class="card"><b>Антишум</b><p class="small">Не додає якості: образа, сарказм, «ти завжди», «ти ніколи», діагноз характеру, порада без пояснення.</p></div></div>
+</section>
+
+<section id="editor">
+  <div class="time">9–15 хв • лабораторія доказів</div>
+  <h2>Редактор фідбеку: перетворіть ярлик на дані</h2>
+  <p>Оберіть, яка переробка найкраще переводить оцінку особистості у спостережувану дію.</p>
+  <div class="editor">
+    <div class="card"><b>1. «Ти безвідповідальний»</b><div class="grid3"><button class="btn alt edit-choice" data-q="e1" data-ok="0">«Тобі треба стати серйознішим»</button><button class="btn alt edit-choice" data-q="e1" data-ok="1">«У двох останніх групових роботах твоя частина була після дедлайну; через це іншим довелося чекати»</button><button class="btn alt edit-choice" data-q="e1" data-ok="0">«Усі помічають, що на тебе не можна покластися»</button></div><div id="e1" class="feedback"></div></div>
+    <div class="card"><b>2. «Ти класно спілкуєшся»</b><div class="grid3"><button class="btn alt edit-choice" data-q="e2" data-ok="1">«Під час обговорення ти перефразував суперечку двох людей і допоміг знайти спільний варіант»</button><button class="btn alt edit-choice" data-q="e2" data-ok="0">«Ти просто комунікабельний»</button><button class="btn alt edit-choice" data-q="e2" data-ok="0">«Ти точно маєш бути ведучим»</button></div><div id="e2" class="feedback"></div></div>
+    <div class="card"><b>3. «Ти все ускладнюєш»</b><div class="grid3"><button class="btn alt edit-choice" data-q="e3" data-ok="0">«Не думай так багато»</button><button class="btn alt edit-choice" data-q="e3" data-ok="0">«Ти занадто прискіпливий»</button><button class="btn alt edit-choice" data-q="e3" data-ok="1">«Коли ми мали 5 хвилин, ти запропонував перевірити ще три джерела; це підвищило точність, але ми не встигли завершити»</button></div><div id="e3" class="feedback"></div></div>
+  </div>
+</section>
+
+<section id="protocol">
+  <div class="time">15–20 хв • практика в парах</div>
+  <h2>Протокол «Факт → Вплив → Крок → Перевірка»</h2>
+  <div class="protocol">
+    <div class="step"><b>1. Факт</b>«У сьогоднішній роботі ти…» + конкретна дія, яку можна було побачити або почути.</div>
+    <div class="step"><b>2. Вплив</b>«Це допомогло / ускладнило…, тому що…»</div>
+    <div class="step"><b>3. Крок</b>«Наступного разу можна спробувати…» або «Було б корисно зберегти цю дію».</div>
+    <div class="step"><b>4. Перевірка</b>«Як ти це бачиш?» — людина має право пояснити контекст і не погодитися.</div>
+  </div>
+  <div class="case warn" style="margin-top:14px"><b>Правило безпеки:</b> фідбек про навчальну/робочу дію — не дозвіл коментувати зовнішність, тіло, сім’ю, здоров’я чи особисті межі. Якщо людина просить зупинитися — зупиняємось.</div>
+  <h3>Швидка репетиція</h3>
+  <p>Оберіть одну реальну дію партнера з уроку 4 або сьогоднішнього уроку й дайте <b>30 секунд</b> фідбеку за формулою. Потім поміняйтесь.</p>
+</section>
+
+<section id="theory" class="theory">
+  <div class="time">20–29 хв • основний матеріал</div>
+  <h2>Що варто знати про зворотний зв’язок</h2>
+  <details open><summary>1. Фідбек — це інформація про дію, а не вирок про людину</summary><p>Корисне повідомлення відповідає на питання «що саме сталося?» і «який це мало ефект?». Ярлик «ледачий», «геній», «токсичний», «безхарактерний» не пояснює поведінку і майже не підказує, що робити далі.</p></details>
+  <details><summary>2. Одна думка — одна точка даних</summary><p>Один коментар може бути точним, випадковим або залежати від контексту. Надійніший висновок з’являється, коли повторюються схожі приклади з різних ситуацій і від різних людей.</p></details>
+  <details><summary>3. Позитивний фідбек теж має бути конкретним</summary><p>«Молодець» приємно чути, але для профілю компетентностей корисніше: «ти помітив суперечність у даних і попросив перевірити джерело — це приклад критичного мислення».</p></details>
+  <details><summary>4. Корисний фідбек має бути застосовним</summary><p>Людина повинна розуміти, яку дію варто повторити, змінити або потренувати. Якщо порада неможлива або не залежить від адресата, це слабкий інструмент розвитку.</p></details>
+  <details><summary>5. Отримувати фідбек — не означає автоматично погоджуватися</summary><p>Можна уточнювати приклади, питати про контекст, порівнювати з іншими даними й відкидати образливі або нерелевантні коментарі.</p></details>
+  <details><summary>6. Компетентність — змінна</summary><p>Профіль сьогоднішніх навичок — не «характер назавжди». Якщо певна компетентність слабка, це орієнтир для практики, а не тавро.</p></details>
+  <div class="card"><b>За бажанням:</b> відео Максима Прудеуса про те, як давати критику й зворотний зв’язок. <a href="https://www.youtube.com/watch?v=hIYE7v351_8" target="_blank" rel="noopener">Відкрити відео</a>. Для уроку достатньо взяти один короткий фрагмент із правилами конструктивної критики.</div>
+</section>
+
+<section id="profile">
+  <div class="time">29–33 хв • оновлюємо профіль</div>
+  <h2>Три дзеркала: Я → Партнер → Доказ</h2>
+  <p class="soft">Не женемося за «високими балами». Шукаємо розбіжності, які цікаво перевірити.</p>
+  <div class="profile" id="profileGrid"></div>
+  <button class="btn violet" id="profileAnalyze">Порівняти оцінки</button>
+  <div id="profileOut" class="feedback">Заповніть хоча б три компетентності.</div>
+</section>
+
+<section id="finish" class="accent">
+  <div class="time">33–35 хв • вихід з уроку</div>
+  <h2>CER за 90 секунд</h2>
+  <div class="case"><p><b>Твердження:</b> одна моя компетентність, яку сьогодні підтвердив або поставив під сумнів фідбек.</p><p><b>Доказ:</b> конкретний приклад дії або два незалежні коментарі.</p><p><b>Пояснення:</b> чому цей доказ справді стосується компетентності, а не просто симпатії/антипатії.</p></div>
+</section>
+
+<section id="home">
+  <h2>Домашнє завдання</h2>
+  <p><b>Тема 5 за КТП.</b> Обов’язково: отримайте короткий фідбек від <b>двох людей</b> про одну компетентність і внесіть його до портфоліо. Не просіть «оцінити вас як людину» — запитайте про конкретну дію: «Коли ти бачив/ла, що я добре організовую / пояснюю / аналізую?».</p>
+  <div class="grid3"><div class="card"><b>Базовий</b><p>2 конкретні приклади фідбеку + короткий висновок: що підтвердилося.</p></div><div class="card"><b>Достатній</b><p>Порівняйте свою оцінку з двома зовнішніми. Поясніть одну розбіжність.</p></div><div class="card"><b>Високий</b><p>Складіть міні-план розвитку компетентності на 2 тижні: дія → критерій → спосіб перевірки.</p></div></div>
+  <p>Додатково: <a href="https://osvita.diia.gov.ua/career-studio" target="_blank" rel="noopener">Кар’єрна студія Дія.Освіта</a> — інструменти для роботи із сильними сторонами, резюме та співбесідами.</p>
+
+  <h3>Тест /10</h3>
+  <div id="gate" class="card"><label>Ім’я та прізвище<input id="studentName" autocomplete="name" placeholder="Наприклад: Олена Коваль"></label><label>Клас<input id="studentClass" placeholder="8-А"></label><button class="btn" id="startQuiz">Розпочати тест</button><div id="gateError" class="small"></div></div>
+  <div id="quiz" class="hidden">
+    <div class="quizq"><b>1. Який варіант найбільше схожий на конструктивний фідбек?</b><label><input type="radio" name="q1" value="a">Ти просто неорганізований.</label><label><input type="radio" name="q1" value="b">Сьогодні ти записав задачі й нагадав про дедлайн — завдяки цьому команда встигла.</label><label><input type="radio" name="q1" value="c">Тобі треба бути відповідальнішим.</label></div>
+    <div class="quizq"><b>2. Чому один коментар не варто вважати остаточним профілем компетентностей?</b><label><input type="radio" name="q2" value="a">Будь-який фідбек неправильний.</label><label><input type="radio" name="q2" value="b">Одна людина бачить лише частину ситуацій; потрібні повторювані приклади.</label><label><input type="radio" name="q2" value="c">Компетентності неможливо оцінювати.</label></div>
+    <div class="quizq"><b>3. Що найкраще зробити, якщо фідбек суперечить Вашій самооцінці?</b><label><input type="radio" name="q3" value="a">Відразу змінити думку про себе.</label><label><input type="radio" name="q3" value="b">Відкинути фідбек.</label><label><input type="radio" name="q3" value="c">Попросити конкретний приклад і перевірити іншими даними.</label></div>
+    <div class="quizq"><b>4. Яке формулювання описує дію, а не особистість?</b><label><input type="radio" name="q4" value="a">Ти уважний.</label><label><input type="radio" name="q4" value="b">Ти помітив помилку в таблиці й перевірив числа ще раз.</label><label><input type="radio" name="q4" value="c">Ти перфекціоніст.</label></div>
+    <div class="quizq"><b>5. Оберіть УСІ ознаки сильного фідбеку.</b><label><input type="checkbox" name="q5" value="a">Конкретна ситуація</label><label><input type="checkbox" name="q5" value="b">Ярлик про характер</label><label><input type="checkbox" name="q5" value="c">Спостережувана дія</label><label><input type="checkbox" name="q5" value="d">Зрозумілий вплив</label><label><input type="checkbox" name="q5" value="e">«Ти завжди/ніколи»</label></div>
+    <div class="quizq"><b>6. Що можна робити, коли Ви отримуєте фідбек? Оберіть УСЕ доречне.</b><label><input type="checkbox" name="q6" value="a">Уточнювати приклади</label><label><input type="checkbox" name="q6" value="b">Порівнювати з іншими спостереженнями</label><label><input type="checkbox" name="q6" value="c">Автоматично погоджуватися з будь-якою оцінкою</label><label><input type="checkbox" name="q6" value="d">Відкидати образливі або нерелевантні коментарі</label></div>
+    <div class="quizq"><b>7. Установіть відповідність: елемент фідбеку → приклад.</b><div class="matchgrid"><span>Факт</span><select id="m1"><option value="">—</option><option value="a">«Команда змогла завершити раніше»</option><option value="b">«Під час планування ти записав усі задачі»</option><option value="c">«Наступного разу додай пріоритети»</option></select><span>Вплив</span><select id="m2"><option value="">—</option><option value="a">«Команда змогла завершити раніше»</option><option value="b">«Під час планування ти записав усі задачі»</option><option value="c">«Наступного разу додай пріоритети»</option></select><span>Крок</span><select id="m3"><option value="">—</option><option value="a">«Команда змогла завершити раніше»</option><option value="b">«Під час планування ти записав усі задачі»</option><option value="c">«Наступного разу додай пріоритети»</option></select></div></div>
+    <div class="quizq"><b>8. Розташуйте логіку конструктивного фідбеку у правильному порядку.</b><div class="ordergrid"><select id="o1"><option value="">1-й крок</option><option value="fact">Факт</option><option value="impact">Вплив</option><option value="step">Наступний крок</option><option value="check">Перевірка</option></select><select id="o2"><option value="">2-й крок</option><option value="fact">Факт</option><option value="impact">Вплив</option><option value="step">Наступний крок</option><option value="check">Перевірка</option></select><select id="o3"><option value="">3-й крок</option><option value="fact">Факт</option><option value="impact">Вплив</option><option value="step">Наступний крок</option><option value="check">Перевірка</option></select><select id="o4"><option value="">4-й крок</option><option value="fact">Факт</option><option value="impact">Вплив</option><option value="step">Наступний крок</option><option value="check">Перевірка</option></select></div></div>
+    <div class="quizq"><b>9. Яких даних бракує для висновку «Мені сказали, що я добре пояснюю, отже комунікація — моя сильна компетентність»?</b><label><input type="radio" name="q9" value="a">Жодних — одного коментаря достатньо.</label><label><input type="radio" name="q9" value="b">Прикладів конкретних ситуацій і бажано повторення в різних контекстах.</label><label><input type="radio" name="q9" value="c">Лише оцінки в журналі.</label></div>
+    <div class="quizq"><b>10. Який CER-висновок найсильніший?</b><label><input type="radio" name="q10" value="a">Я лідер, бо так сказали друзі.</label><label><input type="radio" name="q10" value="b">Моя організація, мабуть, сильна: у двох проєктах я розподіляв задачі, і двоє однокласників окремо назвали саме це; однак треба перевірити це ще в інших ситуаціях.</label><label><input type="radio" name="q10" value="c">Я не знаю, хто я.</label></div>
+    <button class="btn" id="submitQuiz">Завершити тест</button>
+  </div>
+  <div id="result" class="card result hidden"></div>
+</section>
+</main>
+<footer><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</div></footer>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+$$('.start-choice').forEach(btn=>btn.addEventListener('click',()=>{
+  $$('.start-choice').forEach(x=>x.classList.remove('sel')); btn.classList.add('sel');
+  const k=btn.dataset.kind, out=$('#startFeedback');
+  if(k==='signal'){out.className='feedback ok';out.textContent='Так. Тут є конкретна дія й наслідок — з цього вже можна робити обережний висновок про організаційну компетентність.'}
+  else if(k==='mixed'){out.className='feedback';out.textContent='Частково корисно, але «говорив надто багато» потребує ситуації й пояснення впливу. Без цього незрозуміло, що саме змінювати.'}
+  else{out.className='feedback bad';out.textContent='Це ярлик. Він може образити, але майже нічого не пояснює про конкретну поведінку чи компетентність.'}
+}));
+
+let signal=0;
+$$('.radar').forEach(btn=>btn.addEventListener('click',()=>{
+  btn.classList.toggle('sel');
+  signal=$$('.radar.sel').reduce((s,b)=>s+(+b.dataset.points),0);
+  $('#signalBar').style.width=signal+'%';
+  $('#signalText').textContent=signal+'/100 — '+(signal<50?'сигнал слабкий: надто мало конкретики.':signal<100?'вже корисно, але є що уточнити.':'сильний фідбек: конкретний, зрозумілий і застосовний.');
+}));
+
+$$('.edit-choice').forEach(btn=>btn.addEventListener('click',()=>{
+  const q=btn.dataset.q, ok=btn.dataset.ok==='1';
+  $$(`[data-q="${q}"]`).forEach(x=>x.classList.remove('sel')); btn.classList.add('sel');
+  const out=document.getElementById(q); out.className='feedback '+(ok?'ok':'bad');
+  out.textContent=ok?'Так. Є спостережувана дія й контекст — це можна перевірити та обговорити.':'Ні. Тут лишився ярлик, узагальнення або порада без доказу.';
+}));
+
+const skills=['Комунікація','Організація','Командна робота','Критичне мислення','Творчість','Самостійність'];
+$('#profileGrid').innerHTML=skills.map((s,i)=>`<div class="skillbox"><b>${s}</b><label class="small">Моя оцінка (1–5)<input class="self" data-i="${i}" type="range" min="1" max="5" value="3"><span>3</span></label><label class="small">Оцінка партнера (1–5)<input class="peer" data-i="${i}" type="range" min="1" max="5" value="3"><span>3</span></label><label class="small">Є конкретний доказ?<select class="evidence" data-i="${i}"><option value="0">ще ні</option><option value="1">так, один</option><option value="2">так, кілька</option></select></label></div>`).join('');
+$$('#profileGrid input[type=range]').forEach(r=>r.addEventListener('input',()=>r.nextElementSibling.textContent=r.value));
+$('#profileAnalyze').addEventListener('click',()=>{
+  let rows=[];
+  skills.forEach((s,i)=>{const a=+document.querySelector(`.self[data-i="${i}"]`).value,b=+document.querySelector(`.peer[data-i="${i}"]`).value,e=+document.querySelector(`.evidence[data-i="${i}"]`).value;rows.push({s,d:Math.abs(a-b),e,a,b})});
+  const gaps=rows.filter(r=>r.d>=2).sort((x,y)=>y.d-x.d); const strongest=rows.filter(r=>r.e===2 && r.d<=1);
+  let text='';
+  if(strongest.length) text+=`Найкраще підтверджено: ${strongest.slice(0,2).map(r=>r.s).join(', ')}. `;
+  if(gaps.length) text+=`Найцікавіша розбіжність для перевірки: ${gaps[0].s} (${gaps[0].a} vs ${gaps[0].b}). Попросіть конкретний приклад, а не сперечайтеся з цифрою.`;
+  if(!text) text='Поки що оцінки близькі. Тепер важливіше не число, а конкретні приклади дій, які його підтверджують.';
+  $('#profileOut').textContent=text;
+});
+
+function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2 && p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x))}
+$('#startQuiz').addEventListener('click',()=>{
+  const n=$('#studentName').value,c=$('#studentClass').value.trim();
+  if(!validName(n)||!c){$('#gateError').textContent='Введіть ім’я, прізвище та клас.';return}
+  $('#gate').classList.add('hidden');$('#quiz').classList.remove('hidden');
+});
+function one(name,ans){const x=document.querySelector(`input[name="${name}"]:checked`);return !!x&&x.value===ans}
+function multi(name,ans){const got=$$(`input[name="${name}"]:checked`).map(x=>x.value).sort().join(',');return got===ans.slice().sort().join(',')}
+$('#submitQuiz').addEventListener('click',()=>{
+  let s=0;
+  if(one('q1','b'))s++; if(one('q2','b'))s++; if(one('q3','c'))s++; if(one('q4','b'))s++;
+  if(multi('q5',['a','c','d']))s++; if(multi('q6',['a','b','d']))s++;
+  if($('#m1').value==='b'&&$('#m2').value==='a'&&$('#m3').value==='c')s++;
+  if($('#o1').value==='fact'&&$('#o2').value==='impact'&&$('#o3').value==='step'&&$('#o4').value==='check')s++;
+  if(one('q9','b'))s++; if(one('q10','b'))s++;
+  const pct=s*10, level=s<=4?'Потрібно повторити: відрізняйте ярлик від спостереження.':s<=7?'Достатньо: логіку фідбеку Ви розумієте, але перевірте складніші ситуації.':s<=9?'Добре: Ви вмієте працювати з доказами й обмеженнями.':'Відмінно: сильне розуміння конструктивного фідбеку.';
+  $('#result').innerHTML=`<h3>${s}/10 • ${pct}%</h3><p><b>${$('#studentName').value}</b> • ${$('#studentClass').value}</p><p>${level}</p><p>Дата/час: ${new Date().toLocaleString('uk-UA')}</p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p><button class="btn alt" onclick="window.print()">Друк / PDF</button>`;
+  $('#result').classList.remove('hidden');$('#result').scrollIntoView({behavior:'smooth'});
+});
+
+</script>
+</body></html>
