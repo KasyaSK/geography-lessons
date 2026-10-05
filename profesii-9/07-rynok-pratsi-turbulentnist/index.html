@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Інтегрований урок курсу «Професії» для 9–11 класів. Ринок праці, безробіття, економічні зміни та професійний вибір.">
+<title>9–11 класи • Професії • Ринок праці: Україна + Запоріжжя</title>
+<style>
+:root{
+ --bg:#071019;--panel:#0d1a27;--panel2:#102438;--ink:#f5fbff;--muted:#a9bccb;
+ --cyan:#58e4ff;--lime:#a8ff78;--amber:#ffd166;--red:#ff6b7a;--violet:#bda7ff;
+ --line:#234057;--shadow:0 22px 65px rgba(0,0,0,.34)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 10% -10%,#124f61 0,transparent 32rem),
+ radial-gradient(circle at 100% 5%,#3a235a 0,transparent 35rem),
+ linear-gradient(#071019,#08131d 58%,#071019);color:var(--ink);
+ font:16px/1.58 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--cyan);font-weight:800}.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+.hero{padding:64px 0 38px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:480px;height:480px;border:1px solid #58e4ff24;border-radius:50%;right:-170px;top:-180px;box-shadow:0 0 0 55px #58e4ff09,0 0 0 110px #58e4ff05}
+.eyebrow,.pill{display:inline-flex;align-items:center;border-radius:999px;padding:.42rem .72rem;font-weight:950}
+.eyebrow{background:#102d3a;border:1px solid #2e6778;color:#8defff}.pill{background:#ffffff08;border:1px solid #ffffff16;color:#e8f5fb}
+h1{font-size:clamp(2.5rem,6vw,5.3rem);line-height:.96;letter-spacing:-.052em;max-width:1050px;margin:.8rem 0}
+h1 em{font-style:normal;color:var(--lime)}
+.lead{font-size:clamp(1.06rem,2vw,1.25rem);max-width:920px;color:#d6e7f2}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+nav{position:sticky;top:0;z-index:30;background:#071019e8;border-block:1px solid #ffffff14;backdrop-filter:blur(12px)}
+nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0}
+nav a{text-decoration:none;color:white;white-space:nowrap;border:1px solid #ffffff18;border-radius:999px;padding:.45rem .7rem}
+main{padding:18px 0 60px}
+section{margin:17px 0;padding:clamp(18px,3vw,30px);border-radius:25px;background:linear-gradient(180deg,#0d1a27f2,#0a1621f2);border:1px solid var(--line);box-shadow:var(--shadow)}
+section.accent{background:linear-gradient(135deg,#123244,#18213e)}
+h2{font-size:clamp(1.55rem,3vw,2.4rem);line-height:1.13;margin:.1rem 0 .8rem}
+h3{color:#d9f6ff}.time{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:950}
+.grid2,.grid3,.grid4,.grid6{display:grid;gap:13px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.grid6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:#ffffff07;border:1px solid #ffffff14;border-radius:17px;padding:16px}
+.case{background:#08131c;border-left:5px solid var(--cyan);border-radius:0 16px 16px 0;padding:15px 17px}
+.case.lime{border-left-color:var(--lime)}.case.amber{border-left-color:var(--amber)}.case.red{border-left-color:var(--red)}
+.small,.muted{color:var(--muted)}.small{font-size:.9rem}
+.bigstat{font-size:clamp(2.2rem,6vw,4.4rem);font-weight:950;letter-spacing:-.05em;color:var(--cyan);line-height:1}
+.statlabel{margin-top:.4rem;color:#c9d9e3}
+.btn{appearance:none;border:0;border-radius:13px;min-height:44px;padding:.74rem .95rem;background:var(--cyan);color:#041016;font:inherit;font-weight:950;cursor:pointer;transition:.18s transform,.18s filter}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}.btn.alt{background:#ffffff09;color:#fff;border:1px solid #ffffff20}
+.btn.lime{background:var(--lime);color:#0b1805}.btn.violet{background:var(--violet);color:#100b1b}
+.btn.sel{outline:3px solid var(--amber);outline-offset:2px}
+.feedback{margin-top:10px;min-height:48px;background:#061018;border:1px solid #ffffff12;border-radius:13px;padding:11px 13px}
+.feedback.ok{background:#0b2518;border-color:#7ae3a56b}.feedback.warn{background:#2a220c;border-color:#ffd1666b}.feedback.bad{background:#291018;border-color:#ff6b7a6b}
+.dataBars{display:grid;gap:9px;margin-top:14px}.barrow{display:grid;grid-template-columns:150px 1fr 72px;gap:10px;align-items:center}
+.bar{height:15px;background:#ffffff11;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:inherit}
+.skill{display:grid;grid-template-columns:1fr 180px 44px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff0d}
+.skill input{width:100%}.skillval{text-align:center;font-weight:950;color:var(--amber)}
+.totalbox{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#08131c;border:1px solid #ffffff18;border-radius:15px;padding:13px 15px;margin-top:12px}
+.totalbig{font-size:2rem;font-weight:950}.shock{position:relative;overflow:hidden}.shock:before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--red),var(--amber),var(--lime))}
+.shockScore{font-size:2.2rem;font-weight:950;color:var(--amber)}
+.matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.matrix .card{min-height:160px}
+.scenarioChoice{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.budgetRow{display:grid;grid-template-columns:1.25fr 130px 55px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff0c}
+.budgetRow input{width:100%}.budgetVal{font-weight:950;color:var(--amber);text-align:center}
+.gauge{height:14px;background:#ffffff10;border-radius:999px;overflow:hidden}.gauge span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--amber),var(--lime));transition:.3s}
+.badgeMini{display:inline-block;padding:.28rem .5rem;border-radius:999px;background:#ffffff0b;border:1px solid #ffffff16;font-size:.8rem;font-weight:900}
+.localGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
+.localStat{background:linear-gradient(180deg,#0b2330,#0a1722);border:1px solid #28566b;border-radius:17px;padding:16px}
+.localStat strong{display:block;font-size:clamp(1.8rem,4vw,3rem);line-height:1;color:var(--lime);letter-spacing:-.04em;margin-bottom:7px}
+.cityAlloc{display:grid;gap:10px;margin-top:12px}
+.cityRow{display:grid;grid-template-columns:1.25fr 180px 48px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #ffffff0d}
+.cityRow input{width:100%}
+.cityVal{text-align:center;font-weight:950;color:var(--amber)}
+.cityScore{font-size:clamp(2.2rem,5vw,4rem);font-weight:950;color:var(--lime);letter-spacing:-.04em}
+@media(max-width:900px){.localGrid{grid-template-columns:repeat(2,1fr)}.cityRow{grid-template-columns:1fr}}
+@media(max-width:650px){.localGrid{grid-template-columns:1fr}}
+
+.theory details{background:#ffffff06;border:1px solid #ffffff14;border-radius:14px;padding:12px 14px;margin:9px 0}
+.theory summary{font-weight:950;cursor:pointer}
+.quizq{background:#ffffff06;border:1px solid #ffffff15;border-radius:16px;padding:15px;margin:13px 0}.quizq label{display:block;padding:6px 0}
+input,select,textarea{background:#061018;color:var(--ink);border:1px solid #385068;border-radius:11px;padding:.68rem;font:inherit;min-height:44px}
+textarea{width:100%;min-height:95px}.hidden{display:none!important}.result{border:2px solid #7ee2a866;background:#0b2418}
+.scoreBig{font-size:clamp(2.6rem,7vw,5rem);font-weight:950;color:var(--lime)}
+footer{border-top:1px solid #ffffff14;padding:28px 0 42px;color:var(--muted)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+@media(max-width:900px){.grid4,.grid6{grid-template-columns:repeat(2,1fr)}.skill,.budgetRow{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 62px}}
+@media(max-width:650px){.grid2,.grid3,.grid4,.grid6,.matrix{grid-template-columns:1fr}.hero{padding-top:42px}section{padding:17px}nav .wrap{padding-inline:14px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{nav,.btn{display:none!important}body{background:#fff;color:#111}.hero,section,.card,.quizq{background:#fff!important;color:#111!important;box-shadow:none;border-color:#bbb}.muted,.small{color:#555}.wrap{width:100%}}
+
+/* ===== ЯСКРАВИЙ REDESIGN v2 ===== */
+:root{
+  --bg:#07111f;
+  --panel:#10233d;
+  --panel2:#162c49;
+  --ink:#f8fbff;
+  --muted:#c2d2df;
+  --cyan:#4ee8ff;
+  --lime:#b8ff63;
+  --amber:#ffd45f;
+  --red:#ff668b;
+  --violet:#bc8cff;
+  --orange:#ff9e52;
+  --pink:#ff77c8;
+  --blue:#58a6ff;
+  --line:#3b668a;
+  --shadow:0 22px 60px rgba(0,0,0,.28);
+}
+body{
+  background:
+    radial-gradient(circle at 5% 2%,rgba(78,232,255,.28),transparent 25rem),
+    radial-gradient(circle at 95% 8%,rgba(255,119,200,.22),transparent 27rem),
+    radial-gradient(circle at 50% 95%,rgba(184,255,99,.12),transparent 35rem),
+    linear-gradient(160deg,#081323 0%,#0b1830 44%,#12152d 100%);
+}
+.hero{
+  padding:72px 0 44px;
+  background:
+    linear-gradient(135deg,rgba(78,232,255,.14),rgba(188,140,255,.11) 45%,rgba(255,158,82,.10));
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:240px;height:240px;
+  left:-80px;bottom:-120px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(184,255,99,.28),transparent 68%);
+  filter:blur(2px);
+}
+.hero:after{
+  width:520px;height:520px;
+  border-color:rgba(78,232,255,.20);
+  box-shadow:
+    0 0 0 55px rgba(188,140,255,.06),
+    0 0 0 110px rgba(255,119,200,.035);
+}
+.eyebrow{
+  background:linear-gradient(90deg,rgba(78,232,255,.18),rgba(188,140,255,.22));
+  border:1px solid rgba(125,225,255,.48);
+  color:#d9fbff;
+  box-shadow:0 8px 28px rgba(78,232,255,.12);
+}
+.pill{
+  background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.055));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+h1{
+  text-shadow:0 8px 32px rgba(0,0,0,.28);
+}
+h1 em{
+  background:linear-gradient(90deg,var(--lime),var(--cyan),#fff27d);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+nav{
+  background:rgba(7,17,31,.82);
+  border-block-color:rgba(111,219,255,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+nav a{
+  background:rgba(255,255,255,.055);
+}
+nav a:hover{
+  background:linear-gradient(90deg,rgba(78,232,255,.22),rgba(188,140,255,.18));
+  border-color:rgba(92,225,255,.52);
+}
+section{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(18,39,64,.96),rgba(10,24,41,.96));
+  border:1px solid rgba(87,151,198,.45);
+  box-shadow:0 22px 70px rgba(1,7,17,.30);
+}
+section:before{
+  content:"";
+  position:absolute;
+  inset:0 auto auto 0;
+  width:100%;height:4px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink),var(--amber));
+  opacity:.9;
+}
+section.accent{
+  background:
+    radial-gradient(circle at 0 0,rgba(78,232,255,.11),transparent 25rem),
+    linear-gradient(135deg,rgba(18,56,77,.98),rgba(32,32,74,.97));
+}
+#paradox{background:linear-gradient(135deg,rgba(11,64,85,.96),rgba(25,35,72,.96))}
+#data{background:linear-gradient(135deg,rgba(15,46,84,.96),rgba(26,36,61,.96))}
+#zap{background:
+  radial-gradient(circle at 100% 0,rgba(255,209,102,.13),transparent 23rem),
+  linear-gradient(135deg,rgba(25,45,77,.98),rgba(53,31,72,.98))}
+#engine{background:
+  radial-gradient(circle at 0 20%,rgba(184,255,99,.10),transparent 25rem),
+  linear-gradient(135deg,rgba(18,49,61,.98),rgba(28,35,73,.98))}
+#detective{background:linear-gradient(135deg,rgba(38,32,76,.97),rgba(20,47,68,.97))}
+#budget{background:
+  radial-gradient(circle at 100% 50%,rgba(255,119,200,.10),transparent 25rem),
+  linear-gradient(135deg,rgba(27,39,75,.97),rgba(19,49,61,.97))}
+#theory{background:linear-gradient(135deg,rgba(18,40,61,.98),rgba(35,28,63,.98))}
+#final{background:
+  radial-gradient(circle at 15% 15%,rgba(184,255,99,.11),transparent 18rem),
+  linear-gradient(135deg,rgba(31,49,70,.98),rgba(48,29,71,.98))}
+#home{background:linear-gradient(135deg,rgba(14,42,58,.98),rgba(27,34,67,.98))}
+.card{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.045));
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 14px 32px rgba(2,8,18,.18);
+  backdrop-filter:blur(8px);
+}
+.card:hover{
+  border-color:rgba(101,224,255,.35);
+}
+.bigstat{
+  background:linear-gradient(90deg,#7cf4ff,#b8ff63);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.localStat{
+  background:
+    radial-gradient(circle at 100% 0,rgba(255,209,102,.16),transparent 10rem),
+    linear-gradient(145deg,rgba(14,52,74,.98),rgba(22,35,65,.98));
+  border:1px solid rgba(99,222,255,.34);
+  box-shadow:0 18px 35px rgba(3,10,24,.20);
+}
+.localStat:nth-child(2){
+  background:
+    radial-gradient(circle at 100% 0,rgba(188,140,255,.18),transparent 10rem),
+    linear-gradient(145deg,rgba(38,38,81,.98),rgba(18,41,66,.98));
+}
+.localStat:nth-child(3){
+  background:
+    radial-gradient(circle at 100% 0,rgba(184,255,99,.16),transparent 10rem),
+    linear-gradient(145deg,rgba(22,58,53,.98),rgba(17,38,63,.98));
+}
+.localStat:nth-child(4){
+  background:
+    radial-gradient(circle at 100% 0,rgba(255,119,200,.16),transparent 10rem),
+    linear-gradient(145deg,rgba(55,32,67,.98),rgba(18,42,66,.98));
+}
+.localStat strong{
+  background:linear-gradient(90deg,var(--lime),var(--cyan));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.case{
+  background:
+    linear-gradient(90deg,rgba(78,232,255,.09),rgba(255,255,255,.025));
+  border-left-width:6px;
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.case.lime{background:linear-gradient(90deg,rgba(184,255,99,.10),rgba(255,255,255,.025))}
+.case.amber{background:linear-gradient(90deg,rgba(255,212,95,.11),rgba(255,255,255,.025))}
+.case.red{background:linear-gradient(90deg,rgba(255,102,139,.11),rgba(255,255,255,.025))}
+.btn{
+  background:linear-gradient(135deg,#58e4ff,#74b8ff);
+  box-shadow:0 10px 24px rgba(68,190,255,.18);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(68,190,255,.25);
+}
+.btn.alt{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));
+  border:1px solid rgba(255,255,255,.22);
+}
+.btn.alt:hover{
+  border-color:rgba(103,226,255,.45);
+}
+.btn.lime{
+  background:linear-gradient(135deg,#c8ff78,#7ef0b0);
+  box-shadow:0 10px 24px rgba(168,255,120,.14);
+}
+.btn.violet{
+  background:linear-gradient(135deg,#c9a8ff,#ff8fce);
+  box-shadow:0 10px 24px rgba(191,141,255,.17);
+}
+.feedback{
+  background:linear-gradient(145deg,rgba(1,9,18,.72),rgba(16,31,48,.78));
+  border-color:rgba(255,255,255,.14);
+}
+.feedback.ok{
+  background:linear-gradient(90deg,rgba(46,156,104,.22),rgba(8,35,28,.88));
+}
+.feedback.warn{
+  background:linear-gradient(90deg,rgba(212,160,35,.21),rgba(42,34,12,.88));
+}
+.feedback.bad{
+  background:linear-gradient(90deg,rgba(211,66,100,.22),rgba(44,15,26,.88));
+}
+.bar{
+  height:18px;
+  background:rgba(255,255,255,.09);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.25);
+}
+.bar span{
+  background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));
+}
+.skill,.budgetRow,.cityRow{
+  border-bottom-color:rgba(255,255,255,.085);
+}
+input[type=range]{
+  accent-color:var(--cyan);
+}
+.totalbox{
+  background:
+    linear-gradient(135deg,rgba(78,232,255,.10),rgba(188,140,255,.08));
+  border-color:rgba(91,212,255,.25);
+}
+.totalbig{
+  background:linear-gradient(90deg,var(--amber),#fff0a0);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.shock{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.115),rgba(255,255,255,.045));
+}
+.shock:nth-child(1):before{background:linear-gradient(90deg,#ff9e52,#ffd166)}
+.shock:nth-child(2):before{background:linear-gradient(90deg,#58e4ff,#bc8cff)}
+.shock:nth-child(3):before{background:linear-gradient(90deg,#b8ff63,#58e4ff)}
+.shock:nth-child(4):before{background:linear-gradient(90deg,#ff668b,#bc8cff)}
+.shockScore,.cityScore{
+  background:linear-gradient(90deg,var(--amber),var(--lime));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.badgeMini{
+  background:linear-gradient(90deg,rgba(78,232,255,.14),rgba(188,140,255,.14));
+  border-color:rgba(119,220,255,.23);
+}
+.gauge,.progress{
+  height:16px;
+  background:rgba(255,255,255,.10);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.25);
+}
+.gauge span,.progress span{
+  background:linear-gradient(90deg,var(--red),var(--amber),var(--lime),var(--cyan));
+}
+.theory details{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
+  border-color:rgba(255,255,255,.15);
+}
+.theory details[open]{
+  border-color:rgba(92,223,255,.32);
+  box-shadow:0 8px 24px rgba(3,12,25,.15);
+}
+.quizq{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
+  border-color:rgba(255,255,255,.15);
+}
+input,select,textarea{
+  background:rgba(3,11,20,.74);
+  border-color:rgba(96,165,211,.46);
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(78,232,255,.10);
+}
+.result{
+  background:
+    radial-gradient(circle at 100% 0,rgba(184,255,99,.16),transparent 16rem),
+    linear-gradient(145deg,rgba(17,69,51,.92),rgba(10,38,40,.96));
+  border-color:rgba(184,255,99,.45);
+}
+.scoreBig{
+  background:linear-gradient(90deg,var(--lime),var(--cyan),#fff39a);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+@media(max-width:650px){
+  .hero{padding-top:48px}
+  h1{font-size:clamp(2.35rem,12vw,3.8rem)}
+  .bigstat{font-size:2.6rem}
+  section{border-radius:20px}
+}
+
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+<span class="eyebrow">Професії • 9–11 класи • тема №7 • 40 хв</span>
+<h1>РИНОК ПРАЦІ: <em>РЕЖИМ ТУРБУЛЕНТНОСТІ</em></h1>
+<p class="lead">Робота є. Люди без роботи теж є. Зарплати ростуть. Роботодавці скаржаться на нестачу кадрів. Наче економіка одночасно натиснула газ, гальма і кнопку «а тепер розберіться самі».</p>
+<div class="chips"><span class="pill">усі класи — однакові завдання</span><span class="pill">симуляція економічних шоків</span><span class="pill">12 балів навичок</span><span class="pill">100 кредитів адаптації</span><span class="pill">мінімум лекції</span></div>
+<p class="small">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</p>
+</div></header>
+
+<nav><div class="wrap">
+<a href="#paradox">Парадокс</a><a href="#data">Україна</a><a href="#zap">Запоріжжя</a><a href="#engine">Симулятор</a><a href="#detective">Безробіття</a><a href="#budget">100 кредитів</a><a href="#theory">Матеріал</a><a href="#final">Фінал</a><a href="#home">Д/З + тест</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="paradox" class="accent">
+<div class="time">0–3 хв • проблема</div>
+<h2>236 000 робочих пропозицій. 170 000 шукачів. Чому безробіття не зникає?</h2>
+<div class="grid3">
+<div class="card"><div class="bigstat">236 тис.</div><div class="statlabel">пропозицій роботи на Єдиному порталі вакансій станом на 1.09.2026</div></div>
+<div class="card"><div class="bigstat">170 тис.</div><div class="statlabel">шукачів роботи, які звернулися по допомогу до служби зайнятості</div></div>
+<div class="card"><div class="bigstat">14 : 10</div><div class="statlabel">у середньому стільки пропозицій роботи припадало на 10 шукачів</div></div>
+</div>
+<p><b>Ваше завдання:</b> за 40 секунд придумайте щонайменше <b>три причини</b>, чому «вакансій більше, ніж шукачів» не означає «кожен миттєво знайде роботу».</p>
+<div class="scenarioChoice">
+<button class="btn alt paradoxBtn" data-k="skills">Не ті навички</button>
+<button class="btn alt paradoxBtn" data-k="place">Не той регіон</button>
+<button class="btn alt paradoxBtn" data-k="pay">Не підходять умови</button>
+<button class="btn alt paradoxBtn" data-k="all">Усе разом</button>
+</div>
+<div id="paradoxFb" class="feedback">Оберіть найсильніше пояснення.</div>
+<p class="small">Дані: Державна служба зайнятості, «Основні тренди ринку праці у 2026 році».</p>
+</section>
+
+<section id="data">
+<div class="time">3–7 хв • детектив даних</div>
+<h2>Україна — один ринок праці? Не зовсім.</h2>
+<p class="muted">Національна середня приховує різкі регіональні й професійні відмінності. Подивіться на умовно масштабовану схему за офіційними співвідношеннями ДСЗ.</p>
+<div class="dataBars">
+<div class="barrow"><b>Київ</b><div class="bar"><span style="width:100%"></span></div><span>17 : 1</span></div>
+<div class="barrow"><b>Львівщина</b><div class="bar"><span style="width:12%"></span></div><span>2 : 1</span></div>
+<div class="barrow"><b>Дніпропетровщина</b><div class="bar"><span style="width:12%"></span></div><span>2 : 1</span></div>
+<div class="barrow"><b>Донеччина</b><div class="bar"><span style="width:1%"></span></div><span>1 : 6*</span></div>
+</div>
+<p class="small">*У Донецькій області шукачів було приблизно у шість разів більше, ніж пропозицій роботи. Схема показує співвідношення, а не абсолютну кількість.</p>
+
+<div class="grid3" style="margin-top:14px">
+<button class="btn alt dataBtn" data-v="wrong1">Отже, проблема лише в кількості робочих місць</button>
+<button class="btn alt dataBtn" data-v="right">Місце, навички та структура попиту можуть не збігатися з пропозицією праці</button>
+<button class="btn alt dataBtn" data-v="wrong2">Отже, треба всім переїхати до Києва</button>
+</div>
+<div id="dataFb" class="feedback">Який висновок дані справді дозволяють зробити?</div>
+</section>
+
+<section id="zap" class="accent">
+<div class="time">7–14 хв • локальний раунд</div>
+<h2>Запоріжжя 2026: коли ринок праці змінюють не підручники, а війна, люди й підприємства</h2>
+<p class="muted">Тепер забудьте середню температуру по Україні. Ви — команда, яка має подумати саме про <b>Запоріжжя</b>.</p>
+
+<div class="localGrid">
+<div class="localStat"><strong>161 227</strong><span>ВПО перебували у Запоріжжі станом на 28 квітня 2026 року. Це різко змінює і пропозицію праці, і потреби міста.</span></div>
+<div class="localStat"><strong>4 710</strong><span>ВПО скористалися послугами служби зайнятості з початку 2026 року до серпня.</span></div>
+<div class="localStat"><strong>1 466</strong><span>ВПО були працевлаштовані за сприяння Запорізької служби зайнятості до 11 серпня 2026 року.</span></div>
+<div class="localStat"><strong>500+</strong><span>підприємств перемістилися до Запоріжжя від початку повномасштабної війни; міська влада повідомляла приблизно про тисячу створених ними робочих місць.</span></div>
+</div>
+
+<div class="case amber">
+<b>Ще один сигнал:</b> з 1 вересня 2026 року у програмі «Власна справа» для проєктів у прифронтових регіонах передбачено додатковий бонус <b>+30%</b> до розміру гранту за визначених умов. Тобто держава буквально намагається стимулювати економічну активність там, де ризик вищий.
+</div>
+
+<h3>Задача: куди Запоріжжю вкладати людський капітал?</h3>
+<p>У Вас є <b>10 балів ресурсу</b>. Розподіліть їх між напрямами. Це не бюджет міста, а модель: де, на Вашу думку, особливо важливо збільшувати кількість підготовлених людей у найближчі роки?</p>
+
+<div class="card cityAlloc">
+<div class="cityRow"><b>Промисловість, інженерія, ремонт обладнання</b><input class="cityRange" id="zIndustry" type="range" min="0" max="5" value="2"><span class="cityVal" id="zvIndustry">2</span></div>
+<div class="cityRow"><b>Будівництво, відновлення, міська інфраструктура</b><input class="cityRange" id="zRebuild" type="range" min="0" max="5" value="2"><span class="cityVal" id="zvRebuild">2</span></div>
+<div class="cityRow"><b>Медицина, освіта, соціальні та реабілітаційні послуги</b><input class="cityRange" id="zSocial" type="range" min="0" max="5" value="2"><span class="cityVal" id="zvSocial">2</span></div>
+<div class="cityRow"><b>Малий бізнес і локальні послуги</b><input class="cityRange" id="zBusiness" type="range" min="0" max="5" value="2"><span class="cityVal" id="zvBusiness">2</span></div>
+<div class="cityRow"><b>Цифрові професії та робота на зовнішній ринок</b><input class="cityRange" id="zDigital" type="range" min="0" max="5" value="2"><span class="cityVal" id="zvDigital">2</span></div>
+<div class="totalbox"><span>Розподілено</span><span class="totalbig" id="zapTotal">10 / 10</span></div>
+</div>
+
+<button class="btn lime" id="zapStress" style="margin-top:12px">Запустити запорізький стрес-тест</button>
+<div id="zapResult" class="feedback">Система перевірить, наскільки Ваш розподіл витримує кілька одночасних змін.</div>
+
+<div class="grid4" style="margin-top:14px">
+<div class="card"><span class="badgeMini">СЦЕНАРІЙ A</span><h3>Ще більше ВПО</h3><p>Місто приймає нову хвилю людей. Зростає і пропозиція праці, і попит на житло, освіту, медицину, транспорт та послуги.</p></div>
+<div class="card"><span class="badgeMini">СЦЕНАРІЙ B</span><h3>Релокація виробництва</h3><p>До міста переміщується ще кілька підприємств. Робочі місця виникають швидше, ніж система освіти встигає готувати кадри.</p></div>
+<div class="card"><span class="badgeMini">СЦЕНАРІЙ C</span><h3>Відновлення</h3><p>Зростає масштаб ремонтів житла, мереж, комунальної та виробничої інфраструктури.</p></div>
+<div class="card"><span class="badgeMini">СЦЕНАРІЙ D</span><h3>Безпековий шок</h3><p>Частина бізнесів скорочує присутність, зате зростає значення мобільності, дистанційної роботи та здатності швидко змінювати спеціалізацію.</p></div>
+</div>
+
+<div class="case lime" style="margin-top:14px">
+<b>Питання без однієї правильної відповіді:</b> чи варто школяреві в Запоріжжі будувати професійну траєкторію насамперед під потреби свого регіону — чи навпаки, свідомо формувати навички, які легко «переносяться» між містами й країнами? Дайте <b>2 аргументи за одну позицію і 1 сильний контраргумент</b>.
+</div>
+
+<p class="small">Джерела: Запорізька міська рада та Запорізький обласний центр зайнятості, дані 2026 року. Числа описують різні зрізи й не складаються між собою як одна статистична вибірка.</p>
+</section>
+
+<section id="engine">
+<div class="time">14–23 хв • головна симуляція</div>
+<h2>Ваш професійний портфель: 12 балів, 6 типів навичок</h2>
+<p>Уявіть, що Ви не обираєте «одну професію назавжди», а збираєте <b>портфель здатностей</b>. Розподіліть рівно <b>12 балів</b>. Максимум 4 у кожну категорію.</p>
+
+<div class="card">
+<div class="skill"><b>Технічні / інженерні</b><input class="skillRange" id="sTech" type="range" min="0" max="4" value="2"><span class="skillval" id="vTech">2</span></div>
+<div class="skill"><b>Цифрові та ШІ</b><input class="skillRange" id="sDigital" type="range" min="0" max="4" value="2"><span class="skillval" id="vDigital">2</span></div>
+<div class="skill"><b>Комунікація / робота з людьми</b><input class="skillRange" id="sPeople" type="range" min="0" max="4" value="2"><span class="skillval" id="vPeople">2</span></div>
+<div class="skill"><b>Практичні / робітничі</b><input class="skillRange" id="sTrade" type="range" min="0" max="4" value="2"><span class="skillval" id="vTrade">2</span></div>
+<div class="skill"><b>Мови / мобільність</b><input class="skillRange" id="sMobility" type="range" min="0" max="4" value="2"><span class="skillval" id="vMobility">2</span></div>
+<div class="skill"><b>Навчання / адаптивність</b><input class="skillRange" id="sLearn" type="range" min="0" max="4" value="2"><span class="skillval" id="vLearn">2</span></div>
+<div class="totalbox"><span>Використано балів</span><span class="totalbig" id="skillTotal">12 / 12</span></div>
+</div>
+
+<h3 style="margin-top:20px">Тепер — економіка починає бешкетувати</h3>
+<div class="grid4">
+<div class="card shock">
+<span class="badgeMini">ШОК 1</span><h3>Відбудова</h3>
+<p>Різко зростає потреба в інфраструктурі, енергетиці, будівництві, ремонті, логістиці.</p>
+<button class="btn alt shockBtn" data-shock="rebuild">Перевірити мій портфель</button>
+<div class="shockScore" id="score-rebuild">—</div>
+</div>
+<div class="card shock">
+<span class="badgeMini">ШОК 2</span><h3>ШІ-автоматизація</h3>
+<p>Частина рутинних інформаційних задач автоматизується, але зростає цінність тих, хто вміє керувати інструментами й перевіряти результат.</p>
+<button class="btn alt shockBtn" data-shock="ai">Перевірити мій портфель</button>
+<div class="shockScore" id="score-ai">—</div>
+</div>
+<div class="card shock">
+<span class="badgeMini">ШОК 3</span><h3>Дефіцит людей</h3>
+<p>Демографічні зміни, міграція та мобілізація зменшують пропозицію праці. Компанії конкурують за людей.</p>
+<button class="btn alt shockBtn" data-shock="shortage">Перевірити мій портфель</button>
+<div class="shockScore" id="score-shortage">—</div>
+</div>
+<div class="card shock">
+<span class="badgeMini">ШОК 4</span><h3>Регіональний розрив</h3>
+<p>Ваші навички потрібні — але не там, де Ви живете. Дистанційної роботи для цього напряму майже немає.</p>
+<button class="btn alt shockBtn" data-shock="region">Перевірити мій портфель</button>
+<div class="shockScore" id="score-region">—</div>
+</div>
+</div>
+
+<div id="shockFb" class="feedback">Після кожного шоку дозволено перерозподілити максимум 2 бали. Подумайте: що Ви підсилюєте і чим жертвуєте?</div>
+</section>
+
+<section id="detective">
+<div class="time">23–28 хв • лабораторія безробіття</div>
+<h2>Чотири людини без роботи. Але причини різні.</h2>
+<p class="muted">Визначте тип ситуації. Спочатку — інтуїтивно. Терміни розберемо після.</p>
+<div class="matrix">
+<div class="card"><h3>А. «Між двома роботами»</h3><p>Людина сама звільнилася, переїхала й уже проходить співбесіди.</p><div class="scenarioChoice"><button class="btn alt uBtn" data-case="a" data-v="friction">Фрикційне</button><button class="btn alt uBtn" data-case="a" data-v="struct">Структурне</button><button class="btn alt uBtn" data-case="a" data-v="cycle">Циклічне</button></div><div id="u-a" class="feedback"></div></div>
+<div class="card"><h3>Б. «Моя професія змінилася»</h3><p>Підприємства шукають працівників, але потрібні вже інші технологічні навички, яких людина не має.</p><div class="scenarioChoice"><button class="btn alt uBtn" data-case="b" data-v="friction">Фрикційне</button><button class="btn alt uBtn" data-case="b" data-v="struct">Структурне</button><button class="btn alt uBtn" data-case="b" data-v="cycle">Циклічне</button></div><div id="u-b" class="feedback"></div></div>
+<div class="card"><h3>В. «Економіка просіла»</h3><p>Попит на товари падає, підприємства скорочують виробництво й персонал у багатьох сферах.</p><div class="scenarioChoice"><button class="btn alt uBtn" data-case="c" data-v="friction">Фрикційне</button><button class="btn alt uBtn" data-case="c" data-v="struct">Структурне</button><button class="btn alt uBtn" data-case="c" data-v="cycle">Циклічне</button></div><div id="u-c" class="feedback"></div></div>
+<div class="card"><h3>Г. «Є робота, але далеко»</h3><p>У регіоні людини робочих місць мало, а в іншій області — дефіцит працівників тієї самої спеціальності.</p><div class="scenarioChoice"><button class="btn alt uBtn" data-case="d" data-v="friction">Фрикційне</button><button class="btn alt uBtn" data-case="d" data-v="struct">Структурне</button><button class="btn alt uBtn" data-case="d" data-v="cycle">Циклічне</button></div><div id="u-d" class="feedback"></div></div>
+</div>
+</section>
+
+<section id="budget">
+<div class="time">28–33 хв • 100 кредитів адаптації</div>
+<h2>У Вас 100 кредитів. Купіть собі стійкість.</h2>
+<p>Не гроші — <b>ресурс часу, уваги й зусиль</b>. Ви не можете прокачати все. Розподіліть максимум 100.</p>
+<div class="card">
+<div class="budgetRow"><b>Поглибити основну спеціалізацію</b><input class="budgetRange" id="bSpec" type="range" min="0" max="50" step="5" value="20"><span class="budgetVal" id="bvSpec">20</span></div>
+<div class="budgetRow"><b>Освоїти суміжну навичку</b><input class="budgetRange" id="bAdjacent" type="range" min="0" max="50" step="5" value="20"><span class="budgetVal" id="bvAdjacent">20</span></div>
+<div class="budgetRow"><b>Цифрові інструменти / ШІ</b><input class="budgetRange" id="bAI" type="range" min="0" max="50" step="5" value="15"><span class="budgetVal" id="bvAI">15</span></div>
+<div class="budgetRow"><b>Мови / мобільність</b><input class="budgetRange" id="bMove" type="range" min="0" max="50" step="5" value="15"><span class="budgetVal" id="bvMove">15</span></div>
+<div class="budgetRow"><b>Професійні контакти / репутація</b><input class="budgetRange" id="bNet" type="range" min="0" max="50" step="5" value="15"><span class="budgetVal" id="bvNet">15</span></div>
+<div class="budgetRow"><b>Фінансова подушка для переходу</b><input class="budgetRange" id="bBuffer" type="range" min="0" max="50" step="5" value="15"><span class="budgetVal" id="bvBuffer">15</span></div>
+<div class="totalbox"><span>Витрачено</span><span class="totalbig" id="budgetTotal">100 / 100</span></div>
+</div>
+<button class="btn lime" id="calcStrategy" style="margin-top:12px">Стрес-тест моєї стратегії</button>
+<div style="margin-top:12px"><div class="gauge"><span id="strategyBar"></span></div></div>
+<div id="strategyFb" class="feedback">Система оцінить не «правильність професії», а стійкість Вашої стратегії до різних змін.</div>
+</section>
+
+<section id="theory" class="theory">
+<div class="time">33–37 хв • тепер даємо назви тому, що вже побачили</div>
+<h2>Коротко: як насправді працює ринок праці</h2>
+<details open><summary>1. Ринок праці — це не список професій</summary><p>Це взаємодія попиту роботодавців на працю та пропозиції людей, які можуть і хочуть працювати. Важливі не лише кількість людей і місць, а й навички, регіон, зарплата, умови, мобільність та швидкість змін.</p></details>
+<details><summary>2. Структурне безробіття — головна пастка парадоксу «робота є, людей бракує»</summary><p>Робочі місця можуть існувати, але навички або місце проживання шукачів не відповідають тому, що реально потрібно. ДСЗ у 2026 році прямо відзначає загострення структурного безробіття та дефіцит кваліфікованих кадрів.</p></details>
+<details><summary>3. Фрикційне безробіття не означає кризу</summary><p>Людина може коротко бути без роботи через перехід, переїзд, пошук кращого місця або перше працевлаштування.</p></details>
+<details><summary>4. Циклічне безробіття пов’язане зі спадом економічної активності</summary><p>Коли попит на товари й послуги падає, бізнес скорочує виробництво і працівників. Це вже не проблема окремої професії, а ширшого економічного циклу.</p></details>
+<details><summary>5. Найстійкіша кар’єрна стратегія — не «вгадати професію назавжди»</summary><p>Стійкість дає комбінація: сильна базова спеціалізація + суміжні навички + здатність до навчання + розуміння змін ринку. Міжнародна організація праці серед ключових викликів України у 2026–2029 роках називає дефіцит праці, невідповідність навичок, демографічні зміни й потребу в розвитку компетентностей.</p></details>
+</section>
+
+<section id="final" class="accent">
+<div class="time">37–40 хв • фінал</div>
+<h2>Ви не повинні передбачити 2035 рік. Ви повинні не розсипатися, коли прогноз не справдиться.</h2>
+<div class="grid3">
+<div class="card"><b>Твердження</b><textarea id="cerC" placeholder="Моя професійна стратегія має бути…"></textarea></div>
+<div class="card"><b>Доказ</b><textarea id="cerE" placeholder="Який результат симуляції або факт це підтверджує?"></textarea></div>
+<div class="card"><b>Корекція</b><textarea id="cerR" placeholder="Що я зміню, якщо ринок піде іншим шляхом?"></textarea></div>
+</div>
+<button class="btn violet" id="buildCer" style="margin-top:12px">Зібрати фінальне рішення</button>
+<div id="cerOut" class="feedback">Фінальна формула: стратегія → доказ → план Б.</div>
+</section>
+
+<section id="home">
+<h2>Домашнє завдання</h2>
+<p><b>Не шукати вакансії.</b> Оберіть один напрям, який Вам потенційно цікавий, і створіть для нього <b>«антикрихкий профіль»</b>: 3 ключові навички + 2 суміжні + 1 навичка, яка дозволить змінити траєкторію, якщо ринок зміниться. <b>Обов’язково окремим рядком:</b> «Як ця стратегія працює саме для Запоріжжя — і що в ній доведеться змінити, якщо я переїду?»</p>
+<p class="small">Джерела для фактчекінгу: Державна служба зайнятості — статистика і тренди ринку праці; ILO — Decent Work Country Programme Ukraine 2026–2029.</p>
+
+<h3>Тест /10</h3>
+<div id="gate" class="card">
+<label>Ім’я та прізвище<input id="studentName" placeholder="Наприклад: Марія Коваль"></label>
+<label>Клас<input id="studentClass" placeholder="9-Б / 10-А / 11-А"></label>
+<button class="btn" id="startQuiz">Розпочати тест</button>
+<div id="gateError" class="small"></div>
+</div>
+
+<div id="quiz" class="hidden">
+<div class="quizq"><b>1. Чому одночасно можуть існувати багато вакансій і безробіття?</b>
+<label><input type="radio" name="q1" value="a">Бо статистика завжди помилкова.</label>
+<label><input type="radio" name="q1" value="b">Бо навички, місце, умови й потреби роботодавців можуть не збігатися з можливостями шукачів.</label>
+<label><input type="radio" name="q1" value="c">Бо всі безробітні відмовляються працювати.</label></div>
+
+<div class="quizq"><b>2. Людина звільнилася й два тижні шукає кращу роботу. Це найближче до…</b>
+<label><input type="radio" name="q2" value="a">фрикційного безробіття</label>
+<label><input type="radio" name="q2" value="b">структурного</label>
+<label><input type="radio" name="q2" value="c">циклічного</label></div>
+
+<div class="quizq"><b>3. Технології змінили професію, а працівникові бракує нових компетентностей. Це…</b>
+<label><input type="radio" name="q3" value="a">структурне безробіття</label>
+<label><input type="radio" name="q3" value="b">фрикційне</label>
+<label><input type="radio" name="q3" value="c">лише сезонне</label></div>
+
+<div class="quizq"><b>4. Під час загального економічного спаду підприємства масово скорочують людей. Найкращий термін:</b>
+<label><input type="radio" name="q4" value="a">фрикційне</label>
+<label><input type="radio" name="q4" value="b">циклічне</label>
+<label><input type="radio" name="q4" value="c">добровільне навчання</label></div>
+
+<div class="quizq"><b>5. Оберіть УСІ чинники, які можуть створити невідповідність на ринку праці.</b>
+<label><input type="checkbox" name="q5" value="a">Невідповідність навичок</label>
+<label><input type="checkbox" name="q5" value="b">Регіональні відмінності</label>
+<label><input type="checkbox" name="q5" value="c">Зміни технологій</label>
+<label><input type="checkbox" name="q5" value="d">Колір очей працівника</label>
+<label><input type="checkbox" name="q5" value="e">Умови й оплата праці</label></div>
+
+<div class="quizq"><b>6. Оберіть УСІ елементи стійкої професійної стратегії.</b>
+<label><input type="checkbox" name="q6" value="a">Сильна базова компетентність</label>
+<label><input type="checkbox" name="q6" value="b">Здатність навчатися</label>
+<label><input type="checkbox" name="q6" value="c">Суміжні навички</label>
+<label><input type="checkbox" name="q6" value="d">Переконання, що ринок більше ніколи не зміниться</label></div>
+
+<div class="quizq"><b>7. У регіоні мало роботи, але в іншому регіоні є дефіцит фахівців. Якого показника недостатньо для рішення?</b>
+<label><input type="radio" name="q7" value="a">Лише загальної кількості вакансій по країні.</label>
+<label><input type="radio" name="q7" value="b">Назви професії.</label>
+<label><input type="radio" name="q7" value="c">Кольору логотипу компаній.</label></div>
+
+<div class="quizq"><b>8. Що найкраще робити, якщо нова технологія забирає частину рутинних задач?</b>
+<label><input type="radio" name="q8" value="a">Ігнорувати зміни.</label>
+<label><input type="radio" name="q8" value="b">Оцінити, які задачі залишаються цінними, і добудувати компетентності навколо них.</label>
+<label><input type="radio" name="q8" value="c">Одразу відмовитися від професії.</label></div>
+
+<div class="quizq"><b>9. Який висновок з даних ДСЗ є найсильнішим?</b>
+<label><input type="radio" name="q9" value="a">У всіх регіонах ситуація однакова.</label>
+<label><input type="radio" name="q9" value="b">Середній показник по країні може приховувати великі регіональні диспропорції.</label>
+<label><input type="radio" name="q9" value="c">Кількість вакансій повністю описує якість ринку праці.</label></div>
+
+<div class="quizq"><b>10. Яка стратегія найкраще враховує невизначеність?</b>
+<label><input type="radio" name="q10" value="a">Один вузький план без альтернатив.</label>
+<label><input type="radio" name="q10" value="b">Сильна основа, суміжні компетентності, здатність перенавчатися й план корекції.</label>
+<label><input type="radio" name="q10" value="c">Обирати лише професію з найбільшою зарплатою сьогодні.</label></div>
+
+<button class="btn" id="submitQuiz">Завершити тест</button>
+</div>
+<div id="result" class="card result hidden"></div>
+
+<div class="case lime" style="margin-top:18px">
+<b>Перевірені джерела:</b>
+<a href="https://www.dcz.gov.ua/stat/stattrend" target="_blank" rel="noopener">Державна служба зайнятості — тренди ринку праці 2026</a> •
+<a href="https://www.ilo.org/resource/report/decent-work-country-programme-ukraine-2026-2029" target="_blank" rel="noopener">ILO — Decent Work Country Programme Ukraine 2026–2029</a>.
+</div>
+</section>
+
+</main>
+
+<footer><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</div></footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+$$('.paradoxBtn').forEach(b=>b.addEventListener('click',()=>{
+  $$('.paradoxBtn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+  const out=$('#paradoxFb'),k=b.dataset.k;
+  if(k==='all'){out.className='feedback ok';out.textContent='Так. Ринок праці — це не арифметика «1 людина + 1 вакансія». Потрібні збіг навичок, місця, часу, оплати та умов.'}
+  else {out.className='feedback warn';out.textContent='Це справжня причина, але лише одна. Спробуйте побудувати модель із кількох причин одночасно.'}
+}));
+
+$$('.dataBtn').forEach(b=>b.addEventListener('click',()=>{
+  $$('.dataBtn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+  const out=$('#dataFb');
+  if(b.dataset.v==='right'){out.className='feedback ok';out.textContent='Так. Це і є просторово-структурна проблема: національна середня не гарантує збігу конкретної людини з конкретним робочим місцем.'}
+  else {out.className='feedback bad';out.textContent='Надто сильний висновок. Дані показують диспропорції, але не доводять, що існує одна проста причина або одне універсальне рішення.'}
+}));
+
+
+const zapIds=['Industry','Rebuild','Social','Business','Digital'];
+function zapVals(){
+  const o={}; zapIds.forEach(k=>o[k]=+$('#z'+k).value); return o;
+}
+function paintZap(){
+  let total=0;
+  zapIds.forEach(k=>{const v=+$('#z'+k).value; $('#zv'+k).textContent=v; total+=v});
+  $('#zapTotal').textContent=total+' / 10';
+  $('#zapTotal').style.color=total===10?'var(--lime)':'var(--red)';
+}
+$$('.cityRange').forEach(x=>x.addEventListener('input',paintZap)); paintZap();
+
+$('#zapStress').addEventListener('click',()=>{
+  const z=zapVals(), total=Object.values(z).reduce((a,b)=>a+b,0), out=$('#zapResult');
+  if(total!==10){
+    out.className='feedback bad';
+    out.textContent='Розподіліть рівно 10 балів. У реальному місті ресурс теж не безмежний.';
+    return;
+  }
+  const scenarios=[
+    z.Social*3 + z.Business*2 + z.Rebuild*2 + z.Industry + z.Digital,
+    z.Industry*3 + z.Business*2 + z.Digital*2 + z.Rebuild + z.Social,
+    z.Rebuild*3 + z.Industry*2 + z.Social*2 + z.Business + z.Digital,
+    z.Digital*3 + z.Business*2 + z.Social*2 + z.Industry + z.Rebuild
+  ];
+  const min=Math.min(...scenarios), avg=scenarios.reduce((a,b)=>a+b,0)/scenarios.length;
+  const score=Math.round((min*0.65+avg*0.35)/30*100);
+  out.className='feedback '+(score>=66?'ok':score>=50?'warn':'bad');
+  out.innerHTML=`Стійкість Вашої моделі для Запоріжжя: <b>${score}/100</b>. Система сильніше враховує найслабший сценарій. Тепер назвіть <b>один напрям, у який Ви вклали забагато, і один, який недооцінили</b>.`;
+});
+
+const skillIds=['Tech','Digital','People','Trade','Mobility','Learn'];
+function skills(){
+ const o={};skillIds.forEach(k=>o[k]=+$('#s'+k).value);return o;
+}
+function paintSkills(){
+ let total=0;skillIds.forEach(k=>{const v=+$('#s'+k).value;$('#v'+k).textContent=v;total+=v});
+ $('#skillTotal').textContent=total+' / 12';
+ $('#skillTotal').style.color=total===12?'var(--lime)':'var(--red)';
+}
+$$('.skillRange').forEach(x=>x.addEventListener('input',paintSkills));paintSkills();
+
+const weights={
+ rebuild:{Tech:3,Digital:1,People:1,Trade:3,Mobility:1,Learn:2},
+ ai:{Tech:1,Digital:3,People:2,Trade:1,Mobility:1,Learn:3},
+ shortage:{Tech:2,Digital:1,People:3,Trade:3,Mobility:2,Learn:2},
+ region:{Tech:1,Digital:2,People:1,Trade:1,Mobility:4,Learn:2}
+};
+const labels={rebuild:'відбудови',ai:'ШІ-автоматизації',shortage:'дефіциту людей',region:'регіонального розриву'};
+$$('.shockBtn').forEach(b=>b.addEventListener('click',()=>{
+ const s=skills(),total=Object.values(s).reduce((a,b)=>a+b,0),out=$('#shockFb');
+ if(total!==12){out.className='feedback bad';out.textContent='Спершу розподіліть рівно 12 балів. Ринок праці суворий, але бухгалтерія ще суворіша.';return}
+ const w=weights[b.dataset.shock];
+ let raw=0,max=0;skillIds.forEach(k=>{raw+=s[k]*w[k];max+=4*w[k]});
+ const score=Math.round(raw/max*100);
+ $('#score-'+b.dataset.shock).textContent=score+'/100';
+ out.className=score>=62?'feedback ok':score>=48?'feedback warn':'feedback bad';
+ out.innerHTML=`Стійкість до <b>${labels[b.dataset.shock]}</b>: <b>${score}/100</b>. Це навчальна модель, не прогноз. Тепер можна пересунути максимум 2 бали й спробувати підсилити портфель — але не забудьте, що інший шок може покарати надто вузьку стратегію.`;
+}));
+
+const uAns={a:'friction',b:'struct',c:'cycle',d:'struct'};
+const uText={
+ a:'Фрикційне: короткий перехід між місцями роботи або пошук після переїзду.',
+ b:'Структурне: попит є, але потрібен інший набір компетентностей.',
+ c:'Циклічне: причина — широкий спад економічної активності.',
+ d:'Найближче до структурного: є просторове невідповідність попиту та пропозиції.'
+};
+$$('.uBtn').forEach(b=>b.addEventListener('click',()=>{
+ const box=b.parentElement;box.querySelectorAll('.uBtn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+ const out=$('#u-'+b.dataset.case),good=b.dataset.v===uAns[b.dataset.case];
+ out.className='feedback '+(good?'ok':'bad');
+ out.textContent=good?uText[b.dataset.case]:'Не найкраща класифікація. Подивіться, чи проблема в короткому переході, зміні структури попиту чи загальному економічному спаді.';
+}));
+
+const budgetIds=['Spec','Adjacent','AI','Move','Net','Buffer'];
+function budgetVals(){const o={};budgetIds.forEach(k=>o[k]=+$('#b'+k).value);return o}
+function paintBudget(){
+ let total=0;budgetIds.forEach(k=>{const v=+$('#b'+k).value;$('#bv'+k).textContent=v;total+=v});
+ $('#budgetTotal').textContent=total+' / 100';
+ $('#budgetTotal').style.color=total<=100?'var(--lime)':'var(--red)';
+}
+$$('.budgetRange').forEach(x=>x.addEventListener('input',paintBudget));paintBudget();
+
+$('#calcStrategy').addEventListener('click',()=>{
+ const b=budgetVals(),total=Object.values(b).reduce((a,c)=>a+c,0),out=$('#strategyFb');
+ if(total>100){out.className='feedback bad';out.textContent='Перевищено 100 кредитів. Саме в цьому й сенс: ресурс обмежений, доведеться від чогось відмовитися.';$('#strategyBar').style.width='0';return}
+ const scores=[
+   b.Spec*1.5+b.Adjacent*1.3+b.AI*.6+b.Move*.3+b.Net*.7+b.Buffer*.6,
+   b.Spec*.6+b.Adjacent*1.5+b.AI*1.7+b.Move*.5+b.Net*.7+b.Buffer*.6,
+   b.Spec*.8+b.Adjacent*1.0+b.AI*.5+b.Move*1.7+b.Net*1.0+b.Buffer*1.0,
+   b.Spec*.8+b.Adjacent*1.2+b.AI*.8+b.Move*.7+b.Net*.8+b.Buffer*1.7
+ ];
+ const min=Math.min(...scores),avg=scores.reduce((a,c)=>a+c,0)/scores.length;
+ const final=Math.min(100,Math.round((min*.65+avg*.35)/1.45));
+ $('#strategyBar').style.width=final+'%';
+ out.className='feedback '+(final>=70?'ok':final>=52?'warn':'bad');
+ out.innerHTML=`Стійкість стратегії: <b>${final}/100</b>. Найслабший сценарій важить більше за середній: система карає стратегію, яка прекрасна лише за одного майбутнього. ${total<100?`Ви ще не використали ${100-total} кредитів.`:'Ви використали весь ресурс.'}`;
+});
+
+$('#buildCer').addEventListener('click',()=>{
+ const c=$('#cerC').value.trim(),e=$('#cerE').value.trim(),r=$('#cerR').value.trim();
+ $('#cerOut').textContent=(c&&e&&r)?`СТРАТЕГІЯ: ${c} ДОКАЗ: ${e} ПЛАН КОРЕКЦІЇ: ${r}`:'Заповніть усі три поля: стратегія, доказ і корекція.';
+});
+
+function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2 && p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x))}
+$('#startQuiz').addEventListener('click',()=>{
+ if(!validName($('#studentName').value)||!$('#studentClass').value.trim()){$('#gateError').textContent='Введіть ім’я, прізвище та клас.';return}
+ $('#gate').classList.add('hidden');$('#quiz').classList.remove('hidden');
+});
+function one(n,a){const x=document.querySelector(`input[name="${n}"]:checked`);return !!x&&x.value===a}
+function multi(n,ans){const got=$$(`input[name="${n}"]:checked`).map(x=>x.value).sort().join(',');return got===ans.slice().sort().join(',')}
+$('#submitQuiz').addEventListener('click',()=>{
+ let s=0;
+ if(one('q1','b'))s++;if(one('q2','a'))s++;if(one('q3','a'))s++;if(one('q4','b'))s++;
+ if(multi('q5',['a','b','c','e']))s++;if(multi('q6',['a','b','c']))s++;
+ if(one('q7','a'))s++;if(one('q8','b'))s++;if(one('q9','b'))s++;if(one('q10','b'))s++;
+ const level=s<=4?'Потрібно ще розрізнити типи безробіття та причини невідповідності попиту й пропозиції.':s<=7?'Основна логіка є. Варто ще потренуватися бачити не один чинник, а систему.':s<=9?'Добре: Ви розумієте ринок праці як систему, а не список професій.':'Відмінно: Ви впевнено працюєте з невизначеністю, диспропорціями й адаптаційними стратегіями.';
+ $('#result').innerHTML=`<div class="scoreBig">${s}/10</div><p><b>${$('#studentName').value}</b> • ${$('#studentClass').value}</p><p>${level}</p><p>Дата/час: ${new Date().toLocaleString('uk-UA')}</p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p><button class="btn alt" onclick="window.print()">Друк / PDF</button>`;
+ $('#result').classList.remove('hidden');$('#result').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
