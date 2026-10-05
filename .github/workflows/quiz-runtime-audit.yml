@@ -1,13 +1,6 @@
 name: Quiz runtime audit
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '**/*.html'
-      - '**/*.js'
-      - 'scripts/audit_quiz_runtime.py'
-      - '.github/workflows/quiz-runtime-audit.yml'
   workflow_dispatch:
 
 permissions:
