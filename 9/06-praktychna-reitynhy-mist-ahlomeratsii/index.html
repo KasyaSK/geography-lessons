@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="9 клас. Урок 6. Практична робота: порівняння рейтингів міст-мільйонників та міських агломерацій за людністю. Дані UN World Urbanization Prospects 2025.">
+<title>9 клас • Урок 6 • Хто найбільший? Рейтинги міст і агломерацій</title>
+<style>
+:root{
+  --bg:#07151e;--panel:#0d2430;--panel2:#112f3d;--line:#285263;
+  --text:#eef9fb;--muted:#a9c2c9;--cyan:#43d7e8;--lime:#a6ef6c;
+  --amber:#ffc85a;--pink:#ff7ea8;--red:#ff746d;--blue:#76adff;
+  --paper:#f8fcfc;--ink:#17333d;--shadow:0 20px 55px rgba(0,0,0,.28);
+  --r:22px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:
+radial-gradient(circle at 10% -5%,#11465a 0,transparent 30rem),
+radial-gradient(circle at 95% 0,#243b5b 0,transparent 26rem),
+linear-gradient(180deg,#07151e,#0a1b24 45%,#07151e);line-height:1.55}
+a{color:#8eeef5}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+.hero{padding:52px 0 26px;position:relative;overflow:hidden}.hero:after{content:"RANK ≠ TRUTH";position:absolute;right:-15px;bottom:-22px;font-size:clamp(4.5rem,14vw,12rem);font-weight:1000;letter-spacing:-.07em;color:rgba(255,255,255,.025);pointer-events:none}
+.tag,.pill{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}.tag{padding:.42rem .78rem;background:#103642;border:1px solid #2b7280;color:#88eef3}.pill{padding:.34rem .65rem;background:#0b1d26;border:1px solid var(--line);font-size:.82rem}
+.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.94;letter-spacing:-.055em;margin:.7rem 0 1rem;max-width:1050px}.hero h1 span{color:var(--amber)}
+.lead{max-width:900px;color:#c2d7dc;font-size:1.08rem}.meta{display:flex;gap:8px;flex-wrap:wrap}
+.brief{display:grid;grid-template-columns:1.3fr .7fr;gap:14px;margin-top:18px}.brief>div{background:linear-gradient(145deg,#0c222d,#102e3b);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.progressline{height:12px;background:#061017;border:1px solid #294957;border-radius:999px;overflow:hidden}.progressbar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .3s}.progresslabel{display:flex;justify-content:space-between;margin-top:7px;color:var(--muted);font-size:.84rem}
+.nav{position:sticky;top:0;z-index:20;background:rgba(7,21,30,.92);backdrop-filter:blur(10px);border-block:1px solid #1f4250}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:8px 0}.nav a{white-space:nowrap;text-decoration:none;color:#dff4f6;background:#0e2631;border:1px solid #2e5461;border-radius:999px;padding:.5rem .72rem;font-weight:850}
+.section{padding:22px 0}.card{background:linear-gradient(145deg,#0d2430,#0a1d27);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}.card.light{background:var(--paper);color:var(--ink);border-color:#c9dfe3}
+h2{font-size:clamp(1.65rem,3.2vw,2.5rem);line-height:1.08;margin:.1rem 0 .8rem}h3{line-height:1.2}.kicker{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;font-weight:950;color:var(--cyan)}.light .kicker{color:#087d8b}.muted{color:var(--muted)}.light .muted{color:#60767d}
+.grid2,.grid3,.grid4{display:grid;gap:14px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.task,.hint,.warn,.good{border-left:5px solid var(--cyan);border-radius:14px;padding:12px 14px;background:#0d2b35}.hint{border-color:var(--blue);background:#10283a}.warn{border-color:var(--amber);background:#382a12}.good{border-color:var(--lime);background:#1a331f}.light .task{background:#eafafb}.light .hint{background:#eef5ff}.light .warn{background:#fff4dc}.light .good{background:#edf9e8}
+.btn{appearance:none;border:1px solid #335b69;background:#11323e;color:#ecfafa;border-radius:13px;padding:.68rem .88rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer}.btn:hover{border-color:#6ad0d7}.btn.primary,.btn.active{background:var(--cyan);color:#062127;border-color:var(--cyan)}.btn.alt{background:#172b4b;border-color:#456797}.light .btn{background:#fff;color:#173943;border-color:#c4dadd}.light .btn.primary,.light .btn.active{background:#18b9c5;color:#fff;border-color:#18b9c5}
+.feedback{display:none;margin-top:10px;border-radius:13px;padding:10px 12px;font-weight:800}.feedback.show{display:block}.feedback.ok{background:#19351f;color:#b8f28e;border:1px solid #47764f}.feedback.no{background:#42211f;color:#ffc3be;border:1px solid #7e403c}.light .feedback.ok{background:#e9f8e4;color:#2e6831}.light .feedback.no{background:#fff0ee;color:#8b3732}
+.citystrip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.cityphoto{min-height:260px;border-radius:20px;overflow:hidden;position:relative;background:#10232c;border:1px solid #315766}.cityphoto img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.cityphoto:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.86))}.citylabel{position:absolute;z-index:2;left:15px;right:15px;bottom:14px}.citylabel b{display:block;font-size:1.7rem}.citylabel span{color:#d7e8eb}
+.sourcecard{background:#0a1a22;border:1px solid #2b4a56;border-radius:18px;padding:14px}.sourcecard .badge{display:inline-block;border-radius:999px;padding:.24rem .54rem;background:#163b48;color:#86e7ed;font-size:.76rem;font-weight:900}.sourcecard strong{display:block;font-size:1.1rem;margin:.5rem 0}
+.rankgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.rankpick{border:1px solid #2d4e5a;background:#0a1a22;border-radius:15px;padding:11px;text-align:left;cursor:pointer}.rankpick.sel{outline:3px solid var(--cyan)}.rankpick .n{font-size:1.8rem;font-weight:1000;color:var(--amber)}.rankpick small{color:var(--muted)}
+.barbox{display:grid;gap:9px;margin-top:12px}.barrow{display:grid;grid-template-columns:135px 1fr 72px;gap:10px;align-items:center}.barname{font-weight:900}.track{height:25px;border-radius:999px;background:#07151c;border:1px solid #294a56;overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .35s}.barval{text-align:right;font-weight:950;color:var(--amber)}
+.yearbtns{display:flex;flex-wrap:wrap;gap:8px}.yearbtn.active{background:var(--amber);color:#2b1d03;border-color:var(--amber)}
+.boundary{position:relative;min-height:390px;border-radius:20px;background:linear-gradient(180deg,#eaf1db,#dce8c7);overflow:hidden;border:1px solid #bfd0b0;color:#223f35}.boundary .region{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:950;text-align:center}.r3{width:82%;height:80%;left:9%;top:9%;background:rgba(70,159,113,.14);border:4px dashed #3f8f68}.r2{width:58%;height:56%;left:21%;top:22%;background:rgba(66,149,202,.18);border:4px dashed #3c8ab8}.r1{width:29%;height:30%;left:35.5%;top:35%;background:rgba(246,167,69,.35);border:4px solid #d08b35}.boundary .label{position:absolute;background:#fff;border:1px solid #bfd4d8;border-radius:10px;padding:7px 9px;font-size:.85rem;box-shadow:0 6px 18px rgba(0,0,0,.1)}.lab1{left:39%;top:45%}.lab2{left:60%;top:28%}.lab3{left:12%;top:15%}
+.calcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.calc{border-radius:16px;padding:13px;background:#fff;border:1px solid #cbdfe3}.calc b{font-size:1.2rem}.calc input{width:100%;font:inherit;padding:.55rem .6rem;border:1px solid #bfd3d8;border-radius:10px;margin-top:8px}
+.sheet textarea,.quiz input[type=text],.quiz select{width:100%;font:inherit;border-radius:12px;border:1px solid #bad1d6;padding:.68rem;background:#fff;color:#15313a}.sheet textarea{min-height:82px}.quiz{display:none}.quiz.open{display:block}.quizgate{background:#eef5f6;border:1px solid #c2d8dc;border-radius:17px;padding:14px}.q{background:#fff;border:1px solid #cedfe2;border-radius:16px;padding:14px;margin:11px 0}.q label{display:block;padding:5px 0}.q input[type=radio],.q input[type=checkbox]{margin-right:7px}.result{display:none;margin-top:14px;border:2px solid #69a56c;background:#effaec;border-radius:18px;padding:15px}.result.show{display:block}.score{font-size:2.5rem;font-weight:1000;color:#2f7435}
+.tablewrap{overflow:auto}.datatable{width:100%;border-collapse:collapse;font-size:.91rem}.datatable th,.datatable td{padding:8px 9px;border-bottom:1px solid #d0e0e4;text-align:left}.datatable th{position:sticky;top:0;background:#eef7f8;color:#0c6f7a}.datatable td:nth-child(n+3){text-align:right;font-variant-numeric:tabular-nums}
+.source-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.launch{display:inline-flex;text-decoration:none;font-weight:900;border-radius:12px;padding:.62rem .78rem;border:1px solid #2f5966;background:#0d2933;color:#aef1f4}.light .launch{background:#eefafa;color:#126d73;border-color:#b7dde0}
+.video-wrap{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#061017;border:1px solid #2d5562;margin-top:12px}.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.video-fallback{margin-top:8px;font-size:.86rem}.image-fallback:before{content:"Фото тимчасово недоступне";position:absolute;inset:0;display:grid;place-items:center;color:#c9dde2;font-weight:900;background:linear-gradient(145deg,#102a36,#173947);z-index:1}.image-fallback .citylabel{z-index:2}
+.footer{margin-top:28px;border-top:1px solid #1d3944;padding:28px 0 50px;color:#92acb4}.tiny{font-size:.82rem}
+@media(max-width:980px){.grid3,.grid4,.brief,.citystrip{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.rankgrid{grid-template-columns:repeat(2,1fr)}.calcgrid{grid-template-columns:1fr}.barrow{grid-template-columns:105px 1fr 60px}}
+@media(max-width:620px){.rankgrid{grid-template-columns:1fr}.boundary{min-height:330px}.hero{padding-top:42px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{.nav,.btn,.source-links,.progressbox{display:none!important}body{background:#fff;color:#111}.card,.card.light{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb}.section{padding:8px 0}.quiz{display:block!important}}
+</style>
+</head>
+<body>
+<header class="hero" id="top"><div class="wrap">
+<span class="tag">🌆 9 КЛАС • УРОК 06 • ПРАКТИЧНА РОБОТА</span>
+<h1>Хто найбільший? <span>Рейтинг міст, якому не можна вірити з першого погляду</span></h1>
+<p class="lead">Сьогодні Ви працюєте як аналітики даних: перевіряєте дату й методику рейтингу, збираєте TOP‑10, порівнюєте 2000–2025–2050 і пояснюєте, чому «населення міста» може означати різні речі.</p>
+<div class="meta"><span class="pill">35 хв</span><span class="pill">UN WUP 2025</span><span class="pill">5 практичних місій</span><span class="pill">рейтинг ≠ факт без методики</span><span class="pill">ГР1</span></div>
+<div class="brief"><div><b>Кейс:</b> у трьох джерелах Ви бачите три різні відповіді на питання «яке місто найбільше у світі?». Ваше завдання — не вгадати назву, а <b>з’ясувати, який рейтинг порівнює однакові територіальні одиниці й використовує актуальні дані.</b></div><div class="progressbox"><b>Прогрес практичної</b><div class="progressline"><div id="progressBar" class="progressbar"></div></div><div class="progresslabel"><span id="progressText">0 із 5 місій</span><span id="progressPct">0%</span></div></div></div>
+</div></header>
+
+<nav class="nav"><div class="wrap">
+<a href="#m1">1. Пастка рейтингу</a><a href="#m2">2. TOP‑10</a><a href="#m3">3. Машина часу</a><a href="#m4">4. Межі міста</a><a href="#m5">5. Розрахунки</a><a href="#final">Висновок</a><a href="#home">Д/З + тест</a>
+</div></nav>
+
+<main class="wrap">
+<section class="section" id="m1"><div class="card">
+<div class="kicker">0–6 хв • місія 1</div><h2>Пастка: «Токіо — найбільше місто світу». Правда чи застарілий рейтинг?</h2>
+<div class="citystrip">
+<figure class="cityphoto"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/7/77/Jakarta_City_Skyline.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Jakarta%20City%20Skyline.jpg?width=1200" onerror="if(!this.dataset.usedFallback){this.dataset.usedFallback='1';this.src=this.dataset.fallback}else{this.style.display='none';this.parentElement.classList.add('image-fallback')}" alt="Джакарта"><figcaption class="citylabel"><b>Джакарта</b><span>UN WUP 2025: ≈41,9 млн</span></figcaption></figure>
+<figure class="cityphoto"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/3/31/Dhaka_Skyline.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Dhaka%20Skyline.jpg?width=1200" onerror="if(!this.dataset.usedFallback){this.dataset.usedFallback='1';this.src=this.dataset.fallback}else{this.style.display='none';this.parentElement.classList.add('image-fallback')}" alt="Дакка"><figcaption class="citylabel"><b>Дакка</b><span>UN WUP 2025: ≈36,6 млн</span></figcaption></figure>
+<figure class="cityphoto"><img loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Tokyo_Skyline.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:Redirect/file/Tokyo%20Skyline.jpg?width=1200" onerror="if(!this.dataset.usedFallback){this.dataset.usedFallback='1';this.src=this.dataset.fallback}else{this.style.display='none';this.parentElement.classList.add('image-fallback')}" alt="Токіо"><figcaption class="citylabel"><b>Токіо</b><span>UN WUP 2025: ≈33,4 млн</span></figcaption></figure>
+</div>
+<p class="muted">У старіших рейтингах Ви часто побачите Токіо на 1 місці. У <b>World Urbanization Prospects 2025</b> ООН застосувала оновлену гармонізовану геопросторову методику Degree of Urbanization, і рейтинг змінився.</p>
+<div class="grid3">
+<div class="sourcecard"><span class="badge">Джерело A</span><strong>«Токіо — №1»</strong><p>Дата не вказана. Методика не вказана. У підписі лише «largest city».</p><button class="btn trust" data-a="no">Використати?</button></div>
+<div class="sourcecard"><span class="badge">Джерело B</span><strong>UN WUP 2025</strong><p>Є дата, методологія, однакова система порівняння міст, набір даних і прогноз.</p><button class="btn trust" data-a="yes">Використати?</button></div>
+<div class="sourcecard"><span class="badge">Джерело C</span><strong>Відео «TOP‑10 cities!!!»</strong><p>Автор не названий, цифри без посилань, рік невідомий.</p><button class="btn trust" data-a="no">Використати?</button></div>
+</div>
+<div class="feedback" id="trustFb"></div>
+<div class="task" style="margin-top:12px"><b>Правило аналітика:</b> перед цифрою перевіряємо <b>рік → територіальне визначення → джерело → методику</b>. Без цього два «рейтинги міст» можуть вимірювати різні об’єкти.</div>
+</div></section>
+
+<section class="section" id="m2"><div class="card light">
+<div class="kicker">6–13 хв • місія 2</div><h2>Зберіть TOP‑5 за даними ООН на 2025 рік</h2>
+<p>Нижче десять міст. Клацніть <b>п’ять міст у правильному порядку — від №1 до №5</b>. Не дивіться на «відомість» міста: працюйте з даними.</p>
+<div id="rankGrid" class="rankgrid"></div>
+<div class="controls" style="margin-top:10px"><button class="btn" id="rankReset">Скинути вибір</button></div>
+<div class="feedback" id="rankFb"></div>
+<div class="hint" style="margin-top:12px"><b>Після перевірки:</b> зверніть увагу, що 9 із 10 найбільших міст у рейтингу 2025 розташовані в Азії; єдиний виняток — Каїр. Це не означає, що «вся урбанізація світу в Азії», але показує концентрацію найбільших міських систем саме там.</div>
+<details style="margin-top:12px"><summary><b>Показати повну таблицю TOP‑10</b></summary>
+<div class="tablewrap"><table class="datatable"><thead><tr><th>2025</th><th>Місто</th><th>Країна</th><th>Населення, млн</th></tr></thead><tbody>
+<tr><td>1</td><td>Джакарта</td><td>Індонезія</td><td>41,9</td></tr>
+<tr><td>2</td><td>Дакка</td><td>Бангладеш</td><td>36,6</td></tr>
+<tr><td>3</td><td>Токіо</td><td>Японія</td><td>33,4</td></tr>
+<tr><td>4</td><td>Нью-Делі</td><td>Індія</td><td>30,2</td></tr>
+<tr><td>5</td><td>Шанхай</td><td>Китай</td><td>29,6</td></tr>
+<tr><td>6</td><td>Гуанчжоу</td><td>Китай</td><td>27,6</td></tr>
+<tr><td>7</td><td>Каїр</td><td>Єгипет</td><td>25,6</td></tr>
+<tr><td>8</td><td>Маніла</td><td>Філіппіни</td><td>24,7</td></tr>
+<tr><td>9</td><td>Колката</td><td>Індія</td><td>22,5</td></tr>
+<tr><td>10</td><td>Сеул</td><td>Республіка Корея</td><td>22,5</td></tr>
+</tbody></table></div></details>
+</div></section>
+
+<section class="section" id="m3"><div class="card">
+<div class="kicker">13–20 хв • місія 3</div><h2>Машина часу: рейтинг не стоїть на місці</h2>
+<p class="muted">Перемикайте рік. Довжина смуги показує людність у млн осіб. Подивіться не лише «хто перший», а <b>хто росте швидше, хто втрачає позиції і чому рейтинг 2000 року не можна переносити на 2025.</b></p>
+<div class="yearbtns"><button class="btn yearbtn" data-y="2000">2000</button><button class="btn yearbtn active" data-y="2025">2025</button><button class="btn yearbtn" data-y="2050">2050 прогноз</button></div>
+<div id="bars" class="barbox"></div>
+<div class="grid3" style="margin-top:12px">
+<div class="sourcecard"><strong>Джакарта</strong><p>25,6 → 41,9 → 51,8 млн</p><span class="badge">стрімке зростання</span></div>
+<div class="sourcecard"><strong>Дакка</strong><p>17,4 → 36,6 → 52,1 млн</p><span class="badge">майбутній №1</span></div>
+<div class="sourcecard"><strong>Токіо</strong><p>30,3 → 33,4 → 30,7 млн</p><span class="badge">№1 → №3 → №7</span></div>
+</div>
+<div class="controls" style="margin-top:12px"><button class="btn" id="trendQ">Який висновок правильний?</button></div>
+<div class="feedback" id="trendFb"></div>
+</div></section>
+
+<section class="section" id="m4"><div class="card light">
+<div class="kicker">20–26 хв • місія 4</div><h2>Чому «населення міста» — не одна цифра?</h2>
+<div class="grid2"><div>
+<div class="boundary" aria-label="Схема різних меж міста й агломерації">
+<div class="region r3"></div><div class="region r2"></div><div class="region r1"></div>
+<span class="label lab1"><b>1. Адміністративне місто</b><br>юридична межа</span>
+<span class="label lab2"><b>2. Суцільна міська забудова</b><br>фактична урбанізована територія</span>
+<span class="label lab3"><b>3. Агломерація / функціональна зона</b><br>ядро + передмістя + щоденні зв’язки</span>
+</div></div><div>
+<h3>Один мегаполіс — три різні числа</h3>
+<p>Якщо рахувати лише людей <b>у юридичній межі</b>, місто з вузькими адміністративними кордонами може виглядати «меншим» за місто, яке юридично включає величезні передмістя.</p>
+<div class="warn"><b>Тому:</b> рейтинг city proper, рейтинг безперервної забудови й рейтинг агломерацій — це не взаємозамінні таблиці.</div>
+<p><b>Що краще для міжнародного порівняння?</b></p>
+<div class="controls"><button class="btn boundaryQ" data-a="1">Завжди адміністративні межі</button><button class="btn boundaryQ" data-a="2">Однакова гармонізована методика</button><button class="btn boundaryQ" data-a="3">Будь-яке число з пошуку</button></div>
+<div class="feedback" id="boundaryFb"></div>
+<div class="hint" style="margin-top:10px">У WUP 2025 ООН уперше повністю інтегрувала гармонізований <b>Degree of Urbanization</b>, що робить міжнародні порівняння значно коректнішими.</div>
+</div></div>
+</div></section>
+
+<section class="section" id="m5"><div class="card light">
+<div class="kicker">26–31 хв • місія 5</div><h2>Три розрахунки — і рейтинг починає щось пояснювати</h2>
+<p>Порахуйте приблизно. Достатньо до десятих. Можна усно, на калькуляторі або прямо тут.</p>
+<div class="calcgrid">
+<div class="calc"><b>1. Джакарта</b><p>На скільки млн зросла між 2000 і 2025?</p><input id="c1" inputmode="decimal" placeholder="Напр. 16,3"></div>
+<div class="calc"><b>2. Дакка</b><p>Приблизно у скільки разів населення 2025 більше, ніж 2000?</p><input id="c2" inputmode="decimal" placeholder="Напр. 2,1"></div>
+<div class="calc"><b>3. TOP‑10</b><p>Яка частка міст TOP‑10 2025 розташована в Азії?</p><input id="c3" inputmode="decimal" placeholder="Напр. 90%"></div>
+</div>
+<button class="btn primary" id="calcCheck" style="margin-top:12px">Перевірити розрахунки</button><div class="feedback" id="calcFb"></div>
+<div class="good" style="margin-top:12px"><b>Висновок:</b> рейтинг — це лише старт. Географічне пояснення починається тоді, коли Ви порівнюєте темпи змін, регіональну концентрацію, методику та причини.</div>
+</div></section>
+
+<section class="section" id="final"><div class="card light sheet">
+<div class="kicker">31–35 хв • результат практичної</div><h2>Міні-звіт: 4 речення замість «табличку переписав»</h2>
+<p><b>Складіть висновок практичної роботи.</b> Він має містити факт, порівняння, пояснення й обмеження.</p>
+<label><b>1. Факт:</b> хто №1 у рейтингу UN WUP 2025?</label><textarea id="f1" placeholder="За даними UN WUP 2025..."></textarea>
+<label><b>2. Порівняння:</b> що змінилося між 2000 і 2025?</label><textarea id="f2" placeholder="Порівняно з 2000 роком..."></textarea>
+<label><b>3. Пояснення:</b> яку регіональну закономірність видно?</label><textarea id="f3" placeholder="У TOP‑10 переважають..."></textarea>
+<label><b>4. Обмеження:</b> чому інший сайт може показати інше місце?</label><textarea id="f4" placeholder="Рейтинг може відрізнятися, якщо..."></textarea>
+<button class="btn primary" id="finalCheck">Перевірити повноту</button><div class="feedback" id="finalFb"></div>
+</div></section>
+
+<section class="section" id="home"><div class="card light">
+<div class="kicker">Домашнє + самоперевірка</div><h2>Домашнє без переписування конспекту</h2>
+<div class="grid2"><div>
+<div class="good"><b>Обов’язково:</b> завершити практичну роботу й сформулювати висновок. Оберіть одне місто з TOP‑10 і знайдіть два різні значення його населення в інтернеті. Запишіть <b>чому цифри різняться</b>: рік, межі, city proper / urban area / agglomeration, джерело.</div>
+<div class="source-links">
+<a class="launch" href="https://www.un.org/development/desa/pd/world-urbanization-prospects-2025" target="_blank" rel="noopener">UN WUP 2025 ↗</a>
+<a class="launch" href="https://population.un.org/wup/" target="_blank" rel="noopener">Портал даних ООН ↗</a>
+<a class="launch" href="https://www.youtube.com/watch?v=oUhQgy5nXcM" target="_blank" rel="noopener">Відео UN DESA: найбільші міста світу ↗</a>
+</div>
+<div class="video-wrap" aria-label="Відео UN DESA про найнаселеніші міста світу"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/oUhQgy5nXcM?rel=0" title="UN DESA: Latest urbanization data reveal world’s most populous cities" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="video-fallback">Якщо відео не відтворюється у вбудованому вікні через обмеження шкільної мережі — скористайтеся кнопкою «Відео UN DESA» вище.</p>
+<div class="warn" style="margin-top:12px"><b>Не робіть так:</b> «Google показав 14 млн, а сайт 36 млн, значить хтось бреше». Спочатку перевірте, <b>яку територію</b> рахують обидва джерела.</div>
+</div><div>
+<h3>Тест /10</h3>
+<div class="quizgate" id="gate"><label>Ім’я та прізвище</label><input type="text" id="studentName" placeholder="Наприклад, Марія Коваль"><label>Клас</label><input type="text" id="studentClass" placeholder="9-А"><button class="btn primary" id="startQuiz" style="margin-top:10px">Розпочати тест</button><div class="feedback" id="gateFb"></div></div>
+<div class="quiz" id="quiz">
+<div class="q"><b>1. №1 у UN WUP 2025:</b><label><input type="radio" name="q1" value="a">Токіо</label><label><input type="radio" name="q1" value="b">Джакарта</label><label><input type="radio" name="q1" value="c">Нью-Йорк</label></div>
+<div class="q"><b>2. Чому старий рейтинг може бути непридатним?</b><label><input type="radio" name="q2" value="a">бо міста не змінюються</label><label><input type="radio" name="q2" value="b">бо населення і методика змінюються</label><label><input type="radio" name="q2" value="c">бо всі рейтинги однакові</label></div>
+<div class="q"><b>3. Що треба перевірити перед порівнянням двох цифр?</b><label><input type="checkbox" name="q3" value="year">рік</label><label><input type="checkbox" name="q3" value="area">межі/визначення території</label><label><input type="checkbox" name="q3" value="source">джерело</label><label><input type="checkbox" name="q3" value="font">шрифт сайту</label></div>
+<div class="q"><b>4. Міська агломерація — це:</b><label><input type="radio" name="q4" value="a">тільки юридична межа міста</label><label><input type="radio" name="q4" value="b">ядро та пов’язані з ним передмістя/поселення</label><label><input type="radio" name="q4" value="c">будь-яка область</label></div>
+<div class="q"><b>5. Яке місто у 2025 посідає 2 місце?</b><label><input type="radio" name="q5" value="a">Дакка</label><label><input type="radio" name="q5" value="b">Шанхай</label><label><input type="radio" name="q5" value="c">Каїр</label></div>
+<div class="q"><b>6. Скільки міст TOP‑10 2025 розташовані в Азії?</b><label><input type="radio" name="q6" value="a">5</label><label><input type="radio" name="q6" value="b">7</label><label><input type="radio" name="q6" value="c">9</label></div>
+<div class="q"><b>7. Tokyo: 2000 → 2025 → 2050. Яка тенденція?</b><label><input type="radio" name="q7" value="a">безперервне стрімке зростання</label><label><input type="radio" name="q7" value="b">невелике зростання, а потім прогнозоване скорочення</label><label><input type="radio" name="q7" value="c">зникає до 2050</label></div>
+<div class="q"><b>8. Яка методика краща для міжнародного порівняння?</b><label><input type="radio" name="q8" value="a">однакова гармонізована</label><label><input type="radio" name="q8" value="b">для кожної країни будь-яка своя</label><label><input type="radio" name="q8" value="c">та, де число більше</label></div>
+<div class="q"><b>9. Якщо два сайти дають 11 млн і 36 млн для одного міста, перша дія:</b><label><input type="radio" name="q9" value="a">вибрати більше число</label><label><input type="radio" name="q9" value="b">перевірити рік і межі підрахунку</label><label><input type="radio" name="q9" value="c">усереднити</label></div>
+<div class="q"><b>10. Найсильніший висновок:</b><label><input type="radio" name="q10" value="a">«Джакарта найбільша, крапка»</label><label><input type="radio" name="q10" value="b">«За UN WUP 2025 Джакарта №1; рейтинг залежить від року й методики, а гармонізоване визначення потрібне для коректного міжнародного порівняння»</label><label><input type="radio" name="q10" value="c">«Я бачив іншу цифру, тому ООН помиляється»</label></div>
+<button class="btn primary" id="submitQuiz">Завершити тест</button>
+<div class="result" id="result"><div class="score" id="score"></div><div id="resultText"></div><button class="btn" onclick="window.print()" style="margin-top:8px">Друк / PDF</button></div>
+</div>
+</div></div>
+</div></section>
+
+<section class="section"><div class="card">
+<div class="kicker">Джерела даних</div><h2>Що використано в уроці</h2>
+<p class="tiny">United Nations, Department of Economic and Social Affairs, Population Division. <b>World Urbanization Prospects 2025</b>. Дані TOP‑10 та динаміка 2000–2025–2050 взяті з офіційних матеріалів WUP 2025. Важливо: редакція 2025 запроваджує гармонізований геопросторовий підхід Degree of Urbanization, тому рейтинги можуть відрізнятися від старіших видань і від рейтингів, що використовують адміністративні межі.</p>
+<div class="source-links"><a class="launch" href="https://www.un.org/development/desa/pd/world-urbanization-prospects-2025" target="_blank" rel="noopener">Офіційна сторінка WUP 2025 ↗</a><a class="launch" href="https://population.un.org/wup/assets/Publications/undesa_pd_2025_wup2025_summary_of_results_final.pdf" target="_blank" rel="noopener">Summary of Results ↗</a></div>
+<p class="tiny">Фото: Wikimedia Commons — Jakarta City Skyline; Dhaka Skyline; Tokyo Skyline. Дані на сторінці уроку важливіші за декоративні фото: фото не використовуються як доказ людності.</p>
+</div></section>
+</main>
+
+<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія, 9 клас • Урок 06 • практична робота • 2026/2027</div></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const progressBar=$('progressBar'),progressText=$('progressText'),progressPct=$('progressPct');
+const rankGrid=$('rankGrid'),rankReset=$('rankReset'),bars=$('bars'),trendQ=$('trendQ');
+const c1=$('c1'),c2=$('c2'),c3=$('c3'),calcCheck=$('calcCheck');
+const f1=$('f1'),f2=$('f2'),f3=$('f3'),f4=$('f4'),finalCheck=$('finalCheck');
+const gate=$('gate'),quiz=$('quiz'),studentName=$('studentName'),studentClass=$('studentClass');
+const startQuiz=$('startQuiz'),submitQuiz=$('submitQuiz'),score=$('score'),resultText=$('resultText'),result=$('result');
+const completed=new Set();
+function mark(id){completed.add(id);const n=completed.size;progressBar.style.width=(n/5*100)+'%';progressText.textContent=n+' із 5 місій';progressPct.textContent=Math.round(n/5*100)+'%'}
+function fb(id,msg,ok=true){const e=$(id);e.textContent=msg;e.className='feedback show '+(ok?'ok':'no')}
+let trust={};document.querySelectorAll('.trust').forEach((b,i)=>b.onclick=()=>{trust[i]=b.dataset.a;document.querySelectorAll('.trust')[i].classList.add('active');if(Object.keys(trust).length===3){if(trust[0]==='no'&&trust[1]==='yes'&&trust[2]==='no'){fb('trustFb','Правильно. Рейтинг без року, визначення міста й джерела не можна ставити поруч із методологічно описаними даними.',true);mark('m1')}else fb('trustFb','Перевірте ще раз: надійність тут визначає не знайома назва міста, а дата, методика та джерело.',false)}});
+
+const rankData=[
+{n:'Джакарта',v:41.9},{n:'Дакка',v:36.6},{n:'Токіо',v:33.4},{n:'Нью-Делі',v:30.2},{n:'Шанхай',v:29.6},
+{n:'Гуанчжоу',v:27.6},{n:'Каїр',v:25.6},{n:'Маніла',v:24.7},{n:'Колката',v:22.5},{n:'Сеул',v:22.5}
+];
+const shuffled=[rankData[6],rankData[2],rankData[0],rankData[8],rankData[4],rankData[1],rankData[9],rankData[3],rankData[5],rankData[7]];
+let picks=[];
+rankGrid.innerHTML=shuffled.map((x,i)=>`<button class="rankpick" data-city="${x.n}"><span class="n">?</span><b>${x.n}</b><br><small>${x.v.toFixed(1).replace('.',',')} млн</small></button>`).join('');
+function resetRank(){picks=[];document.querySelectorAll('.rankpick').forEach(b=>{b.classList.remove('sel');b.querySelector('.n').textContent='?'});const e=$('rankFb');e.className='feedback';e.textContent=''}
+document.querySelectorAll('.rankpick').forEach(b=>b.onclick=()=>{if(b.classList.contains('sel'))return;if(picks.length>=5)return;picks.push(b.dataset.city);b.classList.add('sel');b.querySelector('.n').textContent=picks.length;if(picks.length===5){const ans=rankData.slice(0,5).map(x=>x.n);const ok=ans.every((x,i)=>x===picks[i]);if(ok){fb('rankFb','TOP‑5 зібрано правильно: Джакарта → Дакка → Токіо → Нью-Делі → Шанхай.',true);mark('m2')}else{fb('rankFb','Порядок не збігається. Скиньте вибір і спробуйте ще раз — звіряйте саме чисельність, а не інтуїцію.',false)}}});
+rankReset.onclick=resetRank;
+
+const years={
+2000:[['Токіо',30.3],['Джакарта',25.6],['Гуанчжоу',19.0],['Сеул',19.0],['Колката',18.4],['Нью-Делі',18.0],['Маніла',17.8],['Мехіко',17.6],['Дакка',17.4],['Сан-Паулу',16.7]],
+2025:[['Джакарта',41.9],['Дакка',36.6],['Токіо',33.4],['Нью-Делі',30.2],['Шанхай',29.6],['Гуанчжоу',27.6],['Каїр',25.6],['Маніла',24.7],['Колката',22.5],['Сеул',22.5]],
+2050:[['Дакка',52.1],['Джакарта',51.8],['Шанхай',34.9],['Нью-Делі',33.9],['Карачі',32.6],['Каїр',32.4],['Токіо',30.7],['Гуанчжоу',29.2],['Маніла',27.1],['Колката',23.8]]
+};
+function draw(y){const d=years[y],max=55;bars.innerHTML=d.map((x,i)=>`<div class="barrow"><span class="barname">${i+1}. ${x[0]}</span><div class="track"><div class="fill" style="width:${x[1]/max*100}%"></div></div><span class="barval">${x[1].toFixed(1)}</span></div>`).join('')}
+draw(2025);
+document.querySelectorAll('.yearbtn').forEach(b=>b.onclick=()=>{document.querySelectorAll('.yearbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');draw(b.dataset.y)});
+trendQ.onclick=()=>{fb('trendFb','Правильний висновок: позиція міста в рейтингу змінюється через різні темпи демографічного зростання/скорочення. Tokyo був №1 у 2000, але за прогнозом буде №7 у 2050; Dhaka може стати №1.',true);mark('m3')};
+
+document.querySelectorAll('.boundaryQ').forEach(b=>b.onclick=()=>{if(b.dataset.a==='2'){fb('boundaryFb','Так. Для міжнародного рейтингу потрібна однакова методика; інакше ми порівнюємо юридично різні території.',true);mark('m4')}else fb('boundaryFb','Ні. Адміністративні межі в різних країнах організовані по-різному, тому сире city proper часто спотворює міжнародне порівняння.',false)});
+
+function num(v){return parseFloat(v.replace(',','.').replace('%','').trim())}
+calcCheck.onclick=()=>{const a=num(c1.value),b=num(c2.value),c=num(c3.value);const ok1=Math.abs(a-16.3)<.3,ok2=Math.abs(b-2.1)<.15,ok3=Math.abs(c-90)<2;if(ok1&&ok2&&ok3){fb('calcFb','Все правильно: Jakarta +≈16,3 млн; Dhaka ≈2,1 раза; 9/10 = 90% TOP‑10 розташовані в Азії.',true);mark('m5')}else fb('calcFb','Перевірте: 41,9−25,6; 36,6÷17,4; 9 із 10 перевести у відсотки.',false)};
+
+finalCheck.onclick=()=>{const a=f1.value.trim(),b=f2.value.trim(),c=f3.value.trim(),d=f4.value.trim();if(a.length>20&&b.length>25&&c.length>25&&d.length>25)fb('finalFb','Структура висновку є: факт → порівняння → закономірність → обмеження. Це вже звіт, а не переписана таблиця.',true);else fb('finalFb','Додайте зміст у всі 4 частини. Особливо не забудьте про обмеження: рік і територіальне визначення міста.',false)};
+
+function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x))}
+startQuiz.onclick=()=>{if(!validName(studentName.value)||!studentClass.value.trim())return fb('gateFb','Введіть ім’я, прізвище та клас.',false);gate.style.display='none';quiz.classList.add('open')}
+function radio(n){return document.querySelector(`input[name="${n}"]:checked`)?.value||''}
+function checks(n){return [...document.querySelectorAll(`input[name="${n}"]:checked`)].map(x=>x.value).sort().join(',')}
+submitQuiz.onclick=()=>{let s=0;s+=radio('q1')==='b';s+=radio('q2')==='b';s+=checks('q3')==='area,source,year';s+=radio('q4')==='b';s+=radio('q5')==='a';s+=radio('q6')==='c';s+=radio('q7')==='b';s+=radio('q8')==='a';s+=radio('q9')==='b';s+=radio('q10')==='b';const level=s<=4?'Ще раз пройдіть місії 1 і 4: проблема не в запам’ятовуванні назв, а в методиці.':s<=7?'Основу розумієте. Допрацюйте різницю між межами міста й агломерації.':s<=9?'Добре: Ви читаєте рейтинг як географічне джерело, а не просто список.':'Відмінно: Ви перевіряєте і цифру, і те, що саме цією цифрою виміряли.';score.textContent=s+'/10';resultText.innerHTML=`<b>${studentName.value.trim()}</b> • ${studentClass.value.trim()}<br>Практична: рейтинги міст і агломерацій • ${s*10}%<br>${level}<br><b>Зробіть скриншот картки результату.</b><br><span class="tiny">${new Date().toLocaleString('uk-UA')}</span>`;result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'center'})}
+</script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
