@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Тиждень ментального здоров’я — Антон і Ростислав — 06.10.2026</title>
+<style>
+:root{
+  --bg:#f4f0e7; --paper:#fffdf8; --ink:#21332a; --muted:#65736b;
+  --green:#315c48; --green2:#70947f; --mint:#dfece3; --cream:#f3ead5;
+  --yellow:#f0cf72; --orange:#d88b5d; --blue:#dbe8ed; --rose:#efd8d3;
+  --danger:#9b463f; --shadow:0 14px 34px rgba(49,92,72,.10); --radius:24px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 0 0,rgba(240,207,114,.19),transparent 28%),radial-gradient(circle at 100% 8%,rgba(219,232,237,.65),transparent 32%),var(--bg);line-height:1.55}
+.wrap{max-width:1120px;margin:auto;position:relative;z-index:1}
+.hero{padding:58px 20px 40px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:rgba(109,148,124,.12);right:-110px;top:-120px}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:var(--mint);color:var(--green);border-radius:999px;padding:8px 14px;font-weight:800;font-size:.94rem}
+h1{font-size:clamp(2.3rem,7vw,5rem);line-height:.96;margin:18px 0 16px;max-width:940px;letter-spacing:-.055em}.hero p{font-size:clamp(1.05rem,2vw,1.24rem);max-width:780px;color:#4c5b53;margin:0 0 24px}
+.meta{display:flex;flex-wrap:wrap;gap:10px}.pill{background:#fff8e8;border:1px solid rgba(49,92,72,.12);padding:9px 13px;border-radius:999px;font-weight:700}
+nav{position:sticky;top:0;z-index:20;background:rgba(244,240,231,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(49,92,72,.08);border-bottom:1px solid rgba(49,92,72,.08)}nav .wrap{display:flex;gap:8px;overflow:auto;padding:10px 20px;scrollbar-width:none}nav a{text-decoration:none;color:var(--green);white-space:nowrap;background:white;border:1px solid rgba(49,92,72,.10);padding:8px 12px;border-radius:999px;font-size:.92rem;font-weight:800}
+main{padding:26px 20px 70px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{background:var(--paper);border:1px solid rgba(49,92,72,.10);box-shadow:var(--shadow);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden}.card h2{font-size:clamp(1.5rem,3vw,2.15rem);margin:0 0 10px;letter-spacing:-.03em}.card h3{margin:17px 0 8px;font-size:1.08rem}.card p{margin:8px 0;color:#4f5e55}.span12{grid-column:span 12}.span8{grid-column:span 8}.span7{grid-column:span 7}.span6{grid-column:span 6}.span5{grid-column:span 5}.span4{grid-column:span 4}.lead{font-size:1.14rem;color:#3d4b44!important}.icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:1.55rem;background:var(--mint);margin-bottom:12px}.badge{display:inline-flex;padding:6px 10px;border-radius:999px;background:var(--cream);font-size:.84rem;font-weight:850;color:#6c5630;margin-bottom:10px}
+.timeline{display:grid;gap:8px;margin-top:16px}.time{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid rgba(49,92,72,.10)}.time:last-child{border-bottom:none}.time b{color:var(--green)}
+.rulebar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.rule{background:#f4f8f5;border:1px solid rgba(49,92,72,.10);padding:14px;border-radius:16px;font-weight:750}.rule small{display:block;color:var(--muted);font-weight:550;margin-top:3px}
+.student-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.student{border:1px solid rgba(49,92,72,.13);background:white;border-radius:20px;padding:18px}.student h3{margin-top:0}.anton{box-shadow:inset 0 5px 0 #9fbca9}.rost{box-shadow:inset 0 5px 0 #9fb9c7}
+.battery{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:12px}.battery button{padding:11px 6px}.battery button.active{background:var(--green);color:white}
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.resource{border:1px solid rgba(49,92,72,.13);background:white;padding:12px;border-radius:14px;cursor:pointer;display:flex;align-items:center;gap:9px;transition:.16s}.resource:hover{transform:translateY(-1px)}.resource.active{background:var(--mint);border-color:var(--green2)}.check{width:19px;height:19px;border:2px solid var(--green2);border-radius:6px;display:grid;place-items:center;font-size:.78rem;font-weight:900;flex:0 0 auto}.resource.active .check{background:var(--green);color:white}
+.callout{padding:16px 18px;border-radius:18px;background:var(--mint);border-left:5px solid var(--green);margin-top:16px}.warning{background:#f8e8e5;border-left-color:var(--danger)}.blue{background:#edf4f7;border-left-color:#6f93a5}.quote{font-size:1.18rem;font-weight:850;color:var(--green);padding:17px 19px;border-radius:18px;background:#f1f6f2;margin-top:16px}
+.step-list{display:grid;gap:11px;margin-top:16px}.step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid rgba(49,92,72,.10);padding:14px;border-radius:18px}.num{min-width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:white;font-weight:850}
+.turns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.turn{padding:16px;border-radius:18px;background:white;border:1px dashed rgba(49,92,72,.26)}.turn b{color:var(--green)}
+.myths{display:grid;gap:11px;margin-top:15px}.myth{background:#fff;border:1px solid rgba(49,92,72,.12);border-radius:18px;padding:15px}.choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}button{font:inherit;border:none;border-radius:12px;padding:9px 13px;font-weight:820;cursor:pointer;background:var(--cream);color:#504424}button:hover{filter:brightness(.98)}button.good{background:var(--mint);color:var(--green)}.feedback{margin-top:10px;font-weight:750;min-height:23px}
+.casegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.case{background:white;border:1px solid rgba(49,92,72,.12);border-radius:18px;padding:16px}.case .tag{display:inline-flex;background:var(--blue);padding:4px 8px;border-radius:999px;font-size:.78rem;font-weight:850;margin-bottom:7px}.case p{margin:4px 0}.case strong{color:var(--green)}
+.teacher{background:#24372e;color:#eef7f0}.teacher h2,.teacher h3{color:white}.teacher p,.teacher li{color:#dbe8df}.teacher .badge{background:#3b5547;color:#eff7f1}ul.clean{padding-left:20px;margin:10px 0}.small{font-size:.92rem;color:var(--muted)}.reset{background:var(--green);color:white;margin-top:14px}footer{max-width:1120px;margin:0 auto 40px;padding:0 20px;color:var(--muted);font-size:.9rem}
+
+.hero-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:center}.hero-copy{position:relative;z-index:2}
+.hero-art{background:linear-gradient(145deg,#fffaf0,#eef8f1 48%,#f7e2d5);border:1px solid rgba(49,92,72,.10);box-shadow:var(--shadow);border-radius:30px;padding:18px;position:relative;overflow:hidden;min-height:320px}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}
+.hero-art:before{width:140px;height:140px;background:rgba(240,207,114,.45);right:-25px;top:-20px}.hero-art:after{width:170px;height:170px;background:rgba(239,216,211,.52);left:-45px;bottom:-55px}
+.hero-scene{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:1}
+.sticker{background:white;border:1px solid rgba(49,92,72,.10);border-radius:22px;padding:14px;box-shadow:0 12px 24px rgba(49,92,72,.08)}
+.sticker.big{grid-column:span 2;display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:center}
+.sticker h4{margin:0 0 5px;font-size:1rem}.sticker p{margin:0;color:#55645c;font-size:.95rem}.emoji-big{font-size:3rem;line-height:1}.tiny-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.tiny-pill{background:#f7f2e2;border-radius:999px;padding:6px 10px;font-size:.82rem;font-weight:800;color:#5d5336}
+.sparkles{position:absolute;inset:0;pointer-events:none;opacity:.8}
+.sparkles span{position:absolute;font-size:1.1rem}
+.art-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.art-tile{background:linear-gradient(180deg,#fff,#f8fbf9);border:1px solid rgba(49,92,72,.10);border-radius:20px;padding:14px;min-height:126px;display:flex;flex-direction:column;justify-content:space-between}.art-tile .pic{font-size:2rem;line-height:1}.art-tile b{font-size:.97rem}.art-tile small{display:block;color:#617067;margin-top:5px}
+.mood-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.mood{border-radius:18px;padding:12px;text-align:center;font-weight:800;border:1px solid rgba(49,92,72,.10);background:white}.mood span{display:block;font-size:1.8rem;margin-bottom:6px}
+.illobox{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center;background:linear-gradient(145deg,#f7fbf8,#eef6fb);border:1px solid rgba(49,92,72,.10);border-radius:24px;padding:15px;margin-top:16px}
+.illobox .bigicon{width:92px;height:92px;border-radius:24px;display:grid;place-items:center;font-size:3.1rem;background:linear-gradient(145deg,#fff4c7,#fff)}
+.quote.color{background:linear-gradient(145deg,#eff7f1,#fff8ee)}
+.choice-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.choice-card{background:white;border:1px solid rgba(49,92,72,.10);border-radius:18px;padding:14px;text-align:center}.choice-card .top{font-size:2rem;display:block;margin-bottom:8px}
+.bubble-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.bubble{position:relative;background:#fff;border:1px solid rgba(49,92,72,.12);border-radius:20px;padding:15px 16px 15px 18px}.bubble:after{content:"";position:absolute;bottom:-10px;left:24px;width:18px;height:18px;background:#fff;border-right:1px solid rgba(49,92,72,.12);border-bottom:1px solid rgba(49,92,72,.12);transform:rotate(45deg)}
+.health-strip,.safety-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.mini{background:#fff;border:1px solid rgba(49,92,72,.10);border-radius:18px;padding:12px;text-align:center}.mini span{display:block;font-size:1.9rem;margin-bottom:6px}
+.teacher .mini,.teacher .art-tile{background:#32483c;border-color:rgba(255,255,255,.08)}
+@media(max-width:980px){.hero-layout{grid-template-columns:1fr}.art-grid,.choice-cards,.mood-strip,.health-strip,.safety-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){.span8,.span7,.span6,.span5,.span4{grid-column:span 12}.student-grid,.resource-grid,.rulebar,.turns,.casegrid,.bubble-row{grid-template-columns:1fr}.time{grid-template-columns:1fr}.hero{padding-top:42px}.choice-cards,.mood-strip,.health-strip,.safety-strip{grid-template-columns:1fr 1fr}.art-grid{grid-template-columns:1fr 1fr}.hero-art{min-height:auto}.sticker.big{grid-template-columns:1fr}}
+@media print{nav{display:none}.hero{padding-top:20px}body{background:white}.card{box-shadow:none;break-inside:avoid}.myths button,.battery button,.reset{display:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-layout">
+    <div class="hero-copy">
+      <div class="kicker">🌿 Класна година · 5-А · мала група</div>
+      <h1>Як не виснажитися, коли справ забагато</h1>
+      <p>Антоне, Ростиславе, сьогодні нас мало, тому лекції не буде. Просто розберемося, що забирає сили, що допомагає відновитися і що робити, коли навчання вже починає трохи діставати. Десь можна посперечатися. Десь — сказати «пас».</p>
+      <div class="meta">
+        <div class="pill">📅 06.10.2026</div><div class="pill">👥 2 учні</div><div class="pill">⏱ 40–45 хв</div><div class="pill">🟢 Можна сказати «пас»</div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sparkles"><span style="left:20px;top:16px">✨</span><span style="right:88px;top:24px">🌈</span><span style="left:44%;bottom:22px">⭐</span></div>
+      <div class="hero-scene">
+        <div class="sticker big">
+          <div class="emoji-big">🎒</div>
+          <div><h4>Ресурсний рюкзак</h4><p>Сон, вода, рух, тиша, розмова, музика — збираємо те, що реально допомагає.</p><div class="tiny-row"><span class="tiny-pill">😴 сон</span><span class="tiny-pill">🎧 музика</span><span class="tiny-pill">🚶 прогулянка</span></div></div>
+        </div>
+        <div class="sticker"><div class="emoji-big">🧠</div><h4>Міфи чи факти?</h4><p>Без занудства — коротко і по суті.</p></div>
+        <div class="sticker"><div class="emoji-big">🔥</div><h4>Безпека</h4><p>Чотири прості правила, які реально треба пам’ятати.</p></div>
+      </div>
+    </div>
+  </div>
+</header>
+<nav><div class="wrap">
+  <a href="#plan">Маршрут</a><a href="#checkin">Старт</a><a href="#backpack">Ресурси</a><a href="#mental">Міфи</a><a href="#compliment">Підтримка</a><a href="#study">Навчання</a><a href="#quiz">Ситуації</a><a href="#safety">Безпека</a><a href="#finish">Фініш</a>
+</div></nav>
+<main><div class="wrap grid">
+
+<section id="plan" class="card span12">
+  <span class="badge">ЯК ПРАЦЮЄМО СЬОГОДНІ</span>
+  <h2>Домовимося на старті</h2>
+  <p class="lead">Тут усе просто: <b>говоримо по черзі, чужі відповіді не висміюємо, особисте можна не пояснювати</b>. Не хочеться відповідати — кажете «пас», і їдемо далі. Ніяких оцінок за «правильне» ментальне здоров’я не існує.</p>
+  <div class="art-grid">
+    <div class="art-tile"><div class="pic">🔋</div><div><b>Старт</b><small>Швидко перевіримо рівень сил.</small></div></div>
+    <div class="art-tile"><div class="pic">🎒</div><div><b>Ресурси</b><small>Що відновлює, а що лише з’їдає заряд.</small></div></div>
+    <div class="art-tile"><div class="pic">🤝</div><div><b>Підтримка</b><small>Слова, від яких не хочеться закотити очі.</small></div></div>
+    <div class="art-tile"><div class="pic">🛟</div><div><b>Безпека</b><small>Коротко, чітко і без паніки.</small></div></div>
+  </div>
+  <div class="rulebar">
+    <div class="rule">🟢 Можна «пас»<small>Сказав — і тему не розкручуємо.</small></div>
+    <div class="rule">🤝 Без стьобу<small>Комусь музика, комусь тиша, комусь побігати. Усе нормально.</small></div>
+    <div class="rule">🔒 Особисте — окремо<small>Якщо щось не для спільної розмови — поговоримо після уроку.</small></div>
+  </div>
+  <div class="timeline">
+    <div class="time"><b>0–5 хв</b><span>Перевіряємо, скільки сьогодні сил.</span></div>
+    <div class="time"><b>5–12 хв</b><span>Дивимося, що реально допомагає відпочити.</span></div>
+    <div class="time"><b>12–18 хв</b><span>Три твердження: правда чи ні.</span></div>
+    <div class="time"><b>18–23 хв</b><span>Вчимося нормально підтримувати одне одного.</span></div>
+    <div class="time"><b>23–31 хв</b><span>Що робити, коли домашнього вже забагато.</span></div>
+    <div class="time"><b>31–37 хв</b><span>Розбираємо три звичайні ситуації.</span></div>
+    <div class="time"><b>37–42 хв</b><span>Коротко про медиків і пожежу.</span></div>
+    <div class="time"><b>42–45 хв</b><span>Наостанок — одна річ, яку можна зробити вже сьогодні.</span></div>
+  </div>
+</section>
+
+<section id="checkin" class="card span12">
+  <div class="icon">🔋</div><span class="badge">1 · СТАРТ</span>
+  <h2>Скільки сьогодні сил?</h2>
+  <p>Не питаю «як справи», бо відповідь ми всі знаємо: «нормально». Краще поставте собі від 1 до 5 — скільки зараз сил. <b>Без пояснень, якщо не хочеться.</b></p>
+  <div class="student-grid">
+    <div class="student anton"><h3>Антон</h3><div class="battery" data-student="Антон"><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button></div><p class="small">1 — «залиште мене під ковдрою» · 5 — «нормально, живемо»</p></div>
+    <div class="student rost"><h3>Ростислав</h3><div class="battery" data-student="Ростислав"><button>1</button><button>2</button><button>3</button><button>4</button><button>5</button></div><p class="small">Це просто стан на зараз. Завтра цифра може бути зовсім іншою.</p></div>
+  </div>
+  <div class="mood-strip" aria-hidden="true">
+    <div class="mood" style="background:#fff6cf"><span>😴</span>1 — хочу спати</div>
+    <div class="mood" style="background:#ffe8da"><span>😵</span>2 — трохи втомився</div>
+    <div class="mood" style="background:#edf3ff"><span>😐</span>3 — нормально</div>
+    <div class="mood" style="background:#e7f7ef"><span>🙂</span>4 — ще тримаюсь</div>
+    <div class="mood" style="background:#f2ecff"><span>😎</span>5 — живемо</div>
+  </div>
+  <div class="callout blue"><b>Одне коротке питання:</b> що сьогодні могло б додати вам хоча б один пункт? Поспати? Поїсти? Побути в тиші? Пограти? Вийти на вулицю? Послухати музику? Або просто пів години, коли вас ніхто не чіпає?</div>
+</section>
+
+<section id="backpack" class="card span12">
+  <div class="icon">🎒</div><span class="badge">2 · РЕСУРСНИЙ РЮКЗАК</span>
+  <h2>Що вам реально допомагає відпочити?</h2>
+  <p>Оберіть <b>по три речі</b>, після яких вам справді стає легше. Не те, що «правильно», а те, що працює саме для вас. Потім порівняємо, що збіглося.</p>
+  <div class="art-grid" aria-hidden="true">
+    <div class="art-tile"><div class="pic">😴</div><div><b>Сон</b><small>Найбанальніший, але дуже сильний ресурс.</small></div></div>
+    <div class="art-tile"><div class="pic">🎧</div><div><b>Музика</b><small>Іноді 10 хвилин музики працюють краще за ниття мозку.</small></div></div>
+    <div class="art-tile"><div class="pic">🚶</div><div><b>Рух</b><small>Коротка прогулянка теж рахується.</small></div></div>
+    <div class="art-tile"><div class="pic">💬</div><div><b>Розмова</b><small>Іноді вистачає просто нормально виговоритися.</small></div></div>
+  </div>
+  <div class="student-grid">
+    <div class="student anton"><h3>🎒 Антон</h3><div class="resource-grid">
+      <div class="resource"><span class="check"></span>Сон</div><div class="resource"><span class="check"></span>Тиша</div><div class="resource"><span class="check"></span>Музика</div><div class="resource"><span class="check"></span>Ігри</div><div class="resource"><span class="check"></span>Прогулянка</div><div class="resource"><span class="check"></span>Спорт / рух</div><div class="resource"><span class="check"></span>Розмова</div><div class="resource"><span class="check"></span>Час наодинці</div>
+    </div></div>
+    <div class="student rost"><h3>🎒 Ростислав</h3><div class="resource-grid">
+      <div class="resource"><span class="check"></span>Сон</div><div class="resource"><span class="check"></span>Тиша</div><div class="resource"><span class="check"></span>Музика</div><div class="resource"><span class="check"></span>Ігри</div><div class="resource"><span class="check"></span>Прогулянка</div><div class="resource"><span class="check"></span>Спорт / рух</div><div class="resource"><span class="check"></span>Розмова</div><div class="resource"><span class="check"></span>Час наодинці</div>
+    </div></div>
+  </div>
+  <div class="callout"><b>І ось цікаве:</b> після одного й того самого шкільного дня одному хочеться тиші, а іншому — говорити, грати чи рухатися. Це нормально: люди відновлюються по-різному.</div>
+</section>
+
+<section id="mental" class="card span7">
+  <div class="icon">🧠</div><span class="badge">3 · МІФ ЧИ ФАКТ?</span>
+  <h2>Три речі, які часто плутають</h2>
+  <div class="myths">
+    <div class="myth" data-answer="bad" data-text="Такі емоції бувають у всіх. Важливіше не уникнути їх, а зрозуміти, що з ними робити."><b>«Якщо з ментальним здоров’ям усе добре, людина майже завжди в гарному настрої».</b><div class="choices"><button class="good">Факт</button><button>Міф</button></div><div class="feedback"></div></div>
+    <div class="myth" data-answer="good" data-text="Так. Коли людина не виспалася, складніше зосередитися, запам’ятовувати й спокійно реагувати."><b>«Коли людина не виспалась, їй важче вчитися і спокійно реагувати».</b><div class="choices"><button class="good">Факт</button><button>Міф</button></div><div class="feedback"></div></div>
+    <div class="myth" data-answer="bad" data-text="Просити допомогу — нормально. Не обов’язково тягнути все самому, особливо коли вже важко."><b>«Просити дорослого про допомогу — це слабкість».</b><div class="choices"><button class="good">Факт</button><button>Міф</button></div><div class="feedback"></div></div>
+  </div>
+</section>
+
+<section class="card span5">
+  <div class="icon">🌦️</div><span class="badge">КЛЮЧОВА ДУМКА</span>
+  <h2>Емоції — це сигнал, а не наказ</h2>
+  <p>Злість може показувати, що нас щось зачепило. Страх — що ми бачимо небезпеку або не розуміємо, що буде далі. Сум — що нам боляче або ми виснажилися. Емоцію не треба забороняти. Треба вирішити, що робити далі.</p>
+  <div class="illobox" aria-hidden="true">
+    <div class="bigicon">🌦️</div>
+    <div><b>Погода настрою буває різною.</b><p style="margin:6px 0 0">Сонце, дощ, хмари — усе трапляється. Питання не в тому, щоб завжди було сонячно, а в тому, щоб не зривати бурю на інших.</p></div>
+  </div>
+  <div class="quote color">Злитися можна. Ображати когось через це — вже ні.</div>
+  <div class="callout blue"><b>По одному прикладу:</b> що можна зробити, коли дуже злишся, хвилюєшся або засмучений? Наприклад: відійти, кілька хвилин помовчати, сказати словами, що сталося, попросити допомоги.</div>
+</section>
+
+<section id="compliment" class="card span12">
+  <div class="icon">🤝</div><span class="badge">4 · ПІДТРИМКА ОДНЕ ОДНОГО</span>
+  <h2>Сказати щось хороше — без пафосу</h2>
+  <p>Зараз — по одному реченню одне одному. Не «ти найкращий», не про зовнішність. Просто щось конкретне, що ви справді помічали: у вчинках, характері чи в тому, що людина добре вміє.</p>
+  <div class="turns">
+    <div class="turn"><b>Антон → Ростислав</b><br>«У тебе добре виходить…» / «Мені подобається, що ти…» / «Ти класно…»</div>
+    <div class="turn"><b>Ростислав → Антон</b><br>«У тебе добре виходить…» / «Мені подобається, що ти…» / «Ти класно…»</div>
+  </div>
+  <div class="bubble-row" aria-hidden="true">
+    <div class="bubble"><b>Приклад 1:</b><br>«Ти класно пояснюєш, коли хтось не зрозумів».</div>
+    <div class="bubble"><b>Приклад 2:</b><br>«Мені подобається, що з тобою можна домовитися без цирку».</div>
+  </div>
+  <div class="callout"><b>Єдине правило:</b> без зовнішності й без «ти кращий за…». Ми не складаємо рейтинг людей.</div>
+</section>
+
+<section id="study" class="card span7">
+  <div class="icon">📚</div><span class="badge">5 · НАВЧАННЯ БЕЗ ПЕРЕВАНТАЖЕННЯ</span>
+  <h2>Коли домашнього забагато</h2>
+  <div class="step-list">
+    <div class="step"><div class="num">1</div><div><b>Робіть паузи.</b> Після шматка роботи — 2–5 хвилин без завдання перед очима. Це краще, ніж сидіти ще сорок хвилин і читати один абзац п’ять разів.</div></div>
+    <div class="step"><div class="num">2</div><div><b>Діліть велике завдання.</b> Не «мені треба зробити весь проєкт», а «спочатку відкрию, потім знайду матеріал, потім зроблю першу частину».</div></div>
+    <div class="step"><div class="num">3</div><div><b>Визначте, що головне.</b> Коли справ десять, почати важче. Спершу виберіть дві-три, які справді треба зробити сьогодні.</div></div>
+    <div class="step"><div class="num">4</div><div><b>Не забувайте про звичайні речі.</b> Вода, їжа, рух і свіже повітря реально впливають на увагу й самопочуття.</div></div>
+    <div class="step"><div class="num">5</div><div><b>Сон не залишаємо «на потім».</b> Якщо регулярно відрізати сон заради домашнього, наступного дня працювати буде ще важче.</div></div>
+  </div>
+</section>
+
+<section class="card span5">
+  <div class="icon">⚡</div><span class="badge">ШВИДКИЙ ВИБІР</span>
+  <h2>Що в навчанні найбільше дратує?</h2>
+  <p>Оберіть один пункт. Можна просто назвати літеру — пояснювати не обов’язково.</p>
+  <div class="choice-cards" aria-hidden="true">
+    <div class="choice-card"><span class="top">🚦</span><b>Початок</b></div>
+    <div class="choice-card"><span class="top">📵</span><b>Відволікання</b></div>
+    <div class="choice-card"><span class="top">📚</span><b>Забагато</b></div>
+    <div class="choice-card"><span class="top">😤</span><b>Не виходить</b></div>
+  </div>
+  <div class="step-list">
+    <div class="step"><div class="num">A</div><div>Почати завдання.</div></div>
+    <div class="step"><div class="num">B</div><div>Не відволікатися.</div></div>
+    <div class="step"><div class="num">C</div><div>Коли завдань забагато.</div></div>
+    <div class="step"><div class="num">D</div><div>Коли щось не виходить одразу.</div></div>
+  </div>
+  <div class="callout blue"><b>Далі — одна порада на одну проблему.</b> Не список із десяти пунктів. Інакше допомога сама перетвориться на ще одне завдання.</div>
+</section>
+
+<section id="quiz" class="card span12">
+  <div class="icon">🎮</div><span class="badge">6 · МІНІ-КЕЙСИ</span>
+  <h2>А тепер — три звичайні ситуації</h2>
+  <p>Антон бере першу, Ростислав — другу, третю розбираємо разом. Не треба вгадувати, що «хоче почути вчитель». Просто шукаємо варіант, який має сенс.</p>
+  <div class="casegrid">
+    <div class="case"><span class="tag">Ситуація 1</span><p><strong>21:45.</strong> Домашнє ще не закінчене, очі вже злипаються. Завтра звичайний навчальний день.</p><p><b>Що робити:</b> сидіти до ночі чи визначити мінімум на сьогодні, завершити його й піти спати? Чому?</p></div>
+    <div class="case"><span class="tag">Ситуація 2</span><p><strong>Після уроків немає сил.</strong> Друг кличе ще дві години грати онлайн.</p><p><b>Що робити:</b> одразу сідати грати на дві години чи спершу поїсти, попити води, трохи перепочити — а вже потім вирішити?</p></div>
+    <div class="case"><span class="tag">Ситуація 3</span><p><strong>Три великі завдання на один вечір.</strong> Від самого списку вже хочеться нічого не робити.</p><p><b>Що робити:</b> хапатися за все одразу чи спочатку визначити, що термінове, і розкласти решту по черзі?</p></div>
+  </div>
+  <div class="callout"><b>Бліц:</b> енергетик замість сну? — ні. Трохи пройтися або порухатися? — так. Кілька годин за екраном без перерв? — погана ідея. Сказати дорослому «я не справляюся»? — нормально.</div>
+</section>
+
+<section class="card span5">
+  <div class="icon">🩺</div><span class="badge">7 · ЛЮДИ, ЯКІ ДОПОМАГАЮТЬ</span>
+  <h2>Хто взагалі допомагає нам залишатися здоровими?</h2>
+  <p>Коли кажемо «медики», це не лише лікар у кабінеті. Є екстрена допомога, медсестри й медбрати, лабораторії, реабілітація, психологічна допомога, профілактика.</p>
+  <div class="health-strip" aria-hidden="true">
+    <div class="mini"><span>🚑</span>екстренка</div>
+    <div class="mini"><span>🩹</span>медсестри</div>
+    <div class="mini"><span>🧪</span>лабораторії</div>
+    <div class="mini"><span>🫶</span>реабілітація</div>
+  </div>
+  <div class="callout"><b>30 секунд:</b> скільки медичних професій згадаєте на двох? Повторювати не можна. Якщо хтось завис — другий підхоплює.</div>
+  <p class="small">Під час війни медики додатково працюють в умовах повітряних тривог, травмувань, евакуацій та перебоїв інфраструктури.</p>
+</section>
+
+<section id="safety" class="card span7">
+  <div class="icon">🔥</div><span class="badge">8 · БЕЗПЕКА</span>
+  <h2>Пожежа: чотири речі, які треба пам’ятати</h2>
+  <div class="safety-strip" aria-hidden="true">
+    <div class="mini"><span>🚪</span>виходимо</div>
+    <div class="mini"><span>🧍</span>не ховаємось</div>
+    <div class="mini"><span>⬇️</span>нижче при димі</div>
+    <div class="mini"><span>🚫</span>без ліфта</div>
+  </div>
+  <div class="step-list">
+    <div class="step"><div class="num">!</div><div><b>Не ховатися.</b> Шафа, ванна чи простір під ліжком не захищають і ускладнюють пошук.</div></div>
+    <div class="step"><div class="num">!</div><div><b>Не повертатися по речі.</b> Рюкзак, телефон або ноутбук можна замінити.</div></div>
+    <div class="step"><div class="num">↓</div><div><b>Якщо є дим — рухатися нижче</b> і якнайшвидше залишати небезпечне місце.</div></div>
+    <div class="step"><div class="num">↯</div><div><b>Ліфтом не користуємося.</b> Він може зупинитися або відкритися на задимленому поверсі.</div></div>
+  </div>
+  <div class="callout warning"><b>Головне правило:</b> якщо вже вийшли з небезпечного місця — назад по речі не повертаємося. Телефон і рюкзак залишаються речами.</div>
+</section>
+
+<section id="finish" class="card span12">
+  <div class="icon">✅</div><span class="badge">9 · ФІНІШ ЗА 2 ХВИЛИНИ</span>
+  <h2>І що з цього можна зробити сьогодні?</h2>
+  <p>Оберіть одну маленьку річ, яку реально зробити <b>сьогодні</b>. Не «тепер я завжди житиму правильно». Просто одну дію.</p>
+  <div class="casegrid">
+    <div class="case"><span class="tag">Варіант</span><p>Лягти спати на 20–30 хв раніше.</p></div>
+    <div class="case"><span class="tag">Варіант</span><p>Зробити паузу між школою і домашнім.</p></div>
+    <div class="case"><span class="tag">Варіант</span><p>Сказати дорослому, якщо завдань або переживань забагато.</p></div>
+  </div>
+  <div class="quote">Ментальне здоров’я — це не коли все завжди добре. Це коли ви помічаєте, що з вами відбувається, знаєте, що допомагає відновитися, і можете попросити допомоги, коли самостійно вже важко.</div>
+</section>
+
+<section class="card span12 teacher">
+  <span class="badge">ДЛЯ КЛАСНОГО КЕРІВНИКА</span>
+  <h2>Що ця зустріч закриває з тижневого плану</h2>
+  <div class="grid" style="margin-top:12px">
+    <div class="span6"><h3>Безпосередньо з Антоном і Ростиславом</h3><ul class="clean">
+      <li>«Мій ресурсний рюкзак»;</li><li>ментальне здоров’я: емоції, сон, рух, перерви, підтримка;</li><li>«Комплімент без порівнянь»;</li><li>5 кроків до ментального здоров’я під час навчання;</li><li>сон, енергетики, екранний час і фізична активність;</li><li>роль медиків;</li><li>пожежна безпека.</li>
+    </ul></div>
+    <div class="span6"><h3>Те, що не треба робити «публічно»</h3><ul class="clean">
+      <li><b>Індивідуальна робота:</b> якщо хтось сигналізує про тривогу, конфлікт або перевантаження — поговорити окремо, не при другому учневі.</li>
+      <li><b>Предметники:</b> окремо звірити великі контрольні, проєкти й дедлайни.</li>
+      <li><b>Батьки:</b> окреме коротке повідомлення про автономію п’ятикласника, право на помилку й реалістичні очікування.</li>
+    </ul></div>
+  </div>
+</section>
+
+</div></main>
+<footer><p><b>Класна година «Тиждень ментального здоров’я» · 06.10.2026.</b> Версія для малої групи: Антон і Ростислав. Сторінка працює автономно, без зовнішніх бібліотек.</p></footer>
+<script>
+for(const item of document.querySelectorAll('.resource')){item.addEventListener('click',()=>{item.classList.toggle('active');item.querySelector('.check').textContent=item.classList.contains('active')?'✓':'';});}
+for(const bat of document.querySelectorAll('.battery')){bat.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{bat.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}));}
+for(const q of document.querySelectorAll('.myth')){const buttons=q.querySelectorAll('button');buttons.forEach((btn,index)=>btn.addEventListener('click',()=>{const selected=index===0?'good':'bad';const correct=selected===q.dataset.answer;q.querySelector('.feedback').textContent=(correct?'✅ Так. ':'↪ Не зовсім. ')+q.dataset.text;buttons.forEach(b=>b.style.outline='none');btn.style.outline=correct?'3px solid #70947f':'3px solid #d88b5d';}));}
+</script>
+</body>
+</html>
