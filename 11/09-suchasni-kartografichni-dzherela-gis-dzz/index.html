@@ -4,111 +4,397 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
-<meta name="description" content="11 клас. Урок 9. Сучасні картографічні джерела, ГІС і дистанційне зондування Землі. Практична геолабораторія на 35 хвилин.">
-<title>11 клас • Урок 9 • GEO LAB: ГІС, ДЗЗ і сучасні карти</title>
+<meta name="description" content="11 клас. Урок 9. Реальні ГІС у роботі: NASA FIRMS, USGS, Copernicus EMS, Global Forest Watch, ArcGIS Living Atlas, QGIS та супутникові дані.">
+<title>11 клас • Урок 9 • GIS WAR ROOM — реальні ГІС у дії</title>
 <style>
-:root{--bg:#07131b;--panel:#0d202b;--panel2:#102a37;--line:#244552;--text:#e9f5f6;--muted:#99b4bc;--cyan:#36d8dd;--lime:#9ee85f;--amber:#ffbd4a;--red:#ff6b61;--blue:#69a8ff;--paper:#f7fbfb;--ink:#132a32;--shadow:0 20px 60px rgba(0,0,0,.28);--r:22px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 0,#113846 0,transparent 32rem),linear-gradient(180deg,#07131b,#0a1720 50%,#07131b);color:var(--text);line-height:1.56}a{color:#8de7ef}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}.hero{padding:58px 0 28px;position:relative;overflow:hidden}.hero:after{content:"GEO OPS";position:absolute;right:-16px;bottom:-30px;font-weight:1000;font-size:clamp(6rem,18vw,15rem);line-height:1;color:rgba(255,255,255,.025);letter-spacing:-.08em;pointer-events:none}.tag,.pill{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}.tag{padding:.42rem .78rem;background:#113541;border:1px solid #23616e;color:#7ee9ed}.pill{padding:.34rem .65rem;background:#0b1d26;border:1px solid var(--line);font-size:.82rem}.hero h1{font-size:clamp(2.7rem,7.2vw,5.7rem);line-height:.94;letter-spacing:-.055em;max-width:1020px;margin:.7rem 0 1rem}.hero h1 span{color:var(--cyan)}.lead{max-width:920px;color:#bbd0d5;font-size:1.12rem}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.brief{display:grid;grid-template-columns:1.3fr .7fr;gap:14px;margin-top:22px}.brief>div{background:linear-gradient(145deg,#0d202b,#102b36);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}.brief strong{color:var(--amber)}.progressbox{display:flex;flex-direction:column;justify-content:center}.progressline{height:12px;background:#061017;border:1px solid #294957;border-radius:999px;overflow:hidden}.progressbar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .35s}.progresslabel{display:flex;justify-content:space-between;margin-top:7px;color:var(--muted);font-size:.84rem}.nav{position:sticky;top:0;z-index:30;background:rgba(7,19,27,.92);backdrop-filter:blur(12px);border-block:1px solid #1e3b47}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0}.nav a{white-space:nowrap;text-decoration:none;background:#0e222c;border:1px solid #2a4b57;border-radius:999px;padding:.52rem .75rem;font-weight:850;color:#d9ecee}.section{padding:22px 0}.card{background:linear-gradient(145deg,#0d202b,#0a1b24);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}.card.light{background:var(--paper);color:var(--ink);border-color:#cbdfe3}.grid2,.grid3,.grid4{display:grid;gap:14px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}h2{font-size:clamp(1.6rem,3.3vw,2.45rem);line-height:1.08;margin:.1rem 0 .75rem}h3{line-height:1.2}.kicker{text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;font-weight:950;color:var(--cyan)}.light .kicker{color:#087f8c}.muted{color:var(--muted)}.light .muted{color:#60767d}.task,.hint,.warn,.goodbox{border-left:5px solid var(--cyan);padding:12px 14px;border-radius:14px;background:#0d2b35}.hint{border-color:var(--blue);background:#10273a}.warn{border-color:var(--amber);background:#352710}.goodbox{border-color:var(--lime);background:#19311c}.light .task{background:#e9f9fa}.light .hint{background:#eef5ff}.light .warn{background:#fff5df}.light .goodbox{background:#eef9e8}.btn{appearance:none;border:1px solid #315462;background:#11303b;color:#ecf8f8;border-radius:13px;padding:.72rem .92rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer}.btn:hover{border-color:#65cbd0}.btn.active,.btn.primary{background:var(--cyan);color:#062127;border-color:var(--cyan)}.btn.good{background:#1c4a2c;border-color:#4c8e5b}.btn.bad{background:#4b2725;border-color:#8c4842}.btn.lightbtn{background:#fff;color:#183943;border-color:#c3d9dd}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.feedback{display:none;margin-top:10px;border-radius:13px;padding:10px 12px;font-weight:800}.feedback.show{display:block}.feedback.ok{background:#19351f;color:#b8f28e;border:1px solid #47764f}.feedback.no{background:#42211f;color:#ffc3be;border:1px solid #7e403c}.light .feedback.ok{background:#e9f8e4;color:#2e6831}.light .feedback.no{background:#fff0ee;color:#8b3732}.case{background:#0a1820;border:1px solid #274653;border-radius:18px;padding:14px}.light .case{background:#fff;border-color:#d0e0e4}.case .num{font-size:2.4rem;font-weight:1000;color:var(--cyan);line-height:1}.case strong{display:block;margin:.3rem 0}.launch{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;font-weight:900;border-radius:12px;padding:.65rem .8rem;border:1px solid #2b5663;background:#0d2933}.light .launch{background:#eefafa;color:#126d73;border-color:#b7dde0}.ops-table{width:100%;border-collapse:collapse;font-size:.93rem}.ops-table th,.ops-table td{border-bottom:1px solid #294650;padding:8px;text-align:left}.ops-table th{color:#83e7eb}.light .ops-table th{color:#0c7379}.light .ops-table td,.light .ops-table th{border-color:#d2e1e4}.mapbox{position:relative;height:470px;border-radius:18px;overflow:hidden;background:#d9dfc4;border:1px solid #4f6c72}.mapbox svg{width:100%;height:100%;display:block}.layer{transition:opacity .25s}.off{opacity:0}.candidate{cursor:pointer;transition:transform .18s}.candidate:hover{transform:scale(1.12);transform-origin:center}.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px;font-size:.82rem}.legend span{background:#0a1820;border:1px solid #2a4753;border-radius:999px;padding:.35rem .6rem}.light .legend span{background:#fff;border-color:#c7dce0}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.weights{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.weight{background:#10242d;border:1px solid #294957;border-radius:14px;padding:10px}.light .weight{background:#f3f8f8;border-color:#c8dce0}.weight input{width:100%}.weight b{font-size:1.25rem}.scoreboard{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.site{border-radius:14px;padding:12px;background:#0b1921;border:1px solid #2a4855}.light .site{background:#fff;border-color:#ccdde1}.site .big{font-size:1.75rem;font-weight:1000}.site.best{outline:3px solid var(--lime)}.satimg{width:100%;height:420px;object-fit:cover;border-radius:17px;border:1px solid #355662;background:#08141b}.hotspot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.hotspot{padding:12px;border-radius:14px;border:1px solid #31505b;background:#0a1a22;cursor:pointer}.hotspot.selected{border-color:var(--cyan);background:#0e3038}.light .hotspot{background:#fff;border-color:#c7dce0}.light .hotspot.selected{background:#e9fbfb}.sourcegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.sourcechip{border:1px solid #2d4c59;border-radius:16px;padding:13px;background:#0b1b23}.sourcechip .ico{font-size:1.8rem}.sourcechip b{display:block;margin:.25rem 0}.theorystrip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.theorystrip article{background:#0a1921;border:1px solid #294955;border-radius:15px;padding:11px}.theorystrip b{color:#8de8ec;display:block;margin-bottom:4px}.finalsheet textarea,.quiz input[type=text],.quiz select{width:100%;font:inherit;border-radius:12px;border:1px solid #bad1d6;padding:.68rem;background:#fff;color:#15313a}.finalsheet textarea{min-height:80px}.quizgate{background:#eef5f6;border:1px solid #c2d8dc;border-radius:17px;padding:14px}.quiz{display:none}.quiz.open{display:block}.q{background:#fff;border:1px solid #cedfe2;border-radius:16px;padding:14px;margin:11px 0}.q label{display:block;padding:5px 0}.q input[type=radio],.q input[type=checkbox]{margin-right:7px}.result{display:none;margin-top:14px;border:2px solid #69a56c;background:#effaec;border-radius:18px;padding:15px}.result.show{display:block}.score{font-size:2.5rem;font-weight:1000;color:#2f7435}.resource-links{display:flex;flex-wrap:wrap;gap:8px}.resource-links a{text-decoration:none}.tiny{font-size:.82rem}.doneflag{display:inline-block;border-radius:999px;padding:.25rem .55rem;background:#19341f;color:#b8f28e;font-weight:900;font-size:.75rem}.locked{opacity:.5}.footer{padding:30px 0 50px;color:#91aab1;border-top:1px solid #1d3944;margin-top:30px}@media(max-width:980px){.grid3,.grid4,.sourcegrid,.theorystrip,.brief{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.weights,.scoreboard{grid-template-columns:repeat(2,1fr)}.mapbox{height:410px}.satimg{height:330px}}@media(max-width:620px){.weights,.scoreboard,.hotspot-grid{grid-template-columns:1fr}.mapbox{height:360px}.hero{padding-top:44px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}@media print{.nav,.btn,.resource-links,.progressbox{display:none!important}body{background:#fff;color:#111}.card,.card.light{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb}.section{padding:8px 0}.quiz{display:block!important}}
+:root{
+ --bg:#071118;--panel:#0d1d27;--panel2:#102834;--line:#254653;--text:#edf8f8;--muted:#a7bdc4;
+ --cyan:#3fe1e6;--lime:#a7ed6c;--amber:#ffc857;--orange:#ff8c52;--red:#ff6e67;--blue:#72abff;
+ --paper:#f6fbfb;--ink:#132c34;--shadow:0 20px 58px rgba(0,0,0,.24);--r:22px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:
+ radial-gradient(circle at 12% 0,#123b49 0,transparent 31rem),
+ radial-gradient(circle at 92% 12%,#23304e 0,transparent 25rem),
+ linear-gradient(180deg,#071118,#0a1720 48%,#071118);color:var(--text);line-height:1.55}
+a{color:#83e9ef}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+.hero{padding:58px 0 30px;position:relative;overflow:hidden}
+.hero:after{content:"GIS";position:absolute;right:2vw;bottom:-5rem;font-size:clamp(10rem,27vw,23rem);font-weight:1000;color:rgba(255,255,255,.025);line-height:1;pointer-events:none}
+.tag,.pill,.badge{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}
+.tag{padding:.42rem .78rem;background:#113541;border:1px solid #23616e;color:#7ee9ed}
+.pill{padding:.34rem .64rem;background:#0b1d26;border:1px solid var(--line);font-size:.82rem}
+.badge{padding:.28rem .56rem;font-size:.75rem;background:#16303a;border:1px solid #315866}
+.hero h1{font-size:clamp(3rem,8vw,6.5rem);line-height:.9;letter-spacing:-.06em;margin:.7rem 0 1rem;max-width:1080px}
+.hero h1 span{color:var(--cyan)}
+.hero .lead{max-width:970px;color:#c2d5da;font-size:1.15rem}
+.hero .formula{font-size:clamp(1.05rem,2.5vw,1.55rem);font-weight:950;color:#fff;margin:18px 0}
+.meta{display:flex;gap:8px;flex-wrap:wrap}
+.brief{margin-top:20px;display:grid;grid-template-columns:1.25fr .75fr;gap:14px}
+.brief>div{background:linear-gradient(145deg,#0e202a,#102b37);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.progressline{height:12px;background:#061017;border:1px solid #294957;border-radius:999px;overflow:hidden}
+.progressbar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .3s}
+.progresslabel{display:flex;justify-content:space-between;margin-top:7px;color:var(--muted);font-size:.84rem}
+.nav{position:sticky;top:0;z-index:40;background:rgba(7,17,24,.92);backdrop-filter:blur(12px);border-block:1px solid #1d3944}
+.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0}
+.nav a{white-space:nowrap;text-decoration:none;background:#0f222b;border:1px solid #2a4b57;border-radius:999px;padding:.52rem .76rem;font-weight:850;color:#dff0f1}
+.section{padding:23px 0}
+.card{background:linear-gradient(145deg,#0d202b,#0a1b24);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+.card.light{background:var(--paper);color:var(--ink);border-color:#cbdfe3}
+h2{font-size:clamp(1.7rem,3.8vw,2.7rem);line-height:1.06;margin:.1rem 0 .75rem;letter-spacing:-.025em}
+h3{line-height:1.16;margin:.25rem 0 .55rem}
+.kicker{text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;font-weight:950;color:var(--cyan)}
+.light .kicker{color:#087f8c}
+.muted{color:var(--muted)}
+.light .muted{color:#61757c}
+.grid2,.grid3,.grid4{display:grid;gap:14px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.task,.hint,.warn,.good{border-left:5px solid var(--cyan);padding:12px 14px;border-radius:14px;background:#0d2b35}
+.hint{border-color:var(--blue);background:#10273a}
+.warn{border-color:var(--amber);background:#352710}
+.good{border-color:var(--lime);background:#19311c}
+.light .task{background:#eaf9fa}.light .hint{background:#eef5ff}.light .warn{background:#fff4dc}.light .good{background:#eef9e7}
+.btn,.launch{appearance:none;border:1px solid #315462;background:#11303b;color:#ecf8f8;border-radius:13px;padding:.72rem .92rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:.35rem}
+.btn:hover,.launch:hover{border-color:#66d0d4}
+.btn.primary{background:var(--cyan);color:#062127;border-color:var(--cyan)}
+.btn.alt{background:#1c442c;border-color:#4d8058}
+.btn.lightbtn{background:#fff;color:#183943;border-color:#c3d9dd}
+.controls,.resource-links{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.feedback{display:none;margin-top:10px;border-radius:13px;padding:10px 12px;font-weight:800}
+.feedback.show{display:block}
+.feedback.ok{background:#19351f;color:#b8f28e;border:1px solid #47764f}
+.feedback.no{background:#42211f;color:#ffc3be;border:1px solid #7e403c}
+.light .feedback.ok{background:#e9f8e4;color:#2e6831}.light .feedback.no{background:#fff0ee;color:#8b3732}
+.case{background:#0a1820;border:1px solid #274653;border-radius:18px;padding:14px}
+.case .num{font-size:2.35rem;font-weight:1000;color:var(--cyan);line-height:1}
+.case strong{display:block;margin:.35rem 0}
+.livegrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.service{position:relative;overflow:hidden;border:1px solid #2a4c59;border-radius:22px;background:linear-gradient(145deg,#0c202a,#0b1820);padding:18px}
+.service:before{content:attr(data-code);position:absolute;right:-4px;top:-22px;font-weight:1000;font-size:5rem;color:rgba(255,255,255,.035);letter-spacing:-.08em}
+.service .top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.service .logo{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:1.55rem;font-weight:1000;background:#123440;border:1px solid #2f6570}
+.service ul{padding-left:1.15rem}
+.service li{margin:.28rem 0}
+.service .how{background:#08151c;border:1px solid #203e49;border-radius:14px;padding:10px;margin:10px 0}
+.miniquest{background:#102b35;border:1px dashed #3b6974;border-radius:14px;padding:11px}
+.light .miniquest{background:#eaf7f8;color:#15353d;border-color:#91c6ce}
+.engine{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+.gismap{position:relative;height:520px;border-radius:20px;overflow:hidden;border:1px solid #b9d0d5;background:
+ linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px),
+ linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),
+ #e9efd8;background-size:36px 36px}
+.gismap .river{position:absolute;left:38%;top:-8%;width:120px;height:118%;background:#7ecaf0;border-radius:52% 48% 52% 48%;transform:rotate(8deg);opacity:.92}
+.gismap .road{position:absolute;height:22px;background:#70777b;border:3px solid #f4d56d;transform-origin:left center}
+.gismap .r1{width:118%;left:-8%;top:61%;transform:rotate(-14deg)}
+.gismap .r2{width:82%;left:22%;top:25%;transform:rotate(31deg)}
+.floodzone{position:absolute;left:31%;top:-6%;width:205px;height:116%;background:rgba(40,127,200,.22);border:2px dashed rgba(27,95,160,.62);border-radius:48%;transition:all .25s}
+.bufferzone{position:absolute;border:3px solid rgba(255,111,91,.75);background:rgba(255,111,91,.15);border-radius:50%;transition:all .25s;pointer-events:none}
+.point{position:absolute;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid #173b46;color:#173b46;font-size:.78rem;font-weight:1000;box-shadow:0 3px 10px rgba(0,0,0,.16);z-index:8}
+.point.hit{background:#ff8b7f;border-color:#8f2f27;color:#431714}
+.point.safe{background:#dff5c9;border-color:#477f3f}
+.poly{position:absolute;background:#c5a6dfaa;border:2px solid #7c53a5;clip-path:polygon(8% 12%,87% 5%,100% 64%,75% 93%,12% 84%,0 44%)}
+.layerrow{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid #d8e5e7}
+.switch{min-width:90px}
+.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
+.stat{background:#fff;border:1px solid #c9dce0;border-radius:15px;padding:10px;text-align:center}
+.stat b{font-size:1.65rem;display:block;color:#0a747c}
+.op{border-radius:16px;border:1px solid #c9dce0;background:#fff;padding:12px;margin-top:10px}
+.op b{color:#0a747c}
+.slider{width:100%}
+.workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.step{border:1px solid #2c4e5a;border-radius:16px;padding:12px;background:#0a1921}
+.step b{display:block;color:#80e7eb;margin-bottom:4px}
+.matchgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.matchcard{border:1px solid #2d4e59;background:#0b1b23;border-radius:16px;padding:13px}
+.quiz input[type=text],.quiz select,.final textarea{width:100%;font:inherit;border-radius:12px;border:1px solid #bad1d6;padding:.68rem;background:#fff;color:#15313a}
+.final textarea{min-height:82px}
+.quizgate{background:#eef5f6;border:1px solid #c2d8dc;border-radius:17px;padding:14px}
+.quiz{display:none}.quiz.open{display:block}
+.q{background:#fff;border:1px solid #cedfe2;border-radius:16px;padding:14px;margin:11px 0}
+.q label{display:block;padding:5px 0}
+.q input[type=radio],.q input[type=checkbox]{margin-right:7px}
+.result{display:none;margin-top:14px;border:2px solid #69a56c;background:#effaec;border-radius:18px;padding:15px}
+.result.show{display:block}
+.score{font-size:2.5rem;font-weight:1000;color:#2f7435}
+.footer{padding:30px 0 50px;color:#91aab1;border-top:1px solid #1d3944;margin-top:30px}
+.tiny{font-size:.82rem}
+@media(max-width:980px){
+ .grid3,.grid4,.brief,.engine,.workflow,.matchgrid{grid-template-columns:1fr}
+ .grid2,.livegrid{grid-template-columns:1fr}
+ .gismap{height:470px}
+}
+@media(max-width:620px){
+ .statgrid{grid-template-columns:1fr}
+ .gismap{height:420px}
+ .hero{padding-top:44px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{.nav,.btn,.launch,.resource-links,.progressbox{display:none!important}body{background:#fff;color:#111}.card,.card.light,.service{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb}.section{padding:8px 0}.quiz{display:block!important}}
 </style>
-<!-- republish-pages: 2026-10-06 -->
 </head>
 <body>
 <header class="hero" id="top"><div class="wrap">
 <span class="tag">🛰️ 11 КЛАС • УРОК 09 • §6</span>
-<h1>GEO LAB: <span>карти, ГІС і супутники</span> без декоративної теорії</h1>
-<p class="lead">Сьогодні Ви не «вивчаєте ГІС». Ви працюєте як геоаналітики: обираєте джерело під задачу, будуєте просторове рішення, читаєте супутниковий знімок і пояснюєте, де даним не можна довіряти без перевірки.</p>
-<div class="meta"><span class="pill">35 хв</span><span class="pill">4 практичні місії</span><span class="pill">реальний Sentinel‑2</span><span class="pill">багатокритеріальна ГІС</span><span class="pill">фінальний продукт</span></div>
-<div class="brief"><div><b>Бриф:</b> умовна громада має кілька задач — знайти об’єкт, оцінити ділянку під сонячну електростанцію та розібрати супутникове зображення. <strong>Ваша робота — не назвати сервіс, а довести, чому саме ці дані дають потрібну відповідь.</strong></div><div class="progressbox"><b>Прогрес лабораторії</b><div class="progressline"><div class="progressbar" id="progressBar"></div></div><div class="progresslabel"><span id="progressText">0 із 4 місій</span><span id="progressPct">0%</span></div></div></div>
+<h1>GIS WAR ROOM:<br><span>реальні ГІС, які вже працюють</span></h1>
+<p class="lead">Не буде «ГІС — це система для роботи з просторовими даними» на пів уроку. Ви відкриєте сервіси, якими реально відстежують пожежі, землетруси, повені, вирубування лісів, зміни поверхні й міські процеси — і розберетеся, <b>яку операцію виконує ГІС, щоб із карти з’явилася відповідь.</b></p>
+<div class="formula">ГІС ≠ красива карта. ГІС = <span style="color:var(--amber)">запитання → шари → просторова операція → перевірка → рішення</span>.</div>
+<div class="meta"><span class="pill">35 хв</span><span class="pill">7 реальних систем</span><span class="pill">живі карти</span><span class="pill">buffer + intersection</span><span class="pill">ДЗЗ</span><span class="pill">тест /10</span></div>
+<div class="brief"><div><b>Сюжет:</b> Ви — команда геоаналітиків. За один урок треба зрозуміти, чому NASA бачить теплову аномалію, USGS показує глибину землетрусу, Copernicus оцінює зону лиха, Global Forest Watch ловить зміни лісу, а QGIS може відсікти територію за відстанню, перетином і умовами.</div><div class="progressbox"><b>Прогрес</b><div class="progressline"><div class="progressbar" id="progressBar"></div></div><div class="progresslabel"><span id="progressText">0 із 4 місій</span><span id="progressPct">0%</span></div></div></div>
 </div></header>
-<nav class="nav"><div class="wrap"><a href="#m1">1. Джерело</a><a href="#m2">2. ГІС-рішення</a><a href="#m3">3. Sentinel‑2</a><a href="#m4">4. Аудит даних</a><a href="#cheat">Шпаргалка</a><a href="#final">Фінал</a><a href="#home">Д/З + тест</a></div></nav>
+
+<nav class="nav"><div class="wrap">
+<a href="#hook">Старт</a><a href="#live">Реальні ГІС</a><a href="#engine">Як ГІС думає</a><a href="#eo">ДЗЗ</a><a href="#workflow">Схема роботи</a><a href="#final">Фінал</a><a href="#home">Д/З + тест</a>
+</div></nav>
+
 <main class="wrap">
-<section class="section" id="m1"><div class="card">
-<div class="kicker">0–6 хв • місія 1</div><h2>Не «яку карту відкрити?», а «яке джерело дасть відповідь?»</h2><p class="muted">Три реальні задачі. У кожній оберіть основне джерело. Потім поясніть, чого воно <b>не дає</b>.</p>
+
+<section class="section" id="hook"><div class="card">
+<div class="kicker">0–4 хв • швидке рішення</div><h2>Одна планета. Три події. Яку систему Ви відкриєте першою?</h2>
 <div class="grid3">
-<div class="case"><div class="num">01</div><strong>Знайти під’їзд до конкретної будівлі</strong><p>Потрібні вулиці, адреси, проходи, об’єкти поруч.</p><button class="btn source-choice" data-q="1" data-a="osm">OpenStreetMap</button> <button class="btn source-choice" data-q="1" data-a="sentinel">Sentinel‑2</button></div>
-<div class="case"><div class="num">02</div><strong>Побачити, як змінилась площа рослинності</strong><p>Потрібно порівняти територію у часі, а не прочитати назви вулиць.</p><button class="btn source-choice" data-q="2" data-a="sentinel">Супутникові знімки</button> <button class="btn source-choice" data-q="2" data-a="atlas">Паперовий атлас</button></div>
-<div class="case"><div class="num">03</div><strong>Визначити найкращу ділянку під СЕС</strong><p>Потрібно одночасно врахувати дороги, ухил, ЛЕП, землекористування та обмеження.</p><button class="btn source-choice" data-q="3" data-a="gis">ГІС із кількома шарами</button> <button class="btn source-choice" data-q="3" data-a="photo">Одне аерофото</button></div>
-</div><div class="feedback" id="sourceFeedback"></div>
-<div class="resource-links" style="margin-top:12px"><a class="launch" href="https://www.openstreetmap.org/" target="_blank" rel="noopener">↗ Відкрити OpenStreetMap</a><a class="launch" href="https://browser.dataspace.copernicus.eu/" target="_blank" rel="noopener">↗ Відкрити Copernicus Browser</a><a class="launch" href="https://worldview.earthdata.nasa.gov/" target="_blank" rel="noopener">↗ Відкрити NASA Worldview</a></div>
-<div class="task" style="margin-top:12px"><b>Пара на 60 секунд:</b> назвіть одну задачу, де OpenStreetMap буде кращим за супутниковий знімок, і одну — де навпаки. Не «бо детальніше», а <b>яку конкретну інформацію</b> дає джерело.</div>
+<div class="case"><div class="num">🔥</div><strong>Лісова пожежа</strong><p>Потрібно побачити гарячі точки за останню добу й порівняти супутникові сенсори.</p><button class="btn choose" data-q="fire" data-a="firms">NASA FIRMS</button><button class="btn choose" data-q="fire" data-a="usgs">USGS</button></div>
+<div class="case"><div class="num">🌎</div><strong>Землетрус</strong><p>Потрібні магнітуда, глибина, час, епіцентр і фільтр за останні 24 години.</p><button class="btn choose" data-q="quake" data-a="usgs">USGS</button><button class="btn choose" data-q="quake" data-a="gfw">Global Forest Watch</button></div>
+<div class="case"><div class="num">🌊</div><strong>Повінь після циклону</strong><p>Потрібна не просто картинка, а межа затоплення, постраждалі об’єкти й карта для реагування.</p><button class="btn choose" data-q="flood" data-a="cems">Copernicus EMS</button><button class="btn choose" data-q="flood" data-a="osm">OpenStreetMap</button></div>
+</div>
+<div class="feedback" id="hookFeedback"></div>
+<div class="hint" style="margin-top:12px"><b>Пастка:</b> Google Maps може показати, де дорога. Але це не означає, що він відповідає на запитання «де горить?», «що затоплено?» або «яка територія потрапляє в 2-км буфер?».</div>
 </div></section>
 
-<section class="section" id="m2"><div class="card light">
-<div class="kicker">6–18 хв • місія 2</div><h2>ГІС у дії: де розмістити сонячну електростанцію?</h2><p>Є 4 кандидатні ділянки. Вам не дають «правильну відповідь» наперед. Спершу увімкніть шари, потім задайте вагу критеріям — і подивіться, як зміниться рейтинг.</p>
-<div class="grid2"><div>
-<div class="controls"><button class="btn lightbtn layerbtn active" data-layer="roads">Дороги</button><button class="btn lightbtn layerbtn active" data-layer="grid">ЛЕП</button><button class="btn lightbtn layerbtn active" data-layer="settle">Поселення</button><button class="btn lightbtn layerbtn active" data-layer="protect">Заповідна зона</button></div>
-<div class="mapbox"><svg viewBox="0 0 760 470" aria-label="Схематична ГІС-карта кандидатних ділянок">
-<rect width="760" height="470" fill="#d9dfc4"/><path d="M0 95 C160 45 250 135 390 82 S620 40 760 105 V0H0Z" fill="#a8c98c" opacity=".8"/><path d="M0 360 C150 315 270 395 430 345 S640 320 760 375 V470H0Z" fill="#c7d7a2"/>
-<g id="roads" class="layer"><path d="M20 405 L170 330 L310 315 L465 230 L610 185 L745 80" stroke="#666" stroke-width="18" fill="none"/><path d="M95 20 L145 150 L260 238 L450 276 L650 420" stroke="#777" stroke-width="10" fill="none"/><path d="M20 405 L170 330 L310 315 L465 230 L610 185 L745 80" stroke="#f4df85" stroke-width="2" stroke-dasharray="10 9" fill="none"/></g><g id="grid" class="layer"><path d="M40 180 L720 250" stroke="#9a55aa" stroke-width="4" stroke-dasharray="10 7"/><circle cx="140" cy="190" r="7" fill="#9a55aa"/><circle cx="360" cy="213" r="7" fill="#9a55aa"/><circle cx="590" cy="237" r="7" fill="#9a55aa"/></g>
-<g id="settle" class="layer"><g fill="#d17854"><rect x="85" y="260" width="18" height="18"/><rect x="110" y="280" width="20" height="20"/><rect x="128" y="250" width="15" height="15"/><rect x="590" y="310" width="20" height="20"/><rect x="620" y="334" width="18" height="18"/><rect x="645" y="305" width="17" height="17"/></g><text x="72" y="245" fill="#5f3b2b" font-size="17" font-weight="800">с. Луг</text><text x="580" y="295" fill="#5f3b2b" font-size="17" font-weight="800">с. Степ</text></g>
-<g id="protect" class="layer"><path d="M500 25 C620 15 720 55 735 145 C700 190 625 185 540 155 C500 120 485 70 500 25Z" fill="#3a8f59" opacity=".48" stroke="#21653b" stroke-width="3"/><text x="555" y="100" fill="#174d2a" font-size="17" font-weight="900">заповідна зона</text></g>
-<g fill="#2c6677" opacity=".14"><path d="M210 0 Q260 110 220 210 T250 470" stroke="#287b9a" stroke-width="30" fill="none"/></g>
-<g class="candidate" data-site="A"><circle cx="230" cy="120" r="28" fill="#fff" stroke="#123f4a" stroke-width="4"/><text x="230" y="128" text-anchor="middle" font-size="25" font-weight="1000" fill="#123f4a">A</text></g>
-<g class="candidate" data-site="B"><circle cx="425" cy="130" r="28" fill="#fff" stroke="#123f4a" stroke-width="4"/><text x="425" y="138" text-anchor="middle" font-size="25" font-weight="1000" fill="#123f4a">B</text></g>
-<g class="candidate" data-site="C"><circle cx="385" cy="340" r="28" fill="#fff" stroke="#123f4a" stroke-width="4"/><text x="385" y="348" text-anchor="middle" font-size="25" font-weight="1000" fill="#123f4a">C</text></g>
-<g class="candidate" data-site="D"><circle cx="625" cy="120" r="28" fill="#fff" stroke="#123f4a" stroke-width="4"/><text x="625" y="128" text-anchor="middle" font-size="25" font-weight="1000" fill="#123f4a">D</text></g>
-<text x="20" y="32" fill="#24434c" font-size="15" font-weight="800">СХЕМАТИЧНА ГІС-МОДЕЛЬ — НЕ ТОПОГРАФІЧНА КАРТА</text></svg></div>
-<div class="legend"><span><i class="dot" style="background:#666"></i>дороги</span><span><i class="dot" style="background:#9a55aa"></i>ЛЕП</span><span><i class="dot" style="background:#d17854"></i>поселення</span><span><i class="dot" style="background:#3a8f59"></i>охоронна зона</span></div>
-</div><div>
-<h3>1. Задайте пріоритети</h3><div class="weights"><div class="weight"><span>Близько до ЛЕП</span><input id="wGrid" type="range" min="1" max="5" value="5"><b id="wGridV">5</b></div><div class="weight"><span>Близько до дороги</span><input id="wRoad" type="range" min="1" max="5" value="3"><b id="wRoadV">3</b></div><div class="weight"><span>Малий ухил</span><input id="wSlope" type="range" min="1" max="5" value="4"><b id="wSlopeV">4</b></div><div class="weight"><span>Мінімум обмежень</span><input id="wLimit" type="range" min="1" max="5" value="5"><b id="wLimitV">5</b></div></div>
-<h3>2. Рейтинг змінюється разом із вагами</h3><div class="scoreboard" id="scoreboard"></div>
-<table class="ops-table"><thead><tr><th>Ділянка</th><th>ЛЕП</th><th>Дорога</th><th>Ухил</th><th>Обмеження</th></tr></thead><tbody><tr><td>A</td><td>0,9 км</td><td>1,8 км</td><td>2°</td><td>немає</td></tr><tr><td>B</td><td>0,4 км</td><td>0,7 км</td><td>7°</td><td>поблизу поселення</td></tr><tr><td>C</td><td>1,3 км</td><td>0,3 км</td><td>1°</td><td>немає</td></tr><tr><td>D</td><td>0,2 км</td><td>1,1 км</td><td>3°</td><td>охоронна зона</td></tr></tbody></table>
-<div class="task" style="margin-top:10px"><b>Перевірка мислення:</b> виставте «ЛЕП = 5, дорога = 1, ухил = 1, обмеження = 5», а потім «ЛЕП = 2, дорога = 5, ухил = 5, обмеження = 5». Чи лишився лідер той самий? <b>Чому?</b></div>
-<button class="btn primary" id="gisDone" style="margin-top:10px">Я можу пояснити свій вибір → зарахувати місію</button><div class="feedback" id="gisFeedback"></div>
+<section class="section" id="live"><div class="card">
+<div class="kicker">4–16 хв • реальні системи</div><h2>Сім ГІС/геосервісів, де «шари» — не слово з підручника</h2>
+<p class="muted">Не треба пройти всі сім. Відкрийте щонайменше <b>дві</b> системи на вибір і виконайте міні-місію. Решта — як каталог реальних можливостей.</p>
+
+<div class="livegrid">
+<article class="service" data-code="FIRMS"><div class="top"><div><span class="badge">NASA • пожежі • NRT</span><h3>NASA FIRMS</h3></div><div class="logo">🔥</div></div>
+<p><b>Що бачить:</b> активні пожежі й теплові аномалії за даними MODIS, VIIRS і Landsat.</p>
+<div class="how"><b>Як працює:</b> супутниковий сенсор знаходить теплову аномалію → ГІС прив’язує її до координат → додає час, сенсор, «confidence», потужність випромінювання → точки накладаються на базову карту та інші шари.</div>
+<ul><li>VIIRS: детекції приблизно на рівні 375 м.</li><li>Глобальні дані доступні близько до реального часу.</li><li>Шари можна дивитися, фільтрувати й вивантажувати як GIS-дані.</li></ul>
+<div class="miniquest"><b>Місія 90 с:</b> відкрийте карту → 24 hrs → порівняйте VIIRS і MODIS. Чому одна червона клітинка <u>не означає</u>, що вся її площа горить?</div>
+<div class="resource-links"><a class="launch" href="https://firms.modaps.eosdis.nasa.gov/map/" target="_blank" rel="noopener">Відкрити FIRMS ↗</a></div></article>
+
+<article class="service" data-code="USGS"><div class="top"><div><span class="badge">USGS • землетруси</span><h3>USGS Latest Earthquakes</h3></div><div class="logo">🌎</div></div>
+<p><b>Що бачить:</b> події з магнітудою, глибиною, часом, координатами та додатковими оцінками.</p>
+<div class="how"><b>Як працює:</b> мережі сейсмостанцій реєструють хвилі → подія отримує координати й параметри → ГІС відображає її як об’єкт із атрибутами → фільтр змінює набір подій на карті.</div>
+<ul><li>Фільтр: 1 день / 7 днів / 30 днів.</li><li>Можна сортувати за магнітудою.</li><li>Глибина — не «колір для краси», а атрибут події.</li></ul>
+<div class="miniquest"><b>Місія 90 с:</b> знайдіть найбільшу подію за останню добу. Запишіть магнітуду й глибину. Чи достатньо магнітуди, щоб оцінити небезпеку для конкретного міста?</div>
+<div class="resource-links"><a class="launch" href="https://earthquake.usgs.gov/earthquakes/map/" target="_blank" rel="noopener">Відкрити USGS ↗</a></div></article>
+
+<article class="service" data-code="CEMS"><div class="top"><div><span class="badge">ЄС • надзвичайні ситуації</span><h3>Copernicus Emergency Management Service</h3></div><div class="logo">🚨</div></div>
+<p><b>Що може:</b> швидке картографування повеней, пожеж, землетрусів, штормів, зсувів, техногенних аварій та гуманітарних криз.</p>
+<div class="how"><b>Як працює:</b> береться «до» і «після» + супутникові та додаткові дані → аналітики окреслюють зону події → ГІС перетинає її з дорогами, будівлями, населеними пунктами, населенням → створюються карти delineation / grading.</div>
+<ul><li>Rapid Mapping працює під час або одразу після катастрофи.</li><li>Є продукти для реагування, підготовки та відновлення.</li><li>Exposure mapping допомагає відповісти: скільки людей/поселень потрапляє в зону ризику?</li></ul>
+<div class="miniquest"><b>Місія 2 хв:</b> відкрийте найсвіжішу активацію. Знайдіть: тип події, AOI (area of interest) і хоча б один картографічний продукт.</div>
+<div class="resource-links"><a class="launch" href="https://mapping.emergency.copernicus.eu/" target="_blank" rel="noopener">Відкрити CEMS ↗</a></div></article>
+
+<article class="service" data-code="GFW"><div class="top"><div><span class="badge">WRI • ліси • зміни</span><h3>Global Forest Watch</h3></div><div class="logo">🌳</div></div>
+<p><b>Що може:</b> показувати tree-cover loss/gain, пожежі, охоронні території, землекористування й попередження про нові зміни.</p>
+<div class="how"><b>Як працює:</b> глобальні растрові шари змін поверхні + межі територій → користувач обирає район → ГІС рахує площі, будує часові графіки, порівнює роки й показує просторове розміщення змін.</div>
+<ul><li>Tree cover loss можна аналізувати за роками.</li><li>Є шари alerts і fire alerts.</li><li><b>Важливо:</b> tree-cover loss ≠ автоматично «вирубування»; причину треба перевіряти.</li></ul>
+<div class="miniquest"><b>Місія 90 с:</b> увімкніть Forest Change → Tree cover loss. Знайдіть ділянку з помітною зміною. Якого другого шару бракує, щоб пояснити причину?</div>
+<div class="resource-links"><a class="launch" href="https://www.globalforestwatch.org/map/" target="_blank" rel="noopener">Відкрити GFW ↗</a></div></article>
+
+<article class="service" data-code="EO"><div class="top"><div><span class="badge">Copernicus • Sentinel</span><h3>Copernicus Browser</h3></div><div class="logo">🛰️</div></div>
+<p><b>Що може:</b> знаходити супутникові сцени, порівнювати дати, канали, true color / false color, NDVI та інші продукти.</p>
+<div class="how"><b>Як працює:</b> кожен піксель має спектральні значення → різні комбінації каналів підсилюють різні властивості поверхні → індекси перетворюють спектральні значення на аналітичний шар.</div>
+<ul><li>Порівняння «до / після».</li><li>Оцінка рослинності, води, пожежних слідів, змін землекористування.</li><li>Хмари, сезон і роздільність можуть зламати висновок.</li></ul>
+<div class="miniquest"><b>Місія 2 хв:</b> знайдіть одну територію у дві різні дати. Перейдіть з true color на false color або NDVI. Що стало помітніше — і чому?</div>
+<div class="resource-links"><a class="launch" href="https://browser.dataspace.copernicus.eu/" target="_blank" rel="noopener">Відкрити Browser ↗</a></div></article>
+
+<article class="service" data-code="ESRI"><div class="top"><div><span class="badge">ArcGIS • Living Atlas</span><h3>ArcGIS Living Atlas / Landsat Explorer</h3></div><div class="logo">🗺️</div></div>
+<p><b>Що може:</b> працювати з готовими глобальними шарами й imagery, виконувати аналіз змін, класифікацію покриву, оцінку міської спеки та інші raster/vector workflows.</p>
+<div class="how"><b>Як працює:</b> замість завантаження десятків файлів користувач додає готові web-layers, комбінує їх, виконує просторовий або растровий аналіз і отримує новий шар як результат.</div>
+<ul><li>Landsat Explorer: swipe, animate, NDVI, surface temperature, water indices.</li><li>Living Atlas: готові тематичні й imagery layers.</li><li>Map Viewer має інструменти spatial analysis.</li></ul>
+<div class="miniquest"><b>Місія 90 с:</b> відкрийте Landsat Explorer → змініть renderer на Surface Temp або NDVI Colorized. Чи однаково «гарна картинка» і «аналітичний шар»?</div>
+<div class="resource-links"><a class="launch" href="https://livingatlas.arcgis.com/landsatexplorer/" target="_blank" rel="noopener">Landsat Explorer ↗</a></div></article>
+
+<article class="service" data-code="QGIS" style="grid-column:1/-1"><div class="top"><div><span class="badge">Desktop GIS • open source</span><h3>QGIS — коли карту треба не дивитися, а обчислювати</h3></div><div class="logo">Q</div></div>
+<div class="grid3"><div><b>Buffer</b><p>Створює зону заданої відстані навколо точки, лінії або полігона. Напр.: «усе в радіусі 1 км від річки».</p></div><div><b>Intersection</b><p>Залишає лише ту частину об’єктів, яка перетинається з іншим шаром, і переносить атрибути обох шарів.</p></div><div><b>Clip / reproject / raster analysis</b><p>Обрізати територію, привести шари до однієї системи координат, працювати з висотами, покривом, супутниковими растрами.</p></div></div>
+<div class="miniquest"><b>Головне:</b> ГІС не «вгадує». Вона виконує формалізовану просторову операцію над геометрією + атрибутами. Саме це ми зараз симулюємо нижче.</div>
+<div class="resource-links"><a class="launch" href="https://www.qgis.org/" target="_blank" rel="noopener">QGIS ↗</a><a class="launch" href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorgeometry.html" target="_blank" rel="noopener">Buffer у документації ↗</a><a class="launch" href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html" target="_blank" rel="noopener">Intersection ↗</a></div></article>
+</div>
+<button class="btn primary" id="liveDone" style="margin-top:14px">Ми відкрили щонайменше 2 реальні системи</button><div class="feedback" id="liveFeedback"></div>
+</div></section>
+
+<section class="section" id="engine"><div class="card light">
+<div class="kicker">16–25 хв • ГІС-двигун</div><h2>Не «шари наклали». Що саме робить ГІС?</h2>
+<p>На схемі є умовне місто, річка, дороги, квартал і 8 об’єктів. Ваше завдання — виконати дві типові просторові операції: <b>buffer</b> та <b>intersection</b>.</p>
+<div class="engine"><div>
+<div class="gismap" id="map">
+<div class="river" id="river"></div><div class="floodzone" id="floodzone"></div><div class="road r1"></div><div class="road r2"></div>
+<div class="poly" id="district" style="left:54%;top:12%;width:38%;height:33%"></div>
+<div class="bufferzone" id="bufferzone"></div>
+<div class="point" data-x="18" data-y="18" style="left:18%;top:18%">A</div>
+<div class="point" data-x="31" data-y="36" style="left:31%;top:36%">B</div>
+<div class="point" data-x="47" data-y="22" style="left:47%;top:22%">C</div>
+<div class="point" data-x="58" data-y="50" style="left:58%;top:50%">D</div>
+<div class="point" data-x="73" data-y="26" style="left:73%;top:26%">E</div>
+<div class="point" data-x="81" data-y="67" style="left:81%;top:67%">F</div>
+<div class="point" data-x="38" data-y="75" style="left:38%;top:75%">G</div>
+<div class="point" data-x="62" data-y="82" style="left:62%;top:82%">H</div>
+</div>
+<div class="statgrid"><div class="stat"><span>Об’єктів у зоні</span><b id="riskN">0</b></div><div class="stat"><span>У кварталі</span><b id="districtN">0</b></div><div class="stat"><span>Після перетину</span><b id="interN">0</b></div></div>
+</div>
+<div>
+<div class="op"><b>Операція 1 — BUFFER</b><p>Уявімо, що ширша синя смуга — зона ризику вздовж річки. Змініть умовну ширину буфера.</p><label>Ширина буфера: <strong id="bufVal">700 м</strong></label><input class="slider" id="buf" type="range" min="350" max="1500" step="50" value="700"><p class="muted">Чим більша відстань — тим більше об’єктів потрапляє до результуючого шару.</p></div>
+<div class="op"><b>Операція 2 — INTERSECTION</b><p>Потрібні лише ті об’єкти, які одночасно:</p><ol><li>потрапили в буфер ризику;</li><li>лежать у фіолетовому кварталі.</li></ol><button class="btn lightbtn" id="intersect">Виконати перетин</button><div class="feedback" id="interFeedback"></div></div>
+<div class="op"><b>Чому це вже аналіз?</b><p>Бо результат — не ручне «мені здається, ці точки близько». Відстань і перетин перетворюються на нову геометрію та новий набір об’єктів.</p></div>
 </div></div>
+<div class="task" style="margin-top:14px"><b>Питання високого рівня:</b> якщо змінити буфер з 700 м на 1200 м, чи означає це, що «небезпека стала більшою»? Ні автоматично: Ви змінили <i>модель/критерій</i>. Для реальної небезпеки потрібні дані про глибину води, рельєф, швидкість потоку, захисні споруди тощо.</div>
 </div></section>
 
-<section class="section" id="m3"><div class="card">
-<div class="kicker">18–26 хв • місія 3</div><h2>Sentinel‑2: не «гарна картинка», а дані, які треба розшифрувати</h2>
-<div class="grid2"><div><img class="satimg" src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/05/southern_ukraine/21988511-1-eng-GB/Southern_Ukraine_pillars.jpg" alt="False-colour Sentinel-2 image of Southern Ukraine, ESA"><p class="tiny muted">Реальний false-colour знімок півдня України, Sentinel‑2, 26.06.2019. ESA: near-infrared включено в композицію, тому активна рослинність виглядає яскраво-червоною.</p><a class="launch" href="https://www.esa.int/ESA_Multimedia/Images/2020/05/Southern_Ukraine" target="_blank" rel="noopener">↗ Відкрити першоджерело ESA</a></div><div>
-<h3>Розшифруйте 4 сигнали</h3><div class="hotspot-grid"><button class="hotspot sat-choice" data-k="veg"><b>Яскраво-червоні поля</b><br>Що це?</button><button class="hotspot sat-choice" data-k="water"><b>Майже чорні великі ділянки</b><br>Що це?</button><button class="hotspot sat-choice" data-k="circles"><b>Круглі форми на полях</b><br>Який процес?</button><button class="hotspot sat-choice" data-k="lines"><b>Тонкі темні лінії</b><br>Що вони можуть позначати?</button></div><div class="feedback" id="satFeedback"></div>
-<div class="warn" style="margin-top:12px"><b>Пастка:</b> колір тут не «справжній». Це <b>false colour</b>: спектральні канали переназначені видимим кольорам, щоб виділити властивості поверхні. Тому «червоне поле» не означає червону землю.</div>
-<h3>Міні-аудит</h3><p>Чи можна за цим одним знімком сказати, що поле має високу врожайність?</p><div class="controls"><button class="btn auditMini" data-a="no">Ні, потрібні додаткові дані</button><button class="btn auditMini" data-a="yes">Так, червоне = високий урожай</button></div><div class="feedback" id="auditMiniFeedback"></div>
-</div></div>
+<section class="section" id="eo"><div class="card">
+<div class="kicker">25–29 хв • ДЗЗ без магії</div><h2>Супутник не фотографує «вирубування», «посуху» чи «врожай». Він вимірює сигнал.</h2>
+<div class="grid3">
+<div class="case"><div class="num">1</div><strong>Сенсор</strong><p>Реєструє відбиття/випромінювання в спектральних каналах.</p></div>
+<div class="case"><div class="num">2</div><strong>Растр</strong><p>Значення перетворюються на пікселі з координатами.</p></div>
+<div class="case"><div class="num">3</div><strong>Індекс / класифікація</strong><p>Алгоритм створює новий шар: NDVI, water index, temperature, land cover тощо.</p></div>
+</div>
+<div class="matchgrid" style="margin-top:14px">
+<div class="matchcard"><b>Ви бачите яскраву пляму у FIRMS.</b><p>Це доказ активного вогню?</p><button class="btn sourceMini" data-good="no">Так, 100%</button> <button class="btn sourceMini" data-good="yes">Ні, це теплова аномалія, потрібна перевірка</button></div>
+<div class="matchcard"><b>На GFW з’явився tree-cover loss.</b><p>Це точно незаконна вирубка?</p><button class="btn sourceMini" data-good="yes">Ні, причина не випливає з шару автоматично</button> <button class="btn sourceMini" data-good="no">Так</button></div>
+<div class="matchcard"><b>NDVI став нижчим.</b><p>Це одразу доводить посуху?</p><button class="btn sourceMini" data-good="no">Так</button> <button class="btn sourceMini" data-good="yes">Ні, потрібні дата, сезон, хмари й інші дані</button></div>
+</div><div class="feedback" id="sourceMiniFeedback"></div>
 </div></section>
 
-<section class="section" id="m4"><div class="card">
-<div class="kicker">26–30 хв • місія 4</div><h2>Аудит джерела: що може зламати правильний висновок?</h2><p class="muted">Позначте всі перевірки, які потрібні <b>до</b> висновку. Тут немає магічного шару «істина».</p>
-<div class="sourcegrid"><label class="sourcechip"><span class="ico">🕒</span><b>Дата</b><input type="checkbox" class="audit" value="date"> Коли дані оновлені?</label><label class="sourcechip"><span class="ico">🔍</span><b>Роздільність</b><input type="checkbox" class="audit" value="res"> Чи видно об’єкт такого масштабу?</label><label class="sourcechip"><span class="ico">☁️</span><b>Перешкоди</b><input type="checkbox" class="audit" value="cloud"> Хмари, тіні, шум, пропуски?</label><label class="sourcechip"><span class="ico">🧭</span><b>Проєкція / координати</b><input type="checkbox" class="audit" value="crs"> Чи сумісні шари?</label><label class="sourcechip"><span class="ico">👤</span><b>Автор / метод</b><input type="checkbox" class="audit" value="method"> Хто і як створив дані?</label><label class="sourcechip"><span class="ico">⚖️</span><b>Інше джерело</b><input type="checkbox" class="audit" value="cross"> Чи підтверджує висновок незалежний шар?</label><label class="sourcechip"><span class="ico">🎨</span><b>Красивість карти</b><input type="checkbox" class="audit" value="pretty"> Чи гарні кольори?</label><label class="sourcechip"><span class="ico">📣</span><b>Популярність</b><input type="checkbox" class="audit" value="likes"> Скільки лайків у карти?</label></div>
-<button class="btn primary" id="auditCheck" style="margin-top:12px">Перевірити аудит</button><div class="feedback" id="auditFeedback"></div>
+<section class="section" id="workflow"><div class="card">
+<div class="kicker">29–32 хв • модель мислення</div><h2>П’ять кроків, які відрізняють ГІС від «подивився на карту»</h2>
+<div class="workflow">
+<div class="step"><b>1. Запитання</b>Що саме треба вирішити? Де? Для кого? На який момент часу?</div>
+<div class="step"><b>2. Дані</b>Які шари потрібні: точки, лінії, полігони, растр, атрибути, час?</div>
+<div class="step"><b>3. Операція</b>Buffer, intersection, filter, nearest, zonal statistics, raster index…</div>
+<div class="step"><b>4. Перевірка</b>Дата, масштаб, CRS, роздільність, похибка, пропуски, метод.</div>
+<div class="step"><b>5. Рішення</b>Висновок + доказ + межі. Не «карта сказала», а «ці дані підтримують…».</div>
+</div>
+<div class="warn" style="margin-top:12px"><b>Найпоширеніша помилка:</b> плутати <u>візуалізацію</u> з <u>аналізом</u>. Коли Ви лише ввімкнули шар — Ви ще нічого не довели. Аналіз починається, коли з даних отримано нову відповідь через чітку операцію або модель.</div>
 </div></section>
 
-<section class="section" id="cheat"><div class="card">
-<div class="kicker">30–33 хв • теорія тільки після практики</div><h2>Шпаргалка: шість понять, без яких сьогоднішні дії не мають назви</h2><div class="theorystrip"><article><b>ГІС</b>Система для зберігання, поєднання, аналізу й візуалізації геопросторових даних.</article><article><b>Шар</b>Окремий набір об’єктів або явищ: дороги, рельєф, води, межі, населення.</article><article><b>Вектор</b>Точки, лінії, полігони + атрибути. Добре для адрес, доріг, меж.</article><article><b>Растр</b>Сітка пікселів. Знімки, температури, висоти, індекси рослинності.</article><article><b>ДЗЗ</b>Отримання даних без контакту з поверхнею — супутники, літаки, БПЛА, радари.</article><article><b>Метадані</b>Дата, автор, сенсор, точність, роздільність, система координат, метод обробки.</article></div>
-<div class="hint" style="margin-top:12px"><b>Головна формула уроку:</b> питання → потрібні дані → поєднання шарів → аналіз → перевірка обмежень → висновок. Якщо почати з «я відкрию Google Maps, бо я його знаю», це не геоаналіз.</div>
-</div></section>
-
-<section class="section" id="final"><div class="card light finalsheet"><div class="kicker">33–35 хв • фінальний продукт</div><h2>Видайте рішення як геоаналітик</h2><p><b>Ситуація:</b> Вам потрібно вибрати ділянку під СЕС. Зробіть короткий висновок, який можна віддати керівнику проєкту.</p><label><b>1. Рішення:</b> яку ділянку обираєте?</label><textarea id="f1" placeholder="Обираю ділянку …"></textarea><label><b>2. Докази:</b> назвіть мінімум три шари/показники.</label><textarea id="f2" placeholder="Рішення підтримують: …"></textarea><label><b>3. Межі:</b> яких даних ще бракує перед реальним будівництвом?</label><textarea id="f3" placeholder="Перед остаточним рішенням треба додатково перевірити …"></textarea><button class="btn primary" id="finalCheck">Перевірити повноту</button><div class="feedback" id="finalFeedback"></div>
+<section class="section" id="final"><div class="card light final">
+<div class="kicker">32–35 хв • фінальний кейс</div><h2>Виберіть ГІС-пайплайн, а не «сервіс, який подобається»</h2>
+<p><b>Кейс:</b> після сильної повені громаді треба визначити, які будівлі потрапили в зону затоплення, скільки людей могли бути експоновані та якими дорогами можна підвозити допомогу.</p>
+<label><b>1. Які 4 шари Вам потрібні?</b></label><textarea id="f1" placeholder="Напр.: межа затоплення, будівлі, населення, дороги..."></textarea>
+<label><b>2. Які 2 просторові операції виконаєте?</b></label><textarea id="f2" placeholder="Напр.: intersection..., spatial join..., filter..."></textarea>
+<label><b>3. Яких даних бракує для реального рішення?</b></label><textarea id="f3" placeholder="Дата знімка, прохідність дороги, глибина води..."></textarea>
+<button class="btn primary" id="finalCheck">Перевірити структуру</button><div class="feedback" id="finalFeedback"></div>
 </div></section>
 
 <section class="section" id="home"><div class="card light">
-<div class="kicker">Домашнє • практичне</div><h2>Не конспект. Міні-польова робота з двома джерелами</h2><div class="grid2"><div><div class="goodbox"><b>Обов’язково:</b> §6. Потім оберіть будь-яке знайоме місце (парк, школа, стадіон, поле, берег) і відкрийте його у <b>OpenStreetMap</b> та <b>Copernicus Browser / Google Earth</b>. Зробіть 2 скриншоти й напишіть 3–4 речення: що краще показує кожне джерело і чого з нього не можна довести.</div><p><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Підручник 11 класу, ІМЗО ↗</a></p><div class="resource-links"><a class="launch" href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap ↗</a><a class="launch" href="https://browser.dataspace.copernicus.eu/" target="_blank" rel="noopener">Copernicus Browser ↗</a><a class="launch" href="https://earth.google.com/web/" target="_blank" rel="noopener">Google Earth ↗</a></div><div class="warn" style="margin-top:12px"><b>Важливо:</b> не публікуйте й не надсилайте чутливі координати, військові об’єкти або інформацію про переміщення техніки. Для завдання достатньо звичайних цивільних об’єктів.</div></div><div>
-<h3>Тест /10</h3><div class="quizgate" id="gate"><label>Ім’я та прізвище</label><input type="text" id="name" placeholder="Наприклад, Марія Коваль"><label>Клас</label><input type="text" id="class" placeholder="11-А"><button class="btn primary" id="startQuiz" style="margin-top:10px">Розпочати тест</button><div class="feedback" id="gateFeedback"></div></div>
+<div class="kicker">Домашнє • §6 + реальна ГІС</div><h2>Один сервіс — одна доказова знахідка</h2>
+<div class="grid2"><div>
+<div class="good"><b>Обов’язково:</b> §6. Оберіть <b>один</b> сервіс із уроку: NASA FIRMS, USGS, Copernicus EMS, Global Forest Watch, Copernicus Browser або Landsat Explorer. Зробіть 1 скриншот і під ним напишіть 4 короткі рядки: <b>що показує шар → звідки дані → яку операцію/фільтр Ви застосували → чого цей шар не доводить.</b></div>
+<p><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">Підручник 11 класу, ІМЗО ↗</a></p>
+<div class="warn"><b>Безпека:</b> для роботи використовуйте публічні цивільні дані. Не публікуйте координати військових об’єктів, переміщення техніки чи іншу чутливу інформацію.</div>
+<h3 style="margin-top:14px">Перевірені офіційні джерела</h3>
+<ul>
+<li><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener">NASA FIRMS</a> — active fire / thermal anomaly data.</li>
+<li><a href="https://earthquake.usgs.gov/earthquakes/map/" target="_blank" rel="noopener">USGS Latest Earthquakes</a>.</li>
+<li><a href="https://mapping.emergency.copernicus.eu/" target="_blank" rel="noopener">Copernicus EMS On Demand Mapping</a>.</li>
+<li><a href="https://www.globalforestwatch.org/map/" target="_blank" rel="noopener">Global Forest Watch Map</a>.</li>
+<li><a href="https://livingatlas.arcgis.com/landsatexplorer/" target="_blank" rel="noopener">Esri Landsat Explorer</a>.</li>
+<li><a href="https://www.qgis.org/" target="_blank" rel="noopener">QGIS</a>.</li>
+</ul>
+</div><div>
+<h3>Тест /10</h3>
+<div class="quizgate" id="gate"><label>Ім’я та прізвище</label><input type="text" id="name" placeholder="Наприклад, Марія Коваль"><label>Клас</label><input type="text" id="studentClass" placeholder="11-А"><button class="btn primary" id="startQuiz" style="margin-top:10px">Розпочати тест</button><div class="feedback" id="gateFeedback"></div></div>
 <div class="quiz" id="quiz">
-<div class="q"><b>1. Потрібно знайти адресу й під’їзд до будинку. Основне джерело:</b><label><input type="radio" name="q1" value="a">Sentinel‑2</label><label><input type="radio" name="q1" value="b">детальна векторна карта / OSM</label><label><input type="radio" name="q1" value="c">кліматична карта</label></div>
-<div class="q"><b>2. Що є головною перевагою ГІС?</b><label><input type="radio" name="q2" value="a">можна поєднувати й аналізувати просторові шари</label><label><input type="radio" name="q2" value="b">усі карти в ній автоматично точні</label><label><input type="radio" name="q2" value="c">вона не потребує перевірки джерел</label></div>
-<div class="q"><b>3. Які об’єкти типово векторні?</b><label><input type="checkbox" name="q3" value="roads">дороги</label><label><input type="checkbox" name="q3" value="borders">межі громад</label><label><input type="checkbox" name="q3" value="sat">супутниковий знімок</label><label><input type="checkbox" name="q3" value="points">криниці як точки</label></div>
-<div class="q"><b>4. False colour означає:</b><label><input type="radio" name="q4" value="a">зображення підроблене</label><label><input type="radio" name="q4" value="b">спектральні канали відображено умовними видимими кольорами</label><label><input type="radio" name="q4" value="c">сенсор знімає тільки вночі</label></div>
-<div class="q"><b>5. Які перевірки потрібні для супутникового знімка?</b><label><input type="checkbox" name="q5" value="date">дата</label><label><input type="checkbox" name="q5" value="res">роздільність</label><label><input type="checkbox" name="q5" value="cloud">хмарність / перешкоди</label><label><input type="checkbox" name="q5" value="likes">кількість лайків</label></div>
-<div class="q"><b>6. Просторова роздільність 10 м означає насамперед:</b><label><input type="radio" name="q6" value="a">піксель відповідає приблизно ділянці 10×10 м</label><label><input type="radio" name="q6" value="b">знімок робиться кожні 10 хвилин</label><label><input type="radio" name="q6" value="c">на знімку 10 кольорів</label></div>
-<div class="q"><b>7. Установіть відповідність:</b><label>Дороги → <select id="match1"><option value="">—</option><option value="v">вектор</option><option value="r">растр</option></select></label><label>Супутниковий знімок → <select id="match2"><option value="">—</option><option value="v">вектор</option><option value="r">растр</option></select></label></div>
-<div class="q"><b>8. Правильний порядок геоаналізу:</b><select id="q8"><option value="">—</option><option value="a">питання → дані → аналіз → перевірка → висновок</option><option value="b">карта → висновок → питання → дані</option><option value="c">колір → лайки → висновок → джерело</option></select></div>
-<div class="q"><b>9. Для остаточного вибору ділянки під СЕС маємо лише близькість до дороги. Цього достатньо?</b><label><input type="radio" name="q9" value="a">так</label><label><input type="radio" name="q9" value="b">ні, потрібні інші критерії й обмеження</label></div>
-<div class="q"><b>10. Найсильніший висновок:</b><label><input type="radio" name="q10" value="a">«Ділянка C найкраща, бо вона мені сподобалась»</label><label><input type="radio" name="q10" value="b">«C лідирує за заданими вагами; рішення підтримують малий ухил, близькість до дороги й відсутність охоронних обмежень, але потрібна польова та правова перевірка»</label><label><input type="radio" name="q10" value="c">«Найкраща завжди та, що найближча до ЛЕП»</label></div>
-<button class="btn primary" id="submitQuiz">Завершити тест</button><div class="result" id="result"><div class="score" id="score"></div><div id="resultText"></div><button class="btn lightbtn" onclick="window.print()" style="margin-top:8px">Друк / PDF</button></div>
-</div></div></div>
+<div class="q"><b>1. Потрібно знайти активні теплові аномалії за останню добу. Найпряміше джерело:</b><label><input type="radio" name="q1" value="a">NASA FIRMS</label><label><input type="radio" name="q1" value="b">USGS Earthquakes</label><label><input type="radio" name="q1" value="c">паперовий атлас</label></div>
+<div class="q"><b>2. Червоний осередок VIIRS у FIRMS означає:</b><label><input type="radio" name="q2" value="a">вся клітинка гарантовано охоплена полум’ям</label><label><input type="radio" name="q2" value="b">сенсор зафіксував теплову аномалію в межах пікселя; потрібна інтерпретація</label><label><input type="radio" name="q2" value="c">це завжди вулкан</label></div>
+<div class="q"><b>3. Які атрибути особливо характерні для USGS earthquake events?</b><label><input type="checkbox" name="q3" value="mag">магнітуда</label><label><input type="checkbox" name="q3" value="depth">глибина</label><label><input type="checkbox" name="q3" value="time">час</label><label><input type="checkbox" name="q3" value="ndvi">NDVI</label></div>
+<div class="q"><b>4. Для чого Copernicus EMS Rapid Mapping особливо корисний?</b><label><input type="radio" name="q4" value="a">для швидкого картографування наслідків надзвичайних ситуацій</label><label><input type="radio" name="q4" value="b">лише для туристичних маршрутів</label><label><input type="radio" name="q4" value="c">лише для назв вулиць</label></div>
+<div class="q"><b>5. Tree-cover loss у Global Forest Watch:</b><label><input type="radio" name="q5" value="a">автоматично означає незаконну вирубку</label><label><input type="radio" name="q5" value="b">показує втрату деревного покриву, але причина потребує додаткових даних</label></div>
+<div class="q"><b>6. Що робить Buffer у ГІС?</b><label><input type="radio" name="q6" value="a">створює зону заданої відстані навколо об’єкта</label><label><input type="radio" name="q6" value="b">змінює назву шару</label><label><input type="radio" name="q6" value="c">підвищує роздільність супутника</label></div>
+<div class="q"><b>7. Intersection повертає:</b><label><input type="radio" name="q7" value="a">усі об’єкти світу</label><label><input type="radio" name="q7" value="b">частини/об’єкти, що просторово перетинаються, з атрибутами шарів</label><label><input type="radio" name="q7" value="c">тільки легенду</label></div>
+<div class="q"><b>8. Які задачі може підтримувати imagery analysis в ArcGIS Living Atlas?</b><label><input type="checkbox" name="q8" value="change">change detection</label><label><input type="checkbox" name="q8" value="cover">land-cover classification</label><label><input type="checkbox" name="q8" value="heat">urban heat analysis</label><label><input type="checkbox" name="q8" value="likes">підрахунок лайків карти</label></div>
+<div class="q"><b>9. Ви зменшили NDVI між двома датами. Який висновок найкращий?</b><label><input type="radio" name="q9" value="a">«точно була посуха»</label><label><input type="radio" name="q9" value="b">«рослинний спектральний сигнал змінився; треба перевірити сезон, хмарність, дату та інші дані»</label></div>
+<div class="q"><b>10. Найсильніший GIS-висновок:</b><label><input type="radio" name="q10" value="a">«Я відкрив карту — значить відповідь правильна»</label><label><input type="radio" name="q10" value="b">«Я визначив запитання, підібрав шари, виконав операцію, перевірив якість даних і вказав межі висновку»</label></div>
+<button class="btn primary" id="submitQuiz">Завершити тест</button>
+<div class="result" id="result"><div class="score" id="score"></div><div id="resultText"></div><button class="btn lightbtn" onclick="window.print()" style="margin-top:8px">Друк / PDF</button></div>
+</div>
+</div></div>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія, 11 клас • Урок 09<br><span class="tiny">Джерела: підручник ІМЗО; ESA / Copernicus Sentinel‑2; Copernicus Data Space Browser; NASA Worldview; OpenStreetMap.</span></div></footer>
+
+<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія, 11 клас • Урок 09<br><span class="tiny">Сервіси й документація: NASA FIRMS; USGS Earthquake Hazards Program; Copernicus Emergency Management Service; Global Forest Watch; Copernicus Data Space Browser; Esri ArcGIS Living Atlas / Landsat Explorer; QGIS.</span></div></footer>
+
 <script>
-const completed=new Set();function mark(id){completed.add(id);const n=completed.size;document.getElementById('progressBar').style.width=(n/4*100)+'%';document.getElementById('progressText').textContent=n+' із 4 місій';document.getElementById('progressPct').textContent=Math.round(n/4*100)+'%'}function fb(id,msg,ok=true){const e=document.getElementById(id);e.textContent=msg;e.className='feedback show '+(ok?'ok':'no')}
-const ans={1:'osm',2:'sentinel',3:'gis'};const got={};document.querySelectorAll('.source-choice').forEach(b=>b.onclick=()=>{got[b.dataset.q]=b.dataset.a;document.querySelectorAll('.source-choice[data-q="'+b.dataset.q+'"]').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(Object.keys(got).length===3){const n=Object.keys(ans).filter(k=>got[k]===ans[k]).length;if(n===3){fb('sourceFeedback','3/3. Ви обрали джерела за властивостями даних, а не за звичкою. Тепер назвіть межу кожного джерела.',true);mark('m1')}else fb('sourceFeedback',n+'/3. Перевірте: адреси й дороги — векторна карта; зміни поверхні — серія знімків; багатокритеріальний вибір — ГІС.',false)}});
-document.querySelectorAll('.layerbtn').forEach(b=>b.onclick=()=>{b.classList.toggle('active');document.getElementById(b.dataset.layer).classList.toggle('off')});
-const sites={A:{grid:4,road:2,slope:5,limit:5},B:{grid:5,road:5,slope:2,limit:2},C:{grid:3,road:5,slope:5,limit:5},D:{grid:5,road:3,slope:4,limit:0}};function calc(){const w={grid:+wGrid.value,road:+wRoad.value,slope:+wSlope.value,limit:+wLimit.value};wGridV.textContent=w.grid;wRoadV.textContent=w.road;wSlopeV.textContent=w.slope;wLimitV.textContent=w.limit;const arr=Object.entries(sites).map(([k,v])=>[k,(v.grid*w.grid+v.road*w.road+v.slope*w.slope+v.limit*w.limit)/(w.grid+w.road+w.slope+w.limit)]).sort((a,b)=>b[1]-a[1]);scoreboard.innerHTML=arr.map((x,i)=>'<div class="site '+(i===0?'best':'')+'"><span>Ділянка '+x[0]+'</span><div class="big">'+x[1].toFixed(2)+'</div><small>'+(i===0?'лідер за Вашими вагами':'підсумковий бал')+'</small></div>').join('')}
-['wGrid','wRoad','wSlope','wLimit'].forEach(id=>document.getElementById(id).addEventListener('input',calc));calc();document.getElementById('gisDone').onclick=()=>{fb('gisFeedback','Місію зараховано. У ГІС “найкраще місце” залежить від критеріїв, їхньої ваги та обмежень. Зміна моделі може змінити лідера.',true);mark('m2')};
-const sat={veg:'Активна рослинність: near-infrared відбивається сильно, тому у цій композиції рослинність яскраво-червона.',water:'Вода: великі водні поверхні тут дуже темні / майже чорні.',circles:'Кругове зрошення center-pivot: поливальна система обертається навколо центральної точки.',lines:'Канали: тонкі темні лінії, пов’язані з водопостачанням та зрошенням.'};let satSeen=new Set();document.querySelectorAll('.sat-choice').forEach(b=>b.onclick=()=>{b.classList.add('selected');satSeen.add(b.dataset.k);fb('satFeedback',sat[b.dataset.k],true);if(satSeen.size===4)mark('m3')});document.querySelectorAll('.auditMini').forEach(b=>b.onclick=()=>{if(b.dataset.a==='no')fb('auditMiniFeedback','Так. Спектральний сигнал може показати стан/активність рослинності, але “врожайність” потребує часових рядів, польових даних, фази розвитку культури та інших факторів.',true);else fb('auditMiniFeedback','Ні. Один колір одного дня не дорівнює врожайності.',false)});
-document.getElementById('auditCheck').onclick=()=>{const vals=[...document.querySelectorAll('.audit:checked')].map(x=>x.value);const need=['date','res','cloud','crs','method','cross'];const ok=need.every(x=>vals.includes(x))&&!vals.includes('pretty')&&!vals.includes('likes');if(ok){fb('auditFeedback','Аудит пройдено: Ви перевірили час, масштаб даних, перешкоди, сумісність, походження й незалежне підтвердження.',true);mark('m4')}else fb('auditFeedback','Ще раз: красивість і популярність не є критеріями якості даних. Потрібні дата, роздільність, перешкоди, CRS/координати, метод і перехресна перевірка.',false)};
-document.getElementById('finalCheck').onclick=()=>{const a=f1.value.trim(),b=f2.value.trim(),c=f3.value.trim();if(a.length>8&&b.length>30&&c.length>20)fb('finalFeedback','Структура є: рішення + докази + межі. Саме так виглядає робочий географічний висновок, а не відповідь “бо на карті так видно”.',true);else fb('finalFeedback','Додайте конкретику: назва ділянки, щонайменше 3 показники та мінімум 1 перевірка, якої ще бракує.',false)};
-function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x))}document.getElementById('startQuiz').onclick=()=>{if(!validName(name.value)||!document.getElementById('class').value.trim())return fb('gateFeedback','Введіть ім’я, прізвище та клас.',false);gate.style.display='none';quiz.classList.add('open')};function radio(n){return document.querySelector('input[name="'+n+'"]:checked')?.value||''}function checks(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(x=>x.value).sort().join(',')}document.getElementById('submitQuiz').onclick=()=>{let s=0;s+=radio('q1')==='b';s+=radio('q2')==='a';s+=checks('q3')==='borders,points,roads';s+=radio('q4')==='b';s+=checks('q5')==='cloud,date,res';s+=radio('q6')==='a';s+=(match1.value==='v'&&match2.value==='r');s+=q8.value==='a';s+=radio('q9')==='b';s+=radio('q10')==='b';const pct=s*10;const level=s<=4?'Повторіть ключові поняття і ще раз пройдіть місії.':s<=7?'Базова логіка засвоєна; допрацюйте оцінювання обмежень.':s<=9?'Добре: Ви працюєте з джерелами як з доказами.':'Відмінно: Ви не просто читаєте карту, а оцінюєте модель і межі висновку.';score.textContent=s+'/10';resultText.innerHTML='<b>'+name.value.trim()+'</b> • '+document.getElementById('class').value.trim()+'<br>Сучасні картографічні джерела, ГІС і ДЗЗ • '+pct+'%<br>'+level+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'center'})};
+const completed=new Set();
+function mark(id){completed.add(id);const n=completed.size;document.getElementById('progressBar').style.width=(n/4*100)+'%';document.getElementById('progressText').textContent=n+' із 4 місій';document.getElementById('progressPct').textContent=Math.round(n/4*100)+'%'}
+function fb(id,msg,ok){const e=document.getElementById(id);e.textContent=msg;e.className='feedback show '+(ok?'ok':'no')}
+const hookAns={fire:'firms',quake:'usgs',flood:'cems'},hookGot={};
+document.querySelectorAll('.choose').forEach(function(b){b.addEventListener('click',function(){hookGot[b.dataset.q]=b.dataset.a;document.querySelectorAll('.choose[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('primary')});b.classList.add('primary');if(Object.keys(hookGot).length===3){let s=0;Object.keys(hookAns).forEach(function(k){if(hookGot[k]===hookAns[k])s++});if(s===3){fb('hookFeedback','3/3. Ви обрали системи за типом даних і задачею, а не за знайомою назвою.',true);mark('hook')}else fb('hookFeedback',s+'/3. Пожежі → FIRMS; землетруси → USGS; картографування наслідків НС → Copernicus EMS.',false)}})});
+document.getElementById('liveDone').addEventListener('click',function(){fb('liveFeedback','Зараховано. Тепер сформулюйте одну різницю між «переглянути шар» і «виконати просторовий аналіз».',true);mark('live')});
+
+const pts=[...document.querySelectorAll('.point')];
+const district={x1:54,y1:12,x2:92,y2:45};
+function updateBuffer(){
+ const v=+document.getElementById('buf').value;
+ document.getElementById('bufVal').textContent=v+' м';
+ const w=120+(v-350)/1150*150;
+ const zone=document.getElementById('floodzone');
+ zone.style.width=w+'px';
+ zone.style.left=(38-w/520*25)+'%';
+ let risk=0,dist=0;
+ pts.forEach(function(p){
+   p.classList.remove('hit','safe');
+   const x=+p.dataset.x,y=+p.dataset.y;
+   const riverX=42 + (y-50)*0.06;
+   const threshold=7+(v-350)/1150*13;
+   const isRisk=Math.abs(x-riverX)<=threshold;
+   const isDistrict=x>=district.x1&&x<=district.x2&&y>=district.y1&&y<=district.y2;
+   if(isRisk){risk++;p.classList.add('hit')}else p.classList.add('safe');
+   if(isDistrict)dist++;
+   p.dataset.risk=isRisk?'1':'0';p.dataset.district=isDistrict?'1':'0';
+ });
+ document.getElementById('riskN').textContent=risk;
+ document.getElementById('districtN').textContent=dist;
+ document.getElementById('interN').textContent='—';
+}
+document.getElementById('buf').addEventListener('input',updateBuffer);updateBuffer();
+document.getElementById('intersect').addEventListener('click',function(){
+ const inter=pts.filter(function(p){return p.dataset.risk==='1'&&p.dataset.district==='1'});
+ document.getElementById('interN').textContent=inter.length;
+ fb('interFeedback','Intersection залишив '+inter.length+' об’єкт(и), які одночасно відповідають обом просторовим умовам. Це вже новий результуючий набір даних.',true);
+ mark('engine');
+});
+let miniCorrect=0;
+document.querySelectorAll('.sourceMini').forEach(function(b){b.addEventListener('click',function(){
+ if(b.dataset.good==='yes'){miniCorrect++;b.disabled=true;fb('sourceMiniFeedback','Так. Шар показує виміряний/обчислений сигнал, але причина й інтерпретація потребують контексту та перевірки.',true)}
+ else fb('sourceMiniFeedback','Надто сильний висновок. Один шар рідко доводить причину сам по собі.',false);
+ if(miniCorrect>=3)mark('eo');
+})});
+document.getElementById('finalCheck').addEventListener('click',function(){
+ const a=document.getElementById('f1').value.trim(),b=document.getElementById('f2').value.trim(),c=document.getElementById('f3').value.trim();
+ if(a.length>35&&b.length>25&&c.length>25)fb('finalFeedback','Є повний GIS-пайплайн: дані → операції → межі. Саме цього бракує відповіді «я просто відкрив карту».',true);
+ else fb('finalFeedback','Додайте конкретику: 4 шари, 2 просторові операції й хоча б 2 перевірки/обмеження.',false);
+});
+function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(function(x){return /^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x)})}
+document.getElementById('startQuiz').addEventListener('click',function(){
+ const nm=document.getElementById('name').value,cl=document.getElementById('studentClass').value.trim();
+ if(!validName(nm)||!cl){fb('gateFeedback','Введіть ім’я, прізвище та клас.',false);return}
+ document.getElementById('gate').style.display='none';document.getElementById('quiz').classList.add('open');
+});
+function radio(n){const x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
+function checks(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(function(x){return x.value}).sort().join(',')}
+document.getElementById('submitQuiz').addEventListener('click',function(){
+ let s=0;
+ if(radio('q1')==='a')s++;
+ if(radio('q2')==='b')s++;
+ if(checks('q3')==='depth,mag,time')s++;
+ if(radio('q4')==='a')s++;
+ if(radio('q5')==='b')s++;
+ if(radio('q6')==='a')s++;
+ if(radio('q7')==='b')s++;
+ if(checks('q8')==='change,cover,heat')s++;
+ if(radio('q9')==='b')s++;
+ if(radio('q10')==='b')s++;
+ const pct=s*10;
+ const level=s<=4?'Поверніться до реальних прикладів і повторіть різницю між шаром та аналізом.':s<=7?'Базова логіка є. Допрацюйте spatial operations і межі висновку.':s<=9?'Добре: Ви розумієте, як реальні ГІС переходять від даних до рішення.':'Відмінно: Ви відрізняєте карту, дані, операцію й доказовий висновок.';
+ document.getElementById('score').textContent=s+'/10';
+ document.getElementById('resultText').innerHTML='<b>'+document.getElementById('name').value.trim()+'</b> • '+document.getElementById('studentClass').value.trim()+'<br>GIS WAR ROOM: реальні ГІС у дії • '+pct+'%<br>'+level+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';
+ document.getElementById('result').classList.add('show');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
+});
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+</body>
+</html>
