@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
 <meta name="description" content="11 клас. Урок 9. Сучасні картографічні джерела, ГІС і дистанційне зондування Землі. 35 хвилин активної роботи.">
-<title>11 клас • Урок 9 • ГІС: як створюють, для чого використовують і як із ними працювати</title>
+<title>11 клас • Урок 9 • ГІС: як вони працюють, для чого потрібні і як створюються</title>
 <style>
 :root{
  --bg:#07151b;--panel:#0d222b;--panel2:#102d38;--line:#294b56;--text:#eefafa;--muted:#a9c0c5;
- --cyan:#3bd9df;--mint:#9ce889;--amber:#ffc95d;--orange:#ff9258;--red:#ff746d;--blue:#79adff;
- --paper:#f7fbfb;--ink:#17323a;--soft:#eaf6f7;--shadow:0 18px 48px rgba(0,0,0,.22);--r:22px
+ --cyan:#3bd9df;--mint:#9ce889;--amber:#ffc95d;--red:#ff746d;--blue:#79adff;--paper:#f7fbfb;--ink:#17323a;
+ --shadow:0 18px 48px rgba(0,0,0,.22);--r:22px
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:
@@ -21,352 +21,296 @@ a{color:#8be8ee}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
 .hero{padding:54px 0 28px;position:relative;overflow:hidden}.hero:after{content:"GIS";position:absolute;right:1vw;bottom:-5rem;font-size:clamp(11rem,28vw,24rem);font-weight:1000;letter-spacing:-.09em;color:rgba(255,255,255,.026);pointer-events:none}
 .tag,.pill,.badge{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}.tag{padding:.42rem .78rem;background:#113742;border:1px solid #286876;color:#87edf0}.pill{padding:.34rem .64rem;background:#0b1e26;border:1px solid var(--line);font-size:.82rem}.badge{padding:.26rem .55rem;font-size:.75rem;background:#14343f;border:1px solid #37616c}
 .hero h1{font-size:clamp(2.6rem,7.3vw,5.7rem);line-height:.94;letter-spacing:-.055em;max-width:1040px;margin:.7rem 0 1rem}.hero h1 span{color:var(--cyan)}.lead{max-width:970px;color:#c4d7db;font-size:1.12rem}
-.meta,.controls,.resource-links{display:flex;flex-wrap:wrap;gap:8px}.contract{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:20px}.contract>div{background:linear-gradient(145deg,#0d222b,#102d38);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
-.contract ul{margin:.55rem 0 0;padding-left:1.2rem}.progressline{height:12px;background:#061017;border:1px solid #294957;border-radius:999px;overflow:hidden}.progressbar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .3s}.progresslabel{display:flex;justify-content:space-between;margin-top:7px;color:var(--muted);font-size:.84rem}
+.meta,.controls,.resource-links{display:flex;flex-wrap:wrap;gap:8px}.contract{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:20px}.contract>div{background:linear-gradient(145deg,#0d222b,#102d38);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.contract ul{margin:.55rem 0 0;padding-left:1.2rem}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.timeline div{border-radius:13px;padding:9px;background:#0a1921;border:1px solid #2b4d59}.timeline b{color:#88e9ed}
+.progressline{height:12px;background:#061017;border:1px solid #294957;border-radius:999px;overflow:hidden}.progressbar{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .3s}.progresslabel{display:flex;justify-content:space-between;margin-top:7px;color:var(--muted);font-size:.84rem}
 .nav{position:sticky;top:0;z-index:40;background:rgba(7,21,27,.93);backdrop-filter:blur(12px);border-block:1px solid #203c47}.nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0}.nav a{white-space:nowrap;text-decoration:none;background:#10242d;border:1px solid #2a4b57;border-radius:999px;padding:.52rem .76rem;font-weight:850;color:#dff0f2}
 .section{padding:22px 0}.card{background:linear-gradient(145deg,#0d222b,#0a1b23);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}.card.light{background:var(--paper);color:var(--ink);border-color:#cadfe3}
 h2{font-size:clamp(1.65rem,3.6vw,2.55rem);line-height:1.07;margin:.1rem 0 .75rem;letter-spacing:-.025em}h3{line-height:1.18;margin:.25rem 0 .55rem}.kicker{text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;font-weight:950;color:var(--cyan)}.light .kicker{color:#0b7b83}.muted{color:var(--muted)}.light .muted{color:#60767c}
 .grid2,.grid3,.grid4{display:grid;gap:14px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .task,.hint,.warn,.good{border-left:5px solid var(--cyan);padding:12px 14px;border-radius:14px;background:#0d2c36}.hint{border-color:var(--blue);background:#10283a}.warn{border-color:var(--amber);background:#352810}.good{border-color:var(--mint);background:#19331d}.light .task{background:#e9f9fa}.light .hint{background:#eef5ff}.light .warn{background:#fff5df}.light .good{background:#eef9e9}
-.btn,.launch{appearance:none;border:1px solid #315562;background:#11313b;color:#ecf8f8;border-radius:13px;padding:.72rem .92rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:.35rem}.btn:hover,.launch:hover{border-color:#67d0d4}.btn.active,.btn.primary{background:var(--cyan);color:#062126;border-color:var(--cyan)}.btn.lightbtn{background:#fff;color:#183943;border-color:#bfd6da}.btn.ok{background:#1d4b2c;border-color:#4f8b5e}
+.btn,.launch{appearance:none;border:1px solid #315562;background:#11313b;color:#ecf8f8;border-radius:13px;padding:.72rem .92rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:.35rem}.btn:hover,.launch:hover{border-color:#67d0d4}.btn.active,.btn.primary{background:var(--cyan);color:#062126;border-color:var(--cyan)}.btn.lightbtn{background:#fff;color:#183943;border-color:#bfd6da}
 .feedback{display:none;margin-top:10px;border-radius:13px;padding:10px 12px;font-weight:800}.feedback.show{display:block}.feedback.ok{background:#19351f;color:#b8f28e;border:1px solid #47764f}.feedback.no{background:#42211f;color:#ffc3be;border:1px solid #7e403c}.light .feedback.ok{background:#e9f8e4;color:#2e6831}.light .feedback.no{background:#fff0ee;color:#8b3732}
 .case{background:#0a1921;border:1px solid #294956;border-radius:18px;padding:14px}.case .num{font-size:2.1rem;font-weight:1000;color:var(--cyan);line-height:1}.case strong{display:block;margin:.35rem 0}
-.types{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.type{border:1px solid #2b4d59;border-radius:17px;background:#0a1921;padding:14px}.type .ico{font-size:1.8rem}.type b{display:block;color:#8be9ed;margin:.25rem 0}.type small{color:#abc1c6}
-.purposes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.purpose{background:#0e2a34;border:1px solid #315864;border-radius:14px;padding:11px}
-.shotgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.shot{background:#fff;color:#18343d;border:1px solid #c7dce0;border-radius:18px;overflow:hidden}.shot img{display:block;width:100%;height:330px;object-fit:contain;background:#eef4f4}.shot .cap{padding:12px}.shot .cap b{display:block;margin-bottom:4px}.shot .cap a{color:#0c737b}
-.legendline{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.legendline span{font-size:.82rem;border-radius:999px;padding:.3rem .55rem;background:#eaf4f5;border:1px solid #c8dadd}
-.builder{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.panel{background:#fff;border:1px solid #c7dce0;border-radius:18px;padding:14px}.panel h3{color:#14333a}.buildermap{position:relative;height:430px;border:1px solid #bcd1d5;border-radius:18px;overflow:hidden;background:
+.video-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.video{width:100%;aspect-ratio:16/9;border:0;border-radius:18px;background:#000}.questionbox{background:#0a1921;border:1px solid #2b4d59;border-radius:18px;padding:14px}.questionbox ol{padding-left:1.2rem}
+.shotgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.shot{background:#fff;color:#18343d;border:1px solid #c7dce0;border-radius:18px;overflow:hidden}.shot img{display:block;width:100%;height:310px;object-fit:contain;background:#eef4f4}.shot .cap{padding:12px}.shot .cap b{display:block;margin-bottom:4px}.shot .cap a{color:#0c737b}
+.builder{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.panel{background:#fff;border:1px solid #c7dce0;border-radius:18px;padding:14px}.panel h3{color:#14333a}.buildermap{position:relative;height:360px;border:1px solid #bcd1d5;border-radius:18px;overflow:hidden;background:
  linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px),
  linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),
  #e7efd9;background-size:34px 34px;cursor:crosshair}
 .buildermap .river{position:absolute;left:42%;top:-10%;width:68px;height:120%;background:#80cdf0;transform:rotate(8deg);border-radius:50%}.buildermap .road{position:absolute;left:-10%;top:64%;width:125%;height:19px;background:#777;transform:rotate(-12deg);border-block:3px solid #f2d877}.buildermap .school{position:absolute;left:70%;top:22%;width:86px;height:72px;background:#d9aa7d;border:3px solid #855834;border-radius:8px}.buildermap .school:after{content:"ШКОЛА";position:absolute;left:8px;top:23px;font-size:.72rem;font-weight:1000;color:#59371f}
 .gispt{position:absolute;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;border:3px solid #16434d;color:#16434d;font-size:.7rem;font-weight:1000;transform:translate(-50%,-50%);z-index:8;box-shadow:0 4px 12px rgba(0,0,0,.17)}.gispt.good{background:#dff5ca;border-color:#447b3e}.gispt.warnpt{background:#ffe2a9;border-color:#956408}.gispt.hiddenpt{display:none}
-.formrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.panel input,.panel select,.panel textarea,.quiz input[type=text],.quiz select,.final textarea{width:100%;font:inherit;border-radius:12px;border:1px solid #bad1d6;padding:.66rem;background:#fff;color:#15313a}.panel label,.final label{font-weight:850;display:block;margin:.45rem 0 .25rem}.layerlist{display:grid;gap:8px;margin:10px 0}.layeritem{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid #d1e1e4;border-radius:12px;padding:9px;background:#f9fcfc}.layeritem strong{font-size:.9rem}.tablewrap{overflow:auto;margin-top:10px}.attr{width:100%;border-collapse:collapse;font-size:.88rem}.attr th,.attr td{border-bottom:1px solid #d4e2e5;padding:7px;text-align:left}.attr th{color:#0b737b}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.step{border:1px solid #cbdde0;background:#fff;border-radius:15px;padding:10px;min-height:120px}.step b{display:block;color:#0b727b;margin-bottom:4px}.step .n{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:#0c7b84;color:#fff;font-weight:1000;margin-bottom:6px}
-.ops{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.op{border:1px solid #2d4d59;border-radius:17px;background:#0a1921;padding:14px}.op .ico{font-size:1.7rem}.op b{display:block;color:#8be9ed;margin:.25rem 0}.example{margin-top:8px;padding:9px 10px;border-radius:12px;background:#102b35;border:1px solid #315965}
-.dzzgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}.dzzgrid img{width:100%;border-radius:16px;border:1px solid #c6dadd;background:#fff}.dzzcards{display:grid;gap:9px}.dzzcard{border:1px solid #2b4d59;border-radius:15px;background:#0a1921;padding:11px}.dzzcard b{color:#8be9ed}
+.formrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}.panel input,.panel select,.panel textarea,.quiz input[type=text],.quiz select,.cer textarea{width:100%;font:inherit;border-radius:12px;border:1px solid #bad1d6;padding:.66rem;background:#fff;color:#15313a}.panel label,.cer label{font-weight:850;display:block;margin:.45rem 0 .25rem}.tablewrap{overflow:auto;margin-top:10px}.attr{width:100%;border-collapse:collapse;font-size:.88rem}.attr th,.attr td{border-bottom:1px solid #d4e2e5;padding:7px;text-align:left}.attr th{color:#0b737b}
+.theorygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.theory{border:1px solid #2b4d59;border-radius:17px;background:#0a1921;padding:14px}.theory .ico{font-size:1.7rem}.theory b{display:block;color:#8be9ed;margin:.25rem 0}.mini{font-size:.86rem;color:#b2c7cb}
+.duel{display:grid;gap:10px}.duelitem{border-radius:16px;border:1px solid #c9dce0;background:#fff;padding:13px}.duelitem b{display:block;color:#15343c;margin-bottom:6px}
 .quizgate{background:#eef5f6;border:1px solid #c2d8dc;border-radius:17px;padding:14px}.quiz{display:none}.quiz.open{display:block}.q{background:#fff;border:1px solid #cedfe2;border-radius:16px;padding:14px;margin:11px 0}.q label{display:block;padding:5px 0}.q input[type=radio],.q input[type=checkbox]{margin-right:7px}.result{display:none;margin-top:14px;border:2px solid #69a56c;background:#effaec;border-radius:18px;padding:15px}.result.show{display:block}.score{font-size:2.5rem;font-weight:1000;color:#2f7435}
 .footer{padding:30px 0 50px;color:#91aab1;border-top:1px solid #1d3944;margin-top:30px}.tiny{font-size:.82rem}
-@media(max-width:1000px){.grid3,.grid4,.types,.purposes,.contract,.builder,.steps,.ops,.dzzgrid{grid-template-columns:1fr}.shotgrid,.grid2{grid-template-columns:1fr}.shot img{height:auto}.buildermap{height:390px}}
+@media(max-width:1000px){.grid3,.grid4,.contract,.timeline,.video-wrap,.builder,.theorygrid{grid-template-columns:1fr}.shotgrid,.grid2{grid-template-columns:1fr}.shot img{height:auto}.buildermap{height:360px}}
 @media(max-width:640px){.formrow{grid-template-columns:1fr}.hero{padding-top:44px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-@media print{.nav,.btn,.launch,.resource-links,.progressbox{display:none!important}body{background:#fff;color:#111}.card,.card.light,.case,.type,.op,.dzzcard{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb}.section{padding:8px 0}.quiz{display:block!important}}
+@media print{.nav,.btn,.launch,.resource-links,.progressline{display:none!important}body{background:#fff;color:#111}.card,.card.light,.case,.theory,.questionbox{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb}.section{padding:8px 0}.quiz{display:block!important}}
 </style>
 </head>
 <body>
-<header class="hero" id="top"><div class="wrap">
+<header class="hero" id="start"><div class="wrap">
 <span class="tag">🗺️ 11 КЛАС • УРОК 09 • §6</span>
-<h1>ГІС: <span>як вони працюють, для чого потрібні і як створюють карти з даних</span></h1>
-<p class="lead">Це 35-хвилинний робочий урок. Діти не просто читають визначення: вони класифікують типи ГІС, розбирають реальні інтерфейси, створюють власний мінішар із атрибутами, виконують просторовий відбір і читають супутникові дані.</p>
-<div class="meta"><span class="pill">35 хв</span><span class="pill">≈ 20 хв роботи учнів</span><span class="pill">4 реальні скріни</span><span class="pill">міні-ГІС у сторінці</span><span class="pill">§6</span><span class="pill">тест /10</span></div>
+<h1>ГІС: <span>як система «думає» картою</span></h1>
+<p class="lead">За 35 хвилин Ви не просто прочитаєте визначення. Ви розберете типи ГІС, побачите справжні інтерфейси, створите мінішар із атрибутами, застосуєте фільтр і поясните, як дані ДЗЗ потрапляють у геоінформаційну систему.</p>
+<div class="meta"><span class="pill">35 хв</span><span class="pill">2 відеофрагменти</span><span class="pill">реальні скріни</span><span class="pill">міні-ГІС</span><span class="pill">CER</span><span class="pill">тест /10</span></div>
 <div class="contract">
-<div><b>До кінця уроку учень має вміти:</b><ul>
-<li>своїми словами пояснити, що таке ГІС і чим вона відрізняється від просто електронної карти;</li>
-<li>назвати основні типи ГІС за способом роботи та пояснити їх призначення;</li>
-<li>розрізнити просторові об’єкти, шари й атрибути;</li>
-<li>пояснити базовий цикл створення ГІС-проєкту;</li>
-<li>виконати простий фільтр за атрибутом і зрозуміти логіку buffer / intersection;</li>
-<li>пояснити, як ДЗЗ постачає дані для ГІС.</li>
+<div><b>Що має залишитися в голові після уроку:</b><ul>
+<li>ГІС ≠ просто електронна карта;</li>
+<li>типи ГІС: desktop, web, mobile/field, server/cloud;</li>
+<li>шар = геометрія + атрибути;</li>
+<li>створення ГІС: задача → дані → шар → атрибути → аналіз → карта/рішення;</li>
+<li>базові дії: filter, buffer, intersection;</li>
+<li>ДЗЗ — одне з важливих джерел растрових геоданих.</li>
 </ul></div>
-<div class="progressbox"><b>Маршрут 35 хв</b><div class="progressline"><div class="progressbar" id="progressBar"></div></div><div class="progresslabel"><span id="progressText">0 із 6 етапів</span><span id="progressPct">0%</span></div>
-<div class="warn" style="margin-top:12px"><b>Не плутаємо з уроком №10.</b> Наступний урок — окремий практикум із прокладання маршруту та аналізу місцевості. Тут фокус: <b>поняття → типи → будова → створення → аналіз → реальні системи</b>.</div></div>
-</div></div></header>
+<div><b>Структура 35 хв</b><div class="timeline">
+<div><b>0–9</b><br>проблема → розігрів → відео</div>
+<div><b>9–18</b><br>скріни → доказова лабораторія → місія</div>
+<div><b>18–30</b><br>відео ДЗЗ → основна теорія</div>
+<div><b>30–35</b><br>логічний двобій → CER</div>
+</div><div class="warn" style="margin-top:12px"><b>Домашнє й тест — після 35 хв.</b> Наступний урок №10 залишається окремим практикумом із маршрутом у цифровій карті.</div></div>
+</div>
+</div></header>
 
 <nav class="nav"><div class="wrap">
-<a href="#hook">0–3</a><a href="#explain">3–9</a><a href="#screens">9–14</a><a href="#build">14–24</a><a href="#analysis">24–29</a><a href="#dzz">29–33</a><a href="#exit">33–35</a><a href="#home">🏠 Домашнє</a><a href="#test">✅ Тест /10</a>
+<a href="#problem">0–3</a><a href="#warmup">3–7</a><a href="#video1">7–9</a><a href="#evidence">9–14</a><a href="#mission">14–18</a><a href="#video2">18–20</a><a href="#theory">20–30</a><a href="#duel">30–33</a><a href="#summary">33–35</a><a href="#home">🏠 Д/З</a><a href="#test">✅ Тест</a>
 </div></nav>
 
 <main class="wrap">
 
-<section class="section" id="hook"><div class="card">
-<div class="kicker">0–3 хв • стартова задача</div>
-<h2>Карта чи ГІС? Є різниця, і вона практична.</h2>
-<p>У громади є карта з позначеними школами, лікарнями й укриттями. Після надзвичайної ситуації треба за 2 хвилини знайти <b>усі школи, розташовані не далі 1 км від укриття місткістю понад 100 осіб</b>.</p>
+<section class="section" id="problem"><div class="card">
+<div class="kicker">0–3 хв • проблемне питання</div>
+<h2>Чому «відкрити Google Maps» — ще не означає виконати ГІС-аналіз?</h2>
+<p>Є карта громади зі школами, лікарнями та укриттями. Потрібно знайти <b>усі школи не далі 1 км від укриття місткістю понад 100 осіб</b>.</p>
 <div class="grid3">
-<div class="case"><div class="num">A</div><strong>Звичайна електронна карта</strong><p>Можна дивитися об’єкти, масштабувати, шукати адреси.</p><button class="btn hook" data-a="map">Цього достатньо</button></div>
-<div class="case"><div class="num">B</div><strong>ГІС із шарами та атрибутами</strong><p>Можна фільтрувати об’єкти, рахувати відстані й робити просторовий відбір.</p><button class="btn hook" data-a="gis">Потрібна саме вона</button></div>
-<div class="case"><div class="num">?</div><strong>Що має знати система?</strong><p>Де об’єкт? Що це? Яка місткість? Яка відстань до іншого об’єкта?</p><button class="btn hook" data-a="both">Потрібні координати + атрибути</button></div>
+<div class="case"><div class="num">1</div><strong>Потрібно знати «де?»</strong><p>Координати школи та укриття.</p></div>
+<div class="case"><div class="num">2</div><strong>Потрібно знати «що?»</strong><p>Тип об’єкта, місткість, стан.</p></div>
+<div class="case"><div class="num">3</div><strong>Потрібно обчислити</strong><p>Відстань і виконати відбір за умовами.</p></div>
 </div>
-<div class="feedback" id="hookFeedback"></div>
+<div class="controls"><button class="btn prob" data-a="map">Достатньо просто карти</button><button class="btn prob" data-a="gis">Потрібна ГІС</button></div>
+<div class="feedback" id="problemFeedback"></div>
 </div></section>
 
-<section class="section" id="explain"><div class="card">
-<div class="kicker">3–9 хв • чітке пояснення</div>
-<h2>ГІС = не карта. Це система роботи з географічними даними.</h2>
-<div class="good"><b>Геоінформаційна система (ГІС)</b> — це система для збирання, зберігання, редагування, поєднання, аналізу та відображення даних, які мають просторову прив’язку. Простіше: ГІС знає <b>де об’єкт</b>, <b>що це за об’єкт</b> і може <b>обчислити просторові зв’язки</b> між об’єктами.</div>
-
-<h3 style="margin-top:16px">Основні типи ГІС за способом роботи</h3>
-<div class="types">
-<div class="type"><span class="ico">🖥️</span><b>Desktop GIS</b><p>Повноцінний аналіз і редагування на комп’ютері.</p><small>Приклади: QGIS, ArcGIS Pro.</small></div>
-<div class="type"><span class="ico">🌐</span><b>Web GIS</b><p>Карти й аналіз у браузері, швидке поширення та спільна робота.</p><small>Приклади: ArcGIS Online, вебгеопортали, uMap.</small></div>
-<div class="type"><span class="ico">📱</span><b>Mobile / Field GIS</b><p>Збір точок, ліній, полігонів і атрибутів безпосередньо в полі за GPS/GNSS.</p><small>Приклади: QField, ArcGIS Field Maps.</small></div>
-<div class="type"><span class="ico">☁️</span><b>Server / Cloud GIS</b><p>Зберігає й публікує шари для багатьох користувачів і програм.</p><small>Приклади: QGIS Server, GeoServer, ArcGIS Enterprise.</small></div>
-</div>
-
-<h3 style="margin-top:16px">За призначенням ГІС можуть бути</h3>
-<div class="purposes">
-<div class="purpose"><b>🏙️ Міські</b><br>транспорт, забудова, комунальні мережі, адреси.</div>
-<div class="purpose"><b>🌲 Екологічні</b><br>ліси, води, забруднення, природоохоронні території.</div>
-<div class="purpose"><b>🚨 НС і ризики</b><br>повені, пожежі, евакуація, оцінка ураження.</div>
-<div class="purpose"><b>🌾 Агро</b><br>поля, ґрунти, індекси рослинності, продуктивність.</div>
-<div class="purpose"><b>🧾 Кадастрові</b><br>межі ділянок, власність, цільове призначення.</div>
-<div class="purpose"><b>🚚 Транспортні</b><br>маршрути, доступність, логістика, потоки.</div>
-</div>
-
-<div class="task" style="margin-top:14px"><b>Завдання, 90 секунд.</b> Розподіліть ситуації: «лісник фіксує хворі дерева смартфоном» → <i>mobile GIS</i>; «аналітик рахує площу підтоплення» → <i>desktop GIS</i>; «громада публікує карту ремонтів» → <i>web GIS</i>; «100 працівників користуються єдиною базою шарів» → <i>server/cloud GIS</i>.</div>
-<div class="controls">
-<button class="btn kind" data-q="1" data-a="mobile">Лісник → mobile</button>
-<button class="btn kind" data-q="2" data-a="desktop">Аналітик → desktop</button>
-<button class="btn kind" data-q="3" data-a="web">Карта ремонтів → web</button>
-<button class="btn kind" data-q="4" data-a="server">Єдина база → server</button>
-</div><div class="feedback" id="kindFeedback"></div>
+<section class="section" id="warmup"><div class="card">
+<div class="kicker">3–7 хв • швидке рішення</div>
+<h2>Який тип ГІС потрібен у кожній ситуації?</h2>
+<div class="grid4">
+<div class="case"><strong>🌲 Лісник у полі</strong><p>Фіксує GPS-точки хворих дерев і фото.</p><button class="btn warm" data-q="1" data-a="mobile">mobile/field</button><button class="btn warm" data-q="1" data-a="web">web</button></div>
+<div class="case"><strong>🧮 Аналітик</strong><p>Рахує площу підтоплення й перетин шарів.</p><button class="btn warm" data-q="2" data-a="desktop">desktop</button><button class="btn warm" data-q="2" data-a="mobile">mobile</button></div>
+<div class="case"><strong>🌐 Громада</strong><p>Публікує карту ремонтів для мешканців.</p><button class="btn warm" data-q="3" data-a="web">web</button><button class="btn warm" data-q="3" data-a="desktop">desktop</button></div>
+<div class="case"><strong>☁️ Організація</strong><p>Десятки працівників працюють з єдиними шарами.</p><button class="btn warm" data-q="4" data-a="server">server/cloud</button><button class="btn warm" data-q="4" data-a="paper">атлас</button></div>
+</div><div class="feedback" id="warmFeedback"></div>
 </div></section>
 
-<section class="section" id="screens"><div class="card light">
-<div class="kicker">9–14 хв • дивимося на справжні інтерфейси</div>
-<h2>Що учень має впізнати на екрані ГІС</h2>
+<section class="section" id="video1"><div class="card">
+<div class="kicker">7–9 хв • відео 1</div>
+<h2>Що таке ГІС — побачити логіку до визначення</h2>
+<div class="video-wrap">
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/fmR5SnPEInQ?rel=0" title="Що таке ГІС" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="questionbox"><b>Перед переглядом:</b><p>Спробуйте почути не назву програми, а <b>яку проблему вирішує ГІС</b>.</p><b>Після фрагмента:</b><ol><li>Які дані поєднує ГІС?</li><li>Що вона робить крім показу карти?</li><li>Назвіть один приклад із життя.</li></ol><button class="btn videoDone" data-id="v1">Відповіли</button><div class="feedback" id="v1Feedback"></div></div>
+</div>
+<p class="tiny">На уроці достатньо короткого фрагмента до ~2 хв. Повне відео можна додивитися вдома.</p>
+</div></section>
+
+<section class="section" id="evidence"><div class="card light">
+<div class="kicker">9–14 хв • лабораторія доказів</div>
+<h2>Справжні інтерфейси: де в ГІС живуть шари й аналіз?</h2>
 <div class="shotgrid">
-
 <figure class="shot">
-<img src="https://docs.qgis.org/3.44/en/_images/startup.png" alt="Інтерфейс QGIS із панеллю шарів, картою та Processing Toolbox" loading="lazy">
-<figcaption class="cap"><b>QGIS — desktop GIS.</b> Ліворуч видно список шарів, у центрі — map canvas, праворуч — Processing Toolbox. Саме тут запускаються інструменти аналізу.<div class="legendline"><span>шари</span><span>карта</span><span>інструменти</span><span>CRS / масштаб</span></div><a href="https://docs.qgis.org/3.44/en/docs/user_manual/introduction/qgis_gui.html" target="_blank" rel="noopener">Офіційна документація ↗</a></figcaption>
+<img src="https://docs.qgis.org/3.44/en/_images/startup.png" alt="Інтерфейс QGIS" loading="lazy">
+<figcaption class="cap"><b>QGIS — desktop GIS.</b> Знайдіть: <b>Layers Panel</b>, центральне поле карти, панелі інструментів і Processing.<br><a href="https://docs.qgis.org/3.44/en/docs/user_manual/introduction/qgis_gui.html" target="_blank" rel="noopener">Офіційний опис інтерфейсу ↗</a></figcaption>
 </figure>
-
 <figure class="shot">
-<img src="https://doc.arcgis.com/en/arcgis-online/get-started/GUID-5B48FE78-9CF7-4E48-B201-FC7D1E21470C-web.png" alt="ArcGIS Online Map Viewer із картою, панеллю Contents та Settings" loading="lazy">
-<figcaption class="cap"><b>ArcGIS Online Map Viewer — web GIS.</b> Ліворуч — вміст карти й шари, праворуч — стиль, фільтри, поля, labels, analysis. Зміни видно одразу у браузері.<div class="legendline"><span>web map</span><span>layers</span><span>filter</span><span>analysis</span></div><a href="https://doc.arcgis.com/en/arcgis-online/get-started/get-started-with-mv.htm" target="_blank" rel="noopener">Офіційна документація ↗</a></figcaption>
+<img src="https://doc.arcgis.com/en/arcgis-online/get-started/GUID-5B48FE78-9CF7-4E48-B201-FC7D1E21470C-web.png" alt="ArcGIS Online Map Viewer" loading="lazy">
+<figcaption class="cap"><b>ArcGIS Online Map Viewer — web GIS.</b> Знайдіть список шарів, налаштування стилю/полів/фільтрів і місце, де користувач працює з картою.<br><a href="https://doc.arcgis.com/en/arcgis-online/get-started/get-started-with-mv.htm" target="_blank" rel="noopener">Офіційна довідка ↗</a></figcaption>
 </figure>
-
 </div>
-<div class="task" style="margin-top:14px"><b>Робота зі скрінами, 2 хв.</b> Відповідайте вголос: 1) де у QGIS знаходиться список шарів? 2) де запускають просторові алгоритми? 3) чому ArcGIS Online зручний для публікації карти? 4) у якому з цих двох середовищ логічніше робити складний аналіз великого набору даних?</div>
-<button class="btn lightbtn" id="screensDone">Відповіли на 4 питання</button><div class="feedback" id="screensFeedback"></div>
+<div class="task" style="margin-top:14px"><b>Завдання, 2 хв.</b> У парі сформулюйте 3 спільні елементи обох середовищ і 1 різницю. Потім дайте відповідь: <b>де логічніше створювати складний аналіз великої кількості даних — у desktop чи web GIS?</b></div>
+<button class="btn lightbtn" id="evidenceDone">Маємо 3 спільні риси + 1 різницю</button><div class="feedback" id="evidenceFeedback"></div>
 </div></section>
 
-<section class="section" id="build"><div class="card light">
-<div class="kicker">14–24 хв • діти створюють міні-ГІС</div>
-<h2>Як приблизно створюється ГІС-проєкт: зробіть шар «Укриття»</h2>
-<p>Це спрощена модель QGIS/ArcGIS. Ви зараз виконуєте ті самі логічні кроки: <b>визначаєте задачу → створюєте шар → задаєте поля → оцифровуєте об’єкти → заповнюєте атрибути → фільтруєте</b>.</p>
+<section class="section" id="mission"><div class="card light">
+<div class="kicker">14–18 хв • різнорівнева місія</div>
+<h2>Створіть власний шар «Укриття»</h2>
+<div class="builder">
+<div class="panel">
+<label>Назва об’єкта</label><input id="ptName" value="Укриття 1">
+<div class="formrow"><div><label>Місткість</label><input id="ptCapacity" type="number" min="1" value="120"></div><div><label>Стан</label><select id="ptStatus"><option value="готове">готове</option><option value="обмежене">обмежене</option></select></div></div>
+<div class="good" style="margin-top:10px"><b>Як працювати:</b> заповніть атрибути → клацніть по карті. Створіть мінімум 3 точки, одна з них — місткість менше 100.</div>
+<div class="controls"><button class="btn lightbtn" id="filterBig">Фільтр: місткість ≥100</button><button class="btn lightbtn" id="showAll">Показати всі</button></div>
+<div class="feedback" id="buildFeedback"></div>
+<div class="warn" style="margin-top:10px"><b>Рівні:</b><br>Базовий — створити 3 точки.<br>Достатній — застосувати фільтр і пояснити, що саме він читає.<br>Високий — запропонувати ще 2 поля атрибутів і пояснити, навіщо вони потрібні.</div>
+</div>
+<div>
+<div class="buildermap" id="builderMap" aria-label="Схематична карта для створення шару"><div class="river"></div><div class="road"></div><div class="school"></div></div>
+<div class="tablewrap"><table class="attr"><thead><tr><th>ID</th><th>Назва</th><th>Місткість</th><th>Стан</th></tr></thead><tbody id="attrBody"></tbody></table></div>
+</div></div>
+</div></section>
 
-<div class="steps">
-<div class="step"><div class="n">1</div><b>Мета</b>Що хочемо знати? Напр.: де є укриття й яка їх місткість.</div>
-<div class="step"><div class="n">2</div><b>Геометрія</b>Точка, лінія чи полігон? Укриття в цій моделі — точки.</div>
-<div class="step"><div class="n">3</div><b>Поля</b>Назва, місткість, стан, дата перевірки.</div>
-<div class="step"><div class="n">4</div><b>Оцифрування</b>Додаємо об’єкти на карту й заповнюємо атрибути.</div>
-<div class="step"><div class="n">5</div><b>Аналіз</b>Фільтруємо, вимірюємо, будуємо зони, перетинаємо шари.</div>
+<section class="section" id="video2"><div class="card">
+<div class="kicker">18–20 хв • відео 2</div>
+<h2>ДЗЗ: звідки ГІС бере частину своїх даних</h2>
+<div class="video-wrap">
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/eSbhWCUGMCY?rel=0" title="Що таке дистанційне зондування Землі — Мала академія наук України" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="questionbox"><b>Перед переглядом:</b><p>Що реально вимірює супутниковий сенсор — «ліс», «посуху», «пожежу» чи фізичний сигнал?</p><b>Після фрагмента:</b><ol><li>Що таке ДЗЗ?</li><li>Які дані воно дає?</li><li>Чому ці дані зручно аналізувати в ГІС?</li></ol><button class="btn videoDone" data-id="v2">Відповіли</button><div class="feedback" id="v2Feedback"></div></div>
+</div>
+<p class="tiny">Відео Малої академії наук України. На уроці — короткий фрагмент; повний перегляд можна залишити як додатковий матеріал.</p>
+</div></section>
+
+<section class="section" id="theory"><div class="card">
+<div class="kicker">20–30 хв • основний теоретичний блок</div>
+<h2>ГІС без туману: 6 речей, які треба реально зрозуміти</h2>
+<div class="theorygrid">
+<div class="theory"><span class="ico">🧠</span><b>1. Що таке ГІС</b><p>Система для збирання, зберігання, редагування, поєднання, аналізу й відображення просторово прив’язаних даних.</p><div class="mini">Ключ: не «карта на екрані», а робота з даними + просторовий аналіз.</div></div>
+<div class="theory"><span class="ico">🧱</span><b>2. Шар</b><p>Окремий набір об’єктів або значень: дороги, річки, школи, висоти, температура, знімок.</p><div class="mini">Шари можна вмикати, стилізувати, фільтрувати й аналізувати разом.</div></div>
+<div class="theory"><span class="ico">📍</span><b>3. Геометрія + атрибути</b><p>Геометрія відповідає «де?»: точка, лінія, полігон, растр. Атрибути — «що це і яке?».</p><div class="mini">У нашому шарі: точка + назва + місткість + стан.</div></div>
+<div class="theory"><span class="ico">🖥️</span><b>4. Види ГІС</b><p><b>Desktop</b> — аналіз; <b>web</b> — публікація й браузер; <b>mobile/field</b> — польовий збір; <b>server/cloud</b> — спільні сервіси й шари.</p></div>
+<div class="theory"><span class="ico">⚙️</span><b>5. Як створюють</b><p>Питання → джерела даних → система координат → шар/поля → оцифрування або імпорт → стиль → аналіз → перевірка → публікація.</p><div class="mini">Тобто спочатку проєктують дані, а не «малюють красиву карту».</div></div>
+<div class="theory"><span class="ico">🔎</span><b>6. Що ГІС робить</b><p><b>Filter</b> — за атрибутом; <b>buffer</b> — зона відстані; <b>intersection</b> — просторовий перетин; також маршрути, статистика, часові зміни.</p></div>
+</div>
+
+<div class="grid2" style="margin-top:14px">
+<div class="good"><b>За призначенням:</b> міські, транспортні, кадастрові, екологічні, аграрні, медико-географічні, туристичні, кризові/НС. Це не окремі «магічні програми» — часто ті самі GIS-технології, але з іншими даними й задачами.</div>
+<div class="hint"><b>ДЗЗ і ГІС — не одне й те саме.</b> ДЗЗ отримує дані дистанційно; ГІС може ці дані зберігати, поєднувати з іншими шарами, аналізувати й візуалізувати.</div>
 </div>
 
 <div class="shotgrid" style="margin-top:14px">
 <figure class="shot">
-<img src="https://docs.qgis.org/3.44/en/_images/create_vector_layer.png" alt="Діалог створення нового векторного шару у QGIS" loading="lazy">
-<figcaption class="cap"><b>Справжній діалог QGIS.</b> При створенні шару задають тип геометрії, систему координат (CRS) і поля атрибутивної таблиці. Тобто шар проєктують до того, як ставити точки на карту.<a href="https://docs.qgis.org/3.44/en/docs/training_manual/create_vector_data/create_new_vector.html" target="_blank" rel="noopener">Як створюють векторний шар у QGIS ↗</a></figcaption>
+<img src="https://docs.qgis.org/3.44/en/_images/create_vector_layer.png" alt="Створення нового векторного шару в QGIS" loading="lazy">
+<figcaption class="cap"><b>QGIS: створення нового шару.</b> Тут задають тип геометрії, CRS і поля атрибутивної таблиці.<br><a href="https://docs.qgis.org/3.44/en/docs/training_manual/create_vector_data/create_new_vector.html" target="_blank" rel="noopener">Як створюють шар ↗</a></figcaption>
 </figure>
 <figure class="shot">
-<div class="cap" style="padding-bottom:0"><b>Міні-лабораторія: створіть 3 об’єкти.</b> Введіть назву, місткість і стан, потім клацніть по карті. Після трьох точок застосуйте фільтр.</div>
-<div style="padding:12px">
-<div class="builder">
-<div class="panel">
-<label>Назва</label><input id="ptName" value="Укриття 1">
-<div class="formrow"><div><label>Місткість</label><input id="ptCapacity" type="number" min="1" value="120"></div><div><label>Стан</label><select id="ptStatus"><option value="готове">готове</option><option value="обмежене">обмежене</option></select></div></div>
-<div class="good" style="margin-top:10px"><b>Крок:</b> заповніть атрибути → клацніть на карті. Положення точки = просторова частина; форма = атрибутивна частина.</div>
-<div class="layerlist">
-<div class="layeritem"><strong>🗺️ Базова карта</strong><span>контекст</span></div>
-<div class="layeritem"><strong>● Укриття</strong><span>point layer</span></div>
-<div class="layeritem"><strong>▰ Школа</strong><span>polygon</span></div>
-</div>
-<button class="btn lightbtn" id="filterBig">Показати тільки місткість ≥100</button>
-<button class="btn lightbtn" id="showAll">Показати всі</button>
-<div class="feedback" id="buildFeedback"></div>
-</div>
-<div>
-<div class="buildermap" id="builderMap" aria-label="Схематична карта для додавання точок"><div class="river"></div><div class="road"></div><div class="school"></div></div>
-<div class="tablewrap"><table class="attr"><thead><tr><th>ID</th><th>Назва</th><th>Місткість</th><th>Стан</th></tr></thead><tbody id="attrBody"></tbody></table></div>
-</div>
-</div>
-</div>
+<img src="https://documentation.dataspace.copernicus.eu/Applications/_images/NDVI_TimeSeries.png" alt="Copernicus Browser з NDVI та областю інтересу" loading="lazy">
+<figcaption class="cap"><b>Copernicus Browser: дані ДЗЗ у роботі.</b> Виділена територія, супутниковий шар, NDVI та статистика.<br><a href="https://documentation.dataspace.copernicus.eu/Applications/Browser.html" target="_blank" rel="noopener">Офіційна документація ↗</a></figcaption>
 </figure>
 </div>
-
-<div class="task" style="margin-top:14px"><b>Обов’язковий результат за 8 хв:</b> створити 3 точки з різною місткістю; хоча б одна — менше 100; застосувати фільтр; пояснити сусіду, що саме ГІС використала для відбору: <u>координати чи атрибут?</u></div>
 </div></section>
 
-<section class="section" id="analysis"><div class="card">
-<div class="kicker">24–29 хв • від карти до аналізу</div>
-<h2>Три типові просторові операції</h2>
-<div class="ops">
-<div class="op"><span class="ico">🔎</span><b>Attribute query / filter</b><p>Відбір за значенням у таблиці.</p><div class="example">«Місткість ≥100» — просторове положення не змінюється, фільтруємо атрибут.</div></div>
-<div class="op"><span class="ico">⭕</span><b>Buffer / зона близькості</b><p>Створює зону заданої відстані навколо об’єкта.</p><div class="example">«Усе в межах 1 км від укриття».</div></div>
-<div class="op"><span class="ico">✂️</span><b>Intersection / перетин</b><p>Знаходить об’єкти або частини територій, де шари просторово збігаються.</p><div class="example">«Будівлі, що потрапили в зону повені».</div></div>
-</div>
-<h3 style="margin-top:14px">Оберіть правильну операцію</h3>
-<div class="grid3">
-<div class="case"><strong>1. Показати тільки лікарні з понад 200 ліжками.</strong><div class="controls"><button class="btn opq" data-q="1" data-a="filter">filter</button><button class="btn opq" data-q="1" data-a="buffer">buffer</button></div></div>
-<div class="case"><strong>2. Знайти всі будинки в радіусі 500 м від річки.</strong><div class="controls"><button class="btn opq" data-q="2" data-a="buffer">buffer</button><button class="btn opq" data-q="2" data-a="inter">intersection</button></div></div>
-<div class="case"><strong>3. Які поля лежать усередині зони підтоплення?</strong><div class="controls"><button class="btn opq" data-q="3" data-a="inter">intersection</button><button class="btn opq" data-q="3" data-a="filter">filter</button></div></div>
-</div><div class="feedback" id="opsFeedback"></div>
+<section class="section" id="duel"><div class="card light">
+<div class="kicker">30–33 хв • логічний двобій</div>
+<h2>Три твердження. Де помилка?</h2>
+<div class="duel">
+<div class="duelitem"><b>1. «Якщо на екрані є карта — це вже ГІС».</b><button class="btn duelbtn" data-a="bad">Так</button> <button class="btn duelbtn" data-a="good">Ні</button></div>
+<div class="duelitem"><b>2. «Щоб знайти укриття місткістю понад 100, достатньо атрибутивного фільтра».</b><button class="btn duelbtn" data-a="good">Так</button> <button class="btn duelbtn" data-a="bad">Ні</button></div>
+<div class="duelitem"><b>3. «Низький NDVI автоматично доводить посуху».</b><button class="btn duelbtn" data-a="bad">Так</button> <button class="btn duelbtn" data-a="good">Ні</button></div>
+</div><div class="feedback" id="duelFeedback"></div>
 </div></section>
 
-<section class="section" id="dzz"><div class="card">
-<div class="kicker">29–33 хв • ДЗЗ як джерело даних для ГІС</div>
-<h2>Copernicus Browser: супутниковий знімок перетворюється на аналітичний шар</h2>
-<div class="dzzgrid">
-<div>
-<img src="https://documentation.dataspace.copernicus.eu/Applications/_images/NDVI_TimeSeries.png" alt="Copernicus Browser з шаром NDVI та виділеним полем" loading="lazy">
-<p class="tiny">Офіційний скрін Copernicus Data Space Browser: Sentinel-2, шар NDVI, виділена Area of Interest та інструмент статистики.</p>
-</div>
-<div class="dzzcards">
-<div class="dzzcard"><b>1. Звідки дані?</b><p>Сенсор Sentinel-2 реєструє відбиття поверхні у кількох спектральних каналах.</p></div>
-<div class="dzzcard"><b>2. Що таке NDVI?</b><p>Розрахований індекс із червоного та ближнього інфрачервоного каналів. Це вже не «звичайне фото», а похідний растровий шар.</p></div>
-<div class="dzzcard"><b>3. Що робить ГІС/геоплатформа?</b><p>Дає вибрати територію, порівнювати дати, будувати статистику, експортувати дані, накладати інші шари.</p></div>
-<div class="dzzcard"><b>4. Обмеження</b><p>Низький NDVI сам по собі не доводить посуху: потрібні дата, сезон, хмарність, тип рослинності й інші дані.</p></div>
-</div>
-</div>
-
-<div class="grid2" style="margin-top:14px">
-<figure class="shot">
-<img src="https://documentation.dataspace.copernicus.eu/Applications/_images/TimeSeries.png" alt="Графік зміни NDVI у Copernicus Browser" loading="lazy">
-<figcaption class="cap"><b>Часовий ряд NDVI.</b> Це вже відповідь не лише «де?», а й «як змінювалося в часі?».</figcaption>
-</figure>
-<div class="case"><strong>Завдання, 2 хв.</strong><p>Подивіться на графік. Знайдіть: 1) приблизний максимум; 2) період різкого падіння; 3) чому не можна автоматично назвати причину падіння лише за цим графіком.</p>
-<div class="controls"><button class="btn dzzq" data-a="good">Потрібні додаткові дані й перевірка</button><button class="btn dzzq" data-a="bad">Графіка достатньо, причина очевидна</button></div><div class="feedback" id="dzzFeedback"></div>
-<div class="resource-links"><a class="launch" href="https://dataspace.copernicus.eu/browser/" target="_blank" rel="noopener">Відкрити Copernicus Browser ↗</a><a class="launch" href="https://qfield.org/" target="_blank" rel="noopener">Подивитися QField ↗</a><a class="launch" href="https://umap-project.org/" target="_blank" rel="noopener">Спробувати uMap ↗</a></div></div>
-</div>
-</div></section>
-
-<section class="section" id="exit"><div class="card light final">
-<div class="kicker">33–35 хв • вихід із уроку</div>
-<h2>За 2 хвилини доведіть, що Ви зрозуміли ГІС</h2>
-<p><b>Кейс:</b> треба створити карту пунктів питної води в громаді, щоб люди бачили їх онлайн, а працівники могли оновлювати стан пунктів із телефона.</p>
-<label>1. Який тип ГІС потрібен для працівників у полі?</label><select id="exit1"><option value="">—</option><option value="mobile">mobile / field GIS</option><option value="paper">паперовий атлас</option><option value="onlydzz">лише ДЗЗ</option></select>
-<label>2. Який тип потрібен для публікації карти для мешканців?</label><select id="exit2"><option value="">—</option><option value="web">web GIS</option><option value="desktop">тільки desktop GIS</option></select>
-<label>3. Які 3 поля атрибутів Ви додали б до шару «Пункти води»?</label><textarea id="exit3" placeholder="Наприклад: адреса, стан, дата перевірки..."></textarea>
-<button class="btn primary" id="exitCheck">Перевірити</button><div class="feedback" id="exitFeedback"></div>
+<section class="section" id="summary"><div class="card light cer">
+<div class="kicker">33–35 хв • підсумок і CER</div>
+<h2>Чим ГІС відрізняється від простої електронної карти?</h2>
+<label>C — твердження</label><textarea id="cerC" placeholder="ГІС відрізняється тим, що..."></textarea>
+<label>E — доказ</label><textarea id="cerE" placeholder="Приклад із шару «Укриття», QGIS або Copernicus..."></textarea>
+<label>R — пояснення</label><textarea id="cerR" placeholder="Це показує, що ГІС не лише відображає, а..."></textarea>
+<button class="btn primary" id="cerCheck">Перевірити структуру</button><div class="feedback" id="cerFeedback"></div>
 </div></section>
 
 <section class="section" id="home"><div class="card light">
 <div class="kicker">ПІСЛЯ УРОКУ • ДОМАШНЄ ЗАВДАННЯ</div>
 <h2>🏠 Домашнє завдання</h2>
+<div class="grid2">
+<div>
 <div class="good"><b>Обов’язково:</b> опрацювати <b>§6</b> і відповісти на запитання після параграфа.</div>
-<div class="grid2" style="margin-top:14px"><div>
-<h3>Практична частина</h3>
-<p>Оберіть <b>один</b> інструмент: QGIS, ArcGIS Online Map Viewer, QField/uMap або Copernicus Browser.</p>
-<p>У <b>3–4 реченнях</b> запишіть:</p>
-<ol>
-<li><b>Який це тип ГІС / геоінструмента?</b></li>
-<li><b>Для чого його використовують?</b></li>
-<li><b>Які дані він використовує?</b></li>
-<li><b>Який результат можна отримати?</b></li>
-</ol>
-<div class="warn"><b>Не треба реєструватися або встановлювати програму</b>, якщо цього не хочете. Достатньо відкрити сайт/опис інструмента й розібратися з його призначенням.</div>
-</div><div>
-<h3>Матеріали</h3>
-<p><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">📘 Підручник 11 класу, ІМЗО ↗</a></p>
-<ul>
-<li><a href="https://qgis.org/" target="_blank" rel="noopener">QGIS</a> — desktop GIS.</li>
-<li><a href="https://www.arcgis.com/apps/mapviewer/" target="_blank" rel="noopener">ArcGIS Online Map Viewer</a> — web GIS.</li>
-<li><a href="https://qfield.org/" target="_blank" rel="noopener">QField</a> — mobile/field GIS.</li>
-<li><a href="https://umap-project.org/" target="_blank" rel="noopener">uMap</a> — створення вебкарт.</li>
-<li><a href="https://dataspace.copernicus.eu/browser/" target="_blank" rel="noopener">Copernicus Browser</a> — робота з даними ДЗЗ.</li>
-</ul>
-</div></div>
+<h3>Обов’язкове відео</h3>
+<p><a href="https://www.youtube.com/watch?v=nFQKMDAqQr4" target="_blank" rel="noopener"><b>«Навчальні карти й атласи. Електронні карти. Картографічні інтернет-джерела. Геоінформаційні та сучасні навігаційні системи» — Richelieu Lyceum ↗</b></a></p>
+<h3>Завдання на вибір</h3>
+<p><b>Базовий:</b> назвати 3 типи ГІС і по одному прикладу застосування.</p>
+<p><b>Достатній:</b> обрати QGIS / uMap / QField / ArcGIS Online і пояснити: які дані вводимо → що робимо → який результат отримуємо.</p>
+<p><b>Високий:</b> спроєктувати шар «Пункти питної води»: геометрія + мінімум 5 атрибутів + один можливий просторовий запит.</p>
+</div>
+<div>
+<h3>Додатково за бажанням</h3>
+<p><a href="https://www.youtube.com/watch?v=eSbhWCUGMCY" target="_blank" rel="noopener">МАН України — «Що таке дистанційне зондування Землі?» ↗</a></p>
+<p><a href="https://www.youtube.com/watch?v=RoPHkn6qwHM" target="_blank" rel="noopener">Тренінг з основ ГІС — практичне застосування ↗</a></p>
+<h3>Де спробувати</h3>
+<ul><li><a href="https://qgis.org/" target="_blank" rel="noopener">QGIS</a></li><li><a href="https://www.arcgis.com/apps/mapviewer/" target="_blank" rel="noopener">ArcGIS Online Map Viewer</a></li><li><a href="https://qfield.org/" target="_blank" rel="noopener">QField</a></li><li><a href="https://umap-project.org/" target="_blank" rel="noopener">uMap</a></li><li><a href="https://dataspace.copernicus.eu/browser/" target="_blank" rel="noopener">Copernicus Browser</a></li></ul>
+<p><a href="https://lib.imzo.gov.ua/wa-data/public/site/books2/pidruchnyky-11-klas-2019/17-geografiya-11-klas/11-kl-geografy.pdf" target="_blank" rel="noopener">📘 Електронний підручник ІМЗО ↗</a></p>
+</div>
+</div>
 </div></section>
 
 <section class="section" id="test"><div class="card light">
 <div class="kicker">ПІДСУМКОВА ПЕРЕВІРКА • 10 БАЛІВ</div>
 <h2>✅ Тест — 10 запитань / 10 балів</h2>
-<p>Тест перевіряє не назви сервісів, а те, чи Ви зрозуміли <b>що таке ГІС, її види, структуру шару, атрибути, основні операції та зв’язок із ДЗЗ</b>.</p>
-
 <div class="quizgate" id="gate"><label>Ім’я та прізвище</label><input type="text" id="studentName" placeholder="Наприклад, Марія Коваль"><label>Клас</label><input type="text" id="studentClass" placeholder="11-А"><button class="btn primary" id="startQuiz" style="margin-top:10px">Розпочати тест</button><div class="feedback" id="gateFeedback"></div></div>
 <div class="quiz" id="quiz">
-<div class="q"><b>1. ГІС — це:</b><label><input type="radio" name="q1" value="a">будь-яке зображення карти</label><label><input type="radio" name="q1" value="b">система для роботи з просторово прив’язаними даними: зберігання, редагування, аналіз і візуалізація</label><label><input type="radio" name="q1" value="c">лише навігатор</label></div>
-<div class="q"><b>2. Який набір правильно описує типи ГІС за способом роботи?</b><label><input type="radio" name="q2" value="a">desktop, web, mobile/field, server/cloud</label><label><input type="radio" name="q2" value="b">політична, фізична, кліматична, туристична</label></div>
-<div class="q"><b>3. Яка ГІС найдоречніша для польового збору точок із GPS і фотографіями?</b><label><input type="radio" name="q3" value="a">mobile/field GIS</label><label><input type="radio" name="q3" value="b">паперовий атлас</label></div>
+<div class="q"><b>1. ГІС — це:</b><label><input type="radio" name="q1" value="a">будь-яка карта на екрані</label><label><input type="radio" name="q1" value="b">система для зберігання, редагування, аналізу й візуалізації просторово прив’язаних даних</label></div>
+<div class="q"><b>2. Який набір правильно описує типи ГІС за способом роботи?</b><label><input type="radio" name="q2" value="a">desktop, web, mobile/field, server/cloud</label><label><input type="radio" name="q2" value="b">фізична, політична, кліматична, туристична</label></div>
+<div class="q"><b>3. Яка ГІС найдоречніша для збору GPS-точок у полі?</b><label><input type="radio" name="q3" value="a">mobile/field GIS</label><label><input type="radio" name="q3" value="b">паперовий атлас</label></div>
 <div class="q"><b>4. Просторові дані відповідають насамперед на питання:</b><label><input type="radio" name="q4" value="a">«де?»</label><label><input type="radio" name="q4" value="b">«скільки лайків?»</label></div>
 <div class="q"><b>5. Які атрибути доречні для шару «Укриття»?</b><label><input type="checkbox" name="q5" value="name">назва</label><label><input type="checkbox" name="q5" value="capacity">місткість</label><label><input type="checkbox" name="q5" value="status">стан</label><label><input type="checkbox" name="q5" value="bg">колір фону браузера</label></div>
-<div class="q"><b>6. Потрібно показати тільки об’єкти з місткістю ≥100. Що застосуємо?</b><label><input type="radio" name="q6" value="a">атрибутивний фільтр</label><label><input type="radio" name="q6" value="b">buffer</label></div>
-<div class="q"><b>7. Потрібно знайти все в межах 1 км від річки. Найдоречніша операція:</b><label><input type="radio" name="q7" value="a">buffer</label><label><input type="radio" name="q7" value="b">зміна кольору шару</label></div>
-<div class="q"><b>8. Потрібно знайти будівлі всередині полігона повені. Найдоречніше:</b><label><input type="radio" name="q8" value="a">intersection / spatial selection</label><label><input type="radio" name="q8" value="b">лише масштабування</label></div>
-<div class="q"><b>9. ДЗЗ у контексті ГІС:</b><label><input type="radio" name="q9" value="a">може бути джерелом растрових даних про поверхню Землі</label><label><input type="radio" name="q9" value="b">замінює будь-яку ГІС</label></div>
-<div class="q"><b>10. Який висновок найточніший?</b><label><input type="radio" name="q10" value="a">ГІС лише красиво малює карту</label><label><input type="radio" name="q10" value="b">ГІС поєднує геометрію й атрибути та дозволяє отримувати нові результати через просторовий аналіз</label></div>
+<div class="q"><b>6. Потрібно залишити лише об’єкти з місткістю ≥100:</b><label><input type="radio" name="q6" value="a">атрибутивний filter/query</label><label><input type="radio" name="q6" value="b">buffer</label></div>
+<div class="q"><b>7. Потрібно знайти все в межах 1 км від річки:</b><label><input type="radio" name="q7" value="a">buffer</label><label><input type="radio" name="q7" value="b">зміна кольору</label></div>
+<div class="q"><b>8. Потрібно знайти будівлі, що потрапили в полігон повені:</b><label><input type="radio" name="q8" value="a">intersection / spatial selection</label><label><input type="radio" name="q8" value="b">лише масштабування</label></div>
+<div class="q"><b>9. ДЗЗ у контексті ГІС:</b><label><input type="radio" name="q9" value="a">може бути джерелом растрових даних про поверхню Землі</label><label><input type="radio" name="q9" value="b">повністю замінює ГІС</label></div>
+<div class="q"><b>10. Найточніше твердження:</b><label><input type="radio" name="q10" value="a">ГІС лише красиво показує карту</label><label><input type="radio" name="q10" value="b">ГІС поєднує геометрію й атрибути та дозволяє отримувати нові результати через аналіз</label></div>
 <button class="btn primary" id="submitQuiz">Завершити тест</button>
 <div class="result" id="result"><div class="score" id="score"></div><div id="resultText"></div><button class="btn lightbtn" onclick="window.print()" style="margin-top:8px">Друк / PDF</button></div>
 </div>
 </div></section>
 
 </main>
-<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія, 11 клас • Урок 09<br><span class="tiny">Скріншоти й приклади: QGIS Documentation, Esri ArcGIS Online Help, Copernicus Data Space Ecosystem Documentation. Зовнішні зображення не є критичними для роботи інтерактивів.</span></div></footer>
+<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія, 11 клас • Урок 09<br><span class="tiny">Відео: Олександр Кушнірук; Мала академія наук України; Richelieu Lyceum. Скріни: QGIS Documentation, ArcGIS Online Help, Copernicus Data Space Ecosystem.</span></div></footer>
 
 <script>
-const done=new Set();
-function mark(id){done.add(id);const n=done.size;document.getElementById('progressBar').style.width=(n/6*100)+'%';document.getElementById('progressText').textContent=n+' із 6 етапів';document.getElementById('progressPct').textContent=Math.round(n/6*100)+'%'}
 function fb(id,msg,ok){const e=document.getElementById(id);e.textContent=msg;e.className='feedback show '+(ok?'ok':'no')}
 
-// Hook: require GIS and data logic
-let hookSet=new Set();
-document.querySelectorAll('.hook').forEach(function(b){b.addEventListener('click',function(){
- hookSet.add(b.dataset.a);b.classList.add('active');
- if(hookSet.has('gis')&&hookSet.has('both')){fb('hookFeedback','Так. Потрібна ГІС, бо задача вимагає одночасно просторової умови (відстань) і атрибутивної (місткість).',true);mark('hook')}
- else if(b.dataset.a==='map')fb('hookFeedback','Не зовсім. Карта покаже об’єкти, але для швидкого автоматичного відбору за відстанню й місткістю потрібна ГІС-логіка.',false);
+// 0-3
+document.querySelectorAll('.prob').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.prob').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(b.dataset.a==='gis')fb('problemFeedback','Так. Потрібні атрибути + просторовий розрахунок, тобто не лише візуалізація карти.',true);
+ else fb('problemFeedback','Ні. Простої карти недостатньо для автоматичного відбору за відстанню й місткістю.',false);
 })});
 
-// Types mini task
-const kindAns={1:'mobile',2:'desktop',3:'web',4:'server'},kindGot={};
-document.querySelectorAll('.kind').forEach(function(b){b.addEventListener('click',function(){
- kindGot[b.dataset.q]=b.dataset.a;b.classList.toggle('active');
- if(Object.keys(kindGot).length===4){let s=0;Object.keys(kindAns).forEach(function(k){if(kindGot[k]===kindAns[k])s++});if(s===4){fb('kindFeedback','4/4. Види ГІС визначаємо не за кольором карти, а за середовищем роботи й задачами.',true);mark('types')}else fb('kindFeedback',s+'/4. Перевірте: поле → mobile; складний аналіз → desktop; публікація → web; централізована робота → server/cloud.',false)}
+// 3-7
+const wa={1:'mobile',2:'desktop',3:'web',4:'server'},wg={};
+document.querySelectorAll('.warm').forEach(function(b){b.addEventListener('click',function(){
+ wg[b.dataset.q]=b.dataset.a;document.querySelectorAll('.warm[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(Object.keys(wg).length===4){let s=0;Object.keys(wa).forEach(function(k){if(wg[k]===wa[k])s++});if(s===4)fb('warmFeedback','4/4. Тип ГІС визначаємо за задачами та способом роботи.',true);else fb('warmFeedback',s+'/4. Поле → mobile; складний аналіз → desktop; публікація → web; централізовані сервіси → server/cloud.',false)}
 })});
 
-document.getElementById('screensDone').addEventListener('click',function(){fb('screensFeedback','Зараховано. У будь-якій ГІС шукайте чотири речі: шари, карту/scene, властивості даних і інструменти аналізу.',true);mark('screens')});
+// videos
+document.querySelectorAll('.videoDone').forEach(function(b){b.addEventListener('click',function(){fb(b.dataset.id+'Feedback','Добре. Запишіть одним реченням головну ідею відеофрагмента.',true)})});
 
-// Mini GIS builder
-const points=[];
-let seq=1;
-const map=document.getElementById('builderMap');
-function renderTable(){
- const body=document.getElementById('attrBody');
- body.innerHTML=points.map(function(p){return '<tr><td>'+p.id+'</td><td>'+p.name+'</td><td>'+p.capacity+'</td><td>'+p.status+'</td></tr>'}).join('');
-}
+// evidence
+document.getElementById('evidenceDone').addEventListener('click',function(){fb('evidenceFeedback','Зараховано. Шари, карта, властивості даних та інструменти аналізу — базові елементи GIS-середовища.',true)});
+
+// builder
+const points=[];let seq=1;const map=document.getElementById('builderMap');
+function renderTable(){document.getElementById('attrBody').innerHTML=points.map(function(p){return '<tr><td>'+p.id+'</td><td>'+p.name+'</td><td>'+p.capacity+'</td><td>'+p.status+'</td></tr>'}).join('')}
 map.addEventListener('click',function(ev){
- if(points.length>=5){fb('buildFeedback','Достатньо. Для уроку вистачить 3–5 точок.',false);return}
- const rect=map.getBoundingClientRect();
- const x=(ev.clientX-rect.left)/rect.width*100;
- const y=(ev.clientY-rect.top)/rect.height*100;
- const name=document.getElementById('ptName').value.trim()||('Укриття '+seq);
- const capacity=Math.max(1,parseInt(document.getElementById('ptCapacity').value||'1',10));
- const status=document.getElementById('ptStatus').value;
- const p={id:seq,name:name,capacity:capacity,status:status,x:x,y:y};
- points.push(p);
- const d=document.createElement('div');d.className='gispt '+(capacity>=100?'good':'warnpt');d.style.left=x+'%';d.style.top=y+'%';d.textContent=seq;d.dataset.id=seq;map.appendChild(d);
- seq++;document.getElementById('ptName').value='Укриття '+seq;renderTable();
- if(points.length>=3){fb('buildFeedback','Шар уже має '+points.length+' об’єкти. Тепер застосуйте фільтр «місткість ≥100».',true)}
+ if(points.length>=5){fb('buildFeedback','Для уроку достатньо 3–5 об’єктів.',false);return}
+ const r=map.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width*100,y=(ev.clientY-r.top)/r.height*100;
+ const p={id:seq,name:document.getElementById('ptName').value.trim()||('Укриття '+seq),capacity:Math.max(1,parseInt(document.getElementById('ptCapacity').value||'1',10)),status:document.getElementById('ptStatus').value,x:x,y:y};
+ points.push(p);const d=document.createElement('div');d.className='gispt '+(p.capacity>=100?'good':'warnpt');d.style.left=x+'%';d.style.top=y+'%';d.textContent=seq;d.dataset.id=seq;map.appendChild(d);seq++;document.getElementById('ptName').value='Укриття '+seq;renderTable();
+ if(points.length>=3)fb('buildFeedback','Маємо '+points.length+' об’єкти. Тепер застосуйте фільтр «місткість ≥100».',true);
 });
 document.getElementById('filterBig').addEventListener('click',function(){
- if(points.length<3){fb('buildFeedback','Спочатку створіть щонайменше 3 точки.',false);return}
+ if(points.length<3){fb('buildFeedback','Спочатку створіть мінімум 3 точки.',false);return}
  document.querySelectorAll('.gispt').forEach(function(el){const p=points.find(function(x){return String(x.id)===el.dataset.id});el.classList.toggle('hiddenpt',p.capacity<100)});
  const kept=points.filter(function(p){return p.capacity>=100}).length;
- fb('buildFeedback','Фільтр виконано: видно '+kept+' із '+points.length+' об’єктів. Відбір відбувся за атрибутом «місткість», а не за координатами.',true);mark('build');
+ fb('buildFeedback','Фільтр залишив '+kept+' із '+points.length+' об’єктів. Він читає атрибут «місткість».',true);
 });
 document.getElementById('showAll').addEventListener('click',function(){document.querySelectorAll('.gispt').forEach(function(el){el.classList.remove('hiddenpt')});fb('buildFeedback','Показані всі об’єкти шару.',true)});
 
-// Operations
-const opAns={1:'filter',2:'buffer',3:'inter'},opGot={};
-document.querySelectorAll('.opq').forEach(function(b){b.addEventListener('click',function(){
- opGot[b.dataset.q]=b.dataset.a;document.querySelectorAll('.opq[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
- if(Object.keys(opGot).length===3){let s=0;Object.keys(opAns).forEach(function(k){if(opGot[k]===opAns[k])s++});if(s===3){fb('opsFeedback','3/3. Ви вже перекладаєте географічне питання на операцію з даними — це і є основа GIS-мислення.',true);mark('analysis')}else fb('opsFeedback',s+'/3. Атрибут → filter; задана відстань → buffer; накладання територій → intersection.',false)}
+// duel
+let duelGood=0;
+document.querySelectorAll('.duelbtn').forEach(function(b){b.addEventListener('click',function(){
+ if(b.dataset.a==='good'){if(!b.disabled)duelGood++;b.disabled=true;fb('duelFeedback','Правильно. Поясніть чому — одним реченням.',true)}
+ else fb('duelFeedback','Ні. Перевірте різницю між візуалізацією, атрибутивним відбором та причинним висновком.',false);
 })});
 
-// DZZ
-document.querySelectorAll('.dzzq').forEach(function(b){b.addEventListener('click',function(){
- if(b.dataset.a==='good'){fb('dzzFeedback','Так. Графік показує зміну індексу, але не називає причину. Для причинного висновку потрібні додаткові дані.',true);mark('dzz')}
- else fb('dzzFeedback','Ні. Це приклад надмірного висновку з одного джерела.',false);
-})});
-
-// Exit
-document.getElementById('exitCheck').addEventListener('click',function(){
- const a=document.getElementById('exit1').value,b=document.getElementById('exit2').value,c=document.getElementById('exit3').value.trim();
- if(a==='mobile'&&b==='web'&&c.length>=20){fb('exitFeedback','Готово: field GIS збирає/оновлює дані, web GIS публікує їх, а атрибути роблять точки корисними для пошуку й аналізу.',true)}
- else fb('exitFeedback','Перевірте: працівникам у полі потрібна mobile/field GIS, мешканцям — web GIS; додайте щонайменше 3 осмислені атрибути.',false);
+// CER
+document.getElementById('cerCheck').addEventListener('click',function(){
+ const a=document.getElementById('cerC').value.trim(),b=document.getElementById('cerE').value.trim(),c=document.getElementById('cerR').value.trim();
+ if(a.length>25&&b.length>25&&c.length>25)fb('cerFeedback','CER повний: теза + конкретний доказ + пояснення.',true);
+ else fb('cerFeedback','Додайте конкретику в усі три частини: твердження, приклад/доказ і пояснення.',false);
 });
 
+// test
 function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(function(x){return /^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x)})}
 document.getElementById('startQuiz').addEventListener('click',function(){
  const nm=document.getElementById('studentName').value,cl=document.getElementById('studentClass').value.trim();
@@ -376,21 +320,10 @@ document.getElementById('startQuiz').addEventListener('click',function(){
 function radio(n){const x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
 function checks(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(function(x){return x.value}).sort().join(',')}
 document.getElementById('submitQuiz').addEventListener('click',function(){
- let s=0;
- if(radio('q1')==='b')s++;
- if(radio('q2')==='a')s++;
- if(radio('q3')==='a')s++;
- if(radio('q4')==='a')s++;
- if(checks('q5')==='capacity,name,status')s++;
- if(radio('q6')==='a')s++;
- if(radio('q7')==='a')s++;
- if(radio('q8')==='a')s++;
- if(radio('q9')==='a')s++;
- if(radio('q10')==='b')s++;
- const pct=s*10;
- const level=s<=4?'Повторіть визначення ГІС, типи систем і різницю між геометрією та атрибутами.':s<=7?'Основа є. Допрацюйте види ГІС і три операції: filter, buffer, intersection.':s<=9?'Добре: Ви розумієте будову, створення й базові операції ГІС.':'Відмінно: Ви розрізняєте типи ГІС, джерела даних і логіку просторового аналізу.';
+ let s=0;if(radio('q1')==='b')s++;if(radio('q2')==='a')s++;if(radio('q3')==='a')s++;if(radio('q4')==='a')s++;if(checks('q5')==='capacity,name,status')s++;if(radio('q6')==='a')s++;if(radio('q7')==='a')s++;if(radio('q8')==='a')s++;if(radio('q9')==='a')s++;if(radio('q10')==='b')s++;
+ const level=s<=4?'Повторіть визначення ГІС, типи систем і різницю між геометрією та атрибутами.':s<=7?'Основа є. Допрацюйте типи ГІС і filter/buffer/intersection.':s<=9?'Добре: Ви розумієте структуру й базову логіку ГІС.':'Відмінно: Ви розрізняєте типи ГІС, дані, аналіз і роль ДЗЗ.';
  document.getElementById('score').textContent=s+'/10';
- document.getElementById('resultText').innerHTML='<b>'+document.getElementById('studentName').value.trim()+'</b> • '+document.getElementById('studentClass').value.trim()+'<br>ГІС і ДЗЗ • '+pct+'%<br>'+level+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';
+ document.getElementById('resultText').innerHTML='<b>'+document.getElementById('studentName').value.trim()+'</b> • '+document.getElementById('studentClass').value.trim()+'<br>ГІС і ДЗЗ • '+(s*10)+'%<br>'+level+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';
  document.getElementById('result').classList.add('show');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
 });
 </script>
