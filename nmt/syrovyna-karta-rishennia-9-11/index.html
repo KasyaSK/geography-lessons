@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Інтегрований урок географії 9–11 класів: нові теми через завдання у форматах НМТ.">
+<title>NMT GEO LAB • 9–11 класи • Сировина → карта → рішення</title>
+<style>
+:root{
+  --bg:#07141b;--panel:#0d222a;--panel2:#112e35;--ink:#f5fbf8;--muted:#aec8c5;
+  --lime:#b7f34a;--cyan:#52d9e8;--amber:#ffc857;--rose:#ff7f8f;--violet:#b79cff;
+  --line:rgba(255,255,255,.13);--shadow:0 22px 55px rgba(0,0,0,.30);--r:22px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:
+radial-gradient(circle at 8% 2%,rgba(82,217,232,.14),transparent 32rem),
+radial-gradient(circle at 95% 18%,rgba(183,243,74,.10),transparent 30rem),
+linear-gradient(180deg,#061017,#0a1c21 55%,#07131a);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+a{color:var(--cyan)}button,input,select{font:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+header{padding:34px 0 16px}.topline{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.055);font-size:.88rem;color:#d7ebe7}.pill strong{color:var(--lime)}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch;margin-top:18px}.heroCard,.sideCard,.card,.task,.theory,.quizShell,.sourceBox{background:linear-gradient(145deg,rgba(17,46,53,.94),rgba(9,27,33,.97));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.heroCard{padding:32px;position:relative;overflow:hidden}.heroCard:after{content:"09×3";position:absolute;right:-12px;bottom:-40px;font-weight:900;font-size:9rem;color:rgba(255,255,255,.035);letter-spacing:-.08em}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:800;color:var(--cyan)}h1{font-size:clamp(2.05rem,5.5vw,4.6rem);line-height:.95;letter-spacing:-.055em;margin:.32em 0 .28em;max-width:920px}.lead{font-size:clamp(1.02rem,2vw,1.25rem);color:#d2e7e3;max-width:800px}.mission{margin-top:22px;padding:17px 18px;border-left:4px solid var(--lime);background:rgba(183,243,74,.075);border-radius:13px}.mission b{color:var(--lime)}
+.sideCard{padding:22px}.sideCard h2,.card h2,.task h2,.theory h2,.quizShell h2{margin-top:0}.classGrid{display:grid;gap:10px}.classBtn{width:100%;text-align:left;color:var(--ink);border:1px solid var(--line);background:#0b2027;border-radius:16px;padding:14px 15px;cursor:pointer;min-height:58px;transition:.18s}.classBtn:hover,.classBtn:focus-visible{transform:translateY(-2px);border-color:var(--cyan);outline:none}.classBtn.active{background:linear-gradient(120deg,rgba(82,217,232,.18),rgba(183,243,74,.11));border-color:rgba(183,243,74,.62)}.classBtn strong{display:block;font-size:1.02rem}.classBtn span{font-size:.84rem;color:var(--muted)}
+nav.sticky{position:sticky;top:0;z-index:20;background:rgba(5,15,20,.88);backdrop-filter:blur(14px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}nav .wrap{display:flex;gap:8px;overflow:auto;padding:9px 0}.navlink{white-space:nowrap;text-decoration:none;color:#d9ece8;border:1px solid transparent;padding:7px 10px;border-radius:10px;font-size:.86rem}.navlink:hover,.navlink:focus-visible{background:#12313a;border-color:var(--line);outline:none}
+main{padding:22px 0 70px}section{scroll-margin-top:64px;margin:22px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:12px}.sectionHead h2{font-size:clamp(1.45rem,3vw,2.2rem);margin:0;letter-spacing:-.03em}.sectionHead p{max-width:680px;color:var(--muted);margin:0}.timer{font-weight:800;color:var(--amber);white-space:nowrap}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card,.task,.theory,.quizShell,.sourceBox{padding:20px}.topicCard{position:relative;overflow:hidden}.topicCard .grade{font-size:2rem;font-weight:900;color:var(--lime)}.topicCard small{color:var(--muted)}.topicCard[data-g="10"] .grade{color:var(--amber)}.topicCard[data-g="11"] .grade{color:var(--violet)}
+.nmtStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.metric{padding:15px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035)}.metric b{display:block;font-size:1.45rem;color:var(--cyan)}.metric span{font-size:.83rem;color:var(--muted)}
+.hint{font-size:.9rem;color:var(--muted);border-left:3px solid var(--cyan);padding-left:11px}.trackNote{padding:13px 15px;border-radius:14px;background:rgba(183,156,255,.08);border:1px solid rgba(183,156,255,.2);margin-top:12px}.trackNote b{color:var(--violet)}
+.sectorGame{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.activityGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.activity{background:#0c2027;color:var(--ink);border:1px solid var(--line);border-radius:13px;padding:12px;cursor:pointer;text-align:left;min-height:74px}.activity.selected{border-color:var(--lime);box-shadow:inset 0 0 0 1px var(--lime)}.sectorChoices{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.sectorChoices button{border:1px solid var(--line);background:#102a32;color:var(--ink);padding:7px 10px;border-radius:999px;cursor:pointer}.sectorChoices button:hover{border-color:var(--cyan)}.feedback{margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(82,217,232,.08);border:1px solid rgba(82,217,232,.18);min-height:48px}.ok{color:var(--lime)}.bad{color:var(--rose)}
+.mapWrap{display:grid;grid-template-columns:1.22fr .78fr;gap:16px}.map{position:relative;min-height:390px;border-radius:20px;border:1px solid var(--line);overflow:hidden;background:linear-gradient(180deg,#0d313c,#0a242b)}.map svg{width:100%;height:100%;display:block;min-height:390px}.layerPanel{display:grid;gap:9px}.layerToggle{display:flex;align-items:center;gap:10px;padding:12px;background:#0d242b;border:1px solid var(--line);border-radius:12px;cursor:pointer}.layerToggle input{width:20px;height:20px}.legend{display:grid;gap:7px;font-size:.84rem;color:var(--muted)}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px}
+.dataTable{overflow:auto;border-radius:16px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;min-width:790px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:center}th{background:#0c2027;color:#dff3ef;position:sticky;top:0}td:first-child,th:first-child{text-align:left}.bestCell{color:var(--lime);font-weight:800}.sourceLine{font-size:.78rem;color:#8fb0ac;margin-top:8px}
+.question{border-top:1px dashed var(--line);padding-top:16px;margin-top:16px}.question:first-of-type{border-top:0;padding-top:0}.question legend{font-weight:750;margin-bottom:9px}.opts{display:grid;gap:7px}.opt{display:flex;gap:9px;align-items:flex-start;padding:10px 11px;border:1px solid var(--line);border-radius:12px;background:#0a1c22}.opt input{margin-top:3px}.submitMini,.primaryBtn,.secondaryBtn{border:0;border-radius:13px;padding:11px 15px;font-weight:800;cursor:pointer;min-height:44px}.primaryBtn,.submitMini{background:var(--lime);color:#10200b}.secondaryBtn{background:#173640;color:var(--ink);border:1px solid var(--line)}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(82,217,232,.42);outline-offset:2px}
+.sliderGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sliderBox{padding:12px;border:1px solid var(--line);border-radius:13px;background:#0b2027}.sliderBox label{display:flex;justify-content:space-between;font-size:.86rem}.sliderBox input{width:100%}.ranking{display:grid;gap:8px;margin-top:12px}.rankRow{display:grid;grid-template-columns:115px 1fr 64px;gap:8px;align-items:center}.bar{height:14px;background:#07151a;border-radius:999px;overflow:hidden}.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime));border-radius:999px;transition:.3s}
+.theoryGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.concept{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(255,255,255,.025)}.concept h3{margin:0 0 8px;font-size:1.02rem}.concept p{margin:0;color:#c9dfdb}.g9{border-top:3px solid var(--lime)}.g10{border-top:3px solid var(--amber)}.g11{border-top:3px solid var(--violet)}
+.cer{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cer textarea{width:100%;min-height:105px;background:#081a20;border:1px solid var(--line);border-radius:13px;color:var(--ink);padding:11px;resize:vertical}.cer label{font-size:.82rem;color:var(--muted)}
+.gate{display:grid;grid-template-columns:1fr 180px auto;gap:10px;align-items:end}.field label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:5px}.field input,.field select,.shortInput{width:100%;background:#081a20;border:1px solid var(--line);color:var(--ink);border-radius:11px;padding:11px}.quiz{display:none;margin-top:18px}.quiz.show{display:block}.qcard{padding:14px;border:1px solid var(--line);border-radius:14px;margin:10px 0;background:#0a1c22}.qnum{font-size:.76rem;font-weight:900;color:var(--cyan);letter-spacing:.08em}.threeHint{color:var(--amber);font-size:.82rem}.result{display:none;margin-top:16px;padding:18px;border-radius:16px;border:1px solid rgba(183,243,74,.35);background:rgba(183,243,74,.08)}.result.show{display:block}.resultScore{font-size:2.2rem;font-weight:900;color:var(--lime)}
+.hwGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hw{border:1px solid var(--line);border-radius:14px;padding:14px;background:#0a1c22}.hw strong{color:var(--amber)}.sources{display:grid;gap:8px}.sources a{word-break:break-word}.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(255,200,87,.11);color:var(--amber);font-size:.76rem;font-weight:800}.small{font-size:.84rem;color:var(--muted)}footer{border-top:1px solid var(--line);padding:24px 0 44px;color:#aac6c2;text-align:center}
+@media(max-width:900px){.hero,.grid2,.sectorGame,.mapWrap{grid-template-columns:1fr}.grid3,.theoryGrid,.hwGrid{grid-template-columns:1fr}.nmtStrip{grid-template-columns:repeat(2,1fr)}.sliderGrid{grid-template-columns:1fr 1fr}.gate{grid-template-columns:1fr 1fr}.gate button{grid-column:1/-1}.cer{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 18px,1180px)}.heroCard,.sideCard,.card,.task,.theory,.quizShell,.sourceBox{padding:16px;border-radius:17px}.activityGrid{grid-template-columns:1fr}.sliderGrid,.nmtStrip{grid-template-columns:1fr}.gate{grid-template-columns:1fr}.rankRow{grid-template-columns:86px 1fr 52px}.heroCard:after{font-size:6rem}.map{min-height:320px}.map svg{min-height:320px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{body{background:white;color:black}.sticky,.classGrid,.primaryBtn,.secondaryBtn,.submitMini,.layerPanel{display:none!important}.heroCard,.sideCard,.card,.task,.theory,.quizShell,.sourceBox{box-shadow:none;border:1px solid #bbb;background:white;color:black}.muted,.small{color:#444}.result{display:block!important}}
+</style>
+</head>
+<body>
+<header id="start">
+  <div class="wrap">
+    <div class="topline">
+      <span class="pill"><strong>NMT GEO LAB</strong> • інтегрований урок</span>
+      <span class="pill">9–11 класи</span><span class="pill">35 хв</span><span class="pill">урок №9 × 3</span>
+    </div>
+    <div class="hero">
+      <div class="heroCard">
+        <div class="eyebrow">Сировина → карта → рішення</div>
+        <h1>Географія, яку треба не вивчити напам’ять, а розкусити</h1>
+        <p class="lead">Один кейс для трьох класів. Ви будуєте європейський агрокластер, читаєте дані, вмикаєте GIS-шари, ловите хибні висновки й паралельно тренуєте механіки НМТ.</p>
+        <div class="mission"><b>Місія:</b> консорціум планує агрокластер «поле → переробка → логістика». Треба обрати регіон, але красивий графік — ще не доказ, а один супутниковий знімок — ще не істина. Ваше рішення має витримати перевірку даними.</div>
+      </div>
+      <aside class="sideCard">
+        <h2>Оберіть свій клас</h2>
+        <p class="small">Сценарій спільний, але підказки, акценти та фінальний тренажер змінюються.</p>
+        <div class="classGrid" role="group" aria-label="Вибір класу">
+          <button class="classBtn active" data-grade="9"><strong>9 клас</strong><span>сектори • національна економіка • спеціалізація</span></button>
+          <button class="classBtn" data-grade="10"><strong>10 клас</strong><span>первинний сектор Європи • просторові відмінності</span></button>
+          <button class="classBtn" data-grade="11"><strong>11 клас</strong><span>ГІС • дистанційне зондування • якість джерел</span></button>
+        </div>
+        <div class="trackNote" id="trackNote"><b>Ваш фокус:</b> побачити, як первинний, вторинний і третинний сектори утворюють одну систему та чому країни спеціалізуються по-різному.</div>
+      </aside>
+    </div>
+  </div>
+</header>
+<nav class="sticky" aria-label="Навігація уроком"><div class="wrap">
+  <a class="navlink" href="#topics">Три теми</a><a class="navlink" href="#warmup">1. Сектори</a><a class="navlink" href="#evidence">2. Дані</a><a class="navlink" href="#gis">3. GIS</a><a class="navlink" href="#decision">4. Рішення</a><a class="navlink" href="#theory">5. Теорія</a><a class="navlink" href="#cer">6. CER</a><a class="navlink" href="#quiz">НМТ‑тренажер</a>
+</div></nav>
+<main class="wrap">
+<section id="topics">
+  <div class="sectionHead"><div><h2>Три уроки №9 — в одному маршруті</h2><p>Теми взяті з КТП і не дублюють одна одну: кожен клас вивчає своє, але використовує результати інших.</p></div><div class="timer">0–3 хв</div></div>
+  <div class="grid3">
+    <div class="card topicCard" data-g="9"><div class="grade">9</div><h3>Види економічної діяльності та сектори</h3><p>Національна економіка. Чинники спеціалізації країн.</p><small>КТП: § 10</small></div>
+    <div class="card topicCard" data-g="10"><div class="grade">10</div><h3>Первинний сектор економіки країн Європи</h3><p>Сільське, лісове господарство, рибальство, видобування та чинники розміщення.</p><small>КТП: § 6</small></div>
+    <div class="card topicCard" data-g="11"><div class="grade">11</div><h3>Сучасні картографічні джерела, ГІС і ДЗЗ</h3><p>Шари даних, растри й вектори, супутникові індекси, межі висновків.</p><small>КТП: § 6</small></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <span class="badge">Актуальна модель НМТ</span>
+    <h3>Що саме тут тренуємо</h3>
+    <div class="nmtStrip">
+      <div class="metric"><b>20</b><span>завдань з однією правильною відповіддю в офіційному НМТ‑2026</span></div>
+      <div class="metric"><b>4</b><span>короткі відповіді</span></div>
+      <div class="metric"><b>6</b><span>завдань «3 із 7»</span></div>
+      <div class="metric"><b>46</b><span>максимум тестових балів</span></div>
+    </div>
+    <p class="hint">У цьому уроці — мініверсія: ті самі типи мислення й формати, але завдань менше. НМТ‑2027 ще не має окремо оприлюдненої офіційної структури, тому орієнтир — остання чинна модель 2026 року.</p>
+  </div>
+</section>
+
+<section id="warmup">
+  <div class="sectionHead"><div><h2>1. Секторний сканер</h2><p>Спочатку — швидке рішення. Оберіть діяльність, потім сектор. Ваша помилка тут корисна: після відповіді система пояснить логіку.</p></div><div class="timer">3–7 хв</div></div>
+  <div class="task sectorGame">
+    <div>
+      <h3>Оберіть картку діяльності</h3>
+      <div class="activityGrid" id="activityGrid"></div>
+    </div>
+    <div>
+      <h3>До якого сектора належить?</h3>
+      <div class="sectorChoices">
+        <button data-sector="primary">Первинний</button><button data-sector="secondary">Вторинний</button><button data-sector="tertiary">Третинний</button>
+      </div>
+      <div class="feedback" id="sectorFeedback">Спершу натисніть на діяльність зліва.</div>
+      <p class="hint"><b>Ключ:</b> сектор визначають не за «важливістю», а за місцем у ланцюгу створення вартості: добули/виростили → переробили/виготовили → перевезли/продали/обслужили.</p>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="sectionHead"><div><h2>2. Лабораторія доказів: Європа не однакова</h2><p>Нижче — навчальний набір даних для чотирьох реальних європейських регіонів. Індекси 0–100 умовні, щоб тренувати логіку розміщення, а не запам’ятовування цифр.</p></div><div class="timer">7–13 хв</div></div>
+  <div class="card">
+    <div class="dataTable"><table>
+      <thead><tr><th>Кандидат</th><th>Сировинна база</th><th>Транспорт</th><th>Ринок збуту</th><th>Водозабезпечення</th><th>Доступна земля</th><th>Екоризик ↓</th><th>NDVI сезону</th></tr></thead>
+      <tbody>
+        <tr><td><b>A • Помор’я, Польща</b></td><td class="bestCell">78</td><td class="bestCell">96</td><td>84</td><td>70</td><td>62</td><td>45</td><td>73</td></tr>
+        <tr><td><b>B • Центральна Німеччина</b></td><td>72</td><td>92</td><td class="bestCell">98</td><td>66</td><td>48</td><td>30</td><td>71</td></tr>
+        <tr><td><b>C • Андалусія, Іспанія</b></td><td>58</td><td>90</td><td>82</td><td>35</td><td class="bestCell">75</td><td>55</td><td>46</td></tr>
+        <tr><td><b>D • Сконе, Швеція</b></td><td>68</td><td>84</td><td>66</td><td class="bestCell">88</td><td>58</td><td class="bestCell">25</td><td class="bestCell">76</td></tr>
+      </tbody>
+    </table></div>
+    <div class="sourceLine">Навчальна модель: числові індекси не є офіційною статистикою конкретного року. Географічні закономірності обговорюємо за атласом, World Bank/Eurostat та супутниковими сервісами.</div>
+  </div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="task">
+      <h3>NMT‑задача 1 • одна відповідь</h3>
+      <fieldset class="question"><legend>Який чинник найпряміше пояснює високу придатність Помор’я для агрологістичного центру в цій моделі?</legend>
+        <div class="opts" id="mini1">
+          <label class="opt"><input type="radio" name="m1" value="a"> лише велика абсолютна висота</label>
+          <label class="opt"><input type="radio" name="m1" value="b"> поєднання сировинної бази та транспортної доступності</label>
+          <label class="opt"><input type="radio" name="m1" value="c"> лише високий NDVI</label>
+          <label class="opt"><input type="radio" name="m1" value="d"> лише низький екоризик</label>
+        </div>
+      </fieldset><button class="submitMini" data-mini="1">Перевірити</button><div class="feedback" id="miniFb1">Обирайте не «найбільше число», а пару показників, що прямо відповідає функції центру.</div>
+    </div>
+    <div class="task">
+      <h3>NMT‑задача 2 • коротка відповідь</h3>
+      <p>Господарство зібрало 2,4 млн т зернових з площі 0,8 млн га. Обчисліть середню врожайність у т/га.</p>
+      <input class="shortInput" id="yieldAns" inputmode="decimal" placeholder="Введіть число">
+      <button class="submitMini" id="yieldCheck" style="margin-top:9px">Перевірити</button><div class="feedback" id="yieldFb">Формула: обсяг продукції ÷ площа.</div>
+    </div>
+  </div>
+</section>
+
+<section id="gis">
+  <div class="sectionHead"><div><h2>3. GIS‑лабораторія: карта — це не фон, а система шарів</h2><p>Вмикайте шари й дивіться, як змінюється аргументація. Схема не претендує на точну геометрію кордонів — це навчальна GIS‑модель.</p></div><div class="timer">13–20 хв</div></div>
+  <div class="mapWrap">
+    <div class="map" aria-label="Схематична карта Європи з GIS шарами">
+      <svg viewBox="0 0 760 430" role="img" aria-labelledby="mapTitle mapDesc">
+        <title id="mapTitle">Схематична карта кандидатів агрокластера</title><desc id="mapDesc">Чотири кандидати та тематичні шари: сировина, транспорт, ринок, вода, екологічні обмеження.</desc>
+        <rect width="760" height="430" fill="#0b2c35"/>
+        <path d="M120,90 L220,55 330,70 390,110 470,90 555,135 620,190 585,230 535,225 500,285 420,300 370,350 290,340 260,285 190,265 165,205 105,175 Z" fill="#193f45" stroke="#6b9f9b" stroke-width="2"/>
+        <path d="M430,300 L465,325 455,360 420,375 400,340 Z" fill="#193f45" stroke="#6b9f9b" stroke-width="2"/>
+        <path d="M188,232 L158,280 170,335 220,352 255,330 265,280" fill="#193f45" stroke="#6b9f9b" stroke-width="2"/>
+        <path id="layerRaw" d="M260,135 C300,100 380,108 410,150 C380,185 300,190 245,167 Z M420,245 C465,210 525,225 550,262 C515,295 455,290 415,270 Z" fill="rgba(255,200,87,.26)" stroke="#ffc857" stroke-width="2"/>
+        <g id="layerTransport"><path d="M170,245 C280,205 360,180 470,180 S590,205 645,170" fill="none" stroke="#52d9e8" stroke-width="5" stroke-dasharray="10 8"/><path d="M315,118 C340,200 350,255 420,330" fill="none" stroke="#52d9e8" stroke-width="4"/></g>
+        <g id="layerMarket" fill="rgba(183,156,255,.21)" stroke="#b79cff" stroke-width="2"><circle cx="355" cy="165" r="57"/><circle cx="455" cy="218" r="45"/></g>
+        <g id="layerWater" fill="none" stroke="#55aee8" stroke-width="5"><path d="M90,70 C110,170 100,270 150,390"/><path d="M650,95 C620,160 635,245 690,320"/></g>
+        <g id="layerEco" fill="rgba(255,127,143,.15)" stroke="#ff7f8f" stroke-width="2" stroke-dasharray="4 5"><path d="M500,105 C560,90 620,125 610,170 C575,187 530,180 500,155 Z"/><path d="M170,285 C210,265 245,290 245,325 C215,345 180,332 162,308 Z"/></g>
+        <g class="sites" font-family="system-ui" font-weight="900" text-anchor="middle">
+          <g><circle cx="390" cy="155" r="18" fill="#b7f34a"/><text x="390" y="161" fill="#10200b">A</text></g>
+          <g><circle cx="430" cy="202" r="18" fill="#ffc857"/><text x="430" y="208" fill="#241700">B</text></g>
+          <g><circle cx="205" cy="315" r="18" fill="#ff7f8f"/><text x="205" y="321" fill="#2d0a10">C</text></g>
+          <g><circle cx="425" cy="105" r="18" fill="#b79cff"/><text x="425" y="111" fill="#180f31">D</text></g>
+        </g>
+        <text x="22" y="405" fill="#b7cfcc" font-size="13">СХЕМАТИЧНО • не для вимірювання відстаней</text>
+      </svg>
+    </div>
+    <div class="card layerPanel">
+      <h3>Шари</h3>
+      <label class="layerToggle"><input type="checkbox" data-layer="layerRaw" checked> <span><b>Сировина</b><br><small>потенціал агровиробництва</small></span></label>
+      <label class="layerToggle"><input type="checkbox" data-layer="layerTransport" checked> <span><b>Транспорт</b><br><small>коридори й порти</small></span></label>
+      <label class="layerToggle"><input type="checkbox" data-layer="layerMarket" checked> <span><b>Ринок</b><br><small>зони високого попиту</small></span></label>
+      <label class="layerToggle"><input type="checkbox" data-layer="layerWater" checked> <span><b>Вода</b><br><small>умовна забезпеченість</small></span></label>
+      <label class="layerToggle"><input type="checkbox" data-layer="layerEco" checked> <span><b>Екообмеження</b><br><small>зони підвищеної чутливості</small></span></label>
+      <div class="legend"><span><i class="dot" style="background:#b7f34a"></i>A — Помор’я</span><span><i class="dot" style="background:#ffc857"></i>B — Центр Німеччини</span><span><i class="dot" style="background:#ff7f8f"></i>C — Андалусія</span><span><i class="dot" style="background:#b79cff"></i>D — Сконе</span></div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:14px">
+    <div class="task"><h3>NMT‑задача 3 • «три з семи»</h3><p>Для первинного відбору місця агрокластера треба вибрати <b>три</b> найнеобхідніші GIS‑шари.</p><div class="opts" id="gis3">
+      <label class="opt"><input type="checkbox" value="crop"> продуктивність сільськогосподарських угідь</label><label class="opt"><input type="checkbox" value="transport"> транспортна мережа</label><label class="opt"><input type="checkbox" value="protected"> природоохоронні обмеження</label><label class="opt"><input type="checkbox" value="flags"> кольори державних прапорів</label><label class="opt"><input type="checkbox" value="tourism"> кількість туристичних селфі</label><label class="opt"><input type="checkbox" value="timezone"> часові пояси</label><label class="opt"><input type="checkbox" value="mountains"> назви найвищих вершин</label>
+    </div><button class="submitMini" id="gisCheck" style="margin-top:9px">Перевірити</button><div class="feedback" id="gisFb">У НМТ «три з семи» важливо не добрати четвертий «майже правильний» варіант.</div></div>
+    <div class="task"><h3>NMT‑задача 4 • одна відповідь</h3><p>NDVI найчастіше отримують із даних дистанційного зондування. Який висновок коректний?</p><div class="opts" id="ndviQ">
+      <label class="opt"><input type="radio" name="ndvi" value="a"> один високий NDVI доводить високу врожайність будь-якої культури</label><label class="opt"><input type="radio" name="ndvi" value="b"> NDVI може вказувати на активність рослинності, але сам по собі не визначає культуру, урожай чи економічну вигідність</label><label class="opt"><input type="radio" name="ndvi" value="c"> NDVI є векторним шаром доріг</label><label class="opt"><input type="radio" name="ndvi" value="d"> NDVI вимірює лише чисельність населення</label>
+    </div><button class="submitMini" id="ndviCheck" style="margin-top:9px">Перевірити</button><div class="feedback" id="ndviFb">Пам’ятайте: супутник реєструє сигнал; інтерпретація потребує контексту.</div></div>
+  </div>
+</section>
+
+<section id="decision">
+  <div class="sectionHead"><div><h2>4. Симулятор рішення: «найкраще місце» залежить від того, що для нас важливо</h2><p>Змініть ваги критеріїв. Це вже географічне моделювання: не просто знайти максимум, а пояснити, чому він змінився.</p></div><div class="timer">20–26 хв</div></div>
+  <div class="card">
+    <div class="sliderGrid">
+      <div class="sliderBox"><label>Сировина <b id="wRawV">30</b></label><input id="wRaw" type="range" min="0" max="50" value="30"></div>
+      <div class="sliderBox"><label>Транспорт <b id="wTransportV">25</b></label><input id="wTransport" type="range" min="0" max="50" value="25"></div>
+      <div class="sliderBox"><label>Ринок <b id="wMarketV">15</b></label><input id="wMarket" type="range" min="0" max="50" value="15"></div>
+      <div class="sliderBox"><label>Вода <b id="wWaterV">10</b></label><input id="wWater" type="range" min="0" max="50" value="10"></div>
+      <div class="sliderBox"><label>Земля <b id="wLandV">10</b></label><input id="wLand" type="range" min="0" max="50" value="10"></div>
+      <div class="sliderBox"><label>Низький екоризик <b id="wEcoV">10</b></label><input id="wEco" type="range" min="0" max="50" value="10"></div>
+    </div>
+    <div class="ranking" id="ranking"></div>
+    <p class="small">Розрахунок нормує ваги автоматично. Для екоризику система використовує «100 − ризик», бо нижчий ризик є кращим.</p>
+  </div>
+  <div class="task" style="margin-top:14px"><h3>Логічний двобій</h3><p><b>Твердження:</b> «Регіон із найвищим NDVI автоматично є найкращим для агрокластера».</p><div class="opts" id="logicQ"><label class="opt"><input type="radio" name="logic" value="yes"> так, бо NDVI вже містить усі економічні чинники</label><label class="opt"><input type="radio" name="logic" value="no"> ні, бо це лише один шар: потрібні транспорт, ринок, вода, обмеження та часовий ряд даних</label></div><button class="submitMini" id="logicCheck" style="margin-top:9px">Перевірити</button><div class="feedback" id="logicFb">Сильний географічний висновок майже завжди спирається на кілька незалежних доказів.</div></div>
+</section>
+
+<section id="theory">
+  <div class="sectionHead"><div><h2>5. Теорія після практики: тепер даємо побаченому точні назви</h2><p>Не «лекція до задач», а словник і механізми для того, що ви вже щойно зробили.</p></div><div class="timer">26–31 хв</div></div>
+  <div class="theory">
+    <div class="theoryGrid">
+      <article class="concept g9"><h3>9 клас • Секторальна модель</h3><p><b>Первинний сектор</b> вилучає або вирощує ресурс; <b>вторинний</b> перетворює сировину; <b>третинний</b> забезпечує послуги, обмін і рух. Спеціалізація країни формується не одним чинником, а їхнім поєднанням.</p></article>
+      <article class="concept g10"><h3>10 клас • Первинний сектор Європи</h3><p>Його просторові відмінності залежать від клімату, ґрунтів, води, рельєфу, доступу до морів, ресурсної бази, технологій і ринку. Висока продуктивність не означає великої частки зайнятих у секторі.</p></article>
+      <article class="concept g11"><h3>11 клас • ГІС і ДЗЗ</h3><p><b>ДЗЗ</b> отримує дані про поверхню без прямого контакту; <b>ГІС</b> зберігає, поєднує й аналізує просторові шари. Растр зручний для супутникових полів і індексів; вектор — для доріг, меж, точок і полігонів.</p></article>
+      <article class="concept"><h3>Причинність</h3><p>Кореляція не дорівнює причині. Якщо регіон має високий NDVI і високу врожайність, це ще не доводить, що індекс «створив» урожай. Обидва можуть залежати від опадів, ґрунтів, культури й технологій.</p></article>
+      <article class="concept"><h3>Просторове рішення</h3><p>У задачах на розміщення шукають не «найкращий показник», а <b>компроміс</b>. Сировина може тягнути виробництво до поля, ринок — до міста, транспорт — до вузла, екологічні правила — від чутливих територій.</p></article>
+      <article class="concept"><h3>Межі висновку</h3><p>Один знімок — один момент. Одна карта — один масштаб. Один показник — один аспект. Питайте: <b>яка дата, джерело, просторове розрізнення, що не показано?</b></p></article>
+    </div>
+    <div class="trackNote" id="theoryTrack"><b>Ваш клас:</b> під час усного розбору зробіть акцент на секторах і чинниках спеціалізації.</div>
+  </div>
+</section>
+
+<section id="cer">
+  <div class="sectionHead"><div><h2>6. CER: рішення, яке можна захистити</h2><p>Сформулюйте не просто «А/Б/В/Г», а повний географічний висновок.</p></div><div class="timer">31–35 хв</div></div>
+  <div class="card cer">
+    <div><label for="claim">ТВЕРДЖЕННЯ • який регіон ви обираєте?</label><textarea id="claim" placeholder="Я обираю регіон …"></textarea></div>
+    <div><label for="evidenceText">ДОКАЗ • мінімум два показники / шари</label><textarea id="evidenceText" placeholder="Мої докази: …"></textarea></div>
+    <div><label for="reasoning">ПОЯСНЕННЯ + ОБМЕЖЕННЯ</label><textarea id="reasoning" placeholder="Це важливо, тому що… Водночас дані не показують…"></textarea></div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="sectionHead"><div><h2>Домашній NMT‑тренажер • 10 завдань</h2><p>6 завдань з однією відповіддю, 2 короткі, 2 «три з семи». Після завершення — картка результату для скриншота.</p></div><div class="timer">після уроку</div></div>
+  <div class="quizShell">
+    <div class="gate" id="gate">
+      <div class="field"><label for="fullName">Ім’я та прізвище</label><input id="fullName" autocomplete="name" placeholder="Напр. Марія Коваль"></div>
+      <div class="field"><label for="studentClass">Клас</label><select id="studentClass"><option value="9">9 клас</option><option value="10">10 клас</option><option value="11">11 клас</option></select></div>
+      <button class="primaryBtn" id="startQuiz">Розпочати тест</button>
+    </div>
+    <div class="feedback" id="gateFb" style="display:none"></div>
+    <div class="quiz" id="quizBody"></div>
+    <div class="result" id="resultCard"></div>
+  </div>
+</section>
+
+<section id="homework">
+  <div class="sectionHead"><div><h2>Домашній блок за класами</h2><p>Параграфи — з КТП. Відео — перевірені матеріали Всеукраїнської школи онлайн.</p></div></div>
+  <div class="hwGrid">
+    <div class="hw"><strong>9 клас</strong><p>§ 10. Після параграфа — пройти тест на цій сторінці.</p><p><a href="https://www.youtube.com/watch?v=dZVrzVuPam0" target="_blank" rel="noopener">ВШО: «Національна економіка, показники її розвитку, секторальна модель»</a></p></div>
+    <div class="hw"><strong>10 клас</strong><p>§ 6. В атласі знайти 3 приклади різної спеціалізації первинного сектора Європи й пояснити кожен одним чинником.</p><p><a href="https://www.youtube.com/watch?v=-6N5of2LimI" target="_blank" rel="noopener">ВШО: порівняння структури промислового виробництва країн Європи</a> — як місток до наступної теми.</p></div>
+    <div class="hw"><strong>11 клас</strong><p>§ 6. Знайти приклад одного растрового і одного векторного шару в будь-якому онлайн-картографічному сервісі.</p><p><a href="https://www.youtube.com/watch?v=NTKO9HAv-7c" target="_blank" rel="noopener">ВШО: «Електронні карти… Географічні інформаційні системи»</a></p></div>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="sourceBox"><h2>Джерела й перевірка</h2><div class="sources">
+    <a href="https://testportal.gov.ua/geografiya-2026/" target="_blank" rel="noopener">УЦОЯО • Географія НМТ‑2026: структура та оцінювання</a>
+    <a href="https://browser.dataspace.copernicus.eu/" target="_blank" rel="noopener">Copernicus Browser • супутникові дані та ДЗЗ</a>
+    <a href="https://data.worldbank.org/" target="_blank" rel="noopener">World Bank Data • економічні та демографічні показники</a>
+    <a href="https://earth.google.com/web/" target="_blank" rel="noopener">Google Earth • просторовий аналіз і візуалізація</a>
+  </div><p class="small">Умовні індекси в кейсі створені спеціально для навчання багатокритеріальному аналізу. Їх не слід цитувати як реальну статистику регіонів.</p></div>
+</section>
+</main>
+<footer>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • інтегрований урок географії 9–11 класів</footer>
+<script>
+const trackCopy={
+  9:{note:'побачити, як первинний, вторинний і третинний сектори утворюють одну систему та чому країни спеціалізуються по-різному.',theory:'під час усного розбору зробіть акцент на секторах, чинниках спеціалізації та національній економіці.'},
+  10:{note:'пояснити просторові відмінності первинного сектора Європи: де вирощують, видобувають, ловлять і чому саме там.',theory:'під час усного розбору зробіть акцент на природних і суспільних чинниках первинного сектора Європи та регіональній спеціалізації.'},
+  11:{note:'зрозуміти, як GIS поєднує шари, чим ДЗЗ відрізняється від ГІС та чому картографічне джерело має межі.',theory:'під час усного розбору зробіть акцент на растрових/векторних шарах, ДЗЗ, часових рядах і межах інтерпретації.'}
+};
+let currentGrade='9';
+document.querySelectorAll('.classBtn').forEach(b=>b.addEventListener('click',()=>{
+  currentGrade=b.dataset.grade;document.querySelectorAll('.classBtn').forEach(x=>x.classList.toggle('active',x===b));
+  document.getElementById('studentClass').value=currentGrade;
+  document.getElementById('trackNote').innerHTML='<b>Ваш фокус:</b> '+trackCopy[currentGrade].note;
+  document.getElementById('theoryTrack').innerHTML='<b>Ваш клас:</b> '+trackCopy[currentGrade].theory;
+}));
+
+const activities=[
+  {t:'Вирощування ріпаку',s:'primary',why:'Отримуємо біологічну сировину без промислового перетворення — первинний сектор.'},
+  {t:'Видобування залізної руди',s:'primary',why:'Вилучення природного ресурсу — первинний сектор.'},
+  {t:'Виробництво рослинної олії',s:'secondary',why:'Сировина перетворюється на новий продукт — вторинний сектор.'},
+  {t:'Складання сільгосптехніки',s:'secondary',why:'Промислове виготовлення матеріального продукту — вторинний сектор.'},
+  {t:'Залізничне перевезення зерна',s:'tertiary',why:'Транспорт — послуга, тому це третинний сектор.'},
+  {t:'Аграрне страхування',s:'tertiary',why:'Фінансова послуга — третинний сектор.'}
+];
+let selectedAct=null;const grid=document.getElementById('activityGrid');
+activities.forEach((a,i)=>{const b=document.createElement('button');b.className='activity';b.textContent=a.t;b.dataset.i=i;b.addEventListener('click',()=>{selectedAct=i;document.querySelectorAll('.activity').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');document.getElementById('sectorFeedback').textContent='Обрано: '+a.t+'. Тепер визначте сектор.'});grid.appendChild(b)});
+document.querySelectorAll('.sectorChoices button').forEach(b=>b.addEventListener('click',()=>{const fb=document.getElementById('sectorFeedback');if(selectedAct===null){fb.innerHTML='<span class="bad">Спочатку виберіть діяльність.</span>';return}const a=activities[selectedAct];fb.innerHTML=b.dataset.sector===a.s?'<span class="ok">Правильно.</span> '+a.why:'<span class="bad">Не зовсім.</span> '+a.why;}));
+
+document.querySelector('[data-mini="1"]').addEventListener('click',()=>{const v=document.querySelector('input[name="m1"]:checked')?.value;document.getElementById('miniFb1').innerHTML=v==='b'?'<span class="ok">Так.</span> Для агрологістики важлива саме комбінація сировини й доступу до потоків перевезення.':'<span class="bad">Ні.</span> Один показник не пояснює функціонування агрологістичного вузла.'});
+document.getElementById('yieldCheck').addEventListener('click',()=>{const v=parseFloat(document.getElementById('yieldAns').value.replace(',','.'));document.getElementById('yieldFb').innerHTML=Math.abs(v-3)<.001?'<span class="ok">3 т/га — правильно.</span> 2,4 ÷ 0,8 = 3.':'<span class="bad">Перевірте ділення.</span> Мільйони скорочуються: 2,4 ÷ 0,8.'});
+
+document.querySelectorAll('.layerToggle input').forEach(cb=>cb.addEventListener('change',()=>{const el=document.getElementById(cb.dataset.layer);if(el)el.style.display=cb.checked?'':'none'}));
+document.getElementById('gisCheck').addEventListener('click',()=>{const vals=[...document.querySelectorAll('#gis3 input:checked')].map(x=>x.value).sort();const ok=['crop','protected','transport'].sort();const good=vals.length===3&&vals.every((v,i)=>v===ok[i]);document.getElementById('gisFb').innerHTML=good?'<span class="ok">Точний набір.</span> Продуктивність показує ресурсну базу, транспорт — доступність, природоохоронні обмеження — чи можна взагалі розміщувати об’єкт.':'<span class="bad">Потрібно рівно три.</span> Питайте: чи впливає цей шар безпосередньо на придатність майданчика?'});
+document.getElementById('ndviCheck').addEventListener('click',()=>{const v=document.querySelector('input[name="ndvi"]:checked')?.value;document.getElementById('ndviFb').innerHTML=v==='b'?'<span class="ok">Саме так.</span> NDVI — індикатор стану рослинності, а не готовий економічний висновок.':'<span class="bad">Ні.</span> Один спектральний індекс не містить усієї інформації про культуру, урожай і прибутковість.'});
+
+const regions={A:{name:'A • Помор’я',raw:78,transport:96,market:84,water:70,land:62,eco:55},B:{name:'B • Центр Німеччини',raw:72,transport:92,market:98,water:66,land:48,eco:70},C:{name:'C • Андалусія',raw:58,transport:90,market:82,water:35,land:75,eco:45},D:{name:'D • Сконе',raw:68,transport:84,market:66,water:88,land:58,eco:75}};
+const weightIds=['Raw','Transport','Market','Water','Land','Eco'];
+function updateRank(){const w={};let sum=0;weightIds.forEach(k=>{const val=+document.getElementById('w'+k).value;document.getElementById('w'+k+'V').textContent=val;w[k.toLowerCase()]=val;sum+=val});if(sum===0)sum=1;const scores=Object.entries(regions).map(([k,r])=>{let s=0;for(const key in w)s+=r[key]*w[key];return [k,s/sum]}).sort((a,b)=>b[1]-a[1]);const root=document.getElementById('ranking');root.innerHTML='';scores.forEach(([k,s],i)=>{const row=document.createElement('div');row.className='rankRow';row.innerHTML='<b>'+regions[k].name+'</b><div class="bar"><span style="width:'+Math.max(2,s)+'%"></span></div><strong>'+s.toFixed(1)+'</strong>';if(i===0)row.querySelector('b').style.color='var(--lime)';root.appendChild(row)});}
+weightIds.forEach(k=>document.getElementById('w'+k).addEventListener('input',updateRank));updateRank();
+document.getElementById('logicCheck').addEventListener('click',()=>{const v=document.querySelector('input[name="logic"]:checked')?.value;document.getElementById('logicFb').innerHTML=v==='no'?'<span class="ok">Так.</span> Це і є багатоджерельний географічний аналіз.':'<span class="bad">Ні.</span> NDVI — важливий, але лише один шар і один момент часу.'});
+
+const quizSets={
+'9':[
+ {t:'single',q:'Яка діяльність належить до первинного сектора?',o:['Виробництво добрив','Вирощування пшениці','Оптова торгівля зерном','Ремонт тракторів'],a:1},
+ {t:'single',q:'Що найточніше описує спеціалізацію країни?',o:['Випадковий набір підприємств','Переважний розвиток певних видів діяльності в поділі праці','Лише частку міського населення','Тільки перелік корисних копалин'],a:1},
+ {t:'single',q:'Який ланцюг правильно показує сектори?',o:['банк → шахта → завод','поле → олійний завод → логістика','завод → ферма → школа','магазин → кар’єр → порт'],a:1},
+ {t:'single',q:'Який чинник найбільш безпосередньо впливає на спеціалізацію рослинництва?',o:['клімат і ґрунти','форма державного правління','часовий пояс сам по собі','кількість державних свят'],a:0},
+ {t:'single',q:'Чому висока частка третинного сектора часто характерна для розвинених економік?',o:['бо там відсутнє виробництво','бо зростає роль послуг, знань і складної інфраструктури','бо первинний сектор заборонений','бо всі ресурси імпортуються'],a:1},
+ {t:'single',q:'Який висновок некоректний?',o:['спеціалізація залежить від кількох чинників','транспорт може змінити вигідність розміщення','один високий показник автоматично пояснює всю економіку','сектори пов’язані між собою'],a:2},
+ {t:'short',q:'У регіоні 2,4 млн зайнятих, із них 0,6 млн у первинному секторі. Яка частка первинного сектора, %?',a:'25'},
+ {t:'short',q:'Підприємство переробляє 900 т сировини й отримує 720 т продукту. Який вихід продукту, %?',a:'80'},
+ {t:'three',q:'Оберіть ТРИ чинники, що прямо можуть формувати господарську спеціалізацію країни.',o:['природні ресурси','кваліфікація працівників','транспортне положення','колір банкнот','форма шкільної парти','довжина назви столиці','порядковий номер країни в атласі'],a:[0,1,2]},
+ {t:'three',q:'Оберіть ТРИ приклади третинного сектора.',o:['логістика','банківські послуги','туризм','видобування вугілля','виплавка сталі','вирощування кукурудзи','лісозаготівля'],a:[0,1,2]}
+],
+'10':[
+ {t:'single',q:'Що належить до первинного сектора Європи?',o:['автомобілебудування','рибальство','банківські послуги','програмування'],a:1},
+ {t:'single',q:'Чому середземноморські райони спеціалізуються на теплолюбних культурах?',o:['через поєднання тепла й тривалого вегетаційного періоду','через полярний день','через багаторічну мерзлоту','через відсутність морів'],a:0},
+ {t:'single',q:'Який чинник особливо важливий для морського рибальства?',o:['доступ до продуктивних акваторій і портів','висота хмар','кількість метрополітенів','державна мова'],a:0},
+ {t:'single',q:'Який висновок про первинний сектор розвиненої країни правильний?',o:['мала частка зайнятих означає відсутність сектору','висока продуктивність може поєднуватися з малою часткою зайнятих','усе сільське господарство є екстенсивним','технології не впливають на продуктивність'],a:1},
+ {t:'single',q:'Де в Європі більша роль лісового господарства?',o:['у добре заліснених північних районах','у центрах великих пустель','лише в столицях','винятково на островах Середземномор’я'],a:0},
+ {t:'single',q:'Що найкраще пояснює різну аграрну спеціалізацію регіонів Європи?',o:['лише широта','поєднання природних умов, технологій, ринку й транспортної доступності','лише кордони держав','лише густота автошляхів'],a:1},
+ {t:'short',q:'Валовий збір становить 3,6 млн т з площі 1,2 млн га. Урожайність, т/га?',a:'3'},
+ {t:'short',q:'Із 8 млн га угідь 2 млн га займають сади й виноградники. Яка частка, %?',a:'25'},
+ {t:'three',q:'Оберіть ТРИ типові складові первинного сектора.',o:['сільське господарство','лісове господарство','добувна промисловість','страхування','машинобудування','оптова торгівля','освіта'],a:[0,1,2]},
+ {t:'three',q:'Оберіть ТРИ дані, потрібні для пояснення аграрної спеціалізації регіону.',o:['клімат','ґрунти','ринкова/транспортна доступність','колір адміністративного кордону','герб регіону','номер автомобільної траси без її маршруту','назва місцевої футбольної команди'],a:[0,1,2]}
+],
+'11':[
+ {t:'single',q:'Що є прикладом растрового GIS‑шару?',o:['супутникове зображення','лінія автошляху','точка метеостанції','полігон адміністративної області'],a:0},
+ {t:'single',q:'Що найточніше відрізняє ДЗЗ від ГІС?',o:['ДЗЗ отримує дистанційні спостереження, ГІС поєднує й аналізує просторові дані','це повні синоніми','ГІС працює лише з паперовими картами','ДЗЗ не має координат'],a:0},
+ {t:'single',q:'Для чого потрібен часовий ряд супутникових знімків?',o:['щоб бачити зміни, а не один стан','щоб прибрати координати','щоб перетворити вектор на текст','щоб визначити назву держави без карти'],a:0},
+ {t:'single',q:'Який об’єкт природно подати векторною лінією?',o:['поле температур поверхні','автомагістраль','супутниковий RGB-знімок','растр висот'],a:1},
+ {t:'single',q:'Яке питання треба поставити до GIS‑даних перед висновком?',o:['яка дата, джерело й просторове розрізнення?','чи гарна кольорова палітра?','скільки букв у назві шару?','чи є анімація?'],a:0},
+ {t:'single',q:'Чому високий NDVI не дорівнює високому прибутку?',o:['бо індекс не враховує всі економічні та агрономічні чинники','бо NDVI вимірює лише дороги','бо NDVI завжди дорівнює нулю','бо супутники не спостерігають рослинність'],a:0},
+ {t:'short',q:'Масштаб 1:50 000. 4 см на карті — скільки кілометрів на місцевості?',a:'2'},
+ {t:'short',q:'Два знімки мають розрізнення 10 м і 30 м. У скільки разів лінійне розрізнення першого детальніше?',a:'3'},
+ {t:'three',q:'Оберіть ТРИ GIS‑шари для вибору місця агрокластера.',o:['продуктивність угідь','транспорт','природоохоронні обмеження','шрифт підписів','колір рамки карти','номер сторінки атласу','декоративний фон'],a:[0,1,2]},
+ {t:'three',q:'Оберіть ТРИ обмеження висновку за одним супутниковим знімком.',o:['одна дата спостереження','хмарність/якість сигналу','необхідність наземної перевірки','назва супутника завжди невідома','карта не може мати масштаб','координати на знімках неможливі','супутник бачить лише політичні кордони'],a:[0,1,2]}
+]};
+function validFullName(value){const parts=value.trim().replace(/\s+/g,' ').split(' ');return parts.length>=2&&parts.every(p=>/^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(p));}
+function renderQuiz(grade){const qs=quizSets[grade],root=document.getElementById('quizBody');root.innerHTML='<h3>Міні‑НМТ • '+grade+' клас</h3><p class="small">Правильні відповіді з’являться лише після завершення.</p>';qs.forEach((q,i)=>{const d=document.createElement('div');d.className='qcard';d.dataset.i=i;let html='<div class="qnum">ЗАВДАННЯ '+(i+1)+'</div><p><b>'+q.q+'</b></p>';if(q.t==='single'){html+='<div class="opts">'+q.o.map((o,j)=>'<label class="opt"><input type="radio" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'</div>'}else if(q.t==='short'){html+='<input class="shortInput" name="q'+i+'" inputmode="decimal" placeholder="Коротка відповідь">'}else{html+='<div class="threeHint">Оберіть рівно три варіанти.</div><div class="opts">'+q.o.map((o,j)=>'<label class="opt"><input type="checkbox" name="q'+i+'" value="'+j+'"> '+o+'</label>').join('')+'</div>'}d.innerHTML=html;root.appendChild(d)});const btn=document.createElement('button');btn.className='primaryBtn';btn.textContent='Завершити й отримати результат';btn.addEventListener('click',scoreQuiz);root.appendChild(btn);root.classList.add('show');}
+document.getElementById('startQuiz').addEventListener('click',()=>{const name=document.getElementById('fullName').value,grade=document.getElementById('studentClass').value,fb=document.getElementById('gateFb');if(!validFullName(name)){fb.style.display='block';fb.innerHTML='<span class="bad">Введіть ім’я та прізвище щонайменше двома словами, без цифр.</span>';return}fb.style.display='none';document.getElementById('gate').style.display='none';renderQuiz(grade)});
+function scoreQuiz(){const grade=document.getElementById('studentClass').value,qs=quizSets[grade];let score=0;qs.forEach((q,i)=>{if(q.t==='single'){const v=document.querySelector('input[name="q'+i+'"]:checked')?.value;if(v!==undefined&&+v===q.a)score++;}else if(q.t==='short'){const v=document.querySelector('input[name="q'+i+'"]').value.trim().replace(',','.');if(v!==''&&Math.abs(parseFloat(v)-parseFloat(q.a))<.001)score++;}else{const vals=[...document.querySelectorAll('input[name="q'+i+'"]:checked')].map(x=>+x.value).sort((a,b)=>a-b);const a=[...q.a].sort((x,y)=>x-y);if(vals.length===a.length&&vals.every((v,j)=>v===a[j]))score++;}});const pct=score*10;let comment=score<=4?'Потрібно повторити ключові поняття.':score<=7?'Достатній рівень: логіка вже працює, але є прогалини.':score<=9?'Добре: більшість NMT-механік опрацьовано коректно.':'Відмінно: повний результат.';const name=document.getElementById('fullName').value.trim().replace(/\s+/g,' ');const now=new Date();const r=document.getElementById('resultCard');r.innerHTML='<div class="badge">Картка результату</div><div class="resultScore">'+score+'/10</div><p><b>'+name+'</b> • '+grade+' клас</p><p>Тема: «Сировина → карта → рішення» • '+pct+'%</p><p>'+comment+'</p><p class="small">Дата й час: '+now.toLocaleString('uk-UA')+'</p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p><button class="secondaryBtn" onclick="window.print()">Друк / PDF</button>';r.classList.add('show');r.scrollIntoView({behavior:'smooth',block:'center'});}
+</script>
+</body>
+</html>
