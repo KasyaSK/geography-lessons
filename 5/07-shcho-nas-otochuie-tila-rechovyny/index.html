@@ -242,9 +242,9 @@ h3{line-height:1.2;margin:.3rem 0 .55rem}
 <div class="kicker">30–33 хв • логічний двобій</div>
 <h2>Хто говорить нісенітницю?</h2>
 <div class="duel">
-<div class="duelitem"><b>1. «Якщо два предмети мають однакову форму, вони обов’язково зроблені з однієї речовини».</b><button class="btn duel" data-a="bad">Так</button> <button class="btn duel" data-a="good">Ні</button></div>
-<div class="duelitem"><b>2. «Матеріал обирають з урахуванням його властивостей».</b><button class="btn duel" data-a="good">Так</button> <button class="btn duel" data-a="bad">Ні</button></div>
-<div class="duelitem"><b>3. «Щоб перевірити невідому речовину, можна спробувати її на смак».</b><button class="btn duel" data-a="bad">Так</button> <button class="btn duel" data-a="good">Ні</button></div>
+<div class="duelitem"><b>1. «Якщо два предмети мають однакову форму, вони обов’язково зроблені з однієї речовини».</b><button class="btn duelbtn" data-a="bad">Так</button> <button class="btn duelbtn" data-a="good">Ні</button></div>
+<div class="duelitem"><b>2. «Матеріал обирають з урахуванням його властивостей».</b><button class="btn duelbtn" data-a="good">Так</button> <button class="btn duelbtn" data-a="bad">Ні</button></div>
+<div class="duelitem"><b>3. «Щоб перевірити невідому речовину, можна спробувати її на смак».</b><button class="btn duelbtn" data-a="bad">Так</button> <button class="btn duelbtn" data-a="good">Ні</button></div>
 </div>
 <div class="feedback" id="duelFeedback"></div>
 </div></section>
@@ -354,7 +354,7 @@ document.querySelectorAll('.chall').forEach(function(b){b.addEventListener('clic
 
 // duel
 let dc=0;
-document.querySelectorAll('.duel').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.duelbtn').forEach(function(b){b.addEventListener('click',function(){
  if(b.dataset.a==='good'){if(!b.disabled)dc++;b.disabled=true;fb('duelFeedback','Правильно. Додайте «тому що…» й поясніть.',true)}
  else fb('duelFeedback','Пастка. Перевірте зв’язок «тіло — матеріал — властивість» і правила безпеки.',false);
 })});
