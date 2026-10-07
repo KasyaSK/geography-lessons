@@ -4,280 +4,369 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
-<meta name="description" content="5 клас. Пізнаємо природу. Урок 7. Що нас оточує: тіла, їх характеристики, речовини, матеріали та властивості.">
-<title>5 клас • Урок 7 • Що нас оточує: тіла й речовини</title>
+<meta name="description" content="5 клас. Пізнаємо природу. Урок 7. Що нас оточує: тіла, їхні характеристики, речовини та їхні властивості.">
+<title>5 клас • Урок 7 • Що нас оточує: тіла, речовини й властивості</title>
 <style>
 :root{
- --bg:#eef8f2;--ink:#193932;--muted:#647a73;--card:#fff;--line:#cfe1d7;--green:#1f8a63;
- --mint:#dff6e9;--blue:#dff1ff;--yellow:#fff1bf;--pink:#ffe2eb;--violet:#eee8ff;--red:#a13b4a;
- --shadow:0 16px 40px rgba(32,74,58,.11);--r:22px
+ --bg:#f3fbf6;--ink:#193d34;--muted:#647b74;--card:#fff;--line:#cfe2d7;
+ --green:#208a63;--green2:#14684c;--blue:#e8f4ff;--yellow:#fff5cc;--pink:#ffe9ef;--violet:#f1ecff;
+ --shadow:0 16px 42px rgba(35,83,66,.12);--r:22px;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:
- radial-gradient(circle at 10% 0,#d8f3e2 0,transparent 28rem),
- radial-gradient(circle at 96% 2%,#dceeff 0,transparent 25rem),
- linear-gradient(180deg,#f8fcf9,var(--bg));line-height:1.55}
-a{color:#126b70}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
-.hero{padding:50px 0 28px;position:relative;overflow:hidden}
-.hero:after{content:"ТІЛО • РЕЧОВИНА";position:absolute;right:-2rem;bottom:-1.2rem;font-size:clamp(3.2rem,10vw,8rem);font-weight:1000;letter-spacing:-.07em;color:rgba(25,57,50,.035);pointer-events:none}
-.tag,.pill,.badge{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}
-.tag{background:#fff;border:1px solid #bcd8ca;padding:.42rem .75rem;color:#167050}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:
+ radial-gradient(circle at 12% 0,#dff7e8 0,transparent 27rem),
+ radial-gradient(circle at 92% 6%,#e3f1ff 0,transparent 25rem),
+ linear-gradient(180deg,#fbfefc,#f1f9f4);color:var(--ink);line-height:1.55}
+a{color:#136d72}.wrap{width:min(1140px,calc(100% - 28px));margin:auto}
+.hero{padding:48px 0 28px;position:relative;overflow:hidden}
+.hero:after{content:"ЩО? З ЧОГО? ЯКЕ?";position:absolute;right:-2rem;bottom:-1.2rem;font-size:clamp(3rem,9vw,7.5rem);font-weight:1000;color:rgba(25,61,52,.035);letter-spacing:-.07em;pointer-events:none}
+.tag,.pill{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}
+.tag{background:#fff;border:1px solid #bcd8cb;padding:.42rem .75rem;color:#157051}
 .pill{background:#fff;border:1px solid var(--line);padding:.34rem .62rem;font-size:.82rem}
-.badge{padding:.28rem .58rem;font-size:.76rem;background:var(--mint);color:#1c6f51}
-.hero h1{font-size:clamp(2.45rem,6.6vw,5.2rem);line-height:.96;letter-spacing:-.05em;margin:.7rem 0 1rem;max-width:970px}
-.hero h1 span{color:var(--green)}.lead{max-width:900px;color:#526b64;font-size:1.1rem}
+.hero h1{font-size:clamp(2.4rem,6.4vw,5.1rem);line-height:.96;letter-spacing:-.05em;max-width:980px;margin:.65rem 0 1rem}
+.hero h1 span{color:var(--green)}
+.lead{max-width:920px;color:#526d65;font-size:1.1rem}
 .meta,.controls,.links{display:flex;gap:8px;flex-wrap:wrap}
-.contract{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:20px}
-.contract>div{background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:var(--shadow)}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.timeline div{background:#f8fcfa;border:1px solid var(--line);border-radius:13px;padding:9px}.timeline b{color:var(--green)}
-.nav{position:sticky;top:0;z-index:30;background:rgba(248,252,249,.95);backdrop-filter:blur(10px);border-block:1px solid var(--line)}
-.nav .wrap{display:flex;gap:7px;overflow:auto;padding:8px 0}.nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:850;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.48rem .7rem}
-.section{padding:20px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
-h2{font-size:clamp(1.55rem,3.4vw,2.45rem);line-height:1.08;margin:.1rem 0 .8rem}h3{line-height:1.2;margin:.3rem 0 .55rem}
-.kicker{text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;font-weight:950;color:var(--green)}.muted{color:var(--muted)}
-.grid2,.grid3,.grid4{display:grid;gap:12px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.case,.theory,.mission,.mini{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfefd}.case strong,.theory b,.mission b{display:block;margin-bottom:5px}.num{font-size:2rem;font-weight:1000;color:var(--green)}
-.good,.hint,.warn,.task{border-left:5px solid var(--green);padding:12px 14px;border-radius:14px;background:#ecf9f1}.hint{border-color:#4b86c4;background:#eef7ff}.warn{border-color:#d69d28;background:#fff7dc}.task{border-color:#7a63c3;background:#f3efff}
-.btn{appearance:none;border:1px solid #bcd6ca;background:#fff;color:var(--ink);border-radius:12px;padding:.68rem .85rem;min-height:42px;font:inherit;font-weight:900;cursor:pointer}.btn:hover{border-color:#68a98f}.btn.active,.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}.btn.secondary{background:#eaf7f0}
-.feedback{display:none;margin-top:10px;border-radius:12px;padding:10px 12px;font-weight:800}.feedback.show{display:block}.feedback.ok{display:block;background:#e8f8ed;color:#21643d;border:1px solid #9acba8}.feedback.no{display:block;background:#fff0f1;color:#8a3440;border:1px solid #e5b5bc}
-.video-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.video{width:100%;aspect-ratio:16/9;border:0;border-radius:17px;background:#111}.qbox{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfefd}
-.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.photo{margin:0;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#fff}.photo img{display:block;width:100%;height:210px;object-fit:cover;background:#f2f5f3}.photo figcaption{padding:10px;font-size:.9rem}.photo a{font-size:.78rem}
-.sortgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.sortitem{border:1px solid var(--line);border-radius:15px;background:#fff;padding:11px}.sortitem strong{display:block;margin-bottom:7px}.tiny{font-size:.82rem;color:var(--muted)}
-.builder{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.builder .panel{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fbfefd}
-.builder select,.builder input,.quiz input[type=text],.cer textarea{width:100%;font:inherit;border:1px solid #bcd3c9;border-radius:11px;padding:.65rem;background:#fff;color:var(--ink)}
-.builder label,.cer label{display:block;font-weight:850;margin:.45rem 0 .25rem}
-.inspect{border:1px solid var(--line);border-radius:18px;padding:14px;background:linear-gradient(145deg,#f5fff8,#f1f7ff)}
-.inspect .bigobj{font-size:5rem;text-align:center;line-height:1.1}.resultline{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.chip{border-radius:12px;padding:9px;background:#fff;border:1px solid var(--line)}.chip b{display:block;color:#167050}
-.theorygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.theory .ico{font-size:1.7rem}.theory b{color:#146c50}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:14px;margin-top:18px}
+.hero-grid>div{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.timeline div{background:#f9fcfa;border:1px solid var(--line);border-radius:12px;padding:8px}
+.timeline b{color:var(--green)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(249,253,250,.95);backdrop-filter:blur(10px);border-block:1px solid var(--line)}
+.nav .wrap{display:flex;gap:7px;overflow:auto;padding:8px 0}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:850;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.48rem .7rem}
+.section{padding:20px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+h2{font-size:clamp(1.55rem,3.4vw,2.45rem);line-height:1.08;margin:.1rem 0 .8rem}
+h3{line-height:1.2;margin:.3rem 0 .55rem}
+.kicker{text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;font-weight:950;color:var(--green)}
+.muted{color:var(--muted)}
+.grid2,.grid3,.grid4{display:grid;gap:12px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.case,.tile,.mini,.level{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfefd}
+.case strong,.tile b,.mini b,.level b{display:block;margin-bottom:5px}
+.num{font-size:2rem;font-weight:1000;color:var(--green)}
+.good,.hint,.warn,.task{border-left:5px solid var(--green);padding:12px 14px;border-radius:14px;background:#ecf9f1}
+.hint{border-color:#4b86c4;background:#eef7ff}.warn{border-color:#d69d28;background:#fff7dc}.task{border-color:#7a63c3;background:#f3efff}
+.btn{appearance:none;border:1px solid #bcd6ca;background:#fff;color:var(--ink);border-radius:12px;padding:.68rem .85rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer}
+.btn:hover{border-color:#68a98f}.btn.active,.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}
+.btn.secondary{background:#eaf7f0}
+.feedback{display:none;margin-top:10px;border-radius:12px;padding:10px 12px;font-weight:800}
+.feedback.show{display:block}.feedback.ok{background:#e8f8ed;color:#21643d;border:1px solid #9acba8}.feedback.no{background:#fff0f1;color:#8a3440;border:1px solid #e5b5bc}
+.video-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+.video{width:100%;aspect-ratio:16/9;border:0;border-radius:17px;background:#111}
+.qbox{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfefd}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.photo{margin:0;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#fff}
+.photo img{display:block;width:100%;height:205px;object-fit:cover;background:#f1f4f2}
+.photo figcaption{padding:10px;font-size:.9rem}.photo a{font-size:.78rem}
+.lab{display:grid;grid-template-columns:.85fr 1.15fr;gap:14px}
+.labpanel{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fbfefd}
+.labpanel select,.labpanel input,.quiz input[type=text],.cer textarea{width:100%;font:inherit;border:1px solid #bcd3c9;border-radius:11px;padding:.66rem;background:#fff;color:var(--ink)}
+.labpanel label,.cer label{display:block;font-weight:850;margin:.45rem 0 .25rem}
+.tablewrap{overflow:auto}
+.obs{width:100%;border-collapse:collapse;font-size:.9rem}
+.obs th,.obs td{border-bottom:1px solid #d6e5dc;padding:8px;text-align:left}
+.obs th{color:var(--green2);background:#f4faf6}
+.micro{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.stage{border:1px solid var(--line);border-radius:18px;padding:14px;background:linear-gradient(145deg,#f7fff9,#f2f7ff)}
+.object-show{display:grid;place-items:center;min-height:210px;font-size:6rem}
+.switches{display:grid;gap:8px}
+.theorygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.theory{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfefd}
+.theory .ico{font-size:1.7rem}.theory b{display:block;color:#146c50;margin:.25rem 0}
+.challenge{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.challenge .c{border:1px solid var(--line);border-radius:16px;padding:13px;background:#fff}
 .duel{display:grid;gap:9px}.duelitem{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fff}
-.quizgate{background:#f3faf6;border:1px solid var(--line);border-radius:16px;padding:14px}.quiz{display:none}.quiz.open{display:block}.q{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px;margin:10px 0}.q label{display:block;padding:5px 0}.q input{margin-right:7px}.result{display:none;margin-top:13px;border:2px solid #65a77b;background:#effaf2;border-radius:17px;padding:15px}.result.show{display:block}.score{font-size:2.35rem;font-weight:1000;color:#287342}
+.quizgate{background:#f3faf6;border:1px solid var(--line);border-radius:16px;padding:14px}
+.quiz{display:none}.quiz.open{display:block}
+.q{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px;margin:10px 0}
+.q label{display:block;padding:5px 0}.q input{margin-right:7px}
+.q select{font:inherit;border:1px solid #bcd3c9;border-radius:9px;padding:.42rem;background:#fff;color:var(--ink)}
+.result{display:none;margin-top:13px;border:2px solid #65a77b;background:#effaf2;border-radius:17px;padding:15px}
+.result.show{display:block}.score{font-size:2.35rem;font-weight:1000;color:#287342}
 .footer{padding:30px 0 46px;color:#6d817a;border-top:1px solid var(--line);margin-top:28px}
-@media(max-width:920px){.contract,.timeline,.video-grid,.builder,.theorygrid,.photos,.sortgrid{grid-template-columns:1fr 1fr}.grid3,.grid4{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.contract,.timeline,.video-grid,.builder,.theorygrid,.photos,.sortgrid,.grid2,.grid3,.grid4,.resultline{grid-template-columns:1fr}.photo img{height:auto}.hero{padding-top:42px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.tiny{font-size:.82rem;color:var(--muted)}
+@media(max-width:920px){.hero-grid,.timeline,.video-grid,.lab,.micro,.theorygrid,.photos,.challenge{grid-template-columns:1fr 1fr}.grid3,.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.hero-grid,.timeline,.video-grid,.lab,.micro,.theorygrid,.photos,.challenge,.grid2,.grid3,.grid4{grid-template-columns:1fr}.photo img{height:auto}.hero{padding-top:42px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @media print{.nav,.btn,.video{display:none!important}body{background:#fff}.card{box-shadow:none}.quiz{display:block!important}}
 </style>
 </head>
 <body>
-<header class="hero" id="start"><div class="wrap">
+<header class="hero"><div class="wrap">
 <span class="tag">🔬 ПІЗНАЄМО ПРИРОДУ • 5 КЛАС • УРОК 7 • §7</span>
-<h1>Що нас оточує: <span>тіла, речовини й матеріали</span></h1>
-<p class="lead">Сьогодні розберемося з підступною штукою: <b>склянка — це тіло, скло — матеріал, а вода — речовина</b>. І так, це не гра в слова: від цього залежить, як ми описуємо предмети й чому вони мають різні властивості.</p>
-<div class="meta"><span class="pill">35 хв</span><span class="pill">2 короткі відео</span><span class="pill">4 реальні фото</span><span class="pill">класифікація</span><span class="pill">міні-дослідження</span><span class="pill">тест /10</span></div>
-<div class="contract">
-<div><b>До кінця уроку Ви маєте вміти:</b><ul>
-<li>відрізнити <b>тіло</b> від <b>речовини</b> та <b>матеріалу</b>;</li>
+<h1>Що нас оточує: <span>тіла, речовини та властивості</span></h1>
+<p class="lead">Не будемо вчити слова списком. Сьогодні працюємо як <b>лабораторія предметів</b>: беремо знайомі речі, з’ясовуємо, <b>що є тілом, з чого воно зроблене, які властивості має матеріал і чому саме такий матеріал обрали</b>.</p>
+<div class="meta"><span class="pill">35 хв</span><span class="pill">≈ 22 хв роботи учнів</span><span class="pill">1 відео + мікровізуалізація</span><span class="pill">4 реальні фото</span><span class="pill">власне міні-дослідження</span><span class="pill">тест /10</span></div>
+<div class="hero-grid">
+<div><b>Після уроку учень має вміти:</b><ul>
+<li>відрізнити <b>тіло</b> від <b>речовини/матеріалу</b>;</li>
 <li>описати тіло за формою, розміром і матеріалом;</li>
-<li>назвати властивості речовини/матеріалу, які можна безпечно спостерігати;</li>
-<li>пояснити, як одна речовина може утворювати багато різних тіл;</li>
-<li>класифікувати безпечні об’єкти за власною ознакою.</li>
+<li>назвати й перевірити безпечні властивості матеріалів;</li>
+<li>класифікувати тіла за обраною ознакою;</li>
+<li>пояснити, чому для різних предметів обирають різні матеріали.</li>
 </ul></div>
-<div><b>Структура 35 хв</b><div class="timeline">
-<div><b>0–9</b><br>проблема → сортування → відео</div>
-<div><b>9–18</b><br>фото-лабораторія → місія</div>
-<div><b>18–30</b><br>відео → основна теорія</div>
-<div><b>30–35</b><br>двобій → CER</div>
-</div><div class="warn" style="margin-top:10px"><b>Безпека:</b> невідомі речовини не куштуємо, не нюхаємо зблизька і не торкаємося без дозволу. У цьому уроці працюємо лише з безпечними побутовими прикладами.</div></div>
-</div>
-</div></header>
+<div><b>35 хв без розтягування</b><div class="timeline">
+<div><b>0–7</b><br>проблема + швидке рішення</div>
+<div><b>7–18</b><br>відео + лабораторія доказів</div>
+<div><b>18–30</b><br>місія + теорія через приклади</div>
+<div><b>30–35</b><br>інженерний виклик + підсумок</div>
+</div><div class="warn" style="margin-top:10px"><b>Безпека:</b> невідомі речовини не куштуємо, не нюхаємо зблизька й не торкаємося без дозволу.</div></div>
+</div></div></header>
 
 <nav class="nav"><div class="wrap">
-<a href="#problem">0–3</a><a href="#warm">3–7</a><a href="#video1">7–9</a><a href="#evidence">9–14</a><a href="#mission">14–18</a><a href="#video2">18–20</a><a href="#theory">20–30</a><a href="#duel">30–33</a><a href="#summary">33–35</a><a href="#home">🏠 Д/З</a><a href="#test">✅ Тест</a>
+<a href="#problem">0–3</a><a href="#warm">3–7</a><a href="#video">7–9</a><a href="#evidence">9–14</a><a href="#mission">14–18</a><a href="#micro">18–20</a><a href="#theory">20–27</a><a href="#challenge">27–30</a><a href="#duel">30–33</a><a href="#summary">33–35</a><a href="#home">🏠 Д/З</a><a href="#test">✅ Тест</a>
 </div></nav>
 
 <main class="wrap">
 
 <section class="section" id="problem"><div class="card">
 <div class="kicker">0–3 хв • проблемне питання</div>
-<h2>Склянка з водою: скільки тут «чогось»?</h2>
+<h2>Чому пляшку роблять із пластику або скла, а не з паперу?</h2>
+<p>У Вас є завдання: зробити посудину для води. Форма може бути будь-яка. Але матеріал треба вибрати так, щоб посудина <b>не розмокла, не протікала й не розсипалася в руці</b>.</p>
 <div class="grid3">
-<div class="case"><div class="num">🥛</div><strong>Склянка</strong><p>Має форму, розмір, межі. Її можна взяти в руки.</p></div>
-<div class="case"><div class="num">🪟</div><strong>Скло</strong><p>Матеріал, з якого виготовлена склянка. Воно прозоре й тверде.</p></div>
-<div class="case"><div class="num">💧</div><strong>Вода</strong><p>Речовина всередині склянки. Вона не є самою склянкою.</p></div>
+<div class="case"><div class="num">📄</div><strong>Папір</strong><p>Легкий, згинається, але звичайний папір швидко намокає.</p><button class="btn choice" data-a="paper">Обрати папір</button></div>
+<div class="case"><div class="num">🧴</div><strong>Пластик</strong><p>Легкий, водостійкий, може бути досить міцним.</p><button class="btn choice" data-a="plastic">Обрати пластик</button></div>
+<div class="case"><div class="num">🪨</div><strong>Камінь</strong><p>Міцний, але важкий і незручний для пляшки.</p><button class="btn choice" data-a="stone">Обрати камінь</button></div>
 </div>
-<div class="controls"><button class="btn prob" data-a="same">Склянка, скло і вода — одне й те саме</button><button class="btn prob" data-a="different">Це різні поняття</button></div>
 <div class="feedback" id="problemFeedback"></div>
+<div class="hint" style="margin-top:12px"><b>Головна ідея уроку:</b> форма предмета — це ще не все. Його можливості дуже залежать від <b>властивостей матеріалу</b>.</div>
 </div></section>
 
 <section class="section" id="warm"><div class="card">
-<div class="kicker">3–7 хв • швидке сортування</div>
-<h2>Тіло, речовина чи матеріал?</h2>
-<p class="muted">Оберіть найточнішу категорію. Деякі слова в побуті можуть бути двозначними, але тут дивимося на конкретний приклад.</p>
-<div class="sortgrid">
-<div class="sortitem"><strong>🧊 Кубик льоду</strong><button class="btn sort" data-q="1" data-a="body">тіло</button><button class="btn sort" data-q="1" data-a="substance">речовина</button></div>
-<div class="sortitem"><strong>💧 Вода</strong><button class="btn sort" data-q="2" data-a="body">тіло</button><button class="btn sort" data-q="2" data-a="substance">речовина</button></div>
-<div class="sortitem"><strong>🥄 Сталева ложка</strong><button class="btn sort" data-q="3" data-a="body">тіло</button><button class="btn sort" data-q="3" data-a="material">матеріал</button></div>
-<div class="sortitem"><strong>🪵 Деревина</strong><button class="btn sort" data-q="4" data-a="body">тіло</button><button class="btn sort" data-q="4" data-a="material">матеріал</button></div>
+<div class="kicker">3–7 хв • швидке рішення</div>
+<h2>Що є тілом, а що — матеріалом або речовиною?</h2>
+<div class="grid4">
+<div class="case"><strong>🥛 Склянка</strong><button class="btn sort" data-q="1" data-a="body">тіло</button><button class="btn sort" data-q="1" data-a="material">матеріал</button></div>
+<div class="case"><strong>🪟 Скло</strong><button class="btn sort" data-q="2" data-a="body">тіло</button><button class="btn sort" data-q="2" data-a="material">матеріал / речовина</button></div>
+<div class="case"><strong>💧 Вода</strong><button class="btn sort" data-q="3" data-a="body">тіло</button><button class="btn sort" data-q="3" data-a="substance">речовина</button></div>
+<div class="case"><strong>🥄 Ложка</strong><button class="btn sort" data-q="4" data-a="body">тіло</button><button class="btn sort" data-q="4" data-a="substance">речовина</button></div>
 </div>
 <div class="feedback" id="warmFeedback"></div>
 </div></section>
 
-<section class="section" id="video1"><div class="card">
-<div class="kicker">7–9 хв • відео 1</div>
-<h2>«Що нас оточує?» — коротко за Вашим підручником</h2>
+<section class="section" id="video"><div class="card">
+<div class="kicker">7–9 хв • коротке відео</div>
+<h2>Тепер перевіряємо свою гіпотезу</h2>
 <div class="video-grid">
-<iframe class="video" src="https://www.youtube-nocookie.com/embed/hR4dE5p1KXU?start=0&end=115&rel=0" title="Що нас оточує — Пізнаємо природу 5 клас НУШ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<div class="qbox"><b>Перед переглядом:</b><p>Спробуйте знайти у відео одне <b>тіло</b> і речовину/матеріал, з якої воно складається.</p><b>Після:</b><ol><li>Що називають тілом?</li><li>Чим тіло відрізняється від речовини?</li><li>Наведіть власний приклад.</li></ol><button class="btn secondary" id="v1Done">Відповіли</button><div class="feedback" id="v1Feedback"></div></div>
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/hR4dE5p1KXU?start=0&end=120&rel=0" title="Що нас оточує — Пізнаємо природу 5 клас НУШ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="qbox"><b>До перегляду:</b><p>Запам’ятайте одну пару: <b>тіло → з чого воно складається</b>.</p><b>Після фрагмента:</b><ol><li>Що називають тілом?</li><li>Назвіть одне тіло й матеріал, з якого воно зроблене.</li><li>Яка властивість цього матеріалу корисна?</li></ol><button class="btn secondary" id="videoDone">Відповіли</button><div class="feedback" id="videoFeedback"></div><p class="tiny"><a href="https://www.youtube.com/watch?v=hR4dE5p1KXU" target="_blank" rel="noopener">Якщо відео не відкрилося — пряме посилання ↗</a></p></div>
 </div>
-<p class="tiny">Відео «Що нас оточує // Пізнаємо природу 5 клас НУШ» створене відповідно до підручника Біда Д., Гільберг Т., Колісник Я.</p>
 </div></section>
 
 <section class="section" id="evidence"><div class="card">
 <div class="kicker">9–14 хв • лабораторія доказів</div>
-<h2>Дивимося не на назву, а на ознаки</h2>
+<h2>Чотири фото. Не називайте предмет — дослідіть його.</h2>
 <div class="photos">
-<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Glass-of-water.jpg" alt="Склянка з водою" loading="lazy"><figcaption><b>Склянка з водою</b><br>Тіло: склянка. Матеріал: скло. Речовина всередині: вода.<br><a href="https://commons.wikimedia.org/wiki/File:Glass-of-water.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
-<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Wooden_Spoon.jpg" alt="Дерев'яна ложка" loading="lazy"><figcaption><b>Дерев’яна ложка</b><br>Тіло: ложка. Матеріал: деревина.<br><a href="https://commons.wikimedia.org/wiki/File:Wooden_Spoon.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
-<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Stainless_steel_spoon.jpg" alt="Сталева ложка" loading="lazy"><figcaption><b>Сталева ложка</b><br>Форма майже та сама, але матеріал інший: сталь.<br><a href="https://commons.wikimedia.org/wiki/File:Stainless_steel_spoon.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
-<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sugar_crystals_lie.jpg" alt="Кристали цукру" loading="lazy"><figcaption><b>Кристали цукру</b><br>Цукор (сахароза) має характерні властивості; окремий кристал можна розглядати як маленьке тіло.<br><a href="https://commons.wikimedia.org/wiki/File:Sugar_crystals_lie.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
+<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glass-of-water.jpg" alt="Склянка з водою" loading="lazy"><figcaption><b>Склянка з водою</b><br>Що тут є тілом? Який матеріал? Яка речовина?<br><a href="https://commons.wikimedia.org/wiki/File:Glass-of-water.jpg" target="_blank" rel="noopener">джерело ↗</a></figcaption></figure>
+<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wooden%20spoon%20used%20by%20Sthanakvasi%20Mendicants.jpg" alt="Дерев'яна ложка" loading="lazy"><figcaption><b>Дерев’яна ложка</b><br>Які властивості деревини корисні для цього тіла?<br><a href="https://commons.wikimedia.org/wiki/File:Wooden_spoon_used_by_Sthanakvasi_Mendicants.jpg" target="_blank" rel="noopener">джерело ↗</a></figcaption></figure>
+<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rubberband.jpg" alt="Гумка-резинка" loading="lazy"><figcaption><b>Гумова резинка</b><br>Яку властивість тут легко перевірити без приладів?<br><a href="https://commons.wikimedia.org/wiki/File:Rubberband.jpg" target="_blank" rel="noopener">джерело ↗</a></figcaption></figure>
+<figure class="photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/PlasticBottle.jpg" alt="Пластикова пляшка" loading="lazy"><figcaption><b>Пластикова пляшка</b><br>Чому пластик зручний для такої форми й призначення?<br><a href="https://commons.wikimedia.org/wiki/File:PlasticBottle.jpg" target="_blank" rel="noopener">джерело ↗</a></figcaption></figure>
 </div>
-<div class="task" style="margin-top:13px"><b>Завдання, 2 хв.</b> Порівняйте дві ложки. Що в них однакове як у тіл? Що відрізняється через матеріал? Не пишіть «одна коричнева, інша сіра» — назвіть щонайменше <b>дві корисні властивості</b>.</div>
-<div class="controls"><button class="btn ev" data-a="good">Форма подібна; матеріали різні; властивості різняться</button><button class="btn ev" data-a="bad">Вони однакові, бо обидві ложки</button></div><div class="feedback" id="evidenceFeedback"></div>
+<div class="task" style="margin-top:13px"><b>Робота в парі, 2 хв.</b> Оберіть одне фото й складіть доказ за схемою: <b>тіло → матеріал/речовина → 2 властивості → чому вони корисні саме тут</b>.</div>
+<div class="controls"><button class="btn ev" data-a="good">Маємо тіло + матеріал + 2 властивості + пояснення</button><button class="btn ev" data-a="bad">Ми просто назвали предмет</button></div>
+<div class="feedback" id="evidenceFeedback"></div>
 </div></section>
 
 <section class="section" id="mission"><div class="card">
-<div class="kicker">14–18 хв • практична місія</div>
-<h2>Конструктор опису тіла</h2>
-<div class="builder">
-<div class="panel">
-<label>Оберіть тіло</label><select id="obj">
-<option value="spoon">Ложка</option><option value="bottle">Пластикова пляшка</option><option value="book">Книга</option><option value="eraser">Гумка</option>
-</select>
-<label>Матеріал</label><select id="mat">
-<option>сталь</option><option>деревина</option><option>пластик</option><option>папір і картон</option><option>гума</option>
-</select>
-<label>Форма</label><select id="shape"><option>видовжена</option><option>циліндрична</option><option>прямокутна</option><option>неправильна</option></select>
-<label>Корисна властивість матеріалу</label><select id="prop"><option>міцність</option><option>гнучкість</option><option>прозорість</option><option>пружність</option><option>водостійкість</option></select>
-<button class="btn primary" id="describe">Створити опис</button>
+<div class="kicker">14–18 хв • справжня міні-практика</div>
+<h2>Патруль предметів: знайдіть 3 безпечні тіла поруч</h2>
+<div class="lab">
+<div class="labpanel">
+<p><b>У класі:</b> візьміть ручку, зошит, пляшку, лінійку, гумку, ключ тощо.<br><b>Онлайн:</b> візьміть 3 предмети, які бачите біля себе.</p>
+<label>Назва тіла</label><input id="labBody" placeholder="Наприклад: лінійка">
+<label>Матеріал</label><input id="labMat" placeholder="пластик">
+<label>Одна спостережувана властивість</label><select id="labProp"><option>твердий / тверда</option><option>гнучкий / гнучка</option><option>пружний / пружна</option><option>прозорий / прозора</option><option>водостійкий / водостійка</option><option>крихкий / крихка</option></select>
+<button class="btn primary" id="addObs">Додати спостереження</button>
+<div class="feedback" id="labFeedback"></div>
+<div class="warn" style="margin-top:10px"><b>Не тестуємо на смак, не ламаємо й не дряпаємо чужі речі.</b></div>
 </div>
-<div class="inspect"><div class="bigobj" id="objIcon">🥄</div><h3 id="objTitle">Ложка</h3><div class="resultline">
-<div class="chip"><b>Тіло</b><span id="rBody">ложка</span></div><div class="chip"><b>Матеріал</b><span id="rMat">сталь</span></div><div class="chip"><b>Форма</b><span id="rShape">видовжена</span></div><div class="chip"><b>Властивість</b><span id="rProp">міцність</span></div>
-</div><div class="feedback" id="missionFeedback"></div></div>
+<div class="tablewrap"><table class="obs"><thead><tr><th>№</th><th>Тіло</th><th>Матеріал</th><th>Властивість</th></tr></thead><tbody id="obsBody"></tbody></table>
+<div class="task" style="margin-top:12px"><b>Коли буде 3 рядки:</b> придумайте <u>власну ознаку класифікації</u> й розділіть предмети на групи. Наприклад: прозорі/непрозорі; гнучкі/негнучкі; природні/створені людиною — але ознаку обираєте Ви.</div></div>
 </div>
-<div class="warn" style="margin-top:12px"><b>Рівні.</b> Базовий — правильно назвати тіло й матеріал. Достатній — додати форму та одну властивість. Високий — пояснити, <b>чому ця властивість робить матеріал придатним саме для цього тіла</b>.</div>
+<div class="grid3" style="margin-top:12px">
+<div class="level"><b>Базовий</b>Правильно назвати тіло й матеріал.</div>
+<div class="level"><b>Достатній</b>Додати властивість і свою класифікацію.</div>
+<div class="level"><b>Високий</b>Пояснити, чому Ваша ознака корисна, а не випадкова.</div>
+</div>
 </div></section>
 
-<section class="section" id="video2"><div class="card">
-<div class="kicker">18–20 хв • відео 2</div>
-<h2>Як досліджують фізичні властивості тіл і речовин</h2>
-<div class="video-grid">
-<iframe class="video" src="https://www.youtube-nocookie.com/embed/R6DfGrdmRM8?start=0&end=120&rel=0" title="Як дослідити фізичні властивості тіл і речовин" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<div class="qbox"><b>Перед:</b><p>Які властивості можна дослідити <b>без куштування речовини</b>?</p><b>Після:</b><ol><li>Назвіть 3 властивості.</li><li>Які спостерігаємо, а які вимірюємо?</li><li>Чому «подобається / не подобається» — не наукова характеристика?</li></ol><button class="btn secondary" id="v2Done">Відповіли</button><div class="feedback" id="v2Feedback"></div></div>
+<section class="section" id="micro"><div class="card">
+<div class="kicker">18–20 хв • мікровізуалізація</div>
+<h2>Одна форма ≠ один матеріал. Один матеріал ≠ одна форма.</h2>
+<div class="micro">
+<div class="stage"><div class="object-show" id="showObj">🥄</div><h3 id="showTitle">Ложка зі сталі</h3><p id="showText">Тіло: ложка. Матеріал: сталь. Властивість: міцність.</p></div>
+<div class="switches">
+<button class="btn microBtn active" data-icon="🥄" data-title="Ложка зі сталі" data-text="Тіло: ложка. Матеріал: сталь. Властивість: міцність.">Ложка → сталь</button>
+<button class="btn microBtn" data-icon="🥄" data-title="Ложка з деревини" data-text="Те саме призначення й подібна форма, але інший матеріал та інші властивості.">Ложка → деревина</button>
+<button class="btn microBtn" data-icon="🪟" data-title="Вікно зі скла" data-text="Матеріал: скло. Важлива властивість: прозорість.">Вікно → скло</button>
+<button class="btn microBtn" data-icon="🥛" data-title="Склянка зі скла" data-text="Інше тіло, але той самий матеріал — скло.">Склянка → скло</button>
+<div class="hint"><b>Висновок:</b> форму й призначення описуємо для <b>тіла</b>, а властивості — для <b>матеріалу/речовини</b>.</div>
+</div>
 </div>
 </div></section>
 
 <section class="section" id="theory"><div class="card">
-<div class="kicker">20–30 хв • основний матеріал</div>
-<h2>П’ять речей, які треба не завчити, а зрозуміти</h2>
+<div class="kicker">20–27 хв • основний матеріал після роботи</div>
+<h2>Тепер збираємо правило з того, що вже побачили</h2>
 <div class="theorygrid">
-<div class="theory"><span class="ico">📦</span><b>1. Тіло</b><p>Окремий об’єкт, що має межі, форму й розміри. Наприклад: м’яч, камінь, крапля води, ложка.</p></div>
-<div class="theory"><span class="ico">💧</span><b>2. Речовина</b><p>Те, з чого можуть складатися тіла. Приклади: вода, залізо, кухонна сіль, сахароза.</p></div>
-<div class="theory"><span class="ico">🧱</span><b>3. Матеріал</b><p>Речовина або суміш речовин, яку люди використовують для виготовлення тіл: скло, сталь, пластик, деревина, бетон.</p></div>
-<div class="theory"><span class="ico">📐</span><b>4. Характеристики тіла</b><p>Форма, розмір, об’єм, маса, матеріал. Частину характеристик спостерігаємо, частину — вимірюємо.</p></div>
-<div class="theory"><span class="ico">🔍</span><b>5. Властивості речовини/матеріалу</b><p>Колір, прозорість, запах, твердість, міцність, гнучкість, пружність, розчинність тощо. Усе досліджуємо безпечно.</p></div>
-<div class="theory"><span class="ico">🔁</span><b>Одна речовина — багато тіл</b><p>Вода може бути краплею, калюжею, кубиком льоду; зі сталі роблять ложки, болти, пружини. Форма тіла не визначає речовину.</p></div>
+<div class="theory"><span class="ico">📦</span><b>1. Тіло</b><p>Окремий об’єкт із певною формою та розмірами: камінь, ложка, крапля, м’яч, книга.</p></div>
+<div class="theory"><span class="ico">💧</span><b>2. Речовина</b><p>Те, з чого складаються тіла: вода, залізо, кухонна сіль, цукор тощо.</p></div>
+<div class="theory"><span class="ico">🧱</span><b>3. Матеріал</b><p>Речовина або суміш речовин, яку використовують для виготовлення тіл: скло, сталь, пластик, деревина.</p></div>
+<div class="theory"><span class="ico">📐</span><b>4. Характеристики тіла</b><p>Форма, розмір, маса, об’єм, матеріал. Частину можна просто спостерігати, частину — виміряти.</p></div>
+<div class="theory"><span class="ico">🔍</span><b>5. Властивості</b><p>Прозорість, твердість, міцність, гнучкість, пружність, крихкість, розчинність, водостійкість тощо.</p></div>
+<div class="theory"><span class="ico">🧠</span><b>6. Навіщо це знати</b><p>Щоб пояснювати, чому для вікна потрібна прозорість, для резинки — пружність, для пляшки — водостійкість.</p></div>
 </div>
-<div class="grid2" style="margin-top:13px">
-<div class="good"><b>Приклад 1:</b> дві ложки можуть бути тілами однакової форми, але з різних матеріалів — деревини й сталі.</div>
-<div class="hint"><b>Приклад 2:</b> пляшка може складатися з кількох матеріалів: корпус — пластик, кришка — інший пластик, етикетка — папір/полімер. Одне тіло не обов’язково «з однієї речовини».</div>
+<div class="grid2" style="margin-top:12px">
+<div class="good"><b>Важливо:</b> одне тіло може складатися з кількох матеріалів. Наприклад, олівець має деревину, графітний стрижень і фарбу.</div>
+<div class="warn"><b>Не забігаємо наперед:</b> атоми, молекули й три стани речовини — це вже наступний урок №8.</div>
 </div>
-<div class="warn" style="margin-top:13px"><b>Стоп перед наступним уроком:</b> сьогодні ми не розбираємо атоми й молекули. Це тема уроку №8 «З чого все складається».</div>
+</div></section>
+
+<section class="section" id="challenge"><div class="card">
+<div class="kicker">27–30 хв • інженерний виклик</div>
+<h2>Виберіть матеріал не «бо подобається», а за властивістю</h2>
+<div class="challenge">
+<div class="c"><b>☔ Плащ від дощу</b><p>Що найважливіше?</p><button class="btn chall" data-q="1" data-a="water">водостійкість</button><button class="btn chall" data-q="1" data-a="fragile">крихкість</button></div>
+<div class="c"><b>🪟 Вікно</b><p>Що найважливіше?</p><button class="btn chall" data-q="2" data-a="transparent">прозорість</button><button class="btn chall" data-q="2" data-a="soft">м’якість</button></div>
+<div class="c"><b>🏀 М’яч</b><p>Що найважливіше?</p><button class="btn chall" data-q="3" data-a="elastic">пружність</button><button class="btn chall" data-q="3" data-a="brittle">крихкість</button></div>
+</div>
+<div class="feedback" id="challengeFeedback"></div>
 </div></section>
 
 <section class="section" id="duel"><div class="card">
 <div class="kicker">30–33 хв • логічний двобій</div>
-<h2>Три твердження. Де пастка?</h2>
+<h2>Хто говорить нісенітницю?</h2>
 <div class="duel">
-<div class="duelitem"><b>1. «Склянка і скло — це те саме».</b><button class="btn duelbtn" data-a="bad">Так</button> <button class="btn duelbtn" data-a="good">Ні</button></div>
-<div class="duelitem"><b>2. «Дві ложки однакової форми можуть бути виготовлені з різних матеріалів».</b><button class="btn duelbtn" data-a="good">Так</button> <button class="btn duelbtn" data-a="bad">Ні</button></div>
-<div class="duelitem"><b>3. «Щоб дізнатися властивості невідомої речовини, треба її скуштувати».</b><button class="btn duelbtn" data-a="bad">Так</button> <button class="btn duelbtn" data-a="good">Ні</button></div>
-</div><div class="feedback" id="duelFeedback"></div>
+<div class="duelitem"><b>1. «Якщо два предмети мають однакову форму, вони обов’язково зроблені з однієї речовини».</b><button class="btn duel" data-a="bad">Так</button> <button class="btn duel" data-a="good">Ні</button></div>
+<div class="duelitem"><b>2. «Матеріал обирають з урахуванням його властивостей».</b><button class="btn duel" data-a="good">Так</button> <button class="btn duel" data-a="bad">Ні</button></div>
+<div class="duelitem"><b>3. «Щоб перевірити невідому речовину, можна спробувати її на смак».</b><button class="btn duel" data-a="bad">Так</button> <button class="btn duel" data-a="good">Ні</button></div>
+</div>
+<div class="feedback" id="duelFeedback"></div>
 </div></section>
 
 <section class="section" id="summary"><div class="card cer">
-<div class="kicker">33–35 хв • підсумок CER</div>
-<h2>Чому «тіло» і «речовина» — не синоніми?</h2>
-<label>C — твердження</label><textarea id="cerC" placeholder="Тіло і речовина відрізняються тим, що..."></textarea>
-<label>E — приклад</label><textarea id="cerE" placeholder="Наприклад, ложка — ..., а сталь — ..."></textarea>
-<label>R — пояснення</label><textarea id="cerR" placeholder="Це показує, що..."></textarea>
-<button class="btn primary" id="cerCheck">Перевірити структуру</button><div class="feedback" id="cerFeedback"></div>
+<div class="kicker">33–35 хв • підсумок</div>
+<h2>Одне речення, яке доводить, що Ви зрозуміли тему</h2>
+<label>Закінчіть думку:</label>
+<textarea id="exitText" placeholder="«Ложка — це тіло, сталь — матеріал, а міцність — властивість матеріалу, тому що…»"></textarea>
+<button class="btn primary" id="exitCheck">Перевірити</button>
+<div class="feedback" id="exitFeedback"></div>
 </div></section>
 
 <section class="section" id="home"><div class="card">
 <div class="kicker">ПІСЛЯ УРОКУ • ДОМАШНЄ</div>
 <h2>🏠 Домашнє завдання</h2>
-<div class="grid2">
-<div><div class="good"><b>§7.</b> Опрацювати параграф. У зошиті зробити 3 рядки: <b>тіло → матеріал/речовина → 2 властивості</b>. Приклади оберіть удома самостійно.</div><p><b>Наприклад:</b> чашка → кераміка → тверда, непрозора.</p><p class="tiny">Це конкретизує формулювання КТП «§7; виконати завдання після параграфа за вибором учителя».</p></div>
-<div><h3>Обов’язкове коротке відео</h3><p><a href="https://www.youtube.com/watch?v=WbKjlceIn0Y" target="_blank" rel="noopener"><b>«Урок 7. Що нас оточує. 5 клас. НУШ» ↗</b></a></p><h3>За бажанням</h3><p><a href="https://phet.colorado.edu/uk/" target="_blank" rel="noopener">PhET українською ↗</a> — інтерактивні природничі симуляції.</p></div>
+<div class="good"><b>§7.</b> У зошиті — 3 власні приклади за схемою: <b>тіло → матеріал/речовина → 2 властивості</b>. Наприкінці пройти тест.</div>
+<div class="grid2" style="margin-top:12px">
+<div><h3>Обов’язкове коротке відео</h3><p><a href="https://www.youtube.com/watch?v=WbKjlceIn0Y" target="_blank" rel="noopener"><b>«Урок 7. Що нас оточує. 5 клас. НУШ» ↗</b></a></p><p class="tiny">Відео створене за модельною програмою Біда — Гільберг — Колісник.</p></div>
+<div><h3>За бажанням</h3><p><a href="https://www.youtube.com/watch?v=dYH-Yr_ITQ4" target="_blank" rel="noopener">«Фізичні тіла. Матеріали. Речовини» ↗</a></p><p><a href="https://phet.colorado.edu/uk/" target="_blank" rel="noopener">PhET українською ↗</a></p></div>
 </div>
 </div></section>
 
 <section class="section" id="test"><div class="card">
 <div class="kicker">ПІДСУМКОВА ПЕРЕВІРКА</div>
-<h2>✅ Тест — 10 запитань / 10 балів</h2>
+<h2>✅ Тест — 10 завдань / 10 балів</h2>
 <div class="quizgate" id="gate"><label>Ім’я та прізвище</label><input type="text" id="studentName" placeholder="Наприклад, Антон Петренко"><label>Клас</label><input type="text" id="studentClass" placeholder="5-А"><button class="btn primary" id="startQuiz" style="margin-top:10px">Розпочати тест</button><div class="feedback" id="gateFeedback"></div></div>
 <div class="quiz" id="quiz">
-<div class="q"><b>1. Що з наведеного є тілом?</b><label><input type="radio" name="q1" value="a">вода</label><label><input type="radio" name="q1" value="b">скляна пляшка</label><label><input type="radio" name="q1" value="c">залізо</label></div>
-<div class="q"><b>2. Що з наведеного є речовиною?</b><label><input type="radio" name="q2" value="a">кубик льоду</label><label><input type="radio" name="q2" value="b">вода</label><label><input type="radio" name="q2" value="c">ложка</label></div>
-<div class="q"><b>3. Яка пара «тіло → матеріал» правильна?</b><label><input type="radio" name="q3" value="a">ложка → сталь</label><label><input type="radio" name="q3" value="b">скло → склянка</label><label><input type="radio" name="q3" value="c">вода → крапля</label></div>
-<div class="q"><b>4. Які характеристики описують саме тіло?</b><label><input type="checkbox" name="q4" value="shape">форма</label><label><input type="checkbox" name="q4" value="size">розмір</label><label><input type="checkbox" name="q4" value="material">матеріал</label><label><input type="checkbox" name="q4" value="likes">кількість лайків</label></div>
-<div class="q"><b>5. Яка властивість особливо важлива для матеріалу прозорого вікна?</b><label><input type="radio" name="q5" value="a">прозорість</label><label><input type="radio" name="q5" value="b">солодкий смак</label></div>
-<div class="q"><b>6. Дерев’яна й сталева ложки:</b><label><input type="radio" name="q6" value="a">це тіла подібного призначення з різних матеріалів</label><label><input type="radio" name="q6" value="b">це одна й та сама речовина</label></div>
-<div class="q"><b>7. Чи може одне тіло складатися з кількох матеріалів?</b><label><input type="radio" name="q7" value="a">так</label><label><input type="radio" name="q7" value="b">ні, ніколи</label></div>
-<div class="q"><b>8. Що безпечно робити з невідомою речовиною?</b><label><input type="radio" name="q8" value="a">куштувати</label><label><input type="radio" name="q8" value="b">спостерігати її зовнішні ознаки за інструкцією</label></div>
-<div class="q"><b>9. Яке твердження правильне?</b><label><input type="radio" name="q9" value="a">форма тіла завжди визначає речовину</label><label><input type="radio" name="q9" value="b">одна речовина може утворювати різні тіла</label></div>
-<div class="q"><b>10. Найточніше пояснення:</b><label><input type="radio" name="q10" value="a">тіло — окремий об’єкт; речовина — те, з чого складаються тіла</label><label><input type="radio" name="q10" value="b">тіло і речовина — повні синоніми</label></div>
+
+<div class="q"><b>1. Ситуація. На столі стоїть скляна банка. Що є тілом?</b><label><input type="radio" name="q1" value="a">скло</label><label><input type="radio" name="q1" value="b">банка</label></div>
+<div class="q"><b>2. Ситуація. Для вікна обирають скло насамперед тому, що воно…</b><label><input type="radio" name="q2" value="a">прозоре</label><label><input type="radio" name="q2" value="b">солодке</label></div>
+<div class="q"><b>3. Ситуація. Яка властивість гумової резинки найочевидніше пояснює її використання?</b><label><input type="radio" name="q3" value="a">пружність</label><label><input type="radio" name="q3" value="b">крихкість</label></div>
+<div class="q"><b>4. Ситуація. Паперову пляшку без спеціального покриття не обрали для води. Найкраще пояснення:</b><label><input type="radio" name="q4" value="a">папір може намокати й втрачати міцність</label><label><input type="radio" name="q4" value="b">папір має прямокутну форму</label></div>
+
+<div class="q"><b>5. Оберіть усі характеристики тіла:</b><label><input type="checkbox" name="q5" value="shape">форма</label><label><input type="checkbox" name="q5" value="size">розмір</label><label><input type="checkbox" name="q5" value="material">матеріал</label><label><input type="checkbox" name="q5" value="likes">кількість лайків</label></div>
+<div class="q"><b>6. Оберіть усі властивості матеріалів:</b><label><input type="checkbox" name="q6" value="transparent">прозорість</label><label><input type="checkbox" name="q6" value="elastic">пружність</label><label><input type="checkbox" name="q6" value="brittle">крихкість</label><label><input type="checkbox" name="q6" value="name">назва предмета</label></div>
+
+<div class="q"><b>7. Установіть відповідність.</b>
+<p>Ложка → <select id="m1"><option value="">—</option><option value="body">тіло</option><option value="material">матеріал/речовина</option></select></p>
+<p>Сталь → <select id="m2"><option value="">—</option><option value="body">тіло</option><option value="material">матеріал/речовина</option></select></p>
+<p>Вода → <select id="m3"><option value="">—</option><option value="body">тіло</option><option value="material">матеріал/речовина</option></select></p>
+</div>
+
+<div class="q"><b>8. Яка послідовність дослідження предмета найкраща?</b><label><input type="radio" name="q8" value="a">назвати тіло → визначити матеріал → спостерігати властивості → зробити висновок</label><label><input type="radio" name="q8" value="b">спочатку скуштувати → потім назвати</label></div>
+
+<div class="q"><b>9. Якого доказу достатньо, щоб сказати, що два предмети зроблені з різних матеріалів?</b><label><input type="radio" name="q9" value="a">вони мають різні назви</label><label><input type="radio" name="q9" value="b">ми знаємо склад/матеріал кожного предмета або маємо надійне маркування/дані</label></div>
+
+<div class="q"><b>10. Найкращий аргумент:</b><label><input type="radio" name="q10" value="a">«Пластик підходить для пляшки, бо мені так подобається»</label><label><input type="radio" name="q10" value="b">«Пластик часто використовують для пляшок, бо він легкий і водостійкий; отже, його властивості відповідають призначенню»</label></div>
+
 <button class="btn primary" id="submitQuiz">Завершити тест</button>
 <div class="result" id="result"><div class="score" id="score"></div><div id="resultText"></div><button class="btn secondary" onclick="window.print()" style="margin-top:8px">Друк / PDF</button></div>
 </div>
 </div></section>
 
 </main>
-<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • «Пізнаємо природу», 5 клас • Урок 7<br><span class="tiny">Фото: Wikimedia Commons. Відео: Наталія Бодюл; Біоманія ПоХіМіЧиМо з Валентиною Віксіч. Основа КТП: §7, ГР1; ГР3, класифікація безпечних тіл і матеріалів.</span></div></footer>
+
+<footer class="footer"><div class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • «Пізнаємо природу», 5 клас • Урок 7<br><span class="tiny">Основа КТП: «Що нас оточує. Тіла, їхні характеристики. Речовини та їхні властивості», §7, ГР1; ГР3. Фото: Wikimedia Commons. Відео: Наталія Бодюл; Тетяна Ющишина; «Уроки хімії».</span></div></footer>
 
 <script>
 function fb(id,msg,ok){const e=document.getElementById(id);e.textContent=msg;e.className='feedback show '+(ok?'ok':'no')}
 
 // problem
-document.querySelectorAll('.prob').forEach(function(b){b.addEventListener('click',function(){
- document.querySelectorAll('.prob').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
- if(b.dataset.a==='different')fb('problemFeedback','Так. Склянка — тіло; скло — матеріал; вода — речовина.',true);
- else fb('problemFeedback','Ні. Тут змішані назви об’єкта, матеріалу та речовини.',false);
+document.querySelectorAll('.choice').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.choice').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(b.dataset.a==='plastic')fb('problemFeedback','Так. Ви вибрали матеріал за властивостями: легкість + водостійкість + достатня міцність.',true);
+ else if(b.dataset.a==='paper')fb('problemFeedback','Для звичайного паперу є проблема: вода змінює його властивості, він намокає й слабшає.',false);
+ else fb('problemFeedback','Камінь може бути міцним, але для пляшки це незручний вибір через масу й складність виготовлення.',false);
 })});
 
-// warm-up
-const sortAns={1:'body',2:'substance',3:'body',4:'material'},sortGot={};
+// sort
+const sa={1:'body',2:'material',3:'substance',4:'body'},sg={};
 document.querySelectorAll('.sort').forEach(function(b){b.addEventListener('click',function(){
- sortGot[b.dataset.q]=b.dataset.a;document.querySelectorAll('.sort[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
- if(Object.keys(sortGot).length===4){let s=0;Object.keys(sortAns).forEach(function(k){if(sortGot[k]===sortAns[k])s++});if(s===4)fb('warmFeedback','4/4. Кубик льоду — тіло з води; вода — речовина; ложка — тіло; деревина — матеріал.',true);else fb('warmFeedback',s+'/4. Поверніться до правила: тіло — окремий об’єкт; речовина/матеріал — те, з чого він складається.',false)}
+ sg[b.dataset.q]=b.dataset.a;document.querySelectorAll('.sort[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(Object.keys(sg).length===4){let n=0;Object.keys(sa).forEach(function(k){if(sg[k]===sa[k])n++});if(n===4)fb('warmFeedback','4/4. Тіло — окремий об’єкт; матеріал/речовина — те, з чого тіла складаються.',true);else fb('warmFeedback',n+'/4. Перевірте: склянка й ложка — тіла; скло — матеріал; вода — речовина.',false)}
 })});
 
-document.getElementById('v1Done').addEventListener('click',function(){fb('v1Feedback','Добре. Формула для пам’яті: тіло = окремий об’єкт; речовина = те, з чого можуть складатися тіла.',true)});
-document.querySelectorAll('.ev').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.a==='good')fb('evidenceFeedback','Так. Подібна форма не означає однакові властивості: матеріал має значення.',true);else fb('evidenceFeedback','Ні. Однакове призначення або форма ще не означають однаковий матеріал.',false)})});
+document.getElementById('videoDone').addEventListener('click',function(){fb('videoFeedback','Добре. Тепер будь-який приклад оформлюйте як «тіло → матеріал/речовина → властивість».',true)});
 
-// builder
-const icons={spoon:['🥄','Ложка'],bottle:['🧴','Пластикова пляшка'],book:['📘','Книга'],eraser:['🧽','Гумка']};
-document.getElementById('describe').addEventListener('click',function(){
- const o=document.getElementById('obj').value,m=document.getElementById('mat').value,s=document.getElementById('shape').value,p=document.getElementById('prop').value;
- document.getElementById('objIcon').textContent=icons[o][0];document.getElementById('objTitle').textContent=icons[o][1];
- document.getElementById('rBody').textContent=icons[o][1].toLowerCase();document.getElementById('rMat').textContent=m;document.getElementById('rShape').textContent=s;document.getElementById('rProp').textContent=p;
- fb('missionFeedback','Опис складено. Тепер поясніть: чому властивість «'+p+'» може бути корисною або некорисною для цього тіла?',true);
+document.querySelectorAll('.ev').forEach(function(b){b.addEventListener('click',function(){
+ if(b.dataset.a==='good')fb('evidenceFeedback','Зараховано. Ви не просто назвали предмет, а використали ознаки й пояснили значення властивостей.',true);
+ else fb('evidenceFeedback','Назвати предмет — ще не дослідження. Потрібні матеріал, властивості й пояснення.',false);
+})});
+
+// lab
+const observations=[];
+document.getElementById('addObs').addEventListener('click',function(){
+ const body=document.getElementById('labBody').value.trim(),mat=document.getElementById('labMat').value.trim(),prop=document.getElementById('labProp').value;
+ if(!body||!mat){fb('labFeedback','Заповніть назву тіла й матеріал.',false);return}
+ observations.push({body,mat,prop});
+ document.getElementById('obsBody').innerHTML=observations.map(function(o,i){return '<tr><td>'+(i+1)+'</td><td>'+o.body+'</td><td>'+o.mat+'</td><td>'+o.prop+'</td></tr>'}).join('');
+ document.getElementById('labBody').value='';document.getElementById('labMat').value='';
+ if(observations.length<3)fb('labFeedback','Є '+observations.length+' із 3. Додайте ще.',true);else fb('labFeedback','Є 3 спостереження. Тепер придумайте власну ознаку класифікації.',true);
 });
-document.getElementById('v2Done').addEventListener('click',function(){fb('v2Feedback','Добре. Властивості описуємо спостереженням або вимірюванням, а не «подобається / не подобається».',true)});
+
+// micro
+document.querySelectorAll('.microBtn').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.microBtn').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ document.getElementById('showObj').textContent=b.dataset.icon;document.getElementById('showTitle').textContent=b.dataset.title;document.getElementById('showText').textContent=b.dataset.text;
+})});
+
+// challenge
+const ca={1:'water',2:'transparent',3:'elastic'},cg={};
+document.querySelectorAll('.chall').forEach(function(b){b.addEventListener('click',function(){
+ cg[b.dataset.q]=b.dataset.a;document.querySelectorAll('.chall[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(Object.keys(cg).length===3){let n=0;Object.keys(ca).forEach(function(k){if(cg[k]===ca[k])n++});if(n===3)fb('challengeFeedback','3/3. Ви обираєте матеріал за потрібною властивістю — це і є практичне значення теми.',true);else fb('challengeFeedback',n+'/3. Плащ → водостійкість; вікно → прозорість; м’яч → пружність.',false)}
+})});
 
 // duel
-let duelCorrect=0;
-document.querySelectorAll('.duelbtn').forEach(function(b){b.addEventListener('click',function(){
- if(b.dataset.a==='good'){if(!b.disabled)duelCorrect++;b.disabled=true;fb('duelFeedback','Правильно. Додайте коротке «тому що…».',true)}else fb('duelFeedback','Пастка. Перевірте: тіло ≠ матеріал; одна форма ≠ одна речовина; невідомі речовини не куштують.',false);
+let dc=0;
+document.querySelectorAll('.duel').forEach(function(b){b.addEventListener('click',function(){
+ if(b.dataset.a==='good'){if(!b.disabled)dc++;b.disabled=true;fb('duelFeedback','Правильно. Додайте «тому що…» й поясніть.',true)}
+ else fb('duelFeedback','Пастка. Перевірте зв’язок «тіло — матеріал — властивість» і правила безпеки.',false);
 })});
 
-// CER
-document.getElementById('cerCheck').addEventListener('click',function(){
- const a=document.getElementById('cerC').value.trim(),b=document.getElementById('cerE').value.trim(),c=document.getElementById('cerR').value.trim();
- if(a.length>20&&b.length>20&&c.length>20)fb('cerFeedback','CER повний: є твердження, приклад і пояснення.',true);else fb('cerFeedback','Додайте конкретику у всі три частини.',false);
+// exit
+document.getElementById('exitCheck').addEventListener('click',function(){
+ const t=document.getElementById('exitText').value.trim();
+ if(t.length>=45&&/(тіл|матеріал|речовин|властив)/i.test(t))fb('exitFeedback','Є пояснення з поняттями. Якщо Ви ще й пояснили «чому ця властивість важлива» — мету уроку досягнуто.',true);
+ else fb('exitFeedback','Додайте конкретний приклад: тіло + матеріал/речовина + властивість + «тому що».',false);
 });
 
-// test
+// quiz
 function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(function(x){return /^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x)})}
 document.getElementById('startQuiz').addEventListener('click',function(){
  const nm=document.getElementById('studentName').value,cl=document.getElementById('studentClass').value.trim();
@@ -287,12 +376,22 @@ document.getElementById('startQuiz').addEventListener('click',function(){
 function radio(n){const x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
 function checks(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(function(x){return x.value}).sort().join(',')}
 document.getElementById('submitQuiz').addEventListener('click',function(){
- let s=0;if(radio('q1')==='b')s++;if(radio('q2')==='b')s++;if(radio('q3')==='a')s++;if(checks('q4')==='material,shape,size')s++;if(radio('q5')==='a')s++;if(radio('q6')==='a')s++;if(radio('q7')==='a')s++;if(radio('q8')==='b')s++;if(radio('q9')==='b')s++;if(radio('q10')==='a')s++;
- const msg=s<=4?'Повторіть різницю між тілом, речовиною та матеріалом.':s<=7?'Основа є. Допрацюйте характеристики тіла й властивості матеріалів.':s<=9?'Добре: Ви впевнено розрізняєте тіла й речовини.':'Відмінно: Ви розумієте поняття й умієте застосовувати їх до реальних об’єктів.';
- document.getElementById('score').textContent=s+'/10';document.getElementById('resultText').innerHTML='<b>'+document.getElementById('studentName').value.trim()+'</b> • '+document.getElementById('studentClass').value.trim()+'<br>Урок 7 «Що нас оточує» • '+(s*10)+'%<br>'+msg+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';
+ let s=0;
+ if(radio('q1')==='b')s++;
+ if(radio('q2')==='a')s++;
+ if(radio('q3')==='a')s++;
+ if(radio('q4')==='a')s++;
+ if(checks('q5')==='material,shape,size')s++;
+ if(checks('q6')==='brittle,elastic,transparent')s++;
+ if(document.getElementById('m1').value==='body'&&document.getElementById('m2').value==='material'&&document.getElementById('m3').value==='material')s++;
+ if(radio('q8')==='a')s++;
+ if(radio('q9')==='b')s++;
+ if(radio('q10')==='b')s++;
+ const msg=s<=4?'Повторіть різницю між тілом, речовиною/матеріалом і властивістю.':s<=7?'Основа є. Допрацюйте зв’язок «призначення → потрібна властивість → вибір матеріалу».':s<=9?'Добре: Ви впевнено застосовуєте поняття до реальних предметів.':'Відмінно: Ви не просто знаєте терміни, а вмієте обґрунтувати вибір матеріалу.';
+ document.getElementById('score').textContent=s+'/10';
+ document.getElementById('resultText').innerHTML='<b>'+document.getElementById('studentName').value.trim()+'</b> • '+document.getElementById('studentClass').value.trim()+'<br>Урок 7 «Що нас оточує» • '+(s*10)+'%<br>'+msg+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';
  document.getElementById('result').classList.add('show');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
 });
 </script>
-<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body>
 </html>
