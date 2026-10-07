@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="5 клас. Пізнаємо природу. Урок 11. Чому вода — особлива речовина. Вода в природі та організмі людини.">
+<title>5 клас • Урок 11 • Чому вода — особлива речовина</title>
+<style>
+:root{
+ --bg:#eef8fb;--ink:#173847;--muted:#617885;--card:#fff;--line:#c8dde5;
+ --blue:#1687b8;--blue2:#0d668e;--cyan:#dff6ff;--ice:#eaf7ff;--green:#e7f8ef;
+ --yellow:#fff4c9;--pink:#ffe7ee;--violet:#f0ebff;--shadow:0 18px 48px rgba(26,76,99,.13);--r:22px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:
+ radial-gradient(circle at 8% 0,#d7f4ff 0,transparent 28rem),
+ radial-gradient(circle at 94% 7%,#e9f8f1 0,transparent 25rem),
+ linear-gradient(180deg,#f9fdff,#edf7fb);color:var(--ink);line-height:1.55}
+a{color:#0b6f9b}.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+.hero{padding:50px 0 28px;position:relative;overflow:hidden}
+.hero:after{content:"H₂O";position:absolute;right:1vw;bottom:-5rem;font-size:clamp(12rem,30vw,26rem);font-weight:1000;color:rgba(23,56,71,.035);letter-spacing:-.08em;pointer-events:none}
+.tag,.pill{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}
+.tag{padding:.42rem .76rem;background:#fff;border:1px solid #b9d5df;color:#0d668e}
+.pill{padding:.34rem .62rem;background:#fff;border:1px solid var(--line);font-size:.82rem}
+.hero h1{font-size:clamp(2.5rem,6.7vw,5.3rem);line-height:.95;letter-spacing:-.055em;max-width:1000px;margin:.65rem 0 1rem}
+.hero h1 span{color:var(--blue)}
+.lead{max-width:950px;color:#526c79;font-size:1.12rem}
+.meta,.controls,.links{display:flex;gap:8px;flex-wrap:wrap}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:14px;margin-top:18px}
+.hero-grid>div{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.timeline div{background:#f9fcfd;border:1px solid var(--line);border-radius:12px;padding:8px}
+.timeline b{color:var(--blue)}
+.nav{position:sticky;top:0;z-index:30;background:rgba(249,253,255,.95);backdrop-filter:blur(10px);border-block:1px solid var(--line)}
+.nav .wrap{display:flex;gap:7px;overflow:auto;padding:8px 0}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:850;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.48rem .7rem}
+.section{padding:20px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+h2{font-size:clamp(1.6rem,3.5vw,2.5rem);line-height:1.08;margin:.1rem 0 .8rem}
+h3{line-height:1.2;margin:.3rem 0 .55rem}
+.kicker{text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;font-weight:950;color:var(--blue)}
+.muted{color:var(--muted)}
+.grid2,.grid3,.grid4{display:grid;gap:12px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.case,.mini,.theory,.evidence,.level{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfdfe}
+.case strong,.mini b,.theory b,.evidence b,.level b{display:block;margin-bottom:5px}
+.num{font-size:2rem;font-weight:1000;color:var(--blue)}
+.good,.hint,.warn,.task{border-left:5px solid var(--blue);padding:12px 14px;border-radius:14px;background:#eaf8fd}
+.hint{border-color:#5c7fd0;background:#eef3ff}.warn{border-color:#d59e2d;background:#fff7dd}.task{border-color:#7660bf;background:#f3efff}.good{border-color:#44a36f;background:#edf9f2}
+.btn{appearance:none;border:1px solid #b8d2dd;background:#fff;color:var(--ink);border-radius:12px;padding:.7rem .88rem;min-height:44px;font:inherit;font-weight:900;cursor:pointer}
+.btn:hover{border-color:#5ca4c2}.btn.active,.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}.btn.secondary{background:#e9f7fb}
+.feedback{display:none;margin-top:10px;border-radius:12px;padding:10px 12px;font-weight:800}
+.feedback.show{display:block}.feedback.ok{background:#e7f7ed;color:#24643d;border:1px solid #9bcca9}.feedback.no{background:#fff0f2;color:#8a3440;border:1px solid #e2b5bc}
+.video-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+.video{width:100%;aspect-ratio:16/9;border:0;border-radius:17px;background:#111}
+.qbox{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fbfdfe}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.photo{margin:0;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#fff}
+.photo img{display:block;width:100%;height:230px;object-fit:cover;background:#edf4f7}
+.photo figcaption{padding:10px;font-size:.9rem}.photo a{font-size:.78rem}
+.data-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tablewrap{overflow:auto}
+.data{width:100%;border-collapse:collapse;font-size:.9rem}
+.data th,.data td{padding:8px;border-bottom:1px solid #d7e5eb;text-align:center}
+.data th{background:#f2f8fb;color:var(--blue2)}
+.barbox{display:grid;gap:7px;margin-top:10px}
+.bar{display:grid;grid-template-columns:54px 1fr 46px;gap:8px;align-items:center}
+.bartrack{height:18px;background:#e7f0f4;border-radius:999px;overflow:hidden}
+.barfill{height:100%;background:linear-gradient(90deg,#2aa4d3,#74cae7)}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mission{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fff}
+.mission h3{margin-top:0}.mission textarea,.cer textarea,.quiz input[type=text]{width:100%;font:inherit;border:1px solid #b9d3dd;border-radius:11px;padding:.66rem;background:#fff;color:var(--ink)}
+.particle-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.particle-box{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fbfdfe}
+.particles{position:relative;height:250px;border-radius:16px;background:linear-gradient(180deg,#f5fcff,#e7f5fa);border:1px solid #bfd8e2;overflow:hidden}
+.dot{position:absolute;width:24px;height:24px;border-radius:50%;background:#4eb6da;border:3px solid #fff;box-shadow:0 2px 7px rgba(0,0,0,.12);transition:all .45s}
+.theorygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.theory .ico{font-size:1.7rem}.theory b{color:var(--blue2);margin:.25rem 0;display:block}
+.audit{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.audit-list{display:grid;gap:8px}
+.audit-item{border:1px solid var(--line);border-radius:14px;padding:10px;background:#fff}
+.audit-item label{display:flex;gap:9px;align-items:flex-start}
+.audit-total{font-size:2.5rem;font-weight:1000;color:var(--blue)}
+.duel{display:grid;gap:9px}.duelitem{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fff}
+.quizgate{background:#f3fafd;border:1px solid var(--line);border-radius:16px;padding:14px}
+.quiz{display:none}.quiz.open{display:block}
+.q{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px;margin:10px 0}
+.q label{display:block;padding:5px 0}.q input{margin-right:7px}.q select{font:inherit;border:1px solid #b9d3dd;border-radius:9px;padding:.42rem;background:#fff;color:var(--ink)}
+.result{display:none;margin-top:13px;border:2px solid #66a5bd;background:#eef9fd;border-radius:17px;padding:15px}
+.result.show{display:block}.score{font-size:2.35rem;font-weight:1000;color:#176b8e}
+.footer{padding:30px 0 46px;color:#6b7f88;border-top:1px solid var(--line);margin-top:28px}
+.tiny{font-size:.82rem;color:var(--muted)}
+@media(max-width:950px){.hero-grid,.timeline,.video-grid,.photo-grid,.data-grid,.mission-grid,.particle-wrap,.theorygrid,.audit{grid-template-columns:1fr 1fr}.grid3,.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.hero-grid,.timeline,.video-grid,.photo-grid,.data-grid,.mission-grid,.particle-wrap,.theorygrid,.audit,.grid2,.grid3,.grid4{grid-template-columns:1fr}.photo img{height:auto}.hero{padding-top:42px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dot{transition:none!important}}
+@media print{.nav,.btn,.video{display:none!important}body{background:#fff}.card{box-shadow:none}.quiz{display:block!important}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap">
+<span class="tag">💧 ПІЗНАЄМО ПРИРОДУ • 5 КЛАС • УРОК 11 • §11</span>
+<h1>Чому вода — <span>особлива речовина</span></h1>
+<p class="lead">Сьогодні не буде «вода прозора, без запаху — записали». Ви працюєте як команда дослідників: <b>чому лід не тоне, як це рятує життя у водоймах, скільки води в тілі людини, як працює колообіг і коли вода рятує, а коли руйнує</b>.</p>
+<div class="meta"><span class="pill">35 хв</span><span class="pill">≈ 24 хв роботи учнів</span><span class="pill">1 коротке відео</span><span class="pill">3 візуальні джерела</span><span class="pill">аналіз таблиці</span><span class="pill">модель частинок</span><span class="pill">аудит води</span><span class="pill">тест /10</span></div>
+
+<div class="hero-grid">
+<div><b>Після уроку Ви маєте вміти:</b><ul>
+<li>назвати щонайменше <b>3 особливості води</b> й пояснити їх значення;</li>
+<li>пояснити, <b>чому лід плаває</b> і чому це важливо для водойм;</li>
+<li>прочитати дані про воду в організмі людини й зробити висновок;</li>
+<li>побудувати причинний ланцюг колообігу води;</li>
+<li>оцінити власні практики використання води;</li>
+<li>відрізнити спостереження від надто сильного висновку.</li>
+</ul></div>
+<div><b>Структура 35 хв</b><div class="timeline">
+<div><b>0–9</b><br>загадка → прогноз → відео</div>
+<div><b>9–18</b><br>докази → таблиця → місії</div>
+<div><b>18–27</b><br>модель льоду → теорія</div>
+<div><b>27–35</b><br>аудит → двобій → CER</div>
+</div><div class="warn" style="margin-top:10px"><b>Домашнє й тест — після 35 хв.</b> Урок спирається на §11 «Чому вода — найдивовижніша рідина на Землі».</div></div>
+</div>
+</div></header>
+
+<nav class="nav"><div class="wrap">
+<a href="#mystery">0–3</a><a href="#predict">3–7</a><a href="#video">7–9</a><a href="#evidence">9–14</a><a href="#missions">14–18</a><a href="#model">18–20</a><a href="#theory">20–27</a><a href="#audit">27–30</a><a href="#duel">30–33</a><a href="#summary">33–35</a><a href="#home">🏠 Д/З</a><a href="#test">✅ Тест</a>
+</div></nav>
+
+<main class="wrap">
+
+<section class="section" id="mystery"><div class="card">
+<div class="kicker">0–3 хв • загадка водойми</div>
+<h2>Озеро взимку вкрилося льодом. Чому риби під ним не замерзли разом із усією водою?</h2>
+<div class="grid3">
+<div class="case"><div class="num">A</div><strong>Лід тоне</strong><p>Тоді нові шари льоду постійно опускалися б униз.</p><button class="btn mystery" data-a="sink">Так і відбувається</button></div>
+<div class="case"><div class="num">B</div><strong>Лід плаває</strong><p>Верхній шар льоду відділяє воду під ним від холодного повітря.</p><button class="btn mystery" data-a="float">Це важливо</button></div>
+<div class="case"><div class="num">?</div><strong>Чому?</strong><p>Треба пояснити не лише «бо легший», а <b>чому одна й та сама вода стає менш щільною після замерзання</b>.</p></div>
+</div>
+<div class="feedback" id="mysteryFeedback"></div>
+</div></section>
+
+<section class="section" id="predict"><div class="card">
+<div class="kicker">3–7 хв • швидкий прогноз</div>
+<h2>Три твердження. Поки що — гіпотеза.</h2>
+<div class="grid3">
+<div class="case"><strong>1. У льоді частинки води розміщені щільніше, ніж у рідині.</strong><div class="controls"><button class="btn pred" data-q="1" data-a="yes">так</button><button class="btn pred" data-q="1" data-a="no">ні</button></div></div>
+<div class="case"><strong>2. Людина більш ніж наполовину складається з води.</strong><div class="controls"><button class="btn pred" data-q="2" data-a="yes">так</button><button class="btn pred" data-q="2" data-a="no">ні</button></div></div>
+<div class="case"><strong>3. Вода на Землі може одночасно існувати як лід, рідина й водяна пара.</strong><div class="controls"><button class="btn pred" data-q="3" data-a="yes">так</button><button class="btn pred" data-q="3" data-a="no">ні</button></div></div>
+</div>
+<div class="feedback" id="predictFeedback"></div>
+</div></section>
+
+<section class="section" id="video"><div class="card">
+<div class="kicker">7–9 хв • короткий фрагмент</div>
+<h2>Шукаємо одну відповідь: чому вода справді незвичайна?</h2>
+<div class="video-grid">
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/7Sc766dGdY0?start=0&end=120&rel=0" title="Урок 11. Чому вода — найдивовижніша рідина на Землі. 5 клас. НУШ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="qbox">
+<b>До перегляду:</b><p>Запишіть одне припущення: <i>«Вода особлива тому, що…»</i></p>
+<b>Після фрагмента:</b><ol><li>Назвіть одну особливість води.</li><li>Який наслідок вона має в природі?</li><li>Що з Вашої гіпотези підтвердилося?</li></ol>
+<button class="btn secondary" id="videoDone">Є відповідь</button><div class="feedback" id="videoFeedback"></div>
+<p class="tiny"><a href="https://www.youtube.com/watch?v=7Sc766dGdY0" target="_blank" rel="noopener">Пряме посилання на відео ↗</a></p>
+</div>
+</div>
+</div></section>
+
+<section class="section" id="evidence"><div class="card">
+<div class="kicker">9–14 хв • лабораторія доказів</div>
+<h2>Не віримо твердженню — шукаємо дані, які його підтримують</h2>
+
+<div class="photo-grid">
+<figure class="photo">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/00%200861%20Iceberg%20-%20South%20Shetland%20Islands.jpg" alt="Плавучий айсберг біля Південних Шетландських островів" loading="lazy">
+<figcaption><b>Доказ A: лід плаває.</b><br>Фото показує факт плавання, але <u>не пояснює причину</u>.<br><a href="https://commons.wikimedia.org/wiki/File:00_0861_Iceberg_-_South_Shetland_Islands.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption>
+</figure>
+<figure class="photo">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/%D0%92%D0%BE%D0%B4%D0%BD%D0%B8%D0%B9_%D1%86%D0%B8%D0%BA%D0%BB.svg" alt="Схема водного циклу українською" loading="lazy">
+<figcaption><b>Доказ B: вода постійно рухається між станами.</b><br>Випаровування → конденсація → опади → стік/накопичення.<br><a href="https://commons.wikimedia.org/wiki/File:%D0%92%D0%BE%D0%B4%D0%BD%D0%B8%D0%B9_%D1%86%D0%B8%D0%BA%D0%BB.svg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption>
+</figure>
+<figure class="photo">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Water%20droplet%20on%20leaf.jpg" alt="Крапля води на листку" loading="lazy">
+<figcaption><b>Доказ C: вода всюди в живих системах.</b><br>Але одне фото не доводить, скільки води всередині організму — для цього потрібні інші дані.<br><a href="https://commons.wikimedia.org/wiki/File:Water_droplet_on_leaf.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption>
+</figure>
+</div>
+
+<div class="data-grid" style="margin-top:14px">
+<div class="evidence">
+<b>Дані з §11: маса тіла і приблизна маса води в ньому</b>
+<div class="tablewrap"><table class="data"><thead><tr><th>Маса тіла, кг</th><th>Вода, кг</th><th>Частка</th></tr></thead><tbody>
+<tr><td>25</td><td>17</td><td>≈68%</td></tr>
+<tr><td>30</td><td>20</td><td>≈67%</td></tr>
+<tr><td>35</td><td>23</td><td>≈66%</td></tr>
+<tr><td>40</td><td>27</td><td>≈68%</td></tr>
+<tr><td>45</td><td>30</td><td>≈67%</td></tr>
+<tr><td>50</td><td>33</td><td>≈66%</td></tr>
+</tbody></table></div>
+<div class="barbox">
+<div class="bar"><span>25 кг</span><div class="bartrack"><div class="barfill" style="width:68%"></div></div><b>68%</b></div>
+<div class="bar"><span>40 кг</span><div class="bartrack"><div class="barfill" style="width:68%"></div></div><b>68%</b></div>
+<div class="bar"><span>50 кг</span><div class="bartrack"><div class="barfill" style="width:66%"></div></div><b>66%</b></div>
+</div>
+</div>
+
+<div class="evidence">
+<b>Завдання на дані</b>
+<p>Який висновок <u>найкраще</u> підтримує таблиця?</p>
+<div class="controls">
+<button class="btn evidenceBtn" data-a="good">У наведеному діапазоні мас вода становить приблизно дві третини маси тіла</button>
+<button class="btn evidenceBtn" data-a="bad">У всіх людей світу рівно 67% води</button>
+</div>
+<p style="margin-top:12px">Чи доводить таблиця, що кількість води однакова в будь-якому віці?</p>
+<div class="controls">
+<button class="btn evidenceBtn2" data-a="bad">Так</button>
+<button class="btn evidenceBtn2" data-a="good">Ні, тут немає даних для всіх вікових груп</button>
+</div>
+<div class="feedback" id="evidenceFeedback"></div>
+</div>
+</div>
+</div></section>
+
+<section class="section" id="missions"><div class="card">
+<div class="kicker">14–18 хв • три рівні — різні типи мислення</div>
+<h2>Оберіть одну місію або виконайте всі, якщо клас швидкий</h2>
+<div class="mission-grid">
+
+<div class="mission">
+<h3>🟢 Базова: «Рятівний лід»</h3>
+<p>Побудуйте ланцюг:</p>
+<p><b>лід менш щільний → ? → ? → водні організми мають шанс пережити зиму</b></p>
+<textarea id="mBase" placeholder="Додайте два проміжні кроки..."></textarea>
+<button class="btn mcheck" data-id="base">Перевірити</button><div class="feedback" id="baseFeedback"></div>
+</div>
+
+<div class="mission">
+<h3>🔵 Достатня: «Вода в людині»</h3>
+<p>За таблицею для маси 40 кг вода ≈27 кг. Поясніть, чому твердження <i>«людина майже повністю складається з води»</i> є перебільшенням.</p>
+<textarea id="mMid" placeholder="Посилайтеся на число й межі даних..."></textarea>
+<button class="btn mcheck" data-id="mid">Перевірити</button><div class="feedback" id="midFeedback"></div>
+</div>
+
+<div class="mission">
+<h3>🟣 Висока: «Якби лід тонув»</h3>
+<p>Уявіть інший світ: замерзла вода стає щільнішою й опускається на дно. Спрогнозуйте два наслідки для озера взимку та назвіть, <b>чого ми не можемо довести лише цією моделлю</b>.</p>
+<textarea id="mHigh" placeholder="2 наслідки + 1 межа моделі..."></textarea>
+<button class="btn mcheck" data-id="high">Перевірити</button><div class="feedback" id="highFeedback"></div>
+</div>
+
+</div>
+</div></section>
+
+<section class="section" id="model"><div class="card">
+<div class="kicker">18–20 хв • мікровізуалізація</div>
+<h2>Чому лід менш щільний: дивимося на розміщення частинок</h2>
+<div class="particle-wrap">
+<div class="particle-box">
+<div class="particles" id="particleStage"></div>
+</div>
+<div class="particle-box">
+<h3 id="particleTitle">Рідка вода</h3>
+<p id="particleText">У спрощеній моделі частинки розміщені ближче одна до одної. Та сама кількість речовини займає менший об’єм.</p>
+<div class="controls"><button class="btn particleBtn active" data-mode="liquid">Рідка вода</button><button class="btn particleBtn" data-mode="ice">Лід</button></div>
+<div class="hint"><b>Не плутайте модель із фотографією молекул.</b> Це схема, яка допомагає побачити різницю в упакуванні частинок.</div>
+</div>
+</div>
+</div></section>
+
+<section class="section" id="theory"><div class="card">
+<div class="kicker">20–27 хв • теорія після доказів</div>
+<h2>Шість причин, чому вода має величезне значення</h2>
+<div class="theorygrid">
+
+<div class="theory"><span class="ico">🧊💧☁️</span><b>1. Три стани</b><p>За природних для життя умов вода зустрічається як лід, рідина й водяна пара. Це робить можливим постійний колообіг.</p></div>
+
+<div class="theory"><span class="ico">🧊⬆️</span><b>2. Лід плаває</b><p>У льоді структура «пухкіша», тому його густина менша, ніж у рідкої води. Лід утворюється зверху й не дає водоймі легко промерзнути до дна.</p></div>
+
+<div class="theory"><span class="ico">🧪</span><b>3. Вода добре розчиняє багато речовин</b><p>У природній воді майже завжди є розчинені речовини. У живих організмах вода переносить потрібні речовини й допомагає виводити продукти обміну.</p></div>
+
+<div class="theory"><span class="ico">🫀</span><b>4. Вода в організмах</b><p>Людина й інші організми значною мірою складаються з води. Вона потрібна для перенесення речовин, охолодження та перебігу життєвих процесів.</p></div>
+
+<div class="theory"><span class="ico">🔄</span><b>5. Колообіг</b><p>Випаровування → конденсація → опади → стік і накопичення → нове випаровування. Вода постійно переходить між резервуарами й станами.</p></div>
+
+<div class="theory"><span class="ico">🌊⚠️</span><b>6. Рятівник і руйнівник</b><p>Вода підтримує життя, але повені, лавини й замерзання води в тріщинах гірських порід можуть руйнувати.</p></div>
+
+</div>
+<div class="task" style="margin-top:13px"><b>Міні-завдання:</b> назвіть одну властивість/особливість води й один <u>наслідок</u>. Не приймається пара «вода важлива → бо вона важлива».</div>
+</div></section>
+
+<section class="section" id="audit"><div class="card">
+<div class="kicker">27–30 хв • аудит водокористування</div>
+<h2>Заощадження — це не «просто закрий кран». Порахуємо ефект.</h2>
+<p class="muted">Числа нижче — <b>умовні значення для задачі</b>, а не універсальні норми витрат.</p>
+<div class="audit">
+<div class="audit-list">
+<div class="audit-item"><label><input type="checkbox" class="save" value="8"> Закривати кран під час чищення зубів — умовно <b>8 л/день</b></label></div>
+<div class="audit-item"><label><input type="checkbox" class="save" value="15"> Скоротити довгий душ — умовно <b>15 л/день</b></label></div>
+<div class="audit-item"><label><input type="checkbox" class="save" value="6"> Не мити овочі під постійним сильним струменем — умовно <b>6 л/день</b></label></div>
+<div class="audit-item"><label><input type="checkbox" class="save" value="12"> Повідомити дорослим про протікання крана/бачка — умовно <b>12 л/день</b></label></div>
+<button class="btn primary" id="calcWater">Порахувати</button>
+</div>
+<div>
+<div class="audit-total"><span id="waterTotal">0</span> л/день</div>
+<p>За 30 днів: <b id="waterMonth">0</b> л.</p>
+<div class="feedback" id="auditFeedback"></div>
+<div class="hint"><b>Високий рівень:</b> яка з практик має найбільший ефект у нашій моделі? Чому з цього ще не випливає, що вона буде найбільшою у кожній реальній родині?</div>
+</div>
+</div>
+</div></section>
+
+<section class="section" id="duel"><div class="card">
+<div class="kicker">30–33 хв • логічний двобій</div>
+<h2>Три висновки. Два звучать переконливо, але є слабкими.</h2>
+<div class="duel">
+<div class="duelitem"><b>1. «Айсберг плаває, отже фото доводить, що в льоді молекули розташовані рідше».</b><button class="btn duelbtn" data-a="bad">Достатній доказ</button> <button class="btn duelbtn" data-a="good">Ні: фото показує факт, але механізм потребує моделі/даних</button></div>
+<div class="duelitem"><b>2. «За таблицею в підручнику для мас 25–50 кг вода становить близько двох третин маси тіла».</b><button class="btn duelbtn" data-a="good">Коректний висновок</button> <button class="btn duelbtn" data-a="bad">Некоректний</button></div>
+<div class="duelitem"><b>3. «Оскільки на Землі багато води, прісну воду можна не економити».</b><button class="btn duelbtn" data-a="bad">Логічно</button> <button class="btn duelbtn" data-a="good">Ні: доступна прісна вода — не те саме, що вся вода планети</button></div>
+</div>
+<div class="feedback" id="duelFeedback"></div>
+</div></section>
+
+<section class="section" id="summary"><div class="card cer">
+<div class="kicker">33–35 хв • CER</div>
+<h2>Доведіть: «Вода — особлива речовина»</h2>
+<p>Не перелічуйте все підряд. Оберіть <b>дві найсильніші особливості</b> й покажіть їхні наслідки.</p>
+<label><b>C — твердження:</b></label><textarea id="cerC" placeholder="Вода особлива, тому що..."></textarea>
+<label><b>E — два докази:</b></label><textarea id="cerE" placeholder="1) ... 2) ..."></textarea>
+<label><b>R — пояснення:</b></label><textarea id="cerR" placeholder="Це важливо для природи й життя, тому що..."></textarea>
+<button class="btn primary" id="cerCheck">Перевірити CER</button><div class="feedback" id="cerFeedback"></div>
+</div></section>
+
+<section class="section" id="home"><div class="card">
+<div class="kicker">ПІСЛЯ УРОКУ • ДОМАШНЄ</div>
+<h2>🏠 Домашнє завдання</h2>
+<div class="good"><b>§11.</b> Обов’язково: опрацювати параграф і виконати один рівень завдання нижче. Після цього пройти тест /10.</div>
+
+<div class="grid3" style="margin-top:12px">
+<div class="level"><b>🟢 Базовий</b>Намалюйте ланцюг колообігу води з 4–5 етапів і підпишіть, де вода змінює стан.</div>
+<div class="level"><b>🔵 Достатній</b>Поясніть у 5–6 реченнях, чому лід на поверхні озера може бути «рятівним». Використайте слова <b>густина, поверхня, замерзання</b>.</div>
+<div class="level"><b>🟣 Високий</b>Міні-аудит: оберіть одну практику економії води вдома, опишіть, як перевірити її ефект, і назвіть <b>одне обмеження Вашого способу підрахунку</b>.</div>
+</div>
+
+<div class="grid2" style="margin-top:12px">
+<div>
+<h3>Обов’язкове відео перед тестом</h3>
+<p><a href="https://www.youtube.com/watch?v=cshccxrHCMA" target="_blank" rel="noopener"><b>«Вода — найдивовижніша рідина на Землі» ↗</b></a></p>
+<h3>За бажанням</h3>
+<p><a href="https://www.youtube.com/watch?v=7Sc766dGdY0" target="_blank" rel="noopener">Урок 11. Чому вода — найдивовижніша рідина на Землі ↗</a></p>
+</div>
+<div>
+<h3>Підручник</h3>
+<p><a href="https://mybook.dniprorada.gov.ua/uploads/mcFKomYKBF5-klas-piznaiemo-pryrodu-bida-2022.pdf" target="_blank" rel="noopener">📘 Підручник Біда — Гільберг — Колісник, 5 клас ↗</a></p>
+<p><a href="https://uahistory.co/pidruchniki/bida-explore-nature-integrated-course-5-class-2022/11.php" target="_blank" rel="noopener">§11 онлайн ↗</a></p>
+<p><b>Що надіслати вчителю:</b> фото/скрин виконаного рівневого завдання + скрин картки результату тесту.</p>
+</div>
+</div>
+</div></section>
+
+<section class="section" id="test"><div class="card">
+<div class="kicker">ПІДСУМКОВА ПЕРЕВІРКА</div>
+<h2>✅ Тест — 10 складних завдань / 10 балів</h2>
+
+<div class="quizgate" id="gate">
+<label>Ім’я та прізвище</label><input type="text" id="studentName" placeholder="Наприклад, Антон Петренко">
+<label>Клас</label><input type="text" id="studentClass" placeholder="5-А">
+<button class="btn primary" id="startQuiz" style="margin-top:10px">Розпочати тест</button>
+<div class="feedback" id="gateFeedback"></div>
+</div>
+
+<div class="quiz" id="quiz">
+
+<div class="q"><b>1. Сценарій. Озеро взимку вкрилося льодом зверху. Яке пояснення найкраще?</b>
+<label><input type="radio" name="q1" value="a">лід має більшу густину й тому спливає</label>
+<label><input type="radio" name="q1" value="b">лід має меншу густину, тому залишається зверху</label>
+<label><input type="radio" name="q1" value="c">лід не має маси</label></div>
+
+<div class="q"><b>2. Сценарій. Якби лід тонув, який наслідок був би найімовірнішим для холодного озера?</b>
+<label><input type="radio" name="q2" value="a">замерзання могло б поширюватися вглиб значно сильніше</label>
+<label><input type="radio" name="q2" value="b">вода перестала б випаровуватися назавжди</label></div>
+
+<div class="q"><b>3. Сценарій. Учень бачить у таблиці: маса 40 кг → приблизно 27 кг води. Який висновок найкращий?</b>
+<label><input type="radio" name="q3" value="a">у цьому прикладі вода становить близько двох третин маси тіла</label>
+<label><input type="radio" name="q3" value="b">усі люди мають рівно 27 кг води</label></div>
+
+<div class="q"><b>4. Сценарій. На холодному склі після видиху з’явилися краплі. Що відбулося?</b>
+<label><input type="radio" name="q4" value="a">водяна пара охолола й сконденсувалася</label>
+<label><input type="radio" name="q4" value="b">скло створило нову воду з нічого</label></div>
+
+<div class="q"><b>5. Оберіть усі твердження, які пояснюють значення води для організмів.</b>
+<label><input type="checkbox" name="q5" value="transport">допомагає переносити розчинені речовини</label>
+<label><input type="checkbox" name="q5" value="cool">бере участь в охолодженні організму</label>
+<label><input type="checkbox" name="q5" value="habitat">є середовищем існування для багатьох організмів</label>
+<label><input type="checkbox" name="q5" value="metal">перетворює будь-яку речовину на метал</label></div>
+
+<div class="q"><b>6. Оберіть усі процеси, що входять до колообігу води.</b>
+<label><input type="checkbox" name="q6" value="evap">випаровування</label>
+<label><input type="checkbox" name="q6" value="cond">конденсація</label>
+<label><input type="checkbox" name="q6" value="precip">опади</label>
+<label><input type="checkbox" name="q6" value="photoshop">редагування фото</label></div>
+
+<div class="q"><b>7. Встановіть відповідність.</b>
+<p>Лід плаває → <select id="match1"><option value="">—</option><option value="density">менша густина льоду</option><option value="cycle">колообіг</option><option value="body">вода в організмі</option></select></p>
+<p>Хмари й опади → <select id="match2"><option value="">—</option><option value="density">менша густина льоду</option><option value="cycle">колообіг</option><option value="body">вода в організмі</option></select></p>
+<p>Таблиця 25 кг → 17 кг води → <select id="match3"><option value="">—</option><option value="density">менша густина льоду</option><option value="cycle">колообіг</option><option value="body">вода в організмі</option></select></p>
+</div>
+
+<div class="q"><b>8. Яка послідовність колообігу логічніша?</b>
+<label><input type="radio" name="q8" value="a">випаровування → конденсація → опади → стік/накопичення</label>
+<label><input type="radio" name="q8" value="b">опади → сонце зникає → вода перестає рухатися</label></div>
+
+<div class="q"><b>9. Учень каже: «Фото айсберга доводить, що в льоді молекули розташовані рідше». Чого бракує для повного доказу механізму?</b>
+<label><input type="radio" name="q9" value="a">моделі/даних про густину або розміщення частинок</label>
+<label><input type="radio" name="q9" value="b">яскравішого фото</label></div>
+
+<div class="q"><b>10. Який CER найсильніший?</b>
+<label><input type="radio" name="q10" value="a">«Вода особлива, бо вона мокра й мені подобається»</label>
+<label><input type="radio" name="q10" value="b">«Вода особлива: у природі вона переходить між трьома станами, а лід має меншу густину й плаває. Це підтримує колообіг і допомагає водоймам не промерзати до дна»</label></div>
+
+<button class="btn primary" id="submitQuiz">Завершити тест</button>
+<div class="result" id="result"><div class="score" id="score"></div><div id="resultText"></div><button class="btn secondary" onclick="window.print()" style="margin-top:8px">Друк / PDF</button></div>
+</div>
+</div></section>
+
+</main>
+
+<footer class="footer"><div class="wrap">
+Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • «Пізнаємо природу», 5 клас • Урок 11
+<br><span class="tiny">Основа: КТП 2026/27 і §11 підручника Біда Д.Д., Гільберг Т.Г., Колісник Я.І. Візуальні джерела: Wikimedia Commons. Відео: Тетяна Ющишина; Тетяна Черепня.</span>
+</div></footer>
+
+<script>
+function fb(id,msg,ok){const e=document.getElementById(id);e.textContent=msg;e.className='feedback show '+(ok?'ok':'no')}
+
+// Mystery
+document.querySelectorAll('.mystery').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.mystery').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(b.dataset.a==='float')fb('mysteryFeedback','Так. Ключовий факт: лід плаває. Тепер треба пояснити механізм і наслідок для життя у водоймі.',true);
+ else fb('mysteryFeedback','Ні. Звичайний лід має меншу густину за рідку воду й плаває.',false);
+})});
+
+// predictions
+const pa={1:'no',2:'yes',3:'yes'},pg={};
+document.querySelectorAll('.pred').forEach(function(b){b.addEventListener('click',function(){
+ pg[b.dataset.q]=b.dataset.a;document.querySelectorAll('.pred[data-q="'+b.dataset.q+'"]').forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+ if(Object.keys(pg).length===3){let s=0;Object.keys(pa).forEach(function(k){if(pg[k]===pa[k])s++});if(s===3)fb('predictFeedback','3/3. У льоді структура менш щільно упакована; людина більш ніж наполовину складається з води; вода існує в трьох станах.',true);else fb('predictFeedback',s+'/3. Збережіть помилки як гіпотези — нижче перевіримо їх доказами.',false)}
+})});
+
+document.getElementById('videoDone').addEventListener('click',function(){fb('videoFeedback','Добре. Тепер будь-яку «особливість» треба пов’язати з наслідком: що вона змінює в природі або житті.',true)});
+
+// evidence
+let e1=false,e2=false;
+document.querySelectorAll('.evidenceBtn').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.a==='good'){e1=true;b.classList.add('active');fb('evidenceFeedback','Перший висновок коректний: він не виходить за межі даних таблиці.',true)}else fb('evidenceFeedback','Надто сильне узагальнення: таблиця не описує всіх людей світу.',false)})});
+document.querySelectorAll('.evidenceBtn2').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.a==='good'){e2=true;b.classList.add('active');fb('evidenceFeedback','Так. Висновок має залишатися в межах того, що реально показують дані.',true)}else fb('evidenceFeedback','Ні. Для всіх вікових груп у цій таблиці даних немає.',false)})});
+
+// missions
+document.querySelectorAll('.mcheck').forEach(function(b){b.addEventListener('click',function(){
+ const id=b.dataset.id, val=document.getElementById(id==='base'?'mBase':id==='mid'?'mMid':'mHigh').value.trim();
+ const min=id==='base'?45:id==='mid'?60:90;
+ if(val.length>=min)fb(id+'Feedback','Структура відповіді достатня. Перевірте, чи кожне твердження спирається на дані/модель і чи є причинний зв’язок.',true);
+ else fb(id+'Feedback','Додайте причинний ланцюг і конкретний доказ; одного короткого твердження замало.',false);
+})});
+
+// particles
+const positions={
+ liquid:[[12,18],[28,15],[46,20],[63,16],[78,22],[18,42],[36,39],[54,44],[72,40],[86,45],[10,68],[29,64],[48,69],[67,65],[82,70]],
+ ice:[[10,15],[34,15],[58,15],[82,15],[22,38],[46,38],[70,38],[10,61],[34,61],[58,61],[82,61],[22,84],[46,84],[70,84],[94,84]]
+};
+const stage=document.getElementById('particleStage');
+const dots=[];
+for(let i=0;i<15;i++){const d=document.createElement('div');d.className='dot';stage.appendChild(d);dots.push(d)}
+function setMode(mode){
+ const arr=positions[mode];
+ dots.forEach(function(d,i){d.style.left=arr[i][0]+'%';d.style.top=arr[i][1]+'%'});
+ document.getElementById('particleTitle').textContent=mode==='liquid'?'Рідка вода':'Лід';
+ document.getElementById('particleText').textContent=mode==='liquid'?'У спрощеній моделі частинки розміщені ближче одна до одної. Та сама кількість речовини займає менший об’єм.':'Під час замерзання формується більш «відкрита» структура: середня відстань між частинками зростає, об’єм збільшується, густина зменшується.';
+}
+document.querySelectorAll('.particleBtn').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.particleBtn').forEach(function(x){x.classList.remove('active')});b.classList.add('active');setMode(b.dataset.mode)})});
+setMode('liquid');
+
+// audit
+document.getElementById('calcWater').addEventListener('click',function(){
+ const total=[...document.querySelectorAll('.save:checked')].reduce((s,x)=>s+Number(x.value),0);
+ document.getElementById('waterTotal').textContent=total;document.getElementById('waterMonth').textContent=total*30;
+ if(total>0)fb('auditFeedback','У нашій умовній моделі це '+total+' л/день, або '+(total*30)+' л за 30 днів. Реальні витрати залежать від крана, тривалості й звичок.',true);
+ else fb('auditFeedback','Оберіть хоча б одну практику, щоб побачити розрахунок.',false);
+});
+
+// duel
+let duelScore=0;
+document.querySelectorAll('.duelbtn').forEach(function(b){b.addEventListener('click',function(){
+ if(b.dataset.a==='good'){if(!b.disabled)duelScore++;b.disabled=true;fb('duelFeedback','Правильно. Найсильніша відповідь не перебільшує можливості доказу.',true)}
+ else fb('duelFeedback','Пастка: висновок або виходить за межі даних, або плутає факт із поясненням механізму.',false);
+})});
+
+// CER
+document.getElementById('cerCheck').addEventListener('click',function(){
+ const c=document.getElementById('cerC').value.trim(),e=document.getElementById('cerE').value.trim(),r=document.getElementById('cerR').value.trim();
+ if(c.length>=25&&e.length>=55&&r.length>=45)fb('cerFeedback','CER повний: є теза, щонайменше два докази й пояснення їх значення.',true);
+ else fb('cerFeedback','Потрібні: чітка теза + два конкретні докази + пояснення наслідків.',false);
+});
+
+// quiz gate
+function validName(v){const p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(function(x){return /^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/.test(x)})}
+document.getElementById('startQuiz').addEventListener('click',function(){
+ const nm=document.getElementById('studentName').value,cl=document.getElementById('studentClass').value.trim();
+ if(!validName(nm)||!cl){fb('gateFeedback','Введіть ім’я, прізвище та клас.',false);return}
+ document.getElementById('gate').style.display='none';document.getElementById('quiz').classList.add('open');
+});
+function radio(n){const x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:''}
+function checks(n){return [...document.querySelectorAll('input[name="'+n+'"]:checked')].map(function(x){return x.value}).sort().join(',')}
+
+document.getElementById('submitQuiz').addEventListener('click',function(){
+ let s=0;
+ if(radio('q1')==='b')s++;
+ if(radio('q2')==='a')s++;
+ if(radio('q3')==='a')s++;
+ if(radio('q4')==='a')s++;
+ if(checks('q5')==='cool,habitat,transport')s++;
+ if(checks('q6')==='cond,evap,precip')s++;
+ if(document.getElementById('match1').value==='density'&&document.getElementById('match2').value==='cycle'&&document.getElementById('match3').value==='body')s++;
+ if(radio('q8')==='a')s++;
+ if(radio('q9')==='a')s++;
+ if(radio('q10')==='b')s++;
+
+ const msg=s<=4?'Повторіть три ключові блоки: лід і густина, вода в організмі, колообіг.':s<=7?'Основа є. Допрацюйте причинні зв’язки й межі доказів.':s<=9?'Добре: Ви пояснюєте особливості води через наслідки й дані.':'Відмінно: Ви не просто знаєте факти, а будуєте доказові причинні пояснення.';
+ document.getElementById('score').textContent=s+'/10';
+ document.getElementById('resultText').innerHTML='<b>'+document.getElementById('studentName').value.trim()+'</b> • '+document.getElementById('studentClass').value.trim()+'<br>Урок 11 «Чому вода — особлива речовина» • '+(s*10)+'%<br>'+msg+'<br><b>Зробіть скриншот цієї картки та надішліть учителю.</b><br><span class="tiny">'+new Date().toLocaleString('uk-UA')+'</span>';
+ document.getElementById('result').classList.add('show');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
+</body>
+</html>
