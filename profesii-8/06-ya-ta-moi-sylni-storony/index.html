@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="8 клас, курс «Професії», урок 6. Я та мої сильні сторони: самооцінка, докази компетентностей, ментальна карта, портфоліо, тест.">
+<title>8 клас • Професії • Урок 6 — Я та мої сильні сторони</title>
+<meta name="theme-color" content="#0f6c63">
+<style>
+:root{
+  --bg:#f4fbf8;--paper:#ffffff;--ink:#18323a;--muted:#58727a;--line:#d4e6df;
+  --green:#0f6c63;--green-2:#13887d;--green-soft:#e3f6f0;
+  --gold:#f2b544;--gold-soft:#fff4d8;
+  --violet:#7856d8;--violet-soft:#efe8ff;
+  --coral:#e46b5d;--coral-soft:#ffe7e3;
+  --sky:#3a88d8;--sky-soft:#e8f3ff;
+  --shadow:0 16px 42px rgba(20,59,60,.10);
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{
+  margin:0;
+  font:400 17px/1.62 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 0 0,#dff5ee 0,transparent 27rem),
+    radial-gradient(circle at 100% 12%,#fff1cf 0,transparent 22rem),
+    linear-gradient(180deg,#f9fffd 0,#f4fbf8 40%,#eef8f4 100%);
+}
+a{color:#0d6ac9}
+img,svg{max-width:100%}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+header{
+  color:#fff;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(255,255,255,.16) 0,transparent 18rem),
+    linear-gradient(135deg,#08393e 0,#0f6c63 45%,#1d9e8f 100%);
+  overflow:hidden;
+  position:relative;
+}
+header::after{
+  content:"";position:absolute;inset:auto -10% -120px auto;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,#ffffff26 0,#ffffff08 35%,transparent 66%);pointer-events:none;
+}
+.hero{padding:54px 0 26px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid #ffffff36;background:#ffffff1a;border-radius:999px;font-size:.84rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;margin-top:18px}
+.hero h1{font-size:clamp(2.2rem,5vw,4.1rem);line-height:1.05;letter-spacing:-.04em;margin:.25em 0 .3em;max-width:720px}
+.hero p.lead{max-width:760px;font-size:1.07rem;color:#e8fbf6;margin:0 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}
+.chip{padding:9px 14px;border-radius:999px;background:#ffffff20;border:1px solid #ffffff3e;font-weight:700;font-size:.94rem}
+.hero-card{background:#ffffff12;border:1px solid #ffffff2d;border-radius:26px;padding:20px;backdrop-filter:blur(5px);box-shadow:inset 0 1px 0 #ffffff22}
+.mini-title{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#d7fffa;margin-bottom:10px}
+.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat{background:#ffffff14;border-radius:18px;padding:14px;border:1px solid #ffffff1f}
+.stat b{display:block;font-size:1.45rem;line-height:1.1;margin-bottom:5px}
+nav{padding:15px 0 0;display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid #ffffff30;margin-top:22px}
+nav a{color:#fff;text-decoration:none;font-weight:700;background:#ffffff17;border:1px solid #ffffff38;padding:10px 15px;border-radius:12px;min-height:44px;display:inline-flex;align-items:center}
+main{padding:26px 0 42px}
+section{margin:34px 0 54px}
+.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:18px}
+.section-head h2{margin:0;font-size:clamp(1.45rem,2.5vw,2.2rem);line-height:1.14;letter-spacing:-.03em;color:#10363a}
+.kicker{font-size:.9rem;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+.grid-2,.grid-3,.grid-4{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);min-width:0}
+.card h3,.panel h3{margin:0 0 10px;font-size:1.17rem;line-height:1.25}
+.card p,.panel p{margin:0 0 1em}
+.card p:last-child,.panel p:last-child{margin-bottom:0}
+.icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.65rem;margin-bottom:14px}
+.green{background:var(--green-soft)} .gold{background:var(--gold-soft)} .violet{background:var(--violet-soft)} .coral{background:var(--coral-soft)} .sky{background:var(--sky-soft)}
+.band{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+.choice-list{display:grid;gap:12px}
+.choice{width:100%;text-align:left;border:1px solid #b8d7d0;background:#f6fdfb;color:var(--ink);border-radius:16px;padding:15px 16px;font:inherit;font-weight:650;cursor:pointer;line-height:1.5}
+.choice:hover{background:#edf9f6;border-color:var(--green)}
+.choice[aria-pressed="true"]{background:var(--green-soft);border:2px solid var(--green);padding:14px 15px}
+.feedback{margin-top:14px;background:#effaf5;border-left:4px solid var(--green);padding:14px 16px;border-radius:14px}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.tag{display:inline-flex;align-items:center;gap:8px;background:#f3f7f8;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:.94rem;font-weight:650}
+textarea,input:not([type=radio]),select{width:100%;display:block;border:1px solid #b9cdd1;border-radius:16px;padding:13px 14px;font:inherit;color:var(--ink);background:#fff;margin-top:10px}
+textarea{min-height:120px;resize:vertical}
+label{display:block;font-weight:700}
+.meter{height:12px;border-radius:999px;background:#e8f1f0;overflow:hidden;margin-top:10px}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--green-2))}
+.compare{display:grid;gap:12px}
+.compare .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box-ok,.box-warn{padding:14px 15px;border-radius:16px}
+.box-ok{background:#ebfaf4;border:1px solid #cbeee0}
+.box-warn{background:#fff2ea;border:1px solid #ffd2c4}
+.timeline{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:start}
+.step-num{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,#0f6c63,#1b988b);color:#fff;display:grid;place-items:center;font-size:1.2rem;font-weight:900;box-shadow:var(--shadow)}
+.levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.level{border-radius:22px;padding:18px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
+.level b{display:inline-block;margin-bottom:10px;padding:6px 10px;border-radius:999px;font-size:.83rem;text-transform:uppercase;letter-spacing:.06em}
+.level:nth-child(1) b{background:#e8f5ff;color:#2d6cb0}
+.level:nth-child(2) b{background:#f4ecff;color:#7249cb}
+.level:nth-child(3) b{background:#e7f9ef;color:#0f7a61}
+.note{background:linear-gradient(135deg,#fff8df,#fff2c5);border:1px solid #f2e3a4;border-radius:18px;padding:16px 17px}
+.video-card{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:18px;background:#fbfefe}
+.play{width:48px;height:48px;border-radius:14px;background:var(--green-soft);display:grid;place-items:center;font-size:1.3rem;flex:0 0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:none;border-radius:14px;background:var(--green);color:#fff;font:800 1rem/1.2 Inter,system-ui,sans-serif;cursor:pointer}
+.btn:hover{filter:brightness(.94)}
+.small{font-size:.92rem;color:var(--muted)}
+#quiz fieldset{border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px;margin:0 0 16px;background:#fbfefd}
+#quiz legend{font-weight:800;padding:0 8px;color:#15393d;line-height:1.4}
+.option{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;background:#fff;border:1px solid #d8e8e2;border-radius:14px;margin:10px 0}
+.option input{margin-top:3px}
+#result{margin-top:18px;background:#eff9f4}
+footer{padding:14px 0 40px;color:var(--muted);border-top:1px solid var(--line)}
+[hidden]{display:none!important}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (max-width:980px){.hero-grid,.band{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.levels{grid-template-columns:1fr}.section-head{display:block}}
+@media (max-width:700px){.grid-2,.grid-3,.grid-4,.compare .row{grid-template-columns:1fr}.wrap{width:min(100% - 22px,1180px)}.hero{padding-top:38px}.hero h1{font-size:clamp(2rem,9vw,3rem)}nav a{flex:1 1 calc(50% - 10px)}.stat-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){body{font-size:16px}.card,.panel,.level{padding:17px;border-radius:18px}.hero-card{padding:16px}.step{grid-template-columns:44px 1fr}.step-num{width:44px;height:44px;border-radius:14px;font-size:1rem}.stat-grid{grid-template-columns:1fr}.nav a{flex-basis:100%}}
+@media print{body{background:#fff;font-size:11pt}header{background:#fff;color:#000}.eyebrow,.chip,nav,.btn,.video-card .play{display:none!important}header::after{display:none}.hero{padding:0}.card,.panel,.level{box-shadow:none;border:1px solid #aaa}.grid-2,.grid-3,.grid-4,.band,.compare .row,.hero-grid,.levels{grid-template-columns:1fr}.choice{background:#fff}textarea{min-height:60px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <div class="eyebrow">Курс «Професії» • 8 клас • урок №6 • 35 хв</div>
+    <div class="hero-grid">
+      <div>
+        <h1>Я та мої сильні сторони</h1>
+        <p class="lead">Не просто «я молодець, повірте на слово». Сьогодні вчимося <strong>бачити свої сильні сторони, відрізняти їх від інтересів і підтверджувати конкретними доказами</strong>.</p>
+        <div class="chips">
+          <span class="chip">Самооцінка</span>
+          <span class="chip">Докази компетентностей</span>
+          <span class="chip">Ментальна карта</span>
+          <span class="chip">Запис до портфоліо</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="mini-title">Що вийде в кінці уроку</div>
+        <div class="stat-grid">
+          <div class="stat"><b>4</b><span>групи сильних сторін Ви пропрацюєте</span></div>
+          <div class="stat"><b>1</b><span>ментальну карту створите</span></div>
+          <div class="stat"><b>3+</b><span>докази власних умінь доберете</span></div>
+          <div class="stat"><b>10/10</b><span>питань у підсумковому тесті</span></div>
+        </div>
+      </aside>
+    </div>
+    <nav>
+      <a href="#warmup">Старт</a>
+      <a href="#lab">Лабораторія</a>
+      <a href="#theory">Теорія</a>
+      <a href="#mission">Рівні</a>
+      <a href="#home">Домашнє</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="warmup">
+    <div class="section-head">
+      <div>
+        <div class="kicker">0–5 хв</div>
+        <h2>Проблемне питання на старті</h2>
+      </div>
+    </div>
+    <div class="band">
+      <div class="panel">
+        <h3>Хто переконливіше довів свою сильну сторону?</h3>
+        <p>Двоє учнів кажуть: <strong>«Я вмію працювати в команді»</strong>. Перший наводить приклад спільного проєкту, де він розподіляв ролі та стежив за дедлайнами. Другий просто каже: «Мені подобається спілкуватися». Оберіть сильніший висновок.</p>
+        <div class="choice-list" id="warmupChoices"></div>
+        <div class="feedback" id="warmupFeedback">Оберіть відповідь. Після цього коротко поясніть: <strong>який саме доказ робить висновок переконливим?</strong></div>
+      </div>
+      <aside class="card">
+        <div class="icon gold">💡</div>
+        <h3>Підказка для мислення</h3>
+        <p>Сильна сторона — це не просто симпатія до чогось. Вона має проявлятися в <strong>дії</strong>, <strong>результаті</strong> або <strong>стабільній поведінці</strong>.</p>
+        <div class="tag-row">
+          <span class="tag">Люблю ≠ умію</span>
+          <span class="tag">Умію → можу довести</span>
+          <span class="tag">Приклад важливіший за гучну фразу</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div>
+        <div class="kicker">5–9 хв</div>
+        <h2>Візуальна карта сильних сторін</h2>
+      </div>
+    </div>
+    <div class="grid-4">
+      <article class="card">
+        <div class="icon green">🧠</div>
+        <h3>Знання</h3>
+        <p>Що Ви знаєте краще за інших або в чому швидко орієнтуєтеся.</p>
+        <div class="meter"><div class="fill" style="width:84%"></div></div>
+      </article>
+      <article class="card">
+        <div class="icon sky">🛠️</div>
+        <h3>Практичні вміння</h3>
+        <p>Що Ви реально вмієте робити руками, інструментами, сервісами, техніками.</p>
+        <div class="meter"><div class="fill" style="width:76%"></div></div>
+      </article>
+      <article class="card">
+        <div class="icon violet">🤝</div>
+        <h3>Взаємодія з людьми</h3>
+        <p>Командна робота, допомога іншим, організація, комунікація, слухання.</p>
+        <div class="meter"><div class="fill" style="width:72%"></div></div>
+      </article>
+      <article class="card">
+        <div class="icon coral">🌟</div>
+        <h3>Особисті якості</h3>
+        <p>Наполегливість, відповідальність, акуратність, уважність, ініціативність.</p>
+        <div class="meter"><div class="fill" style="width:88%"></div></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="lab">
+    <div class="section-head">
+      <div>
+        <div class="kicker">9–18 хв</div>
+        <h2>Лабораторія доказів</h2>
+      </div>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="icon green">🔍</div>
+        <h3>Завдання 1. Розкладіть твердження по поличках</h3>
+        <p>У трьох прикладах визначте: де <strong>сильна сторона</strong>, де <strong>інтерес</strong>, а де поки що <strong>непідтверджене твердження</strong>.</p>
+        <div class="note small">Приклади: «Я люблю біологію», «Я швидко вчуся працювати з новою програмою», «Я вмію організовувати інших».</div>
+        <label>Запишіть відповідь і по одному доказу до кожного твердження
+          <textarea placeholder="1. ... → це ... , бо ...
+2. ... → це ... , бо ...
+3. ... → це ... , бо ..."></textarea>
+        </label>
+      </article>
+      <article class="card">
+        <div class="icon sky">🗺️</div>
+        <h3>Завдання 2. Ментальна карта</h3>
+        <p>Заповніть 4 гілки: <strong>знання, практичні вміння, взаємодія з людьми, особисті якості</strong>. У кожній вкажіть сильну сторону та конкретний приклад.</p>
+        <label>Моя карта сильних сторін
+          <textarea placeholder="Знання: ... Доказ: ...
+Практичні вміння: ... Доказ: ...
+Взаємодія: ... Доказ: ...
+Особисті якості: ... Доказ: ..."></textarea>
+        </label>
+      </article>
+      <article class="card">
+        <div class="icon violet">💬</div>
+        <h3>Завдання 3. Погляд з боку</h3>
+        <p>Попросіть однокласника назвати <strong>одну Вашу сильну сторону</strong> та пригадати ситуацію, де вона проявилась. Порівняйте з власною самооцінкою.</p>
+        <label>Що сказав(-ла) однокласник(-ця)
+          <textarea placeholder="Названа сильна сторона: ...
+Який приклад він/вона навів(-ла): ...
+Чи збігається це з моєю картою: ..."></textarea>
+        </label>
+      </article>
+      <article class="card">
+        <div class="icon gold">🗂️</div>
+        <h3>Практична робота. Запис до портфоліо</h3>
+        <p>Складіть короткий запис для портфоліо за схемою: <strong>сильна сторона → доказ → де це може знадобитися</strong>.</p>
+        <label>Мій запис до портфоліо
+          <textarea placeholder="Моя сильна сторона: ...
+Доказ: ...
+Де це може бути корисно в навчанні / житті / майбутній професії: ..."></textarea>
+        </label>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div>
+        <div class="kicker">18–21 хв</div>
+        <h2>Що може бути доказом?</h2>
+      </div>
+    </div>
+    <div class="grid-4">
+      <article class="card"><div class="icon green">📌</div><h3>Конкретна дія</h3><p>Наприклад: створив(-ла) макет, упорався(-лася) з програмою, організував(-ла) етап роботи.</p></article>
+      <article class="card"><div class="icon gold">🏁</div><h3>Результат</h3><p>Є готовий продукт: малюнок, презентація, оформлення, дослід, фото виробу, виступ.</p></article>
+      <article class="card"><div class="icon violet">🔁</div><h3>Повторюваність</h3><p>Сильна сторона проявляється не випадково один раз, а регулярно в різних ситуаціях.</p></article>
+      <article class="card"><div class="icon coral">👀</div><h3>Зовнішнє підтвердження</h3><p>Відгук учителя, однокласника, батьків або спільний досвід у проєкті.</p></article>
+    </div>
+  </section>
+
+  <section id="theory">
+    <div class="section-head">
+      <div>
+        <div class="kicker">21–30 хв</div>
+        <h2>Коротка теорія — чітко й без води</h2>
+      </div>
+    </div>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>Що таке сильні сторони?</h3>
+        <p>Це не просто те, що Вам подобається. Сильні сторони — це <strong>знання, уміння, способи взаємодії або риси</strong>, які допомагають Вам якісно діяти й отримувати результат.</p>
+      </article>
+      <article class="panel">
+        <h3>Чому важливо бачити їх точно?</h3>
+        <p>Точна самооцінка допомагає краще вчитися, обирати ролі в команді, формувати портфоліо та поступово розуміти, які напрями діяльності можуть Вам підходити.</p>
+      </article>
+      <article class="panel">
+        <h3>Чим сильна сторона відрізняється від інтересу?</h3>
+        <div class="compare">
+          <div class="row">
+            <div class="box-ok"><strong>Інтерес</strong><br>«Мені цікаво малювати».</div>
+            <div class="box-warn"><strong>Сильна сторона</strong><br>«Я вмію створювати композицію й підбирати кольори, що видно з моїх робіт».</div>
+          </div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Помилка, якої варто уникати</h3>
+        <p>Не плутайте самооцінку з самовихвалянням або, навпаки, із знеціненням себе. Завдання — не «довести, що я найкращий(-а)», а <strong>чесно побачити свої ресурси й підтвердити їх фактами</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="mission">
+    <div class="section-head">
+      <div>
+        <div class="kicker">30–33 хв</div>
+        <h2>Різнорівневі завдання на вибір</h2>
+      </div>
+    </div>
+    <div class="levels">
+      <article class="level">
+        <b>Базовий</b>
+        <p>Назвіть <strong>три свої сильні сторони</strong> і наведіть до кожної по <strong>одному прикладу</strong>.</p>
+      </article>
+      <article class="level">
+        <b>Достатній</b>
+        <p>Поясніть, <strong>яка з Ваших сильних сторін найкраще проявляється в навчанні</strong>, а яка — у взаємодії з людьми. Доведіть прикладами.</p>
+      </article>
+      <article class="level">
+        <b>Високий</b>
+        <p>Оберіть одну сильну сторону й поясніть, <strong>у яких видах діяльності або професійних напрямах вона може бути цінною</strong>. Назвіть також обмеження: чого Вам ще бракує.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div>
+        <div class="kicker">33–35 хв</div>
+        <h2>Підсумок за формулою CER</h2>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="timeline">
+        <div class="step"><div class="step-num">1</div><div><h3>Твердження</h3><p>Яка моя сильна сторона сьогодні виявилась найпереконливішою?</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Доказ</h3><p>Який приклад, результат або спостереження це підтверджує?</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Пояснення</h3><p>Чому саме цей доказ дозволяє зробити висновок? Де ця сильна сторона буде корисною?</p></div></div>
+      </div>
+      <label>Мій підсумковий висновок
+        <textarea placeholder="Твердження: ...
+Доказ: ...
+Пояснення: ..."></textarea>
+      </label>
+    </div>
+  </section>
+
+  <section id="home">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Домашнє завдання</div>
+        <h2>Домашній блок</h2>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Що зробити вдома</h3>
+        <div class="video-card"><div class="play">▶</div><div><strong>Обов’язково:</strong> повторіть ментальну карту й доповніть портфоліо одним завершеним записом.</div></div>
+        <div class="video-card"><div class="play">📘</div><div><strong>Письмово:</strong> оберіть одну сильну сторону та поясніть, як вона може допомогти Вам у навчанні або майбутній діяльності.</div></div>
+        <div class="video-card"><div class="play">🧩</div><div><strong>Тест:</strong> виконайте 10 завдань і надішліть учителю скриншот картки результату.</div></div>
+      </div>
+      <div class="panel no-print">
+        <h3>Шлюз до тесту</h3>
+        <label>Ім’я та прізвище
+          <input id="studentName" autocomplete="name" placeholder="Ім’я Прізвище">
+        </label>
+        <label>Клас
+          <input id="studentClass" placeholder="8-А / 8-Б" value="8">
+        </label>
+        <button class="btn" id="startQuizBtn">Розпочати тест</button>
+        <p class="small" id="gateError" role="alert"></p>
+      </div>
+    </div>
+    <div id="quiz" hidden></div>
+    <div class="panel" id="result" hidden></div>
+  </section>
+</main>
+
+<footer class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Урок побудовано відповідно до теми КТП: «Я та мої сильні сторони».</footer>
+
+<script>
+const warmupOptions = [
+  "Перший учень: він навів конкретний доказ і показав, як саме проявилась сильна сторона.",
+  "Другий учень: достатньо того, що йому подобається спілкуватися.",
+  "Обидва однаково переконливі, бо обидва так вважають."
+];
+const warmupFeedback = [
+  "Так. Конкретний приклад дії — це сильніший доказ, ніж загальна симпатія до спілкування.",
+  "Не зовсім. Любити спілкування — це ще не доказ уміння працювати в команді.",
+  "Ні. Власна думка важлива, але для переконливого висновку потрібен факт або приклад."
+];
+const warmupBox = document.getElementById('warmupChoices');
+const warmupText = document.getElementById('warmupFeedback');
+
+warmupOptions.forEach((text, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'choice';
+  btn.type = 'button';
+  btn.textContent = text;
+  btn.setAttribute('aria-pressed', 'false');
+  btn.addEventListener('click', () => {
+    [...warmupBox.querySelectorAll('button')].forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+    warmupText.textContent = warmupFeedback[i];
+  });
+  warmupBox.appendChild(btn);
+});
+
+const QUIZ = [
+  {q:'Що найточніше описує сильну сторону?', type:'single', options:['Те, що випадково вийшло один раз','Знання, уміння або якість, які проявляються в діях і дають результат','Будь-яке захоплення'], correct:1},
+  {q:'Що є найкращим доказом сильної сторони?', type:'single', options:['Конкретний приклад діяльності або результат','Фраза «я так відчуваю»','Тільки похвала від інших'], correct:0},
+  {q:'Що ближче до інтересу, а не до сильної сторони?', type:'single', options:['Мені цікаво читати про тварин','Я можу пояснити тему однокласнику','Я регулярно вчасно завершую роботу'], correct:0},
+  {q:'Для чого потрібна точна самооцінка?', type:'single', options:['Щоб краще бачити свої ресурси й можливості розвитку','Щоб довести, що я кращий за всіх','Щоб зовсім не слухати думку інших'], correct:0},
+  {q:'Оберіть приклади доказів сильної сторони.', type:'multi', options:['Готова робота або результат','Конкретна ситуація, де вміння проявилося','Слова «ну, мабуть»','Регулярне повторення успіху'], correct:[0,1,3]},
+  {q:'Що може допомогти перевірити власну самооцінку?', type:'multi', options:['Зворотний зв’язок від інших','Порівняння з конкретними прикладами','Повне ігнорування фактів','Портфоліо робіт'], correct:[0,1,3]},
+  {q:'Установіть відповідність.', type:'match', left:['Інтерес','Сильна сторона','Доказ'], right:['Конкретний приклад або результат','Те, що людині подобається','Те, що вдається й підтверджується діями'], correct:[1,2,0]},
+  {q:'Розташуйте кроки самооцінки в правильному порядку.', type:'order', items:['Зробити висновок про сильну сторону','Пригадати ситуацію або результат','Пояснити, чому це є доказом'], correct:[1,2,0]},
+  {q:'Яких даних бракує для висновку «я добре організовую інших»?', type:'single', options:['Прикладу реальної ситуації, де це проявилося','Жодних, фрази достатньо','Потрібна тільки красива назва'], correct:0},
+  {q:'Оберіть найкращий висновок.', type:'single', options:['Моя сильна сторона — відповідальність, бо я регулярно виконую доручення вчасно і без нагадувань.','Я, напевно, класний у всьому.','Мені щось подобається, отже я це вже вмію.'], correct:0}
+];
+
+function validFullName(value){
+  const parts = value.trim().replace(/\s+/g,' ').split(' ');
+  return parts.length >= 2 && parts.every(p => /^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(p));
+}
+
+const startBtn = document.getElementById('startQuizBtn');
+const quizBox = document.getElementById('quiz');
+const resultBox = document.getElementById('result');
+
+function renderOptionSingle(name, labelText, value){
+  const label = document.createElement('label');
+  label.className = 'option';
+  const input = document.createElement('input');
+  input.type = 'radio';
+  input.name = name;
+  input.value = value;
+  label.append(input, document.createTextNode(labelText));
+  return label;
+}
+
+function renderOptionMulti(name, labelText, value){
+  const label = document.createElement('label');
+  label.className = 'option';
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.name = name;
+  input.value = value;
+  label.append(input, document.createTextNode(labelText));
+  return label;
+}
+
+function arraysEqual(a,b){return a.length===b.length && a.every((v,i)=>v===b[i]);}
+
+function buildQuiz(){
+  quizBox.innerHTML = '';
+  QUIZ.forEach((item, index) => {
+    const fs = document.createElement('fieldset');
+    const lg = document.createElement('legend');
+    lg.textContent = `${index+1}. ${item.q}`;
+    fs.appendChild(lg);
+
+    if(item.type === 'single'){
+      item.options.forEach((opt, i) => fs.appendChild(renderOptionSingle(`q${index}`, opt, i)));
+    }
+    if(item.type === 'multi'){
+      item.options.forEach((opt, i) => fs.appendChild(renderOptionMulti(`q${index}`, opt, i)));
+    }
+    if(item.type === 'match'){
+      item.left.forEach((left, i) => {
+        const wrap = document.createElement('label');
+        wrap.className = 'option';
+        wrap.style.display = 'grid';
+        wrap.style.gridTemplateColumns = '1fr';
+        wrap.innerHTML = `<strong>${left}</strong>`;
+        const select = document.createElement('select');
+        select.name = `q${index}_${i}`;
+        ['— оберіть —', ...item.right].forEach((text, j) => {
+          const option = document.createElement('option');
+          option.value = j-1;
+          option.textContent = text;
+          select.appendChild(option);
+        });
+        wrap.appendChild(select);
+        fs.appendChild(wrap);
+      });
+    }
+    if(item.type === 'order'){
+      const info = document.createElement('p');
+      info.className = 'small';
+      info.textContent = 'Запишіть порядок цифрами через кому, наприклад: 2,1,3';
+      fs.appendChild(info);
+      item.items.forEach((text, i) => {
+        const p = document.createElement('div');
+        p.className = 'option';
+        p.textContent = `${i+1}. ${text}`;
+        fs.appendChild(p);
+      });
+      const input = document.createElement('input');
+      input.name = `q${index}`;
+      input.placeholder = 'Наприклад: 2,3,1';
+      fs.appendChild(input);
+    }
+
+    quizBox.appendChild(fs);
+  });
+
+  const finish = document.createElement('button');
+  finish.className = 'btn';
+  finish.type = 'button';
+  finish.textContent = 'Завершити та перевірити';
+  finish.addEventListener('click', checkQuiz);
+  quizBox.appendChild(finish);
+}
+
+function checkQuiz(){
+  let score = 0;
+  QUIZ.forEach((item, index) => {
+    if(item.type === 'single'){
+      const checked = document.querySelector(`input[name="q${index}"]:checked`);
+      if(checked && Number(checked.value) === item.correct) score++;
+    }
+    if(item.type === 'multi'){
+      const values = [...document.querySelectorAll(`input[name="q${index}"]:checked`)].map(el => Number(el.value)).sort((a,b)=>a-b);
+      const correct = [...item.correct].sort((a,b)=>a-b);
+      if(arraysEqual(values, correct)) score++;
+    }
+    if(item.type === 'match'){
+      const values = item.left.map((_, i) => Number(document.querySelector(`[name="q${index}_${i}"]`).value));
+      if(arraysEqual(values, item.correct)) score++;
+    }
+    if(item.type === 'order'){
+      const raw = document.querySelector(`[name="q${index}"]`).value.trim();
+      const values = raw.split(',').map(v => Number(v.trim()) - 1).filter(v => !Number.isNaN(v));
+      if(arraysEqual(values, item.correct)) score++;
+    }
+  });
+
+  const name = document.getElementById('studentName').value.trim().replace(/\s+/g,' ');
+  const klass = document.getElementById('studentClass').value.trim();
+  let comment = 'Потрібно повторити матеріал.';
+  if(score >= 5) comment = 'Достатній результат.';
+  if(score >= 8) comment = 'Добре! Ви впевнено орієнтуєтесь у темі.';
+  if(score === 10) comment = 'Відмінно!';
+  resultBox.hidden = false;
+  resultBox.innerHTML = `<h3>Результат тестування</h3>
+    <p><strong>${name}</strong> • ${klass} клас</p>
+    <p><strong>Тема:</strong> Я та мої сильні сторони</p>
+    <p><strong>Результат:</strong> ${score}/10 (${Math.round(score*10)}%)</p>
+    <p><strong>Дата і час:</strong> ${new Date().toLocaleString('uk-UA')}</p>
+    <p><strong>Коментар:</strong> ${comment}</p>
+    <p><strong>Інструкція:</strong> Зробіть скриншот цієї картки та надішліть учителю.</p>`;
+  resultBox.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+startBtn.addEventListener('click', () => {
+  const fullName = document.getElementById('studentName').value;
+  const studentClass = document.getElementById('studentClass').value;
+  const err = document.getElementById('gateError');
+  if(!validFullName(fullName) || !studentClass.trim()){
+    err.textContent = 'Введіть ім’я, прізвище та клас.';
+    return;
+  }
+  err.textContent = '';
+  if(quizBox.children.length === 0) buildQuiz();
+  quizBox.hidden = false;
+  quizBox.scrollIntoView({behavior:'smooth', block:'start'});
+});
+</script>
+</body>
+</html>
