@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="9 клас, курс «Професії», урок 6. Права у сфері праці, рівні можливості, ризики працевлаштування: аналіз вакансій, дискримінація, безпечне рішення, тест.">
+<title>9 клас • Професії • Урок 6 — Права у сфері праці</title>
+<meta name="theme-color" content="#183d73">
+<style>
+:root{
+  --bg:#f5f8fe;--paper:#fff;--ink:#1d2e40;--muted:#61758d;--line:#d8e2f0;
+  --navy:#183d73;--blue:#235bb5;--blue-soft:#eaf2ff;
+  --cyan:#1d9bb8;--cyan-soft:#e8fafd;
+  --green:#1e8b5a;--green-soft:#e8f7ef;
+  --amber:#d39a28;--amber-soft:#fff4db;
+  --red:#c54f55;--red-soft:#ffe8ea;
+  --violet:#7451cf;--violet-soft:#eee7ff;
+  --shadow:0 16px 42px rgba(30,55,100,.11);
+  --radius:24px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{
+  margin:0;
+  color:var(--ink);
+  font:400 17px/1.62 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 0 0,#e9f0ff 0,transparent 26rem),
+    radial-gradient(circle at 100% 10%,#ecfbff 0,transparent 22rem),
+    linear-gradient(180deg,#f9fbff 0,#f5f8fe 50%,#eef3fb 100%);
+}
+a{color:#155fc0}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
+header{color:#fff;background:linear-gradient(135deg,#0f2343 0,#183d73 40%,#2667c5 100%);overflow:hidden;position:relative}
+header::before{content:"";position:absolute;right:-80px;top:-70px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#ffffff20 0,#ffffff0a 44%,transparent 68%)}
+.hero{padding:54px 0 26px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid #ffffff34;background:#ffffff18;border-radius:999px;font-size:.84rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;margin-top:18px}
+.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;letter-spacing:-.04em;margin:.25em 0 .3em;max-width:760px}
+.hero p.lead{max-width:770px;font-size:1.07rem;color:#ebf3ff;margin:0 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.chip{padding:9px 14px;border-radius:999px;background:#ffffff1b;border:1px solid #ffffff36;font-weight:700;font-size:.94rem}
+.hero-card{background:#ffffff12;border:1px solid #ffffff2e;border-radius:26px;padding:20px;backdrop-filter:blur(4px)}
+.mini-title{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#d8e8ff;margin-bottom:10px}
+.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.stat{background:#ffffff14;border-radius:18px;padding:14px;border:1px solid #ffffff1f}.stat b{display:block;font-size:1.45rem;line-height:1.1;margin-bottom:5px}
+nav{padding:15px 0 0;display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid #ffffff30;margin-top:22px}
+nav a{color:#fff;text-decoration:none;font-weight:700;background:#ffffff17;border:1px solid #ffffff38;padding:10px 15px;border-radius:12px;min-height:44px;display:inline-flex;align-items:center}
+main{padding:26px 0 42px}section{margin:34px 0 54px}
+.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:18px}.section-head h2{margin:0;font-size:clamp(1.45rem,2.5vw,2.2rem);line-height:1.14;letter-spacing:-.03em;color:#16375d}.kicker{font-size:.9rem;color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.panel,.card,.level{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.panel,.card{padding:22px}.grid-2,.grid-3,.grid-4,.levels{display:grid;gap:18px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}.levels{grid-template-columns:repeat(3,minmax(0,1fr))}
+.icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.65rem;margin-bottom:14px}.blue{background:var(--blue-soft)} .cyan{background:var(--cyan-soft)} .green{background:var(--green-soft)} .amber{background:var(--amber-soft)} .red{background:var(--red-soft)} .violet{background:var(--violet-soft)}
+.card h3,.panel h3{margin:0 0 10px;font-size:1.17rem;line-height:1.25}.card p,.panel p{margin:0 0 1em}.card p:last-child,.panel p:last-child{margin-bottom:0}
+.band{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+.choice-list{display:grid;gap:12px}.choice{width:100%;text-align:left;border:1px solid #bdd0ee;background:#f6f9ff;color:var(--ink);border-radius:16px;padding:15px 16px;font:inherit;font-weight:650;cursor:pointer;line-height:1.5}.choice:hover{background:#eef4ff;border-color:var(--blue)}.choice[aria-pressed="true"]{background:var(--blue-soft);border:2px solid var(--blue);padding:14px 15px}
+.feedback{margin-top:14px;background:#eef5ff;border-left:4px solid var(--blue);padding:14px 16px;border-radius:14px}
+.traffic{display:grid;gap:12px}.signal{padding:16px;border-radius:18px;border:1px solid var(--line)}.signal.red{background:#fff0f2;border-color:#f7c3ca}.signal.amber{background:#fff7e6;border-color:#efd08e}.signal.green{background:#ecfaf2;border-color:#c7ebd4}
+textarea,input:not([type=radio]),select{width:100%;display:block;border:1px solid #bccae0;border-radius:16px;padding:13px 14px;font:inherit;color:var(--ink);background:#fff;margin-top:10px} textarea{min-height:120px;resize:vertical} label{display:block;font-weight:700}
+.compare{display:grid;gap:12px}.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ok,.warn,.bad{padding:14px 15px;border-radius:16px}.ok{background:#ebfaf2;border:1px solid #c9ecd7}.warn{background:#fff7e7;border:1px solid #f0d28b}.bad{background:#fff0f2;border:1px solid #f3c4cb}
+.checklist{display:grid;gap:11px}.item{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;background:#fbfcff;border:1px solid var(--line);border-radius:16px}.item .n{width:30px;height:30px;border-radius:10px;background:var(--blue-soft);display:grid;place-items:center;font-weight:800;color:var(--navy);flex:0 0 auto}
+.level{padding:18px}.level b{display:inline-block;margin-bottom:10px;padding:6px 10px;border-radius:999px;font-size:.83rem;text-transform:uppercase;letter-spacing:.06em}.level:nth-child(1) b{background:#e8f2ff;color:#2558a8}.level:nth-child(2) b{background:#fff4de;color:#b17a12}.level:nth-child(3) b{background:#e9f7f0;color:#1c8056}
+.video-card{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:18px;background:#fbfdff}.play{width:48px;height:48px;border-radius:14px;background:var(--blue-soft);display:grid;place-items:center;font-size:1.3rem;flex:0 0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border:none;border-radius:14px;background:var(--blue);color:#fff;font:800 1rem/1.2 Inter,system-ui,sans-serif;cursor:pointer}.btn:hover{filter:brightness(.94)}
+.small{font-size:.92rem;color:var(--muted)}#quiz fieldset{border:1px solid var(--line);border-radius:20px;padding:18px 18px 14px;margin:0 0 16px;background:#fbfdff}#quiz legend{font-weight:800;padding:0 8px;color:#16375d;line-height:1.4}.option{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;background:#fff;border:1px solid #d9e4f4;border-radius:14px;margin:10px 0} .option input{margin-top:3px}
+#result{margin-top:18px;background:#eef5ff} footer{padding:14px 0 40px;color:var(--muted);border-top:1px solid var(--line)} [hidden]{display:none!important}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+@media(max-width:980px){.hero-grid,.band{grid-template-columns:1fr}.grid-4,.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.levels{grid-template-columns:1fr}.section-head{display:block}}
+@media(max-width:700px){.grid-2,.grid-3,.grid-4,.compare-row{grid-template-columns:1fr}.wrap{width:min(100% - 22px,1180px)}.hero{padding-top:38px}.hero h1{font-size:clamp(2rem,9vw,3rem)}nav a{flex:1 1 calc(50% - 10px)}.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){body{font-size:16px}.card,.panel,.level{padding:17px;border-radius:18px}.hero-card{padding:16px}.stat-grid{grid-template-columns:1fr}}
+@media print{body{background:#fff;font-size:11pt}header{background:#fff;color:#000}.eyebrow,.chip,nav,.btn,.play{display:none!important}header::before{display:none}.panel,.card,.level{box-shadow:none;border:1px solid #aaa}.grid-2,.grid-3,.grid-4,.levels,.compare-row,.hero-grid,.band{grid-template-columns:1fr}.choice{background:#fff}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <div class="eyebrow">Курс «Професії» • 9 клас • урок №6 • 35 хв</div>
+    <div class="hero-grid">
+      <div>
+        <h1>Права у сфері праці, рівні можливості, ризики працевлаштування</h1>
+        <p class="lead">Сьогодні вчимося не просто «шукати роботу», а <strong>оцінювати умови праці, бачити ризики, відрізняти законні вимоги від дискримінації й ухвалювати безпечне рішення</strong>.</p>
+        <div class="chips">
+          <span class="chip">Права неповнолітніх</span>
+          <span class="chip">Рівні можливості</span>
+          <span class="chip">Аналіз вакансій</span>
+          <span class="chip">Безпечне працевлаштування</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="mini-title">Що буде на виході</div>
+        <div class="stat-grid">
+          <div class="stat"><b>3</b><span>типи ризиків Ви навчитеся бачити</span></div>
+          <div class="stat"><b>1</b><span>пам’ятку безпечного рішення складете</span></div>
+          <div class="stat"><b>4</b><span>реальні кейси проаналізуєте</span></div>
+          <div class="stat"><b>10/10</b><span>завдань у підсумковому тесті</span></div>
+        </div>
+      </aside>
+    </div>
+    <nav>
+      <a href="#warmup">Старт</a>
+      <a href="#scanner">Сканер ризиків</a>
+      <a href="#lab">Практика</a>
+      <a href="#theory">Теорія</a>
+      <a href="#home">Домашнє</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="warmup">
+    <div class="section-head"><div><div class="kicker">0–5 хв</div><h2>Проблемне питання на старті</h2></div></div>
+    <div class="band">
+      <div class="panel">
+        <h3>Чи достатньо згоди підлітка, щоб робота була законною?</h3>
+        <p>П’ятнадцятирічному підлітку пропонують підробіток: <strong>20:00–01:00</strong>, «без паперів», оплата після двох тижнів. Оберіть правильний висновок.</p>
+        <div class="choice-list" id="warmupChoices"></div>
+        <div class="feedback" id="warmupFeedback">Оберіть варіант. Далі перевіримо, <strong>які саме правові сигнали тут уже насторожують</strong>.</div>
+      </div>
+      <aside class="card">
+        <div class="icon amber">⚖️</div>
+        <h3>Ключова ідея теми</h3>
+        <p>У працевлаштуванні важливо не лише «чи хочу я цю роботу», а й <strong>чи законна вона, чи безпечна, чи не порушує мої права</strong>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="scanner">
+    <div class="section-head"><div><div class="kicker">5–9 хв</div><h2>Сканер ризиків: світлофор вакансії</h2></div></div>
+    <div class="traffic">
+      <div class="signal red"><strong>Червоний сигнал</strong><br>Робота вночі для неповнолітнього, «без договору», прохання передоплати, вимога фото документів без пояснення, тиск «вирішуй прямо зараз».</div>
+      <div class="signal amber"><strong>Жовтий сигнал</strong><br>Нечітко описані обов’язки, роботодавець не названий, немає зрозумілого графіка, ухиляються від відповідей щодо оформлення та оплати.</div>
+      <div class="signal green"><strong>Зелений сигнал</strong><br>Є зрозумілі умови, роботодавець відкритий, є оформлення, адекватний графік, робота не шкодить навчанню й здоров’ю.</div>
+    </div>
+  </section>
+
+  <section id="lab">
+    <div class="section-head"><div><div class="kicker">9–18 хв</div><h2>Практичний розбір ситуацій</h2></div></div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="icon blue">🧾</div>
+        <h3>Кейс 1. Перша робота у 15 років</h3>
+        <p>Учениці 15 років пропонують після уроків працювати 3 години на день. Визначте, <strong>які умови мають бути дотримані</strong>, щоб така робота була законною й безпечною.</p>
+        <label>Що потрібно перевірити?
+          <textarea placeholder="Вік / згода / характер роботи / графік / оформлення / інші умови..."></textarea>
+        </label>
+      </article>
+      <article class="card">
+        <div class="icon red">🚫</div>
+        <h3>Кейс 2. Підозріла вакансія</h3>
+        <p>Оголошення: «Потрібні тільки хлопці 16–17 років. Нічні зміни. Оплата готівкою. Без договору». Розділіть: <strong>де дискримінація</strong>, а де <strong>порушення гарантій праці неповнолітніх</strong>.</p>
+        <label>Фраза → проблема → безпечна дія
+          <textarea placeholder="Тільки хлопці → ...
+Нічні зміни → ...
+Без договору → ..."></textarea>
+        </label>
+      </article>
+      <article class="card">
+        <div class="icon amber">🔎</div>
+        <h3>Кейс 3. Сигнали ризику</h3>
+        <p>Рекрутер обіцяє «35 000 грн за тиждень», не називає компанію, просить фото документів і передоплату за «реєстрацію». Назвіть <strong>не менше чотирьох сигналів ризику</strong>.</p>
+        <label>Сигнал → що перевірити → рішення
+          <textarea placeholder="1. ... → перевірити ... → ...
+2. ... → ..."></textarea>
+        </label>
+      </article>
+      <article class="card">
+        <div class="icon green">🛡️</div>
+        <h3>Практична робота. Пам’ятка</h3>
+        <p>Складіть пам’ятку <strong>«Як перевірити першу роботу»</strong> з шести пунктів: вік, характер роботи, графік, оформлення, оплата, перевірка роботодавця / звернення по допомогу.</p>
+        <label>Моя пам’ятка
+          <textarea placeholder="1. ...
+2. ...
+3. ...
+4. ...
+5. ...
+6. ..."></textarea>
+        </label>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="kicker">18–21 хв</div><h2>Рівні можливості: порівняємо правильно</h2></div></div>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>Не кожна вимога — дискримінація</h3>
+        <div class="compare">
+          <div class="compare-row">
+            <div class="ok"><strong>Законна вимога</strong><br>Для роботи потрібна конкретна навичка або фізична дія, без якої її неможливо якісно виконувати.</div>
+            <div class="bad"><strong>Дискримінаційна вимога</strong><br>Обмеження за статтю, віком, зовнішністю чи іншою ознакою без зв’язку з реальною суттю роботи.</div>
+          </div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Питання для перевірки</h3>
+        <div class="checklist">
+          <div class="item"><div class="n">1</div><div>Чи пов’язана ця вимога безпосередньо з роботою?</div></div>
+          <div class="item"><div class="n">2</div><div>Чи не порушує вона права людини та принцип рівних можливостей?</div></div>
+          <div class="item"><div class="n">3</div><div>Чи можна пояснити цю умову законною необхідністю?</div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="theory">
+    <div class="section-head"><div><div class="kicker">21–30 хв</div><h2>Коротка теорія — по суті</h2></div></div>
+    <div class="grid-4">
+      <article class="card"><div class="icon blue">📘</div><h3>Вік і законність</h3><p>За загальним правилом працювати можна з 16 років; з 15 — за згодою одного з батьків або особи, що його замінює; з 14 — легка робота учнів у вільний від навчання час за відповідних умов.</p></article>
+      <article class="card"><div class="icon red">🌙</div><h3>Заборони для неповнолітніх</h3><p>Небезпечні, важкі, підземні, нічні та надурочні роботи для осіб до 18 років законодавством обмежені або заборонені.</p></article>
+      <article class="card"><div class="icon violet">🤝</div><h3>Рівні можливості</h3><p>Вимоги до кандидата мають стосуватися роботи, а не упереджень. Необґрунтовані обмеження — ознака дискримінації.</p></article>
+      <article class="card"><div class="icon amber">🚨</div><h3>Ризики вакансії</h3><p>Передоплата, прихований роботодавець, тиск, нечіткі умови, відсутність оформлення, вимога зайвих персональних даних — сигнали небезпеки.</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="kicker">30–33 хв</div><h2>Різнорівневі завдання</h2></div></div>
+    <div class="levels">
+      <article class="level"><b>Базовий</b><p>Назвіть <strong>три правила безпечного працевлаштування</strong> для підлітка.</p></article>
+      <article class="level"><b>Достатній</b><p>Порівняйте <strong>законну вимогу роботодавця</strong> та <strong>дискримінаційну умову</strong>. Наведіть по одному прикладу.</p></article>
+      <article class="level"><b>Високий</b><p>Оцініть вакансію: які дані достатні для рішення, а яких ще бракує? Сформулюйте обережний висновок.</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><div class="kicker">33–35 хв</div><h2>Підсумок: яке рішення безпечне?</h2></div></div>
+    <div class="panel">
+      <h3>Складіть короткий висновок за схемою CER</h3>
+      <p><strong>Твердження:</strong> чи погодився(-лася) б я на цю вакансію? <br><strong>Доказ:</strong> які факти вплинули на рішення? <br><strong>Пояснення:</strong> чому саме ці факти важливі? Що ще потрібно перевірити?</p>
+      <label>Мій висновок
+        <textarea placeholder="Твердження: ...
+Доказ: ...
+Пояснення: ..."></textarea>
+      </label>
+    </div>
+  </section>
+
+  <section id="home">
+    <div class="section-head"><div><div class="kicker">Домашнє завдання</div><h2>Домашній блок</h2></div></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Що зробити вдома</h3>
+        <div class="video-card"><div class="play">📄</div><div><strong>Письмово:</strong> доповніть пам’ятку «Як перевірити першу роботу» до завершеного варіанта.</div></div>
+        <div class="video-card"><div class="play">⚠️</div><div><strong>Аналітика:</strong> знайдіть будь-яке оголошення про роботу й коротко оцініть, які його пункти виглядають безпечними, а які — сумнівними.</div></div>
+        <div class="video-card"><div class="play">🧩</div><div><strong>Тест:</strong> виконайте 10 завдань і надішліть учителю скриншот картки результату.</div></div>
+      </div>
+      <div class="panel no-print">
+        <h3>Шлюз до тесту</h3>
+        <label>Ім’я та прізвище
+          <input id="studentName" autocomplete="name" placeholder="Ім’я Прізвище">
+        </label>
+        <label>Клас
+          <input id="studentClass" placeholder="9-Б" value="9">
+        </label>
+        <button class="btn" id="startQuizBtn">Розпочати тест</button>
+        <p class="small" id="gateError" role="alert"></p>
+      </div>
+    </div>
+    <div id="quiz" hidden></div>
+    <div class="panel" id="result" hidden></div>
+  </section>
+</main>
+
+<footer class="wrap">Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Урок побудовано відповідно до теми КТП: «Права у сфері праці, рівні можливості, ризики працевлаштування».</footer>
+
+<script>
+const warmupOptions = [
+  'Так, якщо він сам погодився.',
+  'Ні. Потрібно оцінити вік, час роботи, характер роботи, оформлення й законні гарантії.',
+  'Так, якщо роботодавець обіцяє високу оплату.'
+];
+const warmupFeedback = [
+  'Ні. Згода працівника не скасовує трудових гарантій для неповнолітніх.',
+  'Правильно. Тут важливі не лише бажання, а й законність умов: нічна робота, відсутність оформлення, ризик порушення прав.',
+  'Ні. Висока оплата не робить незаконну або небезпечну роботу допустимою.'
+];
+const warmupBox = document.getElementById('warmupChoices');
+const warmupText = document.getElementById('warmupFeedback');
+
+warmupOptions.forEach((text, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'choice';
+  btn.type = 'button';
+  btn.textContent = text;
+  btn.setAttribute('aria-pressed', 'false');
+  btn.addEventListener('click', () => {
+    [...warmupBox.querySelectorAll('button')].forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+    warmupText.textContent = warmupFeedback[i];
+  });
+  warmupBox.appendChild(btn);
+});
+
+const QUIZ = [
+  {q:'З якого віку за загальним правилом допускається працевлаштування в Україні?', type:'single', options:['14 років','16 років','18 років'], correct:1},
+  {q:'За яких умов можлива легка робота з 14 років?', type:'single', options:['Без жодних умов','У вільний від навчання час за відповідних умов і за згодою одного з батьків або особи, що його замінює','Тільки вночі'], correct:1},
+  {q:'Що заборонено для неповнолітніх?', type:'single', options:['Нічні та небезпечні роботи','Інструктаж з техніки безпеки','Пояснення обов’язків'], correct:0},
+  {q:'Що є ознакою можливої дискримінації?', type:'single', options:['Вимога навички, потрібної для роботи','Відмова лише через стать без зв’язку з реальною роботою','Уточнення графіка'], correct:1},
+  {q:'Оберіть сигнали ризику у вакансії.', type:'multi', options:['Передоплата за «оформлення»','Прихований роботодавець','Чітко прописані обов’язки','Немає договору'], correct:[0,1,3]},
+  {q:'Що варто перевірити перед працевлаштуванням?', type:'multi', options:['Умови та графік','Оформлення й оплату','Чи не шкодить робота навчанню та здоров’ю','Лише красиву назву посади'], correct:[0,1,2]},
+  {q:'Установіть відповідність.', type:'match', left:['Законна вимога','Дискримінаційна умова','Сигнал ризику'], right:['Прихований роботодавець і вимога передоплати','Вимога, що безпосередньо пов’язана зі змістом роботи','Обмеження без об’єктивного зв’язку з роботою'], correct:[1,2,0]},
+  {q:'Розташуйте кроки аналізу вакансії.', type:'order', items:['Прийняти рішення','Перевірити умови та ризики','Прочитати й зрозуміти пропозицію'], correct:[2,1,0]},
+  {q:'Яких даних бракує для остаточного висновку про вакансію?', type:'single', options:['Назви роботодавця, умов праці та способу оформлення','Нічого не бракує, якщо зарплата велика','Досить лише одного повідомлення'], correct:0},
+  {q:'Оберіть найкращий правово обережний висновок.', type:'single', options:['Будь-яка вакансія для підлітка автоматично безпечна','Рішення потрібно приймати після перевірки віку, умов, оформлення, ризиків і законності роботи','Якщо робота коротка, закон неважливий'], correct:1}
+];
+
+function validFullName(value){
+  const parts = value.trim().replace(/\s+/g,' ').split(' ');
+  return parts.length >= 2 && parts.every(p => /^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(p));
+}
+function arraysEqual(a,b){return a.length===b.length && a.every((v,i)=>v===b[i]);}
+function renderOption(name,labelText,value,type='radio'){
+  const label=document.createElement('label');label.className='option';
+  const input=document.createElement('input');input.type=type;input.name=name;input.value=value;
+  label.append(input,document.createTextNode(labelText));return label;
+}
+const startBtn=document.getElementById('startQuizBtn');const quizBox=document.getElementById('quiz');const resultBox=document.getElementById('result');
+function buildQuiz(){
+  quizBox.innerHTML='';
+  QUIZ.forEach((item,index)=>{
+    const fs=document.createElement('fieldset');const lg=document.createElement('legend');lg.textContent=`${index+1}. ${item.q}`;fs.appendChild(lg);
+    if(item.type==='single'){item.options.forEach((opt,i)=>fs.appendChild(renderOption(`q${index}`,opt,i,'radio')))}
+    if(item.type==='multi'){item.options.forEach((opt,i)=>fs.appendChild(renderOption(`q${index}`,opt,i,'checkbox')))}
+    if(item.type==='match'){
+      item.left.forEach((left,i)=>{
+        const wrap=document.createElement('label');wrap.className='option';wrap.style.display='grid';wrap.style.gridTemplateColumns='1fr';wrap.innerHTML=`<strong>${left}</strong>`;
+        const select=document.createElement('select');select.name=`q${index}_${i}`;
+        ['— оберіть —',...item.right].forEach((text,j)=>{const opt=document.createElement('option');opt.value=j-1;opt.textContent=text;select.appendChild(opt)});
+        wrap.appendChild(select);fs.appendChild(wrap);
+      });
+    }
+    if(item.type==='order'){
+      const info=document.createElement('p');info.className='small';info.textContent='Запишіть порядок цифрами через кому, наприклад: 3,2,1';fs.appendChild(info);
+      item.items.forEach((text,i)=>{const p=document.createElement('div');p.className='option';p.textContent=`${i+1}. ${text}`;fs.appendChild(p)});
+      const input=document.createElement('input');input.name=`q${index}`;input.placeholder='Наприклад: 3,2,1';fs.appendChild(input);
+    }
+    quizBox.appendChild(fs);
+  });
+  const finish=document.createElement('button');finish.className='btn';finish.type='button';finish.textContent='Завершити та перевірити';finish.addEventListener('click',checkQuiz);quizBox.appendChild(finish);
+}
+function checkQuiz(){
+  let score=0;
+  QUIZ.forEach((item,index)=>{
+    if(item.type==='single'){const checked=document.querySelector(`input[name="q${index}"]:checked`);if(checked&&Number(checked.value)===item.correct)score++;}
+    if(item.type==='multi'){const values=[...document.querySelectorAll(`input[name="q${index}"]:checked`)].map(el=>Number(el.value)).sort((a,b)=>a-b);const correct=[...item.correct].sort((a,b)=>a-b);if(arraysEqual(values,correct))score++;}
+    if(item.type==='match'){const values=item.left.map((_,i)=>Number(document.querySelector(`[name="q${index}_${i}"]`).value));if(arraysEqual(values,item.correct))score++;}
+    if(item.type==='order'){const raw=document.querySelector(`[name="q${index}"]`).value.trim();const values=raw.split(',').map(v=>Number(v.trim())-1).filter(v=>!Number.isNaN(v));if(arraysEqual(values,item.correct))score++;}
+  });
+  const name=document.getElementById('studentName').value.trim().replace(/\s+/g,' ');const klass=document.getElementById('studentClass').value.trim();
+  let comment='Потрібно повторити правила безпечного працевлаштування.'; if(score>=5) comment='Достатній результат.'; if(score>=8) comment='Добре! Ви впевнено орієнтуєтесь у темі.'; if(score===10) comment='Відмінно!';
+  resultBox.hidden=false;
+  resultBox.innerHTML=`<h3>Результат тестування</h3>
+  <p><strong>${name}</strong> • ${klass} клас</p>
+  <p><strong>Тема:</strong> Права у сфері праці, рівні можливості, ризики працевлаштування</p>
+  <p><strong>Результат:</strong> ${score}/10 (${Math.round(score*10)}%)</p>
+  <p><strong>Дата і час:</strong> ${new Date().toLocaleString('uk-UA')}</p>
+  <p><strong>Коментар:</strong> ${comment}</p>
+  <p><strong>Інструкція:</strong> Зробіть скриншот цієї картки та надішліть учителю.</p>`;
+  resultBox.scrollIntoView({behavior:'smooth', block:'start'});
+}
+startBtn.addEventListener('click',()=>{
+  const fullName=document.getElementById('studentName').value;const studentClass=document.getElementById('studentClass').value;const err=document.getElementById('gateError');
+  if(!validFullName(fullName)||!studentClass.trim()){err.textContent='Введіть ім’я, прізвище та клас.';return}
+  err.textContent=''; if(quizBox.children.length===0) buildQuiz(); quizBox.hidden=false; quizBox.scrollIntoView({behavior:'smooth', block:'start'});
+});
+</script>
+</body>
+</html>
