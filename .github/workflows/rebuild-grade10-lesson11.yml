@@ -76,6 +76,12 @@ jobs:
           opts.add_argument('--window-size=1440,1600')
           opts.set_capability('goog:loggingPrefs', {'browser':'ALL'})
           d=webdriver.Chrome(options=opts)
+          def click(el):
+              d.execute_script("arguments[0].scrollIntoView({block:'center'});", el)
+              try:
+                  el.click()
+              except Exception:
+                  d.execute_script("arguments[0].click();", el)
           try:
               u='http://127.0.0.1:8765/10/11-sfera-posluh-transport-mizhnarodni-korydory-yevropy/index.html'
               d.get(u)
@@ -84,21 +90,21 @@ jobs:
 
               d.find_element(By.ID,'studentName').send_keys('Тест')
               d.find_element(By.ID,'studentClass').send_keys('10-А')
-              d.find_element(By.ID,'startQuiz').click()
+              click(d.find_element(By.ID,'startQuiz'))
               time.sleep(.3)
               assert not quiz.is_displayed(), 'single-word name must not pass'
 
               name=d.find_element(By.ID,'studentName')
               name.clear()
               name.send_keys('Тест Учень')
-              d.find_element(By.ID,'startQuiz').click()
+              click(d.find_element(By.ID,'startQuiz'))
               WebDriverWait(d,5).until(lambda x: x.find_element(By.ID,'quiz').is_displayed())
 
               for n,v in [('q1','b'),('q2','a'),('q3','b'),('q4','b'),('q9','a'),('q10','b')]:
-                  d.find_element(By.CSS_SELECTOR, f'input[name="{n}"][value="{v}"]').click()
+                  click(d.find_element(By.CSS_SELECTOR, f'input[name="{n}"][value="{v}"]'))
               for n,vals in [('q5',['cost','time','cargo']),('q6',['port','rail','road'])]:
                   for v in vals:
-                      d.find_element(By.CSS_SELECTOR, f'input[name="{n}"][value="{v}"]').click()
+                      click(d.find_element(By.CSS_SELECTOR, f'input[name="{n}"][value="{v}"]'))
 
               Select(d.find_element(By.ID,'mRotterdam')).select_by_value('port')
               Select(d.find_element(By.ID,'mDanube')).select_by_value('river')
@@ -107,7 +113,7 @@ jobs:
               for id_,v in [('sCargo','1'),('sModes','2'),('sBottleneck','3'),('sDecision','4')]:
                   Select(d.find_element(By.ID,id_)).select_by_visible_text(v)
 
-              d.find_element(By.CSS_SELECTOR,'#quiz button[type="submit"]').click()
+              click(d.find_element(By.CSS_SELECTOR,'#quiz button[type="submit"]'))
               WebDriverWait(d,5).until(lambda x: x.find_element(By.ID,'result').is_displayed())
               txt=d.find_element(By.ID,'result').text
               assert '10/10' in txt and '100%' in txt, txt
