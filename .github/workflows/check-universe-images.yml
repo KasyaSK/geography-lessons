@@ -26,7 +26,8 @@ jobs:
                       if u.startswith('https://'): self.urls.append(html.unescape(u))
           page=Path('11/dodatkovi-materialy/istoriia-vsesvitu/index.html').read_text(encoding='utf-8')
           parser=Images(); parser.feed(page)
-          extra=re.findall(r"url\(['\"]?(https://[^)'\"]+\.(?:jpg|png|webp)(?:\?[^)'\"]+)?)['\"]?\)",page)\n          urls=sorted(set(parser.urls)|set(extra))
+          extra=re.findall(r"url\(['\"]?(https://[^)'\"]+\.(?:jpg|png|webp)(?:\?[^)'\"]+)?)['\"]?\)",page)
+          urls=sorted(set(parser.urls)|set(extra))
           def probe(u):
               try:
                   req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0 (compatible; SchoolEducationalImageAudit/1.0)','Range':'bytes=0-4095','Accept':'image/avif,image/webp,image/*,*/*;q=0.8'})
