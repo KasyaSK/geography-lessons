@@ -1,0 +1,52 @@
+name: Universe atlas image availability
+on:
+  push:
+    paths:
+      - '11/dodatkovi-materialy/istoriia-vsesvitu/**'
+      - '.github/workflows/check-universe-images.yml'
+  workflow_dispatch:
+jobs:
+  image-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect official image URLs
+        shell: python
+        run: |
+          import concurrent.futures, html, re, urllib.request
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Images(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.urls=[]
+              def handle_starttag(self, tag, attrs):
+                  if tag=='img':
+                      d=dict(attrs); u=d.get('src','')
+                      if u.startswith('https://'): self.urls.append(html.unescape(u))
+          page=Path('11/dodatkovi-materialy/istoriia-vsesvitu/index.html').read_text(encoding='utf-8')
+          parser=Images(); parser.feed(page)
+          urls=sorted(set(parser.urls))
+          def probe(u):
+              try:
+                  req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0 (compatible; SchoolEducationalImageAudit/1.0)','Range':'bytes=0-4095','Accept':'image/avif,image/webp,image/*,*/*;q=0.8'})
+                  with urllib.request.urlopen(req,timeout=18) as resp:
+                      kind=resp.headers.get('Content-Type','').lower().split(';')[0]
+                      code=resp.status
+                      if code not in (200,206): return (u,False,f'HTTP {code}')
+                      if not kind.startswith('image/') and kind!='application/octet-stream': return (u,False,f'Content-Type: {kind}')
+                      b=resp.read(40)
+                      if not b: return (u,False,'Empty body')
+                      return (u,True,f'HTTP {code} ({kind})')
+              except Exception as e: return (u,False,str(e)[:180])
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              results=list(pool.map(probe,urls))
+          ok=sum(good for _,good,_ in results)
+          lines=['# Перевірка ілюстрацій атласу','',f'**Унікальних джерел: {len(urls)}. Доступно з GitHub Actions: {ok}. Недоступно: {len(urls)-ok}.**','','| Статус | URL | Результат |','|---|---|---|']
+          for u,good,reason in results:
+              lines.append(f'| {"✅" if good else "⚠️"} | `{u}` | {reason.replace("|","/")} |')
+          print('\n'.join(lines))
+          import os
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:f.write('\n'.join(lines)+'\n')
+          # Browser fallback renders an explicit labelled vector if a source fails.
+          # Report warnings without failing unrelated lesson audits.
