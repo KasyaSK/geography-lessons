@@ -1,0 +1,41 @@
+name: Diagnose and verify Cosmic Academy APK
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'downloads/kosmichna-akademiia-android.apk'
+      - '.github/workflows/verify-cosmic-apk.yml'
+permissions:
+  contents: read
+jobs:
+  inspect-install-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify APK archive, manifest, signatures, and distribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          APK="downloads/kosmichna-akademiia-android.apk"
+          test -s "$APK"
+          file "$APK"
+          unzip -t "$APK" | tail -1
+          export BT="$(find "$ANDROID_HOME/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)"
+          echo "Android build tools: $BT"
+          "$BT/aapt" dump badging "$APK" | head -12
+          "$BT/apksigner" verify --verbose --print-certs --min-sdk-version 24 "$APK"
+          "$BT/zipalign" -c -v 4 "$APK" | tail -2
+          sha256sum "$APK"
+          echo "--- Embedded photos ---"
+          unzip -Z1 "$APK" | grep '^assets/images/' || true
+          echo "--- Check GitHub raw download matches ---"
+          curl -fsSL --retry 2 "https://raw.githubusercontent.com/KasyaSK/geography-lessons/main/$APK" -o /tmp/raw.apk
+          cmp "$APK" /tmp/raw.apk
+          echo "RAW_DOWNLOAD_IDENTICAL=YES"
+          echo "--- Check GitHub Pages download matches ---"
+          if curl -fsSL --retry 2 "https://kasyask.github.io/geography-lessons/$APK" -o /tmp/pages.apk; then
+            if cmp -s "$APK" /tmp/pages.apk; then echo "PAGES_DOWNLOAD_IDENTICAL=YES"; else echo "PAGES_DOWNLOAD_IDENTICAL=NO"; exit 2; fi
+          else
+            echo "PAGES_DOWNLOAD_UNAVAILABLE — use direct GitHub raw"
+          fi
