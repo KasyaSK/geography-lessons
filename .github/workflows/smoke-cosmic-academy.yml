@@ -1,0 +1,32 @@
+name: Android Cosmic Academy install smoke test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/smoke-cosmic-academy.yml'
+      - 'downloads/kosmichna-akademiia-android.apk'
+jobs:
+  emulator-install-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable virtual machine acceleration
+        run: |
+          if [ -e /dev/kvm ]; then sudo chmod 666 /dev/kvm; fi
+      - name: Install and launch APK on Android emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          arch: x86_64
+          profile: pixel_2
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set -e
+            echo "Installing published APK to Android 10"
+            adb install -r downloads/kosmichna-akademiia-android.apk
+            adb shell monkey -p ua.kasyask.cosmicacademy -c android.intent.category.LAUNCHER 1
+            sleep 3
+            adb shell pidof ua.kasyask.cosmicacademy
+            echo "SMOKE_TEST_INSTALL_AND_LAUNCH=PASS"
