@@ -51,6 +51,17 @@ jobs:
       - name: Build a native Android debug APK
         working-directory: android-cosmic-academy
         run: gradle --no-daemon :app:assembleDebug
+      - name: Validate Android 6+ APK archive and signatures
+        run: |
+          set -euo pipefail
+          APK="android-cosmic-academy/app/build/outputs/apk/debug/app-debug.apk"
+          test -s "$APK"
+          unzip -t "$APK" | tail -1
+          BT="$(find "$ANDROID_HOME/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -1)"
+          "$BT/apksigner" verify --verbose --print-certs --min-sdk-version 23 "$APK"
+          "$BT/zipalign" -c -v 4 "$APK" | tail -2
+          "$BT/aapt" dump badging "$APK" | head -8
+          sha256sum "$APK"
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
@@ -59,12 +70,13 @@ jobs:
           retention-days: 90
           if-no-files-found: error
       - name: Publish downloadable APK to repository
-        continue-on-error: true
+        continue-on-error: false
         run: |
           mkdir -p downloads
-          cp android-cosmic-academy/app/build/outputs/apk/debug/app-debug.apk downloads/kosmichna-akademiia-android.apk
+          cp android-cosmic-academy/app/build/outputs/apk/debug/app-debug.apk downloads/kosmichna-akademiia-android-v2.apk
+          cp downloads/kosmichna-akademiia-android-v2.apk downloads/kosmichna-akademiia-android.apk
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add downloads/kosmichna-akademiia-android.apk
+          git add downloads/kosmichna-akademiia-android.apk downloads/kosmichna-akademiia-android-v2.apk
           git commit -m 'Publish installable Kosmichna Akademiia Android APK' || exit 0
           git push
