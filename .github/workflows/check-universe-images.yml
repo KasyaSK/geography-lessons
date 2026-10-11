@@ -24,10 +24,12 @@ jobs:
                   if tag=='img':
                       d=dict(attrs); u=d.get('src','')
                       if u.startswith('https://'): self.urls.append(html.unescape(u))
-          page=Path('11/dodatkovi-materialy/istoriia-vsesvitu/index.html').read_text(encoding='utf-8')
+          pages=[Path('11/dodatkovi-materialy/istoriia-vsesvitu/index.html'),Path('11/dodatkovi-materialy/istoriia-vsesvitu/trenazher/index.html')]
+          page='\\n'.join(p.read_text(encoding='utf-8') for p in pages)
           parser=Images(); parser.feed(page)
           extra=re.findall(r"url\(['\"]?(https://[^)'\"]+\.(?:jpg|png|webp)(?:\?[^)'\"]+)?)['\"]?\)",page)
-          urls=sorted(set(parser.urls)|set(extra))
+          js_images=re.findall(r"https://[^\\s'\\\"<>]+?\\.(?:jpg|jpeg|png|webp)(?:\\?[^'\\\"<>\\s]*)?",page)
+          urls=sorted(set(parser.urls)|set(extra)|set(js_images))
           def probe(u):
               try:
                   req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0 (compatible; SchoolEducationalImageAudit/1.0)','Range':'bytes=0-4095','Accept':'image/avif,image/webp,image/*,*/*;q=0.8'})
@@ -43,7 +45,7 @@ jobs:
           with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
               results=list(pool.map(probe,urls))
           ok=sum(good for _,good,_ in results)
-          lines=['# Перевірка ілюстрацій атласу','',f'**Унікальних джерел: {len(urls)}. Доступно з GitHub Actions: {ok}. Недоступно: {len(urls)-ok}.**','','| Статус | URL | Результат |','|---|---|---|']
+          lines=['# Перевірка ілюстрацій атласу та тренажера','',f'**Унікальних джерел: {len(urls)}. Доступно з GitHub Actions: {ok}. Недоступно: {len(urls)-ok}.**','','| Статус | URL | Результат |','|---|---|---|']
           for u,good,reason in results:
               lines.append(f'| {"✅" if good else "⚠️"} | `{u}` | {reason.replace("|","/")} |')
           print('\n'.join(lines))
