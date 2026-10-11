@@ -1,0 +1,32 @@
+name: Cosmic Academy Android 6 installation test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'downloads/kosmichna-akademiia-android-v2.apk'
+      - '.github/workflows/smoke-cosmic-v2-api23.yml'
+permissions:
+  contents: read
+jobs:
+  android6-install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable emulator acceleration
+        run: if [ -e /dev/kvm ]; then sudo chmod 666 /dev/kvm; fi
+      - name: Install v2 APK and launch on Android 6 (API 23)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 23
+          arch: x86_64
+          profile: pixel_2
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set -e
+            adb install -r downloads/kosmichna-akademiia-android-v2.apk
+            adb shell monkey -p ua.kasyask.cosmicacademy -c android.intent.category.LAUNCHER 1
+            sleep 3
+            adb shell pidof ua.kasyask.cosmicacademy
+            echo 'V2_ANDROID6_INSTALL_AND_LAUNCH_PASS'
