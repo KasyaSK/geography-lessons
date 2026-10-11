@@ -1,0 +1,71 @@
+name: Build native Cosmic Academy APK
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'android-cosmic-academy/**'
+      - '.github/workflows/build-cosmic-academy-android.yml'
+permissions:
+  contents: write
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android platform
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+      - name: Bundle vetted scientific illustrations for offline use
+        run: |
+          python3 -m pip -q install Pillow
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from PIL import Image
+          from io import BytesIO
+          links={
+            'evidence':'https://cdn.esahubble.org/archives/images/large/eso1633a.jpg',
+            'origin':'https://cdn.esawebb.org/archives/images/publicationjpg/weic2208a.jpg',
+            'forces':'https://cds.cern.ch/images/ALICE-PHO-GEN-2016-001-1/file?size=large',
+            'nuclei':'https://cdn.esahubble.org/archives/images/large/opo9544a.jpg',
+            'light':'https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2022/07/STScI-01G8H1K2BCNATEZSKVRN9Z69SR.png?fit=clip&w=1100',
+            'stars':'https://cdn.esawebb.org/archives/images/publicationjpg/weic2212a.jpg',
+            'earth':'https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA16876.jpg',
+          }
+          out=Path('android-cosmic-academy/app/src/main/assets/images');out.mkdir(parents=True,exist_ok=True)
+          for name,url in links.items():
+            try:
+              with urlopen(Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'image/*'}),timeout=30) as resp:data=resp.read(14000000)
+              photo=Image.open(BytesIO(data)).convert('RGB');photo.thumbnail((1120,760));photo.save(out/(name+'.jpg'),quality=83,optimize=True)
+              print(name,'OK',photo.size)
+            except Exception as ex:
+              print(name,'IMAGE FAILED — local Canvas fallback active:',ex)
+          PY
+      - name: Build a native Android debug APK
+        working-directory: android-cosmic-academy
+        run: gradle --no-daemon :app:assembleDebug
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KosmichnaAkademiia-Android-APK
+          path: android-cosmic-academy/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 90
+          if-no-files-found: error
+      - name: Publish downloadable APK to repository
+        continue-on-error: true
+        run: |
+          mkdir -p downloads
+          cp android-cosmic-academy/app/build/outputs/apk/debug/app-debug.apk downloads/kosmichna-akademiia-android.apk
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add downloads/kosmichna-akademiia-android.apk
+          git commit -m 'Publish installable Kosmichna Akademiia Android APK' || exit 0
+          git push
