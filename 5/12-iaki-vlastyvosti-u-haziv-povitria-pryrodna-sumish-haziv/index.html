@@ -154,4 +154,5 @@ const n=$('fullName').value.trim(),cls=$('studentClass').value,pct=score*10,now=
 const result=$('quizResult');result.innerHTML='<div class="scoreboard"><span class="kick">Картка результату</span><h2>Гази та повітря · Урок 12</h2><p><strong>'+escapeHtml(n)+'</strong> · '+escapeHtml(cls)+'</p><div class="score">'+score+' / 10</div><p>'+pct+'% · '+escapeHtml(now)+'</p><p>'+escapeHtml(comment)+'</p><p><b>📸 Зробіть скриншот цієї картки та надішліть учителю.</b></p><button class="btn secondary" id="printQuiz">🖨 Друк / PDF</button> <button class="btn secondary" id="retryQuiz">↻ Спробувати ще раз</button></div>';
 result.classList.remove('hidden');$('printQuiz').addEventListener('click',()=>window.print());$('retryQuiz').addEventListener('click',()=>{submitted=false;result.classList.add('hidden');renderQuiz();$('quizTasks').scrollIntoView({behavior:'smooth'})});result.scrollIntoView({behavior:'smooth',block:'start'})}
 })();
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
