@@ -127,6 +127,16 @@
 <div id="finishFb" class="feedback" aria-live="polite"></div>
 <div id="report" class="report"><h3>Індивідуальний звіт із практичної роботи №6</h3><p id="reportMeta"></p><div id="reportScore" class="score"></div><p id="reportStatus"></p><h4>Письмова частина</h4><div id="reportWriting"></div><p class="small">Автоматичний результат показує виконання тестованих завдань, але не замінює перевірки аналітичних висновків учителем.</p><div class="no-print"><button class="btn primary" id="downloadBtn" type="button">Завантажити звіт .txt</button> <button class="btn secondary" id="printBtn" type="button">Друк / зберегти PDF</button></div></div>
 </div></section>
+
+<section class="section no-print" id="homeQuiz"><div class="panel light"><div class="eyebrow">Після самостійної роботи · необов’язково в межах уроку</div>
+<h2>Домашня перевірка: 10 додаткових запитань</h2>
+<p>Це окремий тренувальний тест на основі виконаної практичної. Його <b>не потрібно проходити протягом основних 35 хвилин</b>. Результат доступний лише після натискання «Завершити тест».</p>
+<div class="tip">ПІБ і клас беруться з паспорта самостійної роботи на початку сторінки.</div>
+<button class="btn primary" id="startQuiz" type="button">Розпочати тест</button>
+<div class="feedback" id="quizGateFb" aria-live="polite"></div>
+<div id="quiz" style="display:none;margin-top:15px"></div>
+<div id="homeQuizResult" class="report" aria-live="polite"></div>
+</div></section>
 <section class="section"><div class="panel"><h2>Джерела й домашнє завдання</h2><p>Першоджерело: United Nations DESA, <i>World Urbanization Prospects 2025</i>, таблиці F18–F19. Числа в завданнях округлено до 0,1 млн; різні статистичні визначення територій не слід змішувати в одному рейтингу.</p>
 <div class="resources"><a href="https://population.un.org/wup/downloads?tab=Cities" target="_blank" rel="noopener">Таблиці ООН</a><a href="https://population.un.org/wup/maps?tab=Population&year=2025" target="_blank" rel="noopener">Карта міст ООН</a><a href="https://www.un.org/en/desa/latest-urbanization-data-reveal-world%E2%80%99s-most-populous-cities" target="_blank" rel="noopener">Пояснення результатів ООН</a></div>
 <p><b>Домашнє:</b> завершити практичну й здати звіт. За бажанням: знайти для одного великого міста дві оцінки людності та пояснити різницю між методиками. Повторити §§ 6–7 (розселення, урбанізація) за своїм підручником.</p></div></section>
@@ -213,6 +223,31 @@ function reportText(){var s=fullReport();var out=["ПРАКТИЧНА РОБОТ
 $("finishBtn").addEventListener("click",function(){if(!validName(value("studentName"))||!value("studentClass")){$("finishFb").className="feedback visible bad";$("finishFb").textContent="Вкажіть справжнє ім’я, прізвище та клас у паспорті практичної роботи.";return}var s=fullReport();$("reportMeta").textContent=value("studentName")+" · "+value("studentClass")+" · "+new Date().toLocaleString("uk-UA");$("reportScore").textContent=s.ok+" / 12 автоматично перевірених";$("reportStatus").textContent="Письмових відповідей заповнено: "+s.done+"/3. Незавершених завдань: "+(15-s.ok-s.done)+". Письмову частину оцінить учитель.";var headings={13:"13. Чому Токіо змінив місце в рейтингу?",14:"14. Рейтинг адміністративних міст і агломерацій",15:"15. CER-висновок"};$("reportWriting").innerHTML=[13,14,15].map(function(i){return "<p><b>"+headings[i]+"</b></p><p>"+esc(value("q"+i)||"ВІДПОВІДЬ НЕ НАДАНО").replace(/\n/g,"<br>")+"</p>"}).join("");$("report").classList.add("show");$("finishFb").className="feedback visible "+(s.ok===12&&s.done===3?"good":"bad");$("finishFb").textContent=s.ok===12&&s.done===3?"Усі 15 завдань опрацьовано. Завантажте звіт для здачі.":"У звіті залишаться незавершені завдання. Ви можете повернутися до них, перевірити та сформувати звіт повторно.";$("report").scrollIntoView({behavior:"smooth",block:"start"});save()});
 $("downloadBtn").addEventListener("click",function(){var blob=new Blob(["\ufeff"+reportText()],{type:"text/plain;charset=utf-8"});var url=URL.createObjectURL(blob);var a=document.createElement("a");a.href=url;a.download="praktychna_9_mista_"+new Date().toISOString().slice(0,10)+".txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},500)});
 $("printBtn").addEventListener("click",function(){window.print()});
+
+var homeQuestions=[
+{q:"У 2025 році найбільшу людність за UN WUP має…",o:["Токіо","Джакарта","Нью-Делі"],a:[1]},
+{q:"Що саме потрібно порівнювати в міжнародному рейтингу?",o:["Узгоджено визначені територіальні одиниці","Лише історичні центри","Випадкові дані різних років"],a:[0]},
+{q:"Який розрахунок дає абсолютний приріст людності?",o:["Кінцеве значення мінус початкове","Кінцеве значення поділити на початкове","Додати обидва значення"],a:[0]},
+{q:"Місто з 1,00 млн мешканців належить до міст-мільйонників?",o:["Ні","Так","Лише якщо воно столиця"],a:[1]},
+{q:"Оберіть усі важливі характеристики джерела даних.",o:["Рік оцінювання","Методика визначення меж","Великий заголовок","Відтворювані первинні дані"],a:[0,1,3]},
+{q:"Оберіть усі обґрунтовані висновки за рейтингом 2025 року.",o:["Каїр розташований в Африці","Токіо посідає третє місце","Кількість усіх міських жителів світу дорівнює сумі TOP-10","Джакарта випереджає Дакку"],a:[0,1,3]},
+{q:"Яке місто за прогнозом ООН очолить рейтинг у 2050 році?",o:["Дакка","Сеул","Токіо"],a:[0]},
+{q:"Чому адміністративне місто та його агломерація можуть мати різну людність?",o:["Агломерація може включати пов’язані передмістя","В агломерації завжди рахують лише туристів","Ці поняття повністю тотожні"],a:[0]},
+{q:"Що означає зниження міста з першого на третє місце за кілька років?",o:["Населення цього міста обов’язково зменшилося","Інші міста могли зрости швидше, навіть якщо це місто також зростало","Місто перестало існувати"],a:[1]},
+{q:"Який підсумок найкраще відповідає науковому підходу?",o:["Будь-який список із соцмереж точний","Числа без методики треба просто усереднити","Перевіряємо рік, межі, спосіб підрахунку і лише тоді робимо висновок"],a:[2]}
+];
+$("startQuiz").addEventListener("click",function(){
+if(!validName(value("studentName"))||!value("studentClass")){$("quizGateFb").className="feedback visible bad";$("quizGateFb").textContent="Спершу введіть ім’я, прізвище та клас у паспорті практичної роботи.";return;}
+$("quizGateFb").className="feedback";
+$("quiz").innerHTML=homeQuestions.map(function(q,i){return '<fieldset class="task" data-question="'+(i+1)+'"><legend><b>Запитання '+(i+1)+'/10</b></legend><p>'+esc(q.q)+'</p>'+q.o.map(function(o,j){return '<label class="option"><input type="'+(q.a.length>1?'checkbox':'radio')+'" name="hw'+i+'" value="'+j+'">'+esc(o)+'</label>'}).join('')+'</fieldset>'}).join('')+'<button type="button" id="submitQuiz" class="btn primary">Завершити тест</button>';
+$("quiz").style.display="block";$("startQuiz").style.display="none";
+$("submitQuiz").addEventListener("click",function(){
+var score=homeQuestions.reduce(function(sum,q,i){var picked=Array.from(query('input[name="hw'+i+'"]:checked')).map(function(x){return Number(x.value)}).sort().join(",");var expected=q.a.slice().sort().join(",");return sum+(picked===expected?1:0)},0);
+$("homeQuizResult").innerHTML='<h3>Картка результату тесту</h3><p><b>'+esc(value("studentName"))+'</b> · '+esc(value("studentClass"))+'</p><div class="score">'+score+'/10</div><p>Тема: рейтинги міст і агломерацій. '+new Date().toLocaleString("uk-UA")+'</p><p>Зробіть скриншот цієї картки за потреби.</p><button type="button" class="btn secondary" id="printHomeQuiz">Друк результату</button>';
+$("homeQuizResult").classList.add("show");$("homeQuizResult").scrollIntoView({behavior:"smooth",block:"center"});$("printHomeQuiz").addEventListener("click",function(){window.print()});
+});
+});
+
 makeChart(2025);makeTables();restore();showRank();updateProgress();
 })();
 </script>
