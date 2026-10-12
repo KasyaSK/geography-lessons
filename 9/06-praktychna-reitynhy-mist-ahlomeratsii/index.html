@@ -27,7 +27,8 @@
 .report{display:none;background:#f7fdf7;border:2px solid #8ccca5;color:#193a2c;border-radius:17px;padding:18px;margin-top:14px}.report.show{display:block}.report h3{font-size:1.55rem}.report .score{font-size:2.6rem;color:#12663c;font-weight:1000}.report ol{padding-left:22px}.small{font-size:.83rem}details{border-radius:12px;border:1px solid #c4d9df;background:#ecf5f6;padding:10px 12px;margin:10px 0;color:#183c4b}details summary{cursor:pointer;font-weight:850}.footer{padding:24px 0 55px;color:#a6bfc9;border-top:1px solid #335367}
 @media(max-width:760px){.grid2,.grid3,.identity{grid-template-columns:1fr}.chartrow{grid-template-columns:103px 1fr 44px}.panel{padding:16px}.task{padding:15px}.hero{padding-top:31px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-@media print{body{background:white;color:black}.hero,.nav,.no-print,.feedback,.btn,.resource,footer{display:none!important}.panel,.panel.light,.task{box-shadow:none;background:white;color:#111;border:1px solid #aaa;break-inside:avoid}.report{display:block!important;border:1px solid #333}.task{padding:9px}.task textarea,.task input{border:1px solid #bbb}.section{margin:8px 0}.chartrow b{color:#111}}
+@media print{body{background:white;color:black}main>.section:not(#finish){display:none!important}#finish .panel>*:not(#report){display:none!important}.hero,.nav,.no-print,.feedback,.btn,.resource,footer{display:none!important}.panel,.panel.light,.task{box-shadow:none;background:white;color:#111;border:1px solid #aaa;break-inside:avoid}.report{display:block!important;border:1px solid #333}.task{padding:9px}.task textarea,.task input{border:1px solid #bbb}.section{margin:8px 0}.chartrow b{color:#111}}
+@media print{body.printing-home main>.section:not(#homeQuiz){display:none!important}body.printing-home #homeQuiz{display:block!important}body.printing-home #homeQuiz .panel>*:not(#homeQuizResult){display:none!important}body.printing-home #homeQuizResult{display:block!important}body.printing-home #finish{display:none!important}}
 </style>
 </head>
 <body>
@@ -244,10 +245,11 @@ $("quiz").style.display="block";$("startQuiz").style.display="none";
 $("submitQuiz").addEventListener("click",function(){
 var score=homeQuestions.reduce(function(sum,q,i){var picked=Array.from(query('input[name="hw'+i+'"]:checked')).map(function(x){return Number(x.value)}).sort().join(",");var expected=q.a.slice().sort().join(",");return sum+(picked===expected?1:0)},0);
 $("homeQuizResult").innerHTML='<h3>Картка результату тесту</h3><p><b>'+esc(value("studentName"))+'</b> · '+esc(value("studentClass"))+'</p><div class="score">'+score+'/10</div><p>Тема: рейтинги міст і агломерацій. '+new Date().toLocaleString("uk-UA")+'</p><p>Зробіть скриншот цієї картки за потреби.</p><button type="button" class="btn secondary" id="printHomeQuiz">Друк результату</button>';
-$("homeQuizResult").classList.add("show");$("homeQuizResult").scrollIntoView({behavior:"smooth",block:"center"});$("printHomeQuiz").addEventListener("click",function(){window.print()});
+$("homeQuizResult").classList.add("show");$("homeQuizResult").scrollIntoView({behavior:"smooth",block:"center"});$("printHomeQuiz").addEventListener("click",function(){document.body.classList.add("printing-home");window.print()});
 });
 });
 
+window.addEventListener("afterprint",function(){document.body.classList.remove("printing-home")});
 makeChart(2025);makeTables();restore();showRank();updateProgress();
 })();
 </script>
