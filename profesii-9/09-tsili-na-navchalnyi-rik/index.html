@@ -29,7 +29,7 @@ function renderQuiz(){
  let html='<div class="quizq" id="question'+i+'"><h3>'+(i+1)+'. '+esc(q.ask)+'</h3>';
  if(q.type==="single"||q.type==="multi")q.options.forEach((v,k)=>{html+='<label class="checkline"><input type="'+(q.type==="single"?"radio":"checkbox")+'" name="answer'+i+'" value="'+k+'"><span>'+esc(v)+'</span></label>'});
  if(q.type==="match")q.pairs.forEach((p,k)=>{html+='<label class="field">'+esc(p[0])+'<select data-match="'+i+'" data-item="'+k+'">'+option("","Оберіть відповідність")+q.choices.map((c,j)=>option(j,c)).join("")+'</select></label>'});
- if(q.type==="order")q.items.forEach((p,k)=>{html+='<label class="field">'+esc(p)+'<select data-order="'+i+'" data-item="'+k+'">'+option("","Оберіть місце у послідовності")+p.map(()=> "").join("")+q.items.map((_,j)=>option(j+1,String(j+1))).join("")+'</select></label>'});
+ if(q.type==="order")q.items.forEach((p,k)=>{html+='<label class="field">'+esc(p)+'<select data-order="'+i+'" data-item="'+k+'">'+option("","Оберіть місце у послідовності")+q.items.map((_,j)=>option(j+1,String(j+1))).join("")+'</select></label>'});
  return html+'</div>';
  }).join("");
 }
