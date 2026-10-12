@@ -33,6 +33,8 @@ def run(name, js, expected=True):
 
 try:
     browser.get(f"http://127.0.0.1:{server.server_port}{PAGE}")
+    print("DIAG", browser.execute_script("return {title:document.title,ready:document.readyState,cards:document.querySelectorAll(\'#sortCards .panel\').length,smart:document.querySelectorAll(\'#smartCards .smartcard\').length,budget:document.querySelectorAll(\'#budgetChoices input\').length,evidence:document.querySelectorAll(\'#evidenceChoices input\').length,src:[...document.scripts].map(s=>s.src)}"),flush=True)
+    print("BROWSER LOG", browser.get_log("browser"),flush=True)
     run("initial page and JS execution", """
       return document.querySelectorAll('#sortCards .panel').length===6 &&
         document.querySelectorAll('#smartCards .smartcard').length===5 &&
