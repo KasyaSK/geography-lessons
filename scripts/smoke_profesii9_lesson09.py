@@ -150,7 +150,7 @@ try:
     """)
     run("requested terminology", """
       return !/покращ/iu.test(document.body.textContent) &&
-        document.body.textContent.includes('Удоскональте');
+        document.body.textContent.includes('удосконалити');
     """)
     severe = [x for x in browser.get_log("browser") if x.get("level")=="SEVERE"]
     if severe:
