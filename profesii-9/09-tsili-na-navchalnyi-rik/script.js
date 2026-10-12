@@ -127,4 +127,8 @@ $("resultComment").textContent=total===10?"Усі завдання правил�
 });
 $("quizAgain")?.addEventListener("click",()=>{$("quizResult").hidden=true;$("quizBody").hidden=true;$("quizGate").hidden=false;$("quizSubmit").disabled=false;show("quizFeedback","");focusTo("quizGate")});
 $("printResult")?.addEventListener("click",()=>window.print());
+
+$("quickExample")?.addEventListener("click",()=>{$("quickInterest").value="Цікавлюся дизайном і хочу перевірити цей напрям";$("quickGoal").value="До 20 грудня створю 2 афіші й перевірю за чек-листом";$("quickStep").value="Цього тижня зроблю перший ескіз";show("quickOutput","Вигаданий приклад готовий. Можете змінити його під свій інтерес.","ok")});
+$("quickMake")?.addEventListener("click",()=>{const v=["quickInterest","quickGoal","quickStep"].map(x=>$(x).value.trim());if(v.some(x=>!x)){show("quickOutput","Заповніть інтерес, результат із терміном і першу дію.","warn");return}show("quickOutput","ІНТЕРЕС: "+v[0]+" | МЕТА: "+v[1]+" | ПЕРШИЙ КРОК: "+v[2]+". Тепер обміняйтеся зворотним зв’язком.","ok")});
+$("peerCheck")?.addEventListener("click",()=>{let criteria=[["peerConcrete","Конкретність і термін"],["peerInterest","Зв’язок із інтересом"],["peerAction","Перший крок"]],good=criteria.filter(x=>$(x[0]).checked).map(x=>x[1]),improve=criteria.filter(x=>!$(x[0]).checked).map(x=>x[1]),advice=$("peerAdvice").value.trim();if(!advice){show("peerOutput","Напишіть конкретну пораду партнерові.","warn");return}show("peerOutput","СИЛЬНІ СТОРОНИ: "+(good.join(", ")||"потрібно уточнити")+" | ЩО УТОЧНИТИ: "+(improve.join(", ")||"усі критерії виконано")+" | ПОРАДА: "+advice+". Відредагуйте свою ціль після відгуку.","ok")});
 })();
