@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b2232">
 <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
-<meta name="description" content="10 клас. Самостійна практична робота: типологія країн Європи за показниками розвитку. 15 завдань, 35 хвилин, перевірка, підказки, PDF-звіт.">
+<meta name="description" content="10 клас. Самостійна практична робота: типологія країн Європи за показниками розвитку. 21 завдання, 35 хвилин, перевірка, підказки, PDF-звіт.">
 <title>10 клас · Практична №12 · Лабораторія розвитку Європи — 15 завдань</title>
 <style>
 :root{--bg:#081824;--panel:#112a3a;--panel2:#163548;--line:#305369;--ink:#f0f7f8;--sub:#bfd4dd;--cyan:#7be4ea;--mint:#b9ec94;--gold:#ffc878;--coral:#ffab9a;--paper:#f7fbfc;--navy:#163243;--ok:#267e58;--bad:#a13b40}
@@ -33,21 +33,26 @@ footer{color:#afc5cf;padding:30px 0 50px;text-align:center;font-size:.88rem}.sou
 @media(max-width:850px){.dataViz,.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.selectGrid{grid-template-columns:1fr 1fr}}@media(max-width:540px){.selectGrid{grid-template-columns:1fr}.hero h1{font-size:2.6rem}.task{padding:14px}.taskHead{display:block}.status{margin-bottom:8px}.bars .barrow{grid-template-columns:80px 1fr 51px;font-size:.72rem}.progressline{flex-direction:column}}
 @media print{.nav,header,main,footer,#quizPrintView{display:none!important}body{background:white;color:black}body.print-report #reportView{display:block!important;background:white;color:#111;border:0;padding:18px;font:12pt/1.4 Georgia,serif}body.print-report #reportView button{display:none!important}body.print-quiz #quizPrintView{display:block!important;color:#111;background:white;padding:20px;font:12pt/1.4 Georgia,serif}}
 </style>
-</head>
+<style id="advanced-style">
+#advancedLab .dataTable td:last-child{text-align:right;font-weight:850}
+#advancedLab input[type=range]{cursor:pointer}
+#advancedLab .selectGrid select{color:#15313f;background:#f9fcfc}
+@media print{#advancedLab{break-before:auto}}
+</style></head>
 <body>
 <header class="hero" id="top"><div class="wrap">
 <div class="overline">PROJECT · GEOGRAPHY / 10 CLASS / PRACTICE №12</div>
 <h1>ЄВРОПА ПІД <span>МІКРОСКОПОМ</span></h1>
 <p class="lead">Шість країн, два показники, чотири умовні типи — і кілька випадків, коли простий рейтинг вводить в оману. Тут ви не вгадуєте «найкращу» країну, а <b>будуєте й перевіряєте власну модель розвитку.</b></p>
-<div class="chips"><span class="chip">⏱ 35 хвилин</span><span class="chip">15 завдань</span><span class="chip">12 автоматичних перевірок</span><span class="chip">3 письмові висновки</span><span class="chip">World Bank 2025 · UNDP 2023</span></div>
+<div class="chips"><span class="chip">⏱ 50–60 хв · можна в два підходи</span><span class="chip">15 завдань</span><span class="chip">17 автоматичних перевірок</span><span class="chip">4 аналітичні висновки</span><span class="chip">World Bank 2025 · UNDP 2023</span></div>
 </div></header>
-<nav class="nav"><div class="wrap"><a href="#passport">Старт</a><a href="#sources">Дані й графік</a><a href="#t1">№1–4</a><a href="#t5">№5–8</a><a href="#t9">№9–12</a><a href="#t13">№13–15</a><a href="#finish">Здати звіт</a><a href="#home">Д/З + тест</a></div></nav>
+<nav class="nav"><div class="wrap"><a href="#passport">Старт</a><a href="#sources">Дані й графік</a><a href="#t1">№1–4</a><a href="#t5">№5–8</a><a href="#t9">№9–12</a><a href="#t13">№13–15</a><a href="#advancedLab">№16–21 · Модель</a><a href="#finish">Здати звіт</a><a href="#home">Д/З + тест</a></div></nav>
 <main class="wrap">
 <section class="block" id="passport">
 <div class="kicker">00 · Паспорт практичної роботи</div><h2>Повністю самостійна робота</h2>
 <div class="grid2 identity"><div><label for="studentName">Ім’я та прізвище</label><input id="studentName" type="text" autocomplete="name" placeholder="Наприклад, Марія Коваль"></div><div><label for="studentClass">Клас</label><select id="studentClass"><option value="">Оберіть клас</option><option>10-А</option><option>10-Б</option><option>10-В</option><option>10</option></select></div></div>
-<div class="grid2" style="margin-top:17px"><div class="info"><b>Ваш маршрут</b><ol><li>Ознайомтеся з таблицею та інтерактивним графіком.</li><li>Послідовно виконайте №1–12 і натискайте «Перевірити».</li><li>Самостійно напишіть три аргументовані відповіді №13–15.</li><li>Сформуйте звіт і збережіть PDF або текстовий файл.</li></ol></div><div class="progress"><b>Прогрес виконання</b><div class="track"><div class="fill" id="progressFill"></div></div><div class="progressline"><span id="progressLabel">0 із 15 завдань</span><span id="progressPercent">0%</span></div><p class="tiny muted">12 завдань перевіряє комп’ютер. Для останніх 3 він перевірить лише повноту тексту — правильність аргументації оцінить учитель.</p><p class="tiny">Чернетка зберігається в цьому браузері, але для здавання обов’язково сформуйте файл.</p></div></div>
-<p class="notice"><b>Не потрібно:</b> окремо шукати статистику, дивитися довге відео чи переписувати конспект. Усі числа, формули, визначення та підказки вже є на сторінці. Якщо інтернет зникне після відкриття сторінки, основна робота залишиться доступною.</p>
+<div class="grid2" style="margin-top:17px"><div class="info"><b>Ваш маршрут</b><ol><li>Ознайомтеся з таблицею та інтерактивним графіком.</li><li>Послідовно виконайте №1–12, а потім обов’язково №16–20: нормалізацію, вагові сценарії та аудит стійкості.</li><li>Самостійно напишіть висновки №13–15 і експертний аудит №21.</li><li>Сформуйте звіт і збережіть PDF або текстовий файл.</li></ol></div><div class="progress"><b>Прогрес виконання</b><div class="track"><div class="fill" id="progressFill"></div></div><div class="progressline"><span id="progressLabel">0 із 21 завдання</span><span id="progressPercent">0%</span></div><p class="tiny muted">17 завдань перевіряє комп’ютер. Для 4 аналітичних висновків він перевірить лише повноту тексту — правильність аргументації оцінить учитель.</p><p class="tiny">На повну роботу потрібно близько 50–60 хвилин: базову частину можна виконати на уроці, дослідницьку — продовжити вдома. Чернетка зберігається в цьому браузері, але для здавання обов’язково сформуйте файл.</p></div></div>
+<p class="notice"><b>Не потрібно:</b> окремо шукати статистику, дивитися довге відео чи переписувати конспект. Усі числа, формули, приклади нормалізації, інтерактивний регулятор ваг та підказки вже є на сторінці. Якщо інтернет зникне після відкриття сторінки, основна робота залишиться доступною.</p>
 </section>
 <section class="block" id="sources"><div class="kicker">Статистична база · можна повертатися під час усіх завдань</div><h2>Дані для дослідження: 6 країн Європи</h2>
 <p>Робота використовує <b>номінальний ВВП на одну особу (поточні долари США, 2025)</b> і <b>індекс людського розвитку HDI (2023)</b>. Числа округлено для навчальних розрахунків; це два різні роки та два різні показники.</p>
@@ -107,8 +112,69 @@ footer{color:#afc5cf;padding:30px 0 50px;text-align:center;font-size:.88rem}.sou
 <div class="reportSection"><label><b>C — Claim (позиція):</b> погоджуєтеся чи ні й за яких умов?</label><textarea id="write15c" placeholder="Такий висновок занадто загальний, оскільки..."></textarea><label><b>E — Evidence (докази):</b> наведіть два або більше числа з таблиці.</label><textarea id="write15e" placeholder="Нідерланди мають ..., а Німеччина ... . За HDI ..."></textarea><label><b>R — Reasoning (пояснення):</b> чому цифри підтверджують Вашу позицію? Яке обмеження має порівняння?</label><textarea id="write15r" placeholder="З одного показника не випливає ..., до того ж ..."></textarea></div>
 <div class="controls"><button class="btn" id="check15">Додати CER-висновок до звіту</button></div><div id="fb15" class="feedback"></div><details class="hint"><summary>Підказка</summary><p>Порівняйте Нідерланди з Німеччиною за двома стовпцями. Розрізніть опис різниці й твердження про її причину.</p></details></article>
 </section>
+
+<section class="block" id="advancedLab">
+<div class="kicker">05 · Дослідницька лабораторія · підвищена складність</div>
+<h2>Створіть власний індекс розвитку — і спробуйте його зламати</h2>
+<p class="muted">Тепер Ви не просто читаєте готові рейтинги. Ви перетворюєте різнорозмірні показники на зіставні оцінки, призначаєте ваги, перевіряєте чутливість висновків і проводите методологічний аудит. <b>Усі дані та формули наведено нижче.</b></p>
+<div class="grid2">
+<div class="info"><b>Чому не можна просто додати ВВП і HDI?</b><p>73,7 тис. USD та 0,955 мають різні одиниці, діапазони й зміст. Чисельно додавати їх без перетворення означає змішувати несумірні величини.</p></div>
+<div class="info"><b>Нормалізація min–max: індекс 0–100</b><p>Для кожної країни: <b>I = (значення − мінімум) ÷ (максимум − мінімум) × 100</b>. У цій <em>вибірці</em> мінімум і максимум для ВВП — 20,3 та 73,7; для HDI — 0,845 та 0,959.</p></div>
+</div>
+<p class="example" style="margin-top:13px"><b>Приклад із Францією:</b> I(ВВП) = (49,0 − 20,3) ÷ (73,7 − 20,3) × 100 ≈ <b>53,7</b>. I(HDI) = (0,920 − 0,845) ÷ (0,959 − 0,845) × 100 ≈ <b>65,8</b>. Це нормалізовані <b>бали у шести країнах</b>, а не світовий відсоток розвитку.</p>
+<article class="task" id="t16"><div class="taskHead"><div><div class="tag">16 · 4 хв · обчислення min–max</div><h3>Переведіть два показники Польщі в шкалу 0–100</h3></div><span class="status" id="status16">Не виконано</span></div>
+<p>Підставте показники Польщі 28,4 тис. USD і HDI 0,906. Знайдіть обидва нормалізовані бали з точністю до <b>одного знака після коми</b>.</p>
+<div class="grid2"><label>Нормалізований ВВП Польщі, балів <input id="adv16g" type="text" inputmode="decimal" placeholder="Наприклад, 42,3"></label><label>Нормалізований HDI Польщі, балів <input id="adv16h" type="text" inputmode="decimal" placeholder="Наприклад, 61,8"></label></div>
+<div class="controls"><button class="btn" id="check16">Перевірити два розрахунки</button></div><div class="feedback" id="fb16"></div>
+<details class="hint"><summary>Алгоритм, якщо застрягли</summary><p>Для ВВП: (28,4 − 20,3) ÷ (73,7 − 20,3) × 100. Для HDI: (0,906 − 0,845) ÷ (0,959 − 0,845) × 100. Уважно округліть <b>кінцеві</b> результати, а не проміжні.</p></details></article>
+<div class="info" id="modelLab">
+<h3>Інтерактивна лабораторія: хто перший залежно від Ваших ваг?</h3>
+<p>Після нормалізації побудуйте <b>умовний зведений індекс</b> за формулою: <b>Індекс = (вага ВВП × I(ВВП) + вага HDI × I(HDI)) ÷ 100</b>. Ваги разом мають дорівнювати 100%.</p>
+<label for="advWeight"><b>Вага ВВП: <span id="advWeightValue">50</span>%</b> · вага HDI: <b><span id="advHDIWeight">50</span>%</b></label>
+<input id="advWeight" type="range" min="0" max="100" step="10" value="50" style="display:block;width:100%;accent-color:#7be4ea;margin:14px 0">
+<div class="dataWrap"><table class="dataTable" style="min-width:540px"><thead><tr><th>Місце</th><th>Країна</th><th>I(ВВП)</th><th>I(HDI)</th><th>Зведений бал</th></tr></thead><tbody id="advRankBody"></tbody></table></div>
+<p class="tiny muted">Модель змінює <b>лише ваги</b>; статистика не змінюється. Це не рейтинг ООН чи Світового банку, а експеримент над обраним набором даних.</p>
+</div>
+<article class="task" id="t17"><div class="taskHead"><div><div class="tag">17 · 3 хв · зважений індекс</div><h3>Розрахуйте інтегральний бал Польщі</h3></div><span class="status" id="status17">Не виконано</span></div>
+<p>Уявіть комісію, яка віддає <b>30% ваги ВВП і 70% — HDI</b>. Використайте НЕ округлені передчасно нормалізовані бали з №16. Скільки набере Польща за 100-бальною шкалою? Округліть до десятих.</p>
+<label>Індекс Польщі при 30% / 70% <input id="adv17" type="text" inputmode="decimal" placeholder="Наприклад, 44,8" style="max-width:230px"></label>
+<div class="controls"><button class="btn" id="check17">Перевірити індекс</button></div><div id="fb17" class="feedback"></div>
+<details class="hint"><summary>Підказка</summary><p>Знайдіть 0,30 × I(ВВП Польщі) + 0,70 × I(HDI Польщі). Для перевірки можна посунути повзунок вище на 30%, але спершу розрахуйте самостійно.</p></details></article>
+<article class="task" id="t18"><div class="taskHead"><div><div class="tag">18 · 4 хв · аналіз чутливості</div><h3>Знайдіть дві зміни рейтингу при зміні ваг</h3></div><span class="status" id="status18">Не виконано</span></div>
+<p>Застосуйте повзунок вище для <b>10%, 20%, 80%, 90% ваги ВВП</b>. Запишіть лідерів і з’ясуйте, хто випереджає кого серед Польщі та Португалії. Не міняйте самі дані.</p>
+<div class="selectGrid">
+<label>Лідер при 10% ВВП <select id="adv18a"><option value="">Оберіть…</option><option value="nl">Нідерланди</option><option value="de">Німеччина</option><option value="pl">Польща</option></select></label>
+<label>Лідер при 90% ВВП <select id="adv18b"><option value="">Оберіть…</option><option value="nl">Нідерланди</option><option value="de">Німеччина</option><option value="pl">Польща</option></select></label>
+<label>Вище при 20% ВВП <select id="adv18c"><option value="">Оберіть…</option><option value="pl">Польща</option><option value="pt">Португалія</option></select></label>
+<label>Вище при 80% ВВП <select id="adv18d"><option value="">Оберіть…</option><option value="pl">Польща</option><option value="pt">Португалія</option></select></label>
+</div><div class="controls"><button class="btn" id="check18">Перевірити чотири порівняння</button></div><div id="fb18" class="feedback"></div>
+<details class="hint"><summary>Підказка</summary><p>Один показник може бути вищим у першої країни, інший — у другої. Коли Ви змінюєте вагу цих показників, позиції можуть перетнутися. Шукайте такі пари.</p></details></article>
+<article class="task" id="t19"><div class="taskHead"><div><div class="tag">19 · 4 хв · стійкість нормалізації</div><h3>Чи можна «зіпсувати» оцінку країни, просто розширивши вибірку?</h3></div><span class="status" id="status19">Не виконано</span></div>
+<p>Уявіть <b>вигадану державу X</b> з ВВП на особу <b>200,0 тис. USD</b>. Додамо її до таблиці тільки для розрахунку <b>нормалізованого ВВП</b>. Мінімум залишається 20,3, але максимум тепер 200,0. Скільки балів за ВВП отримають Нідерланди замість колишніх 100?</p>
+<label>Новий I(ВВП) Нідерландів, балів (до 0,1) <input id="adv19" type="text" inputmode="decimal" placeholder="Наприклад, 75,1" style="max-width:235px"></label>
+<p>Чому змінився бал, якщо сам ВВП Нідерландів залишився 73,7?</p>
+<select id="adv19reason" style="width:100%"><option value="">Оберіть пояснення…</option><option value="gdp">Бо Нідерланди раптово стали виробляти менше</option><option value="sample">Бо min–max залежить від екстремальних значень у вибірці</option><option value="hdi">Бо змінився HDI Нідерландів</option></select>
+<div class="controls"><button class="btn" id="check19">Перевірити число й пояснення</button></div><div id="fb19" class="feedback"></div>
+<details class="hint"><summary>Формула</summary><p>Порахуйте (73,7 − 20,3) ÷ (200,0 − 20,3) × 100. Вигадана держава X — <b>сценарій</b>, це не офіційне спостереження.</p></details></article>
+<article class="task" id="t20"><div class="taskHead"><div><div class="tag">20 · 3 хв · перевірка невизначеності</div><h3>Різниця HDI у 0,004: наскільки стійкий висновок?</h3></div><span class="status" id="status20">Не виконано</span></div>
+<p>Німеччина має HDI <b>0,959</b>, Нідерланди — <b>0,955</b>. Для <b>уявного стрес-тесту, не офіційної похибки даних</b>, дозволимо кожному значенню зміщуватися на ±0,005. Чи може порядок двох країн змінитися? Яким буде нижній край <em>уявного</em> діапазону Німеччини?</p>
+<div class="grid2"><label>Чи можливий переворот порядку? <select id="adv20a"><option value="">Оберіть</option><option value="yes">Так, у сценарії він можливий</option><option value="no">Ні, за жодних значень</option></select></label><label>Нижня межа Німеччини <input id="adv20b" type="text" inputmode="decimal" placeholder="Наприклад, 0,923"></label></div>
+<div class="controls"><button class="btn" id="check20">Перевірити стрес-тест</button></div><div id="fb20" class="feedback"></div>
+<details class="hint"><summary>Підказка</summary><p>Знайдіть 0,959 − 0,005. А для Нідерландів — 0,955 + 0,005. Порівняйте одержані межі; це лише тест чутливості.</p></details></article>
+<article class="task" id="t21"><div class="taskHead"><div><div class="tag">21 · 5 хв · експертний аудит</div><h3>Викрийте некоректні висновки з «дослідницького звіту»</h3></div><span class="status" id="status21">Не виконано</span></div>
+<p>Редактор підготував три твердження. Визначте, які з них витримують перевірку. Потім аргументовано розберіть <b>два проблемні</b>: наведіть щонайменше три числа й уточніть, чого дані <em>не дозволяють</em> стверджувати.</p>
+<div class="selectGrid">
+<label>А. «Нідерланди мають найбільший ВВП на особу <em>саме в нашій шістці</em>». <select id="adv21a"><option value="">Оберіть</option><option value="true">Коректно</option><option value="false">Некоректно</option></select></label>
+<label>Б. «HDI Німеччини вищий за нідерландський, отже її ВВП на особу також вищий». <select id="adv21b"><option value="">Оберіть</option><option value="true">Коректно</option><option value="false">Некоректно</option></select></label>
+<label>В. «ВВП за 2025 рік доводить, що саме він спричинив HDI за 2023 рік». <select id="adv21c"><option value="">Оберіть</option><option value="true">Коректно</option><option value="false">Некоректно</option></select></label>
+</div>
+<label style="display:block;margin-top:13px"><b>Ваш письмовий аудит (мінімум 4–6 змістовних речень)</b><textarea id="adv21text" style="min-height:160px" placeholder="Твердження Б некоректне: за ВВП ... , проте HDI ... . Твердження В не доводить причинності, адже ... . Я б ..."></textarea></label>
+<div class="controls"><button class="btn" id="check21">Додати експертний аудит до звіту</button></div><div id="fb21" class="feedback"></div>
+<details class="hint"><summary>Як побудувати аргумент</summary><p>Для Б порівняйте Нідерланди й Німеччину за двома показниками. Для В поясніть, чому кореляція — не причинність, особливо коли роки різні. Оцініть, чи можна за нашою вибіркою робити твердження про всю Європу.</p></details></article>
+<p class="notice"><b>Після завершення:</b> сформуйте звіт у наступному блоці. До нього ввійдуть обчислення №16–20, Ваші відповіді та текст аудиту №21. Письмові відповіді оцінить учитель.</p>
+</section>
 <section class="block" id="finish"><div class="kicker">Фініш · звіт із Вашими відповідями</div><h2>Здайте практичну роботу</h2>
-<p>В автоматичних завданнях комп’ютер перевіряє правильність відповіді, у письмових — лише достатність заповнення. <b>Не здавайте тільки картку тесту:</b> головний результат — це практична робота з трьома письмовими висновками.</p>
+<p>В 17 автоматичних завданнях комп’ютер перевіряє правильність відповіді, у 4 аналітичних — лише достатність заповнення. <b>Не здавайте тільки картку тесту:</b> головний результат — це практична робота з чотирма письмовими висновками.</p>
 <div class="controls"><button class="btn warm" id="buildReport">Сформувати підсумок</button></div><div id="finishFb" class="feedback"></div>
 <div id="reportPreview" class="info" style="display:none;margin-top:14px"><h3>Звіт готовий для завантаження</h3><p id="reportSummary"></p><div class="reportButtonRow"><button id="downloadTxt" class="btn">Завантажити звіт .txt</button><button id="printReport" class="btn secondary">Друк / зберегти PDF</button></div></div>
 <p class="tiny muted">Якщо браузер дозволяє локальне збереження, відповіді відновляться після оновлення сторінки. Втім, лише завантажений файл або PDF можна надіслати у Classroom.</p>
@@ -138,14 +204,14 @@ const completed=new Set();
 let picks3=[],picks4=[],quizScore=null;
 const names3=["Болгарія","Франція","Португалія","Нідерланди","Польща","Німеччина"];
 const names4=["Португалія","Німеччина","Франція","Нідерланди","Болгарія","Польща"];
-const allFieldIds=["studentName","studentClass","ans5","ans6","t7g","t7h","ans11","t10g","t10h","write13","write14","write15c","write15e","write15r","g-nl","g-de","g-fr","g-pt","g-pl","g-bg"];
+const allFieldIds=["studentName","studentClass","ans5","ans6","t7g","t7h","ans11","t10g","t10h","write13","write14","write15c","write15e","write15r","g-nl","g-de","g-fr","g-pt","g-pl","g-bg","adv16g","adv16h","adv17","advWeight","adv18a","adv18b","adv18c","adv18d","adv19","adv19reason","adv20a","adv20b","adv21a","adv21b","adv21c","adv21text"];
 const nameOk=()=>{const parts=val("studentName").split(/\s+/);return parts.length>=2&&parts.every(x=>/^[\p{L}'’\-]+$/u.test(x))};
 const number=id=>{let s=val(id).replace("%","").replace(/\s+/g,"").replace(",",".");return /^-?\d+(?:\.\d+)?$/.test(s)?Number(s):NaN};
 function notice(n,msg,ok){const f=get("fb"+n);f.textContent=msg;f.className="feedback show "+(ok?"good":"bad");get("t"+n).setAttribute("aria-invalid",ok?"false":"true");if(ok)mark(n);}
 function mark(n){completed.add(n);get("status"+n).textContent="Виконано";get("status"+n).className="status done";get("t"+n).setAttribute("aria-invalid","false");progress();save();}
 function unmark(n){if(completed.delete(n)){get("status"+n).textContent="Не виконано";get("status"+n).className="status";progress();}get("fb"+n).className="feedback";lastReport="";get("reportPreview").style.display="none";get("finishFb").className="feedback";save()}
-function progress(){let n=completed.size;text("progressLabel",n+" із 15 завдань");text("progressPercent",Math.round(n/15*100)+"%");get("progressFill").style.width=(100*n/15)+"%"}
-function save(){try{const obj={fields:{},choices:{},completed:[...completed],picks3,picks4};for(const id of allFieldIds)obj.fields[id]=get(id).value;for(const n of ["t1","t2","t9","t12"])obj.choices[n]=[...document.querySelectorAll('input[name="'+n+'"]:checked')].map(e=>e.value);localStorage.setItem("g10typology-v4",JSON.stringify(obj));}catch(e){}}
+function progress(){let n=completed.size;text("progressLabel",n+" із 21 завдання");text("progressPercent",Math.round(n/21*100)+"%");get("progressFill").style.width=(100*n/21)+"%"}
+function save(){try{const obj={fields:{},choices:{},completed:[...completed],picks3,picks4};for(const id of allFieldIds)obj.fields[id]=get(id).value;for(const n of ["t1","t2","t9","t12"])obj.choices[n]=[...document.querySelectorAll('input[name="'+n+'"]:checked')].map(e=>e.value);localStorage.setItem("g10typology-v5",JSON.stringify(obj));}catch(e){}}
 function renderPicks(n){const p=n===3?picks3:picks4;const list=n===3?names3:names4;get("pick"+n).innerHTML="";for(const name of list){const b=document.createElement("button");b.type="button";b.textContent=name;b.disabled=p.includes(name)||p.length>= (n===3?4:3);b.onclick=()=>{p.push(name);unmark(n);renderPicks(n);save()};get("pick"+n).appendChild(b)}text("order"+n,p.length?p.map((x,i)=>(i+1)+". "+x).join(" → "):"Нічого не вибрано")}
 function resetPicks(n){if(n===3)picks3=[];else picks4=[];unmark(n);renderPicks(n);save()}
 for(const n of [3,4]){get("reset"+n).onclick=()=>resetPicks(n);}
@@ -167,21 +233,35 @@ get("check14").onclick=()=>checkWritten(14,["write14"],[105]);
 get("check15").onclick=()=>checkWritten(15,["write15c","write15e","write15r"],[45,55,85]);
 function drawBars(){const max=80;get("incomeBars").innerHTML=data.map(c=>'<div class="barrow"><span>'+c.flag+" "+c.name+'</span><div class="rail"><div class="barfill" style="width:'+(c.gdp/max*100)+'%"></div></div><strong>'+c.gdp.toFixed(1).replace(".",",")+'</strong></div>').join("")}
 function drawScatter(){const svg=get("scatter"),ns="http://www.w3.org/2000/svg";const add=(tag,attrs,txt)=>{let el=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))el.setAttribute(k,v);if(txt!==undefined)el.textContent=txt;svg.appendChild(el);return el};svg.innerHTML="";const x=v=>80+(v-15)/65*610,y=v=>300-(v-.82)/.16*250;add("rect",{x:80,y:50,width:610,height:250,fill:"#0e2e3d",rx:5});for(const a of [20,40,60,80]){add("line",{x1:x(a),y1:50,x2:x(a),y2:300,class:"gridline"});add("text",{x:x(a),y:322,"text-anchor":"middle",fill:"#cde1e8","font-size":18},String(a))}for(const a of [.84,.88,.92,.96]){add("line",{x1:80,y1:y(a),x2:690,y2:y(a),class:"gridline"});add("text",{x:70,y:y(a)+6,"text-anchor":"end",fill:"#cde1e8","font-size":17},a.toFixed(2))}add("line",{x1:x(40),y1:50,x2:x(40),y2:300,stroke:"#f7c57c","stroke-width":3,"stroke-dasharray":"8 5"});add("line",{x1:80,y1:y(.9),x2:690,y2:y(.9),stroke:"#f7c57c","stroke-width":3,"stroke-dasharray":"8 5"});add("text",{x:391,y:364,"text-anchor":"middle",fill:"#ebf6f6","font-size":19},"ВВП на особу, тис. USD (2025)");add("text",{x:16,y:175,transform:"rotate(-90 16 175)","text-anchor":"middle",fill:"#ebf6f6","font-size":19},"HDI (2023)");let offset={nl:[-25,30],de:[10,-15],fr:[12,-13],pt:[12,25],pl:[-93,-9],bg:[13,-11]};for(const c of data){add("circle",{cx:x(c.gdp),cy:y(c.hdi),r:9,fill:c.group==="A"?"#7be4ea":c.group==="B"?"#b9ec94":"#ffc878",class:"dot"});add("text",{x:x(c.gdp)+offset[c.id][0],y:y(c.hdi)+offset[c.id][1],fill:"#fff","font-size":17,"font-weight":800},c.name)}add("text",{x:686,y:44,"text-anchor":"end",fill:"#ffd08f","font-size":14},"Пороги: 40 · 0,900")}
-function restore(){try{const s=JSON.parse(localStorage.getItem("g10typology-v4")||"{}");if(s.fields)for(const [id,v] of Object.entries(s.fields)){if(get(id)&&typeof v==="string")get(id).value=v}if(s.choices)for(const [key,vals] of Object.entries(s.choices)){for(const el of document.querySelectorAll('input[name="'+key+'"]'))el.checked=vals.includes(el.value)}picks3=Array.isArray(s.picks3)?s.picks3.filter(x=>names3.includes(x)).slice(0,4):[];picks4=Array.isArray(s.picks4)?s.picks4.filter(x=>names4.includes(x)).slice(0,3):[];if(Array.isArray(s.completed)){for(const n of s.completed){if(Number.isInteger(n)&&n>=1&&n<=15){completed.add(n);get("status"+n).textContent="Виконано";get("status"+n).className="status done"}}}}catch(e){}progress()}
+function restore(){try{const s=JSON.parse(localStorage.getItem("g10typology-v4")||"{}");if(s.fields)for(const [id,v] of Object.entries(s.fields)){if(get(id)&&typeof v==="string")get(id).value=v}if(s.choices)for(const [key,vals] of Object.entries(s.choices)){for(const el of document.querySelectorAll('input[name="'+key+'"]'))el.checked=vals.includes(el.value)}picks3=Array.isArray(s.picks3)?s.picks3.filter(x=>names3.includes(x)).slice(0,4):[];picks4=Array.isArray(s.picks4)?s.picks4.filter(x=>names4.includes(x)).slice(0,3):[];if(Array.isArray(s.completed)){for(const n of s.completed){if(Number.isInteger(n)&&n>=1&&n<=21){completed.add(n);get("status"+n).textContent="Виконано";get("status"+n).className="status done"}}}}catch(e){}progress()}
 for(const id of allFieldIds){get(id).addEventListener("input",()=>{const n=get(id).closest(".task")?.id?.match(/^t(\d+)$/);if(n)unmark(Number(n[1]));else if(id==="studentName"||id==="studentClass"){lastReport="";get("reportPreview").style.display="none";get("finishFb").className="feedback"}save()});get(id).addEventListener("change",save)}
 for(const el of document.querySelectorAll('input[type="radio"],input[type="checkbox"]')){const task=el.closest(".task");if(task)el.addEventListener("change",()=>{unmark(Number(task.id.slice(1)));save()})}
 for(const el of document.querySelectorAll('select')){let task=el.closest(".task");if(task)el.addEventListener("change",()=>unmark(Number(task.id.slice(1))))}
 let lastReport="";
 function validIdentity(){return nameOk()&&!!val("studentClass")}
-const correctTasks=()=>[...completed].filter(n=>n<=12).length;
-const writtenTasks=()=>[...completed].filter(n=>n>=13).length;
+const correctTasks=()=>[...completed].filter(n=>n<=12||(n>=16&&n<=20)).length;
+const writtenTasks=()=>[...completed].filter(n=>(n>=13&&n<=15)||n===21).length;
 get("buildReport").onclick=()=>{
 if(!validIdentity()){get("finishFb").textContent="Укажіть ім’я, прізвище та клас у паспорті на початку сторінки.";get("finishFb").className="feedback show bad";get("passport").scrollIntoView({behavior:"smooth"});return}
-const unfinished=Array.from({length:15},(_,i)=>i+1).filter(n=>!completed.has(n));
-let parts=["ГЕОГРАФІЯ · 10 КЛАС · ПРАКТИЧНА РОБОТА №12","Типологія країн Європи за показниками розвитку","Учень/учениця: "+val("studentName"),"Клас: "+val("studentClass"),"Дата формування: "+new Date().toLocaleString("uk-UA"),"Дані: ВВП на особу — World Bank, 2025; HDI — UNDP HDR 2025, значення за 2023 рік.","Статистика округлена для навчальних розрахунків. Групи А/Б/В/Г — навчальна модель.","","РЕЗУЛЬТАТИ АВТОПЕРЕВІРКИ","Виконано: "+correctTasks()+" із 12.","Завдання №1–12: "+Array.from({length:12},(_,i)=>((i+1)+": "+(completed.has(i+1)?"виконано":"не виконано"))).join("; "), "Рейтинг ВВП (№3): "+(picks3.join(" → ")||"немає"),"Рейтинг HDI (№4): "+(picks4.join(" → ")||"немає"),"№5: "+(val("ans5")||"немає")+" тис. USD", "№6: "+(val("ans6")||"немає")+" разів","№7: ВВП="+(val("t7g")||"—")+", HDI="+(val("t7h")||"—"),"№8, групи: "+data.map(c=>c.name+" "+(val("g-"+c.id)||"—")).join("; "),"№10: ВВП="+(val("t10g")||"—")+", HDI="+(val("t10h")||"—"),"№11: "+(val("ans11")||"—")+"%","","ПИСЬМОВІ ВИСНОВКИ","№13. Польща та Португалія: "+(val("write13")||"[не заповнено]"),"","№14. Зміна порога ВВП: "+(val("write14")||"[не заповнено]"),"","№15. CER — ТЕЗА: "+(val("write15c")||"[не заповнено]"),"ДОКАЗИ: "+(val("write15e")||"[не заповнено]"),"ПОЯСНЕННЯ: "+(val("write15r")||"[не заповнено]"),"","Не завершені номери: "+(unfinished.join(", ")||"відсутні"),"Автоматична перевірка письмових відповідей стосується лише повноти, а не правильності.","Джерела: https://data.worldbank.org/indicator/NY.GDP.PCAP.CD · https://hdr.undp.org/data-center/country-insights"];
+const unfinished=Array.from({length:21},(_,i)=>i+1).filter(n=>!completed.has(n));
+let parts=["ГЕОГРАФІЯ · 10 КЛАС · ПРАКТИЧНА РОБОТА №12","Типологія країн Європи за показниками розвитку","Учень/учениця: "+val("studentName"),"Клас: "+val("studentClass"),"Дата формування: "+new Date().toLocaleString("uk-UA"),"Дані: ВВП на особу — World Bank, 2025; HDI — UNDP HDR 2025, значення за 2023 рік.","Статистика округлена для навчальних розрахунків. Групи А/Б/В/Г — навчальна модель.","","РЕЗУЛЬТАТИ АВТОПЕРЕВІРКИ","Виконано: "+correctTasks()+" із 17.","Завдання №1–12: "+Array.from({length:12},(_,i)=>((i+1)+": "+(completed.has(i+1)?"виконано":"не виконано"))).join("; "), "Рейтинг ВВП (№3): "+(picks3.join(" → ")||"немає"),"Рейтинг HDI (№4): "+(picks4.join(" → ")||"немає"),"№5: "+(val("ans5")||"немає")+" тис. USD", "№6: "+(val("ans6")||"немає")+" разів","№7: ВВП="+(val("t7g")||"—")+", HDI="+(val("t7h")||"—"),"№8, групи: "+data.map(c=>c.name+" "+(val("g-"+c.id)||"—")).join("; "),"№10: ВВП="+(val("t10g")||"—")+", HDI="+(val("t10h")||"—"),"№11: "+(val("ans11")||"—")+"%","","ПИСЬМОВІ ВИСНОВКИ","№13. Польща та Португалія: "+(val("write13")||"[не заповнено]"),"","№14. Зміна порога ВВП: "+(val("write14")||"[не заповнено]"),"","№15. CER — ТЕЗА: "+(val("write15c")||"[не заповнено]"),"ДОКАЗИ: "+(val("write15e")||"[не заповнено]"),"ПОЯСНЕННЯ: "+(val("write15r")||"[не заповнено]"),"","Не завершені номери: "+(unfinished.join(", ")||"відсутні"),"Автоматична перевірка письмових відповідей стосується лише повноти, а не правильності.","Джерела: https://data.worldbank.org/indicator/NY.GDP.PCAP.CD · https://hdr.undp.org/data-center/country-insights"];
+parts.push(
+  "","ПОГЛИБЛЕНА ЛАБОРАТОРІЯ · ЗАВДАННЯ №16–21",
+  "№16: I(ВВП Польщі) = "+(val("adv16g")||"—")+"; I(HDI Польщі) = "+(val("adv16h")||"—"),
+  "№17: зведений індекс Польщі (30% / 70%) = "+(val("adv17")||"—"),
+  "№18: лідери при 10%, 90% ВВП: "+(val("adv18a")||"—")+" / "+(val("adv18b")||"—")+
+  "; Польща чи Португалія при 20%, 80%: "+(val("adv18c")||"—")+" / "+(val("adv18d")||"—"),
+  "№19: нормалізований ВВП Нідерландів з уявною країною X = "+(val("adv19")||"—")+
+  "; пояснення: "+(val("adv19reason")||"—"),
+  "№20: чи можливий переворот: "+(val("adv20a")||"—")+
+  "; нижня уявна межа HDI Німеччини: "+(val("adv20b")||"—"),
+  "№21: висновки редактора: А="+(val("adv21a")||"—")+"; Б="+(val("adv21b")||"—")+"; В="+(val("adv21c")||"—"),
+  "№21. ВЛАСНИЙ МЕТОДОЛОГІЧНИЙ АУДИТ:\n"+(val("adv21text")||"[не заповнено]"),
+  "Ваги, нормалізація min–max, уявна країна X та ±0,005 для стрес-тесту — навчальні методи і припущення, не офіційні індекси чи довірчі інтервали."
+);
 lastReport=parts.join("\n");
-get("reportPreview").style.display="block";text("reportSummary","Автоматична частина: "+correctTasks()+"/12; письмові висновки: "+writtenTasks()+"/3. "+(unfinished.length?"Допрацювати № "+unfinished.join(", ")+".":"Усі 15 завдань позначено виконаними."));
-get("finishFb").textContent=unfinished.length?"Звіт сформовано. Можете завантажити його зараз, але для завершеної практичної допрацюйте позначені номери.":"Звіт сформовано з усіх 15 завдань. Збережіть файл або PDF та надішліть у Classroom.";
+get("reportPreview").style.display="block";text("reportSummary","Автоматична частина: "+correctTasks()+"/17; письмові висновки: "+writtenTasks()+"/4. "+(unfinished.length?"Допрацювати № "+unfinished.join(", ")+".":"Усі 15 завдань позначено виконаними."));
+get("finishFb").textContent=unfinished.length?"Звіт сформовано. Можете завантажити його зараз, але для завершеної практичної допрацюйте позначені номери.":"Звіт сформовано з усіх 21 завдання. Збережіть файл або PDF та надішліть у Classroom.";
 get("finishFb").className="feedback show "+(unfinished.length?"bad":"good");get("reportPreview").scrollIntoView({behavior:"smooth",block:"nearest"});
 };
 function download(filename,txt){const blob=new Blob([txt],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
@@ -212,7 +292,34 @@ get("homeQuizResult").innerHTML='<h3>Картка результату само�
 get("homeQuizResult").style.display="block";
 get("printQuiz").onclick=()=>{get("quizPrintView").innerHTML='<h2>Домашня самоперевірка · 10 клас</h2><p>'+esc(val("studentName"))+' · '+esc(val("studentClass"))+'</p><p>Результат: '+score+'/10</p><p>'+esc(new Date().toLocaleString("uk-UA"))+'</p>';document.body.classList.add("print-quiz");window.print()};
 get("homeQuizResult").scrollIntoView({behavior:"smooth"})};
-drawBars();drawScatter();restore();renderPicks(3);renderPicks(4);progress();
+
+function normGdp(g){return 100*(g-20.3)/(73.7-20.3)}
+function normHdi(v){return 100*(v-.845)/(.959-.845)}
+function scoreModel(c,w){return normGdp(c.gdp)*w/100+normHdi(c.hdi)*(100-w)/100}
+function setModel(){
+  const weight=Number(get("advWeight").value)||0;
+  text("advWeightValue",weight);text("advHDIWeight",100-weight);
+  get("advRankBody").innerHTML=data.map(c=>({...c,score:scoreModel(c,weight)}))
+    .sort((a,b)=>b.score-a.score).map((c,i)=>
+    '<tr><td>'+(i+1)+'</td><td>'+c.flag+' '+esc(c.name)+'</td><td class="num">'+normGdp(c.gdp).toFixed(1).replace(".",",")+'</td><td class="num">'+normHdi(c.hdi).toFixed(1).replace(".",",")+'</td><td class="num">'+c.score.toFixed(1).replace(".",",")+'</td></tr>').join("");
+}
+get("advWeight").addEventListener("input",setModel);
+get("check16").onclick=()=>{let g=number("adv16g"),d=number("adv16h"),ok=Math.abs(g-normGdp(28.4))<=.11&&Math.abs(d-normHdi(.906))<=.11;
+notice(16,ok?"Обидва значення правильні. Це бали min–max у цій шістці, не світові відсотки розвитку.":"Перевірте різницю між значенням країни і мінімумом, потім поділіть на розмах показника.",ok)};
+get("check17").onclick=()=>{const v=number("adv17"),target=scoreModel(data.find(c=>c.id==="pl"),30),ok=Math.abs(v-target)<=.11;
+notice(17,ok?"Правильно: близько "+target.toFixed(1).replace(".",",")+" бала. Пам’ятайте: зведений індекс залежить від ваг.":"Порахуйте 30% нормалізованого ВВП плюс 70% нормалізованого HDI Польщі.",ok)};
+get("check18").onclick=()=>{let vals=["adv18a","adv18b","adv18c","adv18d"].map(val),want=["de","nl","pl","pt"],bad=vals.map((v,i)=>v===want[i]);
+notice(18,bad.every(Boolean)?"Так. Зміна ваг змінює навіть лідера вибірки і порядок Польщі з Португалією.":"Правильних порівнянь: "+bad.filter(Boolean).length+"/4. Поверніться до повзунка й перевірте 10%, 20%, 80%, 90% ваги ВВП.",bad.every(Boolean))};
+get("check19").onclick=()=>{const score=(73.7-20.3)/(200-20.3)*100,ok=Math.abs(number("adv19")-score)<=.11&&val("adv19reason")==="sample";
+notice(19,ok?"Правильно: оцінка впала без зміни ВВП країни. Min–max залежить від складу вибірки.":"Новий знаменник — 200,0 − 20,3. Подумайте, що саме змінилось: країна чи шкала.",ok)};
+get("check20").onclick=()=>{const ok=val("adv20a")==="yes"&&Math.abs(number("adv20b")-.954)<.00051;
+notice(20,ok?"Правильно: уявні діапазони перетинаються. Важливо: ±0,005 НЕ є встановленою статистичною похибкою UNDP.":"Порівняйте уявний мінімум Німеччини (0,959 − 0,005) з максимумом Нідерландів (0,955 + 0,005).",ok)};
+get("check21").onclick=()=>{const v=val("adv21text"),num=(v.match(/\d+[,.]?\d*/g)||[]).length;
+const pick=val("adv21a")==="true"&&val("adv21b")==="false"&&val("adv21c")==="false";
+const ok=pick&&v.length>=190&&num>=3;
+notice(21,ok?"Ваш аудит внесено до звіту. Класифікація тверджень перевірена; аргументацію має оцінити вчитель.":"Перевірте всі три твердження та напишіть змістовний розбір двох помилок із щонайменше трьома числами (від 190 символів). Комп’ютер не оцінює достовірність письмових аргументів.",ok)};
+
+drawBars();drawScatter();restore();renderPicks(3);renderPicks(4);progress();setModel();
 })();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
