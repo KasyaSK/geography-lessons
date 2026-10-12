@@ -1,0 +1,33 @@
+name: Grade 9 lesson 09 browser smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'profesii-9/09-tsili-na-navchalnyi-rik/**'
+      - 'scripts/smoke_profesii9_lesson09.py'
+      - '.github/workflows/profesii9-lesson09-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profesii9-lesson09-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Selenium
+        run: python -m pip install --disable-pip-version-check selenium
+      - name: Run real Chrome browser tests
+        run: python scripts/smoke_profesii9_lesson09.py
