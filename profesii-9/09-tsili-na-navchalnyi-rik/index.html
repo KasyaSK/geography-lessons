@@ -112,9 +112,40 @@
 </div></section>
 
 <section class="stage" id="s6"><div class="layout">
-<div class="stageHead"><div class="stepNum">06</div><div><div class="time">28–33 хв · Практична майстерня</div><h2>Зберіть свою ціль. Або допоможіть вигаданому герою.</h2><p>Ви обираєте, наскільки особистим буде завдання. Публічно пояснювати власні плани не потрібно.</p></div></div>
-<div class="teacherNotes"><strong>Для ведучої · 5 хв.</strong> Натисніть «Заповнити приклад», покажіть картку за 30 секунд. Потім учні працюють 2–3 хвилини самостійно або в парах. Партнер має право поставити лише одне конструктивне питання: «Який доказ підтвердить результат?» або «Який ресурс Ви врахували?». Для незнайомої групи підійде робота над вигаданим героєм. Наприкінці попросіть добровольця представити саме СТРУКТУРУ, а не персональну мету.</div>
-<div class="split">
+<div class="stageHead"><div class="stepNum">06</div><div><div class="time">28–33 хв · Майстерня та зворотний зв’язок</div><h2>Створіть ціль. Перевірте в парі. Покращте.</h2><p>Виберіть власний інтерес або вигадану ситуацію. Зміст особистих планів можна не озвучувати.</p></div></div>
+<div class="teacherNotes"><strong>5 хв:</strong> 30 с — зразок; 90 с — запис цілі; 60 с — обмін картками; 60 с — дві сильні сторони й одна порада; 60 с — уточнення цілі. Для незнайомої групи дозволяйте самоперевірку вигаданого прикладу.</div>
+<div class="grid"><div class="panel yellow"><h3>① Інтерес</h3><p>Яка діяльність мене цікавить і чому?</p></div><div class="panel blue"><h3>② Мета</h3><p>Який конкретний результат і до якої дати?</p></div><div class="panel mint"><h3>③ Перший крок</h3><p>Що можу зробити вже цього тижня?</p></div></div>
+<div class="grid two" style="margin-top:18px">
+<div class="panel blue"><span class="caseBadge">🎯 МІНІКАРТКА ЦІЛІ</span>
+<label class="field">Мій інтерес<input id="quickInterest" maxlength="150" placeholder="Хочу дослідити інженерію, тому що…"></label>
+<label class="field">Результат і дата<input id="quickGoal" maxlength="180" placeholder="До грудня зроблю 2 проєкти…"></label>
+<label class="field">Перший крок<input id="quickStep" maxlength="150" placeholder="Цього тижня знайду тренажер…"></label>
+<div class="flex noPrint"><button type="button" class="choice" id="quickExample">Вигаданий приклад</button><button type="button" id="quickMake">Сформувати →</button></div>
+<div id="quickOutput" class="inlineFeedback" aria-live="polite">Тут з’явиться коротка картка.</div></div>
+<div class="panel mint"><span class="caseBadge">🤝 ВІДГУК У ПАРІ</span><h3>2 плюси + 1 порада</h3>
+<label class="check"><input type="checkbox" id="peerConcrete"> Є конкретний результат і термін</label>
+<label class="check"><input type="checkbox" id="peerInterest"> Враховано інтереси й наміри</label>
+<label class="check"><input type="checkbox" id="peerAction"> Є реальний перший крок</label>
+<label class="field">Одна доброзичлива порада<input id="peerAdvice" maxlength="190" placeholder="Уточніть спосіб перевірки результату"></label>
+<button type="button" id="peerCheck">Сформувати відгук →</button>
+<div id="peerOutput" class="inlineFeedback" aria-live="polite">Після відгуку виправте одну фразу своєї цілі.</div></div></div>
+<div class="panel emphasis" style="margin-top:18px"><h3>🧭 Зв’язок із професією і громадою</h3><p>«Цікавлюся дизайном» → «до грудня порівняю 2 освітні програми дизайну й створю пробний макет» → «цього тижня знайду офіційні сайти двох закладів». В наступних уроках Ви використаєте інтереси, щоб досліджувати ринок праці громади.</p></div>
+</div></section>
+
+<section class="stage" id="s7"><div class="layout">
+<div class="stageHead"><div class="stepNum">✓</div><div><div class="time">33–35 хв · Фініш і рефлексія</div><h2>Місія виконана. Що забираєте із собою?</h2><p>Не треба виголошувати особисті обіцянки. Достатньо назвати <b>одну дію</b>, яку можна використати вже зараз.</p></div></div>
+<div class="teacherNotes"><strong>Для ведучої · 2 хв.</strong> Запитайте, що в плані учні вважатимуть доказом, а що лише наміром. Пропонуйте добровільну відповідь без оцінювання змісту особистої мрії. Підсумок: «Ви не зобов’язані знати своє майбутнє. Можете дослідити його малими перевірюваними кроками».</div>
+<div class="exitCard">
+<h3>Оберіть одну думку, яка стане Вам у пригоді:</h3>
+<div class="grid"><button type="button" class="choice" data-hook="exit" data-value="a">🎯 Знаю, як назвати результат і термін.</button><button type="button" class="choice" data-hook="exit" data-value="b">⏱️ Розумію, навіщо перевіряти час і план Б.</button><button type="button" class="choice" data-hook="exit" data-value="c">🧭 Можу пояснити, чому мета пов’язана з моїми інтересами.</button></div>
+<div id="exitFeedback" class="inlineFeedback" style="color:#172347;background:#fff" aria-live="polite">Ваш підсумок з’явиться тут. Фінальний тест — окремо, вдома.</div>
+</div>
+<div class="panel mint" style="margin-top:18px"><h3>Формула висновку</h3><p><b>Мій висновок:</b> конкретна ціль краща за абстрактне побажання, тому що її можна перевірити.</p><p><b>Доказ:</b> у нашому кейсі ми зіставили необхідний час із доступним і побачили, чи вистачає ресурсів.</p><p><b>Пояснення:</b> саме розрахунок допоміг обґрунтувати вибір, а не просто вгадати.</p></div>
+</div></section>
+
+<section class="stage" id="homework"><div class="layout">
+<div class="stageHead"><div class="stepNum">↗</div><div><div class="time">Домашня частина · не входить у 35 хвилин</div><h2>Закріплення: мінімум, який має значення</h2><p>Перевіряємо, чи справді можемо перетворити намір на послідовність дій.</p></div></div>
+<details class="panel lilac" style="margin:18px 0"><summary style="font-weight:900;cursor:pointer">🧰 Розгорнутий конструктор: поглиблення вдома</summary><p>Розрахунок часу, план Б і експорт TXT — додатково. Для 35-хвилинного уроку достатньо мінікартки вище.</p><div class="split">
 <form class="panel" id="goalBuilder" onsubmit="return false">
 <span class="littleTag">КОНСТРУКТОР NEXT</span><h3>Моя одна ціль</h3><p class="tip">Поля ліворуч → готова картка праворуч. Для демонстрації є приклад.</p>
 <label class="field">1. Мій напрям інтересу
@@ -146,22 +177,8 @@
 <div id="planFeedback" class="inlineFeedback" aria-live="polite">Можна почати з прикладу, а потім змінити його під себе.</div>
 <div class="flex noPrint"><button type="button" id="downloadPlan">Зберегти TXT</button><button type="button" id="printPlan" class="choice">Друкувати / PDF</button></div>
 <p class="tip">Сайт не надсилає Ваші відповіді на сервер. Не вказуйте тут паролі, номери телефонів чи інші чутливі дані.</p>
-</div></div></div></section>
-
-<section class="stage" id="s7"><div class="layout">
-<div class="stageHead"><div class="stepNum">✓</div><div><div class="time">33–35 хв · Фініш і рефлексія</div><h2>Місія виконана. Що забираєте із собою?</h2><p>Не треба виголошувати особисті обіцянки. Достатньо назвати <b>одну дію</b>, яку можна використати вже зараз.</p></div></div>
-<div class="teacherNotes"><strong>Для ведучої · 2 хв.</strong> Запитайте, що в плані учні вважатимуть доказом, а що лише наміром. Пропонуйте добровільну відповідь без оцінювання змісту особистої мрії. Підсумок: «Ви не зобов’язані знати своє майбутнє. Можете дослідити його малими перевірюваними кроками».</div>
-<div class="exitCard">
-<h3>Оберіть одну думку, яка стане Вам у пригоді:</h3>
-<div class="grid"><button type="button" class="choice" data-hook="exit" data-value="a">🎯 Знаю, як назвати результат і термін.</button><button type="button" class="choice" data-hook="exit" data-value="b">⏱️ Розумію, навіщо перевіряти час і план Б.</button><button type="button" class="choice" data-hook="exit" data-value="c">🧭 Можу пояснити, чому мета пов’язана з моїми інтересами.</button></div>
-<div id="exitFeedback" class="inlineFeedback" style="color:#172347;background:#fff" aria-live="polite">Ваш підсумок з’явиться тут. Фінальний тест — окремо, вдома.</div>
-</div>
-<div class="panel mint" style="margin-top:18px"><h3>Формула висновку</h3><p><b>Мій висновок:</b> конкретна ціль краща за абстрактне побажання, тому що її можна перевірити.</p><p><b>Доказ:</b> у нашому кейсі ми зіставили необхідний час із доступним і побачили, чи вистачає ресурсів.</p><p><b>Пояснення:</b> саме розрахунок допоміг обґрунтувати вибір, а не просто вгадати.</p></div>
-</div></section>
-
-<section class="stage" id="homework"><div class="layout">
-<div class="stageHead"><div class="stepNum">↗</div><div><div class="time">Домашня частина · не входить у 35 хвилин</div><h2>Закріплення: мінімум, який має значення</h2><p>Перевіряємо, чи справді можемо перетворити намір на послідовність дій.</p></div></div>
-<div class="grid"><div class="panel"><h3>1. Теорія</h3><p>Ще раз перегляньте п’ять критеріїв SMART на цій сторінці. У Вашому КТП окремий підручник або параграф для цієї теми не зазначено — номер § не вигадується.</p></div><div class="panel"><h3>2. Одна конкретна дія</h3><p>Сформуйте й збережіть картку своєї мети. За бажанням виберіть базовий, достатній або високий рівень складності.</p></div><div class="panel"><h3>3. Тест /10</h3><p>Після ПІБ і класу відкриються 10 завдань. Зробіть скриншот персональної картки результату та надішліть учителю.</p></div></div>
+</div></div></details>
+<div class="grid"><div class="panel"><h3>1. Теорія</h3><p>Ще раз перегляньте п’ять критеріїв SMART на цій сторінці. У Вашому КТП окремий підручник або параграф для цієї теми не зазначено — номер § не вигадується.</p></div><div class="panel"><h3>2. Одна конкретна дія</h3><p>Сформулюйте ціль за інтересами, складіть план дій та врахуйте конструктивний відгук. За бажанням використайте розгорнутий конструктор нижче.</p></div><div class="panel"><h3>3. Тест /10</h3><p>Після ПІБ і класу відкриються 10 завдань. Зробіть скриншот персональної картки результату та надішліть учителю.</p></div></div>
 <div class="grid" style="margin-top:16px"><div class="panel"><span class="littleTag">БАЗОВИЙ</span><p>1 результат + критерій + дата.</p></div><div class="panel"><span class="littleTag">ДОСТАТНІЙ</span><p>Додайте 2 регулярні дії й перевірку.</p></div><div class="panel"><span class="littleTag">ВИСОКИЙ</span><p>Оцініть час, контраргумент і план Б.</p></div></div>
 <div class="panel blue" style="margin-top:17px"><h3>Джерела для поглиблення</h3><p>За бажанням можна відкрити матеріали українською, що пояснюють постановку та перевірку SMART-цілей:</p><p><a href="https://happymonday.ua/yak-stavyty-smart-tsili" target="_blank" rel="noopener">Happy Monday · Як ставити SMART-цілі (оновлено 2026)</a></p><p><a href="https://ksptsr.cnu.edu.ua/23/majster-klas-iz-smart-tsilej-u-mezhakh-vseukrainskoi-prohramy-zalizna-zmina/18/" target="_blank" rel="noopener">Карпатський національний університет · Практикум із SMART-цілей для підлітків</a></p><p><a href="https://mon.gov.ua/news/natsionalne-pilotuvannia-systemy-proforiientatsii-ditei-ta-pidlitkiv-pidsumky-pershoho-roku" target="_blank" rel="noopener">МОН · Профорієнтація підлітків, цілі та інтереси</a></p><p class="tip">Ніяких випадкових неперевірених відео: головна наочність уроку — авторські схеми й тренажери, які працюють без відеосервісів.</p></div>
 </div></section>
