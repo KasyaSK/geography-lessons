@@ -105,7 +105,7 @@ try:
       document.querySelector('[data-hook="rescue"][data-value="b"]').click();
       document.querySelector('[data-hook="exit"][data-value="a"]').click();
       return document.getElementById('rescueFeedback').textContent.includes('Резервний') &&
-        document.getElementById('exitFeedback').textContent.includes('результат');
+        document.getElementById('exitFeedback').textContent.toLowerCase().includes('результат');
     """)
     run("identity gate and quiz generation", """
       document.getElementById('studentName').value='Олена Коваленко';
