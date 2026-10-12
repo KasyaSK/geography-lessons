@@ -35,8 +35,8 @@ design:{who:"Марта, 15 років",interest:"цікавиться граф�
 robot:{who:"Денис, 15 років",interest:"цікавиться робототехнікою",count:4,mins:35,weekly:70,weeks:5,product:"електронні схеми",risk:"Не завжди є доступ до потрібних деталей."},
 language:{who:"Аліна, 14 років",interest:"любить іноземні мови",count:5,mins:25,weekly:60,weeks:4,product:"тематичні словнички",risk:"Розклад часто змінюється."}};
 let current="design";
-function updateCase(){const x=cases[current];$("caseTitle").textContent=x.who;$("caseInterest").textContent=x.interest;$("caseStats").textContent=x.weekly+" хв/тиж. · "+x.mins+" хв/одиницю · "+x.weeks+" тижнів";$("caseRisk").textContent=x.risk;$("caseProposed").textContent="За "+x.weeks+" тижнів створити "+x.count+" "+x.product+" й оцінити їх за критеріями.";$$("[data-scenario]").forEach(b=>b.classList.toggle("picked",b.dataset.scenario===current));$("caseConclusion").textContent="Дослідіть докази, перш ніж оцінювати реалістичність мети."}
-$$("[data-scenario]").forEach(b=>b.addEventListener("click",()=>{current=b.dataset.scenario;updateCase()}));updateCase();
+function updateCase(){const x=cases[current];$("caseTitle").textContent=x.who;$("caseInterest").textContent=x.interest;$("caseStats").textContent=x.weekly+" хв/тиж. · "+x.mins+" хв/одиницю · "+x.weeks+" тижнів";$("caseRisk").textContent=x.risk;$("caseProposed").textContent="За "+x.weeks+" тижнів створити "+x.count+" "+x.product+" й оцінити їх за критеріями.";$("[data-scenario]").forEach(b=>{const active=b.dataset.scenario===current;b.classList.toggle("picked",active);b.setAttribute("aria-pressed",String(active));});$("caseConclusion").textContent="Дослідіть докази, перш ніж оцінювати реалістичність мети."}
+$("[data-scenario]").forEach(b=>b.addEventListener("click",()=>{current=b.dataset.scenario;$("input[name=\"evidence\"]").forEach(input=>{input.checked=false});updateCase();show("evidenceFeedback","Новий кейс — оберіть три докази для цього героя.");}));updateCase();
 const evidence=[
 ["time","Час на попередню подібну роботу",true],
 ["access","Фактична доступність пристрою / матеріалів",true],
@@ -87,7 +87,7 @@ return {valid,text};
 $("buildPlan")?.addEventListener("click",()=>{buildPlan();focusTo("planPreview")});
 $("fillExample")?.addEventListener("click",()=>{const values={goalInterest:"design",goalWhy:"Мені цікаво спробувати себе у графічному дизайні.",goalCount:"3",goalProduct:"навчальні афіші",goalUnitMinutes:"50",goalWeeklyMinutes:"90",goalAction:"У вівторок створюю ескіз, у четвер доопрацьовую",goalRisk:"electricity",goalBackup:"За відсутності світла малюю композицію на папері",goalCheck:"Порівнюю роботи з чек-листом читабельності і композиції"};Object.entries(values).forEach(([id,val])=>$(id).value=val);buildPlan()});
 $("downloadPlan")?.addEventListener("click",()=>{const p=buildPlan();if(!p.valid){show("planFeedback","Спершу заповніть усі ключові поля.","warn");return}const url=URL.createObjectURL(new Blob([p.text],{type:"text/plain;charset=utf-8"}));let a=document.createElement("a");a.href=url;a.download="moya-tsil-profesii-9.txt";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)});
-$("printPlan")?.addEventListener("click",()=>window.print());
+$("printPlan")?.addEventListener("click",()=>{const p=buildPlan();if(!p.valid){show("planFeedback","Для друку заповніть усі обов’язкові поля.","warn");return;}document.body.classList.remove("print-result");document.body.classList.add("print-plan");window.print()});
 const quiz=[
 ["single","Що з наведеного є перевірюваною ціллю?",["Стати творчою людиною","Дивитися всі цікаві відео","До 20 грудня створити 4 макети та отримати відгук за 2 критеріями","Завжди думати про майбутнє"],2,"Продукт, термін і критерії дають змогу оцінити результат."],
 ["single","12 макетів по 70 хв за 6 тижнів; доступно 90 хв щотижня. Яка оцінка правильна?",["Не вистачає 300 хвилин","Ресурсу досить","Не вистачає 840 хвилин","Вистачить із резервом 300 хвилин"],0,"Потрібно 840 хв, є 540 хв. Дефіцит — 300."],
@@ -126,9 +126,13 @@ $("quizSubmit").disabled=true;$("quizResult").hidden=false;$("resultIdentity").t
 $("resultComment").textContent=total===10?"Усі завдання правильно.":total>=8?"Сильний результат: перегляньте пояснення до помилок.":total>=5?"Є основа: повторіть логіку й розрахунки.":"Повторіть матеріал і після цього спробуйте ще раз.";focusTo("quizResult");
 });
 $("quizAgain")?.addEventListener("click",()=>{$("quizResult").hidden=true;$("quizBody").hidden=true;$("quizGate").hidden=false;$("quizSubmit").disabled=false;show("quizFeedback","");focusTo("quizGate")});
-$("printResult")?.addEventListener("click",()=>window.print());
+$("printResult")?.addEventListener("click",()=>{if($("quizResult").hidden)return;document.body.classList.remove("print-plan");document.body.classList.add("print-result");window.print()});
+window.addEventListener("afterprint",()=>document.body.classList.remove("print-result","print-plan"));
+$("goalBuilder")?.addEventListener("input",()=>buildPlan());
+$("goalBuilder")?.addEventListener("change",()=>buildPlan());
 
 $("quickExample")?.addEventListener("click",()=>{$("quickInterest").value="Цікавлюся дизайном і хочу перевірити цей напрям";$("quickGoal").value="До 20 грудня створю 2 афіші й перевірю за чек-листом";$("quickStep").value="Цього тижня зроблю перший ескіз";show("quickOutput","Вигаданий приклад готовий. Можете змінити його під свій інтерес.","ok")});
+["quickInterest","quickGoal","quickStep"].forEach(id=>$(id)?.addEventListener("input",()=>show("quickOutput","Формулювання змінено. Натисніть «Сформувати», щоб переглянути оновлену картку.")));
 $("quickMake")?.addEventListener("click",()=>{const v=["quickInterest","quickGoal","quickStep"].map(x=>$(x).value.trim());if(v.some(x=>!x)){show("quickOutput","Заповніть інтерес, результат із терміном і першу дію.","warn");return}show("quickOutput","ІНТЕРЕС: "+v[0]+" | МЕТА: "+v[1]+" | ПЕРШИЙ КРОК: "+v[2]+". Тепер обміняйтеся зворотним зв’язком.","ok")});
 $("peerCheck")?.addEventListener("click",()=>{let criteria=[["peerConcrete","Конкретність і термін"],["peerInterest","Зв’язок із інтересом"],["peerAction","Перший крок"]],good=criteria.filter(x=>$(x[0]).checked).map(x=>x[1]),improve=criteria.filter(x=>!$(x[0]).checked).map(x=>x[1]),advice=$("peerAdvice").value.trim();if(!advice){show("peerOutput","Напишіть конкретну пораду партнерові.","warn");return}show("peerOutput","СИЛЬНІ СТОРОНИ: "+(good.join(", ")||"потрібно уточнити")+" | ЩО УТОЧНИТИ: "+(improve.join(", ")||"усі критерії виконано")+" | ПОРАДА: "+advice+". Відредагуйте свою ціль після відгуку.","ok")});
 })();
