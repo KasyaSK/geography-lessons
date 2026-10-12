@@ -32,7 +32,7 @@
 <section id="practice"><div class="k">Основний етап • 35 хв • самостійна робота</div>
 <h2>Практична лабораторія: країни Європи</h2>
 <p><b>Мета:</b> не назвати «кращі» чи «гірші» країни, а створити <b>навчальну типологію</b> за прозорими критеріями й пояснити її обмеження. Не переписуйте таблицю: працюйте в полях нижче.</p>
-<div class="learning-step"><b>Крок 1. Прочитайте дані й одиниці вимірювання.</b> ВВП на особу — долари США на людину, не зарплата; HDI — індекс від 0 до 1, що узагальнює показники освіти, тривалості життя й доходу. Чим більше значення HDI, тим вищий виміряний середній рівень людського розвитку за цим індексом.</div>
+<div class="worksheet-10" style="margin:14px 0"><article class="p10field"><label for="p10fullName">Ім’я та прізвище для звіту</label><input type="text" id="p10fullName" data-p10-save placeholder="Наприклад, Олена Коваль"></article><article class="p10field"><label for="p10groupClass">Ваш клас</label><input type="text" id="p10groupClass" data-p10-save placeholder="10-А"></article></div><div class="learning-step"><b>Крок 1. Прочитайте дані й одиниці вимірювання.</b> ВВП на особу — долари США на людину, не зарплата; HDI — індекс від 0 до 1, що узагальнює показники освіти, тривалості життя й доходу. Чим більше значення HDI, тим вищий виміряний середній рівень людського розвитку за цим індексом.</div>
 <div class="studentdata"><table><thead><tr><th>Країна</th><th>ВВП на особу, тис. USD (навчальний зріз, ≈2025)</th><th>HDI (2023)</th><th>Риси економіки (якісний третій критерій)</th></tr></thead>
 <tbody><tr><td>Німеччина</td><td>60,5</td><td>0,959</td><td>Послуги; автомобіле- й машинобудування, інженерія</td></tr>
 <tr><td>Франція</td><td>49,0</td><td>0,920</td><td>Послуги; туризм, авіакосмічна промисловість</td></tr>
@@ -74,7 +74,7 @@
 <script id="p10selfstudy">
 (()=>{
 'use strict';
-const ids=['p10de','p10fr','p10pl','p10bg','p10compare','p10structure','p10c','p10e','p10r'];
+const ids=['p10fullName','p10groupClass','p10de','p10fr','p10pl','p10bg','p10compare','p10structure','p10c','p10e','p10r'];
 const el=id=>document.getElementById(id);
 const values=()=>Object.fromEntries(ids.map(id=>[id,el(id).value.trim()]));
 const expected={p10de:'a',p10fr:'a',p10pl:'b',p10bg:'c'};
@@ -82,6 +82,10 @@ let saved=0;
 try{const s=JSON.parse(localStorage.getItem('p10practical-v2')||'{}');for(const id of ids){if(typeof s[id]==='string')el(id).value=s[id];}}catch(e){el('p10saved').textContent='Браузер не дозволяє локальне збереження: збережіть PDF наприкінці.'}
 function save(){try{localStorage.setItem('p10practical-v2',JSON.stringify(values()));el('p10saved').textContent='Збережено в цьому браузері. Для передачі вчителю використайте PDF.';}catch(e){el('p10saved').textContent='Автозбереження недоступне: збережіть PDF.'}}
 ids.forEach(id=>{el(id).addEventListener('input',save);el(id).addEventListener('change',save)});
+el('p10fullName').addEventListener('input',()=>{el('name').value=el('p10fullName').value;});
+el('p10groupClass').addEventListener('input',()=>{el('class').value=el('p10groupClass').value;});
+if(el('p10fullName').value)el('name').value=el('p10fullName').value;
+if(el('p10groupClass').value)el('class').value=el('p10groupClass').value;
 function groups(){return Object.keys(expected).map(id=>({id,answer:el(id).value,ok:el(id).value===expected[id]}))}
 el('p10checkGroups').addEventListener('click',()=>{
 const list=groups(),n=list.filter(x=>x.ok).length;
@@ -98,7 +102,7 @@ el('p10reportFb').textContent=(x.complete?'Усі обов’язкові бло
 });
 const escapeText=s=>String(s||'—');
 el('p10export').addEventListener('click',()=>{
-const v=values(),fullName=(el('name').value||'').trim(),cl=(el('class').value||'').trim();
+const v=values(),fullName=(el('p10fullName').value||el('name').value||'').trim(),cl=(el('p10groupClass').value||el('class').value||'').trim();
 const r=[
 'ГЕОГРАФІЯ — 10 КЛАС. ПРАКТИЧНА РОБОТА',
 'Типологія країн Європи за показниками розвитку',
