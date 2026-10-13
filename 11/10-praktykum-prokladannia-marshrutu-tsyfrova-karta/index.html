@@ -60,7 +60,7 @@
 <div class="form-row"><div class="field"><label for="secondKm">Довжина альтернативного маршруту, км</label><input id="secondKm" inputmode="decimal" placeholder="За Вашою картою"></div><div class="field"><label for="secondMin">Час альтернативного маршруту, хв</label><input id="secondMin" type="number" min="1" placeholder="За Вашою картою"></div></div>
 <div class="field"><label for="mapCheckedAt">Дата/час перевірки сервісу</label><input id="mapCheckedAt" placeholder="13.10.2026 08:35"></div>
 <div class="field"><label for="routeMode">Який режим увімкнений?</label><select id="routeMode"><option value="">Оберіть</option><option value="walk">Пішки</option><option value="drive">Автомобіль</option><option value="transit">Громадський транспорт</option></select></div>
-<button class="btn btn-sm btn-outline" type="button" id="realVerify">Перевірити паспорт</button><div class="mission-feedback" id="realFeedback" role="status">Не виконано. Система перевіряє повноту, правдивість цифр за скриншотом перевірить учитель.</div></article>
+<label class="switchrow" style="color:#1a5b4a"><input type="checkbox" id="offlineMode"> <span><b>У мене немає доступу до онлайн-карти</b> — підтверджую чесний офлайн-протокол двох маршрутів навчального графа замість вигаданих вимірювань у Львові</span></label><div class="note info">Офлайн-заміна: виконайте місії 1 і 2, збережіть показники та зробіть два скриншоти графа; у полі обмежень паспорта почніть пояснення словом <b>«офлайн»</b>. Позначки «Google Maps виміряв...» робити не можна.</div><button class="btn btn-sm btn-outline" type="button" id="realVerify">Перевірити паспорт</button><div class="mission-feedback" id="realFeedback" role="status">Не виконано. Система перевіряє повноту, правдивість цифр за скриншотом перевірить учитель.</div></article>
 <article class="card mission-card" id="mission7"><span class="step-marker">Місія 7 · картографічна грамотність</span><h3>Що показує карта — і чого вона не знає?</h3>
 <p>Заповніть короткий протокол. Зазначте <b>два об’єкти або типи даних</b>, які ви побачили на карті, та <b>один критичний факт</b>, який там не вдалось підтвердити.</p>
 <div class="field"><label for="mapEvidence">Два спостереження з карти</label><textarea id="mapEvidence" placeholder="1. На карті позначено … 2. На карті видно …"></textarea></div>
@@ -246,13 +246,17 @@ el('evidenceVerify').addEventListener('click',()=>{
 el('realVerify').addEventListener('click',()=>{
  const base=nnum(el('realKm').value),alt=nnum(el('secondKm').value),
  bt=nnum(el('realMin').value),at=nnum(el('secondMin').value);
- const ok=Number.isFinite(base)&&base>0&&base<200&&Number.isFinite(alt)&&alt>0&&alt<200&&
+ const offline=el('offlineMode').checked;
+ const onlineOK=Number.isFinite(base)&&base>0&&base<200&&Number.isFinite(alt)&&alt>0&&alt<200&&
  Number.isFinite(bt)&&bt>0&&bt<2000&&Number.isFinite(at)&&at>0&&at<2000&&
  el('routeMode').value==='walk'&&Boolean(el('realService').value)&&Boolean(el('realAlternative').value)&&
  el('mapCheckedAt').value.trim().length>=8&&el('realLimit').value.trim().length>=30;
+ const offlineOK=offline&&practice.passed[0]&&practice.passed[1]&&
+ el('realLimit').value.toLowerCase().includes('офлайн')&&el('realLimit').value.trim().length>=30;
+ const ok=offline?offlineOK:onlineOK;
  completeMission(5,ok,
- '✓ Паспорт заповнений. Це перевірка структури, НЕ підтвердження правильності цифр. Додайте два скриншоти з сервісу — учитель їх звірить.',
- 'Перевірте: два маршрути — обидві довжини й час, джерело, спосіб порівняння, режим «пішки», дата та одне обмеження (від 30 символів).',
+ offline?'✓ Офлайн-протокол прийнято: два перевірені шляхи графа й позначене обмеження. Додайте обидва скриншоти моделі.':'✓ Паспорт заповнений. Це перевірка структури, НЕ підтвердження правильності цифр. Додайте два скриншоти з сервісу — учитель їх звірить.',
+ offline?'Для офлайн-режиму перевірте місії 1–2, зробіть скриншоти й запишіть у полі обмежень пояснення зі словом «офлайн» (від 30 символів).':'Перевірте: два маршрути — обидві довжини й час, джерело, спосіб порівняння, режим «пішки», дата та одне обмеження (від 30 символів).',
  'Маршрут='+el('realKm').value+' км/'+el('realMin').value+' хв; альтернатива='+el('secondKm').value+' км/'+el('secondMin').value+' хв; джерело='+el('realService').value+'; дата='+el('mapCheckedAt').value);
  reportStatus();
 });
@@ -282,6 +286,7 @@ function practiceReportLines(){
  'Масштаб: 4,8 см, 1:25 000 → '+v('scaleMeters')+' м',
  'Рішення щодо доступності: '+(el('evidencePick').selectedOptions[0]?.textContent||'—'),
  'Дві перевірки: '+v('evidenceExplain'),
+ 'Режим: '+(el('offlineMode').checked?'офлайн, навчальний граф':'онлайн, цифрова карта'),
  'Альтернативний маршрут: '+v('secondKm')+' км, '+v('secondMin')+' хв',
  'Дата перевірки: '+v('mapCheckedAt')+'; спосіб: '+v('routeMode'),
  'Спостереження карти: '+v('mapEvidence'),
@@ -293,6 +298,8 @@ function practiceReportLines(){
  );
  return lines;
 }
+el('offlineMode').checked=practice.answers.offlineMode===true;
+el('offlineMode').addEventListener('change',()=>{practice.answers.offlineMode=el('offlineMode').checked;practice.passed[5]=false;setMissionFeedback(5,'Режим змінено — перевірте паспорт знову.',false);persistPractice();updatePracticeBoard();});
 updatePracticeBoard();
 try{const stored=JSON.parse(localStorage.getItem('geo11_route_lab_v1')||'null');if(stored&&typeof stored==='object'){Object.entries(stored.report||{}).forEach(([id,val])=>{if(el(id)&&typeof val==='string')el(id).value=val;});if(Array.isArray(stored.route)&&stored.route[0]==='A'&&stored.route.every((k,i)=>nodes[k]&&(i===0||edgeFor(stored.route[i-1],k))))route=stored.route;if(typeof stored.rain==='boolean')el('rainSwitch').checked=stored.rain;}}catch(_){ }
 renderRoute();reportStatus();updateProgress();
