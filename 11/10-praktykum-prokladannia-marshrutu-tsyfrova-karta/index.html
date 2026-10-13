@@ -114,7 +114,7 @@ el('factorCheck').addEventListener('click',()=>{const v=el('factorPick').value;e
 // Report data validation: completeness is not the same as assessment.
 function reportStatus(){const cer=['cerClaim','cerEvidence','cerReason','cerCheck'].map(id=>el(id).value.trim());const good=cer.every(v=>v.length>=35);const offline=(el('realLimit').value.toLowerCase().includes('офлайн'));const data=el('realKm').value.trim()&&el('realMin').value.trim()&&el('realService').value;state.real=Boolean((data&&el('realAlternative').value&&el('realLimit').value.trim().length>=25)||offline);state.report=good;updateProgress();return{good,data:state.real,cer};}
 el('reportCheck').addEventListener('click',()=>{const r=reportStatus();const missing=['cerClaim','cerEvidence','cerReason','cerCheck'].map((id,i)=>({id,i,n:el(id).value.trim().length})).filter(x=>x.n<35);el('reportFeedback').textContent=missing.length?'Поки що бракує змісту в '+missing.length+' полях CER: по 35 символів — мінімум для перевірки повноти. Це не оцінка правильності.':r.data?'Структура звіту заповнена. Перевірте логіку доказів, звірте цифри зі своїм сервісом і збережіть звіт.':'CER заповнено. Для повного паспорта внесіть джерело, довжину, час, альтернативу й межі карти або чесно зазначте офлайн-режим.';});
-el('downloadReport').addEventListener('click',()=>{reportStatus();const v=id=>el(id).value.trim()||'—';const content=['ПРАКТИКУМ №10 · 11 клас · Скринченко К.А.','Прокладання маршруту та аналіз місцевості в цифровій карті','', 'Маршрут: площа Ринок — Порохова вежа — парк «Високий Замок», Львів','Сервіс: '+v('realService'),'Відстань: '+v('realKm')+' км','Час: '+v('realMin')+' хв','Альтернатива: '+v('realAlternative'),'Невизначеність: '+v('realLimit'),'','Навчальна модель: '+route.join(' → '),'Показники моделі (умовні): '+calc().km.toFixed(2)+' км, '+calc().minutes+' хв','', 'CER — твердження: '+v('cerClaim'),'CER — докази: '+v('cerEvidence'),'CER — пояснення: '+v('cerReason'),'CER — обмеження: '+v('cerCheck'),'', 'Дані навчальної моделі не є вимірюваннями у Львові.'].join('\n');const blob=new Blob([content],{type:'text/plain;charset=utf-8'});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='geo_11_marshrut_praktykum_zvit.txt';document.body.append(a);a.click();a.remove();URL.revokeObjectURL(u);});
+el('downloadReport').addEventListener('click',()=>{reportStatus();const v=id=>el(id).value.trim()||'—';const content=['ПРАКТИКУМ №10 · 11 клас · Скринченко К.А.','Прокладання маршруту та аналіз місцевості в цифровій карті','', 'Маршрут: площа Ринок — Порохова вежа — парк «Високий Замок», Львів','Сервіс: '+v('realService'),'Відстань: '+v('realKm')+' км','Час: '+v('realMin')+' хв','Альтернатива: '+v('realAlternative'),'Невизначеність: '+v('realLimit'),'','Навчальна модель: '+route.join(' → '),'Показники моделі (умовні): '+calc().km.toFixed(2)+' км, '+calc().minutes+' хв','', 'CER — твердження: '+v('cerClaim'),'CER — докази: '+v('cerEvidence'),'CER — пояснення: '+v('cerReason'),'CER — обмеження: '+v('cerCheck'),'', 'Дані навчальної моделі не є вимірюваннями у Львові.'].concat(practiceReportLines()).join('\n');const blob=new Blob([content],{type:'text/plain;charset=utf-8'});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='geo_11_marshrut_praktykum_zvit.txt';document.body.append(a);a.click();a.remove();URL.revokeObjectURL(u);});
 el('printReport').addEventListener('click',()=>window.print());
 ['realKm','realMin','realService','realAlternative','realLimit','cerClaim','cerEvidence','cerReason','cerCheck','studentName','studentClass'].forEach(id=>{el(id).addEventListener('input',()=>{saveState();if(id.startsWith('real'))reportStatus();});el(id).addEventListener('change',saveState);});
 // Quiz: ten independent questions, answers shown only after submit.
@@ -138,6 +138,162 @@ function validName(s){const parts=String(s||'').trim().replace(/\s+/g,' ').split
 el('startQuiz').addEventListener('click',()=>{const n=el('studentName').value,c=el('studentClass').value;if(!validName(n)||!c){el('quizGateError').textContent='Введіть ім’я та прізвище (щонайменше два слова без цифр) і виберіть клас.';return;}el('quizGateError').textContent='';el('quizGate').hidden=true;el('quizForm').hidden=false;quizHTML();el('quizForm').scrollIntoView({block:'start'});});
 function exactArray(a,b){return a.length===b.length&&a.every(x=>b.includes(x));}
 el('quizForm').addEventListener('submit',ev=>{ev.preventDefault();const f=el('quizForm');let score=0;const replies=[];let missing=[];qs.forEach((q,i)=>{let got,okay=false;if(q.kind==='single'){got=f.querySelector('input[name="q'+i+'"]:checked')?.value;if(got===undefined)missing.push(i+1);okay=Number(got)===q.correct;}else if(q.kind==='multi'){got=[...f.querySelectorAll('input[name="q'+i+'"]:checked')].map(e=>e.value);if(!got.length)missing.push(i+1);okay=exactArray(got,q.correct);}else if(q.kind==='match'){got=[0,1,2].map(k=>el('match'+k)?.value||'');if(got.some(x=>!x))missing.push(i+1);okay=exactArray(got.map((x,j)=>j+':'+x),q.correct.map((x,j)=>j+':'+x));}else{got=order;okay=order.every((x,j)=>x===q.correct[j]);}score+=Number(okay);replies.push(okay);});if(missing.length){el('quizSubmitError').textContent='Заповніть усі відповіді. Пропущено завдання: '+missing.join(', ')+'.';return;}el('quizSubmitError').textContent='';qs.forEach((q,i)=>{const r=el('review'+i);r.hidden=false;r.textContent=(replies[i]?'✓ Зараховано. ':'✕ Не зараховано. ')+q.why;});f.querySelectorAll('input,select,button').forEach(x=>x.disabled=true);const d=new Date(),who=el('studentName').value.trim().replace(/\s+/g,' '),cls=el('studentClass').value,percent=score*10;const level=score===10?'Відмінно':score>=8?'Добре':score>=5?'Достатньо':'Потрібно повторити матеріал';const box=el('quizResult');box.hidden=false;box.replaceChildren();const h=document.createElement('h3');h.textContent='Ваша картка результату';const p=document.createElement('p');p.textContent=who+' · '+cls+' · Практикум «Прокладання маршруту та аналіз місцевості»';const sc=document.createElement('div');sc.className='score';sc.textContent=score+' / 10';const sub=document.createElement('p');sub.textContent=percent+'% · '+level+' · '+d.toLocaleString('uk-UA',{dateStyle:'medium',timeStyle:'short'});const ins=document.createElement('strong');ins.textContent='Зробіть скриншот цієї картки та надішліть учителю.';const row=document.createElement('div');row.className='action-row no-print';const pr=document.createElement('button');pr.type='button';pr.className='btn btn-outline';pr.textContent='Друк / PDF';pr.addEventListener('click',()=>window.print());const re=document.createElement('button');re.type='button';re.className='btn btn-outline';re.textContent='Пройти ще раз';re.addEventListener('click',()=>{if(!confirm('Розпочати повторну спробу? Ім’я та клас збережуться, відповіді будуть очищені.'))return;f.hidden=false;f.querySelectorAll('input,select,button').forEach(x=>x.disabled=false);f.reset();order=qs[7].items.map(x=>x[0]);quizHTML();qs.forEach((q,i)=>{el('review'+i).hidden=true;});box.hidden=true;box.replaceChildren();f.scrollIntoView({block:'start'});});row.append(pr,re);box.append(h,p,sc,sub,ins,row);state.quiz=true;updateProgress();saveState();box.scrollIntoView({block:'start'});});
+
+/* Самостійна практична робота. Автоперевірка: лише об'єктивні задачі. */
+const missionTitles=[
+ 'Найкоротший маршрут без зливи','Маршрут після зливи','Порівняння маршруту','Масштаб і відстань',
+ 'Критичне оцінювання доступності','Реальний картографічний маршрут',
+ 'Можливості й межі карти','Рекомендація двом групам'
+];
+const practice={passed:Array(8).fill(false),answers:{},dry:null,wet:null};
+try{
+ const old=JSON.parse(localStorage.getItem('geo11_practice_v2')||'null');
+ if(old&&Array.isArray(old.passed)&&old.passed.length===8){
+   practice.passed=old.passed.map(x=>x===true);
+   practice.answers=(old.answers&&typeof old.answers==='object')?old.answers:{};
+   practice.dry=old.dry||null;practice.wet=old.wet||null;
+ }
+}catch(_){}
+const practiceIds=['deltaKm','deltaMin','scaleMeters','evidencePick','evidenceExplain','secondKm','secondMin','mapCheckedAt','routeMode','mapEvidence','mapUnknown','personaA','personaB'];
+practiceIds.forEach(id=>{
+ if(typeof practice.answers[id]==='string'&&el(id))el(id).value=practice.answers[id];
+ const ctrl=el(id);if(!ctrl)return;
+ const idx=({deltaKm:2,deltaMin:2,scaleMeters:3,evidencePick:4,evidenceExplain:4,secondKm:5,secondMin:5,mapCheckedAt:5,routeMode:5,mapEvidence:6,mapUnknown:6,personaA:7,personaB:7})[id];
+ ctrl.addEventListener('input',()=>{
+   practice.answers[id]=ctrl.value;
+   if(practice.passed[idx]){practice.passed[idx]=false;setMissionFeedback(idx,'Ви змінили відповідь. Натисніть «Перевірити» повторно.',false);}
+   persistPractice();updatePracticeBoard();
+ });
+ ctrl.addEventListener('change',()=>{practice.answers[id]=ctrl.value;persistPractice();});
+});
+['realKm','realMin','realService','realAlternative','realLimit'].forEach(id=>{
+ el(id).addEventListener('input',()=>{
+   if(practice.passed[5]){practice.passed[5]=false;setMissionFeedback(5,'Ви оновили паспорт. Перевірте місію 6 повторно.',false);}
+   persistPractice();updatePracticeBoard();
+ });
+});
+function persistPractice(){
+ try{localStorage.setItem('geo11_practice_v2',JSON.stringify(practice));}catch(_){}
+}
+const missionFeedbackIds=['dryFeedback','wetFeedback','deltaFeedback','scaleFeedback','evidenceFeedback','realFeedback','sourceFeedback','personaFeedback'];
+function setMissionFeedback(i,message,success){
+ const v=el(missionFeedbackIds[i]);v.textContent=message;v.classList.remove('passed','failed');v.classList.add(success?'passed':'failed');
+}
+function updatePracticeBoard(){
+ const n=practice.passed.filter(Boolean).length;
+ el('practiceDashboard').firstElementChild.textContent=n+' із 8 місій';
+ el('practiceDashboard').querySelector('p').textContent=n>=7?'Обов’язкова частина майже готова: збережіть звіт та скриншоти. Додаткову місію 8 виконуйте для вищого рівня.':'Виконайте 1–7; місія 8 — поглиблення. Відповіді зберігаються у браузері, але не надсилаються вчителю автоматично.';
+ el('practiceChecklist').replaceChildren();
+ missionTitles.forEach((title,i)=>{
+   const p=document.createElement('div');p.className='proof-row'+(practice.passed[i]?' passed':'');
+   p.textContent=(practice.passed[i]?'✓ ':'○ ')+(i+1)+'. '+title+(i>=4&&practice.passed[i]?' · вчитель перевіряє обґрунтування':'');
+   el('practiceChecklist').appendChild(p);
+ });
+ state.practice=practice.passed.slice(0,7).every(Boolean);
+ updateProgress();
+}
+function completeMission(i,ok,onSuccess,onFail,detail){
+ practice.passed[i]=Boolean(ok);
+ if(ok){practice.answers['done'+(i+1)]=new Date().toLocaleString('uk-UA',{dateStyle:'short',timeStyle:'short'});}
+ setMissionFeedback(i,ok?onSuccess:onFail,ok);
+ if(detail&&ok)practice.answers['proof'+(i+1)]=detail;
+ persistPractice();updatePracticeBoard();
+}
+function nnum(v){if(typeof v!=='string')return Number.NaN;const s=v.trim().replace(/\\s/g,'').replace(',','.');return s?Number(s):Number.NaN;}
+function pathNow(){return route.join('-');}
+el('dryVerify').addEventListener('click',()=>{
+ const good=!el('rainSwitch').checked&&route.at(-1)==='F'&&pathNow()==='A-D-E-F';
+ if(good)practice.dry={path:pathNow(),km:calc().km,minutes:calc().minutes,climb:calc().up};
+ completeMission(0,good,
+ '✓ Зафіксовано: '+(good?practice.dry.path.replaceAll('-',' → '):'')+'. Довжину й час обчислено зі схеми. Це оптимум без дощу.',
+ el('rainSwitch').checked?'Вимкніть дощ, скиньте маршрут і шукайте найкоротший шлях.':'Маршрут ще не найкоротший або не доходить до F. Порівняйте проходи через D та через B.',
+ good?JSON.stringify(practice.dry):null
+ );
+});
+el('wetVerify').addEventListener('click',()=>{
+ const good=el('rainSwitch').checked&&route.at(-1)==='F'&&pathNow()==='A-D-G-F';
+ if(good)practice.wet={path:pathNow(),km:calc().km,minutes:calc().minutes,climb:calc().up};
+ completeMission(1,good,
+ '✓ Маршрут після зливи зафіксовано. Він обходить усі умовно закриті ділянки.',
+ el('rainSwitch').checked?'Шлях не є найкоротшим допустимим після зливи. Не використовуйте червоні ребра.':'Увімкніть «після сильної зливи», скиньте шлях та побудуйте допустиму альтернативу.',
+ good?JSON.stringify(practice.wet):null
+ );
+});
+el('deltaVerify').addEventListener('click',()=>{
+ if(!practice.passed[0]||!practice.passed[1]||!practice.dry||!practice.wet){
+ completeMission(2,false,'','Потрібно спершу зафіксувати обидва маршрути в місіях 1 і 2.');return;
+ }
+ const dk=practice.wet.km-practice.dry.km,dt=practice.wet.minutes-practice.dry.minutes;
+ const ok=Math.abs(nnum(el('deltaKm').value)-dk)<.011&&Math.abs(nnum(el('deltaMin').value)-dt)<.01;
+ completeMission(2,ok,'✓ Вірно. Обхід додає '+dk.toFixed(2).replace('.',',')+' км і '+dt+' хв. Ви порівняли показники, а не здогадалися на око.',
+ 'Перевірте: Δ відстані = мокрий маршрут − сухий, і так само Δ часу. Використовуйте показники тренажера.',
+ 'Δкм='+el('deltaKm').value+'; Δхв='+el('deltaMin').value);
+});
+el('scaleVerify').addEventListener('click',()=>{
+ const ok=Math.abs(nnum(el('scaleMeters').value)-1200)<.01;
+ completeMission(3,ok,'✓ Правильно. 4,8 × 250 = 1200 м. Це відрізок на масштабній умовній карті, не довжина пішохідного маршруту у Львові.',
+ 'Помножте 4,8 см на 25 000, потім переведіть отримані сантиметри у метри (діліть на 100).',
+ '1:25000, 4,8 см → '+el('scaleMeters').value+' м');
+});
+el('evidenceVerify').addEventListener('click',()=>{
+ const choice=el('evidencePick').value,txt=el('evidenceExplain').value.trim();
+ const ok=choice==='check'&&txt.length>=60;
+ completeMission(4,ok,
+ '✓ Коректна позиція. Пояснення подано (не менше 60 символів); конкретність і достовірність перевірить учитель.',
+ choice!=='check'?'Самого режиму «пішки» недостатньо: треба перевірити сходи, ухили, тип покриття й фактичні перешкоди.':'Додайте дві конкретні перевірки своїми словами (щонайменше 60 символів).',
+ 'Висновок='+choice+'; Перевірки='+txt);
+});
+el('realVerify').addEventListener('click',()=>{
+ const base=nnum(el('realKm').value),alt=nnum(el('secondKm').value),
+ bt=nnum(el('realMin').value),at=nnum(el('secondMin').value);
+ const ok=Number.isFinite(base)&&base>0&&base<200&&Number.isFinite(alt)&&alt>0&&alt<200&&
+ Number.isFinite(bt)&&bt>0&&bt<2000&&Number.isFinite(at)&&at>0&&at<2000&&
+ el('routeMode').value==='walk'&&Boolean(el('realService').value)&&Boolean(el('realAlternative').value)&&
+ el('mapCheckedAt').value.trim().length>=8&&el('realLimit').value.trim().length>=30;
+ completeMission(5,ok,
+ '✓ Паспорт заповнений. Це перевірка структури, НЕ підтвердження правильності цифр. Додайте два скриншоти з сервісу — учитель їх звірить.',
+ 'Перевірте: два маршрути — обидві довжини й час, джерело, спосіб порівняння, режим «пішки», дата та одне обмеження (від 30 символів).',
+ 'Маршрут='+el('realKm').value+' км/'+el('realMin').value+' хв; альтернатива='+el('secondKm').value+' км/'+el('secondMin').value+' хв; джерело='+el('realService').value+'; дата='+el('mapCheckedAt').value);
+ reportStatus();
+});
+el('sourceVerify').addEventListener('click',()=>{
+ const a=el('mapEvidence').value.trim(),b=el('mapUnknown').value.trim();const ok=a.length>=70&&b.length>=50;
+ completeMission(6,ok,
+ '✓ Протокол заповнений. Перевіряйте, щоб це справді були два спостереження з карти та одне обмеження; вчитель прочитає відповідь.',
+ 'Замало деталей: наведіть два спостереження (разом ≥70 символів) і конкретне обмеження (≥50 символів).',
+ 'Спостереження: '+a+'; Невідоме: '+b);
+});
+el('personaVerify').addEventListener('click',()=>{
+ const a=el('personaA').value.trim(),b=el('personaB').value.trim();const ok=a.length>=85&&b.length>=85;
+ completeMission(7,ok,
+ '✓ Обидві рекомендації написані. Зараховано повноту; переконливість і докази оцінить учитель.',
+ 'Сформулюйте дві рекомендації не менш як по 85 символів кожна, з доказами і способом перевірки.',
+ 'Група А: '+a+'; Група Б: '+b);
+});
+function practiceReportLines(){
+ const v=id=>(el(id)?.value||'—').trim();
+ const lines=['','ПРАКТИЧНІ МІСІЇ · протокол учня'];
+ missionTitles.forEach((title,i)=>{
+  lines.push((i+1)+'. '+title+' — '+(practice.passed[i]?'ВИКОНАНО':'НЕ ПІДТВЕРДЖЕНО'));
+  if(practice.answers['proof'+(i+1)])lines.push('   Підтвердження: '+practice.answers['proof'+(i+1)]);
+ });
+ lines.push('','Детальні записи:',
+ 'Δ км = '+v('deltaKm')+'; Δ хв = '+v('deltaMin'),
+ 'Масштаб: 4,8 см, 1:25 000 → '+v('scaleMeters')+' м',
+ 'Рішення щодо доступності: '+(el('evidencePick').selectedOptions[0]?.textContent||'—'),
+ 'Дві перевірки: '+v('evidenceExplain'),
+ 'Альтернативний маршрут: '+v('secondKm')+' км, '+v('secondMin')+' хв',
+ 'Дата перевірки: '+v('mapCheckedAt')+'; спосіб: '+v('routeMode'),
+ 'Спостереження карти: '+v('mapEvidence'),
+ 'Чого карта не підтверджує: '+v('mapUnknown'),
+ 'Рекомендація групі А: '+v('personaA'),
+ 'Рекомендація групі Б: '+v('personaB'),
+ '','ПЕРЕВІРКА: онлайн-дані та авторство скриншотів оцінює вчитель. Позначка «ВИКОНАНО» у відкритих місіях свідчить тільки про заповнення, не про правильність.',
+ 'Додатки в Classroom: 2 скриншоти маршрутів + скриншот тесту 10 балів.'
+ );
+ return lines;
+}
+updatePracticeBoard();
 try{const stored=JSON.parse(localStorage.getItem('geo11_route_lab_v1')||'null');if(stored&&typeof stored==='object'){Object.entries(stored.report||{}).forEach(([id,val])=>{if(el(id)&&typeof val==='string')el(id).value=val;});if(Array.isArray(stored.route)&&stored.route[0]==='A'&&stored.route.every((k,i)=>nodes[k]&&(i===0||edgeFor(stored.route[i-1],k))))route=stored.route;if(typeof stored.rain==='boolean')el('rainSwitch').checked=stored.rain;}}catch(_){ }
 renderRoute();reportStatus();updateProgress();
 })();
