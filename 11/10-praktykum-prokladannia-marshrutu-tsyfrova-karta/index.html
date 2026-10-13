@@ -73,8 +73,8 @@
 <div class="formula-callout">Δ відстані = відстань після зливи − відстань без зливи<br>Δ часу = час після зливи − час без зливи</div>
 <div class="form-row"><div class="field"><label for="deltaKm">Наскільки збільшилася відстань? (км)</label><input id="deltaKm" inputmode="decimal" placeholder="До сотих, наприклад 0,25"></div><div class="field"><label for="deltaMin">Наскільки змінився час? (хв)</label><input id="deltaMin" inputmode="decimal" placeholder="Ціле число"></div></div>
 <div class="field"><label for="deltaDecision">Короткий висновок диспетчера: який компроміс приймаєте?</label><textarea id="deltaDecision" placeholder="За ... додаткових метрів/хвилин отримуємо ... . Цей вибір доречний тому, що ..."></textarea></div>
-<div class="mission-check"><b>Автоматична перевірка:</b> два обчислення. <b>Вчитель:</b> чи вмієте Ви пояснити отриману зміну.</div>
-<button class="btn btn-sm btn-outline" type="button" id="deltaVerify">Перевірити обидва розрахунки</button><div class="mission-feedback" id="deltaFeedback" role="status">Спочатку зафіксуйте місії 1 та 2.</div>
+<div class="mission-check"><b>Оцінювання:</b> 1 бал за різницю в кілометрах + 1 бал за різницю у хвилинах. <b>Вчитель:</b> чи зрозуміло Ви пояснили компроміс.</div>
+<button class="btn btn-sm btn-outline" type="button" id="deltaVerify">Перевірити обидва розрахунки</button><div class="mission-feedback" id="deltaFeedback" role="status">Спочатку зафіксуйте місії 1 та 2.</div><div id="deltaPartial" class="mission-check" aria-live="polite">Оцінювання: 1 бал за різницю відстаней, 1 бал за різницю часу.</div>
 </article>
 <article class="card mission-card" id="mission4">
 <span class="step-marker">Етап II · Місія 4 · 1 бал</span><h3>Скільки коштує «зрізати навпростець»?</h3>
@@ -221,9 +221,9 @@ const missionTitles=[
  'Критичне оцінювання доступності','Реальний картографічний маршрут',
  'Можливості й межі карти','Рекомендація двом групам'
 ];
-const practice={passed:Array(8).fill(false),answers:{},dry:null,wet:null};
+const practice={passed:Array(8).fill(false),answers:{deltaKmCorrect:false,deltaMinCorrect:false},dry:null,wet:null};
 try{
- const old=JSON.parse(localStorage.getItem('geo11_practice_v2')||'null');
+ const old=JSON.parse(localStorage.getItem('geo11_practice_v3')||'null');
  if(old&&Array.isArray(old.passed)&&old.passed.length===8){
    practice.passed=old.passed.map(x=>x===true);
    practice.answers=(old.answers&&typeof old.answers==='object')?old.answers:{};
@@ -238,7 +238,11 @@ practiceIds.forEach(id=>{
  const idx=({"deltaKm":2,"deltaMin":2,"deltaDecision":2,"scaleMeters":3,"detourRatio":3,"riskWhy":4,"evidenceExplain":4,"secondKm":5,"secondMin":5,"realDecision":5,"mapCheckedAt":5,"routeMode":5,"mapEvidence":6,"mapUnknown":6,"mapVerifyMethod":6,"personaA":7,"personaB":7})[id];
  ctrl.addEventListener('input',()=>{
    practice.answers[id]=ctrl.value;
-   if(practice.passed[idx]){practice.passed[idx]=false;setMissionFeedback(idx,'Ви змінили відповідь. Натисніть «Перевірити» повторно.',false);}
+   if(idx===2&&(id==='deltaKm'||id==='deltaMin')){
+   practice.answers.deltaKmCorrect=false;practice.answers.deltaMinCorrect=false;
+   el('deltaPartial').textContent='Відповідь змінено. Перевірте обидва обчислення ще раз.';
+ }
+ if(practice.passed[idx]){practice.passed[idx]=false;setMissionFeedback(idx,'Ви змінили відповідь. Натисніть «Перевірити» повторно.',false);}
    persistPractice();updatePracticeBoard();
  });
  ctrl.addEventListener('change',()=>{practice.answers[id]=ctrl.value;persistPractice();});
@@ -299,13 +303,20 @@ el('wetVerify').addEventListener('click',()=>{
 });
 el('deltaVerify').addEventListener('click',()=>{
  if(!practice.passed[0]||!practice.passed[1]||!practice.dry||!practice.wet){
+ practice.answers.deltaKmCorrect=false;practice.answers.deltaMinCorrect=false;
  completeMission(2,false,'','Потрібно спершу зафіксувати обидва маршрути в місіях 1 і 2.');return;
  }
  const dk=practice.wet.km-practice.dry.km,dt=practice.wet.minutes-practice.dry.minutes;
- const ok=Math.abs(nnum(el('deltaKm').value)-dk)<.011&&Math.abs(nnum(el('deltaMin').value)-dt)<.01;
- completeMission(2,ok,'✓ Вірно. Обхід додає '+dk.toFixed(2).replace('.',',')+' км і '+dt+' хв. Ви порівняли показники, а не здогадалися на око.',
- 'Перевірте: Δ відстані = мокрий маршрут − сухий, і так само Δ часу. Використовуйте показники тренажера.',
+ const kmOK=Math.abs(nnum(el('deltaKm').value)-dk)<.011;
+ const minOK=Math.abs(nnum(el('deltaMin').value)-dt)<.01;
+ practice.answers.deltaKmCorrect=kmOK;practice.answers.deltaMinCorrect=minOK;
+ const ok=kmOK&&minOK;
+ el('deltaPartial').textContent=(kmOK?'✓ Відстань: 1/1 бал.':'✕ Відстань: 0/1; ще раз відніміть довжини.')+' '+(minOK?'✓ Час: 1/1 бал.':'✕ Час: 0/1; перевірте різницю хвилин.');
+ completeMission(2,ok,
+ '✓ Обидва обчислення правильні: '+dk.toFixed(2).replace('.',',')+' км і '+dt+' хв.',
+ 'Часткові бали вже враховано у картці. Доведіть другий розрахунок до правильного результату.',
  'Δкм='+el('deltaKm').value+'; Δхв='+el('deltaMin').value);
+
 });
 el('scaleVerify').addEventListener('click',()=>{
  if(!practice.passed[0]||!practice.dry){completeMission(3,false,'','Спочатку підтвердьте маршрут без зливи (місія 1).');return;}
@@ -355,7 +366,7 @@ el('personaVerify').addEventListener('click',()=>{
  'Група швидкого огляду: '+a+'; Безбар’єрна група: '+b);
 });
 const gradePoints=[1,1,2,1,1,2,1,1];
-function verifiedScore(){return [0,1,2,3].reduce((n,i)=>n+(practice.passed[i]?gradePoints[i]:0),0);}
+function verifiedScore(){return Number(practice.passed[0])+Number(practice.passed[1])+Number(practice.answers.deltaKmCorrect===true)+Number(practice.answers.deltaMinCorrect===true)+Number(practice.passed[3]);}
 function cerComplete(){return ['cerClaim','cerEvidence','cerReason','cerCheck'].every(id=>el(id).value.trim().length>=35);}
 function showPracticeCard(){
  const who=el('workName').value.trim(),cls=el('workClass').value,n=practice.passed.filter(Boolean).length;
@@ -379,11 +390,12 @@ function practiceReportLines(){
  const v=id=>(el(id)?.value||'—').trim();
  const lines=['','ПРАКТИЧНА РОБОТА /12 · протокол учня', 'Автоматично підтверджено: '+verifiedScore()+'/5, інші 7 балів — оцінювання вчителя.', 'CER: до 2 балів, оцінювання вчителя.'];
  missionTitles.forEach((title,i)=>{
-  lines.push((i+1)+'. '+title+' ('+gradePoints[i]+' б.) — '+(practice.passed[i]?(i<4?'АВТОМАТИЧНО ПІДТВЕРДЖЕНО':'ЗАПОВНЕНО, ПОТРЕБУЄ ПЕРЕВІРКИ ВЧИТЕЛЯ'):'НЕ ПІДТВЕРДЖЕНО'));
+  lines.push((i+1)+'. '+title+' ('+gradePoints[i]+' б.) — '+(i===2?'підтверджено '+(Number(practice.answers.deltaKmCorrect===true)+Number(practice.answers.deltaMinCorrect===true))+'/2':practice.passed[i]?(i<4?'АВТОМАТИЧНО ПІДТВЕРДЖЕНО':'ЗАПОВНЕНО, ПОТРЕБУЄ ПЕРЕВІРКИ ВЧИТЕЛЯ'):'НЕ ПІДТВЕРДЖЕНО'));
   if(practice.answers['proof'+(i+1)])lines.push('   Підтвердження: '+practice.answers['proof'+(i+1)]);
  });
  lines.push('','Детальні записи:',
  'Δ км = '+v('deltaKm')+'; Δ хв = '+v('deltaMin'),
+ 'Бал за Δ км: '+Number(practice.answers.deltaKmCorrect===true)+'/1; бал за Δ хв: '+Number(practice.answers.deltaMinCorrect===true)+'/1',
  'Пряма відстань: 4,8 см, 1:25 000 → '+v('scaleMeters')+' м; коефіцієнт обходу: '+v('detourRatio'),
  'Початкова гіпотеза: '+v('missionHypothesis'),
  'Рішення про ціну обходу: '+v('deltaDecision'),
