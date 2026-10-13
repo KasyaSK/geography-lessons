@@ -43,7 +43,7 @@
 <div class="field"><label for="missionHypothesis">Попередня рекомендація та два сумніви</label><textarea id="missionHypothesis" placeholder="Спочатку перевірю маршрут …, тому що … . Потрібно додатково з’ясувати … і … ."></textarea></div>
 <button type="button" id="warmStart" class="btn btn-sm btn-outline">Занести гіпотезу до щоденника</button>
 <div class="feedback" id="warmFeedback" aria-live="polite">Порада: карта — це джерело доказів, а не гарантія безпечного проходу.</div>
-<p class="micro" style="color:#67786f">Усі відстані, час і підйоми вступного кейсу змодельовані для навчання.</p></div></div></div></section>
+<p class="micro" style="color:#67786f">Усі відстані, час і підйоми вступного кейсу змодельовані для навчання.</p></div></div></section>
 <section class="section mission-section" id="mission"><div class="container">
 <div class="section-head"><span class="kicker">Самостійна практична робота · докази виконання</span>
 <h2>Операція «Знайти прохід»: вісім реальних рішень</h2>
@@ -161,7 +161,7 @@
 (function(){
 const el=id=>document.getElementById(id);
 const state={warm:false,sim:false,real:false,practice:false,report:false};
-function saveState(){try{const obj={report:Object.fromEntries(['realKm','realMin','realService','realAlternative','realLimit','cerClaim','cerEvidence','cerReason','cerCheck','workName','workClass'].map(id=>[id,el(id).value])),route:route.slice(),rain:el('rainSwitch').checked};localStorage.setItem('geo11_route_lab_v1',JSON.stringify(obj));}catch(_){}}
+function saveState(){try{const obj={report:Object.fromEntries(['realKm','realMin','realService','realAlternative','realLimit','cerClaim','cerEvidence','cerReason','cerCheck','missionHypothesis','workName','workClass'].map(id=>[id,el(id).value])),route:route.slice(),rain:el('rainSwitch').checked};localStorage.setItem('geo11_route_lab_v1',JSON.stringify(obj));}catch(_){}}
 
 const workspace=el('practiceWorkspace');
 const nameField=el('workName');
@@ -186,8 +186,13 @@ document.querySelectorAll('.topbar a[href^="#"]').forEach(link=>{
  link.addEventListener('click',event=>{if(!practiceStarted && link.getAttribute('href')!=='#identity'){event.preventDefault();el('identity').scrollIntoView({behavior:'smooth',block:'start'});}});
 });
 function updateProgress(){const n=Object.values(state).filter(Boolean).length;el('progressNumber').textContent=n+' / 5 етапів';el('progressBar').style.width=(n/5*100)+'%';}
-// Warm-up.
-document.querySelectorAll('[data-warm]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-warm]').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');const v=b.dataset.warm;el('warmFeedback').textContent=v==='b'?'Так. Менший набір висоти і відсутність позначених сходів — сильніші аргументи для цієї групи. Але реальна доступність потребує перевірки.':v==='a'?'Ні. Мінімальна відстань не гарантує доступності: 82 м підйому та сходи можуть змінити рішення.':'Занадто суворо. У маршрутизації працюють з неповними даними: обирають обґрунтовану гіпотезу й фіксують, що треба перевірити.';state.warm=true;updateProgress();}));
+// Гіпотеза дослідника, а не контрольне питання.
+el('warmStart').addEventListener('click',()=>{
+ const value=el('missionHypothesis').value.trim();
+ if(value.length<55){el('warmFeedback').textContent='Запишіть вибір, причину та два факти для перевірки (від 55 символів).';return;}
+ state.warm=true;saveState();updateProgress();
+ el('warmFeedback').textContent='Гіпотезу занесено до щоденника. Пізніше зіставте її з перевіреними фактами.';
+});
 // Offline educational network. Edges are undirected; all numbers are synthetic.
 const nodes={A:{x:80,y:300,alt:270,name:'Старт'},B:{x:238,y:190,alt:275,name:'Площа'},C:{x:390,y:91,alt:310,name:'Оглядова'},D:{x:415,y:327,alt:282,name:'Гай'},E:{x:591,y:162,alt:337,name:'Сходи'},F:{x:760,y:98,alt:345,name:'Ціль'},G:{x:646,y:356,alt:295,name:'Обхід'}};
 const edges=[['A','B',.55,9,'тротуар',0],['A','D',.87,15,'доріжка',0],['B','C',.59,13,'сходи',0],['B','D',.72,13,'тротуар',0],['C','E',.68,15,'лісова стежка',1],['C','F',1.23,24,'стежка',1],['D','E',.72,17,'круті сходи',1],['D','G',.67,11,'тротуар',0],['E','F',.47,10,'сходи',0],['E','G',.64,14,'ґрунтова стежка',1],['G','F',.97,18,'тротуар',0],['B','G',1.28,21,'тротуар',0]];
@@ -226,11 +231,11 @@ try{
  }
 }catch(_){}
 ['workName','workClass'].forEach(id=>{el(id).addEventListener('input',()=>{saveState();showPracticeCard();});el(id).addEventListener('change',()=>{saveState();showPracticeCard();});});
-const practiceIds=['deltaKm','deltaMin','scaleMeters','evidencePick','evidenceExplain','secondKm','secondMin','mapCheckedAt','routeMode','mapEvidence','mapUnknown','personaA','personaB'];
+const practiceIds=["deltaKm","deltaMin","deltaDecision","scaleMeters","detourRatio","riskWhy","evidenceExplain","secondKm","secondMin","realDecision","mapCheckedAt","routeMode","mapEvidence","mapUnknown","mapVerifyMethod","personaA","personaB"];
 practiceIds.forEach(id=>{
  if(typeof practice.answers[id]==='string'&&el(id))el(id).value=practice.answers[id];
  const ctrl=el(id);if(!ctrl)return;
- const idx=({deltaKm:2,deltaMin:2,scaleMeters:3,evidencePick:4,evidenceExplain:4,secondKm:5,secondMin:5,mapCheckedAt:5,routeMode:5,mapEvidence:6,mapUnknown:6,personaA:7,personaB:7})[id];
+ const idx=({"deltaKm":2,"deltaMin":2,"deltaDecision":2,"scaleMeters":3,"detourRatio":3,"riskWhy":4,"evidenceExplain":4,"secondKm":5,"secondMin":5,"realDecision":5,"mapCheckedAt":5,"routeMode":5,"mapEvidence":6,"mapUnknown":6,"mapVerifyMethod":6,"personaA":7,"personaB":7})[id];
  ctrl.addEventListener('input',()=>{
    practice.answers[id]=ctrl.value;
    if(practice.passed[idx]){practice.passed[idx]=false;setMissionFeedback(idx,'Ви змінили відповідь. Натисніть «Перевірити» повторно.',false);}
@@ -254,7 +259,7 @@ function setMissionFeedback(i,message,success){
 function updatePracticeBoard(){
  const n=practice.passed.filter(Boolean).length;
  el('practiceDashboard').firstElementChild.textContent=n+' із 8 завдань · '+verifiedScore()+'/5 автоматично';
- el('practiceDashboard').querySelector('p').textContent=n>=7?'Обов’язкова частина майже готова: збережіть звіт та скриншоти. Додаткову місію 8 виконуйте для вищого рівня.':'Виконайте 1–7; місія 8 — поглиблення. Відповіді зберігаються у браузері, але не надсилаються вчителю автоматично.';
+ el('practiceDashboard').querySelector('p').textContent=n===8?'Усі 8 місій оформлені. Створіть CER-звіт і додайте скриншоти.':'Усі 8 місій входять до практичної. Відкриті відповіді оцінюватиме вчитель; дані зберігаються лише у браузері.';
  el('practiceChecklist').replaceChildren();
  missionTitles.forEach((title,i)=>{
    const p=document.createElement('div');p.className='proof-row'+(practice.passed[i]?' passed':'');
@@ -303,18 +308,21 @@ el('deltaVerify').addEventListener('click',()=>{
  'Δкм='+el('deltaKm').value+'; Δхв='+el('deltaMin').value);
 });
 el('scaleVerify').addEventListener('click',()=>{
- const ok=Math.abs(nnum(el('scaleMeters').value)-1200)<.01;
- completeMission(3,ok,'✓ Правильно. 4,8 × 250 = 1200 м. Це відрізок на масштабній умовній карті, не довжина пішохідного маршруту у Львові.',
- 'Помножте 4,8 см на 25 000, потім переведіть отримані сантиметри у метри (діліть на 100).',
- '1:25000, 4,8 см → '+el('scaleMeters').value+' м');
+ if(!practice.passed[0]||!practice.dry){completeMission(3,false,'','Спочатку підтвердьте маршрут без зливи (місія 1).');return;}
+ const km=practice.dry.km,metres=nnum(el('scaleMeters').value),ratio=nnum(el('detourRatio').value);
+ const ok=Math.abs(metres-1200)<.01&&Math.abs(ratio-km/1.2)<.011;
+ completeMission(3,ok,
+ '✓ Обидва числа правильні: відстань по прямій 1200 м, коефіцієнт обходу '+(km/1.2).toFixed(2).replace('.',',')+'.',
+ 'Перевірте: 4,8 × 25 000 ÷ 100 = метри; коефіцієнт обходу = довжина з місії 1 у км ÷ пряма відстань у км.',
+ 'Пряма='+metres+' м; коефіцієнт='+ratio);
 });
 el('evidenceVerify').addEventListener('click',()=>{
- const choice=el('evidencePick').value,txt=el('evidenceExplain').value.trim();
- const ok=choice==='check'&&txt.length>=60;
+ const risk=el('riskWhy').value.trim(),plan=el('evidenceExplain').value.trim();
+ const ok=risk.length>=65&&plan.length>=105;
  completeMission(4,ok,
- '✓ Коректна позиція. Пояснення подано (не менше 60 символів); конкретність і достовірність перевірить учитель.',
- choice!=='check'?'Самого режиму «пішки» недостатньо: треба перевірити сходи, ухили, тип покриття й фактичні перешкоди.':'Додайте дві конкретні перевірки своїми словами (щонайменше 60 символів).',
- 'Висновок='+choice+'; Перевірки='+txt);
+ '✓ Журнал ризику заповнено. Аргументи, незалежність двох перевірок і запасний план оцінить учитель.',
+ 'Опишіть один конкретний ризик (від 65 символів) і дві перевірки із запасним рішенням (від 105).',
+ 'Ризик: '+risk+'; Перевірки/план Б: '+plan);
 });
 el('realVerify').addEventListener('click',()=>{
  const base=nnum(el('realKm').value),alt=nnum(el('secondKm').value),
@@ -323,31 +331,29 @@ el('realVerify').addEventListener('click',()=>{
  const onlineOK=Number.isFinite(base)&&base>0&&base<200&&Number.isFinite(alt)&&alt>0&&alt<200&&
  Number.isFinite(bt)&&bt>0&&bt<2000&&Number.isFinite(at)&&at>0&&at<2000&&
  el('routeMode').value==='walk'&&Boolean(el('realService').value)&&Boolean(el('realAlternative').value)&&
- el('mapCheckedAt').value.trim().length>=8&&el('realLimit').value.trim().length>=30;
+ el('mapCheckedAt').value.trim().length>=8&&el('realLimit').value.trim().length>=30&&el('realDecision').value.trim().length>=85;
  const offlineOK=offline&&practice.passed[0]&&practice.passed[1]&&
  el('realLimit').value.toLowerCase().includes('офлайн')&&el('realLimit').value.trim().length>=30;
  const ok=offline?offlineOK:onlineOK;
  completeMission(5,ok,
  offline?'✓ Офлайн-протокол прийнято: два перевірені шляхи графа й позначене обмеження. Додайте обидва скриншоти моделі.':'✓ Паспорт заповнений. Це перевірка структури, НЕ підтвердження правильності цифр. Додайте два скриншоти з сервісу — учитель їх звірить.',
- offline?'Для офлайн-режиму перевірте місії 1–2, зробіть скриншоти й запишіть у полі обмежень пояснення зі словом «офлайн» (від 30 символів).':'Перевірте: два маршрути — обидві довжини й час, джерело, спосіб порівняння, режим «пішки», дата та одне обмеження (від 30 символів).',
- 'Маршрут='+el('realKm').value+' км/'+el('realMin').value+' хв; альтернатива='+el('secondKm').value+' км/'+el('secondMin').value+' хв; джерело='+el('realService').value+'; дата='+el('mapCheckedAt').value);
+ offline?'Для офлайн-режиму перевірте місії 1–2, зробіть скриншоти й запишіть у полі обмежень пояснення зі словом «офлайн» (від 30 символів).':'Перевірте: два маршрути, обидві довжини/час, джерело, пішохідний режим, дата, невизначеність і пояснення різниці (від 85 символів).',
+ 'Маршрут='+el('realKm').value+' км/'+el('realMin').value+' хв; альтернатива='+el('secondKm').value+' км/'+el('secondMin').value+' хв; джерело='+el('realService').value+'; дата='+el('mapCheckedAt').value+'; пояснення='+el('realDecision').value);
  reportStatus();
 });
 el('sourceVerify').addEventListener('click',()=>{
- const a=el('mapEvidence').value.trim(),b=el('mapUnknown').value.trim();const ok=a.length>=70&&b.length>=50;
- completeMission(6,ok,
- '✓ Протокол заповнений. Перевіряйте, щоб це справді були два спостереження з карти та одне обмеження; вчитель прочитає відповідь.',
- 'Замало деталей: наведіть два спостереження (разом ≥70 символів) і конкретне обмеження (≥50 символів).',
- 'Спостереження: '+a+'; Невідоме: '+b);
+ const facts=el('mapEvidence').value.trim(),unknown=el('mapUnknown').value.trim(),method=el('mapVerifyMethod').value.trim();
+ const ok=facts.length>=85&&unknown.length>=65&&method.length>=80;
+ completeMission(6,ok,'✓ Експертизу оформлено; географічні факти й метод перевірки оцінить учитель.',
+ 'Два факти (від 85 символів), межі знань (від 65) та план перевірки (від 80).',
+ 'Факти: '+facts+'; Невідоме: '+unknown+'; План перевірки: '+method);
 });
 el('personaVerify').addEventListener('click',()=>{
- const a=el('personaA').value.trim(),b=el('personaB').value.trim();const ok=a.length>=85&&b.length>=85;
- completeMission(7,ok,
- '✓ Обидві рекомендації написані. Зараховано повноту; переконливість і докази оцінить учитель.',
- 'Сформулюйте дві рекомендації не менш як по 85 символів кожна, з доказами і способом перевірки.',
- 'Група А: '+a+'; Група Б: '+b);
+ const a=el('personaA').value.trim(),b=el('personaB').value.trim();const ok=a.length>=110&&b.length>=110;
+ completeMission(7,ok,'✓ Рекомендації заповнені. Учитель перевірить факти, відмінності між групами та ризики.',
+ 'Потрібні дві різні обґрунтовані записки від 110 символів кожна.',
+ 'Група швидкого огляду: '+a+'; Безбар’єрна група: '+b);
 });
-
 const gradePoints=[1,1,2,1,1,2,1,1];
 function verifiedScore(){return [0,1,2,3].reduce((n,i)=>n+(practice.passed[i]?gradePoints[i]:0),0);}
 function cerComplete(){return ['cerClaim','cerEvidence','cerReason','cerCheck'].every(id=>el(id).value.trim().length>=35);}
@@ -378,18 +384,22 @@ function practiceReportLines(){
  });
  lines.push('','Детальні записи:',
  'Δ км = '+v('deltaKm')+'; Δ хв = '+v('deltaMin'),
- 'Масштаб: 4,8 см, 1:25 000 → '+v('scaleMeters')+' м',
- 'Рішення щодо доступності: '+(el('evidencePick').selectedOptions[0]?.textContent||'—'),
- 'Дві перевірки: '+v('evidenceExplain'),
+ 'Пряма відстань: 4,8 см, 1:25 000 → '+v('scaleMeters')+' м; коефіцієнт обходу: '+v('detourRatio'),
+ 'Початкова гіпотеза: '+v('missionHypothesis'),
+ 'Рішення про ціну обходу: '+v('deltaDecision'),
+ 'Журнал ризику: '+v('riskWhy'),
+ 'Дві перевірки і запасний план: '+v('evidenceExplain'),
  'Режим: '+(el('offlineMode').checked?'офлайн, навчальний граф':'онлайн, цифрова карта'),
  'Альтернативний маршрут: '+v('secondKm')+' км, '+v('secondMin')+' хв',
+ 'Пояснення альтернативи: '+v('realDecision'),
  'Дата перевірки: '+v('mapCheckedAt')+'; спосіб: '+v('routeMode'),
  'Спостереження карти: '+v('mapEvidence'),
  'Чого карта не підтверджує: '+v('mapUnknown'),
+ 'План незалежної перевірки: '+v('mapVerifyMethod'),
  'Рекомендація групі А: '+v('personaA'),
  'Рекомендація групі Б: '+v('personaB'),
  '','ПЕРЕВІРКА: онлайн-дані та авторство скриншотів оцінює вчитель. Позначка «ВИКОНАНО» у відкритих місіях свідчить тільки про заповнення, не про правильність.',
- 'Додатки в Classroom: 2 скриншоти маршрутів .'
+ 'Додатки в Classroom: два скриншоти маршрутів і підписаний звіт.'
  );
  return lines;
 }
