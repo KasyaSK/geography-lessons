@@ -134,4 +134,5 @@ prepared=true;$("printPDF").disabled=false;$("saveTXT").disabled=false;$("previe
 $("printPDF").addEventListener("click",function(){if(prepared)window.print()});
 $("saveTXT").addEventListener("click",function(){if(!prepared)return;var text="ПРАКТИЧНА РОБОТА: ГЕОЛОГІЧНА ПАМ’ЯТКА ЗАПОРІЗЬКОЇ ОБЛАСТІ\n\n"+reportData().map(function(row){return row[0]+":\n"+row[1]}).join("\n\n")+"\n\nАвтор уроку: Скринченко К.А.";var blob=new Blob(["\ufeff"+text],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="8-klas-heolohichna-pamiatka.txt";a.click();setTimeout(function(){URL.revokeObjectURL(url)},1000)});
 })();
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
