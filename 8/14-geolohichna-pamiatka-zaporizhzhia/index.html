@@ -5,17 +5,59 @@
 :root{--ink:#153047;--dim:#506777;--a:#087377;--a2:#e2f5f4;--paper:#fff;--bg:#f2f7fa;--line:#cbdfe7;--gold:#f1b764;--sea:#e5f5fb;--bad:#ae2945;--good:#216d54}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:#09668a}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #d58b1c;outline-offset:3px}h1,h2,h3{line-height:1.17}h1{font-size:clamp(2.15rem,5.5vw,4rem);letter-spacing:-.042em;margin:.5rem 0 1rem}h2{font-size:clamp(1.5rem,3.3vw,2.25rem);margin:.3rem 0 1rem}h3{font-size:1.12rem;margin:.3rem 0 .7rem}.w{width:min(1120px,calc(100% - 36px));margin:auto}.hero{background:linear-gradient(115deg,#123149,#0b5c69);color:white;padding:46px 0 35px}.hero p{max-width:800px;color:#d7f2f2;font-size:1.09rem}.eyebrow{font-size:.82rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}.chips{display:flex;gap:9px;flex-wrap:wrap}.chips span{padding:5px 12px;border-radius:999px;background:#ffffff1a;border:1px solid #ffffff40;font-weight:800;font-size:.85rem}nav{position:sticky;top:0;z-index:10;background:#fffffff0;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}nav .w{display:flex;gap:4px;overflow-x:auto;padding:9px 0}nav a{text-decoration:none;font-size:.88rem;color:#16546b;border-radius:999px;padding:9px 12px;white-space:nowrap;font-weight:800}nav a:hover{background:#e0f3f4}main{padding:18px 0 52px}.panel{padding:clamp(19px,3.4vw,32px);border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 8px 28px #254c5c0a;margin:20px 0}.step{color:var(--a);text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;font-weight:950}.lead{font-size:1.11rem;color:#2e5664}.emph{background:var(--a2);border-left:4px solid var(--a);padding:12px 16px;border-radius:9px}.warning{background:#fff6e7;border-left-color:#e0a14a}.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{border:1px solid #d4e6e9;background:#f9fdfd;padding:17px;border-radius:16px}.card p{margin:.4rem 0}.card small{color:var(--dim)}.letter{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#d6f0ee;color:#07575d;font-weight:950}.flow{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:20px 0}.flow span{font-weight:900;background:#f2f8f9;border:1px solid var(--line);border-radius:12px;padding:8px 12px}.flow b{color:#a87518}.pick{display:block;position:relative;cursor:pointer;min-height:143px;border:2px solid #d9e7ea;border-radius:17px;padding:15px 13px 13px 45px;background:#fff}.pick:has(input:checked){border-color:#13838b;background:#eaf8f7}.pick>input{position:absolute;top:20px;left:15px;width:19px;height:19px;accent-color:var(--a)}.pick strong{display:block;font-size:1.07rem;margin-bottom:7px}.pick .micro{display:block;font-size:.91rem;color:#4a6171}.pick a{font-size:.87rem;font-weight:850;display:inline-block;margin-top:8px}.status{border-radius:12px;background:#e9f6ee;padding:12px 16px;color:#215d49;font-weight:850}.field{margin:12px 0}.field label{display:block;font-weight:820;margin-bottom:6px}.field input,.field textarea{display:block;width:100%;border:1.5px solid #b7d4dc;border-radius:12px;padding:11px 13px;background:#fff;color:var(--ink)}.field textarea{min-height:97px;resize:vertical}.help{display:block;color:#526a79;font-size:.87rem;margin-top:4px}.hintbtn{display:block;border:1px solid #c4dce2;background:#f0f9fb;color:#235265;border-radius:12px;padding:7px 11px;min-height:38px;font-size:.9rem;font-weight:790;margin:7px 0;cursor:pointer}.hinttext{display:none;border-left:3px solid #7fbfc3;padding:9px 13px;margin-bottom:9px;background:#f0f9fa}.hinttext.show{display:block}.btn{border:0;padding:10px 17px;border-radius:12px;min-height:46px;background:#086d77;color:white;font-weight:900}.btn.secondary{background:#e1f0f3;color:#1b5667}.btn.gold{background:#f8e5c5;color:#79501a}.btn:disabled{opacity:.48;cursor:not-allowed}.buttons{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}.mapwrap{position:relative;background:linear-gradient(125deg,#effaff,#f4fbfc);border:1px solid #aacbd8;border-radius:18px;overflow:hidden;min-width:0}.mapwrap svg{display:block;width:100%;height:auto;touch-action:manipulation;user-select:none}.mapwrap .oblast{fill:#f8faf6;stroke:#1a7281;stroke-width:3;stroke-linejoin:round;cursor:crosshair}.mapwrap .oblast:hover{fill:#f1f9f7}.mapwrap .gridline{stroke:#aacddb;stroke-width:1;stroke-dasharray:7 8}.mapwrap .coordlabel{fill:#4e7889;font-size:13px}.mapwrap .town circle{fill:#244a65;stroke:#fff;stroke-width:2}.mapwrap .town text{font-size:15px;fill:#183d50;font-weight:750;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}.mapwrap .pin circle.ring{fill:#e04b30;stroke:white;stroke-width:3}.mapwrap .pin circle.inner{fill:#fff}.mapwrap .pin text{font-size:20px;font-weight:900;fill:#a7281b;paint-order:stroke;stroke:white;stroke-width:5px}.mapwrap .seaname{fill:#598dab;font-style:italic;font-size:18px}.mapwrap .north{fill:#1d4d66;font-size:18px;font-weight:950}.mapwrap .towns.hidden{display:none}.mapbadge{padding:9px 12px;background:#e2f3f6;border-radius:12px;font-weight:750;color:#315b69;margin:12px 0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.widefield{grid-column:1/-1}.small{font-size:.88rem;color:#556a77}.sources{display:flex;flex-wrap:wrap;gap:10px}.sources a{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:11px;background:#f7fbfc;overflow-wrap:anywhere}.checklist{list-style:none;padding:0}.checklist li{padding:6px 0 6px 28px;position:relative}.checklist li:before{content:"✓";position:absolute;left:0;color:#087d69;font-weight:900}table{border-collapse:collapse;width:100%}th,td{text-align:left;border-bottom:1px solid #dae7eb;padding:9px}td:last-child,th:last-child{text-align:right}footer{background:#15384d;color:#dff1f3;padding:25px 0}.only-print{display:none}.feedback{font-weight:800;margin-top:8px}.feedback.bad{color:var(--bad)}.feedback.good{color:var(--good)}.divider{height:1px;background:#d2e6e9;margin:18px 0}.result{background:#f6fbfb;border:1px solid var(--line);padding:18px;border-radius:14px}.hide{display:none!important}@media(max-width:760px){.cols,.three,.fields{grid-template-columns:1fr}.widefield{grid-column:auto}.pick{min-height:auto}nav .w{width:100%;padding-left:12px}.mapwrap .town text{font-size:14px}.w{width:min(1120px,calc(100% - 24px))}}
 @media(prefers-reduced-motion:reduce){*,*:after,*:before{transition:none!important;scroll-behavior:auto!important}}
 @page{size:A4;margin:12mm}@media print{body{background:#fff;font-size:11pt;color:#111}header,nav,main,footer,.no-print{display:none!important}.only-print{display:block!important}#printSheet{margin:0 auto;width:100%;font:11pt/1.4 Arial,sans-serif}#printSheet h1{font-size:19pt}#printSheet h2{font-size:13pt;margin:10px 0 5px}.printmap svg{width:100%;height:auto;max-height:145mm}.printmap .oblast{fill:#fff!important;stroke:#111!important}.printmap .gridline{stroke:#bbb!important}.printmap .town text{stroke:#fff;fill:#222}.printblock{break-inside:avoid;margin:7px 0;padding:6px 0;border-bottom:1px solid #ddd}.printblock b{display:block}.printmap{page-break-after:always}.printsource{font-size:8pt;color:#555}}
+
+/* Reference layers: extensive enough for self-study, folded away once research begins. */
+.geology-card{background:#fbfdff}.glossary{margin:0}.glossary dt{font-weight:900;color:#0c636b;padding-top:9px}.glossary dd{margin:0 0 9px;color:#415c6b;border-bottom:1px dashed #d3e3e6;padding-bottom:7px}
+.evidence-row{background:#eef8fa;border-radius:11px;padding:10px 12px;margin:9px 0;line-height:1.55}
+.study-extra{border:1px solid #c2dfe5;border-radius:14px;background:#f7fcfd;margin:16px 0}.study-extra summary{font-weight:900;cursor:pointer;padding:15px 18px;color:#16546b}.study-extra[open] summary{border-bottom:1px solid #d0e7e9}.detail-pad{padding:7px 18px 17px}.clearsteps{padding-left:22px}.clearsteps li{margin:7px 0}.case-study{margin-top:13px;padding:19px;border:1.5px solid #b7dadf;background:#f6fbfb;border-radius:16px}.casehead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}.casehead>div{display:flex;align-items:center;gap:12px}.casehead h3{margin:0}.fact-pill{background:#deefe8;color:#26684b;border-radius:999px;padding:5px 11px;font-size:.8rem;font-weight:900}.case-study ul{padding-left:22px}.case-study li{padding:3px 0}.case-study .emph{margin-top:14px}.method-cards{margin:17px 0}.study-example{margin:14px 0}.case-study.hide{display:none!important}
+
 </style></head><body>
 <header class="hero"><div class="w"><div class="eyebrow">Географія · 8 клас · § 13 · практична робота</div><h1>Знайди. Познач. Досліди.</h1><p>Геологічна пам’ятка Запорізької області. Тут Ви працюєте як географ-дослідник: знаходите факти, самостійно наносите об’єкт на справжню контурну карту області й складаєте його опис.</p><div class="chips"><span>1 пам’ятка з 5</span><span>Контурна карта</span><span>Пошук у джерелах</span><span>35 хв</span><span>Оцінка /12</span></div></div></header>
-<nav><div class="w"><a href="#intro">Пояснення</a><a href="#pick">1. Обрати</a><a href="#find">2. Знайти</a><a href="#mapwork">3. Карта</a><a href="#describe">4. Опис</a><a href="#finish">5. Здати</a></div></nav>
+<nav><div class="w"><a href="#intro">Пояснення</a><a href="#primer">Довідник</a><a href="#pick">1. Обрати</a><a href="#find">2. Знайти</a><a href="#mapwork">3. Карта</a><a href="#describe">4. Опис</a><a href="#finish">5. Здати</a></div></nav>
 <main class="w">
-<section class="panel" id="intro"><div class="step">0–5 хв · пояснення вчителя</div><h2>Що і навіщо досліджуємо?</h2>
+<section class="panel" id="intro"><div class="step">0–3 хв · короткий вступ</div><h2>Що і навіщо досліджуємо?</h2>
 <p class="lead"><b>Геологічна пам’ятка природи</b> — природний об’єкт, який цінний тим, що зберігає свідчення геологічних процесів: гірські породи, відслонення, скелі, тріщини, форми вивітрювання.</p>
 <div class="three"><div class="card"><span class="letter">1</span><h3>Де вона?</h3><p>Знаходимо за картою її положення щодо міст, сіл, річок.</p></div><div class="card"><span class="letter">2</span><h3>Що там особливого?</h3><p>Дізнаємося, які породи та природні процеси утворили об’єкт.</p></div><div class="card"><span class="letter">3</span><h3>Чому берегти?</h3><p>Визначаємо, яку частину історії Землі зберігає пам’ятка.</p></div></div>
 <div class="flow"><span>Обрати</span><b>→</b><span>Знайти 2 джерела</span><b>→</b><span>Поставити позначку</span><b>→</b><span>Описати</span><b>→</b><span>Здати PDF</span></div>
 <div class="emph"><b>Не переписуємо довгу лекцію.</b> Вам потрібно виконати географічне дослідження власноруч. Якщо у джерелі немає віку породи, не вигадуйте його: краще поясніть, які відомості вдалося підтвердити.</div>
 </section>
-<section class="panel" id="pick"><div class="step">5–8 хв · самостійна робота</div><h2>1. Оберіть одну з п’яти пам’яток</h2>
+
+<section class="panel" id="primer">
+<div class="step">3–8 хв · опора перед самостійною роботою</div>
+<h2>Мініпідручник дослідника: як «читати» каміння</h2>
+<p class="lead">Перш ніж працювати з пам’яткою, розберімося з п’ятьма поняттями. Вони потрібні, щоб <b>зрозуміти знайдену інформацію</b>, а не механічно переписати чужий опис.</p>
+<div class="three">
+<article class="card geology-card">
+<svg viewBox="0 0 290 125" role="img" aria-label="Схема: осадова порода складається із шарів" style="width:100%;height:auto"><rect width="290" height="125" rx="14" fill="#e9f4f9"/><path d="M12 104 L50 35 110 55 163 24 220 41 278 59 L278 115 L12 115Z" fill="#cba97b"/><path d="M22 99 Q86 82 137 92 T276 90 M37 77 Q103 64 163 69 T275 67 M54 55 Q110 50 171 48 T241 46" fill="none" stroke="#78594a" stroke-width="7"/><text x="10" y="19" font-size="14" fill="#34546d">Схематичний розріз</text></svg>
+<h3>Осадові породи</h3><p>Можуть виникати, коли пісок, глина й інші осади накопичуються, ущільнюються та зцементовуються. <b>Пісковик</b> — приклад такої породи. Шаруватість інколи допомагає відтворити давні умови.</p>
+</article>
+<article class="card geology-card">
+<svg viewBox="0 0 290 125" role="img" aria-label="Схема: кристалічна порода з тріщинами" style="width:100%;height:auto"><rect width="290" height="125" rx="14" fill="#e9f4f9"/><path d="M17 112 42 57 79 46 114 62 147 15 181 54 227 37 274 75 278 112Z" fill="#95a5b0"/><path d="M75 47 91 87 70 112 M147 17 136 71 169 108 M227 40 206 86 232 112" stroke="#465d72" stroke-width="5" fill="none"/><circle cx="111" cy="83" r="3" fill="#f3f4f5"/><circle cx="197" cy="58" r="4" fill="#f3f4f5"/><text x="10" y="19" font-size="14" fill="#34546d">Схематичний вихід порід</text></svg>
+<h3>Магматичні породи</h3><p>Утворюються під час застигання магми або лави. <b>Граніт</b> зазвичай має кристалічну будову, але лише за виглядом фото точно визначати породу не слід.</p>
+</article>
+<article class="card geology-card">
+<svg viewBox="0 0 290 125" role="img" aria-label="Схема: річка та скелі з ознаками руйнування" style="width:100%;height:auto"><rect width="290" height="125" rx="14" fill="#e9f4f9"/><path d="M12 110 24 71 65 38 114 64 130 112 M162 112 185 67 235 38 275 76 280 111Z" fill="#c5a98c"/><path d="M132 124 Q153 95 171 110 T220 117" fill="none" stroke="#5daac3" stroke-width="10"/><path d="M65 38 57 82 M235 38 219 85" stroke="#8d715d" stroke-width="4"/><text x="10" y="19" font-size="14" fill="#34546d">Умовна річкова долина</text></svg>
+<h3>Вивітрювання та ерозія</h3><p><b>Вивітрювання</b> руйнує породи на місці; <b>ерозія</b> пов’язана з розмиванням і перенесенням матеріалу водою, вітром тощо. Так можуть утворюватися скелясті форми, тріщини та ущелини.</p>
+</article>
+</div>
+<div class="cols study-cols">
+<div class="card"><h3>Словничок, який потрібен для опису</h3>
+<dl class="glossary"><dt>Відслонення</dt><dd>Ділянка, де гірські породи можна спостерігати на поверхні без шару ґрунту над ними.</dd>
+<dt>Останець</dt><dd>Частина масиву, яка збереглася після тривалого руйнування навколишніх порід.</dd>
+<dt>Кристалічні породи</dt><dd>Породи з кристалічною будовою; часто трапляються на Українському щиті.</dd>
+<dt>Український щит</dt><dd>Велика геологічна структура, де давні кристалічні породи місцями виходять близько до поверхні.</dd>
+<dt>Природно-заповідний фонд (ПЗФ)</dt><dd>Території та об’єкти, які охороняються через природну цінність; їхній офіційний статус шукають у реєстрах.</dd></dl></div>
+<div class="card"><h3>Що доводить фото, а чого не доводить?</h3>
+<div class="evidence-row"><b>Бачимо:</b> тріщину на скелі.<br><b>Можемо описати:</b> «на поверхні є тріщина».<br><b>Не можна автоматично писати:</b> «тріщина виникла під час землетрусу».</div>
+<div class="evidence-row"><b>Бачимо:</b> нагромадження брил.<br><b>Можемо описати:</b> «блоки різного розміру».<br><b>Треба перевірити:</b> породу й причину формування.</div>
+<div class="evidence-row"><b>Джерело вказує:</b> «геологічна пам’ятка природи».<br><b>Можемо записати:</b> офіційний статус із посиланням.<br><b>Не варто плутати:</b> статус, красу пейзажу та наукову цінність.</div>
+</div></div>
+<details class="study-extra"><summary>Мініприклад: перетворюємо знайдений факт на власний опис</summary>
+<div class="detail-pad"><p><b>У джерелі:</b> «Гірські породи піддавалися водній і вітровій ерозії».</p><p><b>Учень пише своїми словами:</b> «Вода й вітер поступово змінювали поверхню порід, тому сучасна форма скель відрізняється від первісної».</p><p><b>Чого ще не вистачає:</b> назви породи, розташування конкретного об’єкта й доказу з фотографії або другого джерела.</p></div>
+</details>
+<p class="small">Схеми вище є навчальними — це не зображення конкретних пам’яток. Для дослідження обраного об’єкта використовуйте його справжнє фото та науковий опис.</p>
+</section>
+<section class="panel" id="pick"><div class="step">8–10 хв · обираємо пам’ятку</div><h2>1. Оберіть одну з п’яти пам’яток</h2>
 <p>Це справжні геологічні пам’ятки природи Запорізької області, внесені до переліків ПЗФ. Їхні точні місця на контурній карті <b>не позначені</b>: знайдіть їх самостійно.</p>
 <div class="cols" id="monuments">
 <label class="pick"><input type="radio" name="monument" value="Кам’яна могила над р. Молочна"><strong>1. Кам’яна Могила</strong><span class="micro">Дослідіть геологічні особливості кам’яного масиву. Шукайте відомості про місце біля річки Молочної.</span><a href="https://www.zor.gov.ua/content/melitopolska-kamyana-mogyla-unikalna-pamyatka-arheologiyi-ta-geologiyi-svitovogo-znachennya" target="_blank" rel="noopener" onclick="event.stopPropagation()">Матеріал для пошуку ↗</a></label>
@@ -27,8 +69,62 @@
 <div class="status" id="selected" aria-live="polite">Ще не обрано пам’ятку.</div>
 <p class="small">Усі п’ять об’єктів підтверджено <a href="https://pzf.land.kiev.ua/pzf-obl-8.php" target="_blank" rel="noopener">переліком геологічних пам’яток Запорізької області</a>. Підказки лише спрямовують пошук — не замінюють власного дослідження.</p>
 </section>
-<section class="panel" id="find"><div class="step">8–17 хв · пошук у джерелах</div><h2>2. Знайдіть місце й факти</h2><p>Відкрийте 2 джерела. Одне — для розташування, друге — для геологічного опису. Не копіюйте текст цілими абзацами: випишіть потрібні факти своїми словами.</p>
+
+<section class="panel" id="casebook">
+<div class="step">Стартові матеріали · відкривайте лише для свого об’єкта</div>
+<h2>Картка дослідника: з чого почати пошук?</h2>
+<p>Після вибору пам’ятки нижче відкриється <b>її стартове досьє</b>. Це кілька перевірених відомостей, терміни для пошуку й запитання, на які Вам потрібно знайти <b>власні відповіді</b>. У картках немає точної позначки для карти: її визначаєте самі.</p>
+<div id="casePrompt" class="emph">Спочатку виберіть одну пам’ятку вище.</div>
+<article class="case-study hide" data-monument="Кам’яна могила над р. Молочна">
+<div class="casehead"><div><span class="letter">01</span><h3>Кам’яна Могила: пісковик і гроти</h3></div><span class="fact-pill">15 га · загальнодержавна</span></div>
+<p><b>Що вже відомо:</b> геологічна пам’ятка поблизу річки Молочної, у Мелітопольському районі. Її характерна геологічна особливість — масив і брили <b>пісковику</b>; між ними є природні порожнини. Об’єкт має також археологічну цінність, але зараз Ви досліджуєте <b>геологію</b>.</p>
+<p><b>Пошукові слова:</b> «Кам’яна Могила Терпіння карта», «пісковикові брили геологія», «Кам’яна Могила річка Молочна».</p>
+<ul><li>З’ясуйте: що таке пісковик і як він утворюється?</li><li>Знайдіть фото, де видно нагромадження брил і гроти.</li><li>Визначте на карті найближчий населений пункт, а вже потім місце масиву.</li></ul>
+<p class="small">Першоджерела: <a href="https://pzf.land.kiev.ua/pzf-obl-8.php" target="_blank" rel="noopener">реєстр ПЗФ</a> · <a href="https://www.zor.gov.ua/content/melitopolska-kamyana-mogyla-unikalna-pamyatka-arheologiyi-ta-geologiyi-svitovogo-znachennya" target="_blank" rel="noopener">Запорізька обласна рада</a>.</p>
+<div class="emph warning"><b>Не переплутайте:</b> «Кам’яна Могила» на Молочній та заповідник «Кам’яні Могили» — різні об’єкти.</div>
+</article>
+<article class="case-study hide" data-monument="Гранітні скелі">
+<div class="casehead"><div><span class="letter">02</span><h3>Гранітні скелі: скельна долина Берди</h3></div><span class="fact-pill">15 га · загальнодержавна</span></div>
+<p><b>Що вже відомо:</b> пам’ятка в Бердянському районі, неподалік села Миколаївка, біля річки Берди. Тут трапляються <b>сірі та рожеві граніти</b>, а сучасні форми скель пов’язані з роботою води й вітру. Енциклопедія описує скельний каньйон і геологічний вік порід близько 1,8–2 млрд років.</p>
+<p><b>Пошукові слова:</b> «Гранітні скелі Миколаївка Берда карта», «гранітні скелі ЕСУ», «геологічна пам’ятка скельний каньйон».</p>
+<ul><li>Які форми рельєфу згадані в науковому описі?</li><li>Чим граніт відрізняється від пісковику?</li><li>Знайдіть річку Берду й село Миколаївка на карті, а потім перевірте розташування самих скель.</li></ul>
+<p class="small">Першоджерела: <a href="https://esu.com.ua/article-26832" target="_blank" rel="noopener">Енциклопедія сучасної України</a> · <a href="https://zakon.rada.gov.ua/rada/show/v0526737-12" target="_blank" rel="noopener">Положення про пам’ятку</a>.</p>
+</article>
+<article class="case-study hide" data-monument="Бельмак-могила">
+<div class="casehead"><div><span class="letter">03</span><h3>Бельмак-могила: давні породи Приазов’я</h3></div><span class="fact-pill">2 га · місцева</span></div>
+<p><b>Що вже відомо:</b> пам’ятка пов’язана з однією з найвищих форм рельєфу <b>Приазовської височини</b>. На цій ділянці виходять на поверхню давні кристалічні породи Українського щита, зокрема біотитові граніти. Енциклопедія згадує верхів’я річки Бельманки та околиці села Трудове.</p>
+<p><b>Пошукові слова:</b> «Могила-Бельмак ЕСУ», «Бельмак-могила Трудове карта», «Приазовська височина граніти».</p>
+<ul><li>Знайдіть на карті Приазовську височину й найближчі населені пункти.</li><li>Поясніть, чому давні кристалічні породи можуть бути на поверхні.</li><li>Як висота місцевості пов’язана з її геологічною будовою?</li></ul>
+<p class="small">Першоджерела: <a href="https://esu.com.ua/article-68212" target="_blank" rel="noopener">ЕСУ: Могила-Бельмак</a> · <a href="https://pzf.land.kiev.ua/pzf-obl-8.php" target="_blank" rel="noopener">реєстр ПЗФ</a>.</p>
+<div class="emph warning"><b>Зважайте:</b> різні публікації наводять неоднакову абсолютну висоту вершини. Якщо записуєте цифру, назвіть джерело й перевірте, що йдеться саме про цю вершину.</div>
+</article>
+<article class="case-study hide" data-monument="Висока скеля над р. Берда">
+<div class="casehead"><div><span class="letter">04</span><h3>Висока скеля над Бердою: дослідження за фотографією</h3></div><span class="fact-pill">5 га · місцева</span></div>
+<p><b>Що вже відомо:</b> геологічна пам’ятка Бердянського району, біля річки Берди. Про неї існують фотографії з підписами й геомітками. Це хороший об’єкт для вправи «що я справді бачу, а що лише припускаю?».</p>
+<p><b>Пошукові слова:</b> «Висока скеля над річкою Берда Вікісховище», «скеля Берда фото», «Висока скеля Петрів батіг».</p>
+<ul><li>Відкрийте хоча б дві фотографії одного об’єкта й порівняйте ракурси.</li><li>Опишіть форму, тріщини та положення скелі відносно річки.</li><li>Знайдіть геологічний опис породи. Якщо його немає, не визначайте породу лише за кольором.</li></ul>
+<p class="small">Першоджерела: <a href="https://commons.wikimedia.org/wiki/Category:High_rock_above_the_river_Berda_(natural_monument)" target="_blank" rel="noopener">добірка фотографій Wikimedia Commons</a> · <a href="https://pzf.land.kiev.ua/pzf-obl-8.php" target="_blank" rel="noopener">реєстр ПЗФ</a>.</p>
+<div class="emph warning"><b>Пастка:</b> геомітка фотографії може показувати місце, де стояв фотограф, а не точний центр пам’ятки. Перевіряйте місце за картою й кількома даними.</div>
+</article>
+<article class="case-study hide" data-monument="Велика кам’яна скеля біля р. Суха Конка">
+<div class="casehead"><div><span class="letter">05</span><h3>Велика кам’яна скеля: робота з неповними даними</h3></div><span class="fact-pill">3 га · місцева</span></div>
+<p><b>Що вже відомо:</b> геологічна пам’ятка Пологівського району, пов’язана з річкою <b>Суха Конка</b>. У каталозі геологічних зразків Запорізького обласного краєзнавчого музею об’єкт віднесено до <b>петрографічного</b> типу й згадано село Кінські Роздори. Петрографічний опис стосується складу й будови порід.</p>
+<p><b>Пошукові слова:</b> «Велика кам’яна скеля Суха Конка Кінські Роздори», «геологічні зразки Запорізький краєзнавчий музей», «річка Суха Конка карта».</p>
+<ul><li>Знайдіть на карті річку Суха Конка та найближчу місцевість.</li><li>Яка інформація є в реєстрі, а якої не вистачає для опису породи?</li><li>Якщо точних даних про склад порід не знайшли, зазначте межі своїх знань.</li></ul>
+<p class="small">Першоджерела: <a href="https://ebooks.znu.edu.ua/files/Bibliobooks/Inshi67/0049197.pdf" target="_blank" rel="noopener">музейний каталог геологічних зразків (розділ 5.13)</a> · <a href="https://pzf.land.kiev.ua/pzf-obl-8.php" target="_blank" rel="noopener">реєстр ПЗФ</a>.</p>
+</article>
+</section>
+<section class="panel" id="find"><div class="step">10–17 хв · дослідження джерел</div><h2>2. Знайдіть місце й факти</h2><p>Відкрийте 2 джерела. Одне — для розташування, друге — для геологічного опису. Не копіюйте текст цілими абзацами: випишіть потрібні факти своїми словами.</p>
 <div class="sources"><a href="https://pzf.land.kiev.ua/pzf-obl-8.php" target="_blank" rel="noopener">Перелік ПЗФ ↗</a><a href="https://www.openstreetmap.org/#map=8/47.2/35.8" target="_blank" rel="noopener">OpenStreetMap ↗</a><a href="https://www.google.com/maps/@47.2,35.8,8z" target="_blank" rel="noopener">Картографічний пошук ↗</a><a href="https://esu.com.ua/" target="_blank" rel="noopener">Енциклопедія сучасної України ↗</a><a href="https://www.geo.gov.ua/" target="_blank" rel="noopener">Держгеонадра ↗</a></div>
+
+<div class="cols method-cards">
+<div class="card"><h3>Як знайти потрібний об’єкт на карті</h3>
+<ol class="clearsteps"><li><b>Вбийте точну назву</b> у картографічний пошук. Якщо об’єкта немає — спробуйте сусіднє село чи річку з досьє.</li><li><b>Перевірте область і район.</b> Однакові назви можуть повторюватися; шукайте саме Запорізьку область.</li><li><b>Визначте орієнтир</b> — річку, село, дорогу, форму рельєфу.</li><li><b>Поверніться до контурної карти</b> й самі поставте позначку у відповідному місці.</li></ol>
+</div>
+<div class="card"><h3>Як не загубитися в статті</h3>
+<ol class="clearsteps"><li>Шукайте в тексті слова: <b>«розташована», «породи», «граніт», «пісковик», «ерозія», «охорона»</b>.</li><li>З кожного джерела випишіть лише 2–3 потрібні факти, а не весь текст.</li><li>Порівняйте географічну інформацію з двох джерел.</li><li>Коли даних не вистачає, напишіть про це прямо. Це краще за вигадане пояснення.</li></ol>
+</div></div>
+<div class="emph study-example"><b>Зразок правильної роботи з джерелом:</b> «За реєстром ПЗФ, об’єкт має статус геологічної пам’ятки. За енциклопедичною статтею, тут є гранітні породи. На карті я знайшов/знайшла прилеглу річку й позначив/позначила приблизне місце». <b>Саме так поєднуються джерело, карта й висновок.</b></div>
 <div class="cols">
 <div class="field"><label for="landmark">Найближче місто, село чи річка *</label><input id="landmark" placeholder="Що знайдено на карті?"><span class="help">Цей орієнтир допоможе Вам нанести пам’ятку на контурну карту.</span></div>
 <div class="field"><label for="district">Район або громада *</label><input id="district" placeholder="Запишіть підтверджений район / громаду"><span class="help">Орієнтуйтеся на актуальний адміністративний поділ.</span></div>
@@ -40,6 +136,17 @@
 <section class="panel" id="mapwork"><div class="step">17–24 хв · головна картографічна дія</div><h2>3. Нанесіть пам’ятку на контурну карту</h2>
 <p class="lead">За відомостями, які <b>Ви самостійно знайшли</b>, визначте місце об’єкта. <b>Натисніть на контур області</b> — з’явиться позначка. Якщо помилилися, натисніть в іншій точці. Вона переміститься.</p>
 <div class="emph"><b>Орієнтування:</b> північ — угорі, Азовське море — на півдні. Точки населених пунктів допомагають орієнтуватися. Натисніть «Приховати опорні міста», щоб отримати чисту контурну карту.</div>
+
+<details class="study-extra" style="margin:15px 0"><summary>Потрібна допомога? Інструкція з картою — крок за кроком</summary>
+<div class="detail-pad">
+<ol class="clearsteps"><li><b>Спершу знайдіть пам’ятку в картографічному сервісі</b> за назвою або через найближче село / річку.</li>
+<li><b>Визначте, в якій частині області</b> вона розташована: західній, східній, північній чи південній.</li>
+<li><b>Орієнтуйтеся за підписаними містами й градусною сіткою.</b> Лінії 47° і 48° пн. ш. — широти, 35°, 36°, 37° сх. д. — довготи.</li>
+<li><b>Поставте крапку натисканням</b> на контур або запишіть координати й натисніть «Позначити за знайденими координатами».</li>
+<li><b>Зіставте результат</b> із вихідною картою: чи поруч потрібна річка й населений пункт? За потреби пересуньте крапку.</li></ol>
+<p class="small"><b>Приклад читання координат:</b> Запоріжжя розташоване приблизно біля 47,84° пн. ш. і 35,14° сх. д. Це лише навчальний орієнтир, а не координати пам’ятки.</p>
+<p class="small">Якщо точні координати об’єкта в джерелах відсутні, можна нанести <b>обґрунтовану приблизну позначку</b> за найближчим населеним пунктом чи річкою та пояснити її точність у описі. Не видавайте приблизне місце за виміряне з точністю до метра.</p>
+</div></details>
 <div class="mapwrap" id="mapStage">
 <svg id="contour" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" role="img" aria-labelledby="mapTitle mapDesc">
 <title id="mapTitle">Контурна карта Запорізької області для самостійного нанесення пам’ятки</title>
@@ -63,6 +170,8 @@
 </section>
 <section class="panel" id="describe"><div class="step">24–33 хв · письмовий опис за підказками</div><h2>4. Познайомтеся з об’єктом і опишіть його</h2>
 <p>Ви вже обрали пам’ятку, знайшли її на карті та зазначили джерела. Тепер створіть короткий <b>географічний опис</b>. Біля кожного пункту є кнопка з підказкою; натисніть, якщо не знаєте, з чого почати.</p>
+
+<div class="emph" style="margin:12px 0"><b>Як писати без переписування:</b> шукайте конкретні слова у своїх джерелах, потім сформулюйте відповідь власними реченнями. Записуйте <b>факт → що він означає</b>. Наприклад: «На фотографіях помітні окремі великі брили. Це ознака розтріскування масиву, але причина тріщин потребує підтвердження».</div>
 <div class="fields">
 <div class="field"><label for="student">Ваше ім’я та прізвище *</label><input id="student" placeholder="Ім’я Прізвище" autocomplete="name"></div>
 <div class="field"><label for="klass">Клас *</label><input id="klass" value="8-Б" placeholder="8-Б"></div>
@@ -108,7 +217,7 @@ function selected(){var r=document.querySelector('input[name="monument"]:checked
 function msg(t,bad){$("feedback").textContent=t;$("feedback").className="feedback "+(bad?"bad":"good")}
 function clearPrepared(){if(prepared){prepared=false;$("printPDF").disabled=true;$("saveTXT").disabled=true;$("preview").classList.add("hide");msg("Є зміни. Підготуйте роботу заново.",false)}}
 function draft(){var obj={chosen:selected(),marker:marker};inputs.forEach(function(id){obj[id]=$(id).value});try{localStorage.setItem(key,JSON.stringify(obj))}catch(e){}}
-function updateSelected(){$("selected").textContent=selected()?"Обрано: "+selected()+". Тепер знайдіть місце пам’ятки у джерелах.":"Ще не обрано пам’ятку.";}
+function updateSelected(){var current=selected();$("selected").textContent=current?"Обрано: "+current+". Тепер знайдіть місце пам’ятки у джерелах.":"Ще не обрано пам’ятку.";document.querySelectorAll(".case-study[data-monument]").forEach(function(card){card.classList.toggle("hide",card.getAttribute("data-monument")!==current)});$("casePrompt").classList.toggle("hide",!!current);}
 document.querySelectorAll('input[name="monument"]').forEach(function(r){r.addEventListener("change",function(){updateSelected();refreshPin();clearPrepared();draft()})});
 inputs.forEach(function(id){$(id).addEventListener("input",function(){clearPrepared();draft()})});
 document.querySelectorAll(".hintbtn").forEach(function(b){b.addEventListener("click",function(){var t=$(b.getAttribute("data-for"));var open=t.classList.toggle("show");b.setAttribute("aria-expanded",open?"true":"false")})});
