@@ -1,0 +1,35 @@
+
+/* Доповнення уроку №13: перевірені картографічні джерела */
+.real-atlas{background:linear-gradient(150deg,#edf9ff,#ffffff 42%,#f6fff9);border:1px solid #b7dbe9;border-radius:24px;padding:22px;box-shadow:0 13px 32px rgba(35,82,111,.09)}
+.real-atlas h2{margin-top:10px}.real-atlas .atlas-intro{font-size:1.06rem;max-width:940px}.real-atlas .atlas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.real-atlas .atlas-card{border:1px solid #cbdfeb;background:#fff;border-radius:19px;padding:17px;min-width:0}
+.real-atlas .atlas-card h3{font-size:1.14rem;margin:0 0 9px}
+.real-atlas .source-bar{background:#e9f7f7;border-left:4px solid #098a8b;padding:11px 13px;border-radius:9px;margin:12px 0;font-size:.91rem}
+.real-atlas .map-embed{width:100%;height:515px;display:block;border:1px solid #c0dbe7;border-radius:13px;background:#e6f1f5}
+.real-atlas .map-embed.owid{height:555px}
+.real-atlas .atlas-link{display:inline-block;margin:8px 0 0;padding:8px 0;font-weight:850}
+.real-atlas .atlas-instruction{border:1px solid #c7e4d6;background:#f2fff8;border-radius:14px;padding:14px;margin:10px 0}
+.real-atlas .atlas-instruction strong{color:#136b54}
+.real-atlas .atlas-key{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.real-atlas .atlas-key span{background:#e2f6fb;border:1px solid #b8dfeb;border-radius:99px;font-weight:850;padding:5px 10px;font-size:.85rem}
+.real-atlas .map-switch{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 14px}
+.real-atlas .map-switch button{border:1px solid #73aabf;border-radius:12px;background:#fff;color:#16495f;padding:10px 15px;min-height:44px;font-weight:850;font-family:inherit;cursor:pointer}
+.real-atlas .map-switch button[aria-pressed="true"]{background:#116986;color:#fff;border-color:#116986}
+.real-atlas .map-switch button:focus-visible,.real-atlas button:focus-visible{outline:3px solid #e3a52c;outline-offset:2px}
+.real-atlas .atlas-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.real-atlas label{display:block;margin:10px 0 5px}
+.real-atlas .atlas-answer{min-height:125px;width:100%}
+.real-atlas .atlas-check{margin-top:12px}
+.real-atlas .atlas-feedback{font-weight:800;min-height:30px;margin-top:8px;padding:11px;border-radius:11px;background:#f0f8fd}
+.real-atlas .atlas-feedback:empty{display:none}
+.real-atlas .atlas-mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.real-atlas .atlas-mini-grid button{min-height:56px;padding:9px;border-radius:13px;background:#e9f7ff;color:#11577c;border:1px solid #a6cede;font-weight:850;cursor:pointer;font-family:inherit}
+.real-atlas .atlas-mini-grid button:hover{background:#d5f0ff}
+.real-atlas .atlas-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.real-atlas .atlas-video-wrap{position:relative;padding-top:56.25%;border-radius:13px;overflow:hidden;background:#dfeef5}
+.real-atlas .atlas-video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.real-atlas .atlas-source{font-size:.86rem;color:#405e70;line-height:1.5}
+.real-atlas .atlas-footnote{font-size:.83rem;color:#577286}
+@media(max-width:850px){.real-atlas .atlas-grid,.real-atlas .atlas-video-grid,.real-atlas .atlas-answers{grid-template-columns:1fr}.real-atlas .atlas-mini-grid{grid-template-columns:1fr}.real-atlas .map-embed,.real-atlas .map-embed.owid{height:470px}}
+@media(max-width:500px){.real-atlas{padding:14px}.real-atlas .atlas-card{padding:12px}.real-atlas .map-embed,.real-atlas .map-embed.owid{height:430px}}
+@media(prefers-reduced-motion:reduce){.real-atlas *{scroll-behavior:auto;transition:none}}
