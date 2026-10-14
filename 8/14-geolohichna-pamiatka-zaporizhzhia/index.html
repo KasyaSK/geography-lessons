@@ -159,7 +159,8 @@ function escapeHTML(s){return String(s).replace(/[&<>"']/g,function(ch){return {
 function values(){var o={monument:picked()};allInputs.forEach(function(id){o[id]=byId(id).value});return o}
 function save(){try{localStorage.setItem(key,JSON.stringify(values()));byId("saveStatus").textContent="Чернетку збережено у браузері цього пристрою. Готову роботу обов’язково завантажте окремим файлом."}catch(e){byId("saveStatus").textContent="Локальне збереження недоступне. Завантажте звіт перед закриттям сторінки."}}
 function fill(){try{var o=JSON.parse(localStorage.getItem(key)||"{}");if(o.monument){var radios=document.querySelectorAll('input[name="monument"]');radios.forEach(function(r){r.checked=r.value===o.monument})}allInputs.forEach(function(id){if(typeof o[id]==="string")byId(id).value=o[id]})}catch(e){}}
-function progress(){var done=ids.filter(function(id){return byId(id).value.trim().length>=8}).length;var p=chosenName();var amount=done+(p?1:0);byId("progressText").textContent="Заповнено "+amount+" із 13 обов’язкових пунктів (разом із вибором пам’ятки)";byId("progressBar").style.width=Math.round(100*amount/13)+"%";byId("customField").classList.toggle("hidden",picked()!=="custom");byId("choiceStatus").textContent=p?"Ваш об’єкт: "+p:"Оберіть пам’ятку зі списку вище.";if(generated){generated="";byId("downloadReport").disabled=true;byId("copyReport").disabled=true;byId("printReport").disabled=true;byId("reportFeedback").textContent="Ви змінили відповіді. Сформуйте опис заново, щоб завантажити актуальну версію.";byId("studentReport").classList.add("hidden")}}
+function fieldReady(id){var v=byId(id).value.trim();return id==="studentClass"?v.length>=2:id==="studentName"?v.split(/\s+/).length>=2&&v.length>=5:v.length>=8}
+function progress(){var done=ids.filter(fieldReady).length;var p=chosenName();var amount=done+(p?1:0);byId("progressText").textContent="Заповнено "+amount+" із 13 обов’язкових пунктів (разом із вибором пам’ятки)";byId("progressBar").style.width=Math.round(100*amount/13)+"%";byId("customField").classList.toggle("hidden",picked()!=="custom");byId("choiceStatus").textContent=p?"Ваш об’єкт: "+p:"Оберіть пам’ятку зі списку вище.";if(generated){generated="";byId("downloadReport").disabled=true;byId("copyReport").disabled=true;byId("printReport").disabled=true;byId("reportFeedback").textContent="Ви змінили відповіді. Сформуйте опис заново, щоб завантажити актуальну версію.";byId("studentReport").classList.add("hidden")}}
 document.querySelectorAll('input[name="monument"]').forEach(function(r){r.addEventListener("change",function(){progress();save()})});
 allInputs.forEach(function(id){byId(id).addEventListener("input",function(){progress();save()})});
 fill();progress();
@@ -173,7 +174,7 @@ var info=[
 ];return "ГЕОЛОГІЧНИЙ ПАСПОРТ ПАМ’ЯТКИ ЗАПОРІЗЬКОЇ ОБЛАСТІ\nГеографія, 8 клас · § 13 · Скринченко К.А.\n\n"+info.map(function(a){return a[0]+":\n"+a[1]}).join("\n\n")+"\n\nСамостійна робота учня/учениці.";
 }
 byId("makeReport").addEventListener("click",function(){
-var missed=ids.filter(function(id){return byId(id).value.trim().length<8});
+var missed=ids.filter(function(id){return !fieldReady(id)});
 var p=chosenName();
 if(!p){byId("reportFeedback").textContent="Спочатку оберіть пам’ятку й зазначте її назву.";byId("select").scrollIntoView({behavior:"smooth"});return}
 if(byId("studentName").value.trim().split(/\s+/).length<2){byId("reportFeedback").textContent="Напишіть ім’я та прізвище (щонайменше два слова).";byId("studentName").focus();return}
