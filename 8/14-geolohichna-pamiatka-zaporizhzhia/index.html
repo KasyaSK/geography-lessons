@@ -206,5 +206,6 @@ if(!started){byId("quizQuestions").innerHTML="";quiz.forEach(function(x,i){var b
 byId("quiz").addEventListener("submit",function(e){e.preventDefault();var answered=0,score=0;quiz.forEach(function(x,i){var el=document.querySelector('input[name="q'+i+'"]:checked');if(el){answered++;if(Number(el.value)===x.a)score++}});if(answered<10){window.alert("Дайте відповіді на всі 10 запитань. Зараз: "+answered+"/10.");return}var b=byId("quizResult");b.textContent="";var h=document.createElement("h3");h.textContent="Результат: "+score+"/10";b.appendChild(h);var p=document.createElement("p");p.textContent=byId("studentName").value.trim()+" · "+byId("studentClass").value.trim()+" · "+new Date().toLocaleString("uk-UA");b.appendChild(p);var d=document.createElement("p");d.textContent=score>=9?"Ви добре розумієте, як описувати геологічні об’єкти.":score>=6?"Повторіть, як визначати докази й перевіряти джерела.":"Повторіть пояснення та приклад вище; особливо різницю між спостереженням і припущенням.";b.appendChild(d);var s=document.createElement("p");s.textContent="Зробіть скриншот цієї картки для вчителя.";b.appendChild(s);b.classList.remove("hidden");b.scrollIntoView({behavior:"smooth"})});
 })();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body>
 </html>
