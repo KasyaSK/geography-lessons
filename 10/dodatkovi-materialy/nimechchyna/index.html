@@ -208,4 +208,5 @@ const sources=[
 $$('img[data-lightbox]').forEach(img=>img.addEventListener('click',()=>{let lb=$('#lightbox');$('#lightboxImage').src=img.src;$('#lightboxCaption').textContent=img.dataset.lightbox;lb.classList.add('open');document.body.style.overflow='hidden'}));function closeLb(){$('#lightbox').classList.remove('open');document.body.style.overflow=''}$('#closeLightbox').addEventListener('click',closeLb);$('#lightbox').addEventListener('click',e=>{if(e.target===$('#lightbox'))closeLb()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
 function progress(){let max=document.documentElement.scrollHeight-window.innerHeight;$('#progress').style.width=(max?100*window.scrollY/max:0)+'%'}window.addEventListener('scroll',progress,{passive:true});progress();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
