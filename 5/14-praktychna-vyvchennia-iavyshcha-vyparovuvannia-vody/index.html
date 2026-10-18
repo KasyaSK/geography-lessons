@@ -70,13 +70,24 @@ footer p{margin:4px 0}
 <div class="grid2"><div class="card blue"><h3>Що робити за порядком?</h3><ol><li>Записати власну гіпотезу, не підглядаючи висновок.</li><li>Поставити безпечний дослід або вибрати модель.</li><li>Проаналізувати таблицю з новими для Вас даними.</li><li>Знайти помилку в чужому експерименті й виправити її.</li><li>Створити звіт: <b>твердження → доказ → пояснення → межа</b>.</li><li>Пройти тест і надіслати результат.</li></ol></div>
 <div class="card mint"><h3>Що вважатиметься якісною роботою?</h3>
 <p><strong>Не правильне слово навмання, а пояснення.</strong> Для кожного ключового висновку вкажіть:</p><ol><li>Які саме дані Ви використали?</li><li>Що із чим порівняли?</li><li>Чому результат підтримує Ваше твердження?</li><li>Чого ці дані ще не доводять?</li></ol><p class="small">Завдання із зірочкою — додаткові для тих, хто готовий перевірити складнішу гіпотезу.</p></div></div>
+<details><summary>Критерії оцінювання практичної роботи (до 12 балів)</summary>
+<div class="table-scroll"><table><thead><tr><th>Що оцінюється</th><th>Максимум</th><th>Як зрозуміти, що виконано?</th></tr></thead><tbody>
+<tr><td>Самостійна гіпотеза</td><td>2 бали</td><td>Є конкретне передбачення та його причинне пояснення.</td></tr>
+<tr><td>План чесного досліду</td><td>2 бали</td><td>Вказано змінюваний чинник і принаймні дві однакові контрольовані умови.</td></tr>
+<tr><td>Спостереження й дані</td><td>2 бали</td><td>Таблиця заповнена чесно; обидві числові втрати обчислено правильно.</td></tr>
+<tr><td>Висновок із доказом</td><td>3 бали</td><td>Є твердження, конкретні дані, пояснення і зв'язок між ними.</td></tr>
+<tr><td>Науковий аудит</td><td>2 бали</td><td>Виявлено помилку чужого досліду та запропоновано реальне виправлення.</td></tr>
+<tr><td>Обмеження й рефлексія</td><td>1 бал</td><td>Учень не вигадує результати, визнає невизначеність і уточнює власну думку.</td></tr>
+</tbody></table></div>
+<p class="small muted">12 балів — критерії оцінювання <b>практичної роботи вчителем</b>. Автоматичний тест /10 — окрема перевірка знань, це не та сама оцінка.</p>
+</details>
 <details><summary>Потрібна підказка, але не готова відповідь?</summary><p>1. Виділіть умову, яку змінюють. 2. Назвіть умови, які тримають однаковими. 3. Порівняйте числа або свої спостереження. 4. Поясніть різницю одним причинним реченням.</p></details>
 </section>
 <section class="panel" id="case"><span class="number">00–04 хв · Власна гіпотеза</span><h2>Загадка двох футболок</h2>
 <div class="grid2"><div><p>Марко виправ дві однакові футболки. Обидві однаково мокрі. Одну він <strong>розправив на сушарці</strong>, а другу <strong>залишив складеною</strong>. Вони лежать в одній кімнаті.</p><p class="strong">Яка висохне швидше? Спочатку спрогнозуйте відповідь, а потім перевірте, чи достатньо у Вас доказів.</p><div class="choices">
-<button class="choice" type="button" data-pick="flat" aria-pressed="false">☀️ Розправлена — вода має більше відкритої поверхні</button>
-<button class="choice" type="button" data-pick="fold" aria-pressed="false">🧺 Складена — вода «сховається» всередині тканини</button></div>
-<div id="case-feedback" class="feedback" aria-live="polite">Спершу оберіть гіпотезу. Гіпотеза — це передбачення, яке потрібно перевірити дослідом.</div>
+<button class="choice" type="button" data-pick="flat" aria-pressed="false">☀️ Розправлена футболка</button>
+<button class="choice" type="button" data-pick="fold" aria-pressed="false">🧺 Складена футболка</button></div>
+<div id="case-feedback" class="feedback" aria-live="polite">Спершу СВОЇМИ словами запишіть передбачення і його причину, а вже потім оберіть відповідь. Самого вибору недостатньо.</div>
 <label class="field">Ваше пояснення ДО досліду: що станеться і чому?
 <textarea id="early-hyp" rows="3" placeholder="Я припускаю, що ... . Так буде, тому що ... . Щоб перевірити, я порівняю ... ."></textarea></label>
 <p class="small muted">Після досліду поверніться до цього запису. Чи підтвердилося Ваше припущення? Змінити думку на підставі доказів — нормальна робота науковця.</p>
@@ -215,6 +226,15 @@ footer p{margin:4px 0}
 <label class="field">Мій науковий аудит: яку помилку знайшов(-ла), як її виправив(-ла)?<textarea id="report-audit" rows="3" placeholder="У досьє ... помилка полягає в ... . Щоб перевірити висновок, потрібно ... ."></textarea></label>
 <label class="field">Що змінилося між моєю першою гіпотезою і висновком?<textarea id="report-reflection" rows="2" placeholder="Спочатку я думав(-ла) ... . Тепер вважаю ... , тому що ... ."></textarea></label>
 <div class="grid2"><div class="task"><strong>Формула висновку:</strong> твердження → конкретне спостереження → пояснення. Якщо результат непомітний, так і зазначте та запропонуйте довший час досліду.</div><div class="note"><strong>Не плутайте:</strong> «Я думаю, що буде швидше» — це гіпотеза. «Пляма Б за 10 хв стала меншою» — спостереження. «Більша площа сприяла випаровуванню» — висновок, якщо умови були контрольовані.</div></div>
+<div class="card" style="margin:17px 0"><h3>Самоперевірка перед надсиланням</h3><p class="small muted">Позначайте тільки те, що справді виконали. Це список для Вашого контролю, він не виставляє оцінку.</p>
+<label class="tick"><input class="report-tick" type="checkbox">Я записав(-ла) свою гіпотезу до висновку.</label>
+<label class="tick"><input class="report-tick" type="checkbox">Я назвав(-ла) змінюваний чинник і те, що залишив(-ла) однаковим.</label>
+<label class="tick"><input class="report-tick" type="checkbox">Я записав(-ла) чесні спостереження або чітко позначив(-ла) модельні дані.</label>
+<label class="tick"><input class="report-tick" type="checkbox">Я обчислив(-ла) втрату води за таблицею та пояснив(-ла) різницю.</label>
+<label class="tick"><input class="report-tick" type="checkbox">Я знайшов(-ла) помилку іншого досліду та запропонував(-ла) виправлення.</label>
+<label class="tick"><input class="report-tick" type="checkbox">У висновку є доказ і межа: чого я ще не можу стверджувати.</label>
+<p id="tick-status" class="feedback" aria-live="polite">Позначено 0 із 6 пунктів.</p>
+</div>
 <div style="display:flex;flex-wrap:wrap;gap:11px;margin-top:16px"><button class="btn" id="check-report" type="button">Перевірити повноту</button><button class="btn alt" id="save-report" type="button">Завантажити мій звіт (.txt)</button><button class="btn alt" id="print-report" type="button">Друкувати сторінку</button></div><p id="report-feedback" class="feedback" aria-live="polite">Записуйте свої результати; правильна наукова відповідь може бути і «за 10 хвилин змін не помітив(-ла)».</p>
 </section>
 <section class="panel" id="video"><span class="number">Відеолабораторія · за вибором</span><h2>Побачити експеримент збоку</h2>
@@ -278,9 +298,10 @@ function txt(id,value){el(id).textContent=value}
 function escapeText(s){return String(s).replace(/[&<>"']/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]})}
 var picks=document.querySelectorAll('[data-pick]');
 picks.forEach(function(b){b.addEventListener('click',function(){
+if(countWords(el('early-hyp').value)<10){txt('case-feedback','Спочатку напишіть хоча б 10 слів власного пояснення в полі нижче. Кнопка не замінює Вашу гіпотезу.');el('early-hyp').focus();return}
 picks.forEach(function(x){x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
 b.classList.add('selected');b.setAttribute('aria-pressed','true');
-txt('case-feedback',b.dataset.pick==='flat'?'Розумна гіпотеза. Але сама відповідь ще не доводить причину: потрібно порівняти однакову кількість води за інших однакових умов.':'Це припущення можна перевірити. Подумайте: коли тканину складають, вода має меншу відкриту поверхню та повітрю важче проникнути між шарами.');
+txt('case-feedback',b.dataset.pick==='flat'?'Ви обрали розправлену футболку. Це поки гіпотеза, не доведений факт. Що саме потрібно порівняти, щоб перевірити її?':'Ви обрали складену футболку. Це поки гіпотеза. Які спостереження її підтвердять або спростують?');
 })});
 var ev=document.querySelectorAll('[data-evidence]');
 ev.forEach(function(b){b.addEventListener('click',function(){
@@ -308,6 +329,7 @@ txt('model-interpret',(change>0?'За вибраних умов модель п�
 }
 baseline=rawModel();['area','temp','wind','humid'].forEach(function(id){el(id).addEventListener('input',updateModel)});updateModel();
 el('reset-model').addEventListener('click',function(){el('area').value=2;el('temp').value=22;el('wind').value=1;el('humid').value=1;updateModel()});
+document.querySelectorAll('.report-tick').forEach(function(x){x.addEventListener('change',function(){var marks=document.querySelectorAll('.report-tick:checked').length;txt('tick-status','Позначено '+marks+' із 6 пунктів. '+(marks===6?'Усе позначено — тепер перевірте повноту тексту кнопкою нижче.':'Перевірте, що залишилося завершити.'))})});
 var reportIds=['early-hyp','data-a','data-b','data-reason','data-confound','audit-choice','audit-error','audit-fix','report-name','report-class','report-mode','report-factor','obs-a0','obs-b0','obs-a5','obs-b5','obs-a10','obs-b10','report-hyp','report-conclusion','report-limits','report-audit','report-reflection'];
 function saveDraft(){try{var d={};reportIds.forEach(function(id){d[id]=el(id).value});localStorage.setItem('geo5-evap-report-v3',JSON.stringify(d))}catch(e){}}
 try{var d=JSON.parse(localStorage.getItem('geo5-evap-report-v3')||'null');if(d){reportIds.forEach(function(id){if(d[id]!==undefined)el(id).value=d[id]})}}catch(e){}
