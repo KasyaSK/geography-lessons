@@ -90,7 +90,7 @@ footer p{margin:4px 0}
 <div class="card"><h3>Випаровування ≠ кипіння</h3><p><b>Випаровування</b> відбувається з поверхні рідини за різних температур. <b>Кипіння</b> — процес, коли бульбашки пари утворюються всередині рідини й піднімаються до поверхні. Отже, для сушіння футболки не потрібно її кип’ятити.</p></div>
 <div class="card"><h3>Пара ≠ туман</h3><p><b>Водяна пара</b> — невидимий газ. <b>Туман і хмари</b> складаються переважно з дрібних краплин рідкої води (а деякі хмари також містять кристали льоду). Коли водяна пара охолоджується й перетворюється на краплини, це називається <b>конденсацією</b>.</p></div>
 </div>
-<figure class="fig" style="margin:15px 0"><svg viewBox="0 0 900 270" role="img" aria-label="Схема станів води: рідка вода, перехід частинок у повітря під час випаровування і зворотний перехід у краплини під час конденсації">
+<figure class="fig" style="margin:15px 0;overflow-x:auto"><svg style="min-width:600px" viewBox="0 0 900 270" role="img" aria-label="Схема станів води: рідка вода, перехід частинок у повітря під час випаровування і зворотний перехід у краплини під час конденсації">
 <rect width="900" height="270" rx="18" fill="#eaf8fc"/>
 <rect x="25" y="55" width="240" height="157" rx="20" fill="#d7f0fc" stroke="#83bfd8" stroke-width="3"/>
 <rect x="337" y="55" width="224" height="157" rx="20" fill="#f9fcff" stroke="#a4cedf" stroke-width="3"/>
@@ -168,7 +168,7 @@ footer p{margin:4px 0}
 <div class="task"><strong>Досьє № 2. Незручна деталь.</strong> В іншому експерименті широку пляму поставили <b>біля відчиненого вікна</b>, а вузьку — у закритому кутку. Широка пляма висохла швидше. Чи доводить це вплив лише площі? Які чинники переплуталися?</div>
 <label class="field">4. Чому висновок другого експерименту ненадійний? Як переробити його, щоб відповідь стала переконливішою?
 <textarea id="data-confound" rows="3" placeholder="Ми не можемо відокремити вплив ... від ... . Щоб перевірити площу, потрібно ... ."></textarea></label>
-<div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn" type="button" id="check-data">Перевірити мій розрахунок і аргументи</button><button class="btn alt" type="button" id="send-data">Перенести результати до звіту</button></div>
+<div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn" type="button" id="check-data">Перевірити мій розрахунок і аргументи</button><button class="btn alt" type="button" id="send-data">Зберегти міркування для домашнього звіту</button></div>
 <p class="feedback" id="data-feedback" aria-live="polite">Заповніть усі чотири відповіді. Кнопка перевірить числа та повноту аргументів; відкриті пояснення остаточно оцінює вчитель.</p>
 <details><summary>Підказка після власної спроби</summary><p>Втрата води = кількість на початку − кількість наприкінці. Для іншого експерименту запитайте себе: якщо змінилися і площа, і рух повітря, як визначити вплив саме площі?</p></details>
 </section>
@@ -186,7 +186,7 @@ footer p{margin:4px 0}
 <div class="strong" style="margin-top:19px">Ваші умови: <output id="now-score">50</output> од.</div><div class="meter wind"><span id="now-bar" style="width:50%"></span></div>
 <p id="model-interpret" class="feedback" aria-live="polite">Змініть один повзунок. Чи стала швидкість більшою або меншою?</p>
 <div class="task"><strong>Місія «один чинник»:</strong> змініть рівно один повзунок. Запишіть до звіту: ① що саме змінили; ② на скільки умовних одиниць змінився показник; ③ чому це могло статися; ④ чому модель не доводить, що в реальному досліді вийдуть ті самі числа.</div>
-<button id="copy-model" class="btn gold" type="button">Перенести модельні дані до звіту</button>
+<button id="copy-model" class="btn gold" type="button">Зберегти показники в чернетці домашнього звіту</button>
 </div></div>
 <div class="card" style="margin-top:15px"><h3>Самостійний висновок за моделлю</h3><p>Змініть рівно один чинник і поясніть наслідок своїми словами. Наведіть обидва умовні показники, назвіть змінену умову та одну причину, чому ці числа <b>не можна вважати реальними вимірюваннями</b>.</p>
 <label class="field">Моє міркування<textarea id="model-reason" rows="3" placeholder="Я змінив(-ла) ... . Було ... од., стало ... од. Умовний показник ... . Це ще не реальне вимірювання, тому що ... ."></textarea></label>
@@ -388,7 +388,7 @@ if(a===''||b===''||!el('data-reason').value.trim()||!el('data-confound').value.t
 var extras='НАВЧАЛЬНІ ДАНІ (не мій реальний дослід):\nВтрачено А — '+a+' од., Б — '+b+' од.\nАргумент: '+el('data-reason').value.trim()+'\nПеревірка на змішані чинники: '+el('data-confound').value.trim();
 el('report-conclusion').value=(el('report-conclusion').value.trim()?el('report-conclusion').value.trim()+'\n\n':'')+extras;
 txt('report-feedback','Аргументи з навчального набору даних додано до висновку з чіткою позначкою, що це НЕ реальний вимір.');
-saveDraft();el('report').scrollIntoView({behavior:'smooth'});
+saveDraft();txt('data-feedback','Аргументи збережено до чернетки домашнього звіту. Продовжуйте роботу на уроці; повернетеся до звіту після домашнього досліду.');
 });
 el('audit-check').addEventListener('click',function(){
 var which=el('audit-choice').value,error=el('audit-error').value,fix=el('audit-fix').value;
@@ -425,7 +425,7 @@ el('obs-b5').value='Модельний показник нових умов: '+v
 el('obs-a10').value='Це не вимірювання за 10 хвилин: модель показує умовну швидкість.';
 el('obs-b10').value=val>baseline?'За моделлю показник зріс.':val<baseline?'За моделлю показник зменшився.':'За моделлю показник не змінився.';
 txt('report-feedback','Дані навчальної моделі перенесено. Перевірте, чи Ви змінювали тільки одну умову. Якщо змінено кілька, поверніться до моделі та порівняйте чесніше.');
-saveDraft();el('report').scrollIntoView({behavior:'smooth'});
+saveDraft();txt('model-interpret','Показники навчальної моделі збережено у чернетці домашнього звіту. Це умовні дані, не вимірювання. Продовжуйте класні завдання.');
 });
 el('check-report').addEventListener('click',function(){
 var missing=[];if(el('report-name').value.trim().split(/\s+/).length<2)missing.push('ім’я та прізвище');if(!el('report-hyp').value.trim())missing.push('гіпотеза');
