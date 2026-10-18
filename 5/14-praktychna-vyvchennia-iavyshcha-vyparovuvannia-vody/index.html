@@ -1,1 +1,298 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»"><title>5 клас • Урок 14 • Пізнаємо природу</title></head><body><div id="app" data-lesson="14"></div><script src="../assets/year-data-1.js"></script><script src="../assets/year-data-2.js"></script><script src="../assets/year-core.js"></script><script src="../assets/rich-upgrade.js"></script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script></body></html>
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Пізнаємо природу, 5 клас. Практична робота №2: випаровування води. Дослід, інтерактивна модель, таблиця спостережень, висновок, тест /10.">
+<title>5 клас • Практична робота №2 • Куди зникає вода?</title>
+<style>
+:root{--navy:#102d46;--deep:#082135;--teal:#007d88;--blue:#0b65ad;--aqua:#e4f9f7;--sun:#f6bd55;--white:#fff;--pale:#f2f8fc;--ink:#1b3347;--muted:#526b7e;--border:#cee1eb;--good:#087c59;--bad:#ad3d42;--shadow:0 15px 38px rgba(23,66,91,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.58 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 0,#e4f5ff 0,transparent 600px),var(--pale)}
+button,input,select,textarea{font:inherit}a{color:#075f92}button{cursor:pointer}h1,h2,h3{line-height:1.17;letter-spacing:-.02em}h1{font-size:clamp(2.5rem,5.2vw,4.6rem);letter-spacing:-.055em;margin:12px 0}h2{font-size:clamp(1.6rem,3vw,2.25rem);margin:7px 0 13px}h3{font-size:1.13rem;margin:0 0 8px}p{margin:8px 0 13px}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+:focus-visible{outline:3px solid #f0a221;outline-offset:3px}[hidden]{display:none!important}
+.hero{position:relative;overflow:hidden;background:linear-gradient(116deg,#08293f 0%,#075d76 68%,#178f9b 100%);color:white;padding:55px 0 42px}
+.hero:before,.hero:after{content:"";position:absolute;border:2px solid #ffffff30;border-radius:50%;width:450px;height:450px;right:-100px;top:-240px}.hero:after{width:260px;height:260px;right:60px;top:-100px;opacity:.8}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .75fr;align-items:center;gap:22px}.hero .eyebrow{color:#d4fbfa;text-transform:uppercase;font-size:.82rem;font-weight:900;letter-spacing:.12em}
+.hero h1 span{color:#ffe09a}.lead{font-size:clamp(1.04rem,1.6vw,1.23rem);max-width:710px;color:#e6f8ff}.hero-art{width:100%;filter:drop-shadow(0 10px 16px #001a2a66)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:19px 0 0}.pill{font-size:.82rem;font-weight:850;color:white;border:1px solid #ffffff55;background:#ffffff16;padding:6px 11px;border-radius:30px}
+.topnav{background:#ffffffef;backdrop-filter:blur(9px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:0 5px 18px #17486312}.topnav .wrap{display:flex;gap:3px;overflow-x:auto;scrollbar-width:thin}.topnav a{flex-shrink:0;color:var(--ink);font-size:.88rem;font-weight:750;text-decoration:none;padding:13px 12px;white-space:nowrap}.topnav a:hover{color:#006d85;background:#e6f9f8}
+main{padding:25px 0 50px}.panel{background:var(--white);border:1px solid var(--border);border-radius:22px;padding:clamp(18px,3.4vw,34px);margin:18px 0;box-shadow:var(--shadow);scroll-margin-top:74px}
+.number{display:inline-flex;align-items:center;gap:8px;border-radius:99px;background:#e7f4fb;color:#0b6685;padding:5px 12px;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.035em}
+.chip{font-size:.76rem;font-weight:900;display:inline-block;border-radius:8px;background:#fff1d2;color:#704b0d;padding:3px 8px}.muted{color:var(--muted)}.small{font-size:.88rem}.strong{font-weight:900}.em{color:var(--teal)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.card{padding:18px;border:1px solid var(--border);border-radius:17px;background:#f9fcfe}.card.blue{background:#eef8ff}.card.warm{background:#fff8e9}.card.mint{background:#f0fbf8}
+.task{background:#edf8fb;border-left:5px solid #1398a4;padding:15px 17px;border-radius:10px;margin:15px 0}.note{background:#fff8e9;border-left:5px solid #e4a73b;padding:14px 16px;border-radius:10px;margin:15px 0}.safety{border-left-color:#c96a38}
+.btn{min-height:45px;border:0;border-radius:11px;padding:10px 17px;background:var(--teal);color:#fff;font-weight:850;box-shadow:0 4px 0 #055e66;text-align:center}.btn:hover{background:#006771}.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #055e66}.btn.alt{background:#e7f3f9;color:#144e69;box-shadow:0 4px 0 #c7e2ef}.btn.gold{background:#e7a441;color:#2c260d;box-shadow:0 4px 0 #bd7930}.btn:disabled{opacity:.53;cursor:not-allowed}.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:16px}
+.choice{min-height:74px;text-align:left;border:2px solid var(--border);border-radius:14px;background:#fff;color:var(--ink);font-weight:800;padding:15px}.choice:hover{border-color:#159ca4;background:#edfcfc}.choice.selected{border-color:var(--teal);background:#e5f7f3}
+.feedback{min-height:36px;line-height:1.55;padding:12px 15px;border-radius:12px;background:#e9f7f5;color:#144b4d;margin-top:12px}.feedback:empty{display:none}.feedback.warn{background:#fff3dc;color:#774909}
+.visual{width:100%;height:auto;display:block}.fig{background:#f3fbfd;border:1px solid #cde9ef;border-radius:17px;padding:10px;overflow:hidden}.fig figcaption{font-size:.84rem;color:#526b7e;padding:4px 9px 10px}.fig svg{width:100%;display:block;height:auto}
+.steps{counter-reset:st;list-style:none;padding:0;margin:18px 0}.steps li{counter-increment:st;position:relative;padding:0 0 15px 50px;min-height:42px}.steps li:before{content:counter(st);position:absolute;left:0;top:0;background:#0d8b95;color:#fff;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-weight:900}.steps li:not(:last-child):after{content:"";position:absolute;left:16px;top:34px;bottom:0;border-left:2px dashed #85c9ce}
+label.field{display:flex;flex-direction:column;gap:6px;font-weight:750;margin:10px 0}.field input,.field select,.field textarea{width:100%;min-height:45px;border-radius:10px;border:1.5px solid #acc9d9;background:white;color:var(--ink);padding:9px 11px}.field textarea{min-height:80px;resize:vertical;line-height:1.5}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--teal)}
+.status{display:inline-block;font-size:.82rem;font-weight:850;padding:5px 10px;border-radius:50px;background:#e7f5ed;color:#126345}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px}th,td{padding:11px 9px;border:1px solid #d1e1e8;text-align:left;vertical-align:top}th{background:#e9f4fa;font-size:.91rem}td input{width:100%;min-width:130px;border-radius:7px;padding:7px;border:1px solid #b2ccd9}
+.table-scroll{overflow-x:auto}.rangegroup{padding:12px 0;border-bottom:1px solid #e1edf2}.rangegroup:last-child{border-bottom:0}.rangehead{display:flex;justify-content:space-between;gap:12px;align-items:center;font-weight:850}.rangegroup input[type=range]{width:100%;accent-color:#098b9b;cursor:pointer;height:26px}.range-meta{font-size:.83rem;color:var(--muted)}
+.meter{height:26px;background:#ddecf2;border-radius:15px;overflow:hidden;margin:6px 0;position:relative}.meter span{height:100%;display:block;background:linear-gradient(90deg,#66d4d8,#007b91);border-radius:15px;min-width:3px;transition:width .2s ease}.meter.wind span{background:linear-gradient(90deg,#e4ba66,#d0782d)}
+.tabbar{display:flex;flex-wrap:wrap;gap:8px}.tabbar button{border:2px solid #cadfe8;background:#fff;color:var(--ink);padding:10px 13px;border-radius:10px;min-height:45px;font-weight:850}.tabbar button[aria-pressed=true]{border-color:#027987;background:#e4faf7;color:#00666c}
+.explain{padding:10px 14px;background:#f2fbfc;border:1px dashed #98cbd4;border-radius:11px;margin:10px 0}
+.tick{display:flex;align-items:flex-start;gap:10px;margin:10px 0;font-weight:600}.tick input{accent-color:var(--teal);width:18px;height:18px;margin-top:5px;flex-shrink:0}
+.testq{border-bottom:1px solid #dce8ee;padding:18px 0}.testq:last-child{border-bottom:0}.testq>p:first-child{font-weight:900;font-size:1rem}.testq label{display:block;padding:8px 10px;border:1px solid #d6e4ec;border-radius:9px;margin:7px 0;cursor:pointer}.testq label:hover{background:#f0fbfc}.testq input{margin-right:8px;accent-color:#008b94}.testq select{min-height:42px;border-radius:9px;border:1px solid #bad4df;padding:7px;max-width:100%}.testq .minirow{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:8px 0;padding:8px;border:1px solid #deebf0;border-radius:9px}.minirow span:first-child{flex:1;min-width:180px}.result{border:2px solid #108a87;background:#eafbf7;padding:23px;border-radius:18px;margin:14px 0}.result .score{font-size:clamp(2.8rem,7vw,4.1rem);font-weight:1000;color:#036f7e;line-height:1.2}.result p{margin:8px 0}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.video-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#102d46}.resources a{font-weight:800;overflow-wrap:anywhere}
+details{border:1px solid var(--border);border-radius:12px;padding:10px 14px;background:#f9fcff;margin:8px 0}summary{font-weight:850;cursor:pointer}
+footer{background:#102d46;color:#e9f8fc;text-align:center;padding:30px 14px}
+footer p{margin:4px 0}
+@media(max-width:760px){.hero-inner,.grid2,.grid3,.choices,.video-grid{grid-template-columns:1fr}.hero{padding:38px 0 26px}.hero-art{max-width:330px;justify-self:center}.panel{border-radius:16px}.topnav a{font-size:.82rem;padding:11px 9px}}
+@media print{.topnav,.hero-art,.btn,.video-frame,.no-print{display:none!important}body{background:white;font-size:11pt}.hero{background:white;color:#152c3c;padding:0}.lead,.hero .eyebrow{color:#152c3c}.hero h1 span{color:#0b7580}.pill{color:#152c3c;border:1px solid #555}.panel{box-shadow:none;border:1px solid #aaa;break-inside:avoid;margin:12px 0}.result{break-inside:avoid;background:white}.table-scroll{overflow:visible}footer{background:white;color:#152c3c}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.meter span{transition:none}}
+</style>
+</head>
+<body>
+<header class="hero" id="top"><div class="wrap hero-inner"><div>
+<div class="eyebrow">🔬 Пізнаємо природу · 5-А · практична робота № 2</div>
+<h1>Куди <span>зникає</span> вода?</h1>
+<p class="lead">Калюжа висохла, мокра футболка стала сухою, а вода з тарілки поменшала. Це що, магія? Ні. Сьогодні Ви будете дослідниками й перевірите, <strong>від чого залежить швидкість випаровування</strong>.</p>
+<div class="pills"><span class="pill">35 хвилин</span><span class="pill">Дослід без нагрівання</span><span class="pill">Інтерактивна лабораторія</span><span class="pill">Тест /10</span></div></div>
+<svg class="hero-art" viewBox="0 0 420 320" role="img" aria-label="Ілюстрація: краплина над калюжею, з поверхні якої піднімаються частинки води"><defs><linearGradient id="drop-grad" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#a3f4ff"/><stop offset="1" stop-color="#0b97dc"/></linearGradient></defs>
+<ellipse cx="200" cy="278" rx="159" ry="23" fill="#79d8e1" opacity=".35"/><ellipse cx="199" cy="269" rx="145" ry="16" fill="#32b6d8" opacity=".8"/>
+<path d="M203 48 C180 84 139 129 139 173 C139 211 166 241 203 241 C240 241 267 212 267 173 C267 130 227 83 203 48Z" fill="url(#drop-grad)" stroke="#d1ffff" stroke-width="4"/>
+<path d="M171 174 C171 155 181 141 186 129" fill="none" stroke="#eaffff" stroke-width="11" stroke-linecap="round" opacity=".65"/>
+<g fill="#ddffff"><circle cx="105" cy="82" r="7"/><circle cx="91" cy="123" r="5"/><circle cx="305" cy="88" r="6"/><circle cx="327" cy="139" r="5"/><circle cx="291" cy="51" r="4"/><circle cx="123" cy="48" r="4"/></g>
+<g stroke="#bdefff" stroke-width="3" fill="none" stroke-linecap="round"><path d="M97 236Q83 205 98 177 M98 177l-12 12 M98 177l12 11"/><path d="M302 245Q315 205 306 181 M306 181l-10 14 M306 181l13 11"/></g>
+<g fill="#e9ffff" font-size="14" font-weight="850"><text x="9" y="25">РІДКА ВОДА</text><text x="269" y="25">ВОДЯНА ПАРА</text></g></svg>
+</div></header>
+<nav class="topnav" aria-label="Швидка навігація уроком"><div class="wrap">
+<a href="#case">1 · Загадка</a><a href="#real-lab">2 · Дослід</a><a href="#virtual">3 · Модель</a><a href="#learn">4 · Пояснення</a><a href="#report">5 · Мій звіт</a><a href="#video">6 · Відео</a><a href="#home">7 · Д/З</a><a href="#test">8 · Тест</a>
+</div></nav>
+<main class="wrap">
+<section class="panel" id="case"><span class="number">00–04 хв · Ситуація</span><h2>Загадка двох футболок</h2>
+<div class="grid2"><div><p>Марко виправ дві однакові футболки. Обидві однаково мокрі. Одну він <strong>розправив на сушарці</strong>, а другу <strong>залишив складеною</strong>. Вони лежать в одній кімнаті.</p><p class="strong">Яка висохне швидше і чому?</p><div class="choices">
+<button class="choice" type="button" data-pick="flat" aria-pressed="false">☀️ Розправлена — вода має більше відкритої поверхні</button>
+<button class="choice" type="button" data-pick="fold" aria-pressed="false">🧺 Складена — вода «сховається» всередині тканини</button></div>
+<div id="case-feedback" class="feedback" aria-live="polite">Спершу оберіть гіпотезу. Гіпотеза — це передбачення, яке потрібно перевірити дослідом.</div>
+</div><figure class="fig"><svg viewBox="0 0 500 275" role="img" aria-label="Порівняння розправленої і складеної вологої футболок">
+<rect width="500" height="275" rx="16" fill="#ebf8fd"/>
+<text x="130" y="34" text-anchor="middle" fill="#254c63" font-size="19" font-weight="800">РОЗПРАВЛЕНА</text><text x="380" y="34" text-anchor="middle" fill="#254c63" font-size="19" font-weight="800">СКЛАДЕНА</text>
+<path d="M95 56 L127 71 L159 56 L199 88 L171 115 L157 102 L157 228 L97 228 L97 102 L83 115 L55 88 Z" fill="#66bed3" stroke="#287b95" stroke-width="4"/>
+<path d="M343 112 Q380 85 420 112 L430 202 Q377 221 333 204Z" fill="#4a8da9" stroke="#246b87" stroke-width="4"/><path d="M340 147Q383 157 425 139" stroke="#afdde9" stroke-width="6" fill="none"/>
+<g fill="#1c91c4"><path d="M117 133q-10 18 0 23q12-6 0-23 M140 161q-8 15 0 20q10-5 0-20 M98 194q-8 13 0 17q9-5 0-17"/><path d="M365 158q-8 13 0 17q9-5 0-17 M395 185q-8 13 0 17q9-5 0-17"/></g>
+<g stroke="#2c99b4" stroke-width="3" fill="none" stroke-linecap="round"><path d="M66 67L60 45m0 0l-9 9m9-9l10 8 M183 67L189 45m0 0l-9 9m9-9l10 8"/><path d="M366 93L368 75m0 0l-8 8m8-8l8 8"/></g></svg><figcaption>Схема. Яку умову ми змінили? Чого НЕ можна змінювати, щоб порівняння було чесним?</figcaption></figure></div>
+</section>
+<section class="panel" id="real-lab"><span class="number">04–17 хв · Практична робота</span><h2>Дослід: «Дві однакові краплі»</h2>
+<p><strong>Мета:</strong> спостерігати випаровування води й з’ясувати, чи впливає площа відкритої поверхні води на швидкість висихання.</p>
+<div class="grid3">
+<div class="card blue"><h3>🧰 Потрібно</h3>2 однакові гладенькі тарілочки або плитки, вода кімнатної температури, чайна ложечка або піпетка, ватна паличка, годинник, серветка.</div>
+<div class="card mint"><h3>🔎 Змінюємо</h3>Лише <strong>площу плями води</strong>: крапля А залишається компактною, краплю Б обережно розподіляємо ширше.</div>
+<div class="card warm"><h3>⚖️ Залишаємо однаковими</h3>Кількість води, матеріал тарілок, кімнату, температуру, час спостереження, рух повітря.</div></div>
+<div class="note safety"><strong>Правила безпеки.</strong> Потрібна лише звичайна вода. Не користуйтеся кип’ятком, нагрівальними приладами, спиртом, ацетоном чи парфумами. Не ставте рідину поряд з електроприладами. Воду, що пролилася, одразу витріть.</div>
+<div class="grid2"><div>
+<h3>Порядок дій</h3>
+<ol class="steps">
+<li>Поставте дві однакові сухі гладкі поверхні поряд і підпишіть <strong>А</strong> та <strong>Б</strong>.</li>
+<li>Нанесіть на кожну <strong>по 4 однакові краплі</strong> води. Намагайтеся не додавати зайву воду.</li>
+<li>Залиште воду А компактною. На поверхні Б чистою сухою ватною паличкою обережно розподіліть воду у <strong>ширшу тонку пляму</strong>.</li>
+<li>Увімкніть відлік часу. Запишіть, як виглядають обидві плями <strong>на початку, через 5 і через 10 хвилин</strong>.</li>
+<li>Порівняйте зміни. Якщо за 10 хвилин відмінностей не видно, так і запишіть. <strong>Не вигадуйте результатів.</strong> Пізніше можна продовжити спостереження.</li>
+</ol></div>
+<figure class="fig"><svg viewBox="0 0 500 350" role="img" aria-label="Схема чесного досліду: однакові поверхні та обсяг води, різна площа крапель">
+<rect width="500" height="350" rx="16" fill="#f1fbff"/>
+<g fill="white" stroke="#94cada" stroke-width="4"><ellipse cx="133" cy="184" rx="107" ry="67"/><ellipse cx="369" cy="184" rx="107" ry="67"/></g>
+<g fill="#58bfe2" stroke="#1e7fa6" stroke-width="3"><ellipse cx="133" cy="184" rx="44" ry="31"/><ellipse cx="369" cy="184" rx="88" ry="20"/></g>
+<g font-size="18" font-weight="900" fill="#18465f" text-anchor="middle"><text x="133" y="73">А</text><text x="369" y="73">Б</text><text x="133" y="96">Компактна пляма</text><text x="369" y="96">Широка пляма</text></g>
+<g stroke="#2789ac" stroke-width="3" fill="none" stroke-linecap="round"><path d="M131 129v-19 M126 116l5-8 5 8"/><path d="M340 150v-40 M335 116l5-8 5 8 M392 150v-40 M387 116l5-8 5 8"/></g>
+<text x="250" y="295" font-size="17" text-anchor="middle" font-weight="800" fill="#1e596d">Однакова кількість води • різна площа</text><text x="250" y="319" font-size="15" text-anchor="middle" fill="#476e81">Схематичне зображення, не фото досліду</text></svg><figcaption>Важливо: площа плями не дорівнює кількості води. В обох випадках води спочатку однаково.</figcaption></figure></div>
+<div class="task"><strong>Немає матеріалів або зараз неможливо провести дослід?</strong> Перейдіть до інтерактивної моделі нижче. У звіті чесно оберіть «Модельні дані». Це повноцінний навчальний варіант, але не називайте його власним вимірюванням.</div>
+</section>
+<section class="panel" id="virtual"><span class="number">17–22 хв · Інтерактивна модель</span><h2>Лабораторія: змініть одну умову</h2>
+<p>Спробуйте вплинути на випаровування. Рухайте повзунки й аналізуйте, як змінюється <strong>умовний показник швидкості</strong>. Ця модель показує тенденції, а <strong>не вимірює реальну швидкість води</strong>.</p>
+<div class="grid2"><div class="card">
+<div class="rangegroup"><div class="rangehead"><label for="area">Площа відкритої води</label><output id="area-value">Середня</output></div><input id="area" type="range" min="1" max="3" step="1" value="2"><div class="range-meta">Мала ← → Велика</div></div>
+<div class="rangegroup"><div class="rangehead"><label for="temp">Температура води та оточення</label><output id="temp-value">22 °C</output></div><input id="temp" type="range" min="12" max="32" step="1" value="22"><div class="range-meta">Прохолодно ← → Тепліше (без нагрівання в досліді)</div></div>
+<div class="rangegroup"><div class="rangehead"><label for="wind">Рух повітря</label><output id="wind-value">Помірний</output></div><input id="wind" type="range" min="0" max="2" step="1" value="1"><div class="range-meta">Немає ← → Помітний</div></div>
+<div class="rangegroup"><div class="rangehead"><label for="humid">Вологість повітря</label><output id="humid-value">Середня</output></div><input id="humid" type="range" min="0" max="2" step="1" value="1"><div class="range-meta">Сухе повітря ← → Дуже вологе</div></div>
+<div style="margin-top:16px"><button id="reset-model" class="btn alt" type="button">Повернути початкові умови</button></div></div>
+<div class="card blue"><h3>Порівняння з початковими умовами</h3>
+<p class="small">На обох шкалах використано однакову умовну величину. Значення отримано за спрощеними правилами навчальної моделі, а не з лабораторних вимірювань.</p>
+<div class="strong">Початкові умови: <output id="base-score">50</output> од.</div><div class="meter"><span id="base-bar" style="width:50%"></span></div>
+<div class="strong" style="margin-top:19px">Ваші умови: <output id="now-score">50</output> од.</div><div class="meter wind"><span id="now-bar" style="width:50%"></span></div>
+<p id="model-interpret" class="feedback" aria-live="polite">Змініть один повзунок. Чи стала швидкість більшою або меншою?</p>
+<div class="task"><strong>Мінічелендж:</strong> поставте один повзунок на інше значення, а інші лишіть незмінними. Зробіть висновок: яка саме умова змінилася, як відреагувала модель і чому?</div>
+<button id="copy-model" class="btn gold" type="button">Перенести модельні дані до звіту</button>
+</div></div>
+<div class="grid2" style="margin-top:15px"><figure class="fig"><svg viewBox="0 0 500 240" role="img" aria-label="Молекули води переходять із поверхні рідини у повітря">
+<rect width="500" height="240" rx="14" fill="#edfbfe"/><path d="M5 165 Q80 153 130 162 T255 162 T500 162 V240 H5Z" fill="#62bee5"/>
+<g fill="#fff" stroke="#176da2" stroke-width="3"><circle cx="61" cy="187" r="12"/><circle cx="115" cy="205" r="12"/><circle cx="176" cy="190" r="12"/><circle cx="243" cy="212" r="12"/><circle cx="310" cy="188" r="12"/><circle cx="369" cy="209" r="12"/><circle cx="434" cy="190" r="12"/></g>
+<g fill="#32a0cb" stroke="#1d6591" stroke-width="2"><circle cx="173" cy="120" r="11"/><circle cx="259" cy="86" r="11"/><circle cx="364" cy="53" r="11"/></g>
+<g stroke="#1d88a8" stroke-width="3" fill="none" stroke-linecap="round"><path d="M173 143v-18m0 0l-8 10m8-10l8 10 M259 109V93m0 0l-8 10m8-10l8 10 M364 77V62m0 0l-8 10m8-10l8 10"/></g><text x="23" y="28" fill="#205872" font-weight="900" font-size="17">ВОДЯНА ПАРА (НЕВИДИМА)</text><text x="22" y="226" fill="#184c75" font-weight="850" font-size="17">РІДКА ВОДА</text></svg><figcaption>Модель руху частинок. Водяна пара — газ, якого не видно.</figcaption></figure>
+<figure class="fig"><svg viewBox="0 0 500 240" role="img" aria-label="Схема: волога поверхня, випаровування, перенесення пари повітрям">
+<rect width="500" height="240" rx="14" fill="#eef9ff"/><path d="M0 171Q86 160 156 171T344 172T500 169V240H0Z" fill="#b5e4ed"/>
+<path d="M70 164Q150 126 240 160Q303 176 390 160" fill="none" stroke="#128bb0" stroke-width="8" stroke-linecap="round"/>
+<g stroke="#1599b9" stroke-width="4" fill="none" stroke-linecap="round"><path d="M145 131Q125 89 153 58m0 0l-15 9m15-9l3 16"/><path d="M241 130Q219 93 248 57m0 0l-15 10m15-10l3 17"/><path d="M339 131Q319 99 342 63m0 0l-14 11m14-11l5 15"/></g>
+<g stroke="#e3ac51" stroke-width="5" fill="none" stroke-linecap="round"><path d="M302 35Q359 10 412 29m0 0l-14-14m14 14l-19 9"/></g>
+<text x="310" y="58" font-size="15" fill="#735115" font-weight="850">РУХ ПОВІТРЯ</text><text x="32" y="226" fill="#25566c" font-size="16" font-weight="850">ВОЛОГА ПОВЕРХНЯ</text></svg><figcaption>Переміщення повітря допомагає відносити пару від поверхні (схема).</figcaption></figure></div>
+</section>
+<section class="panel" id="learn"><span class="number">22–28 хв · Розбираємося</span><h2>Що насправді відбувається?</h2>
+<div class="grid2"><div class="card mint"><h3>💧 1. Випаровування</h3><p>Це перехід води <strong>з рідкого стану в газуватий</strong> із її поверхні. Вода не зникає безслідно — її молекули потрапляють у повітря.</p></div>
+<div class="card blue"><h3>🌡️ 2. Не потрібно кипіння</h3><p>Випаровування відбувається і в прохолоді, і при кімнатній температурі. <strong>Кипіння</strong> — інше явище: утворення пари відбувається в усьому об’ємі рідини.</p></div>
+<div class="card warm"><h3>🌬️ 3. Чотири важливі чинники</h3><p>Зазвичай випаровуванню сприяють: <strong>більша площа водної поверхні</strong>, вища температура, рух повітря і менша вологість повітря.</p></div>
+<div class="card"><h3>☁️ 4. Чому пару не видно?</h3><p>Газувата водяна пара невидима. Білу «пару» над гарячим напоєм ми бачимо тому, що частина водяної пари охолола й <strong>перетворилася на дрібні краплини рідкої води</strong>.</p></div></div>
+<h3 style="margin-top:20px">Виберіть, чи достатньо доказів</h3>
+<p>Учениця сказала: «Моя футболка висохла швидше, бо я поклала її на широке підвіконня». Чи довела вона, що справа тільки у площі?</p>
+<div class="tabbar" role="group" aria-label="Оцінка доказу"><button type="button" data-evidence="yes" aria-pressed="false">Так, довела</button><button type="button" data-evidence="no" aria-pressed="false">Ні, даних замало</button></div><div id="evidence-feedback" class="feedback" aria-live="polite">Подумайте: чи однаковими були температура, вітер і кількість води?</div>
+</section>
+<section class="panel" id="report"><span class="number">28–35 хв · Заповнюємо звіт</span><h2>Мій лабораторний зошит</h2>
+<p>Заповніть форму — її можна <strong>зберегти текстовим файлом або надрукувати</strong>. За потреби поверніться до досліду чи моделі. Відповіді автоматично зберігаються у браузері цього пристрою, якщо він дозволяє локальне збереження.</p>
+<div class="grid2"><label class="field">Ім’я та прізвище <input id="report-name" autocomplete="name" placeholder="Наприклад: Олена Коваль"></label>
+<label class="field">Клас <input id="report-class" value="5-А" placeholder="5-А"></label></div>
+<div class="grid2"><label class="field">Як отримані дані?<select id="report-mode"><option value="Дослід із водою">Мій реальний дослід із водою</option><option value="Навчальна модель">Навчальна модель (не вимірювання)</option><option value="Поки немає результатів">Спостерігав(-ла), але поки немає помітних змін</option></select></label>
+<label class="field">Що змінювали?<select id="report-factor"><option value="Площу відкритої поверхні води">Площу відкритої поверхні води</option><option value="Температуру">Температуру (тільки модель)</option><option value="Рух повітря">Рух повітря (тільки модель)</option><option value="Вологість повітря">Вологість повітря (тільки модель)</option></select></label></div>
+<div class="table-scroll"><table><thead><tr><th style="width:17%">Коли?</th><th>Пляма А / умови А</th><th>Пляма Б / умови Б</th></tr></thead><tbody>
+<tr><th>На початку</th><td><input id="obs-a0" placeholder="Компактна крапля"></td><td><input id="obs-b0" placeholder="Широка тонка пляма"></td></tr>
+<tr><th>Через 5 хв</th><td><input id="obs-a5" placeholder="Напр.: помітні зміни відсутні"></td><td><input id="obs-b5" placeholder="Що бачите насправді?"></td></tr>
+<tr><th>Через 10 хв</th><td><input id="obs-a10" placeholder="Результат спостереження"></td><td><input id="obs-b10" placeholder="Результат спостереження"></td></tr>
+</tbody></table></div>
+<p class="small muted">Якщо Ви працювали тільки з моделлю, можна вписати замість хвилин порівнювані модельні умови та умовні показники. Не приписуйте моделі реальних вимірювань у хвилинах.</p>
+<label class="field">Моя гіпотеза — що я очікував(-ла) побачити?<textarea id="report-hyp" rows="2" placeholder="Я припускаю, що ... тому що ..."></textarea></label>
+<label class="field">Висновок за результатами — що підтвердилося і який є доказ?<textarea id="report-conclusion" rows="4" placeholder="Я порівняв(-ла) ... . За отриманими даними ... . Це може пояснюватися ... ."></textarea></label>
+<label class="field">Межа дослідження — чого ще не можу впевнено стверджувати?<textarea id="report-limits" rows="2" placeholder="Наприклад: за 10 хв зміни замалі; умови могли трохи відрізнятися ..."></textarea></label>
+<div class="grid2"><div class="task"><strong>Формула висновку:</strong> твердження → конкретне спостереження → пояснення. Якщо результат непомітний, так і зазначте та запропонуйте довший час досліду.</div><div class="note"><strong>Не плутайте:</strong> «Я думаю, що буде швидше» — це гіпотеза. «Пляма Б за 10 хв стала меншою» — спостереження. «Більша площа сприяла випаровуванню» — висновок, якщо умови були контрольовані.</div></div>
+<div style="display:flex;flex-wrap:wrap;gap:11px;margin-top:16px"><button class="btn" id="check-report" type="button">Перевірити повноту</button><button class="btn alt" id="save-report" type="button">Завантажити мій звіт (.txt)</button><button class="btn alt" id="print-report" type="button">Друкувати сторінку</button></div><p id="report-feedback" class="feedback" aria-live="polite">Записуйте свої результати; правильна наукова відповідь може бути і «за 10 хвилин змін не помітив(-ла)».</p>
+</section>
+<section class="panel" id="video"><span class="number">Відеолабораторія · за вибором</span><h2>Побачити експеримент збоку</h2>
+<p>Перед переглядом сформулюйте запитання: <strong>що змінювали дослідники та що залишали незмінним?</strong> Подивіться один із роликів, а тоді перевірте свої висновки.</p>
+<div class="video-grid">
+<div class="card"><h3>1. Спостереження дифузії та випаровування</h3><iframe class="video-frame" loading="lazy" title="Практична робота: спостереження дифузії та випаровування" src="https://www.youtube-nocookie.com/embed/jdbZ59kVs-c" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p class="small">Завдання: назвіть дію, яка є спостереженням, і дію, яка є експериментом.</p><a href="https://www.youtube.com/watch?v=jdbZ59kVs-c" target="_blank" rel="noopener">Відкрити відео окремо ↗</a></div>
+<div class="card"><h3>2. Від чого залежить випаровування</h3><iframe class="video-frame" loading="lazy" title="Випаровування. Пароутворення. Дослід школярки Валерії" src="https://www.youtube-nocookie.com/embed/S5RWNOkkERs" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p class="small">Завдання: які змінні порівнюють у досліді? Чи справедливий такий експеримент?</p><a href="https://www.youtube.com/watch?v=S5RWNOkkERs" target="_blank" rel="noopener">Відкрити відео окремо ↗</a></div></div>
+<p class="small muted">Відео є додатковими зовнішніми матеріалами; якщо вбудований плеєр недоступний, користуйтеся прямим посиланням. Сам урок та інтерактиви працюють без відео.</p>
+</section>
+<section class="panel resources" id="home"><span class="number">Домашнє завдання</span><h2>Що здати після уроку?</h2>
+<div class="grid2">
+<div class="card mint"><h3>Обов’язково</h3><ol><li>Завершіть таблицю результатів та висновок у лабораторному зошиті на цій сторінці.</li><li>Опрацюйте <strong>§14</strong> за Вашим домашнім завданням («Як виміряти масу?») та пригадайте <strong>§13</strong> про випаровування.</li><li>Виконайте тест нижче. <strong>Надішліть учителю скриншот картки результату</strong> й заповнений звіт (файл або фото записів).</li></ol></div>
+<div class="card blue"><h3>Підручник і пояснення</h3><p><a href="https://files.pidruchnyk.com.ua/uploads/book/5_piznaemo_prirodu_bida_2022.pdf" target="_blank" rel="noopener">📖 Електронний підручник Біди, Гільберг, Колісник (PDF) ↗</a></p><p><a href="https://www.geneza.ua/product/1095" target="_blank" rel="noopener">🏫 Сторінка підручника у видавництві «Генеза» ↗</a></p><p class="small">За змістом підручника: <strong>§13</strong> — практична робота про дифузію й випаровування; <strong>§14</strong> — вимірювання маси. Саме §14 зазначено у Вашому Д/З, тому його не замінено.</p></div></div>
+<details><summary>Хочу дослідити далі (за бажанням)</summary><p>Залиште дві краплі в однакових умовах на довший час. Запишіть, о котрій почали й о котрій закінчили спостереження. За бажанням зробіть фото «до» і «після». Порівнюйте <strong>однакову початкову кількість води</strong>.</p></details></section>
+<section class="panel" id="test"><span class="number">Домашній тест · 10 завдань</span><h2>Перевірте себе: чи можна Вам довірити лабораторію?</h2><p>Спочатку введіть ім’я, прізвище та клас. У тесті є завдання з <strong>однією</strong> і <strong>кількома</strong> відповідями, відповідності й послідовність. Кожне завдання дає 1 бал; максимум — 10.</p>
+<div class="card" id="gate">
+<div class="grid2"><label class="field">Ім’я та прізвище<input id="test-name" autocomplete="name" placeholder="Олена Коваль"></label><label class="field">Клас<input id="test-class" value="5-А" placeholder="5-А"></label></div>
+<button id="start-test" class="btn" type="button">Розпочати тест</button><p id="gate-error" class="feedback warn" aria-live="polite">Заповніть обидва поля, а тоді розпочніть тест.</p></div>
+<form id="quiz-form" hidden novalidate>
+<div class="testq" data-q="q1"><p>1. Після дощу асфальт ще вологий, але калюжі з часом зникають. Що сталося з більшою частиною води?</p><label><input type="radio" name="q1" value="a"> Перетворилася на газувату водяну пару й потрапила в повітря</label><label><input type="radio" name="q1" value="b"> Повністю перетворилася на повітря, тобто на азот і кисень</label><label><input type="radio" name="q1" value="c"> Безслідно зникла, бо молекули зруйнувалися</label></div>
+<div class="testq" data-q="q2"><p>2. У двох однакових кімнатах однакові плями води. У кімнаті А тепліше. Чого найчастіше можна очікувати, якщо інші умови однакові?</p><label><input type="radio" name="q2" value="a"> У кімнаті Б вода обов’язково випарується швидше</label><label><input type="radio" name="q2" value="b"> У кімнаті А випаровування зазвичай буде швидшим</label><label><input type="radio" name="q2" value="c"> Температура ніколи не впливає на випаровування</label></div>
+<div class="testq" data-q="q3"><p>3. Як перевірити саме вплив площі поверхні?</p><label><input type="radio" name="q3" value="a"> Взяти різну кількість води й поставити одну посудину на сонце</label><label><input type="radio" name="q3" value="b"> Порівняти воду і спирт у різних кімнатах</label><label><input type="radio" name="q3" value="c"> Взяти однакову воду, умови й час, змінивши лише площу її відкритої поверхні</label></div>
+<div class="testq" data-q="q4"><p>4. Чи може вода випаровуватися при кімнатній температурі, коли не кипить?</p><label><input type="radio" name="q4" value="a"> Ні, тільки при кипінні</label><label><input type="radio" name="q4" value="b"> Так, з відкритої поверхні рідини</label><label><input type="radio" name="q4" value="c"> Так, але лише якщо воду видно як білу хмаринку</label></div>
+<div class="testq" data-q="q5"><p>5. Оберіть <strong>всі</strong> умови, які зазвичай прискорюють випаровування води.</p><label><input type="checkbox" name="q5" value="a"> Більша площа відкритої поверхні</label><label><input type="checkbox" name="q5" value="b"> Посилення руху повітря</label><label><input type="checkbox" name="q5" value="c"> Вища температура за інших однакових умов</label><label><input type="checkbox" name="q5" value="d"> Обов’язкове доведення води до кипіння</label></div>
+<div class="testq" data-q="q6"><p>6. Позначте <strong>всі</strong> правильні правила чесного досліду.</p><label><input type="checkbox" name="q6" value="a"> Умови, крім досліджуваної, слід намагатися зберегти однаковими</label><label><input type="checkbox" name="q6" value="b"> Непомітні зміни теж можна чесно записати як результат</label><label><input type="checkbox" name="q6" value="c"> Якщо спостереження суперечить гіпотезі, треба його підправити</label><label><input type="checkbox" name="q6" value="d"> Варто записувати час і спостереження</label></div>
+<div class="testq" data-q="q7"><p>7. Установіть відповідність між поняттям і його поясненням.</p>
+<div class="minirow"><span><strong>А.</strong> Гіпотеза</span><select name="q7a"><option value="">Оберіть пояснення</option><option value="1">Те, що помітили й записали</option><option value="2">Передбачення, яке перевіряють</option><option value="3">Пояснення, зроблене на підставі результатів</option></select></div>
+<div class="minirow"><span><strong>Б.</strong> Спостереження</span><select name="q7b"><option value="">Оберіть пояснення</option><option value="1">Те, що помітили й записали</option><option value="2">Передбачення, яке перевіряють</option><option value="3">Пояснення, зроблене на підставі результатів</option></select></div>
+<div class="minirow"><span><strong>В.</strong> Висновок</span><select name="q7c"><option value="">Оберіть пояснення</option><option value="1">Те, що помітили й записали</option><option value="2">Передбачення, яке перевіряють</option><option value="3">Пояснення, зроблене на підставі результатів</option></select></div></div>
+<div class="testq" data-q="q8"><p>8. Розставте етапи досліду в правильному порядку: <strong>1</strong> — перший крок, <strong>4</strong> — останній.</p>
+<div class="minirow"><span><strong>А.</strong> Зробити висновок за результатами</span><select name="q8a"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="minirow"><span><strong>Б.</strong> Сформулювати питання і гіпотезу</span><select name="q8b"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="minirow"><span><strong>В.</strong> Провести дослід за однакових контрольованих умов</span><select name="q8c"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="minirow"><span><strong>Г.</strong> Записати отримані спостереження</span><select name="q8d"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div></div>
+<div class="testq" data-q="q9"><p>9. Один учень стверджує: «У мене одна калюжа зникла швидше, отже, причина — тільки сонячне світло». Яких доказів бракує?</p><label><input type="radio" name="q9" value="a"> Достатньо лише його твердження</label><label><input type="radio" name="q9" value="b"> Потрібно знати, чи збігалися початкова кількість води, площа, температура та рух повітря</label><label><input type="radio" name="q9" value="c"> Потрібно лише порахувати кількість хмар на небі</label></div>
+<div class="testq" data-q="q10"><p>10. Оберіть найкращий науковий висновок про спостереження двох плям води.</p><label><input type="radio" name="q10" value="a"> «Широка пляма випаровується швидше, бо всі так кажуть»</label><label><input type="radio" name="q10" value="b"> «У нашому досліді широка пляма зменшилася швидше за компактну за однакових інших умов; це узгоджується з впливом площі відкритої поверхні. Варто повторити дослід»</label><label><input type="radio" name="q10" value="c"> «Якщо плями не змінилися за 10 хв, випаровування взагалі не існує»</label></div>
+<div style="margin:20px 0"><button id="finish-test" type="submit" class="btn">Завершити й отримати результат /10</button><p id="test-alert" class="feedback warn" aria-live="polite">Уважно прочитайте завдання перед надсиланням.</p></div></form>
+<div id="test-result" class="result" hidden aria-live="polite"><div class="number">Результат учня / учениці</div><h2>Моя картка результату</h2><div id="res-score" class="score">0/10</div><p><strong id="res-name"></strong> • <strong id="res-class"></strong></p><p>Пізнаємо природу • Практична робота № 2 • Випаровування води</p><p id="res-date"></p><p id="res-level"></p><p><strong>Зробіть скриншот цієї картки та надішліть учителю.</strong></p>
+<div class="no-print" style="display:flex;flex-wrap:wrap;gap:10px"><button id="retry-test" class="btn alt" type="button">Спробувати ще раз</button><button id="print-test" class="btn" type="button">Друк / PDF</button></div>
+<div id="error-review" class="small" style="margin-top:14px"></div></div>
+</section>
+</main>
+<footer><p><strong>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</strong></p><p>Інтерактивний практикум з курсу «Пізнаємо природу» • 5 клас • 2026</p><p class="small">Навчальні схеми авторські; модель демонструє якісні закономірності, а не реальні вимірювання.</p></footer>
+<script>
+(function(){
+'use strict';
+function el(id){return document.getElementById(id)}
+function txt(id,value){el(id).textContent=value}
+function escapeText(s){return String(s).replace(/[&<>"']/g,function(x){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]})}
+var picks=document.querySelectorAll('[data-pick]');
+picks.forEach(function(b){b.addEventListener('click',function(){
+picks.forEach(function(x){x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
+b.classList.add('selected');b.setAttribute('aria-pressed','true');
+txt('case-feedback',b.dataset.pick==='flat'?'Розумна гіпотеза. Але сама відповідь ще не доводить причину: потрібно порівняти однакову кількість води за інших однакових умов.':'Це припущення можна перевірити. Подумайте: коли тканину складають, вода має меншу відкриту поверхню та повітрю важче проникнути між шарами.');
+})});
+var ev=document.querySelectorAll('[data-evidence]');
+ev.forEach(function(b){b.addEventListener('click',function(){
+ev.forEach(function(x){x.setAttribute('aria-pressed','false')});
+b.setAttribute('aria-pressed','true');
+txt('evidence-feedback',b.dataset.evidence==='no'?'Так. Без однакових умов неможливо довести, що саме площа спричинила відмінність. Потрібен контроль інших чинників.':'Одного висихання замало для висновку про єдину причину. Можливо, підвіконня було теплішим чи біля нього рухалося повітря.');
+})});
+var baseline=0;
+function rawModel(){
+var area=Number(el('area').value),temp=Number(el('temp').value),wind=Number(el('wind').value),humid=Number(el('humid').value);
+return Math.round(50*(0.65+area*0.175)*((temp+8)/30)*(0.83+wind*0.17)*(1.19-humid*0.19));
+}
+function modelLabel(id,arr){return arr[Number(el(id).value)]}
+function updateModel(){
+txt('area-value',modelLabel('area',['','Мала','Середня','Велика']));
+txt('temp-value',el('temp').value+' °C');
+txt('wind-value',modelLabel('wind',['Немає','Помірний','Помітний']));
+txt('humid-value',modelLabel('humid',['Низька','Середня','Висока']));
+var value=rawModel(),change=value-baseline;
+txt('base-score',baseline);
+txt('now-score',value);
+el('base-bar').style.width=Math.min(100,baseline)+'%';
+el('now-bar').style.width=Math.min(100,value)+'%';
+txt('model-interpret',(change>0?'За вибраних умов модель показує вищий показник швидкості (на '+change+' умовних од.).':change<0?'За вибраних умов модель показує нижчий показник швидкості (на '+Math.abs(change)+' умовних од.).':'Порівняно з початковими умовами показник швидкості не змінився.')+' Змінюйте одну умову за раз, інакше не зрозумієте причини.');
+}
+baseline=rawModel();['area','temp','wind','humid'].forEach(function(id){el(id).addEventListener('input',updateModel)});updateModel();
+el('reset-model').addEventListener('click',function(){el('area').value=2;el('temp').value=22;el('wind').value=1;el('humid').value=1;updateModel()});
+var reportIds=['report-name','report-class','report-mode','report-factor','obs-a0','obs-b0','obs-a5','obs-b5','obs-a10','obs-b10','report-hyp','report-conclusion','report-limits'];
+function saveDraft(){try{var d={};reportIds.forEach(function(id){d[id]=el(id).value});localStorage.setItem('geo5-evap-report-v3',JSON.stringify(d))}catch(e){}}
+try{var d=JSON.parse(localStorage.getItem('geo5-evap-report-v3')||'null');if(d){reportIds.forEach(function(id){if(d[id]!==undefined)el(id).value=d[id]})}}catch(e){}
+reportIds.forEach(function(id){el(id).addEventListener('input',saveDraft);el(id).addEventListener('change',saveDraft)});
+el('copy-model').addEventListener('click',function(){
+var val=rawModel();
+el('report-mode').value='Навчальна модель';
+el('report-factor').value='Площу відкритої поверхні води';
+el('obs-a0').value='Початкові умови: площа середня; температура 22 °C; рух повітря помірний; вологість середня';
+el('obs-b0').value='Нові умови: площа '+el('area-value').textContent+'; температура '+el('temp-value').textContent+'; рух повітря '+el('wind-value').textContent+'; вологість '+el('humid-value').textContent;
+el('obs-a5').value='Модельний показник початкових умов: '+baseline+' умовних од.';
+el('obs-b5').value='Модельний показник нових умов: '+val+' умовних од.';
+el('obs-a10').value='Це не вимірювання за 10 хвилин: модель показує умовну швидкість.';
+el('obs-b10').value=val>baseline?'За моделлю показник зріс.':val<baseline?'За моделлю показник зменшився.':'За моделлю показник не змінився.';
+txt('report-feedback','Дані навчальної моделі перенесено. Перевірте, чи Ви змінювали тільки одну умову. Якщо змінено кілька, поверніться до моделі та порівняйте чесніше.');
+saveDraft();el('report').scrollIntoView({behavior:'smooth'});
+});
+el('check-report').addEventListener('click',function(){
+var missing=[];if(el('report-name').value.trim().split(/\s+/).length<2)missing.push('ім’я та прізвище');if(!el('report-hyp').value.trim())missing.push('гіпотеза');
+if(!el('obs-a0').value.trim()||!el('obs-b0').value.trim()||!el('obs-a10').value.trim()||!el('obs-b10').value.trim())missing.push('таблиця спостережень');if(el('report-conclusion').value.trim().length<35)missing.push('розгорнутий висновок');if(el('report-limits').value.trim().length<12)missing.push('межі дослідження');
+txt('report-feedback',missing.length?'Ще потрібно доповнити: '+missing.join(', ')+'. Якщо зміни непомітні, пишіть це без вигадування даних.':'Звіт заповнено. Перевірте логіку: що Ви змінили → що побачили → який висновок можна зробити. Можна завантажувати файл.');
+});
+function reportText(){var pairs=[
+['Учень / учениця',el('report-name').value],['Клас',el('report-class').value],['Тип даних',el('report-mode').value],['Змінюваний чинник',el('report-factor').value],
+['На початку, А',el('obs-a0').value],['На початку, Б',el('obs-b0').value],['Через 5 хв або запис моделі, А',el('obs-a5').value],['Через 5 хв або запис моделі, Б',el('obs-b5').value],['Через 10 хв або запис моделі, А',el('obs-a10').value],['Через 10 хв або запис моделі, Б',el('obs-b10').value],
+['Гіпотеза',el('report-hyp').value],['Висновок',el('report-conclusion').value],['Межі',el('report-limits').value]];
+return 'ПРАКТИЧНА РОБОТА № 2. ВИПАРОВУВАННЯ ВОДИ\n\n'+pairs.map(function(p){return p[0]+':\n'+(p[1]||'[не заповнено]')}).join('\n\n')+'\n\nАвтор матеріалу: Скринченко К.А. • Василівський ліцей «Сузір’я»';
+}
+el('save-report').addEventListener('click',function(){var blob=new Blob(['\ufeff'+reportText()],{type:'text/plain;charset=utf-8'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='5A_praktychna_2_vyparovuvannia.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},900)});
+el('print-report').addEventListener('click',function(){window.print()});
+function validPerson(v){var p=v.trim().replace(/\s+/g,' ').split(' ');return p.length>=2&&p.every(function(x){return /^[А-ЯІЇЄҐа-яіїєґA-Za-z'’\-]+$/.test(x)})}
+el('start-test').addEventListener('click',function(){
+if(!validPerson(el('test-name').value)||!el('test-class').value.trim()){txt('gate-error','Введіть справжні ім’я та прізвище (два слова) і клас. Цифри в ПІБ не використовуються.');return}
+el('gate').hidden=true;el('quiz-form').hidden=false;el('quiz-form').scrollIntoView({behavior:'smooth'});
+});
+var answers={q1:'a',q2:'b',q3:'c',q4:'b',q5:['a','b','c'],q6:['a','b','d'],q7:['2','1','3'],q8:['4','1','2','3'],q9:'b',q10:'b'};
+function arrEqual(a,b){return a.length===b.length&&a.every(function(x,i){return x===b[i]})}
+function valueFor(key){var f=el('quiz-form');if(key==='q5'||key==='q6')return Array.from(f.querySelectorAll('input[name="'+key+'"]:checked')).map(function(x){return x.value}).sort();
+if(key==='q7'||key==='q8')return ['a','b','c'].concat(key==='q8'?['d']:[]).map(function(s){return f.elements[key+s].value});
+var x=f.querySelector('input[name="'+key+'"]:checked');return x?x.value:''}
+el('quiz-form').addEventListener('submit',function(event){event.preventDefault();
+var keys=Object.keys(answers),missing=keys.filter(function(key){var a=valueFor(key);return Array.isArray(a)?a.length===0||a.some(function(x){return !x}):!a});
+if(missing.length){txt('test-alert','Будь ласка, дайте відповідь на всі завдання: '+missing.map(function(s){return s.substring(1)}).join(', ')+'.');return}
+var wrong=[],score=0;
+keys.forEach(function(key){var v=valueFor(key),ok=Array.isArray(v)?arrEqual(v,answers[key]):v===answers[key];if(ok)score++;else wrong.push(key.slice(1))});
+txt('res-score',score+'/10 · '+(score*10)+'%');
+txt('res-name',el('test-name').value.trim());
+txt('res-class',el('test-class').value.trim());
+txt('res-date','Дата і час проходження: '+new Date().toLocaleString('uk-UA'));
+txt('res-level',score===10?'Відмінно! Ви пояснюєте й оцінюєте докази.':score>=8?'Добре! Впевнене розуміння, є окремі неточності.':score>=5?'Базові закономірності зрозумілі. Повторіть роботу зі змінними й доказами.':'Радимо повернутися до досліду та блоків із поясненнями, а потім спробувати ще раз.');
+txt('error-review',wrong.length?'Завдання для повторення: '+wrong.join(', ')+'. Зіставте свої відповіді з поясненнями та спробуйте ще раз.':'Усі завдання виконані правильно.');
+el('quiz-form').hidden=true;el('test-result').hidden=false;el('test-result').scrollIntoView({behavior:'smooth'});
+});
+el('retry-test').addEventListener('click',function(){el('quiz-form').reset();el('test-result').hidden=true;el('quiz-form').hidden=false;txt('test-alert','Можете пройти тест знову. Ім’я та клас залишаються у картці учня.');el('quiz-form').scrollIntoView({behavior:'smooth'})});
+el('print-test').addEventListener('click',function(){window.print()});
+})();
+</script>
+</body></html>
