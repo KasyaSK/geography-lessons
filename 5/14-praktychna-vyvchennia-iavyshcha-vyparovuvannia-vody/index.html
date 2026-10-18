@@ -43,6 +43,7 @@ footer{background:#102d46;color:#e9f8fc;text-align:center;padding:30px 14px}
 footer p{margin:4px 0}
 @media(max-width:760px){.hero-inner,.grid2,.grid3,.choices,.video-grid{grid-template-columns:1fr}.hero{padding:38px 0 26px}.hero-art{max-width:330px;justify-self:center}.panel{border-radius:16px}.topnav a{font-size:.82rem;padding:11px 9px}}
 @media print{.topnav,.hero-art,.btn,.video-frame,.no-print{display:none!important}body{background:white;font-size:11pt}.hero{background:white;color:#152c3c;padding:0}.lead,.hero .eyebrow{color:#152c3c}.hero h1 span{color:#0b7580}.pill{color:#152c3c;border:1px solid #555}.panel{box-shadow:none;border:1px solid #aaa;break-inside:avoid;margin:12px 0}.result{break-inside:avoid;background:white}.table-scroll{overflow:visible}footer{background:white;color:#152c3c}}
+@media print{body.print-only-result>header,body.print-only-result>nav,body.print-only-result>footer,body.print-only-result main>.panel:not(#test),body.print-only-result #test>#gate,body.print-only-result #test>#quiz-form,body.print-only-result #test>.number,body.print-only-result #test>h2,body.print-only-result #test>p{display:none!important}body.print-only-result main{padding:0}body.print-only-result #test{margin:0;border:0;padding:0;box-shadow:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.meter span{transition:none}}
 </style>
 </head>
@@ -244,8 +245,11 @@ try{var d=JSON.parse(localStorage.getItem('geo5-evap-report-v3')||'null');if(d){
 reportIds.forEach(function(id){el(id).addEventListener('input',saveDraft);el(id).addEventListener('change',saveDraft)});
 el('copy-model').addEventListener('click',function(){
 var val=rawModel();
+var changed=['area','temp','wind','humid'].filter(function(id){return el(id).value!==({area:'2',temp:'22',wind:'1',humid:'1'}[id])});
+if(changed.length!==1){txt('model-interpret','Для чесного порівняння змініть рівно ОДНУ умову, решту поверніть до початкових значень. Тоді переносіть дані.');return}
 el('report-mode').value='Навчальна модель';
-el('report-factor').value='Площу відкритої поверхні води';
+var factorNames={area:'Площу відкритої поверхні води',temp:'Температуру',wind:'Рух повітря',humid:'Вологість повітря'};
+el('report-factor').value=factorNames[changed[0]];
 el('obs-a0').value='Початкові умови: площа середня; температура 22 °C; рух повітря помірний; вологість середня';
 el('obs-b0').value='Нові умови: площа '+el('area-value').textContent+'; температура '+el('temp-value').textContent+'; рух повітря '+el('wind-value').textContent+'; вологість '+el('humid-value').textContent;
 el('obs-a5').value='Модельний показник початкових умов: '+baseline+' умовних од.';
@@ -292,7 +296,7 @@ txt('error-review',wrong.length?'Завдання для повторення: '
 el('quiz-form').hidden=true;el('test-result').hidden=false;el('test-result').scrollIntoView({behavior:'smooth'});
 });
 el('retry-test').addEventListener('click',function(){el('quiz-form').reset();el('test-result').hidden=true;el('quiz-form').hidden=false;txt('test-alert','Можете пройти тест знову. Ім’я та клас залишаються у картці учня.');el('quiz-form').scrollIntoView({behavior:'smooth'})});
-el('print-test').addEventListener('click',function(){window.print()});
+el('print-test').addEventListener('click',function(){document.body.classList.add('print-only-result');window.addEventListener('afterprint',function(){document.body.classList.remove('print-only-result')},{once:true});window.print()});
 })();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
