@@ -237,23 +237,32 @@ footer p{margin:4px 0}
 <div class="grid2"><label class="field">Ім’я та прізвище<input id="test-name" autocomplete="name" placeholder="Олена Коваль"></label><label class="field">Клас<input id="test-class" value="5-А" placeholder="5-А"></label></div>
 <button id="start-test" class="btn" type="button">Розпочати тест</button><p id="gate-error" class="feedback warn" aria-live="polite">Заповніть обидва поля, а тоді розпочніть тест.</p></div>
 <form id="quiz-form" hidden novalidate>
-<div class="testq" data-q="q1"><p>1. Після дощу асфальт ще вологий, але калюжі з часом зникають. Що сталося з більшою частиною води?</p><label><input type="radio" name="q1" value="a"> Перетворилася на газувату водяну пару й потрапила в повітря</label><label><input type="radio" name="q1" value="b"> Повністю перетворилася на повітря, тобто на азот і кисень</label><label><input type="radio" name="q1" value="c"> Безслідно зникла, бо молекули зруйнувалися</label></div>
-<div class="testq" data-q="q2"><p>2. У двох однакових кімнатах однакові плями води. У кімнаті А тепліше. Чого найчастіше можна очікувати, якщо інші умови однакові?</p><label><input type="radio" name="q2" value="a"> У кімнаті Б вода обов’язково випарується швидше</label><label><input type="radio" name="q2" value="b"> У кімнаті А випаровування зазвичай буде швидшим</label><label><input type="radio" name="q2" value="c"> Температура ніколи не впливає на випаровування</label></div>
-<div class="testq" data-q="q3"><p>3. Як перевірити саме вплив площі поверхні?</p><label><input type="radio" name="q3" value="a"> Взяти різну кількість води й поставити одну посудину на сонце</label><label><input type="radio" name="q3" value="b"> Порівняти воду і спирт у різних кімнатах</label><label><input type="radio" name="q3" value="c"> Взяти однакову воду, умови й час, змінивши лише площу її відкритої поверхні</label></div>
-<div class="testq" data-q="q4"><p>4. Чи може вода випаровуватися при кімнатній температурі, коли не кипить?</p><label><input type="radio" name="q4" value="a"> Ні, тільки при кипінні</label><label><input type="radio" name="q4" value="b"> Так, з відкритої поверхні рідини</label><label><input type="radio" name="q4" value="c"> Так, але лише якщо воду видно як білу хмаринку</label></div>
-<div class="testq" data-q="q5"><p>5. Оберіть <strong>всі</strong> умови, які зазвичай прискорюють випаровування води.</p><label><input type="checkbox" name="q5" value="a"> Більша площа відкритої поверхні</label><label><input type="checkbox" name="q5" value="b"> Посилення руху повітря</label><label><input type="checkbox" name="q5" value="c"> Вища температура за інших однакових умов</label><label><input type="checkbox" name="q5" value="d"> Обов’язкове доведення води до кипіння</label></div>
-<div class="testq" data-q="q6"><p>6. Позначте <strong>всі</strong> правильні правила чесного досліду.</p><label><input type="checkbox" name="q6" value="a"> Умови, крім досліджуваної, слід намагатися зберегти однаковими</label><label><input type="checkbox" name="q6" value="b"> Непомітні зміни теж можна чесно записати як результат</label><label><input type="checkbox" name="q6" value="c"> Якщо спостереження суперечить гіпотезі, треба його підправити</label><label><input type="checkbox" name="q6" value="d"> Варто записувати час і спостереження</label></div>
-<div class="testq" data-q="q7"><p>7. Установіть відповідність між поняттям і його поясненням.</p>
-<div class="minirow"><span><strong>А.</strong> Гіпотеза</span><select name="q7a"><option value="">Оберіть пояснення</option><option value="1">Те, що помітили й записали</option><option value="2">Передбачення, яке перевіряють</option><option value="3">Пояснення, зроблене на підставі результатів</option></select></div>
-<div class="minirow"><span><strong>Б.</strong> Спостереження</span><select name="q7b"><option value="">Оберіть пояснення</option><option value="1">Те, що помітили й записали</option><option value="2">Передбачення, яке перевіряють</option><option value="3">Пояснення, зроблене на підставі результатів</option></select></div>
-<div class="minirow"><span><strong>В.</strong> Висновок</span><select name="q7c"><option value="">Оберіть пояснення</option><option value="1">Те, що помітили й записали</option><option value="2">Передбачення, яке перевіряють</option><option value="3">Пояснення, зроблене на підставі результатів</option></select></div></div>
-<div class="testq" data-q="q8"><p>8. Розставте етапи досліду в правильному порядку: <strong>1</strong> — перший крок, <strong>4</strong> — останній.</p>
-<div class="minirow"><span><strong>А.</strong> Зробити висновок за результатами</span><select name="q8a"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
-<div class="minirow"><span><strong>Б.</strong> Сформулювати питання і гіпотезу</span><select name="q8b"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
-<div class="minirow"><span><strong>В.</strong> Провести дослід за однакових контрольованих умов</span><select name="q8c"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
-<div class="minirow"><span><strong>Г.</strong> Записати отримані спостереження</span><select name="q8d"><option value="">Номер кроку</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div></div>
-<div class="testq" data-q="q9"><p>9. Один учень стверджує: «У мене одна калюжа зникла швидше, отже, причина — тільки сонячне світло». Яких доказів бракує?</p><label><input type="radio" name="q9" value="a"> Достатньо лише його твердження</label><label><input type="radio" name="q9" value="b"> Потрібно знати, чи збігалися початкова кількість води, площа, температура та рух повітря</label><label><input type="radio" name="q9" value="c"> Потрібно лише порахувати кількість хмар на небі</label></div>
-<div class="testq" data-q="q10"><p>10. Оберіть найкращий науковий висновок про спостереження двох плям води.</p><label><input type="radio" name="q10" value="a"> «Широка пляма випаровується швидше, бо всі так кажуть»</label><label><input type="radio" name="q10" value="b"> «У нашому досліді широка пляма зменшилася швидше за компактну за однакових інших умов; це узгоджується з впливом площі відкритої поверхні. Варто повторити дослід»</label><label><input type="radio" name="q10" value="c"> «Якщо плями не змінилися за 10 хв, випаровування взагалі не існує»</label></div>
+<div class="testq" data-q="q1"><p>1. У двох порівнюваних плямах було по 100 умовних одиниць води. Через 20 хв у А залишилося 94, у Б — 84. Який розрахунок правильний?</p>
+<label><input type="radio" name="q1" value="a"> Б втратила 16 од., А — 6 од.; різниця втрат — 10 од.</label><label><input type="radio" name="q1" value="b"> Б втратила 84 од., А — 94 од.; різниця — 10 од.</label><label><input type="radio" name="q1" value="c"> А втратила 16 од., Б — 6 од.; різниця — 10 од.</label></div>
+<div class="testq" data-q="q2"><p>2. На одну тарілку з водою направили потік теплого повітря, а другу залишили без потоку в прохолоді. Перша висохла швидше. Чи можна стверджувати, що причиною був <em>лише вітер</em>?</p>
+<label><input type="radio" name="q2" value="a"> Так, бо вітер завжди важливіший за температуру</label><label><input type="radio" name="q2" value="b"> Ні: одночасно змінили рух повітря і температуру, тож їхній вплив не відокремлено</label><label><input type="radio" name="q2" value="c"> Так, тому що час спостереження в обох був однаковий</label></div>
+<div class="testq" data-q="q3"><p>3. Який дослід допоможе <em>окремо</em> перевірити вплив площі відкритої поверхні води?</p>
+<label><input type="radio" name="q3" value="a"> Вода різної температури на широкій тарілці й у вузькій склянці</label><label><input type="radio" name="q3" value="b"> Однакова кількість води при однакових температурі, вологості й русі повітря, але з різною відкритою площею</label><label><input type="radio" name="q3" value="c"> Удвічі більше води у широкій тарілці, причому вона стоїть на сонці</label></div>
+<div class="testq" data-q="q4"><p>4. У закритій прозорій посудині є трохи води. Через певний час на прохолодній кришці помітили дрібні краплі. Яке пояснення найкраще?</p>
+<label><input type="radio" name="q4" value="a"> Вода перестала випаровуватися, тому краплі виникли самі по собі</label><label><input type="radio" name="q4" value="b"> Усі молекули води назавжди стали частинками повітря</label><label><input type="radio" name="q4" value="c"> Частина води випарувалася, а водяна пара біля прохолодної кришки перетворилася на краплі</label></div>
+<div class="testq" data-q="q5"><p>5. Оберіть <strong>усі</strong> коректні прогнози, якщо в кожному випадку решта умов однакова.</p>
+<label><input type="checkbox" name="q5" value="a"> Якщо змінити одразу температуру, вітер і вологість, можна точно назвати вплив кожного чинника окремо</label><label><input type="checkbox" name="q5" value="b"> Якщо збільшити відкриту площу води, випаровування зазвичай прискориться</label><label><input type="checkbox" name="q5" value="c"> Якщо повітря стане вологішим, випаровування зазвичай сповільниться</label><label><input type="checkbox" name="q5" value="d"> Якщо посилити рух повітря біля води, випаровування зазвичай прискориться</label></div>
+<div class="testq" data-q="q6"><p>6. Навчальна модель показує: А мала 100 од. води й залишила 92; Б мала 100 од. і залишила 83 за той самий час. Оберіть <strong>усі</strong> науково коректні дії та висновки.</p>
+<label><input type="checkbox" name="q6" value="a"> Порахувати, що А втратила 8 од., а Б — 17 од.</label><label><input type="checkbox" name="q6" value="b"> Оголосити, що в будь-яку погоду велика площа гарантує саме таку втрату води</label><label><input type="checkbox" name="q6" value="c"> Перевірити, чи справді в обох випадках однаковими були всі інші умови</label><label><input type="checkbox" name="q6" value="d"> Повторити порівняння, щоб оцінити надійність результату</label><label><input type="checkbox" name="q6" value="e"> Визнати, що вода перестала існувати, бо її залишилося менше</label></div>
+<div class="testq" data-q="q7"><p>7. Зіставте конкретну дію дослідника з науковою роллю цієї дії.</p>
+<div class="minirow"><span><strong>А.</strong> Пляму Б зробили ширшою</span><select name="q7a"><option value="">Оберіть</option><option value="1">Контрольована умова, яку залишили однаковою</option><option value="2">Чинник, який навмисно змінюють</option><option value="3">Виміряний результат</option></select></div>
+<div class="minirow"><span><strong>Б.</strong> Обидві плями тримали при 22 °C</span><select name="q7b"><option value="">Оберіть</option><option value="1">Контрольована умова, яку залишили однаковою</option><option value="2">Чинник, який навмисно змінюють</option><option value="3">Виміряний результат</option></select></div>
+<div class="minirow"><span><strong>В.</strong> За 20 хв пляма Б втратила 17 од.</span><select name="q7c"><option value="">Оберіть</option><option value="1">Контрольована умова, яку залишили однаковою</option><option value="2">Чинник, який навмисно змінюють</option><option value="3">Виміряний результат</option></select></div></div>
+<div class="testq" data-q="q8"><p>8. Розставте дії в <strong>науково правильному порядку</strong> — від 1 до 4.</p>
+<div class="minirow"><span><strong>А.</strong> Записати зміни в таблицю</span><select name="q8a"><option value="">Номер</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="minirow"><span><strong>Б.</strong> Поставити запитання й висунути гіпотезу</span><select name="q8b"><option value="">Номер</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="minirow"><span><strong>В.</strong> Підготувати чесне порівняння та провести дослід</span><select name="q8c"><option value="">Номер</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="minirow"><span><strong>Г.</strong> Пояснити, чи підтвердилася гіпотеза й чого ще не доведено</span><select name="q8d"><option value="">Номер</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div></div>
+<div class="testq" data-q="q9"><p>9. Після двох хвилин спостереження в прохолодній кімнаті не помітили зменшення водної плями. Яке рішення дослідника найкраще?</p>
+<label><input type="radio" name="q9" value="a"> Записати, що випаровування за цих умов узагалі неможливе</label><label><input type="radio" name="q9" value="b"> Намалювати втрату води в таблиці, бо теорія обіцяє результат</label><label><input type="radio" name="q9" value="c"> Записати, що помітних змін поки немає, та продовжити спостереження / застосувати точніше вимірювання</label></div>
+<div class="testq" data-q="q10"><p>10. Який висновок найкраще об’єднує твердження, доказ, пояснення та межу?</p>
+<label><input type="radio" name="q10" value="a"> «Широкі плями завжди зникають першими, тому що так написано в підручнику»</label><label><input type="radio" name="q10" value="b"> «У моделі Б втратила 17 од., а А — 8 од. за однакових умов, крім площі. Це узгоджується з впливом площі на випаровування, але модель ще треба перевірити реальним дослідом»</label><label><input type="radio" name="q10" value="c"> «Я бачу два числа, отже знаю, як висихатиме будь-яка водойма за будь-яких умов»</label></div>
+<div class="card blue" style="margin-top:15px"><h3>Власний аргумент (перевіряє вчитель)</h3><p>Не копіюйте відповідь із тесту. Оберіть будь-яке одне складне запитання (2, 6, 9 або 10) й обґрунтуйте відповідь двома реченнями: назвіть доказ і поясніть, чому він важливий.</p><label class="field">Мій короткий аргумент<textarea id="test-explain" rows="3" placeholder="Обрав(-ла) завдання ... . Мій доказ ... . Це означає ... ."></textarea></label><p class="small muted">Це поле не оцінюється автоматично в балах /10. Воно потрібне, щоб учитель побачив Ваше міркування.</p></div>
 <div style="margin:20px 0"><button id="finish-test" type="submit" class="btn">Завершити й отримати результат /10</button><p id="test-alert" class="feedback warn" aria-live="polite">Уважно прочитайте завдання перед надсиланням.</p></div></form>
 <div id="test-result" class="result" hidden aria-live="polite"><div class="number">Результат учня / учениці</div><h2>Моя картка результату</h2><div id="res-score" class="score">0/10</div><p><strong id="res-name"></strong> • <strong id="res-class"></strong></p><p>Пізнаємо природу • Практична робота № 2 • Випаровування води</p><p id="res-date"></p><p id="res-level"></p><p><strong>Зробіть скриншот цієї картки та надішліть учителю.</strong></p>
 <div class="no-print" style="display:flex;flex-wrap:wrap;gap:10px"><button id="retry-test" class="btn alt" type="button">Спробувати ще раз</button><button id="print-test" class="btn" type="button">Друк / PDF</button></div>
@@ -299,10 +308,38 @@ txt('model-interpret',(change>0?'За вибраних умов модель п�
 }
 baseline=rawModel();['area','temp','wind','humid'].forEach(function(id){el(id).addEventListener('input',updateModel)});updateModel();
 el('reset-model').addEventListener('click',function(){el('area').value=2;el('temp').value=22;el('wind').value=1;el('humid').value=1;updateModel()});
-var reportIds=['report-name','report-class','report-mode','report-factor','obs-a0','obs-b0','obs-a5','obs-b5','obs-a10','obs-b10','report-hyp','report-conclusion','report-limits'];
+var reportIds=['early-hyp','data-a','data-b','data-reason','data-confound','audit-choice','audit-error','audit-fix','report-name','report-class','report-mode','report-factor','obs-a0','obs-b0','obs-a5','obs-b5','obs-a10','obs-b10','report-hyp','report-conclusion','report-limits','report-audit','report-reflection'];
 function saveDraft(){try{var d={};reportIds.forEach(function(id){d[id]=el(id).value});localStorage.setItem('geo5-evap-report-v3',JSON.stringify(d))}catch(e){}}
 try{var d=JSON.parse(localStorage.getItem('geo5-evap-report-v3')||'null');if(d){reportIds.forEach(function(id){if(d[id]!==undefined)el(id).value=d[id]})}}catch(e){}
 reportIds.forEach(function(id){el(id).addEventListener('input',saveDraft);el(id).addEventListener('change',saveDraft)});
+
+function countWords(s){return (String(s).trim().match(/[^\s,.!?;:()]+/g)||[]).length}
+function hasCausal(s){return /тому|оскільки|адже|через|вплив|причин|оскільки|бо |за умови|поясн|отже/i.test(s)}
+el('check-data').addEventListener('click',function(){
+var a=el('data-a').value,b=el('data-b').value,reason=el('data-reason').value,confound=el('data-confound').value;
+if(a===''||b===''){txt('data-feedback','Спочатку обчисліть обидві втрати води: початкова кількість мінус залишок через 20 хв.');return}
+var score=(Number(a)===8?1:0)+(Number(b)===17?1:0);
+var good1=countWords(reason)>=16&&hasCausal(reason),good2=countWords(confound)>=16&&hasCausal(confound);
+txt('data-feedback',(score===2?'Розрахунки правильні: А втратила 8 од., Б — 17 од., різниця — 9 од.':score===1?'Один розрахунок правильний. Перевірте, чи Ви віднімали залишок від початкових 100 од.':'Розрахунки потрібно переглянути: кожного разу віднімайте залишок від 100 од.')+' Ваш висновок: '+(good1?'достатньо розгорнутий за обсягом, перевірте його на наявність конкретних чисел.':'додайте не менше двох змістовних речень, числа та причинне пояснення.')+' Досьє №2: '+(good2?'пояснення достатньо розгорнуте, перевірте, чи згадали рух повітря і спосіб його контролю.':'додайте, який другий чинник змінився біля вікна й як Ви його контролюватимете.')+' Відкриті аргументи перевіряє вчитель.');
+saveDraft();
+});
+el('send-data').addEventListener('click',function(){
+var a=el('data-a').value,b=el('data-b').value;
+if(a===''||b===''||!el('data-reason').value.trim()||!el('data-confound').value.trim()){txt('data-feedback','Перед перенесенням заповніть обидва числа та два пояснення.');return}
+var extras='НАВЧАЛЬНІ ДАНІ (не мій реальний дослід):\nВтрачено А — '+a+' од., Б — '+b+' од.\nАргумент: '+el('data-reason').value.trim()+'\nПеревірка на змішані чинники: '+el('data-confound').value.trim();
+el('report-conclusion').value=(el('report-conclusion').value.trim()?el('report-conclusion').value.trim()+'\n\n':'')+extras;
+txt('report-feedback','Аргументи з навчального набору даних додано до висновку з чіткою позначкою, що це НЕ реальний вимір.');
+saveDraft();el('report').scrollIntoView({behavior:'smooth'});
+});
+el('audit-check').addEventListener('click',function(){
+var which=el('audit-choice').value,error=el('audit-error').value,fix=el('audit-fix').value;
+if(!which){txt('audit-feedback','Спочатку оберіть досьє А, Б або В.');return}
+if(countWords(error)<16||countWords(fix)<14){txt('audit-feedback','Пояснення занадто коротке. Дайте окремо: 1) в чому помилка і чому це помилка (близько двох речень); 2) як переробити спостереження (конкретні дії).');return}
+txt('audit-feedback','Ви сформулювали дві частини відповіді. Перевірте, чи Ви назвали неврахований чинник, запропонували безпечні конкретні кроки й НЕ підмінили спостереження здогадом. Відкриті відповіді оцінює вчитель.');
+el('report-audit').value='Досьє '+which+'. Помилка: '+error.trim()+'\nВиправлення: '+fix.trim();saveDraft();
+});
+el('early-hyp').addEventListener('input',function(){if(!el('report-hyp').value.trim())el('report-hyp').value=el('early-hyp').value;saveDraft()});
+
 el('copy-model').addEventListener('click',function(){
 var val=rawModel();
 var changed=['area','temp','wind','humid'].filter(function(id){return el(id).value!==({area:'2',temp:'22',wind:'1',humid:'1'}[id])});
@@ -321,13 +358,13 @@ saveDraft();el('report').scrollIntoView({behavior:'smooth'});
 });
 el('check-report').addEventListener('click',function(){
 var missing=[];if(el('report-name').value.trim().split(/\s+/).length<2)missing.push('ім’я та прізвище');if(!el('report-hyp').value.trim())missing.push('гіпотеза');
-if(!el('obs-a0').value.trim()||!el('obs-b0').value.trim()||!el('obs-a10').value.trim()||!el('obs-b10').value.trim())missing.push('таблиця спостережень');if(el('report-conclusion').value.trim().length<35)missing.push('розгорнутий висновок');if(el('report-limits').value.trim().length<12)missing.push('межі дослідження');
+if(!el('obs-a0').value.trim()||!el('obs-b0').value.trim()||!el('obs-a10').value.trim()||!el('obs-b10').value.trim())missing.push('таблиця спостережень');if(el('report-conclusion').value.trim().length<35)missing.push('розгорнутий висновок');if(el('report-limits').value.trim().length<25)missing.push('розгорнуті межі дослідження');if(el('report-audit').value.trim().length<50)missing.push('науковий аудит (помилка і її виправлення)');if(el('report-reflection').value.trim().length<25)missing.push('зміну Вашої думки після отримання даних');if(el('data-a').value===''||el('data-b').value===''||!el('data-reason').value.trim()||!el('data-confound').value.trim())missing.push('дослідницьке досьє з числами');
 txt('report-feedback',missing.length?'Ще потрібно доповнити: '+missing.join(', ')+'. Якщо зміни непомітні, пишіть це без вигадування даних.':'Звіт заповнено. Перевірте логіку: що Ви змінили → що побачили → який висновок можна зробити. Можна завантажувати файл.');
 });
 function reportText(){var pairs=[
 ['Учень / учениця',el('report-name').value],['Клас',el('report-class').value],['Тип даних',el('report-mode').value],['Змінюваний чинник',el('report-factor').value],
 ['На початку, А',el('obs-a0').value],['На початку, Б',el('obs-b0').value],['Через 5 хв або запис моделі, А',el('obs-a5').value],['Через 5 хв або запис моделі, Б',el('obs-b5').value],['Через 10 хв або запис моделі, А',el('obs-a10').value],['Через 10 хв або запис моделі, Б',el('obs-b10').value],
-['Гіпотеза',el('report-hyp').value],['Висновок',el('report-conclusion').value],['Межі',el('report-limits').value]];
+['Гіпотеза',el('report-hyp').value],['Висновок',el('report-conclusion').value],['Межі',el('report-limits').value],['Самостійна робота з даними — А',el('data-a').value],['Самостійна робота з даними — Б',el('data-b').value],['Числовий аргумент',el('data-reason').value],['Аудит умов іншого досліду',el('data-confound').value],['Перевірка чужої помилки',el('report-audit').value],['Рефлексія',el('report-reflection').value]];
 return 'ПРАКТИЧНА РОБОТА № 2. ВИПАРОВУВАННЯ ВОДИ\n\n'+pairs.map(function(p){return p[0]+':\n'+(p[1]||'[не заповнено]')}).join('\n\n')+'\n\nАвтор матеріалу: Скринченко К.А. • Василівський ліцей «Сузір’я»';
 }
 el('save-report').addEventListener('click',function(){var blob=new Blob(['\ufeff'+reportText()],{type:'text/plain;charset=utf-8'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='5A_praktychna_2_vyparovuvannia.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},900)});
@@ -337,14 +374,14 @@ el('start-test').addEventListener('click',function(){
 if(!validPerson(el('test-name').value)||!el('test-class').value.trim()){txt('gate-error','Введіть справжні ім’я та прізвище (два слова) і клас. Цифри в ПІБ не використовуються.');return}
 el('gate').hidden=true;el('quiz-form').hidden=false;el('quiz-form').scrollIntoView({behavior:'smooth'});
 });
-var answers={q1:'a',q2:'b',q3:'c',q4:'b',q5:['a','b','c'],q6:['a','b','d'],q7:['2','1','3'],q8:['4','1','2','3'],q9:'b',q10:'b'};
+var answers={q1:'a',q2:'b',q3:'b',q4:'c',q5:['b','c','d'],q6:['a','c','d'],q7:['2','1','3'],q8:['3','1','2','4'],q9:'c',q10:'b'};
 function arrEqual(a,b){return a.length===b.length&&a.every(function(x,i){return x===b[i]})}
 function valueFor(key){var f=el('quiz-form');if(key==='q5'||key==='q6')return Array.from(f.querySelectorAll('input[name="'+key+'"]:checked')).map(function(x){return x.value}).sort();
 if(key==='q7'||key==='q8')return ['a','b','c'].concat(key==='q8'?['d']:[]).map(function(s){return f.elements[key+s].value});
 var x=f.querySelector('input[name="'+key+'"]:checked');return x?x.value:''}
 el('quiz-form').addEventListener('submit',function(event){event.preventDefault();
 var keys=Object.keys(answers),missing=keys.filter(function(key){var a=valueFor(key);return Array.isArray(a)?a.length===0||a.some(function(x){return !x}):!a});
-if(missing.length){txt('test-alert','Будь ласка, дайте відповідь на всі завдання: '+missing.map(function(s){return s.substring(1)}).join(', ')+'.');return}
+if(missing.length){txt('test-alert','Будь ласка, дайте відповідь на всі завдання: '+missing.map(function(s){return s.substring(1)}).join(', ')+'.');return}if(countWords(el('test-explain').value)<15){txt('test-alert','Додайте власний короткий аргумент (не менше 15 слів): оберіть завдання 2, 6, 9 або 10, назвіть доказ і поясніть його.');return}
 var wrong=[],score=0;
 keys.forEach(function(key){var v=valueFor(key),ok=Array.isArray(v)?arrEqual(v,answers[key]):v===answers[key];if(ok)score++;else wrong.push(key.slice(1))});
 txt('res-score',score+'/10 · '+(score*10)+'%');
@@ -352,7 +389,7 @@ txt('res-name',el('test-name').value.trim());
 txt('res-class',el('test-class').value.trim());
 txt('res-date','Дата і час проходження: '+new Date().toLocaleString('uk-UA'));
 txt('res-level',score===10?'Відмінно! Ви пояснюєте й оцінюєте докази.':score>=8?'Добре! Впевнене розуміння, є окремі неточності.':score>=5?'Базові закономірності зрозумілі. Повторіть роботу зі змінними й доказами.':'Радимо повернутися до досліду та блоків із поясненнями, а потім спробувати ще раз.');
-txt('error-review',wrong.length?'Завдання для повторення: '+wrong.join(', ')+'. Зіставте свої відповіді з поясненнями та спробуйте ще раз.':'Усі завдання виконані правильно.');
+txt('error-review',(wrong.length?'Завдання для повторення: '+wrong.join(', ')+'. Зіставте свої відповіді з поясненнями та спробуйте ще раз.':'Усі завдання виконані правильно.')+' Ваш письмовий аргумент (оцінює вчитель): '+el('test-explain').value.trim());
 el('quiz-form').hidden=true;el('test-result').hidden=false;el('test-result').scrollIntoView({behavior:'smooth'});
 });
 el('retry-test').addEventListener('click',function(){el('quiz-form').reset();el('test-result').hidden=true;el('quiz-form').hidden=false;txt('test-alert','Можете пройти тест знову. Ім’я та клас залишаються у картці учня.');el('quiz-form').scrollIntoView({behavior:'smooth'})});
