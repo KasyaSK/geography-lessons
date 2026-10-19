@@ -66,4 +66,5 @@ $('finishQuiz').addEventListener('click',()=>{if(!completed()){feedback('quizFee
 $('retryQuiz').addEventListener('click',()=>{for(const input of $('quiz').querySelectorAll('input[type=checkbox],input[type=radio]'))input.checked=false;for(const sel of $('quiz').querySelectorAll('select'))sel.value='';$('resultCard').hidden=true;feedback('quizFeedback','Відповіді очищено. Ім’я та клас залишилися.');$('quiz').scrollIntoView({behavior:'smooth'})});
 $('printResult').addEventListener('click',()=>window.print());
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
