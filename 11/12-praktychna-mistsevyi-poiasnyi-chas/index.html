@@ -207,4 +207,5 @@ $('retake').addEventListener('click',()=>{quizDone=false;$('questions').querySel
 $('printResult').addEventListener('click',()=>window.print());
 function setProgress(){const d=document.documentElement;let scroll=d.scrollTop,limit=Math.max(1,d.scrollHeight-d.clientHeight);$('progressLine').style.width=Math.min(100,scroll/limit*100)+'%';}document.addEventListener('scroll',setProgress,{passive:true});setProgress();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
