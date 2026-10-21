@@ -55,11 +55,37 @@ footer{padding:28px 0 48px;color:#bad6e2}
 @media(max-width:520px){.calc-grid,.match{grid-template-columns:1fr}.brand{font-size:.8rem}.nav a{font-size:.72rem}.quizitem{padding:13px}.hero h1{font-size:2.65rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:0s!important;transition-duration:0s!important}}
 @media print{body{background:white;color:#122f41}.topbar,.nav,.btn,.progress,.video,#quizGate,#quiz,.hero-art{display:none!important}section.lesson{padding:12px 0}.hero{color:#163744;background:white;padding:8px 0}.hero .lead{color:#163744}.card,.task{break-inside:avoid}.figure img{max-height:230px}#result{display:block!important}}
+
+/* Практикум: сонячний час на меридіанах */
+.solar-lab{background:linear-gradient(140deg,#102c42,#163b4f);border-top:2px solid #4d889d;border-bottom:2px solid #4d889d}
+.solar-lab h2,.solar-lab h3,.solar-lab p,.solar-lab label{color:#edf9ff}
+.solar-lab .s-cols{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:16px;align-items:start}
+.solar-lab .s-scroll{max-width:100%;overflow:auto;border:2px solid #52869a;border-radius:15px;background:#d2ecf9}
+.solar-lab .s-map{width:960px;height:370px;position:relative}
+.solar-lab .s-map svg{width:100%;height:100%;display:block;pointer-events:none}
+.solar-lab .s-slot{position:absolute;transform:translate(-50%,-50%);width:91px;min-height:53px;padding:5px;border:2px dashed #176f99;border-radius:10px;background:#fff9e9;color:#16374e;font-size:12px;font-weight:850;line-height:1.18;text-align:center;cursor:pointer}
+.solar-lab .s-slot span{display:block;margin-top:4px;font-size:12px}
+.solar-lab .s-slot.has{background:#fff0c7;border-style:solid}.solar-lab .s-slot.good{background:#d4ffe7;border-color:#18774b}.solar-lab .s-slot.bad{background:#ffe5e5;border-color:#b74c4c}
+.solar-lab .s-bank{border:1px solid #547e91;background:#244559;border-radius:14px;padding:14px}
+.solar-lab .s-clock{background:#eaf7fe;color:#17374b;border:2px solid #95c9d8;border-radius:12px;width:100%;padding:9px 12px;min-height:44px;margin:6px 0;cursor:grab;touch-action:none;text-align:left;font-size:1rem;font-weight:850}
+.solar-lab .s-clock.used{background:#d9f3e9;border-color:#2ba17a}.solar-lab .s-clock.selected{outline:3px solid #f7bf69}
+.solar-lab .s-feedback{white-space:pre-line;padding:12px 15px;background:#21485e;border-radius:12px;min-height:45px;color:#f0fdff;font-weight:850}
+.solar-lab .s-feedback.success{background:#175c49}.solar-lab .s-feedback.error{background:#684027}
+.solar-lab .s-actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.solar-lab .s-actions button{background:#79e8d0;border:0;border-radius:12px;padding:11px 17px;min-height:44px;color:#083b47;font-weight:900;cursor:pointer}
+.solar-lab .s-actions button.soft{background:#d2e5ed;color:#163b4b}
+.solar-lab .s-tile{margin:13px 0;padding:14px;border:1px solid #5a7e91;border-radius:13px;background:#203f53}
+.solar-lab textarea{background:#f9fdff;color:#193d53}
+.solar-lab .s-ghost{position:fixed;z-index:100000;transform:translate(-50%,-50%);padding:10px 15px;background:#fff0bb;color:#123146;border:2px solid #d28e25;border-radius:12px;pointer-events:none;box-shadow:0 10px 30px #0006;font-weight:900}
+.solar-lab .s-small{font-size:.85rem;color:#bfd8e5}
+@media(max-width:800px){.solar-lab .s-cols{grid-template-columns:1fr}.solar-lab .s-bank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.solar-lab .s-bank h3,.solar-lab .s-bank p{grid-column:1/-1}.solar-lab .s-clock{margin:0}}
+@media(max-width:500px){.solar-lab .s-bank{grid-template-columns:1fr}}
+@media print{.solar-lab{background:white}.solar-lab h2,.solar-lab h3,.solar-lab p{color:#143044}.solar-lab .s-bank,.solar-lab .s-actions{display:none!important}}
 </style>
 </head>
 <body>
 <div class="progress" aria-hidden="true"><div id="progressLine"></div></div>
-<nav class="topbar" aria-label="Навігація сторінкою"><div class="wrap"><span class="brand">GEO / ЧАС × ДОВГОТА</span><div class="nav"><a href="#start">Проблема</a><a href="#map">Карти</a><a href="#lab">Лабораторія</a><a href="#practice">Практична</a><a href="#theory">Алгоритм</a><a href="#homework">Д/з і тест</a></div></div></nav>
+<nav class="topbar" aria-label="Навігація сторінкою"><div class="wrap"><span class="brand">GEO / ЧАС × ДОВГОТА</span><div class="nav"><a href="#start">Проблема</a><a href="#map">Карти</a><a href="#solar-clock-map">Карта годинників</a><a href="#lab">Лабораторія</a><a href="#practice">Практична</a><a href="#theory">Алгоритм</a><a href="#homework">Д/з і тест</a></div></div></nav>
 <header class="hero" id="start"><div class="wrap">
 <div class="kicker">11 клас · урок №12 · практична робота · §7 · 35 хв</div>
 <h1>Час не стоїть на місці.<br><span style="color:var(--cyan)">А Ви — на одному меридіані?</span></h1>
@@ -97,7 +123,26 @@ footer{padding:28px 0 48px;color:#bad6e2}
 <div class="card"><h3>Відео 2 · навіщо придумали поясний час?</h3><p>Перевірений український відеоурок «У якому годинному поясі розташована Україна?», <b>Географія ПРОСТО</b>, фрагмент 07:25–09:57 про поясний час. Це продовження першого відеоуроку. Після перегляду сформулюйте <b>одну перевагу</b> стандартизації часу й <b>одне її обмеження</b>.</p><iframe class="video" loading="lazy" title="Поясний час — українське пояснення" src="https://www.youtube-nocookie.com/embed/dw59fQLSPIs?start=445&end=597" allowfullscreen></iframe><a href="https://www.youtube.com/watch?v=dw59fQLSPIs&t=445s" target="_blank" rel="noopener">Відкрити окремо ↗</a></div></div>
 </div></section>
 
-<section class="lesson section-light" id="lab"><div class="wrap"><span class="time-label">10–16 хв · лабораторія доказів</span><h2>03 / Калькулятор, якому треба пояснити відповідь</h2>
+<section class="lesson solar-lab" id="solar-clock-map"><div class="wrap">
+<span class="time-label">ІНТЕРАКТИВНЕ ДОСЛІДЖЕННЯ • ЗА ВИБОРОМ (ПІСЛЯ ОСНОВНОЇ ЧАСТИНИ АБО ЗАМІСТЬ ДВОХ ЗАДАЧ)</span>
+<h2>Карта шести годинників: знайдіть час за довготою</h2>
+<p>Припустимо, на <b>нульовому меридіані 12:00 за місцевим середнім сонячним часом</b>. Перетягніть показники годинників на шість меридіанів або натисніть годинник і потім точку на карті. Використайте правило <b>1° = 4 хв</b>. Не сплутайте цей час із офіційним часом держав.</p>
+<div class="s-cols"><div><div class="s-scroll"><div class="s-map"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 370" role="img" aria-label="Картосхема світу з меридіанами. Узагальнені контури материків">
+<rect width="960" height="370" fill="#d6edf8"/><rect x="40" y="15" width="880" height="326" rx="13" fill="#c5e6f1" stroke="#5a91aa" stroke-width="2"/>
+<rect x="260" y="15" width="440.00000000000006" height="326" fill="#ffe9aa" opacity=".48"/>
+<g stroke="#75acc0" fill="none" stroke-dasharray="4 6">
+<path d="M113.33333333333333 15 V341"/><path d="M186.66666666666666 15 V341"/><path d="M260 15 V341"/><path d="M333.3333333333333 15 V341"/><path d="M406.6666666666667 15 V341"/><path d="M480 15 V341"/><path d="M553.3333333333334 15 V341"/><path d="M626.6666666666666 15 V341"/><path d="M700 15 V341"/><path d="M773.3333333333334 15 V341"/><path d="M846.6666666666666 15 V341"/>
+<path d="M40 120 H920 M40 185 H920 M40 250 H920"/></g>
+<g fill="#8fba99" stroke="#588d75" stroke-width="2"><path d="M72 68 L124 43 171 59 205 65 236 90 244 113 215 142 191 140 169 175 142 164 125 139 92 130 76 110Z"/><path d="M206 168 L245 161 278 192 299 222 283 266 262 304 242 283 232 249 224 226Z"/><path d="M449 75 L472 60 501 76 498 100 481 111 457 101Z"/><path d="M456 113 L505 120 533 155 527 190 496 254 466 237 453 190 438 152Z"/><path d="M506 76 L545 50 615 45 682 61 737 64 790 82 820 112 795 139 751 153 710 132 671 151 632 142 613 165 573 132 540 116Z"/><path d="M736 258 L776 233 804 254 828 289 812 315 780 301 752 281Z"/></g>
+<line x1="480" y1="15" x2="480" y2="341" stroke="#fff3b2" stroke-width="3"/>
+<g font-size="13" font-weight="850" fill="#164b63"><text x="47" y="31">180° зх.</text><text x="486" y="32">Гринвіч, 0°</text><text x="911" y="32" text-anchor="end">180° сх.</text><text x="45" y="359">Умовна картосхема: материки узагальнено, меридіани — геометрично рівновіддалені</text></g></svg><button type="button" class="s-slot" data-spot="0" style="left:11.806%;top:34%" aria-label="Меридіан 150° зх."><b>150° зх.</b><span>?</span></button><button type="button" class="s-slot" data-spot="1" style="left:30.903%;top:67%" aria-label="Меридіан 75° зх."><b>75° зх.</b><span>?</span></button><button type="button" class="s-slot" data-spot="2" style="left:50.000%;top:34%" aria-label="Меридіан 0°"><b>0°</b><span>?</span></button><button type="button" class="s-slot" data-spot="3" style="left:57.639%;top:67%" aria-label="Меридіан 30° сх."><b>30° сх.</b><span>?</span></button><button type="button" class="s-slot" data-spot="4" style="left:69.097%;top:34%" aria-label="Меридіан 75° сх."><b>75° сх.</b><span>?</span></button><button type="button" class="s-slot" data-spot="5" style="left:84.375%;top:67%" aria-label="Меридіан 135° сх."><b>135° сх.</b><span>?</span></button></div></div>
+<p class="s-small">Підсвічена смуга приблизно показує освітлену півкулю під час рівнодення, якщо в Гринвічі полудень. Ця схема не моделює нахил осі, сезон або точні межі дня.</p></div>
+<aside class="s-bank"><h3>Перетягніть годинники</h3><p>Кожний час потрібен рівно один раз.</p><button type="button" class="s-clock" data-clock="3" aria-pressed="false">14:00</button><button type="button" class="s-clock" data-clock="0" aria-pressed="false">02:00</button><button type="button" class="s-clock" data-clock="5" aria-pressed="false">21:00</button><button type="button" class="s-clock" data-clock="1" aria-pressed="false">07:00</button><button type="button" class="s-clock" data-clock="4" aria-pressed="false">17:00</button><button type="button" class="s-clock" data-clock="2" aria-pressed="false">12:00</button></aside></div>
+<div class="s-actions"><button type="button" id="sCheck">Перевірити всі шість точок</button><button type="button" class="soft" id="sReset">Очистити карту</button></div>
+<p class="s-feedback" id="sFeedback" role="status" aria-live="polite">Розміщено 0 із 6. Почніть з меридіанів на схід і захід від Гринвіча.</p>
+<div class="s-tile"><h3>Дослідницький висновок</h3><label for="sConclusion">Чому Сонце й годинник можуть показувати різний час на одному меридіані? Назвіть фізичну причину й правило, яке використовує держава.</label>
+<textarea id="sConclusion" placeholder="Місцевий сонячний час залежить від довготи, а цивільний — від законодавства і часового поясу."></textarea></div>
+</div></section><section class="lesson section-light" id="lab"><div class="wrap"><span class="time-label">10–16 хв · лабораторія доказів</span><h2>03 / Калькулятор, якому треба пояснити відповідь</h2>
 <p class="intro">Визначайте місцевий <b>середній сонячний час</b>: 1° = 4 хв. Введіть меридіани A і Б та час на меридіані A. Спершу порахуйте самі й запишіть прогноз. Лише тоді відкривайте розбір.</p>
 <div class="card"><div class="calc-grid">
 <label class="field">Довгота A, ° (захід = −)<input id="calcA" type="number" min="-180" max="180" value="30"></label>
@@ -208,4 +253,39 @@ $('printResult').addEventListener('click',()=>window.print());
 function setProgress(){const d=document.documentElement;let scroll=d.scrollTop,limit=Math.max(1,d.scrollHeight-d.clientHeight);$('progressLine').style.width=Math.min(100,scroll/limit*100)+'%';}document.addEventListener('scroll',setProgress,{passive:true});setProgress();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+<script>
+(()=>{"use strict";
+const clocks=["02:00","07:00","12:00","14:00","17:00","21:00"];
+const bank=[...document.querySelectorAll("#solar-clock-map .s-clock")],slots=[...document.querySelectorAll("#solar-clock-map .s-slot")];
+const state={};let selection=null,drag=null,ghost=null,suppressUntil=0;
+const output=document.getElementById("sFeedback");
+function choose(n){selection=n;bank.forEach(b=>{const on=b.dataset.clock===String(n);b.classList.toggle("selected",on);b.setAttribute("aria-pressed",String(on))})}
+function render(){const used=new Set(Object.values(state).map(String));bank.forEach(b=>b.classList.toggle("used",used.has(b.dataset.clock)));
+ slots.forEach(s=>{const n=state[s.dataset.spot];s.querySelector("span").textContent=n===undefined?"?":clocks[n];s.classList.remove("good","bad");s.classList.toggle("has",n!==undefined)});
+ output.className="s-feedback";output.textContent="Розміщено "+Object.keys(state).length+" із 6. Можна змінювати відповіді до перевірки."}
+function place(item,index){Object.keys(state).forEach(k=>{if(state[k]===item)delete state[k]});state[index]=item;choose(null);render()}
+bank.forEach(btn=>{
+ btn.addEventListener("click",()=>{if(Date.now()<suppressUntil)return;const n=Number(btn.dataset.clock);choose(selection===n?null:n)});
+ btn.addEventListener("pointerdown",e=>{if(e.button!==0&&e.pointerType==="mouse")return;drag={btn,id:e.pointerId,n:Number(btn.dataset.clock),x:e.clientX,y:e.clientY,moved:false};try{btn.setPointerCapture(e.pointerId)}catch(_){}});
+ btn.addEventListener("pointermove",e=>{if(!drag||drag.btn!==btn||drag.id!==e.pointerId)return;
+ if(!drag.moved&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>8){drag.moved=true;ghost=document.createElement("div");ghost.className="s-ghost";ghost.textContent=clocks[drag.n];document.body.appendChild(ghost)}
+ if(ghost){ghost.style.left=e.clientX+"px";ghost.style.top=e.clientY+"px"}
+ });
+ btn.addEventListener("pointerup",e=>{if(!drag||drag.btn!==btn||drag.id!==e.pointerId)return;
+ if(drag.moved){const el=document.elementFromPoint(e.clientX,e.clientY);const slot=el&&el.closest("#solar-clock-map .s-slot");
+ suppressUntil=Date.now()+400;if(slot)place(drag.n,Number(slot.dataset.spot));else choose(drag.n)}
+ drag=null;if(ghost){ghost.remove();ghost=null}
+ });
+ btn.addEventListener("pointercancel",()=>{drag=null;if(ghost){ghost.remove();ghost=null}});
+});
+slots.forEach(b=>b.addEventListener("click",()=>{const i=Number(b.dataset.spot);if(selection!==null)place(selection,i);else if(state[i]!==undefined){delete state[i];render()}else output.textContent="Спочатку виберіть час у списку."}));
+document.getElementById("sReset").addEventListener("click",()=>{Object.keys(state).forEach(k=>delete state[k]);choose(null);render()});
+document.getElementById("sCheck").addEventListener("click",()=>{const missing=slots.filter(b=>state[b.dataset.spot]===undefined);
+ if(missing.length){output.className="s-feedback error";output.textContent="Не вистачає "+missing.length+" позначок. Заповніть усі меридіани.";return}
+ let points=0;const wrong=[];
+ slots.forEach(b=>{const n=Number(b.dataset.spot),ok=state[n]===n;b.classList.add(ok?"good":"bad");if(ok)points++;else wrong.push(b.querySelector("b").textContent)});
+ output.className="s-feedback "+(points===6?"success":"error");
+ output.textContent=points+"/6 правильних. "+(points===6?"Доведено: за сонячним часом схід випереджає захід.":"Перевірте довготи: "+wrong.join(", ")+". Помножте градуси на 4 хвилини.");
+});
+})();
+</script></body></html>
