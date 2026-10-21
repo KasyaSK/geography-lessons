@@ -95,6 +95,23 @@ footer{padding:28px 0 48px;color:#bad6e2}
 .date-lab .d-result{font-weight:850;padding:12px;background:#1a594d;border-radius:12px;color:#f3ffff}
 .date-lab textarea{background:#fff;color:#153a50}
 @media(max-width:800px){.date-lab .d-grid{grid-template-columns:1fr}}
+
+.ua-solar{background:linear-gradient(145deg,#0b2a3d,#143b50);border-bottom:2px solid #386a7a}
+.ua-solar h2,.ua-solar h3,.ua-solar p,.ua-solar label{color:#f0fcff}
+.ua-solar .u-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px;align-items:start}
+.ua-solar .u-panel{background:#21455d;border:1px solid #538097;border-radius:15px;padding:14px}
+.ua-solar iframe{width:100%;height:330px;background:#d9ecf2;border:1px solid #689caa;border-radius:12px;display:block}
+.ua-solar .u-cities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:12px}
+.ua-solar .u-city{padding:13px;border:1px solid #5b8795;border-radius:12px;background:#1c3e56;color:#eafaff;font-weight:850}
+.ua-solar .u-city span{display:block;color:#ffdca0}
+.ua-solar select,.ua-solar input{color:#123d4f;background:#f8ffff;border:2px solid #9ac4d0;border-radius:11px;width:100%;min-height:45px;padding:10px;font:inherit}
+.ua-solar .u-feedback{padding:12px;background:#1c594e;border-radius:13px;color:#f2ffff;min-height:55px;font-weight:800;white-space:pre-line;margin:13px 0}
+.ua-solar .u-check{min-height:44px;border:0;border-radius:12px;padding:10px 15px;background:#85efdc;color:#063b4b;font-weight:900;cursor:pointer;margin:12px 0 0}
+.ua-solar .u-source{color:#bbdaec;font-size:.87rem}
+.ua-solar textarea{background:#fff;color:#143d50}
+@media(max-width:810px){.ua-solar .u-grid{grid-template-columns:1fr}}
+@media(max-width:500px){.ua-solar .u-cities{grid-template-columns:1fr}}
+@media print{.ua-solar{background:white}.ua-solar h2,.ua-solar h3,.ua-solar p{color:#174358}.ua-solar iframe{display:none}.ua-solar .u-panel,.ua-solar .u-city{background:white;color:#153b4d}}
 </style>
 </head>
 <body>
@@ -190,7 +207,23 @@ footer{padding:28px 0 48px;color:#bad6e2}
 </div>
 <p id="dFeedback" class="d-result" role="status" aria-live="polite">Оберіть один із трьох кейсів. Потім перевірте інший.</p>
 <label for="dCer"><b>Дослідницький висновок:</b> сформулюйте різницю між фізичним перебігом часу та прийнятим календарним записом.</label><textarea id="dCer" placeholder="Фізично жодної миттєвої доби не додається; змінюється домовлений запис дати..."></textarea>
-</div></div></section><section class="lesson section-light" id="lab"><div class="wrap"><span class="time-label">10–16 хв · лабораторія доказів</span><h2>03 / Калькулятор, якому треба пояснити відповідь</h2>
+</div></div></section><section class="lesson ua-solar" id="ukraine-solar-lab"><div class="wrap">
+<span class="time-label">ДОСЛІДЖЕННЯ · ТРИ УКРАЇНСЬКІ МІСТА · КАРТА</span>
+<h2>Ужгород, Київ і Харків: чому сонячний час різний, а офіційний — спільний?</h2>
+<p>Дослідіть три міста України на справжній цифровій карті й порівняйте їхні довготи. Для цього завдання вважайте, що <b>на меридіані Києва місцевий середній сонячний час 12:00</b>. Обчисліть, який час був би в той самий момент на меридіані Ужгорода та Харкова. Довготи округлено до 0,1° — результат округлюйте до хвилини.</p>
+<div class="u-grid"><div><iframe loading="lazy" title="OpenStreetMap: карта України для порівняння довгот трьох міст" src="https://www.openstreetmap.org/export/embed.html?bbox=21.6%2C44.5%2C40.4%2C52.9&amp;layer=mapnik"></iframe>
+<p class="u-source">Відкрита картографічна основа: <a href="https://www.openstreetmap.org/#map=6/49.1/31.5" target="_blank" rel="noopener">OpenStreetMap ↗</a>. Якщо зовнішня карта не завантажиться, усі потрібні довготи вже записані нижче, тож завдання залишиться доступним.</p>
+<div class="u-cities"><div class="u-city">Ужгород<span>22,3° сх. д.</span></div><div class="u-city">Київ<span>30,5° сх. д.</span></div><div class="u-city">Харків<span>36,2° сх. д.</span></div></div></div>
+<div class="u-panel"><h3>Координатна лабораторія</h3>
+<p><b>База:</b> Київ 30,5° сх. д. → 12:00 місцевого середнього сонячного часу.</p>
+<label for="uCity">Оберіть місто</label><select id="uCity"><option value="uzh">Ужгород</option><option value="kyiv">Київ</option><option value="kha">Харків</option></select>
+<label for="uAnswer">Ваш прогноз (ГГ:ХХ)</label><input id="uAnswer" type="text" inputmode="numeric" maxlength="5" placeholder="11:27">
+<button type="button" class="u-check" id="uCheck">Перевірити обчислення</button>
+<div class="u-feedback" id="uFeedback" role="status" aria-live="polite">Формула: (довгота міста − 30,5°) × 4 хв.</div>
+<p class="u-source">Час смартфонів у цих містах визначається офіційними правилами часової зони України, а не окремим сонячним годинником.</p></div></div>
+<label for="uConclusion"><b>Поясніть причинний зв’язок:</b> чому фізично Сонце проходить меридіани Ужгорода та Харкова в різний момент, але цивільний час стандартизують?</label>
+<textarea id="uConclusion" placeholder="Визначте різницю між наслідком обертання Землі і суспільною системою вимірювання часу."></textarea>
+</div></section><section class="lesson section-light" id="lab"><div class="wrap"><span class="time-label">10–16 хв · лабораторія доказів</span><h2>03 / Калькулятор, якому треба пояснити відповідь</h2>
 <p class="intro">Визначайте місцевий <b>середній сонячний час</b>: 1° = 4 хв. Введіть меридіани A і Б та час на меридіані A. Спершу порахуйте самі й запишіть прогноз. Лише тоді відкривайте розбір.</p>
 <div class="card"><div class="calc-grid">
 <label class="field">Довгота A, ° (захід = −)<input id="calcA" type="number" min="-180" max="180" value="30"></label>
@@ -348,5 +381,19 @@ document.querySelectorAll('#date-line-lab .d-button[data-direction]').forEach(bt
  document.querySelectorAll('#date-line-lab .d-button').forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
  document.getElementById("dFeedback").textContent=responses[key];
 }));
+})();
+</script><script>
+(()=>{"use strict";
+const cities={uzh:{name:"Ужгород",lon:22.3},kyiv:{name:"Київ",lon:30.5},kha:{name:"Харків",lon:36.2}};
+const el=id=>document.getElementById(id);
+el("uCheck").addEventListener("click",()=>{
+ const city=cities[el("uCity").value],delta=Math.round((city.lon-30.5)*4);
+ const minutes=720+delta;
+ const fmt=(String(Math.floor(minutes/60)).padStart(2,"0")+":"+String(minutes%60).padStart(2,"0"));
+ const written=el("uAnswer").value.trim().replace(/\s/g,""),correct=written===fmt;
+ const out=el("uFeedback");
+ out.textContent=(correct?"Правильний розрахунок. ":"Поки не збігається з моделлю. ")+"Для міста "+city.name+": Δλ = "+(city.lon-30.5).toFixed(1).replace(".",",")+"°, Δt ≈ "+delta+" хв. Відносно 12:00 у Києві маємо "+fmt+". Це місцевий середній сонячний час, а не офіційний.";
+ out.style.background=correct?"#14594a":"#704633";
+});
 })();
 </script></body></html>
