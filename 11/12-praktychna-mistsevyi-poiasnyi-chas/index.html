@@ -327,4 +327,5 @@ document.querySelectorAll('[data-place]').forEach(b=>b.addEventListener('click',
 function exportText(){const lines=['ГЕОГРАФІЯ — 11 КЛАС | САМОСТІЙНА ПРАКТИЧНА РОБОТА',`Учень: ${saved.name||'не вказано'}`,'Тема: Урок 12. Місцевий сонячний час',''];for(const t of TASKS){lines.push(`[${t.station}] ${t.stem}`, `Відповідь: ${saved.a[t.id]||'—'} ${t.unit} | перевірка: ${saved.ok[t.id]?'правильно':'не підтверджено'}`,`Хід: ${saved.work[t.id]||'—'}`,'');}lines.push('ВИСНОВОК CER:',saved.thought||'—');const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='geo11-mistsevyi-chas-zvit.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);}
 $('saveReport').addEventListener('click',exportText);$('printReport').addEventListener('click',()=>window.print());$('reset').addEventListener('click',()=>{if(confirm('Очистити всі відповіді, записи і прогрес на цьому пристрої?')){saved={a:{},work:{},ok:{},name:'',thought:''};persist();location.reload();}});
 hydrate();
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
