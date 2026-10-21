@@ -1,2 +1,713 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»"><title>Урок 15 — ДТР-1</title><style>:root{--bg:#f6fbff;--card:#fff;--ink:#17354a;--muted:#607887;--line:#d9e8f0;--accent:#187db5;--ok:#18765a}*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg)}.wrap{width:min(980px,calc(100% - 28px));margin:auto}.hero{padding:48px 0 24px;background:linear-gradient(135deg,#e7f7ff,#f2fff9)}h1{font-size:clamp(2.2rem,6vw,4.4rem);line-height:1;margin:.5rem 0}.lead{color:var(--muted);max-width:760px}.chip{display:inline-block;padding:.35rem .65rem;border-radius:999px;background:#fff;border:1px solid var(--line);margin:.2rem}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}label{display:block;font-weight:700;margin:.55rem 0}input,select,textarea{width:100%;font:inherit;padding:.7rem;border:1px solid #bad4e1;border-radius:11px;background:#fff}.q{padding:16px 0;border-top:1px solid var(--line)}.q label{font-weight:500}.hidden{display:none}button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:.75rem 1rem;background:var(--accent);color:#fff;cursor:pointer}.meta{font-size:.92rem;color:var(--muted)}.result{font-size:1.3rem;font-weight:900}.after{border-left:5px solid var(--ok)}@media(max-width:720px){.grid{grid-template-columns:1fr}}</style></head><body><header class="hero"><div class="wrap"><span class="chip">6 клас</span><span class="chip">Урок 15</span><span class="chip">ДТР‑1</span><h1>Діагностувальна тематична робота 1</h1><p class="lead">Тема: «Вступ. Земля на глобусі й карті». Тут немає повторення, підказок або теорії перед оцінюванням: лише самостійне виконання, а розбір і наступний крок відкриваються після здачі.</p></div></header><main class="wrap"><section class="card"><h2>Перед початком</h2><p>Працюйте самостійно. Можна користуватися лише матеріалами, які дозволив учитель. Завдання перевіряють читання карти, напрям, масштаб, джерела географічної інформації та аргументацію.</p><div class="grid"><label>Прізвище<input id="surname"></label><label>Ім’я<input id="name"></label><label>Клас<input id="klass" placeholder="6-А"></label></div><button id="start">Розпочати ДТР</button><p id="gate" class="meta"></p></section><form id="work" class="card hidden"><h2>ДТР‑1 — 10 балів</h2><div class="q"><b>1. Яке джерело найкраще покаже зміну берегової лінії водойми за 10 років?</b><label><input type="radio" name="q1" value="1"> серія супутникових знімків різних років</label><label><input type="radio" name="q1" value="0"> глобус</label><label><input type="radio" name="q1" value="0"> політична карта</label></div><div class="q"><b>2. Азимут 90° відповідає напрямку…</b><label><input type="radio" name="q2" value="1"> схід</label><label><input type="radio" name="q2" value="0"> захід</label><label><input type="radio" name="q2" value="0"> південь</label></div><div class="q"><b>3. На карті масштабу 1:200 000 відстань дорівнює 4 см. Реальна відстань:</b><label><input type="radio" name="q3" value="1"> 8 км</label><label><input type="radio" name="q3" value="0"> 800 м</label><label><input type="radio" name="q3" value="0"> 80 км</label></div><div class="q"><b>4. Що пояснює значення кольорів і символів карти?</b><label><input type="radio" name="q4" value="1"> легенда</label><label><input type="radio" name="q4" value="0"> рамка</label><label><input type="radio" name="q4" value="0"> назва</label></div><div class="q"><b>5. Який масштаб є найбільшим?</b><label><input type="radio" name="q5" value="1"> 1:10 000</label><label><input type="radio" name="q5" value="0"> 1:100 000</label><label><input type="radio" name="q5" value="0"> 1:1 000 000</label></div><div class="q"><b>6. Для вимірювання довжини звивистої річки на паперовій карті найдоречніше:</b><label><input type="radio" name="q6" value="1"> нитка або курвіметр</label><label><input type="radio" name="q6" value="0"> транспортир</label><label><input type="radio" name="q6" value="0"> компас</label></div><div class="q"><b>7. Поясніть одним реченням, чому космічний знімок і фізична карта не є взаємозамінними.</b><textarea id="q7" rows="3"></textarea></div><div class="q"><b>8. Учень каже: «На карті 1:500 000 більше число, отже вона більша за масштабом, ніж 1:50 000». Виправте помилку.</b><textarea id="q8" rows="3"></textarea></div><div class="q"><b>9. Для маршруту територією школи краще обрати план місцевості чи карту світу? Назвіть один доказ.</b><textarea id="q9" rows="3"></textarea></div><div class="q"><b>10. CER-міні: твердження — «Одного картографічного джерела часто недостатньо». Наведіть один доказ і коротке пояснення.</b><textarea id="q10" rows="4"></textarea></div><button type="button" id="finish">Завершити роботу</button></form><section id="after" class="card after hidden"><h2>Після здачі: результат і самооцінка</h2><p class="result" id="score"></p><p>Відкриті завдання 7–10 потребують перевірки вчителем за змістом. Автоматичний бал нижче враховує 1–6; фінальний результат учитель може доповнити до 10.</p><label>Що було найскладнішим?<select id="weak"><option>джерела інформації</option><option>азимут</option><option>масштаб</option><option>легенда карти</option><option>аргументація</option></select></label><label>Мій наступний крок<textarea rows="3" placeholder="Що повторю або потреную"></textarea></label><p><a href="https://lms.e-school.net.ua/" target="_blank" rel="noopener">Електронний підручник / ВШО</a></p></section></main><footer class="wrap meta" style="padding:24px 0 40px">Скринченко К.А. • Василівський ліцей «Сузір’я»</footer><script>const s=document.querySelector('#start'),w=document.querySelector('#work'),a=document.querySelector('#after');s.onclick=()=>{if(!surname.value.trim()||!name.value.trim()||!klass.value.trim()){gate.textContent='Заповніть прізвище, ім’я та клас.';return}gate.textContent='';w.classList.remove('hidden');s.disabled=true};finish.onclick=()=>{let pts=0;for(let i=1;i<=6;i++){const x=document.querySelector(`input[name=q${i}]:checked`);if(x&&x.value==='1')pts++}score.textContent=`Автоматично перевірено: ${pts}/6. Відкриті завдання: до 4 балів після перевірки вчителем.`;w.classList.add('hidden');a.classList.remove('hidden');a.scrollIntoView({behavior:'smooth'})}</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+  <title>6 клас. Підсумкова контрольна: Вступ. Земля на глобусі й карті</title>
+  <style>
+    :root{
+      --bg:#f4fbff;
+      --card:#ffffff;
+      --ink:#17384b;
+      --muted:#5d7788;
+      --line:#d4e6ef;
+      --accent:#0a7db2;
+      --accent-2:#128064;
+      --soft:#eaf7fc;
+      --warn:#fff4d7;
+      --ok:#edf9f4;
+      --bad:#fff1f1;
+      --shadow:0 18px 42px rgba(26,76,102,.09);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(177,229,255,.45), transparent 32%),
+        linear-gradient(180deg,#f9fdff,#eef8fc 28rem,#f4fbff);
+    }
+    .wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+    .hero{
+      padding:56px 0 30px;
+      background:linear-gradient(135deg,#e4f7ff,#fff4db 60%,#ebfff7);
+      border-bottom:1px solid var(--line);
+    }
+    .eyebrow,.pill{
+      display:inline-block;
+      border:1px solid rgba(23,56,75,.12);
+      background:rgba(255,255,255,.82);
+      border-radius:999px;
+      padding:.38rem .78rem;
+      font-weight:900;
+      letter-spacing:.02em;
+      margin:0 .38rem .45rem 0;
+    }
+    h1{font-size:clamp(2.15rem,5vw,4.55rem);line-height:1.02;margin:.45rem 0 .75rem}
+    .lead{max-width:900px;color:var(--muted);font-size:1.04rem}
+    nav{
+      position:sticky;top:0;z-index:10;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(9px);
+      border-block:1px solid var(--line);
+    }
+    nav .wrap{display:flex;gap:8px;overflow:auto;padding:10px 0}
+    nav a{
+      flex:none;
+      text-decoration:none;
+      color:var(--ink);
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:.56rem .8rem;
+      font-weight:850;
+      white-space:nowrap;
+    }
+    nav a:hover,nav a:focus{background:var(--soft);outline:none}
+    main{padding:20px 0 60px}
+    section{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:clamp(18px,3vw,30px);
+      margin:16px 0;
+      box-shadow:var(--shadow);
+    }
+    h2{font-size:clamp(1.45rem,2.8vw,2.25rem);line-height:1.1;margin:.15rem 0 1rem}
+    .kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:var(--accent)}
+    .grid2,.grid3,.grid4{display:grid;gap:14px}
+    .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card,.map-card,.note,.result-card,.mini-card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      padding:15px;
+    }
+    .note{background:var(--soft)}
+    .warning{background:var(--warn);border-left:6px solid #e0a634}
+    .success{background:var(--ok);border-left:6px solid var(--accent-2)}
+    .map-card{padding:0;overflow:hidden}
+    .map-card svg{display:block;width:100%;height:auto;background:#fcfeff}
+    .caption{padding:11px 14px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);background:#fbfdfe}
+    .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .legend span{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;background:#f7fbfd;border:1px solid var(--line);padding:.35rem .62rem;border-radius:999px}
+    .dot{width:14px;height:14px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.14)}
+    .dot.a{background:#ff8b8b}.dot.b{background:#9fd5ff}.dot.c{background:#ffd86d}.dot.d{background:#92e0b4}
+    .dot.e{background:#d4b0ff}.dot.f{background:#ffb977}.dot.g{background:#7fd8cf}.dot.h{background:#a9b7ff}
+    label{display:block}
+    input[type="text"], select, textarea{
+      width:100%;font:inherit;color:var(--ink);
+      padding:.78rem .86rem;border-radius:12px;
+      border:1px solid #bdd5e1;background:#fff;
+    }
+    textarea{min-height:86px;resize:vertical}
+    .gate-grid{display:grid;grid-template-columns:1fr 1fr .7fr auto;gap:10px;align-items:end}
+    .mini{font-size:.92rem;color:var(--muted)}
+    .hidden{display:none!important}
+    .btn,button{
+      appearance:none;border:0;cursor:pointer;font:inherit;font-weight:900;
+      border-radius:14px;padding:.84rem 1rem;
+      color:#fff;background:linear-gradient(135deg,var(--accent),#136b96);
+      box-shadow:0 10px 26px rgba(17,110,155,.18);
+    }
+    .btn.secondary,button.secondary{background:linear-gradient(135deg,#18a172,#147f5a)}
+    .btn.soft,button.soft{background:#e8f4f8;color:var(--ink);box-shadow:none;border:1px solid var(--line)}
+    .btn:disabled,button:disabled{opacity:.65;cursor:not-allowed}
+    .quiz-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .q{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      margin:14px 0;
+      background:#fdfefe;
+    }
+    .qhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:10px}
+    .qnum{font-weight:950;color:var(--accent)}
+    .qtype{font-size:.82rem;color:var(--muted);font-weight:800;background:#f5fafc;border:1px solid var(--line);padding:.26rem .55rem;border-radius:999px}
+    .options{display:grid;gap:10px;margin-top:12px}
+    .choice{
+      display:flex;gap:10px;align-items:flex-start;
+      border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;
+    }
+    .choice input{margin-top:.22rem}
+    .match-grid{display:grid;gap:10px;grid-template-columns:1.2fr .9fr}
+    .order-grid{display:grid;gap:10px;grid-template-columns:repeat(4,1fr)}
+    .feedback{margin-top:10px;font-size:.95rem;color:var(--muted)}
+    .result-card{
+      background:linear-gradient(135deg,#f7fffb,#f2fbff);
+      border:2px solid #bfe4d3;
+    }
+    .big{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:1000;line-height:1;margin:.2rem 0}
+    .scoreline{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:.6rem 0 0}
+    .score-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4rem .7rem;font-weight:900}
+    .key{color:var(--muted)}
+    .two-cols{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    .rubric li{margin:.35rem 0}
+    .muted{color:var(--muted)}
+    .print-only{display:none}
+    footer{padding:8px 0 42px;color:var(--muted);text-align:center}
+    .divider{height:1px;background:var(--line);margin:15px 0}
+    @media (max-width:980px){
+      .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .two-cols,.grid3,.match-grid,.gate-grid{grid-template-columns:1fr}
+      .order-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .grid2,.grid4{grid-template-columns:1fr}
+      nav .wrap{padding:8px 0}
+      .qhead{flex-direction:column}
+      .scoreline{flex-direction:column;align-items:flex-start}
+    }
+    @media print{
+      nav,.quiz-actions,.no-print,.gate-wrap{display:none!important}
+      body{background:#fff}
+      section,.result-card{box-shadow:none;border:1px solid #bbb}
+      .print-only{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="start">
+    <div class="wrap">
+      <span class="eyebrow">🌍 Географія • 6 клас</span>
+      <span class="eyebrow">Підсумкова контрольна робота</span>
+      <h1>«Вступ. Земля на глобусі й карті»</h1>
+      <p class="lead">Під час виконання використовуйте карти та плани місцевості, знаходьте об’єкти, визначайте напрями й відстані, обирайте відповідні географічні джерела та обґрунтовуйте висновки.</p>
+      <div>
+        <span class="pill">10 завдань • /10</span>
+        <span class="pill">Більше карт</span>
+        <span class="pill">Є картка результату</span>
+        <span class="pill">Автор: Скринченко К.А.</span>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Навігація контрольної">
+    <div class="wrap">
+      <a href="#rules">Перед початком</a>
+      <a href="#maps">Картографічні матеріали</a>
+      <a href="#quizSection">Контрольна</a>
+      <a href="#resultSection">Результат</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="rules">
+      <div class="kicker">Перед початком</div>
+      <h2>Що тут відбувається</h2>
+      <div class="grid2">
+        <div class="note">
+          <p><b>Формат:</b> 10 завдань різних типів. Є питання з однією правильною відповіддю, множинний вибір, відповідності, послідовність, достатність доказів і найкращий аргумент.</p>
+          <p><b>Оцінювання:</b> кожне завдання — 1 бал. Після завершення Ви отримаєте <b>картку результату /10</b>. Зробіть скриншот і надішліть учителю.</p>
+          <div class="legend">
+            <span><i class="dot a"></i> карта півкуль</span>
+            <span><i class="dot b"></i> план місцевості</span>
+            <span><i class="dot c"></i> масштабна схема</span>
+            <span><i class="dot d"></i> умовні знаки</span>
+          </div>
+        </div>
+        <div class="warning note">
+          <p><b>Перед початком пригадайте:</b> число 1:10 000 — це <i>більший</i> масштаб, ніж 1:100 000. Звертайте увагу на знаменник масштабу й одиниці вимірювання.</p>
+          <ul class="muted">
+            <li>Уважно дивіться на підписи до карт.</li>
+            <li>Не поспішайте з множинним вибором — зайвий пункт = помилка.</li>
+            <li>Тест відкриється тільки після введення ПІБ та класу.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card gate-wrap" style="margin-top:16px">
+        <h3 style="margin:.2rem 0 1rem">Шлюз учня</h3>
+        <div class="gate-grid">
+          <label>Ім’я та прізвище
+            <input id="fullName" type="text" placeholder="Наприклад: Марія Іваненко">
+          </label>
+          <label>Клас
+            <input id="studentClass" type="text" placeholder="6-А">
+          </label>
+          <label>Дата
+            <input id="today" type="text" aria-label="Дата" readonly>
+          </label>
+          <button id="startQuizBtn" type="button">Розпочати</button>
+        </div>
+        <p class="feedback" id="gateFeedback">Введіть ім’я, прізвище та клас, щоб відкрити контрольну.</p>
+      </div>
+    </section>
+
+    <section id="maps">
+      <div class="kicker">Картографічні матеріали</div>
+      <h2>Карти й схеми, з якими Ви працюватимете</h2>
+      <div class="grid2">
+        <div class="map-card">
+          <svg viewBox="0 0 760 430" aria-label="Карта півкуль з точками A, B, C, D">
+            <defs>
+              <linearGradient id="sea" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#dbf3ff"/>
+                <stop offset="100%" stop-color="#bce8ff"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity=".12"/></filter>
+            </defs>
+            <rect width="760" height="430" fill="url(#sea)"/>
+            <ellipse cx="225" cy="215" rx="185" ry="155" fill="#f6fbff" stroke="#8dc4df" stroke-width="3" filter="url(#shadow)"/>
+            <ellipse cx="535" cy="215" rx="185" ry="155" fill="#f6fbff" stroke="#8dc4df" stroke-width="3" filter="url(#shadow)"/>
+            <g stroke="#9ad1ea" stroke-width="1.4" fill="none">
+              <line x1="40" y1="215" x2="410" y2="215"/>
+              <line x1="350" y1="215" x2="720" y2="215"/>
+              <path d="M225 60 L225 370"/>
+              <path d="M535 60 L535 370"/>
+              <path d="M80 145 Q225 110 370 145"/>
+              <path d="M80 285 Q225 320 370 285"/>
+              <path d="M390 145 Q535 110 680 145"/>
+              <path d="M390 285 Q535 320 680 285"/>
+            </g>
+            <g fill="#95d6a4" stroke="#6ab67e" stroke-width="2.3">
+              <path d="M155 130c-22 8-40 22-52 42-11 19-17 44-8 56 12 18 40 17 52 34 10 14 2 33 16 41 12 8 30-4 42-18 17-19 37-29 43-49 9-27-5-60-30-84-18-18-44-28-63-22z"/>
+              <path d="M240 250c21 3 41 14 53 29 10 13 19 34 10 45-12 15-31 7-42 16-13 10-10 31-25 36-15 4-32-10-42-28-13-23-12-51 1-71 11-18 26-29 45-27z"/>
+              <path d="M485 128c18-9 46-13 72-5 29 9 49 27 53 45 4 17-9 31-23 35-18 6-25 20-36 31-15 16-44 30-71 22-22-7-31-25-37-43-8-25 5-67 42-85z"/>
+              <path d="M560 245c26 2 58 14 72 31 12 14 12 34-5 41-16 7-23 17-33 28-16 18-40 35-63 27-23-8-35-30-39-53-5-29 9-49 28-60 10-6 25-15 40-14z"/>
+              <path d="M627 183c16-4 28 2 37 13 7 9 8 19 0 24-8 5-14 1-19 7-7 8 1 20-10 25-10 5-21-3-27-14-9-15-2-40 19-55z"/>
+            </g>
+            <g font-size="13" font-weight="700" fill="#5c6f7c">
+              <text x="136" y="93">Північна півкуля</text>
+              <text x="140" y="400">Південна півкуля</text>
+              <text x="452" y="93">Північна півкуля</text>
+              <text x="455" y="400">Південна півкуля</text>
+              <text x="176" y="184">A</text>
+              <text x="296" y="186">B</text>
+              <text x="497" y="183">C</text>
+              <text x="577" y="295">D</text>
+            </g>
+            <g>
+              <circle cx="195" cy="190" r="9" fill="#ff8b8b" stroke="#b95555" stroke-width="2"/>
+              <circle cx="296" cy="173" r="9" fill="#9fd5ff" stroke="#5a99bf" stroke-width="2"/>
+              <circle cx="497" cy="170" r="9" fill="#ffd86d" stroke="#cb9e1c" stroke-width="2"/>
+              <circle cx="577" cy="284" r="9" fill="#92e0b4" stroke="#4ea877" stroke-width="2"/>
+            </g>
+          </svg>
+          <div class="caption"><b>Карта 1.</b> Схематична карта півкуль з точками <b>A, B, C, D</b>. Використовується для завдань про напрямки, півкулі та читання карти.</div>
+        </div>
+
+        <div class="map-card">
+          <svg viewBox="0 0 760 430" aria-label="План місцевості з об'єктами">
+            <rect width="760" height="430" fill="#eef9ee"/>
+            <rect x="34" y="34" width="692" height="362" rx="22" fill="#fafffb" stroke="#cfe4d5" stroke-width="4"/>
+            <path d="M110 90 L650 90 L650 140 L110 140 Z" fill="#f4d38d" stroke="#c9ac67" stroke-width="3"/>
+            <path d="M170 40 L170 370" stroke="#e3c38b" stroke-width="16"/>
+            <path d="M430 40 L430 390" stroke="#e3c38b" stroke-width="16"/>
+            <path d="M60 250 L710 250" stroke="#e3c38b" stroke-width="16"/>
+            <path d="M535 165 C575 190 596 225 600 255 C604 289 589 330 554 352" fill="none" stroke="#73b7ea" stroke-width="20" stroke-linecap="round"/>
+            <rect x="215" y="177" width="110" height="72" rx="10" fill="#d9dadf" stroke="#8e9197" stroke-width="3"/>
+            <rect x="225" y="188" width="24" height="24" fill="#6f7680"/>
+            <rect x="258" y="188" width="24" height="24" fill="#6f7680"/>
+            <rect x="291" y="188" width="24" height="24" fill="#6f7680"/>
+            <rect x="225" y="220" width="90" height="18" fill="#aeb4bc"/>
+            <circle cx="525" cy="110" r="38" fill="#9be38d" stroke="#5cab59" stroke-width="4"/>
+            <circle cx="579" cy="107" r="34" fill="#9be38d" stroke="#5cab59" stroke-width="4"/>
+            <circle cx="552" cy="138" r="32" fill="#9be38d" stroke="#5cab59" stroke-width="4"/>
+            <rect x="72" y="290" width="84" height="62" rx="8" fill="#ffd6a3" stroke="#c78d4c" stroke-width="3"/>
+            <polygon points="95,286 114,262 133,286" fill="#d97f66"/>
+            <polygon points="121,286 140,262 159,286" fill="#d97f66"/>
+            <circle cx="356" cy="330" r="12" fill="#ff7373" stroke="#b94d4d" stroke-width="3"/>
+            <circle cx="652" cy="302" r="12" fill="#a7b7ff" stroke="#6176d4" stroke-width="3"/>
+            <circle cx="503" cy="272" r="12" fill="#7fd8cf" stroke="#43968e" stroke-width="3"/>
+            <g font-size="15" font-weight="800" fill="#375166">
+              <text x="223" y="171">Школа</text>
+              <text x="535" y="72">Парк</text>
+              <text x="78" y="377">Музей</text>
+              <text x="571" y="227">Річка</text>
+              <text x="370" y="335">A</text>
+              <text x="665" y="307">B</text>
+              <text x="516" y="277">C</text>
+            </g>
+            <g>
+              <line x1="664" y1="58" x2="664" y2="96" stroke="#17384b" stroke-width="4" stroke-linecap="round"/>
+              <polygon points="664,35 650,60 678,60" fill="#17384b"/>
+              <text x="653" y="118" font-size="18" font-weight="900" fill="#17384b">Пн</text>
+            </g>
+          </svg>
+          <div class="caption"><b>Карта 2.</b> План місцевості з умовними об’єктами. Точки <b>A, B, C</b> використовуються у завданнях про напрямки й вибір картографічного джерела.</div>
+        </div>
+
+        <div class="map-card">
+          <svg viewBox="0 0 760 250" aria-label="Схема масштабу">
+            <rect width="760" height="250" fill="#fbfdff"/>
+            <text x="48" y="56" font-size="26" font-weight="900" fill="#17384b">Карта 3. Масштаб і відстань</text>
+            <text x="50" y="96" font-size="22" font-weight="800" fill="#3e667d">Числовий масштаб: 1 : 200 000</text>
+            <g transform="translate(55,132)">
+              <rect x="0" y="0" width="400" height="34" rx="5" fill="#17384b"/>
+              <rect x="100" y="0" width="100" height="34" fill="#66b3dd"/>
+              <rect x="300" y="0" width="100" height="34" fill="#66b3dd"/>
+              <g fill="#17384b" font-size="18" font-weight="800">
+                <text x="-5" y="60">0</text>
+                <text x="88" y="60">2 км</text>
+                <text x="188" y="60">4 км</text>
+                <text x="288" y="60">6 км</text>
+                <text x="388" y="60">8 км</text>
+              </g>
+            </g>
+            <line x1="518" y1="148" x2="670" y2="148" stroke="#e96f5d" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="518" cy="148" r="11" fill="#fff" stroke="#e96f5d" stroke-width="5"/>
+            <circle cx="670" cy="148" r="11" fill="#fff" stroke="#e96f5d" stroke-width="5"/>
+            <text x="500" y="186" font-size="18" font-weight="800" fill="#7a5550">Відстань між двома пунктами на карті — 7,6 см</text>
+          </svg>
+          <div class="caption"><b>Карта 3.</b> Схема для завдань про масштаб і визначення реальної відстані.</div>
+        </div>
+
+        <div class="map-card">
+          <svg viewBox="0 0 760 250" aria-label="Умовні знаки">
+            <rect width="760" height="250" fill="#f9fcfe"/>
+            <text x="42" y="52" font-size="26" font-weight="900" fill="#17384b">Карта 4. Умовні знаки</text>
+            <g font-size="18" fill="#2f556b" font-weight="700">
+              <rect x="48" y="88" width="46" height="30" fill="#73b7ea" stroke="#4085b8" stroke-width="3"/><text x="112" y="109">річка / водойма</text>
+              <circle cx="71" cy="148" r="14" fill="#9be38d" stroke="#5cab59" stroke-width="3"/><text x="112" y="154">ліс / зелена зона</text>
+              <rect x="378" y="88" width="46" height="30" fill="#d9dadf" stroke="#8e9197" stroke-width="3"/><text x="445" y="109">будівля</text>
+              <line x1="382" y1="149" x2="422" y2="149" stroke="#e3c38b" stroke-width="12"/><text x="445" y="154">дорога</text>
+              <polygon points="60,194 83,170 106,194" fill="#d97f66"/><text x="112" y="192">музей / визначне місце</text>
+              <circle cx="400" cy="180" r="12" fill="#ff7373" stroke="#b94d4d" stroke-width="3"/><text x="445" y="186">точка спостереження</text>
+            </g>
+          </svg>
+          <div class="caption"><b>Карта 4.</b> Набір умовних позначень для роботи з легендою карти.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quizSection" class="hidden">
+      <div class="kicker">Контрольна робота</div>
+      <h2>Контрольна робота: 10 завдань за картографічними матеріалами</h2>
+      <form id="quizForm">
+
+        <div class="q" data-type="single" data-answer='"satellite"'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 1</div><b>Яке джерело найкраще допоможе простежити, як за 10 років змінилася берегова лінія лиману?</b></div>
+            <div class="qtype">1 правильна відповідь</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q1" value="satellite">серія супутникових знімків різних років</label>
+            <label class="choice"><input type="radio" name="q1" value="globe">глобус</label>
+            <label class="choice"><input type="radio" name="q1" value="political">політична карта світу</label>
+            <label class="choice"><input type="radio" name="q1" value="plan">план класної кімнати</label>
+          </div>
+        </div>
+
+        <div class="q" data-type="single" data-answer='"AeastC"'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 2</div><b>За планом місцевості (Карта 2) визначте найближчі напрями: точка <b>A</b> розташована від школи на… а точка <b>C</b> — на…</b></div>
+            <div class="qtype">1 правильна відповідь</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q2" value="AeastC">південний схід; схід</label>
+            <label class="choice"><input type="radio" name="q2" value="AnorthC">північ; захід</label>
+            <label class="choice"><input type="radio" name="q2" value="AwestC">захід; південь</label>
+            <label class="choice"><input type="radio" name="q2" value="AsouthC">південь; північ</label>
+          </div>
+          <p class="mini">Використовуйте стрілку півночі, нанесену на плані.</p>
+        </div>
+
+        <div class="q" data-type="single" data-answer='"15.2"'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 3</div><b>На Карті 3 відстань між двома пунктами на карті становить 7,6 см. Яка реальна відстань?</b></div>
+            <div class="qtype">1 правильна відповідь</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q3" value="1.52">1,52 км</label>
+            <label class="choice"><input type="radio" name="q3" value="15.2">15,2 км</label>
+            <label class="choice"><input type="radio" name="q3" value="76">76 км</label>
+            <label class="choice"><input type="radio" name="q3" value="152">152 км</label>
+          </div>
+        </div>
+
+        <div class="q" data-type="single" data-answer='"hemisphere"'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 4</div><b>Який висновок за Картою 1 є правильним?</b></div>
+            <div class="qtype">1 правильна відповідь</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q4" value="hemisphere">Точка D лежить у Південній півкулі.</label>
+            <label class="choice"><input type="radio" name="q4" value="allnorth">Усі точки A, B, C, D лежать у Північній півкулі.</label>
+            <label class="choice"><input type="radio" name="q4" value="Aequator">Точка A лежить точно на екваторі.</label>
+            <label class="choice"><input type="radio" name="q4" value="Bsouth">Точка B лежить у Південній півкулі.</label>
+          </div>
+        </div>
+
+        <div class="q" data-type="multi" data-answer='["plan","signs","route"]'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 5</div><b>Які твердження правильно пояснюють, чому для маршруту територією школи варто брати <i>план місцевості</i>, а не карту світу?</b></div>
+            <div class="qtype">Множинний вибір</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="checkbox" name="q5" value="plan">План має більший масштаб і краще показує дрібні об’єкти.</label>
+            <label class="choice"><input type="checkbox" name="q5" value="signs">На плані зручніше бачити будівлі, доріжки та локальні об’єкти.</label>
+            <label class="choice"><input type="checkbox" name="q5" value="route">План призначений для невеликої території, тому краще підходить для місцевого маршруту.</label>
+            <label class="choice"><input type="checkbox" name="q5" value="hemispheres">Карта світу показує більше материків, отже для школи вона точніша.</label>
+            <label class="choice"><input type="checkbox" name="q5" value="globe">На глобусі легше побачити шафу біля кабінету.</label>
+          </div>
+        </div>
+
+        <div class="q" data-type="multi" data-answer='["legend","measure","source"]'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 6</div><b>Що обов’язково треба перевірити, щоб правильно прочитати нову карту?</b></div>
+            <div class="qtype">Множинний вибір</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="checkbox" name="q6" value="legend">легенду та умовні знаки</label>
+            <label class="choice"><input type="checkbox" name="q6" value="measure">масштаб</label>
+            <label class="choice"><input type="checkbox" name="q6" value="source">що саме карта показує і для якої території вона створена</label>
+            <label class="choice"><input type="checkbox" name="q6" value="pen">колір ручки, якою підписано назву</label>
+            <label class="choice"><input type="checkbox" name="q6" value="frame">лише рамку карти — цього вже достатньо</label>
+          </div>
+        </div>
+
+        <div class="q" data-type="match" data-answer='{"m1":"map","m2":"globe","m3":"satellite","m4":"plan"}'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 7</div><b>Установіть відповідність між джерелом і найдоречнішим завданням.</b></div>
+            <div class="qtype">Відповідності</div>
+          </div>
+          <div class="match-grid">
+            <div class="card">
+              <ol style="margin:.2rem 0;padding-left:1.1rem">
+                <li id="m1label"><b>m1.</b> Показати поширення гір на великих територіях.</li>
+                <li id="m2label"><b>m2.</b> Пояснити форму Землі та положення материків на кулеподібній моделі.</li>
+                <li id="m3label"><b>m3.</b> Побачити реальний вигляд хмарного фронту сьогодні.</li>
+                <li id="m4label"><b>m4.</b> Знайти розташування школи, парку й музею на невеликій ділянці.</li>
+              </ol>
+            </div>
+            <div>
+              <label style="margin-bottom:10px">m1<select id="m1"><option value="">— оберіть —</option><option value="globe">глобус</option><option value="map">карта</option><option value="satellite">супутниковий знімок</option><option value="plan">план місцевості</option></select></label>
+              <label style="margin-bottom:10px">m2<select id="m2"><option value="">— оберіть —</option><option value="globe">глобус</option><option value="map">карта</option><option value="satellite">супутниковий знімок</option><option value="plan">план місцевості</option></select></label>
+              <label style="margin-bottom:10px">m3<select id="m3"><option value="">— оберіть —</option><option value="globe">глобус</option><option value="map">карта</option><option value="satellite">супутниковий знімок</option><option value="plan">план місцевості</option></select></label>
+              <label>m4<select id="m4"><option value="">— оберіть —</option><option value="globe">глобус</option><option value="map">карта</option><option value="satellite">супутниковий знімок</option><option value="plan">план місцевості</option></select></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="q" data-type="order" data-answer='["step2","step4","step1","step3"]'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 8</div><b>Установіть правильну послідовність дій, щоб визначити реальну відстань за числовим масштабом.</b></div>
+            <div class="qtype">Послідовність</div>
+          </div>
+          <div class="order-grid">
+            <label>Крок 1<select id="o1"><option value="">— оберіть —</option><option value="step1">перевести отриманий результат у кілометри або метри</option><option value="step2">виміряти відстань на карті лінійкою</option><option value="step3">записати відповідь із одиницями вимірювання</option><option value="step4">помножити виміряну відстань на знаменник масштабу</option></select></label>
+            <label>Крок 2<select id="o2"><option value="">— оберіть —</option><option value="step1">перевести отриманий результат у кілометри або метри</option><option value="step2">виміряти відстань на карті лінійкою</option><option value="step3">записати відповідь із одиницями вимірювання</option><option value="step4">помножити виміряну відстань на знаменник масштабу</option></select></label>
+            <label>Крок 3<select id="o3"><option value="">— оберіть —</option><option value="step1">перевести отриманий результат у кілометри або метри</option><option value="step2">виміряти відстань на карті лінійкою</option><option value="step3">записати відповідь із одиницями вимірювання</option><option value="step4">помножити виміряну відстань на знаменник масштабу</option></select></label>
+            <label>Крок 4<select id="o4"><option value="">— оберіть —</option><option value="step1">перевести отриманий результат у кілометри або метри</option><option value="step2">виміряти відстань на карті лінійкою</option><option value="step3">записати відповідь із одиницями вимірювання</option><option value="step4">помножити виміряну відстань на знаменник масштабу</option></select></label>
+          </div>
+        </div>
+
+        <div class="q" data-type="evidence" data-answer='"B"'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 9</div><b>Яких даних достатньо, щоб зробити висновок: «Точка B на плані (Карта 2) розташована на схід від школи»?</b></div>
+            <div class="qtype">Достатність доказів</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q9" value="A">Достатньо лише знати назву карти.</label>
+            <label class="choice"><input type="radio" name="q9" value="B">Потрібні положення школи й точки B на плані та напрямок на північ.</label>
+            <label class="choice"><input type="radio" name="q9" value="C">Потрібен тільки масштаб 1:10 000.</label>
+            <label class="choice"><input type="radio" name="q9" value="D">Потрібно лише знати, що на плані є парк і річка.</label>
+          </div>
+        </div>
+
+        <div class="q" data-type="cer" data-answer='"cer2"'>
+          <div class="qhead">
+            <div><div class="qnum">Завдання 10</div><b>Оберіть найкращий CER-висновок до твердження: «Одного картографічного джерела часто недостатньо для повного пояснення території».</b></div>
+            <div class="qtype">Найкращий аргумент / CER</div>
+          </div>
+          <div class="options">
+            <label class="choice"><input type="radio" name="q10" value="cer1"><b>Твердження:</b> потрібна карта. <b>Доказ:</b> карти бувають різні. <b>Пояснення:</b> цього досить.</label>
+            <label class="choice"><input type="radio" name="q10" value="cer2"><b>Твердження:</b> для повного вивчення території варто поєднувати кілька джерел. <b>Доказ:</b> план добре показує дрібні об’єкти, карта — більшу територію, а супутниковий знімок — реальний сучасний вигляд. <b>Пояснення:</b> кожне джерело дає різні дані, тому разом вони дозволяють зробити точніший висновок.</label>
+            <label class="choice"><input type="radio" name="q10" value="cer3"><b>Твердження:</b> глобус кращий за все. <b>Доказ:</b> він круглий. <b>Пояснення:</b> тому інші джерела не потрібні.</label>
+            <label class="choice"><input type="radio" name="q10" value="cer4"><b>Твердження:</b> карта світу замінює будь-який план. <b>Доказ:</b> вона велика. <b>Пояснення:</b> значить, на ній є все потрібне.</label>
+          </div>
+        </div>
+
+        <div class="quiz-actions no-print">
+          <button id="submitBtn" type="button">Завершити контрольну</button>
+          <button id="resetBtn" class="soft" type="button">Почати спочатку</button>
+          <p id="quizFeedback" class="feedback" style="margin:0"></p>
+        </div>
+      </form>
+    </section>
+
+    <section id="resultSection" class="hidden">
+      <div class="kicker">Результат</div>
+      <h2>Картка результату</h2>
+      <div class="result-card" id="resultCard">
+        <p class="print-only"><b>Скринченко К.А. • Василівський ліцей «Сузір’я»</b></p>
+        <div class="two-cols">
+          <div>
+            <p><span class="key">ПІБ учня:</span> <b id="outName">—</b></p>
+            <p><span class="key">Клас:</span> <b id="outClass">—</b></p>
+            <p><span class="key">Тема:</span> <b>Підсумкова контрольна «Вступ. Земля на глобусі й карті»</b></p>
+            <p><span class="key">Дата й час:</span> <b id="outDate">—</b></p>
+            <div class="big" id="outScore">0 / 10</div>
+            <div class="scoreline">
+              <span class="score-pill" id="outPercent">0%</span>
+              <span class="score-pill" id="outComment">Повторити тему</span>
+            </div>
+          </div>
+          <div class="note success">
+            <h3 style="margin:.2rem 0 .7rem">Що робити далі</h3>
+            <ol style="padding-left:1.15rem;margin:.2rem 0">
+              <li>Зробіть <b>скриншот</b> цієї картки.</li>
+              <li>Надішліть його вчителю.</li>
+              <li>Для вдосконалення результату повторіть масштаб, умовні знаки та типи географічних джерел.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="grid2">
+          <div>
+            <h3 style="margin:.2rem 0 .55rem">Короткий зворотний зв’язок</h3>
+            <p id="outFeedback" class="muted">—</p>
+          </div>
+          <div>
+            <h3 style="margin:.2rem 0 .55rem">Пам’ятка</h3>
+            <ul class="rubric muted" style="padding-left:1.1rem;margin:.2rem 0">
+              <li><b>0–4</b> — повторити тему</li>
+              <li><b>5–7</b> — достатньо</li>
+              <li><b>8–9</b> — добре</li>
+              <li><b>10</b> — відмінно</li>
+            </ul>
+          </div>
+        </div>
+        <div class="quiz-actions no-print">
+          <button id="printBtn" class="secondary" type="button">Друк / зберегти PDF</button>
+          <button id="retryBtn" class="soft" type="button">Пройти ще раз</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»
+  </footer>
+
+  <script>
+    const $ = (id)=>document.getElementById(id);
+    const today = new Date();
+    $('today').value = today.toLocaleDateString('uk-UA');
+
+    function validFullName(value){
+      const parts = value.trim().replace(/\s+/g,' ').split(' ');
+      return parts.length >= 2 && parts.every(p => /^[A-Za-zА-Яа-яІіЇїЄєҐґ'’\-]+$/.test(p));
+    }
+
+    const startBtn = $('startQuizBtn');
+    const submitBtn = $('submitBtn');
+    const resetBtn = $('resetBtn');
+    const printBtn = $('printBtn');
+    const retryBtn = $('retryBtn');
+
+    startBtn.addEventListener('click', ()=>{
+      const fullName = $('fullName').value.trim();
+      const studentClass = $('studentClass').value.trim();
+      if(!validFullName(fullName) || !studentClass){
+        $('gateFeedback').textContent = 'Введіть ім’я, прізвище (щонайменше два слова) та клас. Без цифр у ПІБ, будь ласка.';
+        $('gateFeedback').style.color = '#b34747';
+        return;
+      }
+      $('gateFeedback').textContent = 'Контрольну відкрито. Працюйте уважно.';
+      $('gateFeedback').style.color = '#137554';
+      $('quizSection').classList.remove('hidden');
+      $('quizSection').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    function arraysEqual(a,b){
+      if(a.length !== b.length) return false;
+      const A = [...a].sort();
+      const B = [...b].sort();
+      return A.every((x,i)=>x===B[i]);
+    }
+
+    function gradeQuiz(){
+      let score = 0;
+      const missed = [];
+
+      // q1-q4 single
+      const singleAnswers = {
+        q1:'satellite', q2:'AeastC', q3:'15.2', q4:'hemisphere', q9:'B', q10:'cer2'
+      };
+      Object.entries(singleAnswers).forEach(([name,answer])=>{
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        if(selected && selected.value === answer) score++; else missed.push(name);
+      });
+
+      // q5 multi
+      const q5 = [...document.querySelectorAll('input[name="q5"]:checked')].map(x=>x.value);
+      if(arraysEqual(q5,['plan','signs','route'])) score++; else missed.push('q5');
+
+      // q6 multi
+      const q6 = [...document.querySelectorAll('input[name="q6"]:checked')].map(x=>x.value);
+      if(arraysEqual(q6,['legend','measure','source'])) score++; else missed.push('q6');
+
+      // q7 match
+      const matchOK = $('m1').value==='map' && $('m2').value==='globe' && $('m3').value==='satellite' && $('m4').value==='plan';
+      if(matchOK) score++; else missed.push('q7');
+
+      // q8 order
+      const order = [$('o1').value,$('o2').value,$('o3').value,$('o4').value];
+      const orderOK = arraysEqual(order,['step2','step4','step1','step3']) && order[0]==='step2' && order[1]==='step4' && order[2]==='step1' && order[3]==='step3';
+      if(orderOK) score++; else missed.push('q8');
+
+      const percent = Math.round(score * 10);
+      let comment = 'Повторити тему';
+      let feedback = 'Почніть із бази: джерела географічної інформації, легенда карти, напрямки та масштаб. Попрацюйте з навчальним атласом і прикладами.';
+      if(score>=5 && score<=7){
+        comment = 'Достатньо';
+        feedback = 'База є. Перегляньте помилки у масштабі, відборі джерел та читанні плану місцевості — саме там найчастіше ховаються дрібні, але підступні втрати балів.';
+      }
+      if(score>=8 && score<=9){
+        comment = 'Добре';
+        feedback = 'Ви впевнено працюєте з картами й планами. Щоб добрати максимум, варто ще точніше стежити за логікою множинного вибору та формулюванням достатніх доказів.';
+      }
+      if(score===10){
+        comment = 'Відмінно';
+        feedback = 'Чудово. Ви не просто впізнаєте карту, а й умієте читати її розумно: добираєте потрібне джерело, працюєте з масштабом і не плутаєте територію, модель та спосіб зображення.';
+      }
+
+      $('outName').textContent = $('fullName').value.trim();
+      $('outClass').textContent = $('studentClass').value.trim();
+      $('outDate').textContent = new Date().toLocaleString('uk-UA');
+      $('outScore').textContent = `${score} / 10`;
+      $('outPercent').textContent = `${percent}%`;
+      $('outComment').textContent = comment;
+      $('outFeedback').textContent = feedback;
+      $('resultSection').classList.remove('hidden');
+      $('resultSection').scrollIntoView({behavior:'smooth', block:'start'});
+      return {score, missed};
+    }
+
+    submitBtn.addEventListener('click', ()=>{
+      const answeredSingles = ['q1','q2','q3','q4','q9','q10'].every(name => document.querySelector(`input[name="${name}"]:checked`));
+      const selectsFilled = ['m1','m2','m3','m4','o1','o2','o3','o4'].every(id => $(id).value);
+      if(!answeredSingles || !selectsFilled){
+        $('quizFeedback').textContent = 'Заповніть усі обов’язкові поля контрольної перед завершенням.';
+        $('quizFeedback').style.color = '#b34747';
+        return;
+      }
+      $('quizFeedback').textContent = '';
+      gradeQuiz();
+    });
+
+    resetBtn.addEventListener('click', ()=>{
+      if(!confirm('Очистити всі відповіді та почати спочатку?')) return;
+      $('quizForm').reset();
+      $('quizFeedback').textContent = '';
+    });
+
+    retryBtn.addEventListener('click', ()=>{
+      if(!confirm('Пройти контрольну ще раз? Поточний результат залишиться на екрані, але відповіді буде очищено.')) return;
+      $('quizForm').reset();
+      $('resultSection').classList.add('hidden');
+      $('quizSection').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    printBtn.addEventListener('click', ()=>window.print());
+  </script>
+</body>
+</html>
