@@ -560,6 +560,16 @@
           </div>
         </div>
         <div class="divider"></div>
+        <div class="note" style="background:#f0f8fc" id="grResults" aria-live="polite">
+          <h3 style="margin:0 0 .5rem">Окремі результати за групами НУШ</h3>
+          <p class="mini">Кожна ГР має власну оцінку за шкалою 1–12; максимум 12 — лише за всі правильні відповіді в групі.</p>
+          <div class="grid3">
+            <div class="card"><b>ГР1 · Знання й розуміння</b><div class="big" style="font-size:1.8rem" id="gr1">—</div><p class="mini">Завдання 1, 4, 6</p></div>
+            <div class="card"><b>ГР2 · Робота з географічною інформацією</b><div class="big" style="font-size:1.8rem" id="gr2">—</div><p class="mini">Завдання 2, 3, 7, 8</p></div>
+            <div class="card"><b>ГР3 · Пояснення й застосування</b><div class="big" style="font-size:1.8rem" id="gr3">—</div><p class="mini">Завдання 5, 9, 10</p></div>
+          </div>
+        </div>
+        <div class="divider"></div>
         <div class="grid2">
           <div>
             <h3 style="margin:.2rem 0 .55rem">Короткий зворотний зв’язок</h3>
@@ -654,6 +664,17 @@
       const orderOK = arraysEqual(order,['step2','step4','step1','step3']) && order[0]==='step2' && order[1]==='step4' && order[2]==='step1' && order[3]==='step3';
       if(orderOK) score++; else missed.push('q8');
 
+      const groups = [
+        ['gr1',['q1','q4','q6']],
+        ['gr2',['q2','q3','q7','q8']],
+        ['gr3',['q5','q9','q10']]
+      ];
+      groups.forEach(([out,qs])=>{
+        const correct = qs.filter(id=>!missed.includes(id)).length;
+        const grScore = Math.max(1,Math.round(12*correct/qs.length));
+        $(out).textContent = grScore+' / 12';
+        $(out).title = correct+' із '+qs.length+' завдань виконано правильно';
+      });
       const percent = Math.round(score * 10);
       let comment = 'Повторити тему';
       let feedback = 'Почніть із бази: джерела географічної інформації, легенда карти, напрямки та масштаб. Попрацюйте з навчальним атласом і прикладами.';
