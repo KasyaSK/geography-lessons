@@ -22,4 +22,5 @@ const answers=[1, 2, 0, 3, 1, 0, 2, 3, 1, 0, 2, 1];const explanations=["Пари
 function updateCheck(){const boxes=$$('[data-check]'),n=boxes.filter(x=>x.checked).length;$('#checked-count').textContent=n+' / '+boxes.length;$('#checkfill').style.width=(100*n/boxes.length)+'%';try{localStorage.setItem('france_portal_check_v1',JSON.stringify(boxes.map(x=>x.checked)));}catch(e){}}
 try{const stored=JSON.parse(localStorage.getItem('france_portal_check_v1')||'null');if(Array.isArray(stored))$$('[data-check]').forEach((x,i)=>x.checked=!!stored[i]);}catch(e){}$$('[data-check]').forEach(b=>b.addEventListener('change',updateCheck));updateCheck();
 })();
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
