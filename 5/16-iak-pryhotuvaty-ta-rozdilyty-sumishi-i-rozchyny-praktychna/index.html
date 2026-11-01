@@ -151,7 +151,7 @@
 'use strict';
 var $=function(s){return document.querySelector(s)}, $$=function(s){return Array.from(document.querySelectorAll(s))};
 var completed=new Set();
-function mark(key){completed.add(key);$('#progress').style.width=(completed.size/5*100)+'%'}
+function mark(key){completed.add(key);$('#progress').style.width=(completed.size/6*100)+'%'}
 function result(el,ok,text){el.textContent=(ok?'✓ ':'↻ ')+text;el.classList.toggle('ok',ok);el.classList.toggle('no',!ok)}
 var mixDone=new Set();
 $$('#mix-grid .mix-card').forEach(function(card,i){
