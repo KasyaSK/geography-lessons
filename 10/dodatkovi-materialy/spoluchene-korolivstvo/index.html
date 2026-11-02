@@ -76,4 +76,5 @@ function updateChecks(){let all=$$('.lesson-check'),n=all.filter(x=>x.checked).l
 $$('.lesson-check').forEach(x=>x.addEventListener('change',updateChecks));updateChecks();
 // Click-to-play YouTube (privacy enhanced)
 $$('[data-video]').forEach(el=>{el.querySelector('button').addEventListener('click',()=>{let id=el.dataset.video;el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1" title="Навчальне відео" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'})});
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
