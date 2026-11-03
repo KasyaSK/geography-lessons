@@ -80,10 +80,11 @@ const questions=[
 ];
 let student={name:'',klass:''},finalized=false;
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function shuffledIndices(length){const a=Array.from({length},(_,i)=>i);for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function quizRender(){const n=$('quiz-questions');n.innerHTML='';questions.forEach((q,idx)=>{let html='<div class="quiz-question"><fieldset><legend>'+esc(q.title)+'</legend>';
- if(q.type==='single'||q.type==='multi'){q.opts.forEach((o,j)=>{let type=q.type==='single'?'radio':'checkbox';html+='<label class="choice"><input type="'+type+'" name="q'+idx+'" value="'+j+'"> <span>'+esc(o)+'</span></label>';});}
- if(q.type==='match'){q.pairs.forEach((pair,j)=>{html+='<div class="match-row"><span>'+esc(pair[0])+'</span><select name="q'+idx+'_'+j+'" aria-label="Відповідність: '+esc(pair[0])+'"><option value="">Оберіть роль</option>'+q.options.map((o,k)=>'<option value="'+k+'">'+esc(o)+'</option>').join('')+'</select></div>';});}
- if(q.type==='sequence'){for(let pos=0;pos<4;pos++){html+='<div class="match-row"><span>Позиція '+(pos+1)+'</span><select name="q'+idx+'_'+pos+'" aria-label="Позиція '+(pos+1)+'"><option value="">Оберіть подію</option>'+q.items.map((o,k)=>'<option value="'+k+'">'+esc(o)+'</option>').join('')+'</select></div>';}}
+ if(q.type==='single'||q.type==='multi'){shuffledIndices(q.opts.length).forEach(j=>{const o=q.opts[j];let type=q.type==='single'?'radio':'checkbox';html+='<label class="choice"><input type="'+type+'" name="q'+idx+'" value="'+j+'"> <span>'+esc(o)+'</span></label>';});}
+ if(q.type==='match'){q.pairs.forEach((pair,j)=>{html+='<div class="match-row"><span>'+esc(pair[0])+'</span><select name="q'+idx+'_'+j+'" aria-label="Відповідність: '+esc(pair[0])+'"><option value="">Оберіть роль</option>'+shuffledIndices(q.options.length).map(k=>'<option value="'+k+'">'+esc(q.options[k])+'</option>').join('')+'</select></div>';});}
+ if(q.type==='sequence'){for(let pos=0;pos<4;pos++){html+='<div class="match-row"><span>Позиція '+(pos+1)+'</span><select name="q'+idx+'_'+pos+'" aria-label="Позиція '+(pos+1)+'"><option value="">Оберіть подію</option>'+shuffledIndices(q.items.length).map(k=>'<option value="'+k+'">'+esc(q.items[k])+'</option>').join('')+'</select></div>';}}
  html+='</fieldset></div>';n.insertAdjacentHTML('beforeend',html);});}
 quizRender();
 function nameIsValid(str){const parts=str.trim().replace(/\s+/g,' ').split(' ');return parts.length>=2&&parts.every(p=>/^[A-Za-zА-Яа-яІіЇїЄєҐґ’'ʼ-]{2,}$/.test(p));}
@@ -96,5 +97,4 @@ $('quiz-form').addEventListener('submit',e=>{e.preventDefault();if(finalized)ret
 $('retry-quiz').addEventListener('click',()=>{if(!window.confirm('Повторити тест? Попередній результат на цій сторінці буде замінено, але ПІБ залишиться.'))return;finalized=false;quizRender();$('quiz-submit').disabled=false;$('score-card').classList.remove('visible');$('quiz-section').scrollIntoView({behavior:'smooth',block:'start'});});
 $('print-score').addEventListener('click',()=>window.print());
 </script>
-<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
