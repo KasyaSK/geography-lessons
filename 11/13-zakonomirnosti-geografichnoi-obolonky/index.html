@@ -43,4 +43,5 @@ const extraCases=[
 ['Яке твердження про ритмічність правильне?',['Цикли можуть повторюватися з відмінностями','Усі цикли мають однакову тривалість','Пори року повністю однакові щороку'],0,'Ритмічність означає повторюваність, а не абсолютну тотожність кожного циклу.']
 ];
 (function(){const root=document.getElementById('challenge-root');if(!root)return;extraCases.forEach((item,i)=>{let d=document.createElement('div');d.className='fieldwork';let h=document.createElement('h3');h.textContent='Виклик '+(i+1);d.appendChild(h);let q=document.createElement('p');q.textContent=item[0];d.appendChild(q);let feedback=document.createElement('p');feedback.className='feedback';feedback.setAttribute('aria-live','polite');item[1].forEach((choice,j)=>{let b=document.createElement('button');b.type='button';b.textContent=choice;b.onclick=()=>{feedback.textContent=(j===item[2]?'✓ Правильно. ':'✗ Спробуйте ще. ')+item[3];feedback.style.color=j===item[2]?'#b4f8cf':'#ffe6ae'};d.appendChild(b)});d.appendChild(feedback);root.appendChild(d)})})();
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
