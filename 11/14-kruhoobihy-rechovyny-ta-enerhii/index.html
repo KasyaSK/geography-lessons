@@ -142,4 +142,5 @@ const carb={fos:10.3,luc:1.3,ocean:3.4,land:1.9};function carbonUpdate(){const d
 for(const k of Object.keys(carb))el('c-'+k).addEventListener('input',carbonUpdate);el('c-reset').addEventListener('click',()=>{for(const [k,v]of Object.entries(carb))el('c-'+k).value=v;carbonUpdate();});el('c-check').addEventListener('click',()=>{const v=num(el('c-answer').value);setFeedback('c-feedback',Number.isFinite(v)&&Math.abs(v+1.6)<.051,'Так: (10,3 + 1,3) − 7,9 − 3,4 − 1,9 = −1,6 GtC/рік. У статті офіційне значення −1,7 через неокруглені розрахунки.','Перевірте арифметику і знак: сума джерел 11,6; атмосфера та стоки разом 13,2. Різниця має бути від’ємною.');});carbonUpdate();
 })();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
