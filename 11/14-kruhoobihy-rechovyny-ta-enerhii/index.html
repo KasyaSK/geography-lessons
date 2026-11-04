@@ -120,4 +120,5 @@ $('quiz-form').addEventListener('submit',e=>{e.preventDefault();if(finalized)ret
 $('retry-quiz').addEventListener('click',()=>{if(!window.confirm('Повторити тест? Попередній результат на цій сторінці буде замінено, але ПІБ залишиться.'))return;finalized=false;quizRender();$('quiz-submit').disabled=false;$('score-card').classList.remove('visible');$('quiz-section').scrollIntoView({behavior:'smooth',block:'start'});});
 $('print-score').addEventListener('click',()=>window.print());
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
