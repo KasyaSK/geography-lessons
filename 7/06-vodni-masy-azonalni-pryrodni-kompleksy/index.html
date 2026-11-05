@@ -266,6 +266,7 @@ const $=id=>document.getElementById(id),W=$('wind'),surface=$('ocean'),depth=$('
 let mode='neutral',playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,last=0,frame=0,seed=12345;
 const rng=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296};
 const particles=Array.from({length:185},(_,i)=>({x:rng(),y:.17+rng()*.66,age:rng()*200,type:i%9===0?1:i%11===0?2:0}));
+particles.forEach(p=>{if(p.type===1){p.y=.20+rng()*.08;}else if(p.type===2){p.x=.89+rng()*.025;p.y=.55+rng()*.27;}});
 const clip=(x,a,b)=>Math.max(a,Math.min(b,x));
 const windNum=()=>Number(W.value);
 const anomaly=()=>Math.round((55-windNum())*.035*100)/100;
@@ -285,7 +286,7 @@ if(w<25 && eq>.6){u+=.21*(25-w)/25}
 return [u,v];
 }
 function resetParticles(){
-particles.forEach(p=>{p.x=.05+rng()*.9;p.y=.18+rng()*.64;p.age=rng()*150});
+particles.forEach(p=>{p.x=.05+rng()*.9;p.y=.18+rng()*.64;if(p.type===1){p.y=.20+rng()*.08;}else if(p.type===2){p.x=.89+rng()*.025;p.y=.55+rng()*.27;}p.age=rng()*150});
 }
 function update(){
 const w=windNum(),a=anomaly(),up=clip(.3+w/130,0,1.2);
@@ -379,7 +380,7 @@ let uv=regionVel(p.x,p.y,w),type=p.type;
 if(type===1){uv=[.16,.006]}else if(type===2){uv=[-.045,-.16]}
 p.x+=uv[0]*.0085*dt*3;p.y+=uv[1]*.0085*dt*3;
 if(p.x<0)p.x=.98;if(p.x>1)p.x=.02;
-if(p.y<.09)p.y=.83;if(p.y>.85)p.y=.12;
+if(p.type===1){if(p.y<.19||p.y>.31)p.y=.245;}if(p.type===2){p.x=.91;if(p.y<.18)p.y=.82;}else if(p.y<.09)p.y=.83;if(p.y>.85)p.y=.12;
 });
 drawOcean();
 }
