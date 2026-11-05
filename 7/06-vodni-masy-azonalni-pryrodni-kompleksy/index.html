@@ -1,66 +1,451 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Практична №6 — Водні маси й азональні природні комплекси | 7 клас</title><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#081526;color:#eaf3fa;font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}a{color:#69d9ed}header{padding:64px max(22px,calc((100vw - 1120px)/2));background:radial-gradient(circle at 75% 25%,#165c79 0,transparent 45%),linear-gradient(135deg,#0c243a,#081526)}h1{font-size:clamp(2rem,5vw,4.1rem);line-height:1.12;margin:12px 0}h2{font-size:clamp(1.5rem,3vw,2.1rem)}h3{margin:0 0 8px}.eyebrow{color:#7ae6d8;letter-spacing:.15em;font-size:.8rem;font-weight:800;text-transform:uppercase}.lead{font-size:1.2rem;color:#c5dbe8;max-width:750px}.wrap{max-width:1120px;margin:auto;padding:24px}.panel,.station{border:1px solid #28475d;border-radius:20px;background:#10263a;padding:24px;margin:22px 0;box-shadow:0 14px 30px #0002}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.tile{background:#18364c;border:1px solid #34566b;border-radius:14px;padding:18px}.pill{display:inline-block;background:#18465a;color:#a8f6e9;padding:6px 12px;border-radius:40px;font-size:.82rem;margin:3px}nav{position:sticky;top:0;z-index:10;background:#081526eb;backdrop-filter:blur(12px);padding:10px 18px;display:flex;gap:12px;overflow:auto;border-bottom:1px solid #345}nav a{white-space:nowrap;text-decoration:none;font-size:.87rem}.heroimage{width:100%;max-height:480px;object-fit:contain;background:#07111e;border-radius:14px;border:1px solid #36566b}.source{font-size:.85rem;color:#a9bdcb}.task{padding:16px 0;border-bottom:1px solid #34566b}.task:last-child{border:0}.task label{display:block;font-weight:750;margin:0 0 5px}.task small{display:block;color:#b5cbd7;margin:0 0 10px}textarea,input,select{background:#071a2b;color:#fff;border:1px solid #54748a;border-radius:10px;padding:12px;width:100%;font:inherit}textarea{min-height:82px;resize:vertical}button,.btn{background:#40d9c6;color:#062b36;border:0;padding:11px 17px;border-radius:10px;font-weight:800;cursor:pointer;display:inline-block;text-decoration:none;margin:4px}button.secondary,.btn.secondary{background:#25475b;color:#e7f9ff}.feedback{padding:12px;border-radius:12px;background:#173e43;margin:10px 0}.muted{color:#b8ccda}.big{font-size:2.5rem;font-weight:800;color:#78e9d7}.model{padding:20px;border-radius:15px;background:#091d2d;border:1px solid #32546b}.model input[type=range]{padding:0;accent-color:#40d9c6}.bar{height:15px;border-radius:10px;background:#25475b;overflow:hidden}.bar span{display:block;background:#40d9c6;height:100%;width:0}.mapframe{width:100%;height:390px;border:0;border-radius:14px}.answerkey{display:none}.note{border-left:4px solid #40d9c6;padding:8px 16px;background:#13384a}.warn{border-left:4px solid #ffbd71;padding:8px 16px;background:#4a3220}footer{padding:40px 20px;text-align:center;color:#a6c2d1}@media print{nav,button,.btn{display:none!important}body{background:#fff;color:#111}.station,.panel{break-inside:avoid;background:#fff;color:#111}textarea{border:1px solid #777;color:#111}.wrap{max-width:none}}</style><style>
-.geo-up{max-width:1160px;margin:34px auto;background:linear-gradient(140deg,#102b48,#071b32);border:1px solid #357b90;border-radius:26px;padding:clamp(18px,3vw,34px);color:#f0faff}
-.geo-up *{box-sizing:border-box}.geo-up-kicker{font-size:.8rem;letter-spacing:.13em;color:#78dcee;font-weight:800}.geo-up h2{font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.17;margin:.6em 0}.geo-up h3{margin:28px 0 13px}
-.geo-up-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:14px}.geo-up-fig{margin:0;background:#153956;border-radius:15px;overflow:hidden;border:1px solid #2b667e}.geo-up-fig img{display:block;width:100%;height:180px;object-fit:cover}.geo-up-fig figcaption{padding:12px;display:grid;gap:5px;font-size:.89rem}.geo-up-fig small{font-size:.77rem;color:#88dae6}
-.geo-up-videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:16px}.geo-up-videos article{padding:15px;border:1px solid #447d8f;border-radius:16px;background:#163956}
-.geo-up-videos iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:10px}.geo-up a{color:#8feeff}
-.geo-up-lab{margin-top:25px;background:#0e3a55;border-radius:20px;padding:20px;border:1px solid #4b8b96}.geo-up-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.geo-up-pair{background:#114a66;padding:14px;border-radius:13px}.geo-up-pair label{display:block;margin:10px 0 3px}
-.geo-up input[type=range]{width:100%;accent-color:#78e5e6;min-height:42px}.geo-up-water{display:flex;gap:12px;justify-content:center;align-items:end;margin:15px 0}.geo-up-watercell{display:grid;place-items:center;gap:6px;border:2px solid #b5edf7;background:#216f99;border-radius:15px;width:44%;height:95px;font-weight:800;font-size:1.4rem;transition:transform .2s}.geo-up-watercell span{font-size:.8rem;font-weight:500}
-.geo-up-note{font-size:.85rem;color:#c4e7f0}.geo-up-task{margin-top:20px;padding:16px;background:#174969;border-left:4px solid #ffd06a;border-radius:12px}
-@media(max-width:590px){.geo-up-controls{grid-template-columns:1fr}.geo-up{margin:20px 10px}.geo-up-fig img{height:200px}}
-@media(prefers-reduced-motion:reduce){.geo-up-watercell{transition:none}}
-</style></head><body>
-<header><div class="eyebrow">Географія · 7 клас · Практична робота №6</div><h1>Океан під мікроскопом</h1><p class="lead">Водні маси, течії та азональні природні комплекси. Ви — команда океанографів. Працюйте з реальними картами NASA й NOAA, запускайте моделі, записуйте докази та створіть власний висновок.</p><span class="pill">35 хв · основний маршрут</span><span class="pill">+ додаткові місії</span><span class="pill">Самостійна робота</span><span class="pill">Реальні наукові джерела</span><p><a class="btn" href="#start">Розпочати експедицію ↓</a></p></header>
-<nav><a href="#start">Інструктаж</a><a href="#theory">Теорія</a><a href="#s1">01 Температура</a><a href="#s2">02 Течії</a><a href="#s3">03 Життя</a><a href="#s4">04 Азональність</a><a href="#models">Моделі</a><a href="#quiz">Самоперевірка</a><a href="#report">Звіт</a></nav><main class="wrap">
-<section id="start" class="panel"><div class="eyebrow">Початок · 2 хв</div><h2>Місія: знайти закономірність і виняток</h2><p>Ваша мета — пояснити, чому температура й солоність океану неоднакові, як течії змінюють узбережжя та чому деякі природні комплекси виникають не за широтною зональністю.</p><div class="grid"><div class="tile"><b>1. Досліджуйте</b><p>Роздивіться карту, легенду, підпис і дату даних.</p></div><div class="tile"><b>2. Доводьте</b><p>Пишіть не тільки «де», а й «чому» — посилайтеся на конкретні ділянки карти.</p></div><div class="tile"><b>3. Перевіряйте</b><p>Відповіді зберігаються у Вашому браузері. Наприкінці завантажте звіт.</p></div></div><p class="note">Основний маршрут на 35 хв: теорія 4 хв → станції 1–3 по 5 хв → станція 4 — 5 хв → моделі 5 хв → звіт 4 хв. Решта вправ — додатково.</p><label for="student">Ваше ім'я та клас</label><input id="student" data-save placeholder="Наприклад: Марія, 7-Б"></section>
-<section id="theory" class="panel"><div class="eyebrow">Коротка теорія · 4 хв</div><h2>П'ять понять, без яких не розв'язати практичну</h2><div class="grid"><div class="tile"><h3>Водна маса</h3>Великий об'єм океанічної води з відносно характерними температурою, солоністю та іншими властивостями.</div><div class="tile"><h3>Солоність</h3>Кількість розчинених солей; у шкільних задачах часто подається в ‰ (приблизно грамів на кілограм).</div><div class="tile"><h3>Течія</h3>Спрямований рух води. «Тепла» чи «холодна» — порівняно з навколишніми водами, а не абсолютна температура.</div><div class="tile"><h3>Апвелінг</h3>Підняття глибинної води до поверхні. Вона часто холодніша й багатша на поживні речовини.</div><div class="tile"><h3>Азональний комплекс</h3>Природний комплекс, поширення якого визначається переважно місцевими чинниками: рельєфом, водами, геологічною будовою тощо.</div></div><p class="warn"><b>Уважно:</b> супутникова карта показує властивості <em>поверхні</em> океану. Не можна автоматично переносити її значення на всю товщу води.</p></section><section id="s1" class="station"><div class="eyebrow">Станція 01 · 5 хв</div><h2>Розшифруйте карту температур</h2><p class="muted">NASA · супутникова карта SST</p><img class="heroimage" loading="lazy" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/1000/1869/modis_sst_200105_lrg.jpg" alt="NASA · супутникова карта SST" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="feedback" style="display:none">Зображення не завантажилось. Відкрийте першоджерело за посиланням нижче.</div><p class="source">Джерело: <a href="https://science.nasa.gov/earth/earth-observatory/modis-global-sea-surface-temperature-1869/" target="_blank" rel="noopener">відкрити оригінальну карту й пояснення ↗</a>. Карта/знімок — опублікований картографічний матеріал; дату й метод дивіться у джерелі.</p><div class="task"><label for="s1q1">1. Де на карті переважають найтепліші поверхневі води?</label><small>Укажіть широтний пояс і назвіть два океани.</small><textarea id="s1q1" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s1q2">2. Чому біля західного узбережжя Південної Америки є холодні поверхневі води?</label><small>Згадайте холодну Перуанську течію та підняття глибинних вод.</small><textarea id="s1q2" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s1q3">3. Чи однакова температура води на всій широті 30° пн. ш.?</label><small>Наведіть один приклад відхилення від широтної закономірності.</small><textarea id="s1q3" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div></section><section id="s2" class="station"><div class="eyebrow">Станція 02 · 5 хв</div><h2>Простежте океанічні течії</h2><p class="muted">NOAA · карта океанічних кругообігів</p><img class="heroimage" loading="lazy" src="https://oceanservice.noaa.gov/facts/gyre.jpg" alt="NOAA · карта океанічних кругообігів" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="feedback" style="display:none">Зображення не завантажилось. Відкрийте першоджерело за посиланням нижче.</div><p class="source">Джерело: <a href="https://oceanservice.noaa.gov/facts/gyre.html" target="_blank" rel="noopener">відкрити оригінальну карту й пояснення ↗</a>. Карта/знімок — опублікований картографічний матеріал; дату й метод дивіться у джерелі.</p><div class="task"><label for="s2q1">1. Знайдіть Гольфстрим, Куросіо та Каліфорнійську течію.</label><small>Запишіть для кожної: тепла чи холодна, у якому океані.</small><textarea id="s2q1" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s2q2">2. Порівняйте рух вод у Північній та Південній Атлантиці.</label><small>За стрілками встановіть напрям обертання основних кругообігів.</small><textarea id="s2q2" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s2q3">3. Уявіть пляшку, що дрейфує поблизу східного узбережжя США.</label><small>Які течії можуть змінити її шлях? Поясніть, чому це не точний прогноз.</small><textarea id="s2q3" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div></section><section id="s3" class="station"><div class="eyebrow">Станція 03 · 5 хв</div><h2>Де океан годує найбільше життя?</h2><p class="muted">NASA · карта хлорофілу SeaWiFS</p><img class="heroimage" loading="lazy" src="https://svs.gsfc.nasa.gov/vis/a030000/a030800/a030801/S19972472010334.L3m_CU_CHL_chlor_a_9km_reproj_v1_labeled_print.jpg" alt="NASA · карта хлорофілу SeaWiFS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="feedback" style="display:none">Зображення не завантажилось. Відкрийте першоджерело за посиланням нижче.</div><p class="source">Джерело: <a href="https://svs.gsfc.nasa.gov/30801/" target="_blank" rel="noopener">відкрити оригінальну карту й пояснення ↗</a>. Карта/знімок — опублікований картографічний матеріал; дату й метод дивіться у джерелі.</p><div class="task"><label for="s3q1">1. Знайдіть ділянки високої концентрації хлорофілу.</label><small>Назвіть два прибережні регіони й один пояс відкритого океану.</small><textarea id="s3q1" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s3q2">2. Порівняйте цю карту з картою температури.</label><small>Чи завжди найтепліша вода має найбільше фітопланктону? Обґрунтуйте.</small><textarea id="s3q2" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s3q3">3. Чому поблизу Намібії продуктивність океану може бути високою?</label><small>Побудуйте ланцюжок із чотирьох причин і наслідків.</small><textarea id="s3q3" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div></section><section id="s4" class="station"><div class="eyebrow">Станція 04 · 5 хв</div><h2>Азональні комплекси: знайдіть виняток</h2><p class="muted">Реальна географічна карта · OpenStreetMap</p><iframe class="mapframe" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-83.0%2C-19.0%2C-46.0%2C6.0&layer=mapnik" title="Реальна топографічна карта OpenTopoMap"></iframe><p class="source">Джерело: <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">відкрити оригінальну карту й пояснення ↗</a>. Карта/знімок — опублікований картографічний матеріал; дату й метод дивіться у джерелі.</p><div class="task"><label for="s4q1">1. Знайдіть Анди та Амазонську низовину на карті; для рельєфу відкрийте OpenTopoMap.</label><small>Чому висотна поясність в Андах відрізняється від широтної зональності?</small><textarea id="s4q1" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s4q2">2. Знайдіть гирло Амазонки та її заплаву.</label><small>Який чинник формує заплавний комплекс незалежно від широтної зональності?</small><textarea id="s4q2" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div><div class="task"><label for="s4q3">3. Знайдіть холодну течію біля Намібії.</label><small>Як океанічна течія може сприяти формуванню прибережної пустелі?</small><textarea id="s4q3" data-save placeholder="Моя відповідь і доказ з карти…"></textarea></div></section><section id="models" class="panel"><div class="eyebrow">Експеримент · 5 хв</div><h2>Дві інтерактивні моделі</h2><p class="note">Це <b>навчальні моделі</b>, а не поточні вимірювання океану. Справжні вимірювання й карти — на станціях вище та в Copernicus.</p>
-<div class="grid"><div class="model"><h3>Модель A. Чому вода тоне?</h3><p>Змініть температуру й солоність двох умовних проб. Модель використовує спрощений показник густини, придатний лише для якісного порівняння.</p><label>Температура проби A: <b id="taV">20</b> °C</label><input type="range" id="ta" min="0" max="30" value="20"><label>Солоність проби A: <b id="saV">35</b> ‰</label><input type="range" id="sa" min="25" max="40" value="35"><label>Температура проби Б: <b id="tbV">5</b> °C</label><input type="range" id="tb" min="0" max="30" value="5"><label>Солоність проби Б: <b id="sbV">35</b> ‰</label><input type="range" id="sb" min="25" max="40" value="35"><div class="feedback" id="densityOut"></div><label for="densityWhy">Поясніть результат</label><textarea id="densityWhy" data-save></textarea></div>
-<div class="model"><h3>Модель Б. Апвелінг і життя</h3><p>Вітер відсуває поверхневу воду від берега. Оберіть інтенсивність умовного апвелінгу.</p><label>Інтенсивність: <b id="upV">50</b>%</label><input type="range" id="up" min="0" max="100" value="50"><p>Підняття поживних речовин (умовний індекс)</p><div class="bar"><span id="nutrientBar"></span></div><p>Потенціал росту фітопланктону (умовний індекс)</p><div class="bar"><span id="planktonBar"></span></div><div class="feedback" id="upOut"></div><label for="upWhy">Чому це не точний прогноз вилову риби?</label><textarea id="upWhy" data-save></textarea></div></div>
-<h3>Дослідіть реальні дані замість моделі</h3><p>Відкрийте <a href="https://data.marine.copernicus.eu/viewer" target="_blank" rel="noopener">Copernicus Marine Viewer</a> або <a href="https://myoceanlearn.marine.copernicus.eu/" target="_blank" rel="noopener">MyOcean Learn</a>. Перемикайте шари температури, солоності, течій і хлорофілу. Дані залежать від обраної дати, глибини та продукту.</p><label for="copernicusAnswer">Які два шари Ви порівняли і що побачили?</label><textarea id="copernicusAnswer" data-save></textarea></section>
-<section class="panel"><div class="eyebrow">Мінілабораторія · додатково</div><h2>Розрахунок солоності</h2><p>У шкільній <b>умовній</b> пробі 2 кг морської води містять 70 г розчинених солей. Визначте солоність у ‰. Формула: маса солей / маса води × 1000.</p><label>Ваша відповідь, ‰ <input id="salinityAnswer" type="number" placeholder="Введіть число"></label><button onclick="checkSalinity()">Перевірити</button><div id="salinityFeedback" class="feedback" aria-live="polite">Порахуйте самостійно.</div></section>
-<section id="quiz" class="panel"><div class="eyebrow">Самоперевірка · 4 хв</div><h2>10 запитань за практичною</h2><p>Оберіть відповідь. Після перевірки побачите не лише бал, а й пояснення помилок.</p><div id="quizBody"></div><button onclick="checkQuiz()">Перевірити відповіді</button><div id="quizResult" class="feedback" aria-live="polite"></div></section>
-<section id="report" class="panel"><div class="eyebrow">Підсумок · 4 хв</div><h2>Польовий звіт океанографа</h2><p>Заповніть три підсумкові речення. Натисніть «Завантажити звіт», щоб отримати текстовий файл з усіма Вашими відповідями. Також можна роздрукувати сторінку.</p><div class="task"><label for="report1">1. Закономірність, яку я підтвердив(-ла) картою</label><textarea id="report1" data-save></textarea></div><div class="task"><label for="report2">2. Азональний комплекс і чинник його формування</label><textarea id="report2" data-save></textarea></div><div class="task"><label for="report3">3. Доказ: карта/джерело + конкретна ознака</label><textarea id="report3" data-save></textarea></div><button onclick="downloadReport()">⬇ Завантажити звіт (.txt)</button><button class="secondary" onclick="window.print()">⎙ Друкувати</button><button class="secondary" onclick="resetWork()">Очистити відповіді</button><p class="source">Відповіді автоматично зберігаються лише в цьому браузері (localStorage). На сервер вони не надсилаються.</p></section>
-<section class="panel"><h2>Джерела й перевірка достовірності</h2><p>Картографічні матеріали: <a href="https://science.nasa.gov/earth/earth-observatory/modis-global-sea-surface-temperature-1869/">NASA: SST, травень 2001</a>; <a href="https://oceanservice.noaa.gov/facts/gyre.html">NOAA: океанічні кругообіги</a>; <a href="https://svs.gsfc.nasa.gov/30801/">NASA SeaWiFS: хлорофіл, композит 1997–2010</a>; <a href="https://www.openstreetmap.org/">OpenStreetMap: географічна основа</a>; <a href="https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-currents">NOAA: пояснення течій</a>; <a href="https://help.marine.copernicus.eu/en/articles/9418929-introduction-to-myocean-learn-viewer">Copernicus: робота з шарами океану</a>.</p><p class="warn">Важливо: ці карти мають <b>різні періоди спостереження</b>, тож зіставляйте їх для пошуку загальних просторових закономірностей, а не як синхронні вимірювання одного дня.</p></section><section id="geo-2026-visual-lab" class="geo-up" aria-label="Додаткова наукова лабораторія водних мас">
-<span class="geo-up-kicker">7 КЛАС · ПРАКТИЧНА №6 · РЕАЛЬНІ ДОКАЗИ</span>
-<h2>Океан на п’яти знімках: від густини води до азональних комплексів</h2>
-<p>Моделі та знімки не замінюють вимірювання. Для кожного прикладу відділяйте <b>те, що видно</b>, від <b>того, що потрібно перевірити</b> температурними, соляними чи картографічними даними. Угорі сторінки вже розміщені карти NASA/NOAA; тут — додаткові документальні приклади.</p>
-<div class="geo-up-gallery"><figure class="geo-up-fig"><a href="https://commons.wikimedia.org/wiki/File:Underwater%20photo%20of%20coral%20reef.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Underwater%20photo%20of%20coral%20reef.jpg?width=960" alt="Кораловий риф — теплі мілководдя"></a><figcaption><b>Кораловий риф — теплі мілководдя</b><span>Які властивості поверхневих вод сприяють розвитку рифових спільнот?</span><small>Фотоджерело та ліцензія: Wikimedia Commons ↗</small></figcaption></figure><figure class="geo-up-fig"><a href="https://commons.wikimedia.org/wiki/File:ISS-64%20Peruvian%20Pacific%20Ocean%20coast.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISS-64%20Peruvian%20Pacific%20Ocean%20coast.jpg?width=960" alt="Перуанське узбережжя з орбіти (NASA/ISS)"></a><figcaption><b>Перуанське узбережжя з орбіти (NASA/ISS)</b><span>Апвелінг має перевірятися температурними й біологічними даними, не лише фото.</span><small>Фотоджерело та ліцензія: Wikimedia Commons ↗</small></figcaption></figure><figure class="geo-up-fig"><a href="https://commons.wikimedia.org/wiki/File:ColoradoRiverDelta%20ISS009-E-09839.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/ColoradoRiverDelta%20ISS009-E-09839.jpg?width=960" alt="Дельта Колорадо з МКС"></a><figcaption><b>Дельта Колорадо з МКС</b><span>Азональний комплекс: роль річкового стоку й рельєфу.</span><small>Фотоджерело та ліцензія: Wikimedia Commons ↗</small></figcaption></figure><figure class="geo-up-fig"><a href="https://commons.wikimedia.org/wiki/File:Saskatchewan%20River%20delta%20(NASA).jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Saskatchewan%20River%20delta%20(NASA).jpg?width=960" alt="Дельта Саскачевану (NASA)"></a><figcaption><b>Дельта Саскачевану (NASA)</b><span>Чому річкові дельти залежать від води й наносів, а не лише широти?</span><small>Фотоджерело та ліцензія: Wikimedia Commons ↗</small></figcaption></figure><figure class="geo-up-fig"><a href="https://commons.wikimedia.org/wiki/File:Coral%20Reef%20from%20Above%201.jpg" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coral%20Reef%20from%20Above%201.jpg?width=960" alt="Риф на супутниково-подібній панорамі з повітря"></a><figcaption><b>Риф на супутниково-подібній панорамі з повітря</b><span>Порівняйте берегові та океанічні ділянки за умовами водообміну.</span><small>Фотоджерело та ліцензія: Wikimedia Commons ↗</small></figcaption></figure></div>
-<h3>Українське відео: дві короткі місії</h3>
-<div class="geo-up-videos">
-<article><h4>Місія 1 · Типи водних мас (0:29–2:45)</h4><p>Рішельєвський дистанційний, урок «Які є типи водних мас та азональні природні комплекси?». Складіть вертикальну послідовність водних мас.</p><iframe loading="lazy" title="Українською: поверхневі, проміжні, глибинні і придонні водні маси" src="https://www.youtube-nocookie.com/embed/qbaq93m09DI?start=29&end=165" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.youtube.com/watch?v=qbaq93m09DI&t=29s" target="_blank" rel="noopener">Відкрити відео ↗</a></article>
-<article><h4>Місія 2 · Азональні комплекси (2:52–5:25)</h4><p>Той самий український відеоурок. Знайдіть приклад азонального комплексу й поясніть, який локальний чинник порушує широтну схему.</p><iframe loading="lazy" title="Українською: азональні природні комплекси" src="https://www.youtube-nocookie.com/embed/qbaq93m09DI?start=172&end=325" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><a href="https://www.youtube.com/watch?v=qbaq93m09DI&t=172s" target="_blank" rel="noopener">Відкрити відео ↗</a></article>
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Практична робота №6 з географії, 7 клас: живі океанічні течії, симулятор ENSO, Ель-Ніньйо та Ла-Нінья, апвелінг, карти NOAA, українськомовні відео і тест.">
+<title>7-А · Практична №6 · Океан під контролем: ENSO</title>
+<style>
+:root{--bg:#061524;--panel:#10273d;--panel2:#132f47;--line:#31526b;--white:#f1f9ff;--mut:#b4cddd;--aqua:#5ce7dc;--warm:#ffbb75;--cyan:#81cdfc;--warn:#f0b95d;--ok:#90e5c3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at 73% 1%,#0c3652 0,transparent 39rem),var(--bg);color:var(--white)}
+a{color:#80e8ef}
+a:hover{text-decoration-thickness:2px}
+button,input,select,textarea{font:inherit}
+button,select,input[type=range]{min-height:44px}
+button{cursor:pointer;border:1px solid #5d849f;border-radius:12px;background:#1b405d;color:#f3fcff;padding:10px 17px;transition:background .15s,transform .15s}
+button:hover{background:#255474}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ffd375;outline-offset:3px}
+button[aria-pressed=true],.current{background:#097a83!important;border-color:#8bf6e5!important;color:#fff}
+button:disabled{opacity:.55;cursor:not-allowed}
+input[type=range]{width:100%;accent-color:#43e4d5;cursor:pointer}
+input[type=text],select,textarea{width:100%;border:1px solid #63859c;border-radius:9px;background:#0d293d;color:#fff;padding:11px}
+textarea{min-height:95px}
+header{position:relative;padding:60px 24px 40px;overflow:hidden;border-bottom:1px solid #2c5370}
+header:after{content:"";position:absolute;right:-6rem;top:-9rem;width:32rem;height:32rem;border:2px solid #3cb6cb33;border-radius:50%;box-shadow:0 0 0 4rem #3cb6cb0e,0 0 0 9rem #3cb6cb08;pointer-events:none}
+.wrap{width:min(1200px,calc(100% - 36px));margin:auto}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(265px,.85fr);gap:25px;align-items:center;position:relative;z-index:1}
+.eyebrow{font-size:.76rem;letter-spacing:.16em;font-weight:900;color:#81f2df;text-transform:uppercase}
+h1{font-size:clamp(2.2rem,5.1vw,4.55rem);letter-spacing:-.035em;line-height:1.1;margin:14px 0}
+h1 em{font-style:normal;color:var(--aqua)}
+h2{font-size:clamp(1.55rem,3.5vw,2.55rem);line-height:1.18;margin:7px 0 14px;letter-spacing:-.025em}
+h3{font-size:1.17rem;margin:0 0 10px}
+.lead{font-size:1.12rem;color:#d8edf9;max-width:720px}
+p{margin:8px 0 13px}
+.muted,.note{color:var(--mut)}
+.note{font-size:.83rem}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.badges span{border:1px solid #32637b;border-radius:99px;color:#afe3ed;padding:5px 11px;font-size:.83rem}
+.hero-stats{background:#0d293edb;border:1px solid #47718c;border-radius:22px;padding:22px;box-shadow:0 20px 65px #04101d7a}
+.hero-stats strong{display:block;color:#ffcf8c;font-size:3.5rem;line-height:1.1}
+.hero-stats small{color:#b1ccdd}
+.hero-stats a{display:inline-block;margin-top:10px}
+.nav{position:sticky;top:0;z-index:10;background:#071b2af1;backdrop-filter:blur(12px);border-bottom:1px solid #3e6178;padding:9px 0;overflow-x:auto}
+.nav .wrap{display:flex;gap:8px;white-space:nowrap}
+.nav a{font-size:.85rem;text-decoration:none;color:#d5e9f6;border:1px solid #345a74;border-radius:99px;padding:6px 12px}
+.nav a:hover{background:#1d4862}
+main{padding:25px 0 60px}
+.section{margin:22px 0 35px;padding:clamp(18px,3.4vw,34px);background:linear-gradient(140deg,#112a40,#0a2236);border:1px solid #365873;border-radius:24px;box-shadow:0 14px 35px #010a1290}
+.light{background:linear-gradient(125deg,#f5fbf9,#e6f6f4);color:#17394d;border-color:#9fd2cd}
+.light .note,.light .muted{color:#48697b}
+.light a{color:#096878}
+.kicker{font-size:.76rem;color:#7ce5dd;letter-spacing:.13em;font-weight:900}
+.light .kicker{color:#007c7e}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.case{border:1px solid #3a667d;border-radius:16px;background:#12364d;padding:18px}
+.light .case{background:#fff;border-color:#c8e2e0}
+.case p:last-child{margin-bottom:0}
+.figure{background:#0b2033;border:1px solid #3a5e73;border-radius:15px;overflow:hidden;margin:0}
+.figure img{width:100%;height:225px;object-fit:cover;display:block;background:#23506a}
+.figure figcaption{padding:12px 15px;font-size:.89rem;color:#d7e7f2}
+.figure small{display:block;color:#89becf;font-size:.76rem}
+.figure a{color:#90e9f3}
+.photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.lab{background:#061a2b;border:1px solid #3b627c;border-radius:18px;padding:17px;margin:18px 0}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:13px 0}
+.controls button{flex:0 1 auto}
+.control-pair{display:grid;grid-template-columns:1fr minmax(190px,.45fr);gap:18px;align-items:center}
+.meter-box{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:13px 0}
+.meter{padding:14px 12px;border:1px solid #426780;border-radius:12px;background:#14334c;min-width:0}
+.meter small{display:block;color:#a9c8d7;font-size:.75rem}
+.meter strong{font-size:clamp(.95rem,2.4vw,1.35rem);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.canvas-shell{position:relative;overflow:hidden;border:1px solid #396c82;border-radius:16px;background:#08253a}
+canvas{display:block;width:100%;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.83rem;color:#c2e1ea;padding:10px}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px}
+.feedback{padding:12px 16px;margin:15px 0;background:#123b53;border-left:4px solid #68e5d5;border-radius:0 10px 10px 0}
+.light .feedback{background:#dcf2eb;color:#12394e}
+.mission{border-left:4px solid #f6be6a;padding:14px 17px;background:#4737195c;border-radius:0 12px 12px 0;margin:16px 0}
+.light .mission{background:#fff4db}
+.hint{font-size:.83rem;color:#a9cadb}
+.link-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.resource{border:1px solid #488098;border-radius:15px;background:#0b3247;padding:15px}
+.resource b{display:block;margin-bottom:7px}
+.resource a{font-size:.88rem}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.vid{padding:15px;border:1px solid #4e7791;border-radius:16px;background:#17384e}
+.vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;background:#081b2c;display:block}
+.vid h3{margin-top:13px}
+.vid p{font-size:.91rem}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:135px 1fr;gap:12px;align-items:center}
+.bar-track{background:#2a4b62;border-radius:30px;height:20px;overflow:hidden}
+.bar-track span{display:block;background:linear-gradient(90deg,#13a6a7,#c4e88a);height:100%;width:55%;transition:width .3s}
+.choices{display:flex;gap:9px;flex-wrap:wrap}
+.choices button{flex:1;min-width:140px}
+.panel-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:17px}
+.cer{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.cer label{display:block;font-size:.88rem;font-weight:800;margin-bottom:6px}
+.test-gate{max-width:550px;display:grid;gap:12px}
+.quiz-item{border-bottom:1px solid #3a5a70;padding:17px 0}
+.quiz-item:last-child{border-bottom:0}
+.quiz-item legend{font-weight:800;padding-bottom:9px}
+.quiz-option{display:flex;gap:9px;align-items:flex-start;padding:7px 0;cursor:pointer}
+.quiz-option input{margin-top:7px;accent-color:#38e4d1}
+.quiz-result{padding:18px;background:#0c4a50;border:1px solid #69d5c8;border-radius:16px}
+.quiz-result strong{font-size:2.2rem;color:#a5f2c8}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{padding:9px 12px;border-bottom:1px solid #527083;text-align:left;vertical-align:top}
+th{color:#88ede0}
+footer{padding:28px 18px;border-top:1px solid #366078;text-align:center;color:#a8c4d6;font-size:.84rem}
+.hidden,[hidden]{display:none!important}
+@media(max-width:850px){.hero-grid,.two,.panel-grid,.video-grid{grid-template-columns:1fr}.three,.photo-grid,.link-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.meter-box{grid-template-columns:repeat(2,minmax(0,1fr))}.cer{grid-template-columns:1fr}.hero-stats strong{font-size:2.6rem}}
+@media(max-width:560px){.wrap{width:min(100% - 20px,1200px)}.section{margin:14px 0 24px}.three,.photo-grid,.link-grid{grid-template-columns:1fr}.control-pair{grid-template-columns:1fr}.bar{grid-template-columns:1fr}.badges span{font-size:.75rem}header{padding-top:35px}.nav{top:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{body{background:white;color:black}.nav,.controls,.vid iframe,#runBtn,.no-print{display:none!important}.section{break-inside:avoid;box-shadow:none;background:white;color:black;border:1px solid #aaa}.figure img{height:110px}}
+</style>
+</head>
+<body>
+<header id="start">
+<div class="wrap hero-grid">
+<div>
+<div class="eyebrow">7-А · Географія · практична робота №6 · 05.11.2026</div>
+<h1>ОКЕАН <em>ВИХОДИТЬ</em> З-ПІД КОНТРОЛЮ</h1>
+<p class="lead">Уявіть: рибалки біля Перу помічають, що риба зникає. За тисячі кілометрів в Австралії посилюється ризик посухи. Що пов’язує ці події?</p>
+<div class="badges"><span>35 хвилин</span><span>3 динамічні моделі</span><span>NASA / NOAA</span><span>Українські відео</span><span>Тест /10</span></div>
+<a href="#currents"><button type="button">Запустити океанічну лабораторію ↓</button></a>
 </div>
-<div class="geo-up-lab">
-<h3>🌡️ Керована модель двох океанічних водних мас</h3>
-<p>Налаштуйте температуру і солоність двох порцій води. Для порівняння використовується <b>спрощена навчальна лінійна модель густини</b> (не рівняння стану TEOS-10). Вона показує лише <i>напрямок</i> впливу: холодніша і солоніша вода за інших рівних умов густіша.</p>
-<div class="geo-up-controls"><div class="geo-up-pair"><h4>Водна маса А</h4><label for="geo-up-ta">Температура: <b id="geo-up-ta-v">20 °C</b></label><input id="geo-up-ta" type="range" min="0" max="30" value="20"><label for="geo-up-sa">Солоність: <b id="geo-up-sa-v">35 ‰</b></label><input id="geo-up-sa" type="range" min="30" max="40" value="35"></div>
-<div class="geo-up-pair"><h4>Водна маса Б</h4><label for="geo-up-tb">Температура: <b id="geo-up-tb-v">5 °C</b></label><input id="geo-up-tb" type="range" min="0" max="30" value="5"><label for="geo-up-sb">Солоність: <b id="geo-up-sb-v">35 ‰</b></label><input id="geo-up-sb" type="range" min="30" max="40" value="35"></div></div>
-<div class="geo-up-water"><div class="geo-up-watercell" id="geo-up-cell-a">А<span id="geo-up-rho-a"></span></div><div class="geo-up-watercell" id="geo-up-cell-b">Б<span id="geo-up-rho-b"></span></div></div>
-<p id="geo-up-feedback" role="status"></p><p class="geo-up-note">Густина в природному океані також залежить від тиску, складу води та нелінійних ефектів. Для справжнього профілю відкрийте <a href="https://argo.ucsd.edu/data/" target="_blank" rel="noopener">Argo Data</a> або <a href="https://data.marine.copernicus.eu/viewer/expert" target="_blank" rel="noopener">Copernicus Marine</a>.</p>
+<aside class="hero-stats"><div class="eyebrow">КЛІМАТИЧНИЙ ДЕТЕКТИВ</div><strong>3 фази</strong><p>Нейтральна · Ель-Ніньйо · Ла-Нінья</p><small>Тепловий стан центрально-східного екваторіального Тихого океану змінює взаємодію океану й атмосфери. Це явище називається ENSO — Ель-Ніньйо — Південне коливання.</small><br><a href="https://psl.noaa.gov/enso/" target="_blank" rel="noopener">Поточні спостереження NOAA ↗</a></aside>
 </div>
-<div class="geo-up-task"><b>Завдання на 3 хвилини (за вибором):</b> доведіть або спростуйте тезу «чим холодніша вода, тим вона завжди тоне». Знайдіть контрприклад у моделі, змінюючи солоність, і назвіть обмеження цієї моделі. Потім порівняйте два азональні комплекси: кораловий риф і річкову дельту.</div>
+</header>
+<nav class="nav" aria-label="Навігація"><div class="wrap"><a href="#currents">🌊 Течії</a><a href="#section">🧊 Термоклін</a><a href="#evidence">🛰️ Справжні дані</a><a href="#videos">▶ Українські відео</a><a href="#impacts">🌦️ Наслідки</a><a href="#practical">🧪 Практична</a><a href="#homework">📚 Д/З і тест</a></div></nav>
+<main class="wrap">
+<section class="section" id="currents">
+<div class="kicker">00–10 хв · ЕКСПЕРИМЕНТ 1</div>
+<h2>Одна сила змінює океан. Керуйте пасатами!</h2>
+<p>На схемі ліворуч — Індонезія й Австралія (захід океану), праворуч — узбережжя Перу та Еквадору (схід). <b>Білі точки — частинки води, що рухаються з модельними течіями.</b> Натисніть на карту, щоб випустити власну дослідницьку частинку. Це модель течій, а не відео.</p>
+<div class="controls" role="group" aria-label="Режим ENSO">
+<button type="button" data-mode="neutral" aria-pressed="true">⚖️ Нейтральний</button>
+<button type="button" data-mode="nino" aria-pressed="false">🔥 Ель-Ніньйо</button>
+<button type="button" data-mode="nina" aria-pressed="false">🧊 Ла-Нінья</button>
+<button type="button" id="runBtn" aria-pressed="true">⏸ Зупинити рух</button>
+<button type="button" id="resetBtn">↺ Скинути експеримент</button>
+</div>
+<div class="lab">
+<div class="control-pair"><div><label for="wind"><b>Сила східних пасатів:</b> <strong id="windValue">55%</strong></label><input id="wind" type="range" min="0" max="100" step="1" value="55" aria-label="Сила пасатів, від 0 до 100 відсотків"><p class="note">Великі значення = сильніший вітер зі сходу на захід. Пасати переважно зганяють теплі поверхневі води до Індонезії; зі слабшанням пасатів східна частина океану частіше прогрівається.</p></div><div class="case"><b>Які течії зараз рухають частинки?</b><div class="legend"><span><i class="dot" style="background:#dffaff"></i> Екваторіальна західна</span><span><i class="dot" style="background:#ffd272"></i> Зворотна екваторіальна</span><span><i class="dot" style="background:#81cdfc"></i> Перуанська (Гумбольдта)</span></div></div></div>
+<div class="meter-box">
+<div class="meter"><small>Режим моделі</small><strong id="phaseLabel">Нейтральний</strong></div>
+<div class="meter"><small>Аномалія SST, умовна</small><strong id="sstLabel">0,0 °C</strong></div>
+<div class="meter"><small>Апвелінг біля Перу</small><strong id="upLabel">Помірний</strong></div>
+<div class="meter"><small>Пасати</small><strong id="tradeLabel">Звичайні</strong></div>
+</div>
+<div class="canvas-shell"><canvas id="ocean" width="980" height="400" aria-label="Анімована інтерактивна схема течій екваторіального Тихого океану. Східні пасати викликають західну течію, протитечія рухається на схід, Перуанська течія прямує вздовж узбережжя."></canvas></div>
+<div class="feedback" id="phaseFeedback" role="status">Нейтральна фаза: пасати підтримують західне перенесення теплої води, а біля Перу відносно холодні глибинні води піднімаються до поверхні.</div>
+<p class="note">Фізична основа: залежність напрямку й відносної інтенсивності переносів від пасатів, апвелінг і різниця температур. Рівняння руху частинок тут спрощене навчальне: карта <b>не є моделлю прогнозування</b> та не показує виміряні швидкості океану. Контур берегів схематичний.</p>
+</div>
+<div class="mission"><b>Місія A — дослід на 2 хв:</b> увімкніть Ель-Ніньйо, потім Ла-Нінья. Порівняйте швидкість західного перенесення та тепловий стан східної частини океану. Чи можна сказати, що «Ель-Ніньйо — це окрема тепла течія»? Поясніть, чому це неточно.</div>
 </section>
-</main><footer>Практична робота №6 · Географія 7 клас · Навчальний матеріал українською</footer><script>const QUIZ=[["Що визначає властивості водної маси?", ["Тільки колір води", "Температура й солоність", "Лише глибина"], 1, "Водні маси характеризуються, зокрема, температурою і солоністю."], ["Що означає «холодна течія»?", ["Її вода завжди нижче 0 °C", "Вона холодніша за навколишні води", "Вона завжди тече до екватора"], 1, "Теплі й холодні течії визначають порівнянням із навколишніми водами."], ["Яка течія переносить тепло в Північній Атлантиці?", ["Гольфстрим", "Перуанська", "Бенгельська"], 0, "Гольфстрим переносить теплі води на північ у Північній Атлантиці."], ["Що таке апвелінг?", ["Підняття глибинної води", "Замерзання поверхні", "Припливна хвиля"], 0, "Апвелінг — підняття глибинних вод."], ["Чому апвелінг часто сприяє росту фітопланктону?", ["Приносить поживні речовини", "Повністю усуває вітер", "Завжди підвищує солоність до 50‰"], 0, "Глибинні води можуть приносити поживні речовини до освітленого шару."], ["Яка карта найкраще показує розподіл поверхневої температури?", ["SST NASA", "Політична карта", "Карта густоти населення"], 0, "SST означає sea surface temperature."], ["Що з наведеного є азональним комплексом?", ["Річкова заплава", "Екваторіальний кліматичний пояс", "Пояс пасатів"], 0, "Заплава формується передусім діяльністю річки."], ["Який чинник створює висотну поясність?", ["Рельєф і зміна умов із висотою", "Лише довгота", "Тільки відстань до екватора"], 0, "З висотою змінюються температура, зволоження та інші умови."], ["Чи доводить висока концентрація хлорофілу великий вилов риби?", ["Так, завжди", "Ні, це лише один з чинників", "Так, незалежно від сезону"], 1, "Рибопродуктивність залежить також від харчових ланцюгів, промислу та багатьох інших умов."], ["Що треба перевірити перед порівнянням двох карт?", ["Дату, легенду та показник", "Тільки колір рамки", "Лише назву сайту"], 0, "Без дати, легенди й одиниць вимірювання висновок може бути помилковим."]];
-const qb=document.getElementById('quizBody');
-QUIZ.forEach((q,i)=>{const d=document.createElement('div');d.className='task';d.innerHTML='<b>'+(i+1)+'. '+q[0]+'</b>'+q[1].map((x,j)=>'<label style="font-weight:400;margin:7px 0"><input style="width:auto" type="radio" name="q'+i+'" value="'+j+'"> '+x+'</label>').join('');qb.append(d)});
-function checkQuiz(){let score=0,details=[];QUIZ.forEach((q,i)=>{const chosen=document.querySelector('input[name="q'+i+'"]:checked');if(chosen&&+chosen.value===q[2])score++;else details.push((i+1)+'. '+q[3]);});document.getElementById('quizResult').innerHTML='<b>Результат: '+score+'/10</b><br>'+(!details.length?'Усі відповіді правильні.':details.map(x=>'• '+x).join('<br>'));localStorage.setItem('geo7quiz',JSON.stringify({score,details}));}
-function checkSalinity(){const x=Number(document.getElementById('salinityAnswer').value);document.getElementById('salinityFeedback').textContent=x===35?'Правильно! 70 г / 2 кг = 35 г/кг ≈ 35‰.':'Спробуйте ще: 70 г солей припадає на 2 кг води. Скільки це на 1 кг?';}
-function density(){const v=id=>+document.getElementById(id).value;['ta','sa','tb','sb'].forEach(id=>document.getElementById(id+'V').textContent=v(id));const a=1000+.78*(v('sa')-35)-.20*(v('ta')-10),b=1000+.78*(v('sb')-35)-.20*(v('tb')-10);document.getElementById('densityOut').textContent='Умовний індекс густини: A ≈ '+a.toFixed(1)+'; Б ≈ '+b.toFixed(1)+'. '+(Math.abs(a-b)<.05?'Проби майже однакові.':a>b?'Проба A умовно густіша та схильна опускатися нижче проби Б.':'Проба Б умовно густіша та схильна опускатися нижче проби A.')+' Це спрощення: не фізичний розрахунок густини морської води.';}
-function up(){const x=+document.getElementById('up').value;document.getElementById('upV').textContent=x;document.getElementById('nutrientBar').style.width=x+'%';document.getElementById('planktonBar').style.width=Math.round(20+.7*x)+'%';document.getElementById('upOut').textContent='Модель: зі збільшенням підняття поживних речовин потенціал росту фітопланктону зростає. Насправді важливі також світло, сезон, перемішування та інші чинники.';}
-['ta','sa','tb','sb'].forEach(id=>document.getElementById(id).addEventListener('input',density));document.getElementById('up').addEventListener('input',up);density();up();
-document.querySelectorAll('[data-save]').forEach(el=>{el.value=localStorage.getItem('geo7_'+el.id)||'';el.addEventListener('input',()=>localStorage.setItem('geo7_'+el.id,el.value));});
-function downloadReport(){const lines=['ПРАКТИЧНА РОБОТА №6. Водні маси й азональні природні комплекси','Дата: '+new Date().toLocaleDateString('uk-UA'),''];document.querySelectorAll('[data-save]').forEach(el=>{const lab=document.querySelector('label[for="'+el.id+'"]');lines.push((lab?lab.textContent.trim():el.id)+'\n'+(el.value||'—')+'\n')});const quiz=localStorage.getItem('geo7quiz');if(quiz)lines.push('Тест: '+JSON.parse(quiz).score+'/10');const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='praktychna_6_geo7_zvit.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
-function resetWork(){if(!confirm('Очистити всі Ваші відповіді на цьому пристрої?'))return;document.querySelectorAll('[data-save]').forEach(el=>{el.value='';localStorage.removeItem('geo7_'+el.id)});localStorage.removeItem('geo7quiz');document.getElementById('quizResult').textContent='';}
-</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+
+<section class="section" id="section">
+<div class="kicker">10–17 хв · ЕКСПЕРИМЕНТ 2</div><h2>Подивіться під воду: термоклін і апвелінг</h2>
+<p><b>Термоклін</b> — шар, у якому температура швидко зменшується з глибиною. Зміна його нахилу пов’язана з перерозподілом тепла в тропічному Тихому океані. Чому сильні пасати допомагають піднімати холодну, збагачену поживними речовинами воду на сході?</p>
+<div class="lab">
+<div class="canvas-shell"><canvas id="depth" width="980" height="340" aria-label="Динамічний вертикальний схематичний розріз Тихого океану. Теплий поверхневий шар помаранчевий, холодна вода синя. Положення термокліну та апвелінг змінюються разом із силою пасатів."></canvas></div>
+<div class="meter-box">
+<div class="meter"><small>Термоклін біля Перу</small><strong id="thermoLabel">Порівняно мілкий</strong></div>
+<div class="meter"><small>Підйом глибинних вод</small><strong id="liftLabel">Помірний</strong></div>
+<div class="meter"><small>Доступність поживних солей</small><strong id="nutLabel">Помірна</strong></div>
+<div class="meter"><small>Ризик для рибальства</small><strong id="fishLabel">Без суттєвих відхилень</strong></div>
+</div>
+<div class="bars"><div class="bar"><span>Умовний апвелінг</span><div class="bar-track"><span id="upBar"></span></div></div><div class="bar"><span>Умовний поживний потік</span><div class="bar-track"><span id="nutBar"></span></div></div></div>
+<p class="note">Ці індикатори — <b>безрозмірні індекси</b> навчальної моделі, не концентрація нітратів, не реальна кількість риби і не прогнози вилову. Реальна продуктивність залежить від багатьох чинників: сезонності, світла, екології та промислу.</p>
+</div>
+<div class="two">
+<article class="case"><h3>🔥 Коли настає Ель-Ніньйо</h3><p>Пасати часто слабшають, тепла поверхнева вода поширюється на схід, термоклін у східній частині заглиблюється. Холодний апвелінг може послабитися, а доступ поживних речовин до поверхні — зменшитися.</p></article>
+<article class="case"><h3>🧊 Коли настає Ла-Нінья</h3><p>Пасати зазвичай сильнішають, тепла вода ще більше накопичується на заході, східний термоклін стає мілкішим, холодний апвелінг посилюється. Це може підтримувати надходження поживних речовин.</p></article>
+</div>
+</section>
+
+<section class="section light" id="evidence">
+<div class="kicker">17–23 хв · ЕКСПЕРИМЕНТ 3 · ДАНІ НАУКОВЦІВ</div><h2>Не вірте красивій анімації. Перевіряйте реальний океан.</h2>
+<p>Тут — <b>реальні наукові спостереження</b>, на відміну від наших керованих навчальних схем. Температурна аномалія — це різниця між поточною температурою води та середньою для цієї пори року, а не сама температура води.</p>
+<div class="photo-grid">
+<figure class="figure"><a href="https://psl.noaa.gov/enso/mei/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" alt="Реальна наукова схема NOAA: відмінності поверхневої температури й циркуляції при Ель-Ніньйо і Ла-Нінья" src="https://psl.noaa.gov/enso/mei/img/MEI-schematic.png"></a><figcaption>NOAA: фактичні закономірності температурних аномалій і атмосферної циркуляції.<small>Джерело: NOAA Physical Sciences Laboratory</small></figcaption></figure>
+<figure class="figure"><a href="https://science.nasa.gov/earth/earth-observatory/modis-global-sea-surface-temperature-1869/" target="_blank" rel="noopener"><img loading="lazy" decoding="async" alt="Супутникова карта температури поверхні Світового океану, NASA MODIS" src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/1000/1869/modis_sst_200105_lrg.jpg"></a><figcaption>NASA: виміряна супутниками температура поверхні океану — це не те саме, що аномалія.<small>NASA Earth Observatory · історична карта</small></figcaption></figure>
+<figure class="figure"><a href="https://oceanservice.noaa.gov/facts/gyre.html" target="_blank" rel="noopener"><img loading="lazy" decoding="async" alt="Схема океанічних кругообігів за даними NOAA" src="https://oceanservice.noaa.gov/facts/gyre.jpg"></a><figcaption>NOAA: океанічна циркуляція масштабу басейну, не лише екваторіальні течії.<small>NOAA Ocean Service · схема</small></figcaption></figure>
+</div>
+<div class="link-grid" style="margin-top:19px">
+<article class="resource"><b>🌍 Earth Nullschool: спостереження течій</b><p>Перемкніть Ocean → Currents. Побачите актуальну оцінку руху поверхневих вод; відкрийте шар SST / SSTA.</p><a href="https://earth.nullschool.net/" target="_blank" rel="noopener">Відкрити інтерактивний глобус ↗</a></article>
+<article class="resource"><b>🌡️ NOAA: ENSO і Niño 3.4</b><p>Сучасні показники й історичний графік. Не плутайте одноразову аномалію температури із підтвердженою фазою ENSO.</p><a href="https://psl.noaa.gov/enso/dashboard.html" target="_blank" rel="noopener">Відкрити вимірювання NOAA ↗</a></article>
+<article class="resource"><b>🛰️ NASA: реальна еволюція 2015–2016</b><p>Супутникова анімація історичної події Ель-Ніньйо (шар температурних аномалій).</p><a href="https://svs.gsfc.nasa.gov/30645" target="_blank" rel="noopener">Відкрити наукову анімацію ↗</a></article>
+</div>
+<div class="mission"><b>Місія B — перевірка моделі:</b> у глобусі Earth знайдіть західне перенесення екваторіальних течій та Перуанську течію. Зверніть увагу, що реальна картина набагато складніша за схему. Назвіть дві відмінності.</div>
+</section>
+
+<section class="section" id="videos">
+<div class="kicker">23–28 хв · ВІДЕОЛАБОРАТОРІЯ УКРАЇНСЬКОЮ</div><h2>Побачте ENSO в поясненні українських авторів</h2>
+<div class="video-grid">
+<article class="vid"><iframe loading="lazy" title="Українське відео Яновська про географію: що Ель-Ніньйо та Ла-Нінья роблять з планетою" src="https://www.youtube-nocookie.com/embed/xgJ3pECGUDE?start=0&end=210&rel=0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><h3>«Що Ель-Ніньйо та Ла-Нінья роблять з планетою?»</h3><p><b>«Яновська про географію»</b> · українською. Поясніть, чому океанічна аномалія впливає на атмосферу.</p><a href="https://www.youtube.com/watch?v=xgJ3pECGUDE" target="_blank" rel="noopener">Відкрити на YouTube ↗</a> · <a href="https://tydyvy.com/video/DykYOhY" target="_blank" rel="noopener">Резервна сторінка ↗</a></article>
+<article class="vid"><iframe loading="lazy" title="Українське відео Цілком природно: що таке Ель-Ніньйо та Ла-Нінья" src="https://www.youtube-nocookie.com/embed/FbddddD7uXU?start=0&end=190&rel=0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><h3>«Що таке Ель-Ніньйо та Ла-Нінья?»</h3><p><b>«Цілком природно»</b> · українською. Визначте спільні та відмінні ознаки двох фаз.</p><a href="https://www.youtube.com/watch?v=FbddddD7uXU" target="_blank" rel="noopener">Відкрити на YouTube ↗</a> · <a href="https://tydyvy.com/video/Dyk3JRo" target="_blank" rel="noopener">Резервна сторінка ↗</a></article>
+</div>
+<p class="note">Під час 35-хвилинного уроку достатньо одного фрагмента (до 3,5 хв). Другий ролик — для домашнього перегляду. Відео потребують інтернету; симуляції на цій сторінці працюють локально.</p>
+</section>
+
+<section class="section" id="impacts">
+<div class="kicker">28–31 хв · ЛАБОРАТОРІЯ НАСЛІДКІВ</div><h2>Чому через океан змінюються дощі?</h2><p>Тепла поверхня посилює випаровування і може сприяти конвекції. Під час ENSO переміщуються області нагрівання, опадів і атмосферна циркуляція Вокера. Але <b>ENSO змінює ймовірності, а не гарантує конкретну погоду.</b></p>
+<div class="controls" role="group" aria-label="Дослідити вплив фаз ENSO">
+<button type="button" data-impact="neutral" aria-pressed="true">Нейтральна</button><button type="button" data-impact="nino" aria-pressed="false">Ель-Ніньйо</button><button type="button" data-impact="nina" aria-pressed="false">Ла-Нінья</button></div>
+<div class="three">
+<div class="case"><h3>Перу / Еквадор</h3><p id="peruImpact">Прибережний апвелінг підтримує високу біологічну продуктивність в окремих районах.</p></div>
+<div class="case"><h3>Індонезія / Австралія</h3><p id="ausImpact">Теплі води на заході сприяють розвитку конвекції та дощів.</p></div>
+<div class="case"><h3>Світ і Україна</h3><p id="worldImpact">Вплив ENSO за межами Тихого океану залежить від сезону й інших чинників; для України він слабший та менш однозначний.</p></div>
+</div>
+<div class="feedback"><b>Поширена пастка:</b> «Ель-Ніньйо завжди викликає повені в усій Південній Америці». Ні. Наслідки залежать від регіону, пори року, сили явища та інших складників кліматичної системи.</div>
+</section>
+
+<section class="section light" id="practical">
+<div class="kicker">31–35 хв · ПРАКТИЧНА РОБОТА №6 · ГР1–ГР3</div><h2>Ви — океанографи. Врятуйте експедицію від хибного висновку</h2>
+<div class="two">
+<article class="case"><h3>Кейс 1 · Рибалки біля Перу</h3><p>Пасати ослабли. Узбережжя теплішає, продуктивність може знизитися. Команда стверджує: «Риби стало менше тільки через температуру». Чого бракує для доказу?</p><div class="choices"><button type="button" data-case="1" data-answer="bad">Лише фото теплої води</button><button type="button" data-case="1" data-answer="good">Апвелінг, поживні солі, хлорофіл, дані промислу</button></div><p id="case1result" class="feedback" role="status">Оберіть найсильніший набір доказів.</p></article>
+<article class="case"><h3>Кейс 2 · Азональний комплекс</h3><p>Порівняйте річкову дельту та екваторіальний океан. Чому дельта не визначається лише широтним поясом?</p><div class="choices"><button type="button" data-case="2" data-answer="good">Річковий стік і наноси важливіші за широтну схему</button><button type="button" data-case="2" data-answer="bad">Усі дельти обов’язково мають однаковий клімат</button></div><p id="case2result" class="feedback" role="status">Оберіть причинний зв’язок.</p></article>
+</div>
+<h3 style="margin-top:22px">CER: твердження → доказ → пояснення</h3>
+<div class="cer">
+<div><label for="cer1">Твердження: як зміна пасатів пов’язана з ENSO?</label><textarea id="cer1" placeholder="Я вважаю, що…"></textarea></div>
+<div><label for="cer2">Доказ: що показує симуляція і NOAA?</label><textarea id="cer2" placeholder="На моделі видно… У реальних даних…"></textarea></div>
+<div><label for="cer3">Пояснення та обмеження</label><textarea id="cer3" placeholder="Це відбувається, тому що… Але модель не враховує…"></textarea></div>
+</div>
+<div class="controls"><button type="button" id="saveCer">💾 Завантажити дослідницький звіт</button><button type="button" id="printCer">🖨️ Друкувати / PDF</button></div>
+</section>
+
+<section class="section" id="homework">
+<div class="kicker">ДОМАШНЯ РОБОТА · ПОЗА МЕЖАМИ 35 ХВИЛИН</div>
+<h2>Місія «ENSO»: перевірте себе на 10 балів</h2>
+<p>Опрацюйте відповідний параграф електронного підручника за Вашим КТП (номер не зазначаємо без точної звірки), перегляньте другий український відеоролик, порівняйте два режими моделі. Додатково: знайдіть приклад азонального природного комплексу своєї місцевості.</p>
+<p><a href="https://lib.imzo.gov.ua/" target="_blank" rel="noopener">Електронні підручники ІМЗО ↗</a> · <a href="https://ua.pistacja.tv/video/geo50204-vlastyvosti-vod-orhanichnyy-svit-ta-resursy-tykhoho-okeanu" target="_blank" rel="noopener">Додатковий український відеоурок Pi-stacja про Тихий океан ↗</a></p>
+<div id="gate" class="test-gate">
+<label for="studentName">Ім’я та прізвище учня</label><input type="text" id="studentName" autocomplete="name" placeholder="Наприклад: Марія Петренко" required>
+<label for="studentClass">Клас</label><select id="studentClass"><option value="">Оберіть клас</option><option value="7-А">7-А</option><option value="7-Б">7-Б</option><option value="7">7 клас</option></select>
+<button id="startQuiz" type="button">Розпочати тест /10</button>
+<p id="gateError" role="alert" class="note"></p>
+</div>
+<form id="quiz" hidden>
+<div id="quizQuestions"></div>
+<div class="controls"><button type="submit">Перевірити всі 10 завдань</button></div>
+</form>
+<div id="quizResult" class="quiz-result" hidden role="status"></div>
+</section>
+<section class="section"><h2>Використані джерела й наукова доброчесність</h2>
+<div class="table-wrap"><table><thead><tr><th>Джерело</th><th>Що саме дає</th><th>Обмеження</th></tr></thead>
+<tbody>
+<tr><td><a href="https://psl.noaa.gov/enso/" target="_blank" rel="noopener">NOAA PSL</a></td><td>Пояснення ENSO, індекси, аномалії</td><td>Індекс одного місяця сам собою не визначає всю фазу ENSO</td></tr>
+<tr><td><a href="https://earth.nullschool.net/about" target="_blank" rel="noopener">Earth Nullschool</a></td><td>Оцінки глобальних поверхневих течій, зокрема OSCAR / Copernicus</td><td>Час, глибина та покриття залежать від обраного набору даних</td></tr>
+<tr><td><a href="https://svs.gsfc.nasa.gov/30645" target="_blank" rel="noopener">NASA SVS</a></td><td>Історична анімація аномалій 2015–2016</td><td>Це історія, не актуальний прогноз</td></tr>
+<tr><td>Симулятори на сторінці</td><td>Керований причинно-наслідковий експеримент</td><td>Авторські якісні моделі, не повні рівняння океану й не реальні спостереження</td></tr>
+</tbody></table></div></section>
+</main>
+<footer>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» • Географія 7-А • Практична робота №6 · 2026</footer>
 <script>
-(()=>{const ids=['geo-up-ta','geo-up-sa','geo-up-tb','geo-up-sb'];const els=ids.map(id=>document.getElementById(id));if(els.some(x=>!x))return;
-const run=()=>{const [ta,sa,tb,sb]=els.map(x=>Number(x.value));[['ta',ta,' °C'],['sa',sa,' ‰'],['tb',tb,' °C'],['sb',sb,' ‰']].forEach(([id,n,u])=>document.getElementById('geo-up-'+id+'-v').textContent=n+u);
-const rho=(t,s)=>(1000+0.75*(s-35)-0.2*(t-10));const a=rho(ta,sa),b=rho(tb,sb);
-document.getElementById('geo-up-rho-a').textContent='Індекс ≈ '+a.toFixed(1);
-document.getElementById('geo-up-rho-b').textContent='Індекс ≈ '+b.toFixed(1);
-document.getElementById('geo-up-cell-a').style.transform='translateY('+Math.min(12,Math.max(-12,(a-b)*2))+'px)';
-document.getElementById('geo-up-cell-b').style.transform='translateY('+Math.min(12,Math.max(-12,(b-a)*2))+'px)';
-document.getElementById('geo-up-feedback').textContent=Math.abs(a-b)<0.15?'Модель показує близькі значення густини: однозначного висновку про занурення немає.':a>b?'Маса А умовно густіша і за відсутності перемішування прагне опинитися нижче маси Б.':'Маса Б умовно густіша і за відсутності перемішування прагне опинитися нижче маси А.';};
-els.forEach(el=>el.addEventListener('input',run));run();})();
+(function(){
+'use strict';
+const $=id=>document.getElementById(id),W=$('wind'),surface=$('ocean'),depth=$('depth'),ctx=surface.getContext('2d'),dctx=depth.getContext('2d');
+let mode='neutral',playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,last=0,frame=0,seed=12345;
+const rng=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296};
+const particles=Array.from({length:185},(_,i)=>({x:rng(),y:.17+rng()*.66,age:rng()*200,type:i%9===0?1:i%11===0?2:0}));
+const clip=(x,a,b)=>Math.max(a,Math.min(b,x));
+const windNum=()=>Number(W.value);
+const anomaly=()=>Math.round((55-windNum())*.035*100)/100;
+const fnum=(n,d)=>new Intl.NumberFormat('uk-UA',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+function setMode(m){
+mode=m;const value=m==='nino'?12:m==='nina'?88:55;W.value=value;
+document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===m)));
+update();
+}
+function regionVel(x,y,w){
+const eq=Math.exp(-Math.pow((y-.52)/.15,2));
+const counter=Math.exp(-Math.pow((y-.245)/.07,2));
+const humboldt=Math.exp(-Math.pow((x-.91)/.045,2))*Math.exp(-Math.pow((y-.68)/.22,2));
+let u=-.075-.29*(w/100)*eq+.27*counter;
+let v=-.16*humboldt+Math.sin(x*6.28)*.017;
+if(w<25 && eq>.6){u+=.21*(25-w)/25}
+return [u,v];
+}
+function resetParticles(){
+particles.forEach(p=>{p.x=.05+rng()*.9;p.y=.18+rng()*.64;p.age=rng()*150});
+}
+function update(){
+const w=windNum(),a=anomaly(),up=clip(.3+w/130,0,1.2);
+$('windValue').textContent=w+'%';
+$('sstLabel').textContent=(a>0?'+':'')+fnum(a,2)+' °C';
+$('phaseLabel').textContent=w<33?'Ель-Ніньйо (модель)':w>72?'Ла-Нінья (модель)':'Нейтральний';
+$('tradeLabel').textContent=w<33?'Ослаблені':w>72?'Посилені':'Звичайні';
+$('upLabel').textContent=w<33?'Ослаблений':w>72?'Посилений':'Помірний';
+$('thermoLabel').textContent=w<33?'Заглиблений':w>72?'Мілкий':'Порівняно мілкий';
+$('liftLabel').textContent=w<33?'Слабший':w>72?'Сильніший':'Помірний';
+$('nutLabel').textContent=w<33?'Може зменшитись':w>72?'Може збільшитись':'Помірна';
+$('fishLabel').textContent=w<33?'Може зростати':w>72?'Не визначається лише ENSO':'Без суттєвих відхилень';
+$('upBar').style.width=clip(up*72,10,95)+'%';$('nutBar').style.width=clip((.22+up*.62)*100,10,98)+'%';
+$('phaseFeedback').textContent=w<33?'Ель-Ніньйо: пасати ослабли, теплі поверхневі води поширюються на схід, термоклін біля Перу заглиблюється, апвелінг слабшає.':w>72?'Ла-Нінья: посилені пасати зганяють теплу воду на захід, на сході термоклін мілкіший і апвелінг зазвичай сильніший.':'Нейтральна фаза: пасати підтримують західне перенесення теплої води, а біля Перу відносно холодні глибинні води піднімаються до поверхні.';
+document.querySelectorAll('[data-impact]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.impact===(w<33?'nino':w>72?'nina':'neutral'))));
+impact();
+drawDepth();drawOcean();
+}
+function setImpact(m){setMode(m);document.querySelector('#impacts').scrollIntoView({block:'nearest'});}
+function impact(){
+const w=windNum(),n=w<33,l=w>72;
+$('peruImpact').textContent=n?'Часто слабшає апвелінг, що може знижувати надходження поживних солей і змінювати улови; на частині узбережжя зростає ризик сильних опадів.':l?'Апвелінг частіше посилюється, поверхневі води прохолодніші; біопродуктивність може підтримуватися краще, хоча це не гарантія вилову.':'Прибережний апвелінг підтримує високу біологічну продуктивність в окремих районах.';
+$('ausImpact').textContent=n?'Для частини Індонезії та Австралії зростає ймовірність посушливіших умов. Це не означає посуху в кожній точці.':l?'Для частини Австралії та Індонезії зростає ймовірність вологіших умов і сильних злив. Не кожна подія однакова.':'Теплі води на заході сприяють розвитку конвекції та дощів.';
+$('worldImpact').textContent=n?'Перебудовується атмосферна циркуляція й змінюються ймовірності погоди у світі. В Україні немає простого гарантованого сценарію «тепло» або «холодно».':l?'Змінюються шляхи атмосферної циркуляції й сезонні ризики у різних регіонах. Для України наслідки опосередковані та мінливі.':'Вплив ENSO за межами Тихого океану залежить від сезону й інших чинників; для України він слабший та менш однозначний.';
+}
+function drawOcean(){
+const c=ctx,w=surface.width,h=surface.height,s=windNum(),a=anomaly(),land=105;
+c.clearRect(0,0,w,h);
+const gr=c.createLinearGradient(80,0,900,0);
+gr.addColorStop(0,'#df7050');gr.addColorStop(.35,'#bd9c61');
+const east=a>0?['#b5815b','#d56a54']:a<0?['#4b9ec3','#2265a6']:['#579db6','#3483aa'];
+gr.addColorStop(.78,east[0]);gr.addColorStop(1,east[1]);
+c.fillStyle=gr;c.fillRect(0,0,w,h);
+c.fillStyle='rgba(0,23,46,.25)';for(let i=0;i<6;i++){c.fillRect(0,i*68,w,1)}
+c.save();c.strokeStyle='#ffffff24';c.lineWidth=1;
+for(let x=90;x<950;x+=105){c.beginPath();c.moveTo(x,0);c.lineTo(x,h);c.stroke()}
+for(let y=45;y<h;y+=76){c.beginPath();c.moveTo(0,y);c.lineTo(w,y);c.stroke()}
+c.restore();
+c.fillStyle='#244d42';c.strokeStyle='#94b28c';c.lineWidth=2;
+c.beginPath();c.moveTo(0,0);c.lineTo(110,0);c.lineTo(136,63);c.lineTo(98,104);c.lineTo(112,165);c.lineTo(53,180);c.lineTo(12,245);c.lineTo(0,250);c.closePath();c.fill();c.stroke();
+c.beginPath();c.moveTo(980,0);c.lineTo(865,0);c.lineTo(879,58);c.lineTo(861,100);c.lineTo(902,157);c.lineTo(867,212);c.lineTo(885,292);c.lineTo(851,400);c.lineTo(980,400);c.closePath();c.fill();c.stroke();
+c.fillStyle='#e8f6e9';c.font='bold 18px system-ui';c.fillText('Індонезія / Австралія',18,30);c.fillText('Перу / Еквадор',777,30);
+c.font='13px system-ui';c.fillStyle='#e2f4ff';c.fillText('ЗАХІД ТИХОГО ОКЕАНУ',16,375);c.fillText('СХІД ТИХОГО ОКЕАНУ',758,375);
+c.strokeStyle='#fbfaf588';c.setLineDash([8,9]);c.beginPath();c.moveTo(140,205);c.lineTo(850,205);c.stroke();c.setLineDash([]);c.fillStyle='#f4fff2';c.fillText('ЕКВАТОР',450,222);
+const windArrows=2+Math.round(s/22);
+c.lineWidth=2.2;c.strokeStyle='#fff7cc';c.fillStyle='#fff7cc';
+for(let i=0;i<windArrows;i++){const x=260+i*(440/Math.max(1,windArrows-1)),y=63+i%2*16;c.beginPath();c.moveTo(x+38,y);c.lineTo(x-28,y);c.stroke();c.beginPath();c.moveTo(x-28,y);c.lineTo(x-16,y-6);c.lineTo(x-16,y+6);c.fill()}
+c.font='14px system-ui';c.fillText('Східні пасати → на захід',335,47);
+particles.forEach(p=>{
+ const px=115+p.x*760,py=60+p.y*295;
+ c.fillStyle=p.type===1?'#ffe29a':p.type===2?'#8edafc':'#fff';
+ c.globalAlpha=p.type===0?.73:.92;
+ c.beginPath();c.arc(px,py,p.type===0?2.5:4,0,Math.PI*2);c.fill();
+});c.globalAlpha=1;
+c.fillStyle='#061725be';c.fillRect(320,294,350,54);
+c.fillStyle='#e8fcff';c.font='14px system-ui';c.fillText('Частинки переносяться векторним полем',333,315);c.fillText('Клацніть, щоб додати трасер течії',333,336);
+}
+function drawDepth(){
+const c=dctx,w=depth.width,h=depth.height,s=windNum();
+const west=98+s*1.04,east=160-s*1.46;
+c.clearRect(0,0,w,h);c.fillStyle='#091e35';c.fillRect(0,0,w,h);
+const Y=64;
+const x0=90,x1=890;
+const yWest=Y+west,yEast=Y+east;
+const grad=c.createLinearGradient(0,0,0,h);
+grad.addColorStop(0,'#68b1b5');grad.addColorStop(.5,'#27559a');grad.addColorStop(1,'#0d2748');
+c.fillStyle=grad;c.fillRect(0,Y,w,h-Y);
+c.fillStyle='#ee985890';c.beginPath();c.moveTo(0,Y);c.lineTo(w,Y);c.lineTo(w,yEast);c.lineTo(x1,yEast);c.bezierCurveTo(600,(yEast+yWest)/2,320,(yEast+yWest)/2,x0,yWest);c.lineTo(0,yWest);c.closePath();c.fill();
+c.strokeStyle='#ffe19b';c.lineWidth=4;c.beginPath();c.moveTo(x0,yWest);c.bezierCurveTo(350,(yEast+yWest)/2,630,(yEast+yWest)/2,x1,yEast);c.stroke();
+c.fillStyle='#244d42';c.beginPath();c.moveTo(0,64);c.lineTo(82,64);c.lineTo(100,100);c.lineTo(65,128);c.lineTo(0,125);c.fill();
+c.beginPath();c.moveTo(980,64);c.lineTo(908,64);c.lineTo(891,110);c.lineTo(925,132);c.lineTo(980,135);c.fill();
+c.strokeStyle='#bdefff';c.lineWidth=3;c.beginPath();c.moveTo(0,Y);c.lineTo(w,Y);c.stroke();
+c.fillStyle='#fff';c.font='bold 17px system-ui';c.fillText('Індонезія',18,38);c.fillText('Перу',880,38);
+c.font='15px system-ui';c.fillStyle='#fff3da';c.fillText('ТЕПЛА ПОВЕРХНЕВА ВОДА',345,101);
+c.fillStyle='#d1ebfe';c.fillText('ХОЛОДНІША ГЛИБИННА ВОДА',335,307);
+c.fillStyle='#fff0aa';c.fillText('ТЕРМОКЛІН (умовна глибина)',350,Math.min(269,(yWest+yEast)/2+30));
+c.lineWidth=3;c.strokeStyle='#8deaff';c.fillStyle='#8deaff';
+const arrow=clip(90-(s-15)*.52,16,98);
+c.beginPath();c.moveTo(868,235);c.lineTo(868,235-arrow);c.stroke();
+c.beginPath();c.moveTo(868,235-arrow);c.lineTo(859,248-arrow);c.lineTo(877,248-arrow);c.closePath();c.fill();
+c.font='14px system-ui';c.fillText('апвелінг',785,262);
+c.fillStyle='#e8f7ff';c.font='13px system-ui';c.fillText('Не в масштабі · модель якісних змін',15,331);
+}
+let acc=0;
+function animate(time){
+if(!playing)return;
+const dt=Math.min(2.2,(time-last||16)/16.7);last=time;frame++;
+if(frame%2===0){const w=windNum();
+particles.forEach(p=>{
+let uv=regionVel(p.x,p.y,w),type=p.type;
+if(type===1){uv=[.16,.006]}else if(type===2){uv=[-.045,-.16]}
+p.x+=uv[0]*.0085*dt*3;p.y+=uv[1]*.0085*dt*3;
+if(p.x<0)p.x=.98;if(p.x>1)p.x=.02;
+if(p.y<.09)p.y=.83;if(p.y>.85)p.y=.12;
+});
+drawOcean();
+}
+requestAnimationFrame(animate);
+}
+$('runBtn').addEventListener('click',function(){
+playing=!playing;this.textContent=playing?'⏸ Зупинити рух':'▶ Відновити рух';
+this.setAttribute('aria-pressed',String(playing));if(playing){last=0;requestAnimationFrame(animate)}
+});
+$('resetBtn').addEventListener('click',()=>{setMode('neutral');resetParticles();});
+surface.addEventListener('pointerdown',e=>{
+const r=surface.getBoundingClientRect();const x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+particles.push({x:clip((x-.117)/.776,.01,.99),y:clip((y-.15)/.74,.12,.84),age:0,type:1});
+if(particles.length>250)particles.splice(0,particles.length-210);drawOcean();
+});
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+document.querySelectorAll('[data-impact]').forEach(b=>b.addEventListener('click',()=>setImpact(b.dataset.impact)));
+W.addEventListener('input',()=>{document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed','false'));update()});
+document.querySelectorAll('[data-case]').forEach(b=>b.addEventListener('click',()=>{
+const id=b.dataset.case,good=b.dataset.answer==='good';
+$('case'+id+'result').textContent=id==='1'?(good?'Так: потрібно перевірити, чи змінюється надходження поживних речовин, біопродуктивність і вилов.':'Ні: температура чи фото без даних про поживні солі й промисел не доводять причину.'):(good?'Так: річкові долини, дельти та заплави формуються насамперед під впливом стоку, наносів і рельєфу.':'Ні: широта не визначає однакових кліматичних умов і не пояснює появу всіх дельт.');
+$('case'+id+'result').style.borderLeftColor=good?'#57e7b1':'#ffad6a';
+}));
+$('saveCer').addEventListener('click',()=>{
+const s=['Практична робота №6 · Географія 7 клас','Тема: водні маси, течії, ENSO й азональні природні комплекси','Дата: '+new Date().toLocaleDateString('uk-UA'),'','ТВЕРДЖЕННЯ:', $('cer1').value,'','ДОКАЗ:', $('cer2').value,'','ПОЯСНЕННЯ ТА ОБМЕЖЕННЯ:', $('cer3').value,''].join('\n');
+const b=new Blob([s],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');const url=URL.createObjectURL(b);a.href=url;a.download='praktychna_6_okean_doslid.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+$('printCer').addEventListener('click',()=>window.print());
+const Q=[
+{type:'single',q:'1. Пасати різко ослабли. Що найімовірніше відбувається з водами східного екваторіального Тихого океану?',o:['Теплі поверхневі води частіше поширюються на схід','Апвелінг обов’язково посилюється','Температура у всіх океанах стає однаковою'],a:0},
+{type:'single',q:'2. Який найточніший опис Ель-Ніньйо?',o:['Постійна тепла течія вздовж берегів Перу','Фаза ENSO: аномальне потепління центрально-східного екваторіального Тихого океану разом зі змінами атмосфери','Один день рекордної температури біля Австралії'],a:1},
+{type:'single',q:'3. Під час Ла-Нінья східні пасати посилюються. Що очікується поблизу Перу?',o:['У середньому мілкіший термоклін і активніший апвелінг','Зникнення всіх океанічних течій','Повне припинення перенесення поживних речовин'],a:0},
+{type:'single',q:'4. Що показує океанічна температурна аномалія +1 °C?',o:['Температура води дорівнює +1 °C','Температура на 1 °C вище відповідної кліматичної норми','Вода тепліша за температуру повітря рівно на 1 °C'],a:1},
+{type:'multi',q:'5. Оберіть ДВА вимірювання, потрібні для перевірки твердження про ослаблення апвелінгу.',o:['Профіль температури з глибиною','Концентрація поживних речовин у воді','Колір шкільного атласу','Кількість автомобілів у порту'],a:[0,1]},
+{type:'multi',q:'6. Які ДВА твердження про моделі на сторінці є науково коректними?',o:['Поверхневі течії чутливі до зміни вітрів','Симуляція точно прогнозує улов сардин у Перу','Спрощена модель допомагає перевіряти причинні зв’язки','Кожна точка моделі відстежується супутником у реальному часі'],a:[0,2]},
+{type:'single',q:'7. Що найкраще підтверджує формування азонального комплексу?',o:['Річкова заплава формується через стік, наноси й рельєф, не лише через широту','Усі річкові дельти є тільки в екваторіальному поясі','Будь-яка рослинність залежить лише від тривалості дня'],a:0},
+{type:'single',q:'8. Встановіть правильний причинний ланцюг для Ель-Ніньйо.',o:['Слабші пасати → тепліша вода на сході → часто слабший апвелінг','Слабші пасати → холодніша вода на сході → сильніший апвелінг','Посилення пасатів → перехід теплої води на схід → незмінна атмосфера'],a:0},
+{type:'single',q:'9. Який висновок НЕ дозволяє зробити симуляція без додаткових даних?',o:['За слабших пасатів змінюється модельний перенос теплої води','Наступного тижня в певному місті України обов’язково буде посуха','Із посиленням пасатів східний термоклін у типовій моделі мілкішає'],a:1},
+{type:'single',q:'10. Яка відповідь має повну структуру CER?',o:['«Ель-Ніньйо поганий, бо океан стає червоним на карті»','«Пасати ослабли; модель показує теплішу воду на сході, а реальні аномалії NOAA дозволяють перевірити цей напрямок. Отже, може слабшати апвелінг, але для висновку про вилов потрібні інші дані»','«Я подивився відео, тому все зрозуміло»'],a:1}
+];
+const quizQuestions=$('quizQuestions');
+Q.forEach((q,i)=>{const fs=document.createElement('fieldset');fs.className='quiz-item';const legend=document.createElement('legend');legend.textContent=q.q;fs.appendChild(legend);q.o.forEach((o,j)=>{const label=document.createElement('label');label.className='quiz-option';const inp=document.createElement('input');inp.type=q.type==='multi'?'checkbox':'radio';inp.name='q'+i;inp.value=String(j);label.appendChild(inp);const sp=document.createElement('span');sp.textContent=o;label.appendChild(sp);fs.appendChild(label)});quizQuestions.appendChild(fs)});
+$('startQuiz').addEventListener('click',()=>{
+const name=$('studentName').value.trim().replace(/\s+/g,' '),cl=$('studentClass').value;
+const valid=name.split(' ').length>=2&&name.split(' ').every(w=>/^[А-Яа-яІЇЄҐіїєґA-Za-z’'\-]+$/.test(w));
+if(!valid||!cl){$('gateError').textContent='Введіть коректне ім’я, прізвище та клас (щонайменше два слова без цифр).';return}
+$('gateError').textContent='';$('gate').hidden=true;$('quiz').hidden=false;$('quiz').scrollIntoView({block:'start',behavior:'smooth'});
+});
+$('quiz').addEventListener('submit',e=>{
+e.preventDefault();let score=0,unanswered=0;
+Q.forEach((q,i)=>{const selected=[...document.querySelectorAll('input[name=q'+i+']:checked')].map(x=>Number(x.value)).sort((a,b)=>a-b);
+if(!selected.length)unanswered++;
+else if(q.type==='multi'){if(selected.length===q.a.length && selected.every((x,j)=>x===q.a[j]))score++}
+else if(selected.length===1&&selected[0]===q.a)score++;
+});
+const out=$('quizResult');out.hidden=false;out.replaceChildren();
+if(unanswered){out.textContent='Відповідайте на всі десять завдань. Пропущено: '+unanswered+'.';out.scrollIntoView({block:'center'});return}
+const add=(tag,txt)=>{const v=document.createElement(tag);v.textContent=txt;out.appendChild(v);return v};
+add('strong',score+'/10 · '+(score*10)+'%');
+add('p',$('studentName').value.trim()+' · '+$('studentClass').value+' · '+new Date().toLocaleString('uk-UA'));
+add('p',score===10?'Відмінне географічне мислення!':score>=8?'Гарний результат. Перевірте причинні зв’язки.':score>=5?'Є основа, але поверніться до моделі течій і термокліну.':'Повторіть ENSO та апвелінг і пройдіть ще раз.');
+add('p','Зробіть скриншот цієї картки й надішліть учителю. Тест оцінено автоматично, CER перевіряється окремо.');
+const b=document.createElement('button');b.type='button';b.textContent='🖨️ Друкувати результат';b.addEventListener('click',()=>window.print());out.appendChild(b);out.scrollIntoView({block:'center'});
+});
+update();drawOcean();drawDepth();if(playing)requestAnimationFrame(animate);else{$('runBtn').textContent='▶ Відновити рух';$('runBtn').setAttribute('aria-pressed','false')}
+})();
 </script>
-</body></html>
+</body>
+</html>
