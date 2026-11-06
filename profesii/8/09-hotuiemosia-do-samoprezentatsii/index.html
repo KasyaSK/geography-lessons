@@ -162,7 +162,7 @@ all("[data-video-check]").forEach(btn=>btn.addEventListener("click",()=>{
 let cast=scenarios[0],round=0,picks=[],done=false;
 function setCast(id){
  cast=scenarios.find(x=>x.id===id)||scenarios[0];round=0;picks=[];done=false;
- $("castResult").hidden=true;$("castBox"||"castOptions");
+ $("castResult").hidden=true;
  all("[data-cast-id]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.castId===cast.id)));
  renderCast();
 }
@@ -205,6 +205,8 @@ function updatePassport(){
  $("passAdvice").textContent=!v("a")?"🎯 Спершу додайте реальну дію: що саме Ви зробили?":!v("r")?"🔍 Є дія, але бракує результату. Що змінилося після Вашої участі?":!v("f")?"🚀 Додайте наступний крок: чого хочете навчитися?":"✅ У візитці є дія, результат і напрям розвитку. Перевірте, чи все це доречне для обраної аудиторії.";
 }
 fieldIds.forEach(k=>$(k)?.addEventListener("input",updatePassport));
+$("demo")?.addEventListener("click",updatePassport);
+$("clear")?.addEventListener("click",updatePassport);
 $("passAudience").addEventListener("change",updatePassport);
 all("[data-palette]").forEach(btn=>btn.addEventListener("click",()=>{palette=btn.dataset.palette;all("[data-palette]").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));$("passPreview").dataset.paletteView=palette}));
 updatePassport();
@@ -216,6 +218,7 @@ function wrap(c,text,x,y,maxWidth,lineHeight,maxLines,style){
  return y+Math.min(lines.length,maxLines)*lineHeight;
 }
 $("passDownload").addEventListener("click",()=>{
+ if(!v("a")||!v("r")){$("passStatus").textContent="Спочатку додайте власну дію й результат у конструкторі.";return}
  try{
  const cv=document.createElement("canvas");cv.width=1080;cv.height=1080;const c=cv.getContext("2d");
  const colors=palette==="sunset"?["#9d2f6d","#ff715a"]:palette==="mint"?["#065d73","#1f9f8a"]:["#29289a","#443279"];
