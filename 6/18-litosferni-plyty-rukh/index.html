@@ -16,6 +16,42 @@ main{max-width:1170px;padding:10px 15px 100px;margin:auto}.section{scroll-margin
 .cert{border:2px solid #78b8a4;background:#e9f8f0;padding:21px;border-radius:18px}.score{font-size:3.2rem;font-weight:900;color:#096c68}.quiz-q{padding:20px 0;border-top:1px solid #e1e9ee}.quiz-q h3{font-size:1.03rem}.qchoice{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:11px;background:#f3f8fa;margin:8px 0}.qchoice input{height:20px;width:20px;accent-color:#09877f;margin-top:3px}.resource-list a{display:block;margin:8px 0}.noprint{}@media(max-width:1020px){.photo-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.section{padding:20px 16px;margin:13px 0;border-radius:15px}.grid,.grid.thirds,.video-grid{grid-template-columns:1fr}.sheet .lines{grid-template-columns:1fr}.section-head{display:block}.time{display:inline-block;margin-bottom:12px}main{padding:8px 10px 60px}.hero-inner{padding:40px 20px}.photo-grid{grid-template-columns:1fr 1fr}.photo-media{height:125px}.plate-point{height:27px;width:27px;font-size:.76rem}.plate-point em{top:23px;font-size:.53rem}.sheet-map{min-height:220px}.plate-picker{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 @media print{@page{size:A4 landscape;margin:8mm}body{background:white}body.print-worksheet>*:not(main){display:none!important}body.print-worksheet main>*:not(#practice){display:none!important}body.print-worksheet #practice>*:not(#worksheet){display:none!important}body.print-worksheet #practice{margin:0;padding:0;border:0;box-shadow:none}body.print-worksheet #worksheet{display:block!important;padding:10px;border:0}.sheet-map.print{height:auto}.noprint{display:none!important}.sheet{box-shadow:none;page-break-inside:avoid}.photo-card,.section{break-inside:avoid}}
+
+/* Живе малювання на реальній контурній карті */
+.drawing-lab{margin:23px 0 26px;border:2px solid #5fbdad;border-radius:20px;padding:clamp(15px,2.7vw,25px);background:linear-gradient(140deg,#effbf6,#f5fbff)}
+.draw-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.draw-heading h3{font-size:clamp(1.3rem,2.7vw,1.8rem);margin:5px 0 11px}
+.draw-minihelp{display:flex;gap:9px;flex-wrap:wrap;margin:11px 0 15px;font-size:.84rem}
+.draw-minihelp span{background:white;border:1px solid #cce7dc;padding:6px 10px;border-radius:20px;font-weight:760}
+.draw-toolbar{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 10px}
+.draw-tool{padding:10px 14px;min-height:46px;border-radius:12px;border:2px solid #b9d5d9;background:white;color:#1f5466;font-weight:850}
+.draw-tool[aria-pressed=true]{background:#145676;border-color:#145676;color:white}
+.draw-tool:hover{filter:brightness(.95)}
+.draw-settings{background:white;border-radius:14px;padding:11px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;border:1px solid #cee4de}
+.draw-settings-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.draw-settings-group input[type=range]{width:125px;accent-color:#0c8e87}
+.draw-setting-label{font-weight:800;color:#34546b;font-size:.84rem}
+.draw-color{border:3px solid white;background:var(--swatch);width:39px;height:39px;border-radius:50%;box-shadow:0 0 0 1px #bdcbd6}
+.draw-color[aria-pressed=true]{box-shadow:0 0 0 3px #0b647b;border-color:white}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.draw-label-controls{display:grid;grid-template-columns:auto minmax(190px,1fr) auto minmax(180px,1.4fr);gap:9px;align-items:center;margin:15px 0}
+.draw-label-controls label{font-size:.83rem}
+.draw-label-controls select,.draw-label-controls input{margin:0;font-size:.9rem}
+.draw-key{display:flex;gap:12px;flex-wrap:wrap;margin:13px 0;font-size:.78rem}
+.draw-key span{display:flex;align-items:center;gap:6px;font-weight:740}
+.draw-key i{display:inline-block;width:19px;height:6px;border-radius:10px}
+.draw-scroll{max-width:100%;overflow:auto;border:2px solid #aacdd5;border-radius:16px;background:#e8f4f9;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.draw-stage{position:relative;width:960px;aspect-ratio:960/500;user-select:none;-webkit-user-select:none}
+.draw-stage.zoomed{width:1344px}
+.draw-stage>img{width:100%;height:100%;display:block;pointer-events:none;user-select:none}
+#drawCanvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair;touch-action:none;display:block}
+.draw-stage.pan #drawCanvas{pointer-events:none}
+.draw-actions{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.draw-identity{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.draw-identity input{max-width:350px}
+@media(max-width:950px){.draw-label-controls{grid-template-columns:1fr 1fr}.draw-label-controls label{grid-column:auto}}
+@media(max-width:620px){.drawing-lab{padding:13px;border-radius:15px}.draw-label-controls{grid-template-columns:1fr}.draw-toolbar .draw-tool{flex:1;white-space:nowrap}.draw-actions .btn{flex:1}.draw-settings-group input[type=range]{width:95px}}
+@media print{body.print-worksheet .drawing-lab{display:none!important}}
 </style></head><body>
 <header class="hero"><div class="hero-inner">
 <div class="eyebrow">🌍 Географія / 6-А / Урок №18 / §15</div>
@@ -40,10 +76,73 @@ main{max-width:1170px;padding:10px 15px 100px;margin:auto}.section{scroll-margin
 <div class="grid thirds"><div class="panel"><h3>🟥 Розходження</h3><p>Плити віддаляються. Приклад: Серединно-Атлантичний хребет. Може утворюватися нова океанічна кора.</p></div><div class="panel"><h3>🟦 Зближення</h3><p>Плити наближаються: можливі гори, жолоби й субдукція. Приклад: Анди.</p></div><div class="panel"><h3>🟪 Ковзання</h3><p>Плити рухаються в різних напрямках уздовж спільної межі. Приклад: Сан-Андреас.</p></div></div>
 <div class="callout warning">Колір умовного знака може відрізнятися на різних картах. <b>Завжди читайте легенду конкретної карти</b>, а не запам’ятовуйте один колір назавжди.</div></section>
 <section class="section" id="practice"><div class="section-head"><div><span class="smallcaps">03 / Центральне завдання уроку</span><h2>Практична робота №5: «Позначення на контурній карті меж літосферних плит»</h2></div><span class="time">10–21 хв</span></div>
-<p class="lead">Вам потрібні <b>атлас, контурна карта, простий олівець і два кольори</b>. Якщо немає контурної карти — нижче є варіант для друку. Онлайн-тренажер допоможе перевірити розміщення, але <strong>не замінює власноруч заповненої карти.</strong></p>
+<p class="lead">Звіряйтеся з <b>науковими картами вище</b>. Тепер Ви можете <b>малювати безпосередньо на карті в браузері</b>: провести межі, додати стрілки й підписи та завантажити готову роботу. Паперова контурна карта — додатковий варіант.</p>
 <div class="callout strong"><b>Мета практичної:</b> знайти основні плити на реальній карті; перенести їх на контурну; позначити дві межі різних типів; показати напрямок відносного руху та пояснити наслідки.</div>
 <div class="grid"><div><div class="panel mint"><h3>✏️ Частина А. Сім плит</h3><ol><li>Тихоокеанська</li><li>Північноамериканська</li><li>Південноамериканська</li><li>Євразійська</li><li>Африканська</li><li>Індо-Австралійська</li><li>Антарктична</li></ol><p class="tiny">У сучасних детальніших моделях Індійську й Австралійську плити можуть виділяти окремо; для цього шкільного завдання використовуйте назву з атласу.</p></div></div><div><div class="panel sand"><h3>🖊️ Частина Б. Дві межі</h3><p><b>1. Серединно-Атлантичний хребет.</b> Проведіть лінію посеред Атлантичного океану. На двох ділянках намалюйте стрілки в протилежні боки <b>від хребта</b>.</p><p><b>2. Західна окраїна Південної Америки.</b> Проведіть лінію вздовж тихоокеанського узбережжя Анд. Показуйте зближення плити Наска з Південноамериканською.</p><p class="tiny">Плита Наска — менша плита; для пояснення субдукції знайдіть її на детальній карті.</p></div></div></div>
-<div class="panel" style="margin-top:16px"><span class="smallcaps">Онлайн-тренажер перед заповненням контурної карти</span><h3>Поставте назви на правильні місця</h3><p>Спочатку <b>виберіть назву плити</b> у списку. Потім натисніть її центр на <b>справжній контурній карті світу</b> (число 1–7). Якщо місце правильне — підпис відкриється. Складніший варіант: спершу вгадайте без атласу, потім перевірте.</p><div class="plate-picker"><label><span class="field">Яку плиту позначаємо?</span><select id="plateSelect"><option value="">Оберіть назву плити</option></select></label><button class="btn secondary" id="resetPlates" type="button">↺ Скинути</button></div>
+
+<div class="drawing-lab" id="drawingLab">
+  <div class="draw-heading">
+    <div><span class="smallcaps">🌟 Головний інструмент практичної №5</span><h3>Малюйте просто на карті! ✏️🗺️</h3></div>
+    <span class="badge">Працює на телефоні й комп’ютері</span>
+  </div>
+  <p>Усе можна виконати <b>прямо тут</b>: підписати 7 плит, провести межі, намалювати стрілки й зберегти готову роботу <b>у PNG</b> для Google Classroom. Паперова контурна карта — запасний варіант, а не обов’язкова умова.</p>
+  <div class="draw-minihelp"><b>Як працювати:</b> <span>1. Виберіть інструмент</span> <span>2. Оберіть колір</span> <span>3. Малюйте або ставте підпис</span> <span>4. Збережіть PNG</span></div>
+
+  <div class="draw-toolbar" role="toolbar" aria-label="Інструменти малювання">
+    <button class="draw-tool" data-draw-tool="pen" type="button" aria-pressed="true">✏️ Олівець</button>
+    <button class="draw-tool" data-draw-tool="arrow" type="button" aria-pressed="false">➜ Стрілка</button>
+    <button class="draw-tool" data-draw-tool="text" type="button" aria-pressed="false">🔤 Підпис</button>
+    <button class="draw-tool" data-draw-tool="eraser" type="button" aria-pressed="false">🧽 Гумка</button>
+    <button class="draw-tool" data-draw-tool="pan" type="button" aria-pressed="false">✋ Пересунути</button>
+  </div>
+  <div class="draw-settings">
+    <div class="draw-settings-group" role="group" aria-label="Колір лінії">
+      <span class="draw-setting-label">Колір:</span>
+      <button class="draw-color" data-draw-color="#d94853" type="button" aria-pressed="true" style="--swatch:#d94853" title="Червоний — розходження"><span class="visually-hidden">Червоний — розходження</span></button>
+      <button class="draw-color" data-draw-color="#2667c2" type="button" aria-pressed="false" style="--swatch:#2667c2" title="Синій — зближення"><span class="visually-hidden">Синій — зближення</span></button>
+      <button class="draw-color" data-draw-color="#8147b2" type="button" aria-pressed="false" style="--swatch:#8147b2" title="Фіолетовий — ковзання"><span class="visually-hidden">Фіолетовий — ковзання</span></button>
+      <button class="draw-color" data-draw-color="#14384a" type="button" aria-pressed="false" style="--swatch:#14384a" title="Темний — підписи й довільні позначки"><span class="visually-hidden">Темний — підписи</span></button>
+    </div>
+    <label class="draw-settings-group" for="brushSize"><span class="draw-setting-label">Товщина</span><input type="range" id="brushSize" min="2" max="12" value="5" step="1"><b id="brushValue">5</b></label>
+    <button class="btn secondary draw-zoom" id="drawZoom" type="button" aria-pressed="false">🔎 Збільшити карту</button>
+  </div>
+  <div class="draw-label-controls">
+    <label for="drawPlateName"><b>Швидкий підпис плити</b> (оберіть і клацніть по карті)</label>
+    <select id="drawPlateName">
+      <option value="">— Оберіть назву —</option>
+      <option>Тихоокеанська</option><option>Північноамериканська</option><option>Південноамериканська</option>
+      <option>Євразійська</option><option>Африканська</option><option>Індо-Австралійська</option>
+      <option>Антарктична</option><option>Наска</option><option>Південно-Атлантичний хребет</option>
+      <option>Серединно-Атлантичний хребет</option><option>Анди</option>
+    </select>
+    <label for="drawCustomLabel"><b>Або свій текст</b> (необов’язково)</label>
+    <input id="drawCustomLabel" type="text" maxlength="58" placeholder="Наприклад: Межа розходження">
+  </div>
+  <div class="draw-key">
+    <span><i style="background:#d94853"></i> Червоний: розходження</span>
+    <span><i style="background:#2667c2"></i> Синій: зближення</span>
+    <span><i style="background:#8147b2"></i> Фіолетовий: ковзання</span>
+    <span><i style="background:#14384a"></i> Темний: назви плит</span>
+  </div>
+  <div class="draw-scroll" id="drawScroll" aria-label="Область контурної карти, прокручуйте по горизонталі на вузькому екрані">
+    <div class="draw-stage" id="drawStage">
+      <img id="drawBaseMap" crossorigin="anonymous" src="./world-coastline-naturalearth.svg" alt="Справжня контурна карта світу на основі географічних даних Natural Earth без політичних кордонів" draggable="false">
+      <canvas id="drawCanvas" width="960" height="500" tabindex="0" aria-label="Поле для малювання меж, стрілок і підписів на контурній карті. Для малювання користуйтеся пальцем або мишею." aria-describedby="drawCanvasHelp"></canvas>
+    </div>
+  </div>
+  <p id="drawCanvasHelp" class="tiny">На телефоні за потреби пересуньте карту горизонтально інструментом «✋ Пересунути». «Олівець» малює вільну лінію; «Стрілка» — від початку до кінця руху; «Підпис» ставить вибрану назву одним натисканням; «Гумка» прибирає окрему лінію або підпис.</p>
+  <div class="draw-actions">
+    <button class="btn secondary" id="drawUndo" type="button">↶ Скасувати</button>
+    <button class="btn secondary" id="drawRedo" type="button">↷ Повернути</button>
+    <button class="btn secondary" id="drawClear" type="button">🧹 Очистити карту</button>
+    <button class="btn accent" id="drawSave" type="button">⬇️ Зберегти готову карту (PNG)</button>
+  </div>
+  <div class="draw-identity"><label for="drawStudent"><b>Ім'я та прізвище для готової карти</b></label><input type="text" id="drawStudent" maxlength="70" placeholder="Наприклад: Ірина Коваль"></div>
+  <div class="feedback" id="drawStatus" aria-live="polite">💡 Почніть із «🔤 Підпис»: виберіть першу плиту, натисніть потрібне місце на карті. Потім проведіть дві межі «Олівцем» і напрямки руху «Стрілкою».</div>
+  <div class="callout warning" style="margin-bottom:0"><b>Не забудьте:</b> натиснути <b>«Зберегти готову карту (PNG)»</b> і прикріпити зображення до завдання в Classroom. Сторінка також зберігає чернетку в браузері цього пристрою, але на іншому телефоні вона не з’явиться. <b>Автоматично в Classroom нічого не надсилається.</b></div>
+  <p class="tiny">Основа карти: <a href="https://github.com/vega/vega-datasets/blob/master/data/world-110m.json" target="_blank" rel="noopener noreferrer">Natural Earth, набір world-110m від Vega Datasets</a>, у локальному SVG для уроку. Межі плит учні наносять самостійно за науковими картами вище.</p>
+</div>
+<div class="panel" style="margin-top:16px"><span class="smallcaps">Додатковий онлайн-тренажер: перевірте розміщення плит</span><h3>Поставте назви на правильні місця</h3><p>Спочатку <b>виберіть назву плити</b> у списку. Потім натисніть її центр на <b>справжній контурній карті світу</b> (число 1–7). Якщо місце правильне — підпис відкриється. Складніший варіант: спершу вгадайте без атласу, потім перевірте.</p><div class="plate-picker"><label><span class="field">Яку плиту позначаємо?</span><select id="plateSelect"><option value="">Оберіть назву плити</option></select></label><button class="btn secondary" id="resetPlates" type="button">↺ Скинути</button></div>
 <p class="badge" id="plateProgress" aria-live="polite">Підписано 0 із 7</p>
 <div class="sheet-map" id="interactiveWorld" aria-label="Реальна контурна карта світу з 7 точками для вибору плит">
 <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WorldMap-Blank-Noborders.svg?width=1200" alt="Контурна карта світу без політичних кордонів. Джерело: Wikimedia Commons" onerror="this.hidden=true;document.getElementById('mapOffline').hidden=false" loading="lazy">
@@ -63,11 +162,11 @@ main{max-width:1170px;padding:10px 15px 100px;margin:auto}.section{scroll-margin
 <div id="worksheet" class="sheet" style="margin-top:16px">
 <div class="smallcaps">Географія · 6 клас · Практична робота №5</div><h3>Позначення меж літосферних плит</h3>
 <p>Прізвище та ім'я: _______________________________________ Клас: ________ Дата: ________</p>
-<div class="sheet-map print"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/WorldMap-Blank-Noborders.svg?width=1400" alt="Контурна карта світу для самостійного нанесення плит" loading="lazy"></div>
-<p class="sheet-source">Основа карти: WorldMap-Blank-Noborders.svg, Wikimedia Commons (посилання у вебверсії). Підпишіть 7 плит, 2 межі різних типів, стрілки та легенду. Звіряйте з атласом.</p>
+<div class="sheet-map print"><img id="worksheetMapImage" src="./world-coastline-naturalearth.svg" alt="Контурна карта світу для самостійного нанесення плит або друку електронної роботи" loading="lazy"></div>
+<p class="sheet-source">Основа карти: Natural Earth (Vega Datasets world-110m), локальний файл world-coastline-naturalearth.svg. Підпишіть 7 плит, 2 межі різних типів, стрілки та легенду. Звіряйте з атласом.</p>
 <div class="sheet lines"><div><b>Межа 1: Атлантика</b><div class="line"></div><div class="line"></div></div><div><b>Межа 2: Анди</b><div class="line"></div><div class="line"></div></div></div>
 </div>
-<div class="callout warning"><b>Що здати:</b> фото власної контурної карти з легендою, сімома підписами, двома позначеними межами, стрілками й висновками. Якщо роботу вже перевірили очно, повторно прикріплювати її не потрібно.</div>
+<div class="callout warning"><b>Що здати:</b> PNG із намальованою онлайн картою або фото паперової контурної карти з легендою, сімома підписами, двома позначеними межами, стрілками й висновками. Якщо роботу вже перевірили очно, повторно прикріплювати її не потрібно.</div>
 </section>
 <section class="section" id="model"><div class="section-head"><div><span class="smallcaps">04 / Модель геологічного руху</span><h2>Що відбувається під ногами, коли плити рухаються?</h2></div><span class="time">21–27 хв</span></div>
 <p class="lead">Оберіть тип межі й рухайте повзунок. Це <b>спрощена схема</b>, яка показує напрямки руху, а не реальний швидкий рух земної кори.</p>
@@ -107,7 +206,7 @@ main{max-width:1170px;padding:10px 15px 100px;margin:auto}.section{scroll-margin
 <section class="section" id="final"><div class="section-head"><div><span class="smallcaps">07 / Завершення експедиції</span><h2>Мій географічний висновок: твердження → доказ → пояснення</h2></div><span class="time">32–35 хв</span></div>
 <div class="grid"><div><div class="panel mint"><h3>📍 Підсумкова мінісправа</h3><p><b>Твердження:</b> розміщення землетрусів і гірських поясів пов'язане з рухом літосферних плит.</p><p><b>Доказ:</b> на карті меж плит і в фотографіях знайдіть приклад — Атлантика, Анди чи Сан-Андреас.</p><p><b>Пояснення:</b> назвіть тип руху й геологічний наслідок. Не робіть висновків тільки з одного фото без карти.</p></div></div><div><label class="field" for="claim">Мій висновок (3 речення)</label><textarea id="claim" placeholder="На карті видно … . Це пов'язано з … . Отже, можна зробити висновок …"></textarea><div class="buttonrow"><button class="btn accent" id="copyConclusion" type="button">Копіювати висновок</button></div><div class="feedback" id="finalReply" aria-live="polite"></div></div></div>
 <h3 style="margin-top:20px">Перевірте практичну перед здачею</h3><div class="checklist"><label><input type="checkbox">На карті позначені сім основних літосферних плит</label><label><input type="checkbox">Показані Серединно-Атлантичний хребет і межа біля Анд</label><label><input type="checkbox">Намальовані напрямки руху та створена легенда</label><label><input type="checkbox">Написані два пояснення «рух → наслідок»</label><label><input type="checkbox">Карта охайна, написи читаються</label></div>
-<div class="callout warning"><b>Домашнє завдання:</b> §15. Завершіть контурну карту з практичної №5 та підпишіть дві межі й висновки. Після цього пройдіть тест унизу сторінки. <b>Здати:</b> фотографію карти (якщо її не перевірили очно) і скриншот тесту.</div></section>
+<div class="callout warning"><b>Домашнє завдання:</b> §15. Завершіть контурну карту з практичної №5 та підпишіть дві межі й висновки. Після цього пройдіть тест унизу сторінки. <b>Здати:</b> PNG карти, створеної в браузері, або фото паперової карти (якщо роботу не перевірили очно) і скриншот тесту.</div></section>
 <section class="section" id="test"><div class="section-head"><div><span class="smallcaps">Після заняття / Перевірка знань</span><h2>Фінальний тест: 10 геологічних задач</h2></div><span class="time">10 балів</span></div><p class="lead">Питання про справжні приклади, карти та причинно-наслідкові зв'язки. Після завершення отримаєте картку для скриншота. Відповіді обробляються тільки у браузері.</p>
 <div class="panel" id="quizGate"><label class="field" for="student">Ім'я та прізвище</label><input id="student" type="text" placeholder="Ім'я Прізвище"><label class="field" for="classChoice">Клас</label><select id="classChoice"><option value="">Оберіть</option><option value="6-А">6-А</option><option value="6-Б">6-Б</option></select><button class="btn accent" id="startQuiz" type="button" style="margin-top:15px">Розпочати тест</button><div class="feedback" id="gateFeedback" aria-live="polite"></div></div>
 <div id="quizPanel" hidden><form id="quizForm"><div id="quizQuestions"></div><button class="btn accent" type="submit">Завершити й перевірити /10</button></form></div>
@@ -135,13 +234,148 @@ let atlas=0,zoom=false;
 function setAtlas(i){atlas=i;zoom=false;el("atlasStage").classList.remove("zoom");el("zoomMap").textContent="🔍 Збільшити карту";const m=maps[i];el("atlasTitle").textContent=m.title;el("atlasSub").textContent=m.sub;el("atlasCredit").textContent="Джерело: "+m.credit;el("atlasSource").href=m.url;const image=el("atlasImage");image.hidden=false;el("atlasMissing").hidden=true;image.src=m.img;all("[data-map]").forEach(x=>x.setAttribute("aria-pressed",String(Number(x.dataset.map)===i)));}
 maps.forEach((m,i)=>{const b=document.createElement("button");b.type="button";b.dataset.map=i;b.textContent="🗺️ Карта "+(i+1);b.onclick=()=>setAtlas(i);el("atlasTabs").append(b)});setAtlas(0);
 el("zoomMap").onclick=()=>{zoom=!zoom;el("atlasStage").classList.toggle("zoom",zoom);el("zoomMap").textContent=zoom?"🔎 Звичайний масштаб":"🔍 Збільшити карту"};
+
+/* Інтерактивна карта: усі об'єкти залишаються в координатах 960 × 500.
+   Основа — локальний SVG із Natural Earth, тому збереження PNG не залежить від CORS. */
+const DRAW_W=960,DRAW_H=500;
+const drawCanvas=el("drawCanvas"),drawCtx=drawCanvas.getContext("2d");
+const drawImage=el("drawBaseMap");
+let drawTool="pen",drawColor="#d94853",drawWidth=5,drawShapes=[],drawDraft=null,drawPointer=null;
+let drawHistory=[[]],drawHistoryIndex=0,drawZoomed=false;
+const drawStorageKey="geo6_practical5_drawing_naturalearth_v1";
+function drawStatus(t){fb("drawStatus",t)}
+function drawClone(shapes){return JSON.parse(JSON.stringify(shapes))}
+function drawSaveLocal(){try{localStorage.setItem(drawStorageKey,JSON.stringify({version:1,shapes:drawShapes,name:el("drawStudent").value}))}catch(e){}}
+function drawFromLocal(){
+ try{const raw=localStorage.getItem(drawStorageKey);if(!raw)return;const data=JSON.parse(raw);
+  if(data&&data.version===1&&Array.isArray(data.shapes)){
+   drawShapes=data.shapes.filter(s=>s&&["path","arrow","text"].includes(s.kind)).slice(0,200);
+   drawHistory=[drawClone(drawShapes)];drawHistoryIndex=0;
+   if(typeof data.name==="string")el("drawStudent").value=data.name.slice(0,70);
+   drawStatus("🌿 Знайдено Вашу попередню чернетку на цьому пристрої. Можна продовжувати!");
+  }
+ }catch(e){}
+}
+function drawSnapshot(){drawHistory=drawHistory.slice(0,drawHistoryIndex+1);drawHistory.push(drawClone(drawShapes));if(drawHistory.length>65)drawHistory.shift();drawHistoryIndex=drawHistory.length-1;drawSaveLocal();drawRefreshButtons()}
+function drawRefreshButtons(){el("drawUndo").disabled=drawHistoryIndex<=0;el("drawRedo").disabled=drawHistoryIndex>=drawHistory.length-1}
+function drawUndo(){if(drawHistoryIndex<1)return;drawHistoryIndex--;drawShapes=drawClone(drawHistory[drawHistoryIndex]);drawSaveLocal();drawRender();drawRefreshButtons();drawStatus("↶ Останню дію скасовано.")}
+function drawRedo(){if(drawHistoryIndex>=drawHistory.length-1)return;drawHistoryIndex++;drawShapes=drawClone(drawHistory[drawHistoryIndex]);drawSaveLocal();drawRender();drawRefreshButtons();drawStatus("↷ Дію повернуто.")}
+function drawSetTool(t){drawTool=t;all("[data-draw-tool]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.drawTool===t)));el("drawStage").classList.toggle("pan",t==="pan");drawCanvas.style.cursor=t==="eraser"?"cell":t==="text"?"copy":t==="pan"?"grab":"crosshair";if(t==="pan")drawStatus("✋ Режим переміщення: прокручуйте карту вправо-вліво. Для малювання знову оберіть олівець чи стрілку.");}
+function drawSetColor(c){drawColor=c;all("[data-draw-color]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.drawColor===c)))}
+function drawPoint(e){const r=drawCanvas.getBoundingClientRect();return {x:Math.max(0,Math.min(DRAW_W,(e.clientX-r.left)/r.width*DRAW_W)),y:Math.max(0,Math.min(DRAW_H,(e.clientY-r.top)/r.height*DRAW_H))}}
+function drawStroke(shape){
+ if(!shape)return;
+ drawCtx.save();drawCtx.strokeStyle=shape.color||"#14384a";drawCtx.fillStyle=shape.color||"#14384a";drawCtx.lineWidth=shape.width||5;drawCtx.lineCap="round";drawCtx.lineJoin="round";
+ if(shape.kind==="path"&&Array.isArray(shape.points)&&shape.points.length){
+   drawCtx.beginPath();drawCtx.moveTo(shape.points[0].x,shape.points[0].y);
+   if(shape.points.length===1){drawCtx.lineTo(shape.points[0].x+.01,shape.points[0].y+.01)}
+   else shape.points.slice(1).forEach(pt=>drawCtx.lineTo(pt.x,pt.y));
+   drawCtx.stroke();
+ } else if(shape.kind==="arrow"&&shape.from&&shape.to){
+   const {x:x1,y:y1}=shape.from,{x:x2,y:y2}=shape.to;
+   const a=Math.atan2(y2-y1,x2-x1),h=Math.max(13,(shape.width||5)*3);
+   drawCtx.beginPath();drawCtx.moveTo(x1,y1);drawCtx.lineTo(x2,y2);
+   drawCtx.moveTo(x2,y2);drawCtx.lineTo(x2-h*Math.cos(a-.48),y2-h*Math.sin(a-.48));
+   drawCtx.moveTo(x2,y2);drawCtx.lineTo(x2-h*Math.cos(a+.48),y2-h*Math.sin(a+.48));drawCtx.stroke();
+ } else if(shape.kind==="text"&&shape.at&&shape.text){
+   const size=Math.min(21,Math.max(14,shape.size||19));
+   drawCtx.font="bold "+size+"px Arial,sans-serif";
+   drawCtx.textBaseline="middle";drawCtx.lineWidth=4;drawCtx.strokeStyle="#ffffff";
+   drawCtx.strokeText(shape.text,shape.at.x,shape.at.y,410);
+   drawCtx.fillText(shape.text,shape.at.x,shape.at.y,410);
+ }
+ drawCtx.restore();
+}
+function drawRender(){drawCtx.clearRect(0,0,DRAW_W,DRAW_H);drawShapes.forEach(drawStroke);if(drawDraft)drawStroke(drawDraft)}
+function dist2(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+function distSeg(p,a,b){const dx=b.x-a.x,dy=b.y-a.y;const d=dx*dx+dy*dy||1;const t=Math.min(1,Math.max(0,((p.x-a.x)*dx+(p.y-a.y)*dy)/d));return Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy)}
+function drawHit(shape,p){
+ if(shape.kind==="text"){
+  const w=Math.min(410,(shape.text||"").length*12);
+  return p.x>=shape.at.x-10&&p.x<=shape.at.x+w+10&&Math.abs(p.y-shape.at.y)<24;
+ }
+ if(shape.kind==="arrow")return distSeg(p,shape.from,shape.to)<Math.max(15,shape.width*2.2);
+ if(shape.kind==="path"&&shape.points.length){if(shape.points.length===1)return dist2(p,shape.points[0])<15;for(let i=1;i<shape.points.length;i++)if(distSeg(p,shape.points[i-1],shape.points[i])<Math.max(13,shape.width*2))return true}
+ return false;
+}
+function drawErase(p){for(let i=drawShapes.length-1;i>=0;i--)if(drawHit(drawShapes[i],p)){drawShapes.splice(i,1);drawSnapshot();drawRender();drawStatus("🧽 Позначку прибрано. За потреби натисніть «Скасувати».");return true}return false}
+function drawLabelAt(p){const text=(el("drawCustomLabel").value.trim()||el("drawPlateName").value).slice(0,58);if(!text){drawStatus("🔤 Спочатку виберіть назву плити або введіть свій підпис над картою.");return}drawShapes.push({kind:"text",at:p,text,color:drawColor,size:19});drawSnapshot();drawRender();drawStatus("🔤 Додано: «"+text+"». Виберіть наступну назву й клацніть інше місце.")}
+drawCanvas.addEventListener("pointerdown",e=>{
+ if(e.button!==undefined&&e.button!==0)return;
+ if(drawTool==="pan")return;
+ e.preventDefault();const p=drawPoint(e);
+ if(drawTool==="text"){drawLabelAt(p);return}
+ if(drawTool==="eraser"){if(!drawErase(p))drawStatus("🧽 Натисніть безпосередньо на лінію, стрілку або підпис.");return}
+ drawPointer=e.pointerId;
+ try{drawCanvas.setPointerCapture(e.pointerId)}catch(err){}
+ drawDraft=drawTool==="arrow"?{kind:"arrow",from:p,to:p,color:drawColor,width:drawWidth}:{kind:"path",points:[p],color:drawColor,width:drawWidth};
+ drawRender();
+});
+drawCanvas.addEventListener("pointermove",e=>{if(drawPointer!==e.pointerId||!drawDraft)return;e.preventDefault();const p=drawPoint(e);if(drawDraft.kind==="arrow")drawDraft.to=p;else if(drawDraft.points.length<2500&&dist2(drawDraft.points.at(-1),p)>1.2)drawDraft.points.push(p);drawRender()});
+function drawFinish(e,commit){
+ if(drawPointer!==e.pointerId||!drawDraft)return;
+ if(commit){
+  const p=drawPoint(e);
+  if(drawDraft.kind==="arrow")drawDraft.to=p;
+  else if(dist2(drawDraft.points.at(-1),p)>1.2)drawDraft.points.push(p);
+  const valid=drawDraft.kind==="path"||dist2(drawDraft.from,drawDraft.to)>8;
+  if(valid){drawShapes.push(drawDraft);drawSnapshot();drawStatus("✅ Позначку додано. Продовжуйте роботу; карта зберігається в цьому браузері.")}
+ }
+ drawDraft=null;drawPointer=null;
+ try{if(drawCanvas.hasPointerCapture(e.pointerId))drawCanvas.releasePointerCapture(e.pointerId)}catch(err){}
+ drawRender();
+}
+drawCanvas.addEventListener("pointerup",e=>drawFinish(e,true));
+drawCanvas.addEventListener("pointercancel",e=>drawFinish(e,false));
+drawCanvas.addEventListener("lostpointercapture",e=>{if(drawPointer===e.pointerId){drawDraft=null;drawPointer=null;drawRender()}});
+all("[data-draw-tool]").forEach(b=>b.addEventListener("click",()=>drawSetTool(b.dataset.drawTool)));
+all("[data-draw-color]").forEach(b=>b.addEventListener("click",()=>drawSetColor(b.dataset.drawColor)));
+el("brushSize").addEventListener("input",()=>{drawWidth=Number(el("brushSize").value);fb("brushValue",String(drawWidth))});
+el("drawUndo").onclick=drawUndo;el("drawRedo").onclick=drawRedo;
+el("drawClear").onclick=()=>{if(!drawShapes.length)return;if(!confirm("Очистити всі позначки на карті? Дію можна скасувати кнопкою «Скасувати»."))return;drawShapes=[];drawSnapshot();drawRender();drawStatus("🧹 Карту очищено. За потреби можна скасувати очищення.")};
+el("drawStudent").addEventListener("change",drawSaveLocal);
+el("drawPlateName").addEventListener("change",()=>{if(el("drawPlateName").value){el("drawCustomLabel").value="";drawSetTool("text")}});
+el("drawCustomLabel").addEventListener("input",()=>{if(el("drawCustomLabel").value.trim())drawSetTool("text")});
+el("drawZoom").addEventListener("click",()=>{drawZoomed=!drawZoomed;el("drawStage").classList.toggle("zoomed",drawZoomed);el("drawZoom").setAttribute("aria-pressed",String(drawZoomed));el("drawZoom").textContent=drawZoomed?"🔍 Звичайний масштаб":"🔎 Збільшити карту"});
+function drawCompose(mapOnly){
+ const scale=1.5,baseH=DRAW_H*scale,footer=mapOnly?0:230;
+ const out=document.createElement("canvas");out.width=DRAW_W*scale;out.height=baseH+footer;
+ const c=out.getContext("2d");c.fillStyle="#ffffff";c.fillRect(0,0,out.width,out.height);
+ if(!drawImage.complete||drawImage.naturalWidth===0)throw Error("Контурна карта ще завантажується. Спробуйте через кілька секунд.");
+ c.drawImage(drawImage,0,0,out.width,baseH);c.drawImage(drawCanvas,0,0,out.width,baseH);
+ if(!mapOnly){
+  const txt=(v,max=135)=>String(v||"").trim().slice(0,max);
+  c.fillStyle="#152f44";c.font="bold 28px Arial,sans-serif";c.fillText("Практична робота №5 • Межі літосферних плит",25,baseH+44);
+  c.font="20px Arial,sans-serif";c.fillText("Учень/учениця: "+(txt(el("drawStudent").value,70)||"______________________")+"  •  6 клас",25,baseH+78);
+  const legend=[["#d94853","Розходження"],["#2667c2","Зближення"],["#8147b2","Ковзання"],["#14384a","Підписи"]];
+  let x=25;for(const [color,label] of legend){c.fillStyle=color;c.fillRect(x,baseH+95,25,8);c.fillStyle="#203849";c.font="17px Arial";c.fillText(label,x+34,baseH+104);x+=185}
+  c.fillStyle="#375469";c.font="16px Arial";const t1=txt(el("conclusionOne").value,115),t2=txt(el("conclusionTwo").value,115);
+  c.fillText("Атлантика: "+(t1||"Розходження → утворення нової океанічної кори"),25,baseH+141,1390);
+  c.fillText("Анди: "+(t2||"Зближення → субдукція, землетруси та горотворення"),25,baseH+173,1390);
+  c.font="13px Arial";c.fillStyle="#6d8592";
+  c.fillText("Основа: Natural Earth / Vega world-110m • Позначки виконав(ла) учень/учениця",25,baseH+208);
+ }
+ return out;
+}
+el("drawSave").addEventListener("click",()=>{
+ try{const out=drawCompose(false);const filename=("Praktychna_5_6kl_"+(el("drawStudent").value.trim().replace(/[^A-Za-zА-Яа-яІіЇїЄєҐґ0-9_-]+/g,"_").slice(0,40)||"karta")+".png");
+ out.toBlob(blob=>{if(!blob){drawStatus("Не вдалося створити зображення. Спробуйте ще раз.");return}
+ const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+ drawStatus("✅ PNG збережено на пристрій. Знайдіть файл «"+filename+"» у завантаженнях і прикріпіть його до Google Classroom.");
+ },"image/png");
+ }catch(err){drawStatus("⚠️ "+err.message+" Якщо не вдається, скористайтеся друком карти.")}
+});
+drawImage.addEventListener("error",()=>drawStatus("⚠️ Не вдалося завантажити контурну основу. Перевірте з'єднання й оновіть сторінку."));
+drawFromLocal();drawRefreshButtons();drawSetColor(drawColor);drawSetTool("pen");drawRender();
+/* Кінець інтерактивної контурної карти */
+
 const solved=new Set();plates.forEach(p=>{const opt=document.createElement("option");opt.value=p.id;opt.textContent=p.label;el("plateSelect").append(opt)});
 function plateProgress(){fb("plateProgress","Підписано "+solved.size+" із 7");}
 all(".plate-point").forEach(b=>b.onclick=()=>{const which=el("plateSelect").value,target=b.dataset.point,p=plates.find(x=>x.id===target);b.classList.remove("wrong");if(!which){fb("plateFeedback","Спочатку оберіть назву плити у списку, потім натисніть точку на карті.");return}if(which===target){solved.add(target);b.classList.add("correct");b.querySelector("em").textContent=p.label;fb("plateFeedback","Правильно! "+p.label+". "+p.note);plateProgress()}else{b.classList.add("wrong");fb("plateFeedback","Це інша плита. Звіртеся з картою NPS і спробуйте ще раз.");}});
 el("resetPlates").onclick=()=>{solved.clear();all(".plate-point").forEach(b=>b.classList.remove("correct","wrong"));el("plateSelect").value="";plateProgress();fb("plateFeedback","Можна спробувати знову.")};plateProgress();
 el("checkBoundaries").onclick=()=>{const correct=["div","conv","trans"];let score=0;all("[data-boundary]").forEach(s=>{const i=Number(s.dataset.boundary),ok=s.value===correct[i];if(ok)score++;el("boundOut"+i).textContent=ok?"✅ Правильно":"❗ Перевірте легенду карти";});fb("boundaryFeedback",score+"/3. Атлантика — розходження; Анди — зближення й субдукція; Сан-Андреас — бічне ковзання.")};
 el("copyPractice").onclick=()=>copy("Висновок 1. "+el("conclusionOne").value+"\nВисновок 2. "+el("conclusionTwo").value,"practiceFeedback");
-el("printPractice").onclick=()=>{document.body.classList.add("print-worksheet");window.print()};
+el("printPractice").onclick=()=>{try{el("worksheetMapImage").src=drawCompose(true).toDataURL("image/png");document.body.classList.add("print-worksheet");window.print()}catch(e){fb("practiceFeedback","⚠️ "+e.message)}};
 addEventListener("afterprint",()=>document.body.classList.remove("print-worksheet"));
 let simulation="divergent";
 function model(){const strength=Number(el("simSlider").value);fb("simValue",strength+"%");let svg="",caption="";
