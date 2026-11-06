@@ -350,8 +350,8 @@ function drawCompose(mapOnly){
   const legend=[["#d94853","Розходження"],["#2667c2","Зближення"],["#8147b2","Ковзання"],["#14384a","Підписи"]];
   let x=25;for(const [color,label] of legend){c.fillStyle=color;c.fillRect(x,baseH+95,25,8);c.fillStyle="#203849";c.font="17px Arial";c.fillText(label,x+34,baseH+104);x+=185}
   c.fillStyle="#375469";c.font="16px Arial";const t1=txt(el("conclusionOne").value,115),t2=txt(el("conclusionTwo").value,115);
-  c.fillText("Атлантика: "+(t1||"Розходження → утворення нової океанічної кори"),25,baseH+141,1390);
-  c.fillText("Анди: "+(t2||"Зближення → субдукція, землетруси та горотворення"),25,baseH+173,1390);
+  c.fillText("Атлантика: "+(t1||"________________________________________"),25,baseH+141,1390);
+  c.fillText("Анди: "+(t2||"________________________________________"),25,baseH+173,1390);
   c.font="13px Arial";c.fillStyle="#6d8592";
   c.fillText("Основа: Natural Earth / Vega world-110m • Позначки виконав(ла) учень/учениця",25,baseH+208);
  }
@@ -375,7 +375,7 @@ all(".plate-point").forEach(b=>b.onclick=()=>{const which=el("plateSelect").valu
 el("resetPlates").onclick=()=>{solved.clear();all(".plate-point").forEach(b=>b.classList.remove("correct","wrong"));el("plateSelect").value="";plateProgress();fb("plateFeedback","Можна спробувати знову.")};plateProgress();
 el("checkBoundaries").onclick=()=>{const correct=["div","conv","trans"];let score=0;all("[data-boundary]").forEach(s=>{const i=Number(s.dataset.boundary),ok=s.value===correct[i];if(ok)score++;el("boundOut"+i).textContent=ok?"✅ Правильно":"❗ Перевірте легенду карти";});fb("boundaryFeedback",score+"/3. Атлантика — розходження; Анди — зближення й субдукція; Сан-Андреас — бічне ковзання.")};
 el("copyPractice").onclick=()=>copy("Висновок 1. "+el("conclusionOne").value+"\nВисновок 2. "+el("conclusionTwo").value,"practiceFeedback");
-el("printPractice").onclick=()=>{try{el("worksheetMapImage").src=drawCompose(true).toDataURL("image/png");document.body.classList.add("print-worksheet");window.print()}catch(e){fb("practiceFeedback","⚠️ "+e.message)}};
+el("printPractice").onclick=()=>{try{const im=el("worksheetMapImage");im.onload=()=>{document.body.classList.add("print-worksheet");window.print();im.onload=null};im.src=drawCompose(true).toDataURL("image/png")}catch(e){fb("practiceFeedback","⚠️ "+e.message)}};
 addEventListener("afterprint",()=>document.body.classList.remove("print-worksheet"));
 let simulation="divergent";
 function model(){const strength=Number(el("simSlider").value);fb("simValue",strength+"%");let svg="",caption="";
