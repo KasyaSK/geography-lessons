@@ -150,21 +150,21 @@ function wrap(ctx,str,x,y,width,lh,maxLines){let line="",lines=[];for(const w of
 el("downloadPlan").onclick=()=>{
 if(!val("goalName")||!val("goalMeasure")||!val("goalDate")||!val("step1")||!val("step2")||!val("step3")){fill("exportFeedback","Спочатку заповни назву мети, критерій, дату й усі три кроки.");return}
 try{
-const cv=document.createElement("canvas");cv.width=1100;cv.height=1400;const c=cv.getContext("2d");
+const cv=document.createElement("canvas");cv.width=1100;cv.height=1800;const c=cv.getContext("2d");
 const shades=palette==="orange"?["#962f78","#ff7560"]:palette==="mint"?["#0a618b","#1b9d81"]:["#292b8c","#342762"];
-const grad=c.createLinearGradient(0,0,1100,1400);grad.addColorStop(0,shades[0]);grad.addColorStop(1,shades[1]);c.fillStyle=grad;c.fillRect(0,0,1100,1400);
-c.fillStyle="#ffffff13";c.beginPath();c.arc(1000,120,290,0,7);c.fill();c.beginPath();c.arc(1030,1300,330,0,7);c.fill();
+const grad=c.createLinearGradient(0,0,1100,1800);grad.addColorStop(0,shades[0]);grad.addColorStop(1,shades[1]);c.fillStyle=grad;c.fillRect(0,0,1100,1800);
+c.fillStyle="#ffffff13";c.beginPath();c.arc(1000,120,290,0,7);c.fill();c.beginPath();c.arc(1030,1700,330,0,7);c.fill();
 c.fillStyle="#d7fa70";c.font="bold 30px Arial,sans-serif";c.fillText("✳ ROADMAP / 09 • MY NEXT LEVEL",70,92);
-let y=135;c.font="bold 75px Arial,sans-serif";c.fillStyle="white";y=wrap(c,val("goalName"),70,y,960,84,3)+42;
+let y=135;c.font="bold 72px Arial,sans-serif";c.fillStyle="white";y=wrap(c,val("goalName"),70,y,960,80,3)+32;
 const block=(label,value,limit=3)=>{
-c.font="bold 25px Arial";c.fillStyle="#d7fa70";c.fillText(label,70,y);y+=36;
-c.font="31px Arial";c.fillStyle="white";y=wrap(c,value||"—",70,y,950,42,limit)+34};
+c.font="bold 24px Arial";c.fillStyle="#d7fa70";c.fillText(label,70,y);y+=33;
+c.font="29px Arial";c.fillStyle="white";y=wrap(c,value||"—",70,y,950,39,limit)+25};
 block("ЯК ПЕРЕВІРЮ РЕЗУЛЬТАТ",val("goalMeasure"),3);
 block("ЧОМУ ЦЕ ВАЖЛИВО МЕНІ",val("goalWhy"),2);
 block("ДАТА ПЕРЕВІРКИ",val("goalDate")+" • "+budget.number+" × "+budget.minutes+" хв/тиждень",2);
 block("КРОК 1",val("step1"),2);block("КРОК 2",val("step2"),2);block("КРОК 3",val("step3"),2);
-if(y<1260){block("МІЙ ПЛАН Б",val("goalBackup")||"За потреби скоригую обсяг і термін",3)}
-c.fillStyle="#ffffffb8";c.font="20px Arial";c.fillText("9 клас • Курс «Професії» • Мій план, який можна перевірити",70,1361);
+if(y<1580){block("МІЙ ПЛАН Б",val("goalBackup")||"За потреби скоригую обсяг і термін",2)}
+c.fillStyle="#ffffffb8";c.font="20px Arial";c.fillText("9 клас • Курс «Професії» • Мій план, який можна перевірити",70,1756);
 cv.toBlob(blob=>{if(!blob){fill("exportFeedback","Не вдалося створити зображення.");return}const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="SMART_plan_9_class.png";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);fill("exportFeedback","✅ Картку збережено у PNG. Прикріпи файл до Classroom.")},"image/png");
 }catch(e){fill("exportFeedback","Помилка експорту: "+e.message)}
 };
