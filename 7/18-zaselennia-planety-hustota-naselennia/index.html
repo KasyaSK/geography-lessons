@@ -80,11 +80,20 @@
 @media(max-width:980px){.culture-atlas-layout{grid-template-columns:1fr}.culture-map-card{min-height:0}}
 @media(max-width:670px){#culture-atlas-map{height:380px}.culture-videos,.culture-quiz-grid{grid-template-columns:1fr}.culture-map-card{padding:15px}}
 
+
+/* Розширення культурної географії: 06.11.2026 */
+.atlas-tools{margin:16px 0;padding:16px;border:1px solid #bbdede;background:#edfafa;border-radius:18px}.atlas-tools label{display:block;font-weight:850;font-size:.9rem;margin-bottom:8px}.atlas-tools input{width:min(530px,100%);min-height:46px;padding:11px 14px;border:1px solid #9cbcc7;border-radius:12px;font:inherit;background:white}.atlas-visited{font-weight:800;color:#126f67;margin:10px 0 0}
+.atlas-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}.atlas-metrics div{padding:18px;border-radius:17px;background:#083d50;color:#fff;display:grid;gap:3px}.atlas-metrics b{font-size:clamp(1.4rem,3vw,2rem)}.atlas-metrics span{font-size:.79rem;color:#cbe7ec}
+.atlas-photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:23px 0}.atlas-photo-grid figure{margin:0;border-radius:18px;overflow:hidden;background:white;border:1px solid #d7e7ec;box-shadow:0 8px 24px #2e627216}.atlas-photo-grid img{width:100%;height:174px;object-fit:cover;display:block;background:#c1d6da}.atlas-photo-grid figcaption{padding:13px;font-size:.82rem;line-height:1.54}.atlas-photo-grid figcaption b{display:block;margin-bottom:4px}
+.atlas-game-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.atlas-mission{background:linear-gradient(135deg,#fff,#f1faf9);border:1px solid #cddfe2;border-radius:23px;padding:22px;box-shadow:0 10px 30px #143a4d0c}.atlas-mission h3{font-size:clamp(1.2rem,2vw,1.65rem);margin:9px 0}.atlas-mission p{color:#536b7b}.atlas-clue{font-size:1.03rem;font-weight:800;border:1px solid #b2d9d3;background:#e4f6f1;border-radius:16px;padding:18px;margin:12px 0;min-height:86px}.atlas-progress{font-size:.84rem;font-weight:850;color:#13786b}.atlas-options{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.atlas-options button,.atlas-fact-buttons button{font:inherit;font-weight:750;padding:11px 12px;min-height:46px;border-radius:12px;border:1px solid #b4cdd7;background:white;color:#163e51;cursor:pointer;text-align:left}.atlas-options button:hover,.atlas-fact-buttons button:hover{border-color:#0a9685;background:#edf9f7}.atlas-options button:focus-visible,.atlas-fact-buttons button:focus-visible{outline:3px solid #e39a2c;outline-offset:2px}.atlas-options button[disabled]{opacity:.65;cursor:default}.atlas-options button.correct{border-color:#05866d;background:#d7f5ea;opacity:1}.atlas-options button.wrong{border-color:#b54b4b;background:#fff1ed;opacity:1}.atlas-feedback{margin-top:12px;border-radius:13px;padding:12px;background:#e5f7f1;color:#145848;font-weight:700;min-height:0}.atlas-feedback:empty{display:none}.atlas-feedback.bad{background:#fff0e9;color:#803b19}.atlas-fact{border-top:1px solid #d2e3e5;padding:14px 0}.atlas-fact:first-child{border-top:0}.atlas-fact p{margin:0 0 10px;font-weight:750;color:#254457}.atlas-fact-buttons{display:flex;gap:6px;flex-wrap:wrap}.atlas-fact-buttons button{min-height:42px;font-size:.83rem}.atlas-fact-buttons button[aria-pressed=true]{border:2px solid #0e7b68;background:#d6f4ec}.atlas-explanation{margin-top:9px;font-size:.88rem;color:#1b5d52;font-weight:650}.atlas-route{margin-top:17px}.atlas-route-selects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.atlas-route-selects label{font-weight:800;display:grid;gap:8px}.atlas-route-selects select{min-width:0;width:100%;padding:12px;border:1px solid #a1c1ca;background:#fff;border-radius:12px;min-height:46px;font:inherit}.atlas-route .btn{margin-top:14px}.atlas-debate{border-left:5px solid #e0ab4a;padding:17px;background:#fff9e8;border-radius:8px;margin-top:14px;line-height:1.65}
+@media(max-width:900px){.atlas-photo-grid{grid-template-columns:repeat(2,1fr)}.atlas-metrics{grid-template-columns:repeat(2,1fr)}.atlas-game-grid{grid-template-columns:1fr}.atlas-route-selects{grid-template-columns:1fr}}
+@media(max-width:510px){.atlas-photo-grid{grid-template-columns:1fr 1fr}.atlas-photo-grid img{height:125px}.atlas-photo-grid figcaption{font-size:.76rem}.atlas-mission{padding:15px}.atlas-options{grid-template-columns:1fr}.atlas-fact-buttons{flex-direction:column}.atlas-metrics{gap:6px}}
+@media print{.atlas-game-grid,.atlas-photo-grid,.atlas-metrics{break-inside:avoid}.atlas-mission{box-shadow:none}}
 </style>
 </head>
 <body>
 <header class="hero"><div class="wrap"><span class="eyebrow">🌍 7 КЛАС • УРОК 18 • §18 • ГР2 + ГР3</span><h1>Як заселена наша планета?</h1><p class="lead">Кількість населення Землі, густота населення, нерівномірність розселення, природні чинники й культурна самобутність корінних народів. Сьогодні працюємо з реальними супутниковими знімками та картами, обчислюємо густоту, порівнюємо території й перевіряємо гіпотези.</p><a class="launch" href="#route">Почати географічне розслідування ↓</a><div class="chips"><span class="chip">реальні дані UN DESA</span><span class="chip">NASA / SEDAC</span><span class="chip">WorldPop</span><span class="chip">OpenStreetMap</span><span class="chip">🌍 жива карта культур</span><span class="chip">відео українською</span><span class="chip">CER</span><span class="chip">тест /10</span></div></div></header>
-<nav class="nav"><div class="wrap"><a href="#hyp">Гіпотеза</a><a href="#map">Карта населення</a><a href="#satellite">Фото NASA / ESA</a><a href="#lat">Широти</a><a href="#factors">Чинники</a><a href="#fieldlab">3 місії</a><a href="#density">Густота</a><a href="#culture">Культура</a><a href="#culture-map-section">🌍 Карта народів</a><a href="#theory">Теорія</a><a href="#cer">CER</a><a href="#video">Відео</a><a href="#home">Домашнє</a><a href="#quiz">Тест</a></div></nav>
+<nav class="nav"><div class="wrap"><a href="#hyp">Гіпотеза</a><a href="#map">Карта населення</a><a href="#satellite">Фото NASA / ESA</a><a href="#lat">Широти</a><a href="#factors">Чинники</a><a href="#fieldlab">3 місії</a><a href="#density">Густота</a><a href="#culture">Культура</a><a href="#culture-map-section">🌍 Карта народів</a><a href="#culture-expedition">🎯 Експедиція</a><a href="#theory">Теорія</a><a href="#cer">CER</a><a href="#video">Відео</a><a href="#home">Домашнє</a><a href="#quiz">Тест</a></div></nav>
 <main>
 <section class="section" id="route"><div class="wrap"><span class="kicker">План експедиції · 35 хвилин</span><h2>Маршрут дослідника: доказ → розрахунок → висновок</h2><p class="sub">На уроці виконайте основний маршрут. Розширена фотогалерея, усі карти GHSL, другий набір задач і відео доступні для самостійної роботи — не треба переглядати все підряд за 35 хвилин.</p><div class="lesson-path"><span>0–4 хв · гіпотеза</span><span>4–9 хв · карта NASA</span><span>9–16 хв · 3 фото на вибір</span><span>16–25 хв · задачі А і Б</span><span>25–32 хв · кейс Дакки й GHSL</span><span>32–35 хв · культура й висновок</span></div><div class="task"><b>Результат уроку:</b> одне пояснення за картою, два обчислення густоти та аргумент про те, чому природні чинники не визначають розселення самі по собі. <b>Тест і решту матеріалів</b> можна завершити вдома.</div></div></section>
 <section class="section" id="hyp"><div class="wrap"><span class="kicker">01 • До теорії</span><h2>Висуньте гіпотезу</h2><p class="sub">Уявіть, що людей на Землі можна було б розселити лише за природною «зручністю» території. Де виникли б найбільші скупчення?</p><div class="grid"><div class="card"><h3>Оберіть головний чинник</h3><div class="choices" id="hypChoices"><button data-h="water">💧 Доступ до прісної води</button><button data-h="climate">🌤️ Комфортний клімат</button><button data-h="relief">🏞️ Рівнинний рельєф</button><button data-h="soil">🌾 Родючі ґрунти</button><button data-h="all">🧩 Поєднання кількох чинників</button></div><div class="feedback" id="hypFeedback">Ваш вибір стане гіпотезою, яку перевіримо картою.</div></div><div class="card"><h3>Прогноз</h3><textarea id="prediction" placeholder="Напишіть 2–3 речення: де, на Вашу думку, густота населення буде найвищою і чому?"></textarea><p class="caption">Не намагайтеся вгадати «правильну» відповідь. Важливо сформулювати перевірюване припущення.</p></div></div></div></section>
@@ -118,7 +127,7 @@
 <div class="culture-map-note"><b>Важливе правило.</b> Культурні регіони не збігаються з державними кордонами. Народи розселені нерівномірно, мають діаспори, змішані поселення й сучасну міграцію. Нижче позначено <b>репрезентативні місця для дослідження</b>, а не точні межі проживання, етнічний склад кожного міста чи повний перелік культур світу.</div>
 </div></section>
 <section class="section" id="culture-map-section"><div class="wrap"><span class="kicker">09 · Справжня інтерактивна карта</span><h2>Натисніть на карту: де живуть різні народи?</h2><p class="sub">Під картою — <b>реальна картографічна основа OpenStreetMap</b>. Переміщуйте карту, змінюйте масштаб і натискайте на позначки культурних регіонів. Кожна відкриває картку про народ, мови, особливості культури та перевірене джерело.</p>
-<div class="culture-map-filter" aria-label="Фільтр регіонів">
+<div class="atlas-tools"><label for="atlas-search">🔎 Пошук за народом або регіоном</label><input type="search" id="atlas-search" placeholder="Наприклад, Сахара, Тянь-Шань, мая…" autocomplete="off"><p class="atlas-visited" id="atlas-visited">Відкрито культурних паспортів: 0 / 16</p></div><div class="culture-map-filter" aria-label="Фільтр регіонів">
 <button type="button" data-culture-filter="all" aria-pressed="true">🌍 Усі</button>
 <button type="button" data-culture-filter="europe" aria-pressed="false">Європа</button>
 <button type="button" data-culture-filter="asia" aria-pressed="false">Азія</button>
@@ -142,6 +151,51 @@
 <div><label for="culture-q4">4. Який народ живе, зокрема, у канадському Нунавуті та зберігає арктичні знання?</label><select id="culture-q4"><option value="">Виберіть народ</option><option value="tuareg">Туареги</option><option value="inuit">Інуїти</option><option value="quechua">Кечуа</option></select></div>
 </div><button type="button" class="btn" id="culture-quiz-check" style="margin-top:14px">Перевірити 4 відповіді</button><div class="geo-feedback" hidden id="culture-quiz-feedback" role="status"></div><p class="geo-hint">Це тренувальна вправа, яка не замінює підсумковий тест /10.</p></div>
 </div></section>
+
+<section class="section" id="culture-expedition">
+<div class="wrap">
+<span class="kicker">10 · Нове дослідження · оновлено 06.11.2026</span>
+<h2>🌏 Культурна експедиція: не просто запам'ятай — знайди й поясни!</h2>
+<p class="sub">На карті — <b>16 народів і культурних спільнот</b> із шести частин світу. Оберіть 1–2 місії для роботи в класі (5–7 хв), решту проходьте самостійно. Всі приклади показують <b>живі, різноманітні культури</b>, а не «характер усіх людей».</p>
+<div class="atlas-metrics"><div><b>16</b><span>культурних паспортів</span></div><div><b>6</b><span>регіонів карти</span></div><div><b>3</b><span>ігрові місії</span></div><div><b>35 хв</b><span>урок + окрема домашня</span></div></div>
+<div class="atlas-photo-grid">
+<figure><img loading="lazy" src="https://www.regjeringen.no/contentassets/0784272e5a8f476696e8229e5750ae3d/ferdigimg_74822.jpg?preset=article&amp;v=-67023049" alt="Саамський оленяр у традиційному одязі поруч з оленями" referrerpolicy="no-referrer"><figcaption><b>Саами · Північна Європа.</b> Оленярство — частина спадщини деяких громад, але не заняття кожного саама. <a href="https://www.regjeringen.no/en/topics/food-fisheries-and-agriculture/reindeer-husbandry/reindeer-husbandry-indigenous-peopl-rights/id2339777/" target="_blank" rel="noopener">Уряд Норвегії ↗</a></figcaption></figure>
+<figure><img loading="lazy" src="https://ich.unesco.org/img/photo/thumb/05909-HUG.jpg" alt="Майстрині демонструють повстяний килим ширдак із великим орнаментом" referrerpolicy="no-referrer"><figcaption><b>Киргизи · Тянь-Шань.</b> Повстяний ширдак: орнамент, теплоізоляція, майстерність. <a href="https://ich.unesco.org/en/USL/ala-kiyiz-and-shyrdak-art-of-kyrgyz-traditional-felt-carpets-00693" target="_blank" rel="noopener">UNESCO ↗</a></figcaption></figure>
+<figure><img loading="lazy" src="https://sites.utexas.edu/llilas-benson-magazine/wp-content/uploads/sites/5971/2016/07/16-Ruud_004-copy-1024x768.jpg" alt="Учасники культурної театральної події мая в місті Рабіналь" referrerpolicy="no-referrer"><figcaption><b>Мая · Гватемала.</b> Театральна традиція Рабіналь-Ачі зберігає усну пам’ять громади. <a href="https://ich.unesco.org/en/RL/rabinal-achi-dance-drama-tradition-00144" target="_blank" rel="noopener">UNESCO ↗</a></figcaption></figure>
+<figure><img loading="lazy" src="https://www.travelreport.mx/wp-content/uploads/2022/03/garifuna-belice-tours-experiencias-%C2%A9Belize-Travel-1000x600.jpg" alt="Група музикантів гарифуна з барабанами на березі Карибського моря" referrerpolicy="no-referrer"><figcaption><b>Гарифуна · Центральна Америка.</b> Мова, барабанні ритми та історія переселення через Карибський басейн. <a href="https://ich.unesco.org/en/RL/language-dance-and-music-of-the-garifuna-00001" target="_blank" rel="noopener">UNESCO ↗</a></figcaption></figure>
+</div>
+<p class="geo-hint">Фотографії ілюструють конкретні культурні практики, не є «портретом типового представника» народу. Для завантаження фото й карт потрібен інтернет; вправи та текст працюють і без нього.</p>
+<div class="atlas-game-grid">
+<div class="atlas-mission" id="atlas-riddle-game">
+<span class="kicker">Місія А · Знайди народ за доказами</span><h3>🧩 Шифр культурного географа</h3>
+<p>Визначте народ за <b>двома незалежними підказками</b>: розташування і культурна практика. Натисніть відповідь, щоб відкрити пояснення, а не тільки бал.</p>
+<div id="atlas-riddle-progress" class="atlas-progress" aria-live="polite">Завдання 1 із 6</div>
+<div id="atlas-riddle-clue" class="atlas-clue">Підготовка запитання…</div>
+<div id="atlas-riddle-choices" class="atlas-options"></div><div id="atlas-riddle-feedback" class="atlas-feedback" role="status" aria-live="polite"></div>
+<button type="button" class="btn" id="atlas-riddle-next" hidden>Наступна підказка →</button>
+<button type="button" class="btn" id="atlas-riddle-reset" hidden>Почати заново</button>
+</div>
+<div class="atlas-mission" id="atlas-stereotypes">
+<span class="kicker">Місія Б · Детектор географічних помилок</span><h3>🕵️ Чи достатньо доказів?</h3>
+<p>Для кожного твердження виберіть <b>«підтверджено», «спростовано» або «даних недостатньо»</b>. Дослідник має відрізняти точне спостереження від узагальнення.</p>
+<div id="atlas-fact-questions"></div><div id="atlas-fact-summary" class="atlas-feedback" role="status" aria-live="polite"></div>
+<button type="button" class="btn" id="atlas-fact-reset">Спробувати ще раз</button>
+</div>
+</div>
+<div class="atlas-mission atlas-route" id="atlas-route-game">
+<span class="kicker">Місія В · Географічний маршрут</span>
+<h3>🧭 Три кліматичні пояси — три культурні регіони</h3>
+<p>Зберіть експедицію до <b>трьох різних природних середовищ</b>. Розташування перевіряйте за реальною картою вище. Географічні умови можуть впливати на традиційні заняття, але не визначають особистість людини.</p>
+<div class="atlas-route-selects">
+<label>1. Субарктична Північна Європа <select id="atlas-route-1"><option value="">Оберіть спільноту</option><option value="quechua">Кечуа</option><option value="sami">Саами</option><option value="yoruba">Йоруба</option><option value="garifuna">Гарифуна</option></select></label>
+<label>2. Високогірні Анди Південної Америки <select id="atlas-route-2"><option value="">Оберіть спільноту</option><option value="maasai">Масаї</option><option value="quechua">Кечуа</option><option value="kyrgyz">Киргизи</option><option value="basque">Баски</option></select></label>
+<label>3. Узбережжя Карибського моря в Центральній Америці <select id="atlas-route-3"><option value="">Оберіть спільноту</option><option value="garifuna">Гарифуна</option><option value="inuit">Інуїти</option><option value="ainu">Айни</option><option value="crimean">Кримські татари</option></select></label>
+</div>
+<button type="button" class="btn" id="atlas-route-check">Перевірити маршрут</button>
+<div class="atlas-feedback" id="atlas-route-result" role="status" aria-live="polite"></div>
+</div>
+<div class="atlas-debate"><b>Питання високого рівня:</b> турист бачить на мапі одну позначку «саами» й робить висновок, що всі саами мешкають біля неї. Поясніть двома аргументами, чому цього недостатньо, та запропонуйте додаткові джерела (карта мов, перепис, історія переселень). <b>Формула:</b> твердження → доказ → пояснення → обмеження.</div>
+</div></section>
 <section class="section" id="theory"><div class="wrap"><span class="kicker">09 • Теорія після діяльності</span><h2>Тепер систематизуємо</h2><div class="grid"><div class="card third"><h3>Чисельність</h3><p>Загальна кількість людей на певній території. Для світу UN DESA оцінювала її приблизно у 8,2 млрд у 2024 році.</p></div><div class="card third"><h3>Густота</h3><p>Середня кількість жителів на одиницю площі, зазвичай осіб/км². Середня величина може приховувати дуже різкі локальні контрасти.</p></div><div class="card third"><h3>Розселення</h3><p>Просторове розміщення населення й поселень. Воно нерівномірне через поєднання природних, історичних, економічних і суспільних чинників.</p></div><div class="card wide"><h3>Головна закономірність</h3><p>Найбільші скупчення населення часто тяжіють до рівнин, долин великих річок, узбереж, сприятливих кліматичних областей і давніх економічних осей. Водночас технології та міська інфраструктура дозволяють формувати великі поселення і в природно складних умовах.</p><div class="note"><b>Не плутайте причинність із збігом.</b> Якщо два явища накладаються на карті, це ще не доводить причинного зв’язку. Потрібен механізм, додаткові дані й перевірка альтернативних пояснень.</div></div></div></div></section>
 <section class="section" id="cer"><div class="wrap"><span class="kicker">10 • CER</span><h2>Доведіть тезу</h2><p class="sub"><b>Теза:</b> «Природні чинники сильно впливають на розселення людей, але не можуть самі повністю пояснити сучасну карту населення світу».</p><div class="cer"><div class="card"><h3>C — Claim</h3><textarea placeholder="Сформулюйте чітку відповідь на тезу"></textarea></div><div class="card"><h3>E — Evidence</h3><textarea placeholder="Дайте щонайменше 3 докази: карта NASA/SEDAC, OSM-кейси, дані UN/WorldPop"></textarea></div><div class="card"><h3>R — Reasoning</h3><textarea placeholder="Поясніть механізм і чому докази підтримують тезу; додайте хоча б один контрприклад"></textarea></div></div></div></section>
 
@@ -158,8 +212,8 @@
 <div class="q"><b>4. Вогнів на нічній карті більше в А, ніж у Б. Який висновок коректний?</b><label><input type="radio" name="q4" value="a"> Для порівняння населення потрібні інші дані: освітлення не тотожне кількості людей</label><label><input type="radio" name="q4" value="b"> У А обов’язково живе рівно вдвічі більше людей</label><label><input type="radio" name="q4" value="c"> Б є повністю безлюдною територією</label></div>
 <div class="q"><b>5. Що найкраще пояснює зелений коридор уздовж Нілу посеред пустелі?</b><label><input type="radio" name="q5" value="a"> Тільки жаркий клімат</label><label><input type="radio" name="q5" value="b"> Поєднання води, зрошення, землеробства та історичного розвитку поселень</label><label><input type="radio" name="q5" value="c"> Відсутність будь-якої господарської діяльності</label></div>
 <div class="q"><b>6. На знімку Дакки видно забудову біля річок. Що допоможе оцінити ризик повеней?</b><label><input type="radio" name="q6" value="a"> Лише кількість автомобілів на дорогах</label><label><input type="radio" name="q6" value="b"> Тільки колір води на одній фотографії</label><label><input type="radio" name="q6" value="c"> Дані рельєфу, висоти, повеней і захисної інфраструктури разом із щільністю заселення</label></div>
-<div class="q"><b>7. Модель GHSL окремо показує населення і забудовану площу. Чому це важливо?</b><label><input type="radio" name="q7" value="a"> Великі промислові/складські площі можуть мати мало постійних мешканців</label><label><input type="radio" name="q7" value="b"> Будь-яка будівля означає однакову кількість мешканців</label><label><input type="radio" name="q7" value="c"> Обидва показники завжди чисельно однакові</label></div>
-<div class="q"><b>8. Як найкраще перевірити тезу «поблизу річки густота вища»?</b><label><input type="radio" name="q8" value="a"> Достатньо однієї фотографії берега</label><label><input type="radio" name="q8" value="b"> Порівняти дані густоти, відстань до річки й альтернативні чинники: дороги, міста, рельєф</label><label><input type="radio" name="q8" value="c"> Порахувати лише кількість назв річок на атласі</label></div>
+<div class="q"><b>7. Учень стверджує: «Саами живуть лише в Норвегії». Який доказ найкраще спростовує тезу?</b><label><input type="radio" name="q7" value="a"> Карта Сапмі й дані спільнот у Норвегії, Швеції, Фінляндії та Росії</label><label><input type="radio" name="q7" value="b"> Одна фотографія оленярів із Норвегії</label><label><input type="radio" name="q7" value="c"> Висота найвищих гір Скандинавії</label></div>
+<div class="q"><b>8. Які джерела найкраще допоможуть дослідити сучасне розселення спільнот кечуа в Андах?</b><label><input type="radio" name="q8" value="a"> Лише фото туристичного фестивалю в Перу</label><label><input type="radio" name="q8" value="b"> Карти поширення мов і дані переписів кількох країн із зазначенням років та методик</label><label><input type="radio" name="q8" value="c"> Тільки карта висот Анд без інформації про людей</label></div>
 <div class="q"><b>9. Населення світу оцінено приблизно у 8,2 млрд у 2024 р. та 8,5 млрд у 2030 р. Який висновок припустимий?</b><label><input type="radio" name="q9" value="a"> Щорічний приріст назавжди буде однаковим</label><label><input type="radio" name="q9" value="b"> Кількість населення за цей час зменшиться</label><label><input type="radio" name="q9" value="c"> За цими оцінками, приріст між двома датами ≈0,3 млрд, але темп між роками треба перевіряти окремо</label></div>
 <div class="q"><b>10. Який підсумковий висновок про розселення найкраще обґрунтований?</b><label><input type="radio" name="q10" value="a"> Населення розміщене нерівномірно через поєднання природних, історичних, економічних і суспільних чинників; карти й дані мають обмеження</label><label><input type="radio" name="q10" value="b"> Усе пояснюється лише температурою</label><label><input type="radio" name="q10" value="c"> Достатньо нічного знімка, щоб визначити точну густоту кожного поселення</label></div><button class="btn" id="gradeQuiz" type="button">Завершити і отримати бал /10</button><div id="quizResult" role="status"></div></div></div></div></section>
 <section class="section"><div class="wrap"><div class="sourcebox"><b>Джерела даних і карт:</b> UN DESA World Population Prospects 2024; NASA/SEDAC GPW; WorldPop (University of Southampton); OpenStreetMap; United Nations materials on Indigenous Peoples. Навчальні моделі на сторінці позначені як моделі й не підміняють статистичні набори даних.</div></div></section>
@@ -183,6 +237,16 @@ const key={q1:'a',q2:'b',q3:'c',q4:'a',q5:'b',q6:'c',q7:'a',q8:'b',q9:'c',q10:'a
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global">
 /* Культурний атлас — дані про прикладові регіони, не полігони етнічного розселення. */
 const CULTURAL_REGIONS=[
+{"id":"garifuna","name":"Гарифуна","area":"Карибське узбережжя Гондурасу, Белізу, Гватемали й Нікарагуа","continent":"americas","coords":[16.52,-88.37],"language":"Гарифуна — аравакська мова; у громадах також уживають іспанську, англійську та інші мови.","culture":"Спадщина поєднує мову, барабанні ритми, танці, усні історії та морські традиції. Сучасні громади живуть у містах, селах і діаспорах.","thought":"Як вимушене переселення з Карибських островів вплинуло на поширення мови вздовж узбережжя Центральної Америки?","source":"UNESCO · Мова, танці й музика гарифуна","url":"https://ich.unesco.org/en/RL/language-dance-and-music-of-the-garifuna-00001","osm":"https://www.openstreetmap.org/?mlat=16.52&mlon=-88.37#map=7/16.52/-88.37"},
+{"id":"yoruba","name":"Йоруба","area":"Південний захід Нігерії та сусідні райони Беніну й Того","continent":"africa","coords":[7.38,3.9],"language":"Йоруба (нігеро-конголезька мовна сім’я); поширені також інші мови.","culture":"Відомі міські історичні центри, мистецькі школи й усна спадщина; система знань і текстів Іфа включена до списку UNESCO. Відмінності між громадами значні.","thought":"Чому міська культура й традиції народу можуть поширюватися поза його історичною територією?","source":"UNESCO · Ifa divination system","url":"https://ich.unesco.org/en/RL/ifa-divination-system-00146","osm":"https://www.openstreetmap.org/?mlat=7.38&mlon=3.9#map=7/7.38/3.9"},
+{"id":"maasai","name":"Масаї","area":"Південна Кенія й північна Танзанія, Східноафриканська рифтова зона","continent":"africa","coords":[-2.33,35.05],"language":"Маа (нілотська гілка); поширені також суахілі, англійська та інші мови.","culture":"У частини громад важливими залишаються скотарство, знання про пасовища, багата культура оздоблення бісером. У громадах є пастухи, підприємці, фахівці різних професій.","thought":"Які природні та суспільні чинники впливають на маршрути випасу? Чому не можна стверджувати, що всі масаї — кочівники?","source":"Maasai Association · Maasai origin","url":"https://www.maasai-association.org/maasai-origin","osm":"https://www.openstreetmap.org/?mlat=-2.33&mlon=35.05#map=7/-2.33/35.05"},
+{"id":"kyrgyz","name":"Киргизи","area":"Тянь-Шань, Киргизстан та сусідні гірські райони","continent":"asia","coords":[42.4,74.6],"language":"Киргизька — тюркська; поширені також російська та інші мови.","culture":"Повстяні килими ширдак і ала-кийиз передають знання майстрів, символіку орнаменту та зв’язки з історичними формами гірського скотарства.","thought":"Які властивості повсті могли робити її корисною в умовах гірських кочових стоянок?","source":"UNESCO · Kyrgyz felt carpets","url":"https://ich.unesco.org/en/USL/ala-kiyiz-and-shyrdak-art-of-kyrgyz-traditional-felt-carpets-00693","osm":"https://www.openstreetmap.org/?mlat=42.4&mlon=74.6#map=7/42.4/74.6"},
+{"id":"maya","name":"Спільноти мая","area":"Гватемала та південна Мексика, також Беліз і сусідні регіони","continent":"americas","coords":[15.09,-90.49],"language":"Десятки мов мая, зокрема кіче, кекчі та ачі; це не одна-єдина мова.","culture":"Нинішні спільноти мая зберігають різноманітні мови, ткані орнаменти, знання про землеробство та мистецькі традиції. Театральна вистава Рабіналь-Ачі — спадщина UNESCO.","thought":"Чому вислів «мова мая» не описує повного мовного різноманіття цього регіону?","source":"UNESCO · Rabinal Achí","url":"https://ich.unesco.org/en/RL/rabinal-achi-dance-drama-tradition-00144","osm":"https://www.openstreetmap.org/?mlat=15.09&mlon=-90.49#map=7/15.09/-90.49"},
+{"id":"basque","name":"Баски","area":"Західні Піренеї та узбережжя Біскайської затоки, Іспанія й Франція","continent":"europe","coords":[43.26,-2.93],"language":"Баскська (еускара) — мовний ізолят; вживаються також іспанська й французька.","culture":"Баскська мова, усна поезія, музика, регіональні страви та сучасне міське життя формують різноманітний культурний простір обабіч державного кордону.","thought":"Чому мовна карта баскського регіону не збігається точно з кордоном Іспанії та Франції?","source":"Minority Rights Group · Basques","url":"https://minorityrights.org/communities/basques/","osm":"https://www.openstreetmap.org/?mlat=43.26&mlon=-2.93#map=7/43.26/-2.93"},
+{"id":"dine","name":"Діне (навахо)","area":"Південний захід США, район Чотирьох кутів: Аризона, Нью-Мексико, Юта","continent":"americas","coords":[36.15,-109.55],"language":"Діне бізаад (навахо) — атабаскська мова; багато членів громад двомовні.","culture":"Спадщина включає ткацтво, усні оповіді та знання про ландшафти плато Колорадо. Народ має власні інституції самоврядування, освіти й сучасні професійні спільноти.","thought":"Чим відрізняється територія самоврядування від точки на карті чи культурного ареалу?","source":"Indian Health Service · Navajo Nation","url":"https://www.ihs.gov/navajo/navajonation/","osm":"https://www.openstreetmap.org/?mlat=36.15&mlon=-109.55#map=7/36.15/-109.55"},
+{"id":"javanese","name":"Яванці","area":"Острів Ява, Індонезія, особливо центральна та східна частини","continent":"asia","coords":[-7.57,110.82],"language":"Яванська (австронезійська мовна сім’я), індонезійська та інші мови.","culture":"У багатьох яванських громадах важливі музика гамелан, театр тіней і батик; індонезійський батик є спільною спадщиною багатьох народів, а не лише яванців.","thought":"Чому густозаселений острів може зберігати різноманіття мов і традицій?","source":"UNESCO · Indonesian batik","url":"https://ich.unesco.org/en/RL/batik-00170","osm":"https://www.openstreetmap.org/?mlat=-7.57&mlon=110.82#map=7/-7.57/110.82"},
+{"id":"mapuche","name":"Мапуче","area":"Південь Чилі та захід Аргентини, передгір’я Анд","continent":"americas","coords":[-39.28,-72.22],"language":"Мапудунгун, іспанська та інші мови.","culture":"Важливі традиції ткацтва, усної історії та знання про місцеві лісові й гірські ландшафти; спільноти активно беруть участь у сучасному громадському житті.","thought":"Яку роль можуть відігравати Анди як природний бар’єр і водночас простір історичних контактів?","source":"Encyclopaedia Britannica · Mapuche","url":"https://www.britannica.com/topic/Mapuche","osm":"https://www.openstreetmap.org/?mlat=-39.28&mlon=-72.22#map=7/-39.28/-72.22"},
+
 {id:'crimean',name:'Кримські татари',area:'Крим, Україна',continent:'europe',coords:[44.755,33.857],language:'Кримськотатарська (тюркська мовна родина); багато людей також розмовляють іншими мовами.',culture:'Орьнек — система рослинних і геометричних символів із власними значеннями. У 2021 році UNESCO включила його до списку нематеріальної спадщини людства.',thought:'Чому символи орнаменту можна назвати способом передавання культурної пам’яті?',source:'UNESCO · Örnek',url:'https://ich.unesco.org/en/RL/ornek-a-crimean-tatar-ornament-and-knowledge-about-it-01601',osm:'https://www.openstreetmap.org/?mlat=44.755&mlon=33.857#map=9/44.755/33.857'},
 {id:'sami',name:'Саами',area:'Сапмі — північ Норвегії, Швеції, Фінляндії та Кольського півострова',continent:'europe',coords:[69.47,25.51],language:'Група саамських мов; також використовуються державні мови країн проживання.',culture:'Традиції оленярства, ремесел і знань про арктичні екосистеми. Оленярством займається лише частина саамських сімей; сучасні заняття різноманітні.',thought:'Чому культурний регіон Сапмі не можна обвести одним державним кордоном?',source:'UNESCO · Laponian Area / Sámi',url:'https://whc.unesco.org/en/list/774',osm:'https://www.openstreetmap.org/?mlat=69.47&mlon=25.51#map=8/69.47/25.51'},
 {id:'inuit',name:'Інуїти',area:'Нунавут, Канада (також інші регіони Арктики)',continent:'americas',coords:[63.75,-68.51],language:'Інуїтські мови, зокрема інуктитут; використовуються також англійська та інші мови.',culture:'Арктичні знання про сезонний лід, море й тварин, усні оповіді, мистецтво та сучасні форми життя громад. Інуїтські спільноти є й поза Нунавутом.',thought:'Чому знання про стан морської криги можуть бути важливими і для науки, і для життя громади?',source:'Уряд Канади · Nunavut',url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/provinces-territories/nunavut.html',osm:'https://www.openstreetmap.org/?mlat=63.75&mlon=-68.51#map=8/63.75/-68.51'},
@@ -197,11 +261,11 @@ function cultureEscape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','
 function cultureShow(r,fly){
  regionCard.innerHTML='<span class="geo-label">'+cultureEscape(r.area)+'</span><h3>'+cultureEscape(r.name)+'</h3><p><b>Мови:</b> '+cultureEscape(r.language)+'</p><p><b>Особливості культури:</b> '+cultureEscape(r.culture)+'</p><div class="task"><b>Поміркуйте:</b> '+cultureEscape(r.thought)+'</div><p class="source"><a href="'+r.url+'" target="_blank" rel="noopener noreferrer">'+cultureEscape(r.source)+' ↗</a></p><a href="'+r.osm+'" target="_blank" rel="noopener noreferrer">Відкрити це місце на OpenStreetMap ↗</a>';
  document.querySelectorAll('#culture-atlas-places button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.region===r.id?'true':'false'));
- if(fly&&cultureMap){cultureMap.flyTo(r.coords,5,{duration:1.1});const marker=cultureLayers.find(x=>x.data.id===r.id);if(marker)marker.layer.openPopup();}
+ if(window.atlasVisitedAdd)window.atlasVisitedAdd(r.id);if(fly&&cultureMap){cultureMap.flyTo(r.coords,5,{duration:1.1});const marker=cultureLayers.find(x=>x.data.id===r.id);if(marker)marker.layer.openPopup();}
 }
 function cultureRender(){
  const root=document.getElementById('culture-atlas-places');root.innerHTML='';
- CULTURAL_REGIONS.filter(r=>activeCulture==='all'||r.continent===activeCulture).forEach(r=>{const b=document.createElement('button');b.type='button';b.dataset.region=r.id;b.textContent='📍 '+r.name;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>cultureShow(r,true));root.appendChild(b);});
+ CULTURAL_REGIONS.filter(r=>(activeCulture==='all'||r.continent===activeCulture)&&(!document.getElementById('atlas-search')?.value.trim()||[r.name,r.area,r.language].join(' ').toLocaleLowerCase('uk-UA').includes(document.getElementById('atlas-search').value.trim().toLocaleLowerCase('uk-UA')))).forEach(r=>{const b=document.createElement('button');b.type='button';b.dataset.region=r.id;b.textContent='📍 '+r.name;b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>cultureShow(r,true));root.appendChild(b);});
  if(cultureMap){cultureLayers.forEach(({data,layer})=>{if(activeCulture==='all'||data.continent===activeCulture){if(!cultureMap.hasLayer(layer))layer.addTo(cultureMap);}else if(cultureMap.hasLayer(layer)){cultureMap.removeLayer(layer);}});}
 }
 document.querySelectorAll('[data-culture-filter]').forEach(b=>b.addEventListener('click',()=>{
@@ -235,8 +299,90 @@ window.addEventListener('load',()=>{
  });
  cultureMap.on('click',()=>{document.getElementById('culture-map-status').textContent='Це реальна карта місцевості. Щоб прочитати про народ, натисніть кольорову позначку або одну з назв під картою. Не кожна точка світу має позначку в нашій навчальній добірці.';});
  setTimeout(()=>cultureMap.invalidateSize(),250);
- document.getElementById('culture-map-status').textContent='Карту завантажено. Натисніть на будь-яку з 7 кольорових позначок або скористайтеся списком народів нижче.';
+ document.getElementById('culture-map-status').textContent='Карту завантажено. Натисніть на будь-яку з 16 кольорових позначок або скористайтеся списком народів нижче.';
 });
 
+
+/* Культурний маршрут — додаткові локальні вправи */
+const atlasVisited = new Set();
+window.atlasVisitedAdd = function(id){
+ atlasVisited.add(id);
+ const el=document.getElementById('atlas-visited');
+ if(el)el.textContent='Відкрито культурних паспортів: '+atlasVisited.size+' / '+CULTURAL_REGIONS.length;
+};
+document.getElementById('atlas-search').addEventListener('input',cultureRender);
+const atlasRiddles=[
+{answer:'garifuna',text:'Мій історичний маршрут пов’язаний з Карибським басейном, а сучасні громади живуть уздовж атлантичного узбережжя Центральної Америки. У спадщині важливі мова й барабанні ритми.',options:['garifuna','maori','mapuche','tuareg'],why:'Гарифуна проживають, зокрема, в Белізі, Гондурасі, Гватемалі й Нікарагуа. Переселення пояснює просторову розірваність ареалу.'},
+{answer:'kyrgyz',text:'Мій культурний регіон лежить у Тянь-Шані. У гірському побуті історично використовували повстяні килими ширдак і ала-кийиз.',options:['quechua','kyrgyz','sami','ainu'],why:'Киргизи — народ Центральної Азії. Повстяні килими демонструють поєднання ремесла й гірського середовища.'},
+{answer:'basque',text:'Мій культурний регіон перетинає кордон двох держав поблизу Біскайської затоки. Наша мова не належить до індоєвропейської сім’ї.',options:['crimean','basque','dine','yoruba'],why:'Баски живуть у прикордонних областях Іспанії та Франції. Баскська — мовний ізолят.'},
+{answer:'yoruba',text:'На південному заході Нігерії та в сусідніх країнах є громади з нашою мовою. Усна система знань Іфа є спадщиною UNESCO.',options:['yoruba','maasai','garifuna','javanese'],why:'Йоруба — народ Західної Африки. Знання про спадщину треба поєднувати з картою сучасного населення.'},
+{answer:'maya',text:'У нашому регіоні Центральної Америки розмовляють багатьма спорідненими мовами. Виставу Рабіналь-Ачі виконують у Гватемалі.',options:['mapuche','maya','quechua','inuit'],why:'Мая — назва багатьох сучасних спільнот і мов, а не одна застигла в минулому цивілізація.'},
+{answer:'dine',text:'Історична територія наших громад охоплює високі пустельні плато південного заходу США, район Чотирьох кутів. Поряд із ремеслами існує власне самоврядування.',options:['ainu','maasai','dine','sami'],why:'Діне (навахо) живуть переважно на південному заході США; карта території самоврядування не тотожна розселенню всіх членів народу.'}
+];
+let atlasRound=0,atlasCorrect=0,atlasLocked=false;
+const getAtlasName=id=>CULTURAL_REGIONS.find(x=>x.id===id)?.name||id;
+function atlasRenderRiddle(){
+ const q=atlasRiddles[atlasRound];
+ const prog=document.getElementById('atlas-riddle-progress'),clue=document.getElementById('atlas-riddle-clue'),opts=document.getElementById('atlas-riddle-choices'),feedback=document.getElementById('atlas-riddle-feedback');
+ document.getElementById('atlas-riddle-next').hidden=true; document.getElementById('atlas-riddle-reset').hidden=true;
+ feedback.textContent='';feedback.className='atlas-feedback';atlasLocked=false;opts.innerHTML='';
+ if(!q){prog.textContent='Експедицію завершено';clue.textContent='Результат: '+atlasCorrect+' / '+atlasRiddles.length+'. Поверніться до карти та перевірте незнайомі спільноти.';document.getElementById('atlas-riddle-reset').hidden=false;return;}
+ prog.textContent='Завдання '+(atlasRound+1)+' із '+atlasRiddles.length+' • правильних відповідей: '+atlasCorrect;
+ clue.textContent=q.text;
+ const order=[...q.options].sort((a,b)=>a.localeCompare(b,'uk'));
+ order.forEach(id=>{
+ const btn=document.createElement('button');btn.type='button';btn.textContent=getAtlasName(id);
+ btn.addEventListener('click',()=>{
+ if(atlasLocked)return;atlasLocked=true;if(id===q.answer)atlasCorrect++;
+ [...opts.querySelectorAll('button')].forEach(b=>{b.disabled=true;if(b.dataset.id===q.answer)b.classList.add('correct');else if(b.dataset.id===id)b.classList.add('wrong');});
+ feedback.textContent=(id===q.answer?'✔ Правильно. ':'↻ Обрано інший регіон. ')+q.why;
+ feedback.className='atlas-feedback'+(id===q.answer?'':' bad');
+ document.getElementById('atlas-riddle-next').hidden=atlasRound===atlasRiddles.length-1;
+ document.getElementById('atlas-riddle-reset').hidden=atlasRound!==atlasRiddles.length-1;
+ if(atlasRound===atlasRiddles.length-1)prog.textContent='Фініш: '+atlasCorrect+' / '+atlasRiddles.length;
+ });
+ btn.dataset.id=id;opts.appendChild(btn);
+ });
+}
+document.getElementById('atlas-riddle-next').addEventListener('click',()=>{atlasRound++;atlasRenderRiddle();});
+document.getElementById('atlas-riddle-reset').addEventListener('click',()=>{atlasRound=0;atlasCorrect=0;atlasRenderRiddle();});
+atlasRenderRiddle();
+const atlasFacts=[
+{text:'Сапмі охоплює території кількох країн Північної Європи.',answer:'yes',why:'Це підтверджено географією історичного регіону: Норвегія, Швеція, Фінляндія, Кольський півострів.'},
+{text:'Якщо на мапі культурного атласу є одна позначка, усі представники народу живуть саме в цій точці.',answer:'no',why:'Позначка є навчальною географічною опорою. Існують діаспори, міграція та змішані поселення.'},
+{text:'Усі сучасні масаї ведуть кочове життя і працюють пастухами.',answer:'no',why:'Скотарські практики важливі для історії частини громад, але сучасні професії та способи життя різноманітні.'},
+{text:'Місце народження людини повністю визначає її етнічну належність.',answer:'no',why:'Етнічна самоідентифікація, сімейна історія, мова та культура не зводяться до координат народження.'},
+{text:'На Хоккайдо є айнські культурні спільноти; для з’ясування їхньої точної чисельності потрібні демографічні дані, а не фото танцю.',answer:'yes',why:'Фотографія документує культурну практику, але не вимірює число людей.'},
+{text:'Маючи тільки середню густоту населення країни, можна точно визначити густоту кожного її району.',answer:'no',why:'Середній показник приховує просторову неоднорідність — потрібна карта густоти з відповідним масштабом.'}
+];
+let atlasFactScores={};
+function atlasRenderFacts(){
+ const root=document.getElementById('atlas-fact-questions');root.innerHTML='';atlasFactScores={};document.getElementById('atlas-fact-summary').textContent='';
+ atlasFacts.forEach((q,i)=>{
+ const box=document.createElement('div');box.className='atlas-fact';
+ const p=document.createElement('p');p.textContent=(i+1)+'. '+q.text;box.appendChild(p);
+ const buttons=document.createElement('div');buttons.className='atlas-fact-buttons';
+ [['yes','Підтверджено'],['no','Спростовано'],['unknown','Бракує даних']].forEach(([value,label])=>{
+ const b=document.createElement('button');b.type='button';b.textContent=label;b.setAttribute('aria-pressed','false');
+ b.addEventListener('click',()=>{
+ atlasFactScores[i]=value;
+ [...buttons.children].forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+ let exp=box.querySelector('.atlas-explanation');if(!exp){exp=document.createElement('div');exp.className='atlas-explanation';box.appendChild(exp);}
+ exp.textContent=(value===q.answer?'✔ Висновок підтверджено. ':'✦ Перевірте логіку. ')+q.why;
+ const done=Object.keys(atlasFactScores).length;
+ const score=atlasFacts.reduce((n,z,k)=>n+(atlasFactScores[k]===z.answer?1:0),0);
+ document.getElementById('atlas-fact-summary').textContent=done<atlasFacts.length?'Розглянуто '+done+' / '+atlasFacts.length+'; правильних відповідей: '+score+'.':'Результат: '+score+' / '+atlasFacts.length+'. Важливо: висновок має спиратися на джерело й не перебільшувати його можливостей.';
+ });
+ buttons.appendChild(b);
+ });box.appendChild(buttons);root.appendChild(box);
+ });
+}
+document.getElementById('atlas-fact-reset').addEventListener('click',atlasRenderFacts);atlasRenderFacts();
+document.getElementById('atlas-route-check').addEventListener('click',()=>{
+ const ans=['sami','quechua','garifuna'],selection=ans.map((_,i)=>document.getElementById('atlas-route-'+(i+1)).value);
+ const score=selection.reduce((sum,v,i)=>sum+(v===ans[i]?1:0),0);const result=document.getElementById('atlas-route-result');
+ result.className='atlas-feedback'+(score===3?'':' bad');
+ result.textContent=score===3?'3 / 3. Маршрут: Сапмі → Анди → Карибське узбережжя. Різні середовища формують різні можливості, але не визначають усі заняття людей.':'Правильно '+score+' / 3. Зверніть увагу: Північна Європа — саами; високогірні Анди — кечуа; Карибське узбережжя Центральної Америки — гарифуна.';
+});
 </script>
 </body></html>
