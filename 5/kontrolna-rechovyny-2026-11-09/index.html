@@ -88,4 +88,5 @@ $("newFile").addEventListener("click",clear);
 $("clearButton").addEventListener("click",clear);
 renderSections();
 try{const draft=JSON.parse(sessionStorage.getItem("test5_knowledge_v3")||"null");if(draft?.student){$("fullName").value=draft.student;const b=document.createElement("button");b.className="secondary";b.textContent="Продовжити збережену роботу";b.addEventListener("click",()=>{startedAt=draft.startedAt||Date.now();start(true);for(const [k,v] of Object.entries(draft.values||{})){if(Array.isArray(v)){for(const option of v){const input=document.querySelector('input[name="'+k+'"][value="'+option+'"]');if(input)input.checked=true;}}else{const el=$(k);if(el)el.value=v;}}update();tick();});$("entry").querySelector(".gate").appendChild(b);}}catch{}
-</script></body></html>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
