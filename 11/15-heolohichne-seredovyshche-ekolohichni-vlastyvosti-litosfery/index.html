@@ -182,4 +182,5 @@ QUIZ.forEach((q,i)=>{let right=false;
  card.appendChild(element('p','Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»'));box.appendChild(card);
  const row=element('div');row.className='button-row';const print=element('button','Друкувати / зберегти PDF');print.type='button';print.className='btn secondary';print.addEventListener('click',()=>window.print());const again=element('button','Пройти ще раз');again.type='button';again.className='btn secondary';again.addEventListener('click',()=>{if(confirm('Перезапустити тест? ПІБ і клас залишаться в цій вкладці.')){box.hidden=true;$('quiz').hidden=false;renderQuiz();$('quiz').scrollIntoView()}});row.append(print,again);box.append(row);box.scrollIntoView({block:'start'})
 });
-})();</script></body></html>
+})();</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body></html>
