@@ -72,3 +72,18 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 #risk-science .volc-panel button,#magma-conditions .volc-panel button{min-height:46px;margin-top:12px}
 #plate-check{margin-top:15px}
 @media(max-width:720px){.volc-gallery,.volc-grid-2,.volc-practice{grid-template-columns:1fr}.volc-source-figure img{max-height:390px;object-fit:contain}}
+
+/* Українські навчальні відео: короткі фрагменти з питаннями */
+.volc-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}
+.volc-video-card{min-width:0;background:#fff;border:1px solid #d3e5ec;border-radius:20px;padding:17px;box-shadow:0 9px 24px #1e48540a}
+.volc-video-card:nth-child(3){grid-column:1/-1;max-width:750px;width:100%;margin-inline:auto}
+.volc-video-label{display:inline-block;font-size:.83rem;font-weight:850;color:#9b4d2f;background:#fff0e8;padding:6px 10px;border-radius:40px}
+.volc-video-card h3{font-size:1.24rem;margin:12px 0 8px}
+.volc-video-card p{color:#415b6f}
+.volc-video-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:15px;overflow:hidden;background:#122433}
+.volc-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.volc-prompt{margin-top:12px;border-left:4px solid #1f8199;background:#eff8fb;border-radius:10px;padding:13px;line-height:1.52}
+.volc-video-more{border:1px solid #d3e5ec;border-radius:15px;margin-top:16px;padding:12px 15px;background:#f5fbfc}
+.volc-video-more summary{cursor:pointer;font-weight:850;padding:6px 0}
+.volc-video-more a{font-weight:800;color:#116e9d}
+@media(max-width:760px){.volc-video-grid{grid-template-columns:1fr}.volc-video-card:nth-child(3){grid-column:auto;max-width:none}}
