@@ -31,14 +31,9 @@ const plates={
 };
 
 // Схеми не генеруються: використано оригінальні матеріали USGS.
-const plateSchemes={
-  1:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries.png",
-  2:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries.png",
-  3:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries2.png",
-  4:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries.png"
-};
+const plateSchemes={1:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg/3840px-Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg.png",2:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg/3840px-Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg.png",3:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg/3840px-Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg.png",4:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg/3840px-Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg.png"};
 function plateSVG(type) {
-  return '<figure class="volc-source-figure"><img loading="lazy" src="'+plateSchemes[type]+'" alt="Оригінальна наукова схема USGS: будова і типи меж літосферних плит, гаряча точка та вулкани"><figcaption>Джерело: Jose F. Vigil / USGS, суспільне надбання. <a target="_blank" rel="noopener" href="https://www.usgs.gov/media/images/plate-boundary-types">Переглянути оригінал USGS ↗</a></figcaption></figure>';
+  return '<figure class="volc-source-figure"><img loading="lazy" src="'+plateSchemes[type]+'" data-fallbacks="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg/3840px-Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg.png" alt="Оригінальна наукова схема USGS: будова і типи меж літосферних плит, гаряча точка та вулкани"><figcaption>Джерело: Eric Gaba / Wikimedia Commons, CC BY-SA. <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Tectonic_plates_boundaries_physical_World_map_Wt_180degE_centered-en.svg">Переглянути оригінал USGS ↗</a></figcaption></figure>';
 }
 all("[data-plate]").forEach(b=>b.addEventListener("click",()=>{
  const key=b.getAttribute("data-plate"),v=plates[key];
@@ -66,7 +61,7 @@ function updateMagma(){
  by("magma-vis-bar").style.width=(v*20)+"%";
  by("magma-gas-bar").style.width=(g*20)+"%";
  const danger=v*g;
- by("magma-scene").innerHTML='<figure class="volc-source-figure"><img loading="lazy" src="https://www.nps.gov/common/uploads/nri/subject/volcanoes/97716A98-AF44-B40D-7F90BC64F169FA04/97716A98-AF44-B40D-7F90BC64F169FA04.jpg?autorotate=false&maxHeight=1020&maxWidth=1300" alt="Офіційна схема будови вулкана: кратер, магма, жерло, попіл, лава, пірокластичний потік, лахар"><figcaption>Оригінальна схема NPS / USGS. Параметри ліворуч змінюють тільки текстову оцінку, а не саму схему. <a target="_blank" rel="noopener" href="https://www.nps.gov/subjects/volcanoes/anatomy-of-a-volcano.htm">Першоджерело ↗</a></figcaption></figure>';
+ by("magma-scene").innerHTML='<figure class="volc-source-figure"><img loading="lazy" src="https://home.nps.gov/common/uploads/nri/subject/volcanoes/751ACB30-AF71-735F-9F2545B12E7E98D7/751ACB30-AF71-735F-9F2545B12E7E98D7.jpg?autorotate=false&format=webp&maxHeight=1020&maxWidth=1300" alt="Офіційна схема будови вулкана: кратер, магма, жерло, попіл, лава, пірокластичний потік, лахар"><figcaption>Оригінальна схема NPS / USGS. Параметри ліворуч змінюють тільки текстову оцінку, а не саму схему. <a target="_blank" rel="noopener" href="https://www.nps.gov/subjects/volcanoes/anatomy-of-a-volcano.htm">Першоджерело ↗</a></figcaption></figure>';
  let trend=danger>=16?"Підвищена схильність до вибухового перебігу":"Можливий спокійніший вихід лави";
  by("magma-result").innerHTML='<strong>'+trend+'</strong><p>В’язкість: '+(v<=2?"низька":v>=4?"висока":"середня")+'. Вміст газів: '+(g<=2?"менший":g>=4?"значний":"помірний")+'. Прогноз залежить також від води, глибини, температури, складу магми та будови жерла.</p>';
 }
