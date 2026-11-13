@@ -87,3 +87,5 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .volc-video-more summary{cursor:pointer;font-weight:850;padding:6px 0}
 .volc-video-more a{font-weight:800;color:#116e9d}
 @media(max-width:760px){.volc-video-grid{grid-template-columns:1fr}.volc-video-card:nth-child(3){grid-column:auto;max-width:none}}
+
+.image-unavailable{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:20px 14px;background:#f2f7fa;border:1px dashed #9fbac8;border-radius:12px;color:#304f64;min-height:120px}.image-unavailable a{color:#0a6e9d;font-weight:800}.image-unavailable a:hover{text-decoration:underline}
