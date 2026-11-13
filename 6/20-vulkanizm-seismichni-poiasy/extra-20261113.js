@@ -29,16 +29,16 @@ const plates={
  hotspot:{heading:"Гаряча точка всередині плити",text:"Магма може підніматися і далеко від меж плит. Тихоокеанська плита рухається над гарячою точкою — так формувався Гавайський вулканічний ланцюг, до якого належить Кілауеа.",note:"Правило «всі вулкани стоять на межах плит» — помилкове. Гарячі точки є важливим винятком.",scheme:3},
  transform:{heading:"Зсувна межа плит",text:"Плити ковзають одна відносно одної. Тут часто виникають землетруси, але типового механізму масового утворення магми немає.",note:"Землетрус не дорівнює вулкану. Каліфорнійський розлом Сан-Андреас — відомий приклад зсувної межі.",scheme:4}
 };
-function plateSVG(type){
- const txt='<text x="18" y="28" font-family="Arial" font-size="19" font-weight="bold" fill="#26485a">Умовна схема, не в масштабі</text>';
- const ground='<rect x="0" y="100" width="760" height="140" fill="#d9aa7e"/><rect x="0" y="240" width="760" height="70" fill="#b85d4e"/>';
- const arrow=(x,y,glyph)=>'<text x="'+x+'" y="'+y+'" font-size="37" font-family="Arial" fill="#1a648a">'+glyph+'</text>';
- let center="";
- if(type===1)center='<path d="M0 100 H360 L680 270 H760" stroke="#395d70" stroke-width="13" fill="none"/><path d="M0 115 H350 L645 265" stroke="#376b81" stroke-width="6" fill="none"/><path d="M390 100 L505 32 L570 100Z" fill="#835e55"/><path d="M488 77 L505 32 L522 78Z" fill="#b54827"/><path d="M480 145 Q500 92 505 45" stroke="#e95632" stroke-width="13" fill="none" stroke-dasharray="9 8"/>'+arrow(140,88,"→")+arrow(690,88,"←");
- if(type===2)center='<path d="M0 102 L335 102 L380 179 L425 102 H760" stroke="#476675" stroke-width="12" fill="none"/><path d="M382 245 Q374 155 380 102" stroke="#fa733e" stroke-width="26" fill="none"/><path d="M350 215 L380 166 L408 215" fill="#ed8f51"/>'+arrow(185,84,"←")+arrow(535,84,"→");
- if(type===3)center='<path d="M0 104 H760" stroke="#476675" stroke-width="12"/><path d="M380 270 C300 180 315 150 380 95 C440 160 450 210 380 270Z" fill="#f19a4b"/><path d="M280 104 L350 55 L410 104Z" fill="#69594f"/><path d="M366 92 L350 55 L340 88Z" fill="#d9572f"/>'+arrow(490,83,"→");
- if(type===4)center='<path d="M0 100 H760" stroke="#476675" stroke-width="11"/><path d="M375 85 L405 250" stroke="#774939" stroke-width="8" stroke-dasharray="15 8"/>'+arrow(220,80,"→")+arrow(500,130,"←");
- return '<svg role="img" aria-label="Схематичний розріз плит" viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg">'+ground+center+txt+'</svg>';
+
+// Схеми не генеруються: використано оригінальні матеріали USGS.
+const plateSchemes={
+  1:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries.png",
+  2:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries.png",
+  3:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries2.png",
+  4:"https://commons.wikimedia.org/wiki/Special:FilePath/Tectonic_plate_boundaries.png"
+};
+function plateSVG(type) {
+  return '<figure class="volc-source-figure"><img loading="lazy" src="'+plateSchemes[type]+'" alt="Оригінальна наукова схема USGS: будова і типи меж літосферних плит, гаряча точка та вулкани"><figcaption>Джерело: Jose F. Vigil / USGS, суспільне надбання. <a target="_blank" rel="noopener" href="https://www.usgs.gov/media/images/plate-boundary-types">Переглянути оригінал USGS ↗</a></figcaption></figure>';
 }
 all("[data-plate]").forEach(b=>b.addEventListener("click",()=>{
  const key=b.getAttribute("data-plate"),v=plates[key];
@@ -66,7 +66,7 @@ function updateMagma(){
  by("magma-vis-bar").style.width=(v*20)+"%";
  by("magma-gas-bar").style.width=(g*20)+"%";
  const danger=v*g;
- by("magma-scene").innerHTML='<svg role="img" aria-label="Умовна модель підняття магми й газу" viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg"><rect width="760" height="310" fill="#f0f8fa"/><path d="M130 250 L370 45 L610 250 Z" fill="#78685a"/><path d="M325 250 L357 105 L383 105 L418 250" fill="#c65333"/><rect x="255" y="220" width="230" height="72" rx="35" fill="#e4743b"/><g fill="#ffe3b4">'+Array.from({length:g*4},(_,i)=>'<circle cx="'+(277+(i%8)*26)+'" cy="'+(234+Math.floor(i/8)*18)+'" r="'+(2+g/3)+'"/>').join('')+'</g><path d="M350 245 L350 90" stroke="#ffc081" stroke-width="'+(10+v*3)+'"/><circle cx="369" cy="80" r="'+(7+g*2)+'" fill="#ed7c42"/><text x="18" y="28" font-size="18" font-family="Arial" fill="#345">Умовна модель · не точний прогноз</text></svg>';
+ by("magma-scene").innerHTML='<figure class="volc-source-figure"><img loading="lazy" src="https://www.nps.gov/common/uploads/nri/subject/volcanoes/97716A98-AF44-B40D-7F90BC64F169FA04/97716A98-AF44-B40D-7F90BC64F169FA04.jpg?autorotate=false&maxHeight=1020&maxWidth=1300" alt="Офіційна схема будови вулкана: кратер, магма, жерло, попіл, лава, пірокластичний потік, лахар"><figcaption>Оригінальна схема NPS / USGS. Параметри ліворуч змінюють тільки текстову оцінку, а не саму схему. <a target="_blank" rel="noopener" href="https://www.nps.gov/subjects/volcanoes/anatomy-of-a-volcano.htm">Першоджерело ↗</a></figcaption></figure>';
  let trend=danger>=16?"Підвищена схильність до вибухового перебігу":"Можливий спокійніший вихід лави";
  by("magma-result").innerHTML='<strong>'+trend+'</strong><p>В’язкість: '+(v<=2?"низька":v>=4?"висока":"середня")+'. Вміст газів: '+(g<=2?"менший":g>=4?"значний":"помірний")+'. Прогноз залежить також від води, глибини, температури, складу магми та будови жерла.</p>';
 }
