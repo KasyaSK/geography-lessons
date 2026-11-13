@@ -56,3 +56,19 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 @media(max-width:760px){.volc-gallery,.volc-grid-2,.volc-model-range,.volc-practice{grid-template-columns:1fr}.volc-timeline{grid-template-columns:1fr}.volc-case img{height:auto;aspect-ratio:16/10}}
 @media(prefers-reduced-motion:reduce){.volc-meter span{transition:none}}
 @media print{.volc-tabs,.volc-action,.volc-mini-quiz button{display:none}.volc-gallery{grid-template-columns:repeat(2,1fr)}}
+
+/* Оригінальні наукові зображення, атрибуція й мобільні елементи */
+.volc-source-figure{margin:0;background:#fff;border:1px solid #d6e5ed;border-radius:15px;overflow:hidden}
+.volc-source-figure>img{width:100%;height:auto;object-fit:contain;display:block;background:#fff}
+.volc-source-figure figcaption{padding:10px 13px;font-size:.82rem;line-height:1.5;color:#5c6b77}
+.volc-source-figure a{color:#146c97}
+.volc-diagram img{width:100%;height:auto;max-height:470px;object-fit:contain;background:#fff;display:block}
+.volc-diagram .volc-source-figure{border:0}
+.maplab .volc-source-figure,.volcano-lab .volc-source-figure{min-width:0}
+.volc-panel input[type=checkbox]{width:18px;height:18px;margin-right:9px;vertical-align:middle;accent-color:#166b91}
+.volc-panel label:has(input[type=checkbox]){display:flex;align-items:center;gap:8px;padding:7px 0;cursor:pointer;font-weight:500}
+.volc-panel label:has(input[type=checkbox]) input{flex:0 0 18px}
+.volc-model-range input[type=range]{width:100%}
+#risk-science .volc-panel button,#magma-conditions .volc-panel button{min-height:46px;margin-top:12px}
+#plate-check{margin-top:15px}
+@media(max-width:720px){.volc-gallery,.volc-grid-2,.volc-practice{grid-template-columns:1fr}.volc-source-figure img{max-height:390px;object-fit:contain}}
