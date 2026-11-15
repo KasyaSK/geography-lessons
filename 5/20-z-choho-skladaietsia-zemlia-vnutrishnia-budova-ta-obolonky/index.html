@@ -290,14 +290,14 @@ $('submitQuiz').addEventListener('click',()=>{
 const ready=questions.every((q,i)=>{let e=$('question'+i);return q.type==='single'||q.type==='multi'?[...e.querySelectorAll('input:checked')].length>0:[...e.querySelectorAll('select')].every(x=>x.value!=='')});
 if(!ready){mark('quizFeedback','Заповніть усі 10 завдань (для завдань 5–6 виберіть хоча б один варіант).',false);return}
 let score=0;questions.forEach((q,i)=>{let good=checkAnswer(q,i);if(good)score++;const d=document.createElement('div');d.className='note'+(good?'':' orange');d.innerHTML='<strong>'+(good?'✓ Правильно':'✕ Потрібно уточнити')+'</strong>. '+escapeHTML(q.why);$('question'+i).append(d);$('question'+i).querySelectorAll('input,select').forEach(el=>el.disabled=true)});
-$('quizWrap').hidden=true;$('scoreCard').hidden=false;
+$('quizWrap').hidden=false;$('scoreCard').hidden=false;$('submitQuiz').disabled=true;
 $('scoreName').textContent=$('studentName').value.trim()+' · '+$('studentClass').value;
 $('scoreNumber').textContent=score+' / 10 · '+(score*10)+'%';
 $('scoreDate').textContent='З чого складається Земля · '+new Date().toLocaleString('uk-UA');
 $('scoreRemark').textContent=score<=4?'Результат підказує повторити шари та оболонки Землі.':score<=7?'Основні поняття засвоєні; попрацюйте з доказами та обмеженнями моделей.':score<=9?'Добре: більшість зв’язків і доказів визначено правильно.':'Усі відповіді точні; перевірте себе також у відкритому CER-завданні.';
 $('scoreCard').focus();$('scoreCard').scrollIntoView({behavior:'smooth',block:'center'})
 });
-$('retryQuiz').addEventListener('click',()=>{if(!confirm('Пройти тест ще раз? Попередній результат буде приховано, але ім’я та клас залишаться.'))return;$('scoreCard').hidden=true;$('quizWrap').hidden=false;$('quizFeedback').textContent='';renderQuiz();$('quizWrap').scrollIntoView({behavior:'smooth',block:'start'})});
+$('retryQuiz').addEventListener('click',()=>{if(!confirm('Пройти тест ще раз? Попередній результат буде приховано, але ім’я та клас залишаться.'))return;$('scoreCard').hidden=true;$('quizWrap').hidden=false;$('quizFeedback').textContent='';renderQuiz();$('submitQuiz').disabled=false;$('quizWrap').scrollIntoView({behavior:'smooth',block:'start'})});
 $('printScore').addEventListener('click',()=>window.print());
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
