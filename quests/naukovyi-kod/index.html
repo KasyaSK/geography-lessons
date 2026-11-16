@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f7f0">
+<meta name="description" content="Інтерактивний науковий квест для 7–10 класів: 16 загадок про українських учених, фінальний шифр і 3 бонусні завдання.">
+<title>Україна — країна наукових відкриттів | Науковий код</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#123547;--ink2:#25485a;--blue:#1555ab;--blue2:#0a3e84;--sky:#dceefb;--sea:#0e817f;--cream:#faf9f4;--white:#fff;--yellow:#ffd35b;--gold:#e3a329;--line:#dce4e4;--muted:#5c7380;--danger:#ad5141;--ok:#197d58;--shadow:0 18px 45px rgba(22,54,75,.09);font-family:Manrope,'Segoe UI',sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 92% 0%,#e0f0f3 0,transparent 33%),radial-gradient(circle at 0 45%,#fff3d5 0,transparent 26%),var(--cream);color:var(--ink);min-height:100vh}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #1b75d5;outline-offset:3px}
+a{color:var(--blue)}
+.topbar{height:80px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1250px)/2));background:rgba(255,255,255,.87);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:800;letter-spacing:-.03em}
+.brand-emblem{width:43px;height:43px;border-radius:15px;background:var(--blue);display:grid;place-items:center;color:#fff;font-size:21px;box-shadow:5px 5px 0 #ffe49b}
+.brand small{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;margin-top:3px}
+.top-right{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.header-badge{font-size:12px;font-weight:800;border:1px solid var(--line);padding:10px 13px;border-radius:999px;background:#fff;white-space:nowrap}
+.header-badge strong{color:var(--blue)}
+.main{max-width:1250px;margin:0 auto;padding:35px 24px 70px}
+.hero{display:grid;grid-template-columns:1.13fr .87fr;min-height:580px;background:#fff;border:1px solid var(--line);border-radius:34px;overflow:hidden;box-shadow:var(--shadow)}
+.hero-copy{padding:clamp(30px,5vw,70px);display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--sea);display:flex;align-items:center;gap:8px}
+.eyebrow:before{content:"";width:26px;height:3px;border-radius:4px;background:var(--yellow)}
+h1{font-size:clamp(38px,5vw,65px);letter-spacing:-.065em;line-height:1.06;margin:22px 0;font-weight:800}
+h1 .highlight{position:relative;color:var(--blue);white-space:nowrap}
+.hero-copy p{font-size:16px;line-height:1.85;color:var(--muted);max-width:580px;margin:0}
+.metrics{display:flex;gap:24px;flex-wrap:wrap;margin:32px 0}
+.metric{display:flex;gap:9px;align-items:center;font-size:12px;color:var(--muted);font-weight:700}
+.metric b{font-size:21px;color:var(--ink)}
+.team-line{display:grid;gap:9px;max-width:390px;margin-bottom:16px}
+.team-line label{font-size:13px;font-weight:800}
+.team-line input{height:52px;border:1px solid var(--line);border-radius:13px;padding:0 16px;background:#fbfcfd;min-width:0;color:var(--ink)}
+.btn{border:0;min-height:52px;padding:13px 22px;border-radius:14px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);color:white;box-shadow:0 8px 16px rgba(21,85,171,.15)}
+.btn-primary:hover{background:var(--blue2)}
+.btn-light{background:#eff6fa;color:var(--ink)}
+.btn-ghost{background:white;color:var(--blue);border:1px solid var(--line)}
+.btn:disabled{opacity:.48;cursor:not-allowed;transform:none}
+.hero-art{position:relative;overflow:hidden;background:linear-gradient(145deg,#105d9c,#177c9c 65%,#159c9e);min-height:420px}
+.hero-art:before{content:"";position:absolute;width:470px;height:470px;border-radius:50%;border:1px solid rgba(255,255,255,.24);left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 62px rgba(255,255,255,.065),0 0 0 126px rgba(255,255,255,.055)}
+.orbit{position:absolute;width:320px;height:320px;border:1px dashed rgba(255,255,255,.55);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);display:grid;place-items:center}
+.central{width:220px;height:220px;border-radius:50%;background:#faf9f1;display:grid;place-items:center;box-shadow:0 20px 60px rgba(3,36,76,.3);transform:rotate(25deg);text-align:center}
+.central span{font-size:75px;line-height:1}
+.central b{display:block;font-size:12px;letter-spacing:.2em;color:#0a6080;margin-top:-25px}
+.float{position:absolute;background:rgba(255,255,255,.95);box-shadow:0 20px 45px rgba(8,44,65,.15);padding:14px 17px;border-radius:18px;font-size:13px;font-weight:800;color:#164362;display:flex;gap:9px;align-items:center}
+.float i{font-style:normal;font-size:24px}
+.f1{top:13%;left:8%;transform:rotate(-8deg)}.f2{right:8%;top:26%;transform:rotate(8deg)}.f3{bottom:16%;left:9%;transform:rotate(7deg)}.f4{bottom:12%;right:7%;transform:rotate(-8deg)}
+.hero-art .art-caption{position:absolute;left:27px;bottom:20px;color:rgba(255,255,255,.7);font-size:10px;font-weight:800;letter-spacing:.2em}
+.intro-foot{margin:18px 5px;font-size:12px;color:var(--muted)}
+.game-layout{display:grid;grid-template-columns:275px minmax(0,1fr);align-items:start;gap:24px}
+.sidebar{background:#fff;border:1px solid var(--line);border-radius:25px;padding:24px;box-shadow:var(--shadow);position:sticky;top:24px}
+.panel-heading{font-size:12px;letter-spacing:.16em;color:var(--muted);font-weight:800;text-transform:uppercase}
+.big-score{font-size:51px;font-weight:800;letter-spacing:-.09em;line-height:1.1;margin:13px 0 6px}
+.big-score span{font-size:18px;letter-spacing:0;color:#80909a}
+.progress{width:100%;height:9px;overflow:hidden;background:#e6eef0;border-radius:50px;margin:18px 0 25px}
+.progress>span{height:100%;background:linear-gradient(90deg,#10888c,#1667b4);border-radius:50px;display:block;transition:width .35s}
+.round-list{display:grid;gap:9px}
+.round-btn{width:100%;display:flex;gap:10px;text-align:left;align-items:center;background:transparent;border:1px solid transparent;border-radius:12px;padding:10px;color:var(--ink);transition:background .2s}
+.round-btn:hover{background:#f2f8fb}
+.round-btn.active{background:#eaf4fd;border-color:#cee3fa}
+.round-btn:disabled{opacity:.48}
+.round-icon{width:39px;height:39px;flex:0 0 39px;background:#edf4f6;border-radius:12px;display:grid;place-items:center;font-size:21px}
+.round-name{font-size:12px;font-weight:800;line-height:1.45}
+.round-name small{display:block;font-size:11px;color:var(--muted);font-weight:700;margin-top:4px}
+.sidebar-rule{height:1px;background:var(--line);margin:19px 0}
+.inventory-head{display:flex;justify-content:space-between;font-size:12px;font-weight:800}
+.inventory{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:13px 0}
+.glyph{display:grid;place-items:center;border-radius:7px;height:28px;font-size:13px;font-weight:800;background:#eaf2f6;color:#a6b6bc;border:1px dashed #c9dce1}
+.glyph.earned{background:var(--yellow);color:#183b4f;border:1px solid #e6bd4b}
+.side-note{font-size:11px;color:var(--muted);line-height:1.7}
+.game-main{min-width:0}
+.top-progress{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 0 14px;flex-wrap:wrap}
+.top-progress strong{font-size:13px;color:var(--sea)}
+.top-progress span{font-size:12px;color:var(--muted);font-weight:700}
+.question-card{background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+.question-top{min-height:184px;background:linear-gradient(110deg,#e5f4f7,#edf4fd);position:relative;padding:30px 34px;overflow:hidden}
+.question-top:after{content:"✧";position:absolute;font-size:230px;color:#a8dce2;opacity:.35;right:28px;top:-75px;line-height:1;transform:rotate(-18deg)}
+.q-number{font-weight:800;font-size:11px;letter-spacing:.17em;color:var(--blue);text-transform:uppercase;position:relative;z-index:1}
+.question-top h2{position:relative;z-index:1;font-size:clamp(27px,3.2vw,40px);letter-spacing:-.05em;line-height:1.2;margin:12px 0 0;max-width:620px}
+.q-icon{position:absolute;right:50px;bottom:16px;font-size:72px;z-index:2;filter:drop-shadow(5px 11px 10px rgba(12,54,80,.12))}
+.q-body{padding:clamp(23px,4.5vw,43px)}
+.story-tag{font-size:12px;color:var(--sea);font-weight:800;letter-spacing:.08em;margin-bottom:15px}
+.story{font-size:clamp(17px,2.2vw,21px);line-height:1.9;font-weight:600;letter-spacing:-.013em;margin:0}
+.question-call{margin-top:22px;color:var(--blue);font-size:17px;font-weight:800;line-height:1.6}
+.answer-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;margin-top:30px}
+.answer-input{border:2px solid #cedfe8;background:#f8fcfe;border-radius:14px;min-width:0;height:56px;font-size:18px;padding:0 17px;outline:0;color:var(--ink)}
+.answer-input:focus{border-color:var(--blue);background:white}
+.feedback{min-height:24px;margin-top:15px;font-size:13px;font-weight:700;line-height:1.6}
+.feedback.bad{color:var(--danger)}.feedback.good{color:var(--ok)}
+.hint{margin-top:13px;padding:14px 17px;background:#fff8e9;border:1px solid #ffe3a2;border-radius:12px;font-size:13px;line-height:1.7;color:#75510f}
+.fact{margin-top:25px;border:1px solid #cfebde;background:#f1faf5;border-radius:18px;padding:20px;display:grid;grid-template-columns:85px 1fr;gap:18px;align-items:start}
+.fact img{width:85px;height:104px;object-fit:cover;border-radius:12px;filter:grayscale(1);border:3px solid white}
+.fact .fact-glyph{font-size:50px;display:grid;place-items:center;background:white;border-radius:12px;height:85px}
+.fact b{display:block;font-size:14px;color:#136a4b;margin-bottom:9px}
+.fact p{margin:0;font-size:13px;line-height:1.8;color:#3b6759}
+.fact a{font-size:12px;display:inline-block;margin-top:10px;font-weight:800}
+.actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px}
+.actions .group{display:flex;gap:9px;flex-wrap:wrap}
+.small-btn{background:transparent;border:1px solid var(--line);border-radius:12px;min-height:42px;padding:10px 15px;color:var(--ink);font-size:12px;font-weight:800}
+.small-btn:hover{background:#edf6fb}
+.small-btn:disabled{opacity:.35;cursor:not-allowed}
+.strip{margin-top:22px;background:white;border:1px solid var(--line);border-radius:20px;padding:23px;display:flex;align-items:center;gap:17px}
+.strip-symbol{height:56px;width:56px;border-radius:16px;display:grid;place-items:center;background:#fff3c8;font-size:27px;flex:0 0 56px}
+.strip b{font-size:14px}
+.strip p{color:var(--muted);font-size:12px;line-height:1.7;margin:5px 0 0}
+.final-card{padding:clamp(25px,5vw,52px);background:#fff;border:1px solid var(--line);border-radius:27px;box-shadow:var(--shadow)}
+.final-icon{height:77px;width:77px;background:var(--yellow);display:grid;place-items:center;font-size:39px;border-radius:24px}
+.final-card h2{font-size:clamp(32px,4vw,53px);letter-spacing:-.055em;margin:22px 0 12px;line-height:1.17}
+.final-card p{line-height:1.8;color:var(--muted);font-size:15px}
+.cipher-line{background:#edf6fb;border-radius:20px;padding:24px;margin:26px 0}
+.cipher-letters{display:flex;flex-wrap:wrap;gap:8px}
+.cipher-letter{min-width:39px;height:47px;display:grid;place-items:center;background:white;border:1px solid #cedfea;border-radius:11px;font-size:19px;font-weight:800;color:var(--blue);box-shadow:0 3px 0 #dce5eb}
+.cipher-inputs{display:grid;grid-template-columns:1fr .85fr 1.3fr;gap:9px;margin:23px 0}
+.cipher-inputs input{width:100%;min-width:0;height:56px;padding:5px 12px;border:2px solid #cbdfe8;background:#fff;border-radius:12px;text-transform:uppercase;text-align:center;font-size:clamp(13px,1.7vw,20px);font-weight:800;letter-spacing:.05em}
+.caption{font-size:12px;color:var(--muted)}
+.success-seal{background:linear-gradient(135deg,#11549c,#0b9e98);border-radius:25px;padding:29px;margin:26px 0;color:white}
+.success-seal span{font-size:53px}
+.success-seal b{display:block;font-size:clamp(26px,4vw,42px);letter-spacing:-.04em}
+.success-seal p{color:#deeff9;margin:7px 0}
+.bonus-box{padding:23px;background:#fff9e9;border:1px solid #f6e2ae;border-radius:19px;margin-top:20px}
+.bonus-box h3{margin:0 0 8px;font-size:19px}
+.bonus-box p{margin:0 0 15px;font-size:13px}
+.certificate{border:6px double var(--gold);padding:31px;background:#fffdfa;text-align:center;margin:21px 0}
+.certificate .seal{font-size:45px}
+.certificate h3{font-size:29px;letter-spacing:-.04em;margin:13px 0}
+.certificate p{color:var(--ink)}
+.footer{font-size:12px;color:var(--muted);text-align:center;padding:30px 15px;line-height:1.8}
+.hide{display:none!important}
+@media(max-width:1000px){.hero{grid-template-columns:1fr .82fr}.hero-copy{padding:36px}.game-layout{grid-template-columns:225px 1fr}.sidebar{padding:18px}}
+@media(max-width:760px){.topbar{height:auto;min-height:71px;padding:13px 17px}.brand{font-size:12px}.brand-emblem{width:38px;height:38px}.header-badge{font-size:10px;padding:8px}.main{padding:18px 12px 50px}.hero{display:flex;flex-direction:column-reverse;border-radius:24px}.hero-art{min-height:275px}.orbit{width:185px;height:185px}.central{height:135px;width:135px}.central span{font-size:48px}.central b{font-size:9px;margin-top:-13px}.float{font-size:9px;padding:8px;border-radius:10px}.float i{font-size:16px}.f1{top:8%}.f2{top:13%}.f3{bottom:9%}.f4{bottom:10%}.hero-copy{padding:28px}.hero-copy p{font-size:14px}.metrics{margin:22px 0;gap:16px}.game-layout{display:flex;flex-direction:column}.sidebar{position:static;width:100%;padding:18px}.round-list{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.round-btn{padding:8px 4px;display:grid;justify-items:center;text-align:center}.round-icon{width:37px;height:37px}.round-name{font-size:10px}.round-name small{font-size:9px}.sidebar-rule{margin:12px 0}.big-score{font-size:30px;margin:7px 0}.progress{margin:12px 0}.inventory{grid-template-columns:repeat(16,1fr)}.glyph{height:23px;font-size:10px}.game-main{width:100%}.question-top{padding:24px;min-height:155px}.q-icon{right:18px;bottom:10px;font-size:45px}.q-body{padding:24px}.answer-form{grid-template-columns:1fr}.answer-form .btn{width:100%}.fact{grid-template-columns:70px 1fr}.fact img{width:70px;height:90px}.cipher-letter{min-width:30px;height:39px;font-size:15px}.cipher-inputs{gap:5px}.cipher-inputs input{padding:3px;font-size:12px}.strip{align-items:start}}
+@media print{.topbar,.sidebar,.actions,.bonus-box,.footer,.btn,.small-btn{display:none!important}body{background:white}.main{padding:0}.game-layout{display:block}.final-card{border:0;box-shadow:none}.certificate{break-inside:avoid}.success-seal{color:var(--ink);background:#eee}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-emblem" aria-hidden="true">⚛</span><span>НАУКОВИЙ КОД <small>Україна — країна відкриттів</small></span></div>
+  <div class="top-right"><span class="header-badge">🇺🇦 7–10 класи</span><span class="header-badge" id="headerScore">16 експедиційних балів</span></div>
+</header>
+<main class="main">
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Інтерактивний освітній квест</div>
+    <h1>Україна — країна <span class="highlight">наукових</span> відкриттів</h1>
+    <p>Від мікросвіту до далеких галактик. Дослідіть історії вчених, розв'яжіть 16 загадок, зберіть літери та розшифруйте секретне наукове гасло України.</p>
+    <div class="metrics"><div class="metric"><b>16</b> місій</div><div class="metric"><b>5</b> лабораторій</div><div class="metric"><b>3</b> бонуси</div></div>
+    <div class="team-line"><label for="team">Назва команди або ім'я дослідника (необов'язково)</label><input id="team" autocomplete="off" maxlength="45" placeholder="Наприклад: Команда Атом"></div>
+    <div><button class="btn btn-primary" id="startBtn">Розпочати експедицію <span aria-hidden="true">→</span></button></div>
+    <p style="font-size:11px;margin-top:16px">По одній відповіді на завдання • 1 правильна відповідь = 1 бал • прогрес зберігається лише в цьому браузері.</p>
+  </div>
+  <div class="hero-art" aria-label="Ілюстрація наукової експедиції">
+    <div class="orbit"><div class="central"><div><span>🔬</span><b>ДОСЛІДЖУЙ</b></div></div></div>
+    <div class="float f1"><i>🧬</i> Біологія</div><div class="float f2"><i>🌍</i> Географія</div><div class="float f3"><i>🚀</i> Фізика</div><div class="float f4"><i>⚗️</i> Хімія</div>
+    <div class="art-caption">16 ЗАГАДОК · 1 НАУКОВИЙ КОД</div>
+  </div>
+</section>
+<div id="game" class="game-layout hide">
+  <aside class="sidebar" aria-label="Панель експедиції">
+    <div class="panel-heading">Прогрес дослідника</div>
+    <div class="big-score"><span id="score">0</span><span> / 16 балів</span></div>
+    <div id="scorecaption" class="caption">Дослідження триває</div>
+    <div class="progress" role="progressbar" aria-label="Виконані основні завдання" aria-valuemin="0" aria-valuemax="16"><span id="progressbar" style="width:0%"></span></div>
+    <div class="panel-heading" style="margin-bottom:12px">Лабораторії</div>
+    <nav id="roundNav" class="round-list" aria-label="Навігація раундами"></nav>
+    <div class="sidebar-rule"></div>
+    <div class="inventory-head"><span>Зібрані літери коду</span><span id="glyphcount">0/16</span></div>
+    <div id="inventory" class="inventory" aria-label="Колекція літер"></div>
+    <p class="side-note">Літери перемішано. Щоб прочитати гасло, спочатку здобудьте всі 16 символів.</p>
+  </aside>
+  <section id="gameMain" class="game-main" aria-live="polite"></section>
+</div>
+</main>
+<footer class="footer">🇺🇦 Україна — країна наукових відкриттів · Навчальний квест для 7–10 класів<br>Факти перевірено за матеріалами наукових установ та енциклопедичних джерел. Фотопортрети: Wikimedia Commons.</footer>
+<script>
+(function(){
+"use strict";
+var rounds=[
+ {name:"Біологія та медицина",short:"Біологія",icon:"🧬",from:1,to:4},
+ {name:"Географія Землі",short:"Географія",icon:"🌍",from:5,to:7},
+ {name:"Фізика і космос",short:"Фізика",icon:"⚛️",from:8,to:10},
+ {name:"Хімія та клітина",short:"Хімія",icon:"⚗️",from:11,to:13},
+ {name:"Здоров’я та людина",short:"Здоров’я",icon:"💚",from:14,to:16},
+ {name:"Додаткові загадки",short:"Бонуси",icon:"✨",from:17,to:19}
+];
+var questions=[
+{id:1,round:0,title:"Таємниця маленького організму",icon:"🦠",story:"Ілля Мечников спостерігав за клітинами, здатними захоплювати та перетравлювати чужорідні частинки. Так він пояснив один із важливих механізмів захисту організму від збудників хвороб.",ask:"Як називається процес поглинання клітиною таких частинок?",answer:"Фагоцитоз",aliases:["фагоцитоз"],hint:"Починається на «ф», закінчується на «-цитоз».",fact:"Ілля Мечников описав фагоцитоз 1882 року і став співлауреатом Нобелівської премії з фізіології та медицини 1908 року.",source:"https://www.nas.gov.ua/about-nas/awards-nas/premiyi/premiya-imeni-mecnikova-illi-illica",photo:"Ilya_Mechnikov.jpg"},
+{id:2,round:0,title:"Рятівник від епідемій",icon:"🧫",story:"Він досліджував особливо небезпечні інфекції, організовував протиепідемічні експедиції та став першим директором наукового інституту в Києві. Сьогодні його прізвище носить Інститут мікробіології і вірусології НАН України.",ask:"Назвіть прізвище цього вченого.",answer:"Заболотний",aliases:["заболотний"],hint:"Прізвище починається на «З», має дев’ять літер.",fact:"Данило Заболотний був одним із засновників української епідеміологічної школи та президентом Всеукраїнської академії наук у 1928–1929 роках.",source:"https://imv.org.ua/pro-instytut/istoriia/"},
+{id:3,round:0,title:"Таємниця спадковості",icon:"🧬",story:"Генетик Сергій Гершензон досліджував спадковість і роль нуклеїнових кислот у її передаванні. Уявіть молекулярний «архів», у якому записано інструкції для розвитку й роботи живого організму.",ask:"Яка молекула зберігає основну спадкову інформацію організмів?",answer:"ДНК",aliases:["днк"],hint:"Три літери. Перші дві — «ДН».",fact:"ДНК — дезоксирибонуклеїнова кислота. Її послідовність нуклеотидів містить генетичну інформацію.",source:"https://esu.com.ua/"},
+{id:4,round:0,title:"Життя без сонячного світла",icon:"🧪",story:"Сергій Виноградський дослідив мікроорганізми, які можуть одержувати енергію від окиснення неорганічних речовин і використовувати її для утворення органічних сполук. Для цього їм не потрібне світло.",ask:"Як називається процес утворення органічних речовин завдяки хімічній енергії?",answer:"Хемосинтез",aliases:["хемосинтез"],hint:"Перша частина — «хемо-», остання — «-синтез».",fact:"Праці Виноградського наприкінці XIX століття заклали основи мікробної екології та пояснили хемосинтез.",source:"https://dnsgb.com.ua/novini/vistavki/vinogradskij-sergij-mikolajovich-18561953-vid-doslidzhen-eruntiv-do-ekologichnoyi-nauki/"},
+{id:5,round:1,title:"Полярний науковий форпост",icon:"🐧",story:"У 1996 році Велика Британія передала Україні антарктичну станцію «Фарадей». Українські дослідники назвали її на честь ученого, який розвинув учення про біосферу й був першим президентом Української академії наук.",ask:"Яке прізвище має в назві наша антарктична станція?",answer:"Вернадський",aliases:["вернадський","вернадский"],hint:"Починається на «В», закінчується на «-ський».",fact:"Станцію «Академік Вернадський» передали Україні 6 лютого 1996 року. Вона працює на острові Галіндез.",source:"https://uac.gov.ua/vernadsky-station/station-history/",photo:"%D0%92%D0%B5%D1%80%D0%BD%D0%B0%D0%B4%D1%81%D1%8C%D0%BA%D0%B8%D0%B9_%D0%92%D0%BE%D0%BB%D0%BE%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%86%D0%B2%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%87.jpg"},
+{id:6,round:1,title:"Географія всієї води",icon:"🌊",story:"Степан Рудницький допоміг сформувати українську наукову географію та картографію. Географ досліджує взаємозв'язки природних оболонок Землі. Одну з них утворюють океани, моря, річки, озера, льодовики та підземні води.",ask:"Як називається водна оболонка Землі?",answer:"Гідросфера",aliases:["гідросфера"],hint:"Починається на «гідро-».",fact:"Степан Рудницький був основоположником української географічної науки. Гідросфера охоплює всю воду Землі, а не лише Світовий океан.",source:"https://uinp.gov.ua/istorychnyy-kalendar/gruden/3/narodyvsya-stepan-rudnyckyy"},
+{id:7,round:1,title:"Мандрівник до Нової Гвінеї",icon:"🗺️",story:"Дослідник Микола Миклухо-Маклай вивчав природу та культури жителів Нової Гвінеї. Цей великий острів лежить на північ від Австралії, у регіоні численних островів Тихого океану.",ask:"До якої частини світу належить Нова Гвінея?",answer:"Океанія",aliases:["океанія"],hint:"Слово починається на «Оке-». Це не назва материка.",fact:"Нова Гвінея географічно належить до Океанії. Острів не розташований на материку Австралія, хоча лежить поруч із ним.",source:"https://www.britannica.com/place/New-Guinea",photo:"Miklukho-Maklai.jpg"},
+{id:8,round:2,title:"Промені крізь непрозоре",icon:"🩻",story:"Іван Пулюй досліджував електричні розряди в газах та невидимі промені, які проходять крізь м'які тканини й дозволяють отримати зображення кісток. Його дослідження стали важливими для ранньої рентгенографії.",ask:"Як одним словом називається таке випромінювання?",answer:"Рентгенівське",aliases:["рентгенівське","рентгенівські","рентген"],hint:"Його назва пов'язана з прізвищем Вільгельма Рентгена.",fact:"Пулюй зробив вагомий внесок у дослідження X-променів і їхнє застосування; відкриття X-променів традиційно пов'язують із Вільгельмом Рентгеном (1895).",source:"https://esu.com.ua/",photo:"%D0%86%D0%B2%D0%B0%D0%BD_%D0%9F%D1%83%D0%BB%D1%8E%D0%B9.jpg"},
+{id:9,round:2,title:"Дорога до орбіти",icon:"🚀",story:"Сергій Корольов народився в Житомирі. Він став одним із головних конструкторів космічної техніки. Щоб подолати земне тяжіння й вивести супутник на орбіту, потрібен потужний багатоступеневий літальний апарат.",ask:"Назвіть цей апарат одним словом.",answer:"Ракета",aliases:["ракета"],hint:"У слова шість літер, починається на «р».",fact:"Корольов керував роботами зі створення перших штучних супутників Землі та пілотованих космічних апаратів.",source:"https://www.britannica.com/biography/Sergey-Korolyov",photo:"Sergei_Korolev_portrait.jpg"},
+{id:10,round:2,title:"Серце електроніки",icon:"💻",story:"Фізик Абрам Йоффе, який народився в Ромнах на Сумщині, досліджував властивості твердих тіл і напівпровідників. Більшість сучасних мікросхем виготовляють на основі одного хімічного елемента.",ask:"Який це елемент?",answer:"Кремній",aliases:["кремній","силіцій"],hint:"Його хімічний символ — Si.",fact:"Кремній (Si) — основний матеріал масової напівпровідникової електроніки. Важливо не плутати його із силіконом — полімерним матеріалом.",source:"https://www.britannica.com/science/silicon"},
+{id:11,round:3,title:"Хімічний паспорт планети",icon:"🌐",story:"Володимир Вернадський досліджував, як хімічні елементи поширені в земній корі, переміщуються й беруть участь у природних процесах. Так сформувався особливий напрям на межі геології та хімії.",ask:"Як називається наука про хімічний склад Землі та міграцію елементів?",answer:"Геохімія",aliases:["геохімія"],hint:"У слові з'єдналися «гео-» і «хімія».",fact:"Геохімія вивчає закономірності поширення та міграції хімічних елементів у Землі та її оболонках.",source:"https://esu.com.ua/"},
+{id:12,round:3,title:"Вітамін для нервової системи",icon:"🥗",story:"Біохімік Олександр Палладін досліджував обмін речовин і роботу нервової системи. Для роботи нервів важливий вітамін B₁. Він міститься, зокрема, у цільнозернових продуктах, бобових і м'ясі.",ask:"Як одним словом називається вітамін B₁?",answer:"Тіамін",aliases:["тіамін","b1","в1"],hint:"Назва починається на «тіа-».",fact:"Тіамін (B₁) необхідний для нормального енергетичного обміну й функціонування нервової системи. Це загальне біохімічне запитання, а не твердження про відкриття вітаміну Палладіним.",source:"https://ods.od.nih.gov/factsheets/Thiamin-HealthProfessional/"},
+{id:13,round:3,title:"Енергетична валюта клітини",icon:"🔋",story:"Клітина безперервно витрачає енергію на рух, синтез речовин та передавання сигналів. Для короткочасного зберігання й безпосереднього перенесення цієї енергії майже всі клітини використовують особливу молекулу.",ask:"Назвіть її трьома літерами.",answer:"АТФ",aliases:["атф","atp"],hint:"Повна назва — аденозинтрифосфат.",fact:"АТФ — аденозинтрифосфат, універсальний безпосередній переносник енергії в клітинах. Він не є первинним джерелом усієї енергії.",source:"https://www.britannica.com/science/adenosine-triphosphate"},
+{id:14,round:4,title:"Навчити імунітет захищатися",icon:"🛡️",story:"Данило Заболотний усе життя боровся з небезпечними інфекціями. Сучасна профілактична медицина має засоби, що знайомлять імунну систему зі збудником або його частинами, щоб організм заздалегідь виробив захисну відповідь.",ask:"Як одним словом називається такий препарат?",answer:"Вакцина",aliases:["вакцина"],hint:"Починається на «вак-».",fact:"Вакцини навчають імунну систему розпізнавати певні збудники хвороб або їхні компоненти; існують різні типи вакцин.",source:"https://www.who.int/health-topics/vaccines-and-immunization"},
+{id:15,round:4,title:"Живі союзники кишківника",icon:"🦠",story:"У кишківнику людини мешкає величезна спільнота мікроорганізмів. Деякі спеціально відібрані живі мікроорганізми, якщо застосовувати їх у достатній кількості, можуть давати доведену користь здоров'ю.",ask:"Як називаються такі живі мікроорганізми?",answer:"Пробіотики",aliases:["пробіотики"],hint:"Починається на «про-», закінчується на «-біотики».",fact:"Не всі бактерії кишківника є пробіотиками. Пробіотиком називають конкретний живий мікроорганізм із підтвердженою користю за належного застосування.",source:"https://ods.od.nih.gov/factsheets/Probiotics-HealthProfessional/"},
+{id:16,round:4,title:"Формула руху",icon:"🏃",story:"Людина може пробігти коротку дистанцію дуже швидко, але значно складніше підтримувати зусилля довго. Лікарі й фізіологи досліджують властивість організму протистояти втомі під час тривалої роботи.",ask:"Як одним словом називається ця фізична якість?",answer:"Витривалість",aliases:["витривалість"],hint:"Починається на «витри-».",fact:"Витривалість залежить від тренованості серцево-судинної й дихальної систем, м'язів і особливостей навантаження.",source:"https://www.who.int/news-room/fact-sheets/detail/physical-activity"},
+{id:17,round:5,title:"Невидима оболонка життя",icon:"🌱",story:"Володимир Вернадський сформував учення про оболонку Землі, у якій життя взаємодіє з атмосферою, водою та гірськими породами, змінюючи планету.",ask:"Назвіть цю оболонку.",answer:"Біосфера",aliases:["біосфера"],hint:"Складається з частин «біо-» і «-сфера».",fact:"Біосфера — сфера поширення життя на Землі. Праці Вернадського розкрили геологічну роль живої речовини.",source:"https://esu.com.ua/"},
+{id:18,round:5,title:"Лінза без зайвих відблисків",icon:"🔭",story:"Олександр Смакула розробив оптичний метод, що зменшує відбиття світла від поверхні лінз. Завдяки тонким покриттям оптичні прилади передають більше світла й мають менше небажаних відблисків.",ask:"Як одним словом називають цей метод?",answer:"Просвітлення",aliases:["просвітлення"],hint:"Починається на «про-», має спільний корінь зі словом «світло».",fact:"У 1935 році Смакула запатентував технологію просвітлення оптики (антивідбивних покриттів).",source:"https://esu.com.ua/"},
+{id:19,round:5,title:"Підземні біохіміки",icon:"🌾",story:"Сергій Виноградський досліджував мікроорганізми, які беруть участь у перетвореннях сполук важливого елемента в ґрунті. Без його кругообігу рослини не могли б синтезувати білки та нуклеїнові кислоти.",ask:"Назвіть цей хімічний елемент українською науковою назвою.",answer:"Нітроген",aliases:["нітроген","азот"],hint:"Символ у періодичній системі — N.",fact:"Нітроген (азот, N) входить до складу білків і ДНК. Ґрунтові бактерії беруть участь у його кругообігу.",source:"https://dnsgb.com.ua/novini/vistavki/vinogradskij-sergij-mikolajovich-18561953-vid-doslidzhen-eruntiv-do-ekologichnoyi-nauki/"}
+];
+var cipher="НАУКАСИЛАУКРАЇНИ".split("");
+var order=[8,2,13,4,10,0,15,6,11,1,14,5,9,3,12,7];
+var key="ukr-science-quest-v1";
+var state={team:"",done:{},attempts:{},current:1,finalSolved:false,started:false};
+try{var saved=JSON.parse(localStorage.getItem(key)||"null");if(saved&&typeof saved==="object"){state=Object.assign(state,saved);state.done=state.done||{};state.attempts=state.attempts||{};}}catch(e){}
+var $=function(id){return document.getElementById(id);};
+var q=function(id){return questions[id-1];};
+var norm=function(s){return String(s||"").normalize("NFC").toLocaleLowerCase("uk-UA").trim().replace(/[’'`]/g,"").replace(/[\s.,;:!?–—_-]/g,"");};
+var solved=function(id){return !!state.done[id];};
+var count=function(from,to){var n=0;for(var i=from;i<=to;i++)if(solved(i))n++;return n;};
+var all=function(){return count(1,16)===16;};
+var save=function(){try{localStorage.setItem(key,JSON.stringify(state));}catch(e){};};
+function safe(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function begin(){state.started=true;state.team=$("team").value.trim().slice(0,45);save();openQuestion(state.current||1);}
+$("startBtn").addEventListener("click",begin);
+$("team").addEventListener("keydown",function(e){if(e.key==="Enter")begin();});
+function frame(){ $("home").classList.add("hide");$("game").classList.remove("hide"); }
+function updateSide(){
+ var c=count(1,16),bc=count(17,19);
+ $("score").textContent=c;$("headerScore").textContent=c+"/16 балів · бонус "+bc+"/3";
+ $("progressbar").style.width=(c/16*100)+"%";
+ $("progressbar").parentNode.setAttribute("aria-valuenow",c);
+ $("scorecaption").textContent=(state.team?state.team+" · ":"")+(c===16?"Усі основні місії виконано":"Виконано "+c+" із 16 місій");
+ $("glyphcount").textContent=c+"/16";
+ var nav="";
+ rounds.forEach(function(r,i){var done=count(r.from,r.to),len=r.to-r.from+1,locked=i===5&&!state.finalSolved;var active=(q(state.current)&&q(state.current).round===i&&state.current!==0);nav+='<button type="button" class="round-btn '+(active?'active':'')+'" data-r="'+i+'" '+(locked?'disabled title="Відкриється після дешифрування коду"':'')+'><span class="round-icon">'+r.icon+'</span><span class="round-name">'+safe(r.short)+'<small>'+(locked?"🔒 Після шифру":done+" / "+len+" місій")+'</small></span></button>';});
+ $("roundNav").innerHTML=nav;
+ document.querySelectorAll(".round-btn").forEach(function(el){el.addEventListener("click",function(){var r=rounds[+el.dataset.r],next=r.from;for(var i=r.from;i<=r.to;i++){if(!solved(i)){next=i;break;}}openQuestion(next);});});
+ var inv="";
+ for(var j=0;j<16;j++){var known=solved(j+1);inv+='<span class="glyph '+(known?'earned':'')+'" title="Місія '+(j+1)+'">'+(known?cipher[order[j]]:'•')+'</span>';}
+ $("inventory").innerHTML=inv;
+}
+function openQuestion(id){
+ if(id>16&&!state.finalSolved){openFinal();return;}
+ frame();state.current=id;save();updateSide();
+ var x=q(id);if(!x)return;
+ var isSolved=solved(id);
+ var body='<div class="top-progress"><strong>'+rounds[x.round].icon+' '+safe(rounds[x.round].name)+'</strong><span>Місія '+id+' / '+(id>16?'19 · бонус': '16')+'</span></div>';
+ body+='<article class="question-card"><div class="question-top"><div class="q-number">ДОСЛІДЖЕННЯ № '+String(id).padStart(2,"0")+'</div><h2>'+safe(x.title)+'</h2><div class="q-icon" aria-hidden="true">'+x.icon+'</div></div><div class="q-body"><div class="story-tag">📖 ІСТОРІЯ-ЗАГАДКА</div><p class="story">'+safe(x.story)+'</p><div class="question-call">'+safe(x.ask)+'</div>';
+ if(!isSolved){body+='<form id="answerForm" class="answer-form"><input id="answer" class="answer-input" placeholder="Введіть одне слово" aria-label="Ваша відповідь" autocomplete="off" spellcheck="false" maxlength="45" required><button class="btn btn-primary" type="submit">Перевірити ↗</button></form><div class="feedback" id="feedback" aria-live="polite"></div><div id="hintArea"></div>';}
+ else{body+='<div class="feedback good">✓ Вірно! Відповідь: '+safe(x.answer)+(id<=16?' · здобуто літеру «'+cipher[order[id-1]]+'»':' · +1 бонусний бал')+'.</div>'+factHtml(x);}
+ body+='</div></article>';
+ var prev=id>1?id-1:null,next=id<(state.finalSolved?19:16)?id+1:null;
+ body+='<div class="actions"><div class="group"><button id="prev" class="small-btn" '+(prev===null?'disabled':'')+'>← Попередня</button>'+(isSolved?'':'<button id="hintBtn" class="small-btn">💡 Підказка</button>')+'</div><div class="group">'+(id<=16&&all()?'<button id="toCipher" class="btn btn-light">🔐 Розшифрувати код</button>':'')+(next?'<button id="next" class="btn btn-primary">'+(isSolved?'Наступна місія':'Пропустити поки що')+' →</button>':(id===16&&!all()?'<button id="firstUnsolved" class="btn btn-primary">До невиконаних →</button>':(id===19?'<button id="results" class="btn btn-primary">Результати →</button>':'')))+'</div></div>';
+ body+='<div class="strip"><div class="strip-symbol">🧭</div><div><b>Правила експедиції</b><p>Вводьте одне слово без речень. Можна помилятися й користуватися підказкою: 1 бал нараховується після правильної відповіді.</p></div></div>';
+ $("gameMain").innerHTML=body;
+ if($("answerForm")){$("answerForm").addEventListener("submit",function(e){e.preventDefault();check(id);});$("answer").focus();$("hintBtn").addEventListener("click",function(){showHint(x);});}
+ if($("prev"))$("prev").addEventListener("click",function(){openQuestion(prev);});
+ if($("next"))$("next").addEventListener("click",function(){openQuestion(next);});
+ if($("firstUnsolved"))$("firstUnsolved").addEventListener("click",function(){var id2=1;while(id2<=16&&solved(id2))id2++;openQuestion(id2>16?16:id2);});
+ if($("toCipher"))$("toCipher").addEventListener("click",openFinal);
+ if($("results"))$("results").addEventListener("click",showResults);
+}
+function factHtml(x){var pic=x.photo?'<a href="https://commons.wikimedia.org/wiki/File:'+x.photo+'" target="_blank" rel="noopener" aria-label="Фотопортрет у Wikimedia Commons"><img loading="lazy" alt="Історичний портрет ученого" src="https://commons.wikimedia.org/wiki/Special:FilePath/'+x.photo+'?width=260" onerror="this.style.display=\'none\'"></a>':'<div class="fact-glyph" aria-hidden="true">'+x.icon+'</div>';
+ return '<div class="fact"><div>'+pic+'</div><div><b>🔎 Досьє дослідника</b><p>'+safe(x.fact)+'</p><a href="'+safe(x.source)+'" target="_blank" rel="noopener noreferrer">Джерело і додаткове читання ↗</a></div></div>';}
+function showHint(x){var box=$("hintArea");if(box)box.innerHTML='<div class="hint"><strong>💡 Підказка:</strong> '+safe(x.hint)+'</div>';}
+function check(id){
+ var field=$("answer"),feedback=$("feedback"),x=q(id),v=field.value.trim();
+ if(!v){feedback.className="feedback bad";feedback.textContent="Введіть відповідь.";return;}
+ if(v.split(/\s+/).length>1){feedback.className="feedback bad";feedback.textContent="Потрібна відповідь одним словом. Приберіть зайві слова.";return;}
+ var ok=x.aliases.some(function(a){return norm(a)===norm(v);});
+ if(ok){state.done[id]=true;save();openQuestion(id); if(id===16&&all()){var c=$("gameMain");c.insertAdjacentHTML("afterbegin",'<div class="hint" style="margin:0 0 14px">🎉 Усі 16 літер зібрано! Натисніть «Розшифрувати код», щоб відкрити фінал.</div>');}}
+ else{state.attempts[id]=(state.attempts[id]||0)+1;save();feedback.className="feedback bad";feedback.textContent="Поки не збігається. Спробуйте інакше — відповідь можна виправити.";if(state.attempts[id]>=2)showHint(x);field.select();}
+}
+function openFinal(){
+ if(!all()){var i=1;while(i<=16&&solved(i))i++;openQuestion(i);return;}
+ frame();state.current=0;save();updateSide();
+ var letters=[];for(var j=0;j<16;j++)letters.push(cipher[order[j]]);
+ var box='<section class="final-card"><div class="final-icon">🔐</div><div class="eyebrow" style="margin-top:24px">Фінальна лабораторія</div><h2>Науковий код зібрано!</h2><p>Ви отримали всі 16 літер. Вони навмисно перемішані. Складіть із них гасло з трьох слів: <strong>5, 4 та 7 літер</strong>.</p><div class="cipher-line"><div class="panel-heading" style="margin-bottom:15px">Зібраний шифр</div><div class="cipher-letters">'+letters.map(function(l){return '<span class="cipher-letter">'+l+'</span>';}).join("")+'</div></div>';
+ box+='<form id="cipherForm"><div class="cipher-inputs"><input id="word1" aria-label="Перше слово з п’яти літер" maxlength="5" placeholder="5 літер" required><input id="word2" aria-label="Друге слово з чотирьох літер" maxlength="4" placeholder="4 літери" required><input id="word3" aria-label="Третє слово із семи літер" maxlength="7" placeholder="7 літер" required></div><div id="cipherFeedback" class="feedback" aria-live="polite"></div><div class="actions"><button class="small-btn" type="button" id="backQ">← До місій</button><button class="btn btn-primary" type="submit">Розкрити код ✨</button></div></form></section>';
+ $("gameMain").innerHTML=box;
+ $("cipherForm").addEventListener("submit",function(e){e.preventDefault();var guess=norm($("word1").value+" "+$("word2").value+" "+$("word3").value);if(guess===norm("НАУКА СИЛА УКРАЇНИ")){state.finalSolved=true;save();showResults();}else{var f=$("cipherFeedback");f.className="feedback bad";f.textContent="Код не збігається. Перевірте порядок літер і довжину слів: 5 + 4 + 7.";};});
+ $("backQ").addEventListener("click",function(){openQuestion(16);});
+ $("word1").focus();
+}
+function showResults(){
+ if(!state.finalSolved){openFinal();return;}
+ frame();state.current=0;save();updateSide();
+ var bc=count(17,19),nm=state.team?safe(state.team):"Юний дослідник";
+ var box='<section class="final-card"><div class="final-icon">🏆</div><div class="eyebrow" style="margin-top:23px">Експедицію завершено</div><h2>Код України розкрито!</h2><div class="success-seal"><span>🇺🇦</span><b>НАУКА — СИЛА УКРАЇНИ</b><p>Ваш секретний девіз. 16 із 16 основних наукових місій виконано.</p></div>';
+ box+='<div class="certificate" id="certificate"><div class="seal">🏅</div><div class="panel-heading">СЕРТИФІКАТ НАУКОВОГО ДОСЛІДНИКА</div><h3>'+nm+'</h3><p>успішно пройдено квест<br><b>«Україна — країна наукових відкриттів»</b></p><p style="font-size:24px;font-weight:800;color:#1555ab">16 / 16 основних балів</p><p>Бонусні загадки: '+bc+' / 3</p><p style="font-size:12px">Девіз: НАУКА — СИЛА УКРАЇНИ</p></div>';
+ box+='<div class="bonus-box"><h3>✨ Секретний архів · 3 бонусні загадки</h3><p>Якщо хочете продовжити дослідження, відкрийте додатковий рівень. Усі три відповіді теж оцінюються по 1 балу. Бонуси не змінюють основні 16 балів.</p><button class="btn btn-primary" id="bonusBtn">'+(bc===3?"Повторно переглянути бонуси":"Перейти до бонусів")+' →</button></div><div class="actions"><div class="group"><button id="print" class="small-btn">🖨️ Друкувати сертифікат</button><button id="report" class="small-btn">⬇️ Завантажити результат</button></div><button id="reset" class="small-btn">↻ Почати спочатку</button></div></section>';
+ $("gameMain").innerHTML=box;
+ $("bonusBtn").addEventListener("click",function(){var id=17;while(id<=19&&solved(id))id++;openQuestion(id<=19?id:17);});
+ $("print").addEventListener("click",function(){window.print();});
+ $("report").addEventListener("click",downloadReport);
+ $("reset").addEventListener("click",function(){if(confirm("Скинути результати експедиції на цьому пристрої?")){state={team:"",done:{},attempts:{},current:1,finalSolved:false,started:false};save();$("game").classList.add("hide");$("home").classList.remove("hide");$("team").value="";$("headerScore").textContent="16 експедиційних балів";window.scrollTo({top:0,behavior:"smooth"});}});
+}
+function downloadReport(){
+ var txt="Україна — країна наукових відкриттів\nРезультат наукового квесту\n\nУчасник / команда: "+(state.team||"Не вказано")+"\nОсновні завдання: "+count(1,16)+" / 16\nБонуси: "+count(17,19)+" / 3\nФінальний код: "+(state.finalSolved?"НАУКА — СИЛА УКРАЇНИ":"ще не розгадано")+"\n\n";
+ questions.forEach(function(x){txt+=x.id+". "+x.title+" — "+(solved(x.id)?"1 бал":"0 балів")+"\n";});
+ txt+="\nРезультати збережені локально в браузері учасника. Жодні персональні дані не надсилалися на сервер квесту.\n";
+ var blob=new Blob(["\uFEFF"+txt],{type:"text/plain;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="naukovyi-kod-rezultat.txt";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
+}
+if(state.started){if(state.finalSolved&&state.current===0)showResults();else if(all()&&state.current===0)openFinal();else openQuestion(state.current>=1&&state.current<=19?state.current:1);}
+})();
+</script>
+</body>
+</html>
