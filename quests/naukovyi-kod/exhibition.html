@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Науковий код України — наукова експозиція та QR-вікторина</title>
+<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Науковий код України — яскрава STEM-експедиція!</title>
 <style>
 :root{font-family:Manrope,Inter,'Segoe UI',sans-serif;color:#13354b;background:#eef5f9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(at 10% 0%,#d5eafe 0,transparent 40%),radial-gradient(at 90% 5%,#fff1bf,transparent 35%),#f5f8f7;color:#123647}
 .header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(15px);border-bottom:1px solid #e0e8ee;display:flex;justify-content:space-between;align-items:center;padding:15px clamp(15px,4vw,60px);gap:12px}.logo{font-size:14px;font-weight:900;letter-spacing:.02em;display:flex;align-items:center;gap:10px}.logo span{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:#145ba4;color:white;font-size:24px}.nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.nav button,.nav a{border:1px solid #dce7ed;border-radius:10px;padding:10px 14px;background:white;color:#215a80;font-weight:800;font-size:12px;cursor:pointer;text-decoration:none}.nav .go{background:#1359a9;border-color:#1359a9;color:white}
@@ -11,14 +11,111 @@ main{max-width:1350px;margin:auto;padding:28px clamp(14px,3vw,35px) 75px}.hero{d
 .qr-area{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;background:linear-gradient(125deg,#094a85,#127f92);border-radius:30px;padding:clamp(25px,5vw,65px);align-items:center;color:white;margin:45px 0}.qr-area h2{font-size:clamp(32px,4vw,53px);letter-spacing:-.05em;line-height:1.15}.qr-area p{font-size:16px;color:#e2f2fa;line-height:1.8}.qr-frame{background:#fff;border-radius:24px;padding:23px;max-width:390px;margin:0 auto;box-shadow:0 17px 45px #032a4640;text-align:center}.qr-frame img{width:100%;aspect-ratio:1;object-fit:contain}.qr-frame b{display:block;color:#165a99;font-size:18px}.qr-frame small{display:block;color:#567587;font-size:12px;line-height:1.7}.step{display:flex;gap:13px;align-items:flex-start;margin:15px 0;color:#e7f4fa;font-size:14px}.step strong{background:#ffd563;color:#154a68;border-radius:50%;width:29px;height:29px;flex:0 0 29px;display:grid;place-items:center}.warning{font-size:12px;line-height:1.8;color:#617888;margin-top:20px}.footer{color:#66808a;text-align:center;font-size:12px;padding:25px}
 @media(max-width:800px){.header{position:static}.hero,.learning,.qr-area{grid-template-columns:1fr}.hero-art{min-height:230px}.hero h1{font-size:43px}.exhibit{grid-template-columns:1fr}.panel.wide{grid-column:auto}.qr-area{text-align:left}.nav a,.nav button{padding:9px 11px}.learning .visual{min-height:180px}.orb{font-size:12px}}
 @media print{.header,.actions,.nav{display:none!important}.hero{min-height:250px}.hero-content{padding:20px}.hero h1{font-size:40px}.panel{break-inside:avoid;min-height:100px;padding:12px}.panel p{font-size:13px}.qr-area{break-before:page}.section-title{margin:20px 0}.footer{display:none}}
+
+/* STEM FEST — playful visual refresh */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap');
+:root{--ink:#243453;--muted:#516981;--orange:#ff9b46;--pink:#ff6aaa;--violet:#825cff;--blue:#2d79ff;--yellow:#ffdd57;--mint:#5edbb3;--shadow:0 16px 38px rgba(76,65,134,.12);font-family:'Nunito',sans-serif;}
+*{box-sizing:border-box}
+body{background:radial-gradient(circle at 0% 0%,#ffeeb3 0,transparent 20%),radial-gradient(circle at 100% 11%,#ffd8ee 0,transparent 21%),radial-gradient(circle at 1% 66%,#daf4fe 0,transparent 22%),#fff9f1;color:#233956;}
+a{color:inherit}
+.header{background:rgba(255,255,255,.9);border-bottom:2px solid #f0e7f0;padding:13px clamp(16px,4vw,56px);}
+.logo{font-size:14px;font-family:Montserrat,sans-serif;letter-spacing:-.02em}
+.logo span{width:47px;height:47px;border-radius:16px;background:linear-gradient(135deg,#196bff,#14b9ef);box-shadow:7px 7px 0 #ffdf70;transform:rotate(-6deg)}
+.nav a{border:2px solid #e9e9fa;border-radius:999px;box-shadow:0 4px 12px #48549b0c;font-weight:900;font-size:13px;padding:11px 15px}
+.nav .go{background:linear-gradient(120deg,#ff6ca4,#ff9b5b);border:0;box-shadow:0 7px 16px #ff6ca440}
+.nav a:hover,.btn:hover,.panel:hover{transform:translateY(-4px)}
+.nav a,.btn,.panel{transition:transform .2s ease,box-shadow .2s ease}
+main{max-width:1400px;padding:25px clamp(16px,3vw,40px) 75px}
+.hero{position:relative;display:grid;grid-template-columns:1.08fr .92fr;background:linear-gradient(125deg,#2677ff 0%,#615efb 48%,#ff6db1 100%);border-radius:36px;min-height:570px;box-shadow:0 28px 58px #6b60d53b;isolation:isolate}
+.hero:before{content:'✧';position:absolute;left:52%;top:5%;font-size:80px;color:#fff5a4;opacity:.45}
+.hero:after{content:'★';position:absolute;right:5%;top:6%;font-size:44px;color:#ffe96f;transform:rotate(-17deg)}
+.hero-content{padding:clamp(29px,5vw,75px);position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
+.hero .tag{display:inline-flex;align-self:flex-start;padding:10px 17px;background:#ffffff2e;color:#fff;border-radius:100px;backdrop-filter:blur(6px);font-size:11px;letter-spacing:.14em}
+.hero h1{font-family:Montserrat,sans-serif;font-size:clamp(41px,5.7vw,74px);line-height:1.07;letter-spacing:-.06em;font-weight:900;margin:25px 0}
+.hero h1 span{color:#ffea72!important;text-shadow:0 4px 0 #2938b62e}
+.hero p{font-size:17px;line-height:1.85;color:#f1f5ff;font-weight:700}
+.actions{gap:12px;margin-top:28px}
+.btn{min-height:55px;border-radius:17px;padding:15px 23px;background:#ffde5e;color:#26364c;font-size:14px;font-weight:900;box-shadow:0 9px 0 #d9aa38}
+.btn.alt{background:#ffffff26;color:#fff;border:2px solid #ffffff75;box-shadow:none}
+.hero-art{background:none;overflow:visible;min-height:540px}
+.hero-art:before{content:'';position:absolute;inset:13%;border:2px dashed #ffffff72;border-radius:50%;animation:spin 42s linear infinite}
+.hero-art .planet{display:grid;place-items:center;width:min(350px,70%);height:350px;border-radius:50%;font-size:138px;background:radial-gradient(circle at 33% 26%,#fff8bf 0,#8cf0ef 32%,#37c3e8 56%,#2c60ed 100%);box-shadow:0 22px 0 #3c388a3b,0 35px 65px #092e8d47;z-index:1;position:relative;transform:rotate(-8deg);animation:float 5s ease-in-out infinite}
+.hero-art .planet:after{content:'';position:absolute;inset:26%;border:1px dashed #ffffff7a;border-radius:50%}
+.hero-art .orb{font-size:15px;padding:15px 19px;background:white;color:#204b7a;border-radius:22px;box-shadow:0 12px 0 #123c7b2c,0 20px 40px #122d8052;z-index:3;font-weight:900;animation:bob 4s ease-in-out infinite}
+.hero-art .orb.one{left:5%;top:15%;transform:rotate(-9deg)}
+.hero-art .orb.two{right:4%;bottom:16%;top:auto;transform:rotate(8deg);animation-delay:.7s}
+.hero-art .orb.three{right:1%;top:14%;transform:rotate(7deg);animation-delay:1.2s}
+.hero-art .orb.four{left:7%;bottom:14%;transform:rotate(-5deg);animation-delay:1.8s}
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:22px 0 34px}
+.counter{background:#fff;border:2px solid #f0ebf4;border-radius:22px;padding:20px 22px;box-shadow:var(--shadow)}
+.counter:nth-child(1){border-bottom:6px solid #45bbea}.counter:nth-child(2){border-bottom:6px solid #ffd456}.counter:nth-child(3){border-bottom:6px solid #f77fb6}.counter:nth-child(4){border-bottom:6px solid #75dfb4}
+.counter b{font-family:Montserrat,sans-serif;font-weight:900;color:#3b5fe8;font-size:32px}.counter span{font-weight:800;font-size:13px}
+.mission-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 40px}
+.mission-step{display:flex;align-items:start;gap:12px;padding:17px;background:#fff;border:1px solid #eae9f4;box-shadow:0 8px 22px #5d62a513;border-radius:20px;font-weight:900;font-size:15px;min-width:0}
+.mission-step span{font-size:27px;width:47px;height:47px;display:grid;place-items:center;border-radius:15px;flex-shrink:0}
+.mission-step:nth-child(1) span{background:#e0eeff}.mission-step:nth-child(2) span{background:#fff3bf}.mission-step:nth-child(3) span{background:#ffe0ef}.mission-step:nth-child(4) span{background:#dbf9ec}
+.mission-step small{display:block;font-size:12px;color:#73819a;line-height:1.5;font-weight:700;margin-top:6px}
+.section-title{margin:46px 0 23px}
+.section-title .kicker{color:#0a9c80;font-weight:900;letter-spacing:.15em}
+.section-title h2{font-family:Montserrat,sans-serif;font-weight:900;font-size:clamp(31px,3.8vw,49px);letter-spacing:-.045em;line-height:1.2}
+.section-title p{font-size:16px;font-weight:700}
+.exhibit{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.panel,.panel.wide{grid-column:auto;display:flex;flex-direction:column;min-height:390px;background:#fff;border:2px solid #edeaf5;border-radius:28px;box-shadow:var(--shadow);padding:28px 26px;overflow:hidden}
+.panel:nth-child(6n+1){background:linear-gradient(#fff,#f0f7ff);border-bottom:7px solid #39b8f6}
+.panel:nth-child(6n+2){background:linear-gradient(#fff,#fff8df);border-bottom:7px solid #ffc852}
+.panel:nth-child(6n+3){background:linear-gradient(#fff,#fff0f9);border-bottom:7px solid #ff7ebc}
+.panel:nth-child(6n+4){background:linear-gradient(#fff,#edfff7);border-bottom:7px solid #45d4a5}
+.panel:nth-child(6n+5){background:linear-gradient(#fff,#f3edff);border-bottom:7px solid #a889ff}
+.panel:nth-child(6n+6){background:linear-gradient(#fff,#eafaff);border-bottom:7px solid #4bc6e7}
+.panel:before{content:attr(data-icon);display:grid;place-items:center;width:76px;height:76px;border-radius:24px;background:#ffffffc7;font-size:40px;box-shadow:0 8px 20px #37477e15;margin:20px 0;order:1}
+.panel:after{display:none}
+.panel .subject{order:0;font-size:11px;letter-spacing:.16em;color:#4d66ab;background:#fff;border-radius:100px;display:inline-flex;align-self:start;padding:8px 12px;border:1px solid #edf0fa}
+.panel h3{order:2;font-family:Montserrat,sans-serif;font-size:clamp(23px,2.5vw,29px);letter-spacing:-.035em;margin:0 0 12px}
+.panel p{order:3;font-size:15px;line-height:1.86;font-weight:600;color:#496477}
+.panel .facts{order:4;margin-top:auto;padding-top:16px}
+.chip{background:white;border:1px solid #e7e6ef;color:#4d6179;border-radius:100px;padding:8px 12px;font-weight:900}
+.mission-complete{order:5;align-self:flex-start;margin-top:19px;border:2px solid #dfe5ef;background:white;color:#274977;border-radius:13px;font-size:13px;font-weight:900;padding:10px 13px;cursor:pointer;box-shadow:0 4px 0 #cbd8e5;transition:.15s}
+.mission-complete:hover{background:#eff9ff;transform:translateY(-2px)}
+.mission-complete[data-done="1"]{background:#d8fae8;color:#116847;border-color:#7ddfb3}
+.mission-progress{display:flex;justify-content:space-between;align-items:center;background:#fff;border:2px solid #e5eaf4;border-radius:22px;padding:14px 19px;margin:0 0 18px;gap:15px;box-shadow:var(--shadow)}
+.mission-progress b{font-size:14px;font-weight:900}
+.mission-progress .bar{height:11px;background:#e9eef6;border-radius:100px;overflow:hidden;flex:1}
+.mission-progress .bar>span{display:block;height:100%;background:linear-gradient(90deg,#1dbdd2,#6b79ff,#ff73a8);border-radius:100px;transition:width .25s ease}
+.learning{border:2px solid #efe8f3;box-shadow:var(--shadow);border-radius:30px;grid-template-columns:.68fr 1.32fr}
+.learning .visual{font-size:125px;background:linear-gradient(130deg,#d9f5ff,#fbe4ff,#fff7cf);border-radius:26px}
+.learning h3{font-family:Montserrat,sans-serif;font-size:29px}
+.learning details{border:2px solid #e5e7f5;background:#fff;border-radius:16px}
+.learning summary{font-weight:900}
+.learning details[open]{background:#fffcee;border-color:#ffde7c}
+.qr-area{background:linear-gradient(120deg,#1d81f3,#5262fa 52%,#b35cfe 100%);box-shadow:0 25px 60px #7266d755;border-radius:36px;position:relative;overflow:hidden;grid-template-columns:1fr .9fr}
+.qr-area:before{content:'✦';position:absolute;font-size:130px;color:#ffffff27;top:-20px;right:10px}
+.qr-area h2{font-family:Montserrat,sans-serif;letter-spacing:-.05em;font-size:clamp(33px,3.7vw,51px);line-height:1.1}
+.qr-area p,.step{font-weight:700}
+.step{border:1px solid #ffffff3b;background:#ffffff17;padding:11px 14px;border-radius:16px}
+.step strong{width:36px;height:36px;flex-basis:36px;background:#ffde66;color:#304567;font-size:17px}
+.qr-frame{max-width:430px;border-radius:30px;padding:23px;box-shadow:0 20px 50px #1d298d4a}
+.qr-frame img{width:100%;aspect-ratio:1;object-fit:contain;display:block;background:white;padding:10px;border-radius:18px;border:1px solid #e4eaf1}
+.qr-frame b{font-family:Montserrat,sans-serif;font-size:20px;line-height:1.3}
+.qr-frame small{margin-top:7px}
+.warning{background:#fff9de;border:2px dashed #f5d571;color:#7d641f;border-radius:17px;padding:18px 20px;font-weight:700}
+.footer{font-weight:700}
+@keyframes float{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-12px)}}
+@keyframes bob{0%,100%{filter:translateY(0)}50%{filter:translateY(-4px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1080px){.hero{grid-template-columns:1fr .8fr}.hero-art{min-height:430px}.hero-art .planet{height:270px;width:270px;font-size:95px}.exhibit{grid-template-columns:repeat(2,minmax(0,1fr))}.mission-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.header{position:static;padding:14px 16px}.nav{justify-content:center}.nav a{font-size:11px;padding:9px 12px}.hero{grid-template-columns:1fr;display:flex;flex-direction:column-reverse;border-radius:27px}.hero-art{min-height:285px}.hero-art .planet{height:215px;width:215px;font-size:76px}.hero-art .orb{font-size:11px;padding:10px 12px}.hero-content{padding:26px}.hero h1{font-size:clamp(35px,9vw,49px)}.hero p{font-size:15px}.counters{grid-template-columns:repeat(2,1fr)}.mission-strip{grid-template-columns:1fr 1fr;gap:10px}.mission-step{display:block;padding:14px;font-size:13px}.mission-step span{margin-bottom:10px}.exhibit{grid-template-columns:1fr}.panel{min-height:auto;padding:25px}.qr-area{grid-template-columns:1fr}.qr-frame{max-width:350px}.learning{grid-template-columns:1fr}}
+@media(max-width:420px){.mission-strip{grid-template-columns:1fr}.mission-step{display:flex}.counter{padding:12px}.counter b{font-size:27px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+@media print{.mission-complete,.mission-progress,.mission-strip{display:none!important}.hero,.qr-area,.panel{box-shadow:none!important}.hero-art .planet{animation:none}}
 </style>
 </head><body>
 <header class="header"><div class="logo"><span>⚛</span><div>НАУКОВИЙ КОД УКРАЇНИ <div style="font-size:10px;letter-spacing:.13em;color:#69808b;margin-top:3px">ШКІЛЬНА НАУКОВА ЕКСПЕДИЦІЯ</div></div></div><nav class="nav"><a href="#expo">Експозиція</a><a href="#checkpoint">Підсумкові питання</a><a class="go" href="#scan">QR-код ↗</a></nav></header>
 <main>
-<section class="hero"><div class="hero-content"><div class="tag">🇺🇦 Шкільний науковий захід · 7–10 класи</div><h1>Україна — країна <span style="color:#ffd564">наукових</span> відкриттів</h1><p>Дослідіть відкриття, якими змінювали світ українські науковці. Роздивіться експозицію, послухайте історії та перевірте власні знання у фінальній QR-вікторині.</p><div class="actions"><a class="btn" href="#expo">Дослідити експозицію ↓</a><a class="btn alt" href="#scan">Перейти до QR-коду ↗</a></div></div><div class="hero-art"><div class="planet">🔬</div><div class="orb one">🧬 Біологія</div><div class="orb two">🚀 Космос</div></div></section>
-<div class="counters"><div class="counter"><b>5</b><span>наукових галузей</span></div><div class="counter"><b>16</b><span>підсумкових питань</span></div><div class="counter"><b>1</b><span>бал за відповідь</span></div><div class="counter"><b>QR</b><span>особистий тест учня</span></div></div>
-<section id="expo"><div class="section-title"><span class="kicker">ЕТАП 01 · ПІЗНАЄМО</span><h2>Галерея наукових відкриттів</h2><p>Цю сторінку можна показувати на проєкторі або надіслати дітям для самостійного перегляду перед вікториною.</p></div>
-<div class="exhibit">
+<section class="hero"><div class="hero-content"><div class="tag">🇺🇦 Шкільний науковий захід · 7–10 класи</div><h1>Україна — країна <span style="color:#ffd564">наукових</span> відкриттів!</h1><p>Дослідіть відкриття, якими змінювали світ українські науковці. Роздивіться експозицію, послухайте історії та перевірте власні знання у фінальній QR-вікторині.</p><div class="actions"><a class="btn" href="#expo">Дослідити експозицію ↓</a><a class="btn alt" href="#scan">Перейти до QR-коду ↗</a></div></div><div class="hero-art" aria-hidden="true"><div class="planet">🔬</div><div class="orb one">🧬 Біологія</div><div class="orb two">🚀 Космос</div><div class="orb three">🌍 Географія</div><div class="orb four">⚗️ Хімія</div></div></section>
+<div class="counters"><div class="counter"><b>6</b><span>наукових галузей</span></div><div class="counter"><b>16</b><span>підсумкових питань</span></div><div class="counter"><b>1</b><span>бал за відповідь</span></div><div class="counter"><b>QR</b><span>особистий тест учня</span></div></div>
+<div class="mission-strip" aria-label="Маршрут дослідника"><div class="mission-step"><span>👀</span><div>1. Досліджуй<small>Шість яскравих станцій</small></div></div><div class="mission-step"><span>🧠</span><div>2. Запам’ятовуй<small>Цікаві наукові факти</small></div></div><div class="mission-step"><span>📱</span><div>3. Скануй<small>QR-код із телефоном</small></div></div><div class="mission-step"><span>🏁</span><div>4. Надсилай<small>Учитель побачить результат</small></div></div></div>
+<section id="expo"><div class="section-title"><span class="kicker">ЕТАП 01 · ПІЗНАЄМО</span><h2>Шість станцій великих відкриттів 🌟</h2><p>Цю сторінку можна показувати на проєкторі або надіслати дітям для самостійного перегляду перед вікториною.</p></div>
+<div class="mission-progress" aria-live="polite"><b id="discovery-count">Досліджено 0 із 6 станцій</b><div class="bar"><span id="discovery-fill" style="width:0%"></span></div></div><div class="exhibit">
 <article class="panel" data-icon="🧬"><div class="subject">01 / БІОЛОГІЯ</div><h3>Клітини, які рятують</h3><p><strong>Ілля Мечников</strong> досліджував, як клітини поглинають і знищують чужорідні частинки. Цей процес називають <strong>фагоцитозом</strong>. Його відкриття поглибило уявлення про імунний захист.</p><div class="facts"><span class="chip">Нобелівська премія · 1908</span><span class="chip">Імунна система</span></div></article>
 <article class="panel" data-icon="🦠"><div class="subject">02 / МІКРОБІОЛОГІЯ</div><h3>Дослідження невидимих процесів</h3><p><strong>Сергій Виноградський</strong> виявив, що деякі бактерії використовують хімічну енергію неорганічних речовин для синтезу органічних. Це <strong>хемосинтез</strong>. Інші бактерії допомагають забезпечувати кругообіг Нітрогену.</p><div class="facts"><span class="chip">Хемосинтез</span><span class="chip">Кругообіг Нітрогену</span></div></article>
 <article class="panel" data-icon="❄️"><div class="subject">03 / ГЕОГРАФІЯ</div><h3>Наука на краю світу</h3><p><strong>Володимир Вернадський</strong> розвинув учення про біосферу та геохімічні процеси. На його честь названо українську антарктичну станцію. <strong>Степан Рудницький</strong> закладав підвалини української географії. Нова Гвінея, яку досліджував Миклухо-Маклай, належить до Океанії.</p><div class="facts"><span class="chip">Біосфера</span><span class="chip">Антарктида</span><span class="chip">Океанія</span></div></article>
@@ -26,12 +123,41 @@ main{max-width:1350px;margin:auto;padding:28px clamp(14px,3vw,35px) 75px}.hero{d
 <article class="panel" data-icon="⚗️"><div class="subject">05 / ХІМІЯ</div><h3>Невидима хімія життя</h3><p><strong>Геохімія</strong> досліджує поширення й переміщення хімічних елементів у Землі. <strong>ДНК</strong> зберігає спадкову інформацію, а <strong>АТФ</strong> переносить енергію в клітинах. <strong>Тіамін (вітамін B₁)</strong> потрібний для енергетичного обміну та роботи нервової системи.</p><div class="facts"><span class="chip">ДНК</span><span class="chip">АТФ</span><span class="chip">Тіамін</span></div></article>
 <article class="panel" data-icon="💚"><div class="subject">06 / МЕДИЦИНА</div><h3>Захистити здоров’я</h3><p><strong>Данило Заболотний</strong> досліджував небезпечні інфекції й організовував боротьбу з епідеміями. <strong>Вакцини</strong> допомагають сформувати імунну відповідь, <strong>пробіотики</strong> — це певні живі мікроорганізми з підтвердженою користю, а <strong>витривалість</strong> допомагає довго виконувати фізичну роботу.</p><div class="facts"><span class="chip">Епідеміологія</span><span class="chip">Вакцинація</span><span class="chip">Фізіологія</span></div></article>
 </div></section>
-<section id="checkpoint"><div class="section-title"><span class="kicker">ЕТАП 02 · ЗАКРІПЛЮЄМО</span><h2>Мінілабораторія перед тестом</h2><p>Кілька коротких пояснень, які допоможуть не плутати важливі поняття. Розкрийте картки й обговоріть приклади.</p></div>
+<section id="checkpoint"><div class="section-title"><span class="kicker">ЕТАП 02 · ЗАКРІПЛЮЄМО</span><h2>Мінілабораторія дослідника 🧪</h2><p>Кілька коротких пояснень, які допоможуть не плутати важливі поняття. Розкрийте картки й обговоріть приклади.</p></div>
 <div class="learning"><div class="visual" aria-hidden="true">🧪</div><div><h3>Перевірте розуміння</h3><details><summary>Чим відрізняються ДНК та АТФ?</summary><p>ДНК зберігає спадкову інформацію. АТФ є безпосереднім переносником енергії, необхідної для клітинних процесів.</p></details><details><summary>Гідросфера — це лише океани?</summary><p>Ні. До гідросфери належать усі води Землі: води океанів, суходолу, підземні води, льодовики тощо.</p></details><details><summary>Чи є всі бактерії пробіотиками?</summary><p>Ні. Пробіотики — визначені живі мікроорганізми, користь яких для здоров’я за конкретних умов доведена.</p></details><details><summary>Що зробив Іван Пулюй?</summary><p>Він досліджував катодні й X-промені, розробляв прилади та зробив внесок у ранню рентгенографію. Відкриття X-променів у 1895 році історично приписують Вільгельму Рентгену.</p></details></div></div>
 </section>
-<section class="qr-area" id="scan"><div><div class="tag">ЕТАП 03 · ВІДПОВІДАЄМО</div><h2>Скануйте QR-код та переходьте до вікторини</h2><p>Тепер час перевірити, що Ви запам’ятали. Заповніть коротку форму: Ваше ім’я, клас і відповіді на 16 наукових запитань.</p>
+<section class="qr-area" id="scan"><div><div class="tag">ЕТАП 03 · ВІДПОВІДАЄМО</div><h2>Фінальна місія: скануй QR та перевір знання! 🚀</h2><p>Тепер час перевірити, що Ви запам’ятали. Заповніть коротку форму: Ваше ім’я, клас і відповіді на 16 наукових запитань.</p>
 <div class="step"><strong>1</strong><span>Відкрийте камеру телефону й наведіть на QR-код.</span></div><div class="step"><strong>2</strong><span>Вкажіть ім’я, прізвище та свій клас.</span></div><div class="step"><strong>3</strong><span>Дайте однослівні відповіді на всі запитання.</span></div><div class="step"><strong>4</strong><span>Натисніть «Надіслати». Саме після цього відповідь буде збережена організатору.</span></div>
 <div class="actions"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd07HJdMohkwPisn8AvSYzGLMw52B6CgvoI6gDcZPypBfCHGA/viewform" target="_blank" rel="noopener noreferrer">Відкрити вікторину без QR ↗</a></div></div>
 <div class="qr-frame"><img src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&margin=10&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSd07HJdMohkwPisn8AvSYzGLMw52B6CgvoI6gDcZPypBfCHGA%2Fviewform" alt="QR-код для переходу до підсумкової Google Форми" loading="lazy"><b>НАУКОВИЙ КОД УКРАЇНИ</b><small>16 запитань · результати організатору</small></div></section>
 <p class="warning">🔒 ПІБ і клас учасника записуються в окрему Google Форму, доступ до відповідей має організатор. Публічна сторінка експозиції не містить списку учасників. Для неповнолітніх повідомте учасникам, що їхні ім'я, клас і відповіді збираються для проведення шкільного заходу; використовуйте лише мінімально необхідні дані.</p>
-</main><footer class="footer">🇺🇦 Науковий код України · Навчальний матеріал для шкільних заходів · <a href="https://docs.google.com/forms/d/e/1FAIpQLSd07HJdMohkwPisn8AvSYzGLMw52B6CgvoI6gDcZPypBfCHGA/viewform" target="_blank" rel="noopener">Підсумкова вікторина</a></footer></body></html>
+</main><footer class="footer">🇺🇦 Науковий код України · Навчальний матеріал для шкільних заходів · <a href="https://docs.google.com/forms/d/e/1FAIpQLSd07HJdMohkwPisn8AvSYzGLMw52B6CgvoI6gDcZPypBfCHGA/viewform" target="_blank" rel="noopener">Підсумкова вікторина</a></footer><script>
+(function(){
+  const cards=[...document.querySelectorAll('.exhibit .panel')];
+  const key='ua-science-exhibition-visited-v2';
+  let visited=[];
+  try{visited=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(visited))visited=[]}catch(e){visited=[]}
+  function refresh(){
+    document.getElementById('discovery-count').textContent='Досліджено '+visited.length+' із '+cards.length+' станцій';
+    document.getElementById('discovery-fill').style.width=(visited.length/cards.length*100)+'%';
+    cards.forEach((card,i)=>{
+      const b=card.querySelector('.mission-complete');
+      const on=visited.includes(i);
+      b.dataset.done=on?'1':'0';
+      b.setAttribute('aria-pressed',String(on));
+      b.textContent=on?'✅ Станцію досліджено':'☆ Позначити як досліджену';
+    });
+  }
+  cards.forEach((card,i)=>{
+    const b=document.createElement('button');
+    b.type='button';b.className='mission-complete';
+    b.addEventListener('click',()=>{
+      visited=visited.includes(i)?visited.filter(x=>x!==i):[...visited,i];
+      try{localStorage.setItem(key,JSON.stringify(visited))}catch(e){}
+      refresh();
+    });
+    card.appendChild(b);
+  });
+  refresh();
+})();
+</script></body></html>
