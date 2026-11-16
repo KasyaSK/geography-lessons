@@ -1,0 +1,1 @@
+{"name":"naukovyi-kod-ukraine","private":true,"type":"module","scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview"},"dependencies":{"astro":"^5.16.0","@astrojs/cloudflare":"^12.6.0"},"devDependencies":{"typescript":"^5.7.3","@cloudflare/workers-types":"^4.20250507.0"}}
