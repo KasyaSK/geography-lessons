@@ -1,0 +1,92 @@
+---
+export const prerender = false;
+---
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1a559b"><title>Для вчителя · Науковий код України</title>
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Nunito:wght@500;600;700;800;900&display=swap');
+:root{font-family:Nunito,system-ui,sans-serif;color:#183955;background:#f6f9fd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(at 0 0,#e1efff,transparent 35%),#f6f9fd}button,input,select{font:inherit}button{cursor:pointer}a{color:#245aab}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px max(18px,calc((100vw - 1130px)/2));background:#fff;border-bottom:1px solid #dce6ef}header b{font-family:Manrope;font-size:17px}header a{text-decoration:none;font-weight:900;font-size:13px;border:1px solid #e0e6ef;border-radius:12px;padding:10px 15px}
+main{max-width:1150px;margin:auto;padding:27px 18px 80px}.card{background:white;border:1px solid #dde6f0;border-radius:25px;box-shadow:0 18px 40px #193e6c12;padding:clamp(24px,4vw,45px)}
+h1{font:800 clamp(29px,4vw,45px) Manrope,sans-serif;letter-spacing:-.05em;margin:10px 0}h2{font-size:22px}p{color:#667f91;line-height:1.75}
+.login{max-width:520px;margin:45px auto}.label{display:block;margin:23px 0 8px;font-weight:900;font-size:13px}.field{width:100%;height:55px;border:2px solid #d9e5f3;border-radius:13px;padding:0 14px;color:#214268;background:#f9fbff}.btn{min-height:47px;padding:11px 20px;font-weight:900;border:0;border-radius:13px;background:#226cef;color:white;font-size:14px}.btn.alt{background:#eff5fd;color:#1f5bb3;border:1px solid #dbe8f5}.btn:disabled{opacity:.5}.btn:focus-visible,.field:focus-visible{outline:3px solid #589cfe;outline-offset:2px}
+.bad{font-size:13px;font-weight:900;color:#a33d4d;background:#fff2f2;border:1px solid #ffdce0;border-radius:12px;padding:13px;margin-top:13px}.hide{display:none!important}
+.dash-head{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}.dash-head .buttons{display:flex;gap:10px;flex-wrap:wrap}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:23px 0}.metric{border-radius:18px;padding:20px;background:linear-gradient(120deg,#eaf4ff,#fff);border:1px solid #dbe7f4}.metric:nth-child(2){background:linear-gradient(120deg,#fff4d6,#fff)}.metric:nth-child(3){background:linear-gradient(120deg,#ecffef,#fff)}.metric b{font:800 33px Manrope,sans-serif;display:block;color:#2560ac}.metric span{color:#5e758b;font-weight:800;font-size:13px}
+.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:19px 0}.filters .field{min-width:170px;width:auto;flex:1;max-width:380px}.filters select{height:49px}
+.table-wrap{overflow:auto;border:1px solid #e3e9f2;border-radius:17px}table{border-collapse:collapse;width:100%;min-width:750px;font-size:14px}th,td{text-align:left;padding:15px;border-bottom:1px solid #e4edf3;white-space:nowrap}th{background:#edf5ff;color:#294f7b;font-weight:900}tr:hover td{background:#f8fcff}td.score{font-weight:900;color:#116f54}
+details{max-width:350px}summary{cursor:pointer;color:#2463ab;font-weight:900}details ol{white-space:normal;font-size:12px;line-height:1.6;padding-left:19px}.muted{font-size:12px;color:#667c93}
+@media(max-width:660px){.metrics{grid-template-columns:1fr}.card{padding:19px}.dash-head{align-items:start;display:block}.dash-head .buttons{margin-top:16px}}
+</style></head>
+<body>
+<header><b>👩‍🏫 Кабінет учителя</b><a href="/">← До учнівського квесту</a></header>
+<main>
+<section id="loginBox" class="card login"><span style="font-size:48px">🔐</span><h1>Вхід учителя</h1><p>Цей розділ закритий. Потрібен особистий код доступу організатора. Учні не можуть переглядати результати інших учасників.</p>
+<form id="loginForm"><label class="label" for="password">Код доступу вчителя</label><input id="password" type="password" required autocomplete="current-password" class="field" placeholder="Ваш секретний код">
+<div style="margin-top:20px"><button class="btn" type="submit" id="loginBtn">Увійти до журналу →</button></div><div id="loginError" class="bad hide" role="alert"></div></form>
+<p class="muted">Для захисту даних використовується серверна перевірка коду та закрита сесія. Пароль не міститься в публічному JavaScript.</p></section>
+<section id="dashboard" class="card hide">
+<div class="dash-head"><div><div style="font-size:12px;font-weight:900;color:#268e88;letter-spacing:.14em">ПРИВАТНИЙ ЖУРНАЛ</div><h1>Результати експедиції</h1><p>Дані зберігаються на сервері. Видимі лише після входу вчителя.</p></div><div class="buttons"><button class="btn alt" id="refresh">↻ Оновити</button><button class="btn" id="download">⬇ CSV</button><button class="btn alt" id="logout">Вийти</button></div></div>
+<div class="metrics"><div class="metric"><b id="total">0</b><span>Усі проходження</span></div><div class="metric"><b id="average">0</b><span>Середній бал / 16</span></div><div class="metric"><b id="classes">0</b><span>Класів у журналі</span></div></div>
+<div class="filters"><input id="search" class="field" placeholder="Пошук за прізвищем або ім'ям" aria-label="Пошук за прізвищем"><select id="filterClass" class="field" aria-label="Фільтр класу"><option value="">Усі класи</option></select><select id="sort" class="field" aria-label="Сортування"><option value="newest">Нові спочатку</option><option value="score">За балами (спадання)</option><option value="name">За прізвищем</option></select></div>
+<div id="dashError" class="bad hide" role="alert"></div>
+<div class="table-wrap"><table><thead><tr><th>№</th><th>Учасник</th><th>Клас</th><th>Бал</th><th>Дата й час (Київ)</th><th>Тривалість</th><th>Відповіді</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted">* Кожна завершена спроба — окремий запис. Учні вводять ПІБ самостійно, тому для офіційного заліку перевірте збіги імен. CSV завантажується тільки після входу.</p>
+</section>
+</main>
+<script is:inline>
+(function(){
+const $=id=>document.getElementById(id);let rows=[];
+function showLogin(){ $('loginBox').classList.remove('hide');$('dashboard').classList.add('hide');}
+function showDash(){ $('loginBox').classList.add('hide');$('dashboard').classList.remove('hide');}
+async function fetchRows(){
+ $('dashError').classList.add('hide');
+ try{
+  const res=await fetch('/api/records',{credentials:'same-origin',cache:'no-store'});
+  if(res.status===401){showLogin();return}
+  const obj=await res.json();if(!res.ok)throw Error(obj.error||'Помилка завантаження');
+  rows=obj.results||[];showDash();update();
+ }catch(e){$('dashError').textContent=e.message;$('dashError').classList.remove('hide');}
+}
+function update(){
+ $('total').textContent=rows.length;
+ $('average').textContent=rows.length?(rows.reduce((s,r)=>s+Number(r.score||0),0)/rows.length).toFixed(1):'0';
+ const classes=[...new Set(rows.map(r=>r.studentClass))].sort((a,b)=>a.localeCompare(b,'uk'));
+ $('classes').textContent=classes.length;
+ const prev=$('filterClass').value;$('filterClass').replaceChildren(new Option('Усі класи',''));
+ classes.forEach(c=>$('filterClass').add(new Option(c,c)));if(classes.includes(prev))$('filterClass').value=prev;
+ renderRows();
+}
+function renderRows(){
+ const text=$('search').value.toLocaleLowerCase('uk-UA').trim(),cls=$('filterClass').value,sort=$('sort').value;
+ let filtered=rows.filter(r=>(!cls||r.studentClass===cls)&&(!text||r.name.toLocaleLowerCase('uk-UA').includes(text)));
+ if(sort==='score')filtered.sort((a,b)=>b.score-a.score);
+ else if(sort==='name')filtered.sort((a,b)=>a.name.localeCompare(b.name,'uk'));
+ else filtered.sort((a,b)=>b.submittedAt.localeCompare(a.submittedAt));
+ const body=$('rows');body.replaceChildren();
+ if(!filtered.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=7;td.textContent='Немає записів за вибраними умовами';tr.appendChild(td);body.appendChild(tr);return;}
+ filtered.forEach((r,i)=>{
+  const tr=document.createElement('tr');
+  const cells=[String(i+1),r.name,r.studentClass,r.score+' / 16',new Date(r.submittedAt).toLocaleString('uk-UA',{timeZone:'Europe/Kyiv',dateStyle:'short',timeStyle:'short'}),Math.floor(r.durationSeconds/60)+' хв '+(r.durationSeconds%60)+' с'];
+  cells.forEach((v,n)=>{const td=document.createElement('td');td.textContent=v;if(n===3)td.className='score';tr.appendChild(td);});
+  const td=document.createElement('td'),detail=document.createElement('details'),summ=document.createElement('summary');summ.textContent='Переглянути 16';detail.appendChild(summ);
+  const list=document.createElement('ol');r.answers.forEach(a=>{const li=document.createElement('li');li.textContent=a||'—';list.appendChild(li)});detail.appendChild(list);td.appendChild(detail);tr.appendChild(td);body.appendChild(tr);
+ });
+}
+$('loginForm').onsubmit=async e=>{
+ e.preventDefault();const btn=$('loginBtn');btn.disabled=true;$('loginError').classList.add('hide');
+ try{
+  const response=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('password').value}),credentials:'same-origin'});
+  const data=await response.json();
+  if(!response.ok)throw Error(data.error||'Помилка входу');
+  $('password').value='';await fetchRows();
+ }catch(e){$('loginError').textContent=e.message;$('loginError').classList.remove('hide');}
+ finally{btn.disabled=false}
+};
+$('refresh').onclick=fetchRows;
+$('search').oninput=renderRows;$('filterClass').onchange=renderRows;$('sort').onchange=renderRows;
+$('download').onclick=()=>{window.location.href='/api/records?format=csv'};
+$('logout').onclick=async()=>{try{await fetch('/api/logout',{method:'POST',credentials:'same-origin'});}finally{rows=[];showLogin();}};
+fetchRows();
+})();
+</script>
+</body></html>
