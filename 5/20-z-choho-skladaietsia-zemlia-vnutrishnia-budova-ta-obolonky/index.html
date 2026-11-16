@@ -36,6 +36,48 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 @media(max-width:800px){.hero-in,.grid2{grid-template-columns:1fr}.hero-in{padding:38px 0}.hero figure{max-width:340px;margin:auto}.grid3,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}.hero h1{margin:14px 0}section{padding:43px 0}}@media(max-width:520px){.grid3,.grid4{grid-template-columns:1fr}.rowfield{grid-template-columns:1fr}.wrap{padding:0 15px}.card{padding:16px;border-radius:17px}.section-head{display:block}.matchrow{display:block}.matchrow select{margin-top:6px;width:100%}.layer-controls{grid-template-columns:1fr 1fr}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media print{nav,.btn,.video-controls,#gate,#quizWrap,header .hero-stats{display:none!important}body{background:white}section{padding:10px 0}.wrap{max-width:100%}#scoreCard{display:block!important;page-break-inside:avoid}.printonly{display:block}}
+
+/* Атлас доказів: версія 2026.11.16 — самодостатні моделі без CDN */
+.atlas-title{font-size:clamp(2rem,4vw,3.25rem);line-height:1.05;letter-spacing:-.045em;max-width:850px;margin:8px 0 20px}
+.atlas-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:13px 0}.atlas-tabs button{border-radius:40px;background:#e3f2ee;color:#125162;border:1px solid #abd2ce;padding:9px 14px;font-weight:780}
+.atlas-tabs button[aria-pressed=true]{background:#095e71;color:#fff}
+.geo-canvas{background:radial-gradient(circle at 50% 45%,#e4f5f6,#f8fcfa);border:1px solid #d4e7e7;border-radius:18px;position:relative;padding:15px;overflow:hidden}
+.geo-canvas svg{width:100%;height:auto;display:block;max-height:440px}
+.geo-caption{color:#496d76;font-size:.88rem;margin-top:9px}
+.geo-factgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.geo-fact{padding:18px 14px;border:1px solid #d5e5e1;border-radius:14px;background:#fff}
+.geo-fact b{display:block;font-size:1.4rem;letter-spacing:-.035em;color:#076980}
+.geo-fact span{font-size:.83rem;color:#536d75}
+.geo-definition{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:18px;border-top:1px solid #d8e7e4}
+.geo-definition b{color:#095b6d}
+.geo-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.geo-tool{background:#fff;padding:22px;border:1px solid #d4e3de;border-radius:18px}
+.geo-mini{font-size:.86rem;color:#536a73}
+.geo-compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.geo-caption strong{color:#234c5b}
+.geo-step{display:flex;gap:12px;padding:14px;border-radius:14px;background:#eff7f5;margin:9px 0}
+.geo-step .idx{flex:none;background:#0a7384;color:#fff;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;font-weight:900}
+.geo-breakdown{display:flex;border-radius:12px;overflow:hidden;height:34px;margin:12px 0 4px;border:2px solid #fff}
+.geo-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.82rem}.geo-legend span{display:flex;align-items:center;gap:5px}.geo-dot{display:inline-block;width:12px;height:12px;border-radius:50%}
+.geo-question{border:1px solid #dce8e7;background:#fff;padding:19px;border-radius:17px;margin:13px 0}
+.geo-question h3{margin:0 0 10px}.geo-question .choice{margin:8px 0;padding:11px 15px}.geo-question small{display:block;color:#4c6974;margin:8px 0}
+.geo-result{margin-top:12px;padding:12px 15px;border-radius:12px;background:#e5f4ef;color:#155c4f;border-left:4px solid #24937d;font-weight:700}
+.geo-result.bad{background:#fff2e7;color:#93411e;border-color:#cc8051}
+.geo-result[hidden]{display:none}
+.geo-label{display:block;font-weight:780;margin:12px 0 6px}
+.geo-progress{height:10px;background:#c8dedc;border-radius:10px;overflow:hidden}.geo-progress span{display:block;background:#16878a;height:100%;width:0%;transition:width .25s}
+.geo-source{font-size:.82rem;color:#58727b}
+.geo-pair select{max-width:100%}
+.geo-table{width:100%;border-collapse:collapse;min-width:600px;font-size:.92rem}.geo-table th,.geo-table td{padding:11px 13px;border-bottom:1px solid #d8e6e5;text-align:left;vertical-align:top}.geo-table th{background:#17596a;color:#fff}.geo-table tr:nth-child(even){background:#eff6f4}
+.geo-tablewrap{overflow-x:auto;border-radius:14px;border:1px solid #cadeda}
+.geo-ribbon{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.geo-ribbon span{background:#fff3d8;color:#6c4b15;padding:7px 11px;border-radius:20px;font-size:.82rem;font-weight:800}
+.geo-sourceimg{aspect-ratio:4/3;width:100%;object-fit:contain;background:#e5f0ef;border-radius:13px}
+.geo-video{padding:12px;border:1px solid #c9e1df;border-radius:13px;background:#fff}
+.geo-mono{font-variant-numeric:tabular-nums;font-weight:800}
+.geo-labscore{font-size:1.6rem;font-weight:900;color:#09667a}
+@media(max-width:800px){.geo-factgrid{grid-template-columns:repeat(2,1fr)}.geo-pair,.geo-compare{grid-template-columns:1fr}}
+@media(max-width:550px){.geo-factgrid{grid-template-columns:1fr 1fr}.geo-definition{grid-template-columns:1fr;gap:3px}.geo-fact b{font-size:1.1rem}}
+@media print{.geo-canvas,.geo-tool{break-inside:avoid}.geo-question button,.atlas-tabs{display:none}}
 </style></head>
 <body>
 <header class="hero" id="top"><div class="wrap hero-in">
@@ -47,7 +89,7 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/1280px-The_Blue_Marble_4463x4163.jpg" alt="Реальна фотографія Землі з космічного корабля Apollo 17: материки, океани й хмари" loading="eager"><figcaption>Реальна світлина Землі · NASA / Apollo 17, 1972 · Wikimedia Commons</figcaption></figure>
 </div></header>
 <nav class="stick" aria-label="Навігація уроком"><div class="wrap">
-<a href="#challenge">01 · Загадка</a><a href="#model">02 · Розріз</a><a href="#explore">03 · Зондування</a><a href="#evidence">04 · Докази</a><a href="#shells">05 · Оболонки</a><a href="#theory">06 · Теорія</a><a href="#home">07 · Д/З та тест</a>
+<a href="#challenge">01 · Загадка</a><a href="#model">02 · Розріз</a><a href="#explore">03 · Зондування</a><a href="#evidence">04 · Докази</a><a href="#shells">05 · Оболонки</a><a href="#atlas">Науковий атлас</a><a href="#geomodel-lab">Практична модель</a><a href="#evidenceplus">Геофізика</a><a href="#geoacademy">12 завдань</a><a href="#theory">06 · Теорія</a><a href="#home">07 · Д/З та тест</a>
 </div></nav>
 <main>
 <section id="challenge"><div class="wrap">
@@ -72,20 +114,29 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 
 <section id="model" style="background:#eaf1ee"><div class="wrap">
 <div class="section-tag">02 · Інтерактивна модель · 4–9 хв</div><div class="section-head"><h2 class="section-title">Розріжте Землю — подумки</h2><span class="time">5 хв</span></div>
-<p class="intro">Натискайте назви шарів. Модель показує розташування, речовину і стан. <strong>Схема навчальна</strong>: товщину кори навмисно збільшено, інакше її було б майже не видно.</p>
+<p class="intro">Натискайте назви шарів. Це <strong>масштабний радіальний розріз</strong> із наближеними до справжніх пропорціями. Кора товщиною 35 км зображена лінією близько 1 пікселя: це наочно показує, наскільки вона тонка.</p>
 <div class="grid2">
 <div class="layer-stage">
-<svg class="layer-svg" viewBox="0 0 420 420" role="img" aria-label="Схематичний поперечний розріз Землі: вузька кора, широка мантія, зовнішнє та внутрішнє ядро">
-<defs><radialGradient id="mantGrad"><stop stop-color="#efb56a"/><stop offset=".78" stop-color="#e4753d"/><stop offset="1" stop-color="#ba552c"/></radialGradient><radialGradient id="coreGrad"><stop stop-color="#fff3a1"/><stop offset="1" stop-color="#f6b12c"/></radialGradient></defs>
-<circle cx="210" cy="210" r="188" fill="#2c706f" stroke="#f2e1b3" stroke-width="4"/>
-<circle cx="210" cy="210" r="180" fill="url(#mantGrad)"/>
-<circle cx="210" cy="210" r="102" fill="#f4a334" stroke="#cf612c" stroke-width="3"/>
-<circle cx="210" cy="210" r="46" fill="url(#coreGrad)" stroke="#fceaa4" stroke-width="3"/>
-<path d="M210,22V398 M22,210H398" stroke="#fff5" stroke-width="1.5" stroke-dasharray="5 9"/>
-<text x="210" y="214" fill="#653200" font-size="13" font-weight="900" text-anchor="middle">ЯДРО</text>
-<text x="292" y="131" fill="#fff" font-size="17" font-weight="900">МАНТІЯ</text>
-<path d="M40 83L19 52" fill="none" stroke="#fff" stroke-width="2"/>
-<text x="14" y="45" fill="#143a4b" font-size="17" font-weight="800">КОРА</text>
+<svg class="layer-svg" viewBox="0 0 420 420" role="img" aria-label="Наукова модель радіального розрізу Землі в масштабі: кора дуже тонка, мантія товста, зовнішнє та внутрішнє ядра різного радіуса">
+<defs>
+<radialGradient id="real_mant"><stop stop-color="#edb24d"/><stop offset=".63" stop-color="#d86a3c"/><stop offset="1" stop-color="#8d3f30"/></radialGradient>
+<radialGradient id="real_outer"><stop stop-color="#ffe6a0"/><stop offset=".88" stop-color="#f3a342"/><stop offset="1" stop-color="#ce572b"/></radialGradient>
+<radialGradient id="real_inner"><stop stop-color="#fffbe0"/><stop offset="1" stop-color="#fac64e"/></radialGradient>
+<radialGradient id="real_ambient" cx=".3" cy=".24"><stop stop-color="#ffffff" stop-opacity=".2"/><stop offset=".75" stop-color="#072736" stop-opacity="0"/><stop offset="1" stop-color="#041924" stop-opacity=".38"/></radialGradient>
+</defs>
+<!-- Радіуси пропорційні глибинам: Rземлі=190 px, Rзовн.ядра=104 px, Rвнутр.ядра=36,4 px. Кора=≈1 px для 35 км -->
+<circle cx="210" cy="210" r="190" fill="#264b54"/>
+<circle cx="210" cy="210" r="188.96" fill="url(#real_mant)"/>
+<circle cx="210" cy="210" r="103.8" fill="url(#real_outer)"/>
+<circle cx="210" cy="210" r="36.4" fill="url(#real_inner)"/>
+<circle cx="210" cy="210" r="190" fill="url(#real_ambient)"/>
+<circle cx="210" cy="210" r="190" fill="none" stroke="#d9f2e8" stroke-width="1.7"/>
+<path d="M210 20V400 M20 210H400" stroke="#fff" stroke-opacity=".17" stroke-dasharray="4 8" stroke-width="1"/>
+<path d="M356 88L393 55" stroke="#f9e8ba" stroke-width="1.8"/><text x="394" y="48" font-size="13" text-anchor="end" fill="#0f4657" font-weight="900">ЗЕМНА КОРА</text>
+<path d="M316 116L363 92" stroke="#fae1b8" stroke-width="1.8"/><text x="364" y="86" font-size="14" text-anchor="end" fill="#0c4055" font-weight="800">МАНТІЯ</text>
+<text x="210" y="203" font-size="12" fill="#4b3100" text-anchor="middle" font-weight="900">ВНУТРІШНЄ</text><text x="210" y="217" font-size="12" fill="#4b3100" text-anchor="middle" font-weight="900">ЯДРО</text>
+<path d="M298 265L345 302" stroke="#ffebba" stroke-width="1.8"/><text x="353" y="310" font-size="13" text-anchor="end" fill="#113e55" font-weight="900">ЗОВНІШНЄ ЯДРО</text>
+<text x="210" y="408" font-size="10" fill="#25616d" text-anchor="middle">Радіальні пропорції наближені до реальних; товщина кори відповідає 35 км</text>
 </svg>
 <div class="layer-controls" id="layerControls">
 <button class="layer-btn" data-layer="crust" aria-pressed="false">🪨 Земна кора</button>
@@ -151,16 +202,16 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 </div></div>
 <div class="grid2" style="margin-top:18px">
 <div class="card"><h3>Відео 1 · Дослідницький вступ</h3><div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/qzEG-8lmjYY?start=0&amp;end=150" title="Урок 20. Яку будову має Земля. 5 клас. НУШ — Тетяна Ющишина" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="video-controls"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qzEG-8lmjYY">Відкрити відео українською</a> · перегляньте перші 2,5 хв</p></div>
-<div class="card"><h3>Відео 2 · Будова Землі в розрізі</h3><div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/4ur8pRU9tTU?start=18&amp;end=165" title="Літосфера. Внутрішня будова Землі — Географія ПРОСТО" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="video-controls"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4ur8pRU9tTU&t=18s">Відкрити українське відео з 0:18</a> · фрагмент 0:18–2:45</p></div>
+<div class="card"><h3>Відео 2 · Будова Землі в розрізі</h3><div class="vframe"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/5VUW4xZN1f0?start=18&amp;end=165" title="Яку будову має Земля — Тетяна Черепня" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p class="video-controls"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5VUW4xZN1f0&t=18s">Відкрити українське відео з 0:18</a> · фрагмент 0:18–2:45</p></div>
 </div></div></section>
 
 <section id="shells"><div class="wrap">
 <div class="section-tag">05 · Зовнішні оболонки · 18–21 хв</div><div class="section-head"><h2 class="section-title">Надра і оболонки — не одна й та сама схема</h2><span class="time">3 хв</span></div>
 <p class="intro">Внутрішні шари — це будова планети від поверхні до центра. Географічні оболонки — частини земної системи, які <strong>перекриваються й взаємодіють</strong>.</p>
 <div class="grid3">
-<div class="card"><img class="sourceimg" src="https://www.asc-csa.gc.ca/images/recherche/tiles/2a490c36-51f1-432f-bb29-9bee3646e90f.jpg" loading="lazy" alt="Синя смуга атмосфери на межі Землі та космосу"><h3 style="margin-top:15px">Атмосфера · повітря</h3><p>Газова оболонка. Визначає погоду, переносить водяну пару та впливає на умови життя.</p><p class="picture-caption">Реальна світлина з МКС · Канадське космічне агентство, David Saint-Jacques, 2019.</p></div>
+<div class="card"><img class="sourceimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/ISS062-E-98264_-_View_of_atmospheric_limb.jpg?width=900" loading="lazy" alt="Синя смуга атмосфери на межі Землі та космосу"><h3 style="margin-top:15px">Атмосфера · повітря</h3><p>Газова оболонка. Визначає погоду, переносить водяну пару та впливає на умови життя.</p><p class="picture-caption">Реальна фотографія краю атмосфери з МКС · NASA, експедиція ISS-62 · Wikimedia Commons.</p></div>
 <div class="card"><img class="sourceimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/1280px-The_Blue_Marble_4463x4163.jpg" loading="lazy" alt="Океани, материки та хмари на світлині Землі"><h3 style="margin-top:15px">Гідросфера · вода</h3><p>Океани, річки, озера, льодовики, підземні води й вода в атмосфері.</p><p class="picture-caption">NASA / Apollo 17 · одна фотографія демонструє перетин кількох оболонок.</p></div>
-<div class="card"><img class="sourceimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Earth_Internal_Structure.svg/3840px-Earth_Internal_Structure.svg.png" loading="lazy" alt="Навчальна модель внутрішньої будови Землі в розрізі"><h3 style="margin-top:15px">Літосфера і біосфера</h3><p><strong>Літосфера</strong> — земна кора та верхня жорстка частина мантії; <strong>біосфера</strong> — частини оболонок, де існує життя.</p><p class="picture-caption">Це наукова ілюстрація, а не реальне фото надр · Wikimedia Commons.</p></div>
+<div class="card"><img class="sourceimg" src="https://commons.wikimedia.org/wiki/Special:FilePath/Earth-cutaway-schematic-numbered.svg?width=900" loading="lazy" alt="Навчальна модель внутрішньої будови Землі в розрізі"><h3 style="margin-top:15px">Літосфера і біосфера</h3><p><strong>Літосфера</strong> — земна кора та верхня жорстка частина мантії; <strong>біосфера</strong> — частини оболонок, де існує життя.</p><p class="picture-caption">Науковий схематичний розріз USGS, частини показано у масштабі, збільшення деталей — без масштабу · Wikimedia Commons.</p></div>
 </div>
 <div class="card soft" style="margin-top:18px"><h3>Сценарій: дерево росте на кам'янистому березі річки</h3><p>Які оболонки безпосередньо представлені у ситуації? Позначте всі відповідні назви.</p>
 <div class="shells" id="shellControls">
@@ -171,6 +222,187 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 </div><div style="margin-top:14px"><button class="btn" id="shellCheck" type="button">Пояснити зв'язок</button></div><p id="shellFeedback" class="feedback" aria-live="polite"></p></div>
 </div></section>
 
+
+<section id="atlas" style="background:#f7f9f4"><div class="wrap">
+<div class="section-tag">НАУКОВИЙ АТЛАС · додатковий матеріал і практикум</div>
+<h2 class="atlas-title">Чому Земля всередині виглядає не так, як на дитячих малюнках?</h2>
+<p class="intro">Учені не можуть сфотографувати ядро. Тому вони поєднують <strong>дані вимірювань</strong> і <strong>моделі</strong>. Тут можна порівняти науковий розріз у масштабі та пояснювальну схему. Цей блок можна виконувати частинами після уроку.</p>
+<div class="geo-factgrid" style="margin:20px 0">
+<div class="geo-fact"><b>6 371 км</b><span>Середній радіус Землі</span></div>
+<div class="geo-fact"><b>5–70+ км</b><span>Нерівномірна товщина кори</span></div>
+<div class="geo-fact"><b>≈ 2 900 км</b><span>Глибина межі мантія — ядро</span></div>
+<div class="geo-fact"><b>≈ 5 150 км</b><span>Глибина межі зовнішнього й внутрішнього ядра</span></div>
+</div>
+<div class="grid2">
+<div class="card">
+<h3>Модель №1 · Геофізичний розріз</h3>
+<p class="geo-mini">Обидві моделі спираються на ті самі геологічні шари. Перемикайтеся й порівнюйте, чи правдиво показано пропорції.</p>
+<div class="atlas-tabs" id="atlasModes">
+<button type="button" data-mode="real" aria-pressed="true">У справжньому масштабі</button>
+<button type="button" data-mode="study" aria-pressed="false">Збільшена кора</button>
+</div>
+<div class="geo-canvas">
+<svg viewBox="0 0 520 400" role="img" aria-label="Масштабна модель шарів Землі з перемикачем товщини кори">
+<defs>
+<radialGradient id="aMant" cx=".34" cy=".3"><stop stop-color="#ea995e"/><stop offset=".7" stop-color="#d46d3f"/><stop offset="1" stop-color="#9d442d"/></radialGradient>
+<radialGradient id="aCore"><stop stop-color="#ffe6a3"/><stop offset=".8" stop-color="#f9ad47"/><stop offset="1" stop-color="#db762c"/></radialGradient>
+<radialGradient id="aCenter"><stop stop-color="#fff9d1"/><stop offset="1" stop-color="#e9af3f"/></radialGradient>
+</defs>
+<circle cx="227" cy="193" r="166" fill="#245465"/>
+<circle id="atlasMantle" cx="227" cy="193" r="165.09" fill="url(#aMant)"/>
+<circle cx="227" cy="193" r="90.7" fill="url(#aCore)"/>
+<circle cx="227" cy="193" r="31.84" fill="url(#aCenter)"/>
+<circle cx="227" cy="193" r="166" fill="none" stroke="#e8fdf3" stroke-width="1.5"/>
+<path d="M227 27V359 M61 193H393" stroke="#ffffff40" stroke-width="1" stroke-dasharray="4 7"/>
+<path d="M227 27V15" stroke="#2c6d77" stroke-width="1.4"/>
+<text x="227" y="12" text-anchor="middle" font-size="13" font-weight="900" fill="#225668">ПОВЕРХНЯ</text>
+<path d="M365 102 L432 60" stroke="#c26a42" stroke-width="2"/>
+<text x="437" y="57" font-size="14" font-weight="800" fill="#275261">МАНТІЯ</text>
+<path d="M294 257 L429 298" stroke="#d78d40" stroke-width="2"/>
+<text x="434" y="310" font-size="13" font-weight="800" fill="#245c65">ЗОВНІШНЄ</text>
+<text x="434" y="326" font-size="13" font-weight="800" fill="#245c65">ЯДРО</text>
+<text x="227" y="189" font-size="10" text-anchor="middle" font-weight="900" fill="#623904">ТВЕРДЕ</text>
+<text x="227" y="201" font-size="10" text-anchor="middle" font-weight="900" fill="#623904">ЯДРО</text>
+<path d="M61 193L19 150" stroke="#225a69" stroke-width="1.6"/><text x="12" y="141" font-size="13" font-weight="900" fill="#225a69">КОРА</text>
+</svg>
+</div><p id="atlasModeText" class="geo-caption" aria-live="polite">У масштабі: кора товщиною 35 км — лише ≈0,9 пікселя на цьому розрізі; вона ледь помітна.</p>
+<div class="note">У реальній Землі немає кольорових шарів із рівними переходами. Кольори умовні, а межі встановлені за геофізичними даними.</div>
+</div>
+<div class="card"><h3>Модель №2 · Розріз від USGS</h3>
+<img class="geo-sourceimg" alt="Наукова ілюстрація USGS: геологічна будова Землі з масштабним розрізом і окремим збільшеним фрагментом" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Earth-cutaway-schematic-numbered.svg?width=900">
+<p class="geo-caption">Оригінальна схема Геологічної служби США (USGS). Тут розріз і окреме збільшення показують різні аспекти будови Землі.</p>
+<a href="https://commons.wikimedia.org/wiki/File:Earth-cutaway-schematic-numbered.svg" target="_blank" rel="noopener">Відкрити джерело та збільшити зображення</a>
+<h3 style="margin-top:24px">Три запитання до моделі</h3>
+<div class="geo-step"><span class="idx">1</span><span>Чому на великій кулі кора майже зникає?</span></div>
+<div class="geo-step"><span class="idx">2</span><span>Для чого поруч намалювали збільшений фрагмент кори?</span></div>
+<div class="geo-step"><span class="idx">3</span><span>Чого ця схема НЕ доводить: температури, стану речовини чи порядку шарів? Які ще дані потрібні?</span></div>
+</div>
+</div>
+<div class="card" style="margin-top:20px">
+<h3>Порівняльна таблиця. Не плутайте товщину, стан і склад</h3>
+<div class="geo-tablewrap"><table class="geo-table"><thead><tr><th>Частина Землі</th><th>Приблизна глибина</th><th>Стан речовини</th><th>Склад / уточнення</th><th>Як перевіряють</th></tr></thead><tbody>
+<tr><td><strong>Земна кора</strong></td><td>0–5/70+ км</td><td>Тверда</td><td>Різні гірські породи; під океаном переважає базальтовий тип, на материках склад різноманітніший</td><td>Зразки, буріння, хвилі</td></tr>
+<tr><td><strong>Мантія</strong></td><td>Нижче кори – ≈2 900 км</td><td>Переважно тверда, повільно деформується</td><td>Силікатні породи з магнієм та залізом</td><td>Сейсмічні хвилі, експерименти, вулканічні породи</td></tr>
+<tr><td><strong>Зовнішнє ядро</strong></td><td>≈2 900–5 150 км</td><td>Рідка</td><td>Переважно залізо з іншими елементами</td><td>Поведінка P- і S-хвиль, магнітне поле</td></tr>
+<tr><td><strong>Внутрішнє ядро</strong></td><td>≈5 150–6 371 км</td><td>Тверда</td><td>Переважно залізо; температура велика, але тиск колосальний</td><td>Сейсмологічні моделі й фізика високого тиску</td></tr>
+</tbody></table></div>
+<div class="note orange"><strong>Дві класифікації:</strong> за складом — <em>кора, мантія, ядро</em>. За механічними властивостями — <em>літосфера</em> (кора + верхня жорстка мантія), <em>астеносфера</em> (пластична частина верхньої мантії), інші глибинні частини. Не можна ставити літосферу «між корою і мантією» — це перетин різних способів опису.</div>
+</div>
+</div></section>
+
+<section id="geomodel-lab" style="background:#eaf3f3"><div class="wrap">
+<div class="section-tag">ЛАБОРАТОРІЯ РОЗБІРНОЇ МОДЕЛІ · ГР1 / ГР3</div>
+<h2 class="atlas-title">Побудуйте модель, а потім знайдіть у ній помилки</h2>
+<p class="intro">Мета з КТП: назвати основні шари й оболонки, змоделювати їхнє розташування та пояснити відмінності. Наукове мислення починається не з красивої кулі, а з пояснення, <strong>що вона показує точно, а що лише умовно</strong>.</p>
+<div class="grid2">
+<div class="geo-tool">
+<h3>Віртуальна робота з масштабом</h3>
+<label class="geo-label" for="atlasRadius">Радіус вашої моделі: <span class="geo-mono" id="atlasRadiusValue">20</span> см</label>
+<input id="atlasRadius" class="depth" type="range" min="5" max="60" step="1" value="20">
+<label class="geo-label" for="atlasCrust">Яку кору змоделюємо?</label>
+<select class="field" id="atlasCrust">
+<option value="7">Океанічну, ≈7 км</option>
+<option value="35" selected>Континентальну, ≈35 км</option>
+<option value="70">Потовщену під горами, ≈70 км</option>
+</select>
+<div class="geo-factgrid" style="grid-template-columns:repeat(2,1fr);margin-top:15px">
+<div class="geo-fact"><b id="atlasCrustMM">1,10 мм</b><span>Товщина кори в моделі</span></div>
+<div class="geo-fact"><b id="atlasInnerMM">38,3 мм</b><span>Радіус внутрішнього ядра</span></div>
+</div>
+<div class="geo-breakdown" aria-label="Приблизні частки радіуса Землі за товщиною шарів"><span style="width:.55%;background:#296b7a"></span><span style="width:44.83%;background:#d47642"></span><span style="width:35.47%;background:#f2a237"></span><span style="width:19.15%;background:#ead57f"></span></div>
+<p class="geo-mini">Смуга показує частки <strong>радіуса</strong>, не об'єму. Кора на ній майже невидима.</p>
+<button type="button" class="btn" id="atlasSaveData">Зберегти мої розрахунки нижче</button><p id="atlasSaved" class="feedback" aria-live="polite"></p>
+</div>
+<div class="geo-tool">
+<h3>Паперова / пластилінова модель: 6 кроків</h3>
+<div class="geo-step"><span class="idx">1</span><span>Позначте на папері <strong>центр</strong> і зовнішнє коло Землі.</span></div>
+<div class="geo-step"><span class="idx">2</span><span>Відміряйте радіус внутрішнього ядра, користуючись моделлю зліва.</span></div>
+<div class="geo-step"><span class="idx">3</span><span>Нанесіть зовнішнє ядро до глибини ≈2 900 км від поверхні (його радіус ≈3 481 км у реальності).</span></div>
+<div class="geo-step"><span class="idx">4</span><span>Заповніть простір до майже самої поверхні <strong>мантією</strong>.</span></div>
+<div class="geo-step"><span class="idx">5</span><span>Позначте кору: якщо її не видно, додайте окремий <strong>збільшений фрагмент</strong> з написом «не в масштабі».</span></div>
+<div class="geo-step"><span class="idx">6</span><span>Окремо намалюйте чотири географічні оболонки та <strong>поясніть їхню взаємодію</strong> на прикладі річки, ґрунту, дерева і повітря.</span></div>
+</div>
+</div>
+<div class="grid2" style="margin-top:18px">
+<div class="card">
+<h3>Спостереження → дані → висновок</h3>
+<p>Заповніть невеличкий протокол. Це не тест на пам’ять, а запис результатів власної моделі.</p>
+<label class="geo-label" for="protocolObservation">Що спостерігаю в моделі?</label><textarea id="protocolObservation" class="field" rows="2" placeholder="Кора дуже тонка, а ядро..."></textarea>
+<label class="geo-label" for="protocolEvidence">Які числові дані використано?</label><textarea id="protocolEvidence" class="field" rows="2" placeholder="Радіус 6 371 км; межа ядра..."></textarea>
+<label class="geo-label" for="protocolConclusion">Мій висновок і межі моделі</label><textarea id="protocolConclusion" class="field" rows="3" placeholder="Модель показує ..., однак не показує..."></textarea>
+<button type="button" class="btn" id="protocolCheck" style="margin-top:12px">Перевірити повноту протоколу</button>
+<p id="protocolFeedback" class="feedback" aria-live="polite"></p>
+</div>
+<div class="card">
+<h3>Критерії до практичної роботи</h3>
+<p>Відмічайте виконане. Максимум <strong>5 критеріїв</strong> (чеклист самооцінювання, не оцінка в журналі).</p>
+<div id="modelChecklist" class="choices">
+<label class="evidence"><input type="checkbox"><span>Підписані всі 4 внутрішні шари.</span></label>
+<label class="evidence"><input type="checkbox"><span>Мантія товстіша за кору, зовнішнє ядро оточує внутрішнє.</span></label>
+<label class="evidence"><input type="checkbox"><span>Позначено, що зовнішнє ядро рідке, а внутрішнє тверде.</span></label>
+<label class="evidence"><input type="checkbox"><span>Є дані про масштаб і пояснення спотворень.</span></label>
+<label class="evidence"><input type="checkbox"><span>Окремо показані чотири географічні оболонки та їхні зв'язки.</span></label>
+</div><p class="geo-labscore" id="modelChecklistScore">0 / 5</p>
+<div class="note">У пластилінової моделі тверда речовина використовується навіть для «рідкого» ядра — отже її кольори показують <strong>назви шарів</strong>, а не справжні стани речовини.</div>
+</div>
+</div></div></section>
+
+<section id="evidenceplus" style="background:#faf8f1"><div class="wrap">
+<div class="section-tag">ДОКАЗОВА ГЕОФІЗИКА · додатковий матеріал</div><h2 class="atlas-title">Сейсмічна лабораторія: не вірте на слово — перевіряйте докази</h2>
+<div class="grid2">
+<div class="card">
+<h3>Два типи хвиль — два різні спостереження</h3>
+<p><strong>P-хвилі</strong> — поздовжні, поширюються і в твердому тілі, і в рідині. <strong>S-хвилі</strong> — поперечні; у рідині не поширюються. Учені порівнюють записи зі станцій у різних частинах світу.</p>
+<div class="geo-canvas"><svg viewBox="0 0 580 310" role="img" aria-label="Схематичний шлях P і S сейсмічних хвиль через тверду мантію й рідке ядро">
+<defs><linearGradient id="seisMant" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e69b5c"/><stop offset="1" stop-color="#a64e31"/></linearGradient></defs>
+<circle cx="295" cy="155" r="137" fill="url(#seisMant)" stroke="#304c57" stroke-width="4"/>
+<circle cx="295" cy="155" r="75" fill="#f5bd59" stroke="#dc8130" stroke-width="2"/>
+<circle cx="295" cy="155" r="27" fill="#ffedab"/>
+<circle cx="295" cy="155" r="137" fill="none" stroke="#fff9" stroke-width="2"/>
+<circle cx="165" cy="124" r="8" fill="#1d7189" stroke="#fff" stroke-width="2"/>
+<path d="M165 124 Q285 68 424 170" stroke="#e7ffff" stroke-width="4" fill="none" stroke-dasharray="9 6"/>
+<path d="M165 124 Q199 206 252 218" stroke="#266f82" stroke-width="5" fill="none"/>
+<path d="M256 202L270 228 M270 202L256 228" stroke="#266f82" stroke-width="4"/>
+<text x="40" y="48" font-weight="900" fill="#17455b" font-size="15">P: проходить</text>
+<text x="35" y="66" fill="#17455b" font-size="13">заломлюється</text>
+<path d="M136 75L170 118" stroke="#226a79" stroke-width="1.8"/>
+<text x="45" y="266" font-weight="900" fill="#135b70" font-size="15">S: не проходить</text>
+<text x="45" y="284" fill="#135b70" font-size="13">через рідке ядро</text>
+<path d="M156 246L254 214" stroke="#226a79" stroke-width="1.8"/>
+<text x="295" y="151" text-anchor="middle" font-weight="900" font-size="11" fill="#64400f">РІДКЕ</text>
+<text x="295" y="165" text-anchor="middle" font-weight="900" font-size="11" fill="#64400f">ЯДРО</text>
+</svg></div>
+<p class="geo-caption">Схема логіки спостереження. Реальні сейсмічні хвилі йдуть складними, часто викривленими траєкторіями; лінії тут показують принцип, а не реальні промені.</p>
+<div class="atlas-tabs" id="waveModes"><button type="button" data-wave="p" aria-pressed="true">Перевірити P-хвилю</button><button type="button" data-wave="s" aria-pressed="false">Перевірити S-хвилю</button></div>
+<p class="note" id="waveText" aria-live="polite">P-хвиля проходить і крізь тверді шари, і крізь рідке зовнішнє ядро, але заломлюється: на різних глибинах її швидкість змінюється.</p>
+</div>
+<div class="card">
+<h3>Реальні сейсмічні дані: від графіка до висновку</h3>
+<img class="geo-sourceimg" src="https://www.earthscope.org/app/uploads/2025/03/Inside_the_Earth_Poster_v2-final-hires-01-png.webp" loading="lazy" alt="Науковий постер EarthScope з реальними сейсмограмами та внутрішньою будовою Землі" />
+<p class="geo-caption">Постер EarthScope Consortium (2025). Поєднує навчальний розріз із <strong>реальними записами сейсмічних станцій</strong>. Розгортайте для уважного читання.</p>
+<p><a href="https://www.earthscope.org/inside-the-earth-poster/" target="_blank" rel="noopener">Роздивитися постер у повному розмірі</a></p>
+<h3 style="margin-top:24px">Чотири кроки, як працює наука</h3>
+<div class="geo-step"><span class="idx">1</span><span>Відбувається землетрус — виникають хвилі.</span></div>
+<div class="geo-step"><span class="idx">2</span><span>Сейсмічні станції записують час приходу та коливання хвиль.</span></div>
+<div class="geo-step"><span class="idx">3</span><span>Дослідники порівнюють вимірювання з різних станцій.</span></div>
+<div class="geo-step"><span class="idx">4</span><span>На основі багатьох записів перевіряють модель шарів Землі.</span></div>
+</div></div>
+<div class="card" style="margin-top:18px">
+<h3>Лабораторія «Дані чи припущення?»</h3><p>Для кожного речення визначте тип: <strong>вимірювання</strong> (безпосереднє число/запис), <strong>висновок</strong> (пояснення даних) чи <strong>помилка</strong> (необґрунтоване твердження).</p>
+<div id="geoEvidenceGame"></div><button class="btn" type="button" id="geoEvidenceCheck">Перевірити всі 6 суджень</button><p id="geoEvidenceFeedback" class="feedback" aria-live="polite"></p>
+</div>
+</div></section>
+
+<section id="geoacademy" style="background:#f1f8f6"><div class="wrap">
+<div class="section-tag">ТРЕНАЖЕР · 12 НАВЧАЛЬНИХ КЕЙСІВ</div>
+<h2 class="atlas-title">Геологічне бюро: перевірте, чи справді розумієте Землю</h2>
+<p class="intro">Ці завдання не потребують заучування нових фактів. Вони змушують використати модель, співставити дані й знайти помилку. Після відповіді відкриється <strong>наукове пояснення</strong>. Тренажер не замінює домашній тест /10.</p>
+<div class="geo-ribbon"><span>Рівень 1 · 4 завдання</span><span>Рівень 2 · 4 завдання</span><span>Рівень 3 · 4 завдання</span></div>
+<div class="geo-progress" aria-label="Частка виконаних завдань"><span id="geoAcademyBar"></span></div>
+<p class="geo-mini" id="geoAcademyProgress" aria-live="polite">Перевірено 0 із 12</p>
+<div id="geoAcademyTasks"></div>
+<div class="card" style="margin-top:18px"><h3>Після тренажера</h3><p>Оберіть одну відповідь, яку спочатку дали неправильно. Поясніть: <strong>які дані допомогли Вам змінити думку?</strong> Це важливіше за швидкість проходження.</p></div>
+</div></section>
 <section id="theory" style="background:#fff"><div class="wrap">
 <div class="section-tag">06 · Науковий конспект · 21–31 хв</div><div class="section-head"><h2 class="section-title">Що саме треба зрозуміти</h2><span class="time">10 хв</span></div>
 <div class="grid2">
@@ -206,7 +438,7 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 <div class="section-tag">08 · Домашній маршрут · Після уроку</div><h2 class="section-title">Повторіть, потренуйтеся, збережіть результат</h2>
 <div class="grid3">
 <div class="card"><span class="pill">1 · Підручник</span><h3>§ 20</h3><p>«Пізнаємо природу», 5 клас, Д. Біда, Т. Гільберг, Я. Колісник. Порівняйте модель з малюнком у підручнику.</p><a target="_blank" rel="noopener" href="https://www.geneza.ua/product/1095">Офіційна сторінка підручника «Генеза»</a></div>
-<div class="card"><span class="pill">2 · Відео — обов'язкове</span><h3>Внутрішня будова Землі</h3><p>Український канал «Географія ПРОСТО». Пригадайте, чим кора відрізняється від літосфери.</p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4ur8pRU9tTU">Переглянути пояснення українською</a></div>
+<div class="card"><span class="pill">2 · Відео — обов'язкове</span><h3>Внутрішня будова Землі</h3><p>Український навчальний ролик «Яку будову має Земля» (Тетяна Черепня). Пригадайте, чим кора відрізняється від літосфери.</p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5VUW4xZN1f0">Переглянути пояснення українською</a></div>
 <div class="card"><span class="pill">3 · Завдання на вибір</span><h3>Одна тема — різна складність</h3><p><strong>Базовий:</strong> підписати 4 шари на моделі. <strong>Достатній:</strong> пояснити стан речовини 4 шарів і 2 обмеження моделі. <strong>Високий:</strong> оцінити, які дані підтверджують рідкість зовнішнього ядра, і чого самих цих даних не доводять.</p></div>
 </div>
 <div class="card" style="margin-top:22px" id="testCard">
@@ -221,13 +453,14 @@ footer a{color:#b9eeef}.printonly{display:none}.source-list a{word-break:break-w
 </div>
 <div class="card source-list" style="margin-top:22px"><h3>Джерела та перевірка фактів</h3><ul>
 <li><a href="https://science.nasa.gov/earth/facts/" target="_blank" rel="noopener">NASA Science: Facts about Earth</a> — склад і стан основних шарів, глибини.</li>
-<li><a href="https://pubs.usgs.gov/gip/dynamic/inside.html" target="_blank" rel="noopener">USGS: Inside the Earth</a> — літосфера, мантія, ядро й сейсмічні дані.</li>
+<li><a href="https://pubs.usgs.gov/gip/interior/index.html" target="_blank" rel="noopener">USGS: Inside the Earth</a> — літосфера, мантія, ядро й сейсмічні дані.</li>
+<li><a href="https://www.earthscope.org/inside-the-earth-poster/" target="_blank" rel="noopener">EarthScope: What’s Inside the Earth?</a> — геофізичні вимірювання і реальні сейсмограми (постер 2025 року).</li>
 <li><a href="https://www.geneza.ua/product/1095" target="_blank" rel="noopener">«Генеза»: підручник курсу</a> — автори Біда, Гільберг, Колісник.</li>
-<li><a href="https://commons.wikimedia.org/wiki/File:The_Blue_Marble_4463x4163.jpg" target="_blank" rel="noopener">NASA / Apollo 17</a> — фото Землі; <a href="https://www.asc-csa.gc.ca/fra/multimedia/recherche/image/12670" target="_blank" rel="noopener">Канадське космічне агентство</a> — атмосфера з орбіти.</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:The_Blue_Marble_4463x4163.jpg" target="_blank" rel="noopener">NASA / Apollo 17</a> — фото Землі; <a href="https://commons.wikimedia.org/wiki/File:ISS062-E-98264_-_View_of_atmospheric_limb.jpg" target="_blank" rel="noopener">Канадське космічне агентство</a> — атмосфера з орбіти.</li>
 </ul><p class="small">Зовнішні фото та відео потребують інтернету. Моделі, тренажери, тест і текст працюють локально. Усі розрізи Землі тут — схеми, а не фотографії підземних шарів.</p></div>
 </div></section>
 </main>
-<footer><div class="wrap"><strong>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</strong><p>«Пізнаємо природу» · 5-А · Урок 20 · 16 листопада 2026 · § 20 · ГР1, ГР3</p><a href="#top">↑ На початок уроку</a></div></footer>
+<footer><div class="wrap"><strong>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</strong><p>«Пізнаємо природу» · 5-А · Урок 20 · 16 листопада 2026 · § 20 · ГР1, ГР3 · науковий атлас і тренажер 12 кейсів</p><a href="#top">↑ На початок уроку</a></div></footer>
 <script>
 'use strict';
 const $ = id => document.getElementById(id);
@@ -299,6 +532,112 @@ $('scoreCard').focus();$('scoreCard').scrollIntoView({behavior:'smooth',block:'c
 });
 $('retryQuiz').addEventListener('click',()=>{if(!confirm('Пройти тест ще раз? Попередній результат буде приховано, але ім’я та клас залишаться.'))return;$('scoreCard').hidden=true;$('quizWrap').hidden=false;$('quizFeedback').textContent='';renderQuiz();$('submitQuiz').disabled=false;$('quizWrap').scrollIntoView({behavior:'smooth',block:'start'})});
 $('printScore').addEventListener('click',()=>window.print());
+
+/* Науковий атлас і розширені тренажери — працюють без зовнішніх JS-бібліотек. */
+(() => {
+const modes=[...document.querySelectorAll('#atlasModes button')];
+modes.forEach(btn=>btn.addEventListener('click',()=>{
+  modes.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+  const isStudy=btn.dataset.mode==='study';
+  $('atlasMantle').setAttribute('r',isStudy?'146.5':'165.09');
+  $('atlasModeText').textContent=isStudy
+  ? 'Навчальна схема: кора збільшена до ≈19,5 пікселя (у 20 разів товще за масштаб). Зручно для підписів, але це не справжні пропорції.'
+  : 'У масштабі: кора товщиною 35 км — лише ≈0,9 пікселя на цьому розрізі; вона ледь помітна.';
+}));
+function formatUA(n,dec=2){return n.toLocaleString('uk-UA',{maximumFractionDigits:dec,minimumFractionDigits:dec})}
+function calculateAtlas(){
+const r=+$('atlasRadius').value;
+const c=+$('atlasCrust').value;
+$('atlasRadiusValue').textContent=r;
+$('atlasCrustMM').textContent=formatUA(r*10*c/6371)+' мм';
+$('atlasInnerMM').textContent=formatUA(r*10*1221/6371,1)+' мм';
+}
+$('atlasRadius').addEventListener('input',calculateAtlas);
+$('atlasCrust').addEventListener('change',calculateAtlas);calculateAtlas();
+$('atlasSaveData').addEventListener('click',()=>{
+const r=+$('atlasRadius').value,c=+$('atlasCrust').value;
+$('atlasSaved').textContent='Для радіуса '+r+' см: кора ≈'+formatUA(r*10*c/6371)+' мм; внутрішнє ядро має радіус ≈'+formatUA(r*10*1221/6371,1)+' мм. Запишіть у протокол і поясніть масштаб.';
+$('protocolEvidence').value='Радіус Землі: 6 371 км. Радіус моделі: '+r+' см. Товщина кори '+c+' км у моделі ≈'+formatUA(r*10*c/6371)+' мм; радіус внутрішнього ядра ≈'+formatUA(r*10*1221/6371,1)+' мм.';
+});
+$('protocolCheck').addEventListener('click',()=>{
+const vals=['protocolObservation','protocolEvidence','protocolConclusion'].map(id=>$(id).value.trim());
+const ok=vals.every(v=>v.length>22);
+$('protocolFeedback').classList.toggle('warn',!ok);
+$('protocolFeedback').textContent=ok?'Усі три частини заповнені. Тепер перевірте: чи вказали не менш як один числовий доказ і одне обмеження моделі? Правильність змісту оцінює вчитель.':'У кожній із трьох частин потрібно змістовне речення: спостереження, дані та висновок із застереженням щодо моделі.';
+});
+const cbs=[...document.querySelectorAll('#modelChecklist input')];
+function checklist(){const x=cbs.filter(c=>c.checked).length;$('modelChecklistScore').textContent=x+' / 5';}
+cbs.forEach(cb=>cb.addEventListener('change',checklist));checklist();
+const waves=[...document.querySelectorAll('#waveModes button')];
+waves.forEach(btn=>btn.addEventListener('click',()=>{
+waves.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+$('waveText').textContent=btn.dataset.wave==='p'
+?'P-хвиля проходить і крізь тверді шари, і крізь рідке зовнішнє ядро, але заломлюється: на різних глибинах її швидкість змінюється.'
+:'S-хвиля не проходить крізь рідке зовнішнє ядро. Ця закономірність — важливий доказ рідкого стану зовнішнього ядра. Реальні спостереження складаються з багатьох вимірювань.';
+}));
+const judgement=[
+{q:'Прилад зафіксував прихід P-хвилі через 180 секунд після землетрусу.',a:'data',why:'Названо безпосередній запис часу приходу хвилі.'},
+{q:'Оскільки S-хвилі не проходять крізь зовнішнє ядро, воно є рідким.',a:'conclusion',why:'Це науковий висновок, що пояснює багато вимірювань.'},
+{q:'На фотографії видно виверження вулкана; отже ВСЯ мантія рідка.',a:'error',why:'Локальне плавлення порід не доводить рідкого стану всієї мантії.'},
+{q:'Вимірювання показали, що радіус Землі становить приблизно 6 371 км.',a:'data',why:'Це числовий результат геодезичних і геофізичних вимірювань.'},
+{q:'Товща мантії деформується дуже повільно, хоча переважно є твердою.',a:'conclusion',why:'Це узагальнення фізичних моделей і спостережень; не пряме фото мантії.'},
+{q:'Земне ядро має синій колір — адже так зображено на моєму макеті.',a:'error',why:'Кольори в моделях умовні та не є вимірюванням кольору глибоких шарів.'}
+];
+judgement.forEach((item,i)=>{
+const div=document.createElement('div');div.className='matchrow';
+const label=document.createElement('span');label.textContent=(i+1)+'. '+item.q;
+const select=document.createElement('select');select.className='field';select.setAttribute('data-judge',String(i));select.setAttribute('aria-label','Тип судження '+(i+1));
+select.innerHTML='<option value="">Оберіть тип</option><option value="data">Вимірювання</option><option value="conclusion">Науковий висновок</option><option value="error">Необґрунтоване твердження</option>';
+div.append(label,select);$('geoEvidenceGame').append(div);
+});
+$('geoEvidenceCheck').addEventListener('click',()=>{
+const selections=[...document.querySelectorAll('[data-judge]')].map(s=>s.value);
+if(selections.includes('')){mark('geoEvidenceFeedback','Оберіть тип для всіх шести речень.',false);return;}
+let correct=0;const notes=[];
+selections.forEach((x,i)=>{if(x===judgement[i].a)correct++;else notes.push((i+1)+': '+judgement[i].why)});
+mark('geoEvidenceFeedback','Правильно '+correct+' із 6. '+(notes.length?'Розберіть ці речення: '+notes.join(' '):'Ви відрізнили факти вимірювання від пояснень і помилок!'),correct===6);
+});
+const academy=[
+{level:'Рівень 1 · аналіз моделі',q:'Під океаном кора приблизно 7 км, а під материком 35 км. Що випливає з цих даних?',options:['Під океаном кора зазвичай тонша','Під океаном немає мантії','Над материками немає літосфери','Материкова кора завжди містить залізне ядро'],a:0,why:'Товщина кори різниться. Мантія лежить під обома типами кори.'},
+{level:'Рівень 1 · порівняння',q:'Якщо радіус Землі ≈6 371 км, а глибина зовнішнього ядра починається біля 2 900 км, що займає більшу частину шляху від поверхні до ядра?',options:['Земна кора','Мантія','Внутрішнє ядро','Атмосфера'],a:1,why:'Мантія простягається майже до 2 900 км. Земна кора займає лише десятки кілометрів.'},
+{level:'Рівень 1 · склад',q:'Яке твердження про речовину шарів є правильним?',options:['Кора складається виключно із заліза','Мантія переважно складена силікатними породами','Зовнішнє ядро складається переважно з води','Атмосфера є одним із шарів ядра'],a:1,why:'Мантія — силікатні породи; ядро — переважно залізовмісна речовина.'},
+{level:'Рівень 1 · поняття',q:'Яка пара назв НЕ описує однаковий спосіб поділу земної будови?',options:['Кора — мантія','Зовнішнє ядро — внутрішнє ядро','Кора — літосфера','Мантія — ядро'],a:2,why:'«Літосфера» — механічна категорія, що охоплює кору та верхню жорстку мантію. Інші пари — шари за складом або частини ядра.'},
+{level:'Рівень 2 · наукове рішення',q:'Під час землетрусу прилади виявили, що одна хвиля не проходить через певний глибинний шар. Який додатковий крок найкращий?',options:['Одразу визнати всю Землю рідкою','Порівняти записи P- і S-хвиль із багатьох станцій','Намалювати ще одну яскраву схему','З'ясувати колір шарів на фото Землі'],a:1,why:'Потрібні незалежні сейсмічні записи. Один сигнал — недостатня підстава для глобального висновку.'},
+{level:'Рівень 2 · оцінка масштабів',q:'Навчальний макет має радіус 20 см. Приблизно якою буде континентальна кора 35 км у масштабі?',options:['1,1 мм','11 см','7 см','3 см'],a:0,why:'20 см × 35 / 6 371 ≈ 0,11 см = 1,1 мм.'},
+{level:'Рівень 2 · система оболонок',q:'Річка розмиває гірську породу, переносить частинки, а риби живуть у її воді. Яка пара процесів пов’язана безпосередньо?',options:['Літосфера ↔ гідросфера, а також гідросфера ↔ біосфера','Лише атмосфера ↔ ядро','Тільки внутрішнє ↔ зовнішнє ядро','Лише земна кора ↔ Сонце'],a:0,why:'Вода взаємодіє з породами під час ерозії, а живі організми існують у воді.'},
+{level:'Рівень 2 · геофізика',q:'Дослідник бачить розлом і лаву, але не має сейсмічних даних. Чи може він лише за цією картиною стверджувати, що зовнішнє ядро рідке?',options:['Так, будь-яка лава є речовиною ядра','Так, виверження — пряме фото ядра','Ні, лава не дає прямих даних про стан ядра','Ні, бо ядра у Землі немає'],a:2,why:'Лава має зв’язок із частковим плавленням порід у корі чи верхній мантії, не є пробою зовнішнього ядра.'},
+{level:'Рівень 3 · логічна пастка',q:'У макеті кора намальована на 5 мм, а мантія — на 3 см. Який перший крок для наукового порівняння?',options:['Попросити автора пояснити масштаб і співвідношення товщин','Проголосувати, який колір красивіший','Визнати пропорції достовірними','Додати до моделі напис «фото ядра»'],a:0,why:'Без масштабу неможливо оцінити точність розмірів. Красива схема не дорівнює точній.'},
+{level:'Рівень 3 · межі доказу',q:'Сейсмічні хвилі дозволили встановити наявність меж шарів. Яке з наведеного НЕ випливає з таких даних без додаткової інформації?',options:['Властивості речовини в надрах змінюються','На певних глибинах є межі','Кожен шар має той самий колір, що на схемі','Деякі хвилі по-різному проходять крізь рідину й тверді тіла'],a:2,why:'Кольори моделей — домовленість художника; хвилі не показують кольори глибоких порід.'},
+{level:'Рівень 3 · фізичне пояснення',q:'Чому внутрішнє ядро тверде, хоча його температура дуже висока?',options:['У центрі немає тиску','Великий тиск підвищує температуру плавлення речовини','Внутрішнє ядро складається тільки з льоду','Там немає заліза'],a:1,why:'За колосального тиску температура плавлення заліза вища, тому внутрішнє ядро залишається твердим.'},
+{level:'Рівень 3 · наукова аргументація',q:'Який звіт найкраще відповідає вимогам «висновок — доказ — обмеження»?',options:['«Мені подобається жовте ядро, значить це правда».','«Ядро рідке, бо так сказав приятель».','«S-хвилі не проходять крізь зовнішнє ядро; це підтримує висновок про його рідкість, але для повної моделі потрібні й інші вимірювання».','«Усі шари однакові, бо Земля кругла».'],a:2,why:'Лише третій варіант містить вимірюваний доказ, фізичне пояснення і межі висновку.'}
+];
+const solved=new Set();
+academy.forEach((item,i)=>{
+ const block=document.createElement('div');block.className='geo-question';
+ const heading=document.createElement('h3');heading.textContent=(i+1)+'. '+item.q;block.append(heading);
+ const badge=document.createElement('small');badge.textContent=item.level;block.append(badge);
+ const answerBox=document.createElement('div');answerBox.className='choices';
+ item.options.forEach((opt,j)=>{
+ const l=document.createElement('label');l.className='choice';
+ const input=document.createElement('input');input.type='radio';input.name='academy'+i;input.value=String(j);
+ l.append(input,document.createTextNode(' '+opt));answerBox.append(l);
+ });
+ block.append(answerBox);
+ const button=document.createElement('button');button.type='button';button.className='btn btn-alt';button.textContent='Перевірити мій висновок';block.append(button);
+ const feedback=document.createElement('div');feedback.className='geo-result';feedback.hidden=true;feedback.setAttribute('aria-live','polite');block.append(feedback);
+ button.addEventListener('click',()=>{
+ const checked=block.querySelector('input:checked');
+ if(!checked){feedback.hidden=false;feedback.className='geo-result bad';feedback.textContent='Спочатку оберіть варіант відповіді.';return;}
+ const correct=+checked.value===item.a;
+ feedback.hidden=false;feedback.className='geo-result'+(correct?'':' bad');
+ feedback.textContent=(correct?'✓ Обґрунтовано. ':'Спробуйте інакше. ')+item.why;
+ if(correct){solved.add(i);button.textContent='Правильну відповідь знайдено';button.disabled=true;block.querySelectorAll('input').forEach(el=>el.disabled=true)}
+ $('geoAcademyProgress').textContent='Розв’язано '+solved.size+' із 12 завдань. '+(solved.size===12?'Ви опрацювали всі 12 кейсів — сформулюйте CER висновок.':'');
+ $('geoAcademyBar').style.width=(solved.size/12*100)+'%';
+ });
+ $('geoAcademyTasks').append(block);
+});
+})();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
 </body></html>
