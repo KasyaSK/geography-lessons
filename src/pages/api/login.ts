@@ -21,18 +21,15 @@ export const POST: APIRoute=async ({request,locals})=>{
  let pw='';
  try{pw=String((await request.json()).password||'')}catch{return json({error:'Некоректний запит'},400)}
  if(pw.length>128||pw.length<1)return json({error:'Не вдалося увійти'},401);
- let step='verify';
  try{
   const ok=await validPassword(pw);
   if(!ok)return json({error:'Неправильний код доступу'},401);
-  step='session';
   const db=dbFrom(locals),bytes=crypto.getRandomValues(new Uint8Array(32));
   const token=Array.from(bytes).map(v=>v.toString(16).padStart(2,'0')).join('');
   const tokenHash=await hashToken(token);
-  step='insert';
   await db.prepare("INSERT INTO teacher_sessions(token_hash,expires_at) VALUES(?,datetime('now','+8 hours'))").bind(tokenHash).run();
   const response=json({authenticated:true});
   response.headers.set('Set-Cookie','nk_teacher='+token+'; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=28800');
   return response;
- }catch(e){ console.error('teacher-login-runtime-error',e); return json({error:'Помилка сервера автентифікації',step},503) }
+ }catch(e){ console.error('teacher-login-runtime-error',e); return json({error:'Помилка сервера автентифікації'},503) }
 };
