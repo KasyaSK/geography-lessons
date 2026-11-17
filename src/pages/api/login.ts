@@ -26,5 +26,5 @@ export const POST: APIRoute=async ({request,locals})=>{
   const response=json({authenticated:true});
   response.headers.set('Set-Cookie','nk_teacher='+token+'; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=28800');
   return response;
- }catch{ return json({error:'Помилка сервера автентифікації'},503) }
+ }catch(e){ console.error('teacher-login-runtime-error',e); return json({error:'Помилка сервера автентифікації'},503) }
 };
