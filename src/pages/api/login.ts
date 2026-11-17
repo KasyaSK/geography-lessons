@@ -1,17 +1,17 @@
 import type { APIRoute } from 'astro';
 import { dbFrom,json,sameOrigin,hashToken } from '../../lib/core';
 export const prerender = false;
-const SALT='UntCHUTQ59Ir9XFNRgip0g==';
-const HASH='WUdZvgZPnk/FPRs1j1L8gazOsIV7lJ54CRjEALvnGCA=';
-function b64(s:string){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
+const SALT='527b421d44d0e7d22bf5714d4608a9d2';
+const HASH='594759be064f9e4fc53d1b358f52fc81acceb0857b949e780918c400bbe71820';
+function bytesFromHex(s:string){return Uint8Array.from(s.match(/.{2}/g)||[],x=>parseInt(x,16))}
 async function validPassword(password:string):Promise<boolean>{
- const salt=b64(SALT);
+ const salt=bytesFromHex(SALT);
  const passwordBytes=new TextEncoder().encode(password);
  const combined=new Uint8Array(salt.length+passwordBytes.length);
  combined.set(salt,0);
  combined.set(passwordBytes,salt.length);
  const digest=await crypto.subtle.digest('SHA-256',combined);
- const actual=new Uint8Array(digest),expected=b64(HASH);
+ const actual=new Uint8Array(digest),expected=bytesFromHex(HASH);
  let diff=actual.length^expected.length;
  for(let i=0;i<expected.length;i++)diff|=((actual[i]??0)^expected[i]);
  return diff===0;
