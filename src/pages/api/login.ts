@@ -2,13 +2,18 @@ import type { APIRoute } from 'astro';
 import { dbFrom,json,sameOrigin,hashToken } from '../../lib/core';
 export const prerender = false;
 const SALT='UntCHUTQ59Ir9XFNRgip0g==';
-const HASH='r7M/EmUBYUlftuZgZMSm+7C7Cc871L8cuL2WvzJ7YVs=';
+const HASH='WUdZvgZPnk/FPRs1j1L8gazOsIV7lJ54CRjEALvnGCA=';
 function b64(s:string){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
 async function validPassword(password:string):Promise<boolean>{
- const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);
- const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:b64(SALT),iterations:250000,hash:'SHA-256'},k,256);
- const actual=new Uint8Array(bits),expected=b64(HASH);
- let diff=0;for(let i=0;i<actual.length;i++)diff|=(actual[i]^expected[i]);
+ const salt=b64(SALT);
+ const passwordBytes=new TextEncoder().encode(password);
+ const combined=new Uint8Array(salt.length+passwordBytes.length);
+ combined.set(salt,0);
+ combined.set(passwordBytes,salt.length);
+ const digest=await crypto.subtle.digest('SHA-256',combined);
+ const actual=new Uint8Array(digest),expected=b64(HASH);
+ let diff=actual.length^expected.length;
+ for(let i=0;i<expected.length;i++)diff|=((actual[i]??0)^expected[i]);
  return diff===0;
 }
 export const POST: APIRoute=async ({request,locals})=>{
