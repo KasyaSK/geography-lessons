@@ -1,8 +1,8 @@
 import type { APIRoute } from 'astro';
 import { dbFrom,json,sameOrigin,hashToken } from '../../lib/core';
 export const prerender = false;
-const SALT='527b421d44d0e7d22bf5714d4608a9d2';
-const HASH='594759be064f9e4fc53d1b358f52fc81acceb0857b949e780918c400bbe71820';
+const SALT='ae1e2c7af51f67e421133f917aa6df29';
+const HASH='0ce839ae2e3fda9442d2a906121916603709b507a41288f4b251e869a10fc51e';
 function bytesFromHex(s:string){return Uint8Array.from(s.match(/.{2}/g)||[],x=>parseInt(x,16))}
 async function validPassword(password:string):Promise<boolean>{
  const salt=bytesFromHex(SALT);
