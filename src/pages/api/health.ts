@@ -32,7 +32,14 @@ export const GET: APIRoute=async ({locals})=>{
     const row=await db.prepare("SELECT count(*) AS n FROM teacher_sessions").first();
     sessionSqlCheck=typeof row?.n==='number'?'ok':'other-result';
   }catch(e:any){sessionSqlCheck=String(e?.name||'unknown');}
-  return json({ready:digestCheck==='ok'&&randomCheck==='ok'&&sessionSqlCheck==='ok',code:'CHECKED',digestCheck,randomCheck,sessionSqlCheck});
+  let dbWriteCheck='unchecked';
+  try{
+    const key='healthprobe-'+crypto.randomUUID();
+    await db.prepare("INSERT INTO teacher_sessions(token_hash,expires_at) VALUES(?,datetime('now','+1 second'))").bind(key).run();
+    await db.prepare("DELETE FROM teacher_sessions WHERE token_hash=?").bind(key).run();
+    dbWriteCheck='ok';
+  }catch(e:any){dbWriteCheck=String(e?.name||'unknown')+' '+String(e?.message||'').slice(0,90);}
+  return json({ready:digestCheck==='ok'&&randomCheck==='ok'&&sessionSqlCheck==='ok'&&dbWriteCheck==='ok',code:'CHECKED',digestCheck,randomCheck,sessionSqlCheck,dbWriteCheck});
  }catch(e:any){
   console.error('D1 health check',e?.message);
   return json({ready:false,code:'DATABASE_ERROR'},503);
