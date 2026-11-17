@@ -49,6 +49,67 @@ footer{text-align:center;font-size:12px;color:#6d8396;padding:18px 20px 35px}
 @media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:220px;font-size:90px}.hero-copy{padding:27px}.stations{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){header{padding:13px 15px}.brand strong{font-size:12px}.hero{border-radius:23px}.stations{grid-template-columns:1fr}.hero h1{font-size:36px}.hero p{font-size:15px}.card{padding:23px}.controls .btn{flex:1}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* BRIGHT STEM FESTIVAL: shared school-friendly visual layer */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
+body{background:radial-gradient(circle at 0% 0%,#fff0ac 0,transparent 26%),radial-gradient(circle at 100% 8%,#ffd6ee 0,transparent 23%),radial-gradient(circle at 5% 90%,#dcf8ff 0,transparent 24%),#fffaf2;color:#203451}
+header{backdrop-filter:blur(15px);background:#ffffffef;border-bottom:2px solid #f1e8f2}
+.brand strong{font-family:'Baloo 2',Nunito,sans-serif;letter-spacing:0;font-size:21px}
+.mark{background:linear-gradient(145deg,#1e7afd,#16b9f5);box-shadow:6px 6px 0 #ffe176;transform:rotate(-5deg)}
+header a{border-radius:999px;background:#fff;border:2px solid #e6eafa;box-shadow:0 7px 14px #2c4b8810}
+.hero{background:linear-gradient(125deg,#2a81ff,#7a5dff 55%,#ff6fad);border-radius:36px;min-height:540px;box-shadow:0 25px 60px #5e50c63e;position:relative;isolation:isolate}
+.hero:before{content:'✦';position:absolute;font-size:76px;right:4%;top:1%;opacity:.42;color:#ffeb74}
+.hero:after{content:'';position:absolute;width:200px;height:200px;left:-60px;bottom:-80px;border-radius:50%;background:#fff5a4;opacity:.16}
+.hero-copy{position:relative;z-index:1}
+.kicker{display:inline-flex;align-self:flex-start;background:#ffffff27;border-radius:999px;padding:9px 14px;color:#fff3ad;font-size:12px}
+h1,.section-title,.station h3,.card h2,.result strong{font-family:'Baloo 2',Nunito,sans-serif;letter-spacing:-.018em}
+h1{font-size:clamp(42px,5.8vw,75px);line-height:1.03;margin:20px 0}
+.hero p{font-size:17px;line-height:1.85;color:#faf7ff}
+.btn{min-height:55px;border-radius:17px;font-weight:900;font-size:15px;transition:transform .2s ease}
+.btn:hover{transform:translateY(-3px)}
+.btn:not(.alt){background:#ffdf60;color:#273b51;box-shadow:0 7px 0 #cda73f}
+.btn.alt{background:#ffffff28;border:2px solid #ffffff75}
+.stats{gap:13px}
+.stat{border:1px solid #ffffff38;border-radius:17px;padding:12px 17px;background:#ffffff23;font-size:13px}
+.stat b{font-family:'Baloo 2',Nunito,sans-serif;font-size:29px;color:white}
+.hero-art{min-height:500px;isolation:isolate;background:repeating-radial-gradient(circle at center,transparent 0,transparent 51px,#ffffff1b 52px,#ffffff1b 54px)}
+.hero-art>span{display:grid;place-items:center;width:min(350px,76%);height:350px;border-radius:50%;font-size:115px;box-shadow:0 23px 0 #38348325,0 32px 65px #122f8d55;background:radial-gradient(circle at 30% 26%,#fff7bb 0,#a0f4fc 35%,#49b9fa 60%,#5065ed 100%);position:relative;z-index:1;transform:rotate(-8deg)}
+.hero-art>span:after{content:'';position:absolute;width:130%;height:34%;border-radius:100%;border:6px solid #ffdf75a8;transform:rotate(-18deg);z-index:-1}
+.sticker{font-size:14px;padding:13px 17px;border-radius:19px;box-shadow:0 10px 0 #26397e30,0 22px 36px #26397e2c;background:white;color:#28567f}
+.sticker.a{left:3%;top:15%;transform:rotate(-9deg)}
+.sticker.b{right:3%;bottom:14%;transform:rotate(9deg)}
+.sticker.extra{position:absolute;right:4%;top:15%;transform:rotate(7deg)}
+.sticker.extra2{position:absolute;left:9%;bottom:14%;transform:rotate(-6deg)}
+.section-title{font-size:clamp(31px,3.7vw,47px);line-height:1.13;margin:40px 0 20px}
+.stations{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.station{border:2px solid #eeeaf5;border-radius:27px;box-shadow:0 14px 30px #454b891c;padding:27px;transition:transform .2s}
+.station:hover{transform:translateY(-4px)}
+.station:nth-child(6n+1){background:linear-gradient(#fff,#eff9ff);border-bottom:7px solid #54bafe}
+.station:nth-child(6n+2){background:linear-gradient(#fff,#fff6d9);border-bottom:7px solid #ffc951}
+.station:nth-child(6n+3){background:linear-gradient(#fff,#ffeff9);border-bottom:7px solid #ff80bc}
+.station:nth-child(6n+4){background:linear-gradient(#fff,#edfff7);border-bottom:7px solid #53d5aa}
+.station:nth-child(6n+5){background:linear-gradient(#fff,#f2eeff);border-bottom:7px solid #a58bff}
+.station:nth-child(6n+6){background:linear-gradient(#fff,#e9faff);border-bottom:7px solid #59cadf}
+.station i{font-size:47px;font-style:normal;display:inline-block;background:#ffffffb8;padding:10px;border-radius:21px}
+.station h3{font-size:26px;line-height:1.1}
+.station p{font-size:15px;font-weight:700;line-height:1.8}
+.adventure-route{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0 36px}
+.adventure-route>div{background:white;border:2px solid #eee9f4;border-radius:20px;box-shadow:0 9px 25px #324c7d14;padding:18px;display:flex;gap:11px;align-items:flex-start}
+.adventure-route i{font-style:normal;flex-shrink:0;font-size:26px;border-radius:14px;width:44px;height:44px;display:grid;place-items:center;background:#e3f2ff}
+.adventure-route>div:nth-child(2) i{background:#fff2ba}.adventure-route>div:nth-child(3) i{background:#ffe0ed}.adventure-route>div:nth-child(4) i{background:#e1faee}
+.adventure-route b{display:block;font-size:15px;font-weight:900}
+.adventure-route small{display:block;color:#6c8298;font-size:12px;line-height:1.4;margin-top:4px;font-weight:700}
+.card{border:2px solid #eeeaf5;border-radius:28px}
+.card h2{font-size:clamp(32px,3.8vw,44px)}
+.card input{border-radius:17px;border-width:2px;font-size:17px}
+.prompt{border-left:6px solid #317ffb;background:#edf8ff;border-radius:16px;padding:21px}
+.bar{height:15px}.bar span{background:linear-gradient(90deg,#33c4e5,#7d6cff,#ff77aa)}
+.result{border-radius:26px;background:linear-gradient(120deg,#2b85ff,#8064ff,#ff74b3)}
+.result strong{font-size:74px}
+@media(max-width:1050px){.adventure-route{grid-template-columns:repeat(2,1fr)}.hero-art>span{height:270px;width:270px;font-size:90px}.hero-art{min-height:400px}.stations{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.hero-art{min-height:275px;order:-1}.hero-art>span{height:185px;width:185px;font-size:70px}.sticker{font-size:11px;padding:9px 12px}.hero-copy{padding:26px}.hero h1{font-size:clamp(38px,10vw,53px)}.hero p{font-size:15px}.adventure-route{grid-template-columns:1fr 1fr;gap:10px}.adventure-route>div{display:block;padding:13px}.adventure-route i{margin-bottom:9px}.stations{grid-template-columns:1fr}.stat{padding:9px 12px}.card{padding:23px}}
+@media(max-width:420px){.adventure-route{grid-template-columns:1fr}.adventure-route>div{display:flex}.brand strong{font-size:14px}.mark{width:39px;height:39px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -56,12 +117,12 @@ footer{text-align:center;font-size:12px;color:#6d8396;padding:18px 20px 35px}
 <main>
 <section id="landing">
   <div class="hero">
-    <div class="hero-copy"><div class="kicker">🇺🇦 Наукова експедиція 7–10 класи</div><h1>Україна — країна <span style="color:#ffe881">відкриттів!</span></h1><p>Шість дослідницьких станцій, шістнадцять загадок і справжній результат, який отримає Ваш учитель. Досліджуйте українську науку!</p>
+    <div class="hero-copy"><div class="kicker">🇺🇦 Наукова експедиція 7–10 класи</div><h1>Наукова <span style="color:#ffe881">експедиція</span> починається!</h1><p>Відкривай таємниці клітин, космосу й океанів, знайомся з українськими науковцями та пройди 16 яскравих місій. У фіналі твій результат побачить учитель!</p>
       <div class="actions"><button class="btn" id="goIntro">🚀 Розпочати квест</button><button class="btn alt" id="goQr">📱 QR-код</button></div>
       <div class="stats"><span class="stat"><b>6</b>станцій</span><span class="stat"><b>16</b>запитань</span><span class="stat"><b>16</b>балів</span></div>
-    </div><div class="hero-art"><span>🔬</span><div class="sticker a">🧬 Життя</div><div class="sticker b">🚀 Космос</div></div>
+    </div><div class="hero-art"><span>🔬</span><div class="sticker a">🧬 Життя</div><div class="sticker b">🚀 Космос</div><div class="sticker extra">⚗️ Хімія</div><div class="sticker extra2">🌍 Географія</div></div>
   </div>
-  <h2 class="section-title">🌟 Станції української науки</h2>
+  <div class="adventure-route" aria-label="Маршрут експедиції"><div><i>👀</i><span><b>1. Досліджуй</b><small>Шість наукових станцій</small></span></div><div><i>🧠</i><span><b>2. Запам’ятовуй</b><small>Імена та відкриття</small></span></div><div><i>✍️</i><span><b>3. Відповідай</b><small>16 коротких загадок</small></span></div><div><i>🏆</i><span><b>4. Фінішуй</b><small>Результат у журналі вчителя</small></span></div></div><h2 class="section-title">🌈 Кольорові станції української науки</h2>
   <div class="stations">
     <div class="station"><i>🧬</i><h3>Клітинні рятівники</h3><p>Ілля Мечников пояснив фагоцитоз — поглинання клітинами чужорідних частинок. Сергій Гершензон досліджував спадковість.</p></div>
     <div class="station"><i>🦠</i><h3>Життя без сонця</h3><p>Сергій Виноградський вивчав хемосинтез і бактерії, важливі для кругообігу Нітрогену.</p></div>
