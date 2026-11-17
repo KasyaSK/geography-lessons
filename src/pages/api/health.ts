@@ -18,7 +18,21 @@ export const GET: APIRoute=async ({locals})=>{
    await db.prepare("EXPLAIN INSERT INTO teacher_sessions(token_hash,expires_at) VALUES(?,datetime('now','+8 hours'))").bind('diagnostic-only').all();
    sqlCheck='ok';
   }catch(e:any){sqlCheck='failed-'+String(e?.name||'unknown');}
-  return json({ready:cryptoCheck==='ok'&&sqlCheck==='ok',code:'CHECKED',cryptoCheck,sqlCheck});
+  let digestCheck='unchecked',randomCheck='unchecked',sessionSqlCheck='unchecked';
+  try{
+    const bytes=new TextEncoder().encode('test');
+    await crypto.subtle.digest('SHA-256',bytes);
+    digestCheck='ok';
+  }catch(e:any){digestCheck=String(e?.name||'unknown');}
+  try{
+    const bytes=crypto.getRandomValues(new Uint8Array(32));
+    randomCheck=bytes.length===32?'ok':'wrong-length';
+  }catch(e:any){randomCheck=String(e?.name||'unknown');}
+  try{
+    const row=await db.prepare("SELECT count(*) AS n FROM teacher_sessions").first();
+    sessionSqlCheck=typeof row?.n==='number'?'ok':'other-result';
+  }catch(e:any){sessionSqlCheck=String(e?.name||'unknown');}
+  return json({ready:digestCheck==='ok'&&randomCheck==='ok'&&sessionSqlCheck==='ok',code:'CHECKED',digestCheck,randomCheck,sessionSqlCheck});
  }catch(e:any){
   console.error('D1 health check',e?.message);
   return json({ready:false,code:'DATABASE_ERROR'},503);
