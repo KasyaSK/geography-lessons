@@ -31,7 +31,7 @@ export async function teacherSession(request:Request,locals:any):Promise<boolean
  const raw=request.headers.get('cookie')?.split(';').map(s=>s.trim()).find(x=>x.startsWith('nk_teacher='))?.slice(11);
  if(!raw||!(/^[a-f0-9]{64}$/).test(raw))return false;
  const db=dbFrom(locals),hash=await hashToken(raw);
- const row=await db.prepare('SELECT token_hash FROM teacher_sessions WHERE token_hash=? AND expires_at>datetime('now')').bind(hash).first();
+ const row=await db.prepare("SELECT token_hash FROM teacher_sessions WHERE token_hash=? AND expires_at > datetime('now')").bind(hash).first();
  return !!row;
 }
 export function escapeCSV(value:unknown):string{
