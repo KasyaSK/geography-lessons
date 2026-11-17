@@ -280,14 +280,28 @@
 <p>Ви управляєте <b>умовними</b> інтенсивностями підняття кори та її руйнування зовнішніми процесами. Мета — зрозуміти, чому однакові тектонічні структури не завжди мають однакову висоту. Це дидактична модель тенденцій, <strong>не фізичний розрахунок</strong> висоти гір і не симуляція конкретної території.</p>
 <div class="geo-labrow">
 <div class="geo-panel">
-<svg id="tectonic-lab-svg" viewBox="0 0 650 330" role="img" aria-label="Схематичний розріз гірського рельєфу, висота якого змінюється залежно від підняття та денудації">
-<defs><linearGradient id="layerGrad" x1="0" x2="1"><stop offset="0" stop-color="#d7a97f"/><stop offset="1" stop-color="#906449"/></linearGradient></defs>
-<rect x="0" y="0" width="650" height="330" fill="#e2f4fe"/><circle cx="540" cy="60" r="23" fill="#f9d9a4" opacity=".9"/>
-<path id="geo-landshape" fill="url(#layerGrad)" stroke="#8b5136" stroke-width="4" d="M0 220 L85 215 L140 205 L200 170 L250 122 L300 95 L340 144 L390 172 L460 196 L540 211 L650 220 L650 330 L0 330Z"/>
-<path d="M0 260 Q200 244 330 267 T650 250" fill="none" stroke="#7b4b32" stroke-width="4" stroke-dasharray="15 12" opacity=".75"/>
-<g id="geo-erode-arrows" stroke="#247fa8" stroke-width="4"><path d="M410 40 L390 90"/><path d="M425 76 L407 99"/><path d="M388 70 L367 104"/></g>
-<text x="18" y="36" font-size="21" font-weight="bold" fill="#254b62">ПІДНЯТТЯ ↗</text><text x="410" y="29" font-size="19" font-weight="bold" fill="#247fa8">ДЕНУДАЦІЯ ↘</text>
-<text x="325" y="305" text-anchor="middle" font-size="16" fill="#fff8ed">ПОПЕРЕЧНИЙ РОЗРІЗ • УМОВНА ФОРМА, БЕЗ МАСШТАБУ</text>
+<svg id="tectonic-lab-svg" viewBox="0 0 650 330" role="img" aria-label="Інтерактивний багатохребтовий гірський рельєф: схили та розчленовані долини стають вищими або нижчими при зміні параметрів умовної моделі">
+<defs>
+  <linearGradient id="layerGrad" x1="0" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#eac9a2"/><stop offset=".55" stop-color="#ba8a69"/><stop offset="1" stop-color="#735865"/></linearGradient>
+  <linearGradient id="geo-mountain-sky" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#bddce9"/><stop offset="1" stop-color="#eff5eb"/></linearGradient>
+  <clipPath id="geo-relief-clip"><path id="geo-clip-shape" d="M0 221L65 213L96 194L138 202L192 153L236 176L282 116L310 159L350 112L374 163L430 177L469 202L510 196L565 217L650 218L650 330L0 330Z"/></clipPath>
+</defs>
+<rect x="0" y="0" width="650" height="330" fill="url(#geo-mountain-sky)"/>
+<g stroke="#d9f4fb" stroke-width="1" opacity=".8"><path d="M0 70H650M0 110H650M0 150H650M0 190H650" stroke-dasharray="7 8"/></g>
+<path id="geo-backridge" d="M0 208L80 190L143 174L190 180L257 137L282 154L324 128L366 163L410 148L465 182L524 167L595 202L650 205L650 330L0 330Z" fill="#a7b4b9" opacity=".5"/>
+<path id="geo-landshape" fill="url(#layerGrad)" stroke="#74535a" stroke-width="3.5" stroke-linejoin="round" d="M0 221L65 213L96 194L138 202L192 153L236 176L282 116L310 159L350 112L374 163L430 177L469 202L510 196L565 217L650 218L650 330L0 330Z"/>
+<g clip-path="url(#geo-relief-clip)">
+  <path d="M-20 246Q76 201 155 244T340 230T665 245" fill="none" stroke="#eac69f" stroke-width="12" opacity=".5"/>
+  <path d="M-20 261Q75 221 156 265T340 251T665 265" fill="none" stroke="#684f55" stroke-width="3" opacity=".6"/>
+  <path d="M-20 290Q76 265 164 294T350 287T665 291" fill="none" stroke="#785b59" stroke-width="5" opacity=".5"/>
+  <path d="M-20 315Q110 295 240 317T500 308T665 320" fill="none" stroke="#e5b58e" stroke-width="8" opacity=".4"/>
+</g>
+<path d="M175 156L190 167L201 160M261 132L283 119L297 136M327 134L351 113L366 143" stroke="#fff9eb" stroke-width="6" fill="none" stroke-linecap="round" opacity=".92"/>
+<g stroke="#277a95" stroke-width="4" fill="none" opacity=".85"><path d="M442 55L416 106L401 139"/><path d="M461 61L440 111L419 141"/></g>
+<g font-size="15" fill="#305971" font-weight="850"><text x="18" y="34">УМОВНИЙ ГІРСЬКИЙ ПОЯС</text><text x="426" y="31">ДЕНУДАЦІЯ ↓</text></g>
+<g stroke="#3299ae" stroke-width="3" fill="none"><path d="M70 271L96 250L123 260M410 267L447 242L480 255"/></g>
+<path d="M0 325H650" stroke="#635568" stroke-width="6"/>
+<text x="325" y="307" text-anchor="middle" font-size="14" fill="#fff3e3" font-weight="850">КІЛЬКА ХРЕБТІВ І ДОЛИН · УМОВНИЙ МАСШТАБ</text>
 </svg><p class="geo-cap">Зміни контурів — авторська ілюстративна схема. Для реального рельєфу відкрийте цифрову модель висот NASA/Google Earth.</p>
 </div>
 <div>
@@ -444,8 +458,9 @@ const u=+byId('geo-uplift').value,e=+byId('geo-erosion').value;
 byId('uplift-out').textContent=u;byId('erosion-out').textContent=e;
 const prominence=Math.max(4,Math.min(116,38+(u*.7)-(e*.66)));
 const peak=202-prominence;
-const points=['M0 220','L85 215','L135 '+(210-prominence*.10),'L198 '+(207-prominence*.36),'L260 '+(207-prominence*.69),'L300 '+peak,'L345 '+(207-prominence*.67),'L401 '+(207-prominence*.35),'L472 '+(208-prominence*.13),'L560 216','L650 220','L650 330 L0 330Z'];
-byId('geo-landshape').setAttribute('d',points.join(' '));
+const points=['M0 221','L55 219','L85 '+(219-prominence*.22),'L106 '+(218-prominence*.32),'L138 '+(220-prominence*.18),'L169 '+(213-prominence*.56),'L192 '+(213-prominence*.67),'L214 '+(209-prominence*.53),'L237 '+(213-prominence*.38),'L265 '+(211-prominence*.79),'L283 '+(213-prominence),'L305 '+(214-prominence*.59),'L322 '+(212-prominence*.45),'L350 '+(216-prominence*.95),'L371 '+(212-prominence*.49),'L405 '+(211-prominence*.33),'L432 '+(216-prominence*.39),'L460 '+(217-prominence*.2),'L487 '+(216-prominence*.1),'L524 '+(220-prominence*.16),'L562 '+(222-prominence*.08),'L650 221','L650 330 L0 330Z'];
+const terrain=points.join(' ');byId('geo-landshape').setAttribute('d',terrain);byId('geo-clip-shape').setAttribute('d',terrain);
+const bg=['M0 226','L82 '+(213-prominence*.12),'L160 '+(219-prominence*.22),'L218 '+(217-prominence*.4),'L264 '+(220-prominence*.55),'L301 '+(216-prominence*.32),'L340 '+(221-prominence*.54),'L381 '+(219-prominence*.34),'L427 '+(216-prominence*.43),'L485 '+(222-prominence*.20),'L537 '+(219-prominence*.3),'L597 218','L650 225 L650 330 L0 330Z'];byId('geo-backridge').setAttribute('d',bg.join(' '));
 byId('geo-lab-explain').textContent=u>e+20?'Сценарій: тектонічні підняття переважають, виразний високий рельєф може зберігатися.':e>u+20?'Сценарій: руйнування схилів переважає над підняттям; рельєф згладжується.':'Сценарій: підняття і денудація приблизно врівноважені; фактичну висоту без геологічних даних визначити не можна.';
 }
 function setRelief(a,b){byId('geo-uplift').value=a;byId('geo-erosion').value=b;updateRelief()}
