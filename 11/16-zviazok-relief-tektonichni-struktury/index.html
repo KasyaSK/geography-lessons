@@ -51,6 +51,44 @@
 @media(max-width:520px){.photo-grid,.geo-sources,.geo-facts{grid-template-columns:1fr}.photo-tile img{height:230px}}
 @media(prefers-reduced-motion:reduce){.photo-tile,.geo-source{transition:none}}
 @media print{.geo-toolbar,.geo-practice button{display:none}}
+
+/* Himalaya geoscience studio — dense annotated conceptual cross-section */
+.himalaya-studio[hidden],#other-boundary-diagram[hidden],.hima-task-feedback[hidden]{display:none!important}
+.himalaya-studio{border:1px solid #b8d2d9;border-radius:22px;background:linear-gradient(130deg,#f9fdff,#f7f1e6);padding:clamp(13px,2.5vw,23px);margin:19px 0;box-shadow:0 20px 45px rgba(26,58,79,.13)}
+.hima-header{display:flex;gap:20px;align-items:flex-start;justify-content:space-between}
+.hima-header h3{font-size:clamp(1.3rem,2.7vw,1.9rem);line-height:1.17;color:#1b4a61;margin:8px 0}
+.hima-header p{font-size:.95rem;max-width:750px;margin:8px 0}
+.hima-eyebrow{font-size:.75rem;letter-spacing:.13em;color:#a44d38;font-weight:950}
+.hima-accuracy{font-size:.7rem;font-weight:850;background:#e6f1f5;color:#3f6275;border:1px solid #c5d7df;border-radius:9px;padding:9px;max-width:180px;line-height:1.3}
+.hima-switches,.hima-station-nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.hima-switches button{display:flex;gap:8px;align-items:center;background:#fff;color:#355d70;border:1px solid #c8dce5;font-size:.9rem}
+.hima-switches button[aria-pressed="true"]{background:#195973;color:white}
+.hima-dot{display:inline-block;width:13px;height:13px;border-radius:50%;border:1px solid #ffffff60;flex-shrink:0}
+.hima-overflow{overflow-x:auto;border-radius:16px;box-shadow:inset 0 0 0 1px #d0dde5;background:#e7f3f7}
+.hima-section{width:100%;min-width:700px;height:auto;display:block;font-family:system-ui,Segoe UI,Arial,sans-serif}
+.hima-geo-layer.hima-dim{opacity:.025;pointer-events:none}
+.hima-geo-layer{transition:opacity .25s ease}
+.hima-caption{font-size:.86rem;color:#567084;margin:10px 2px 12px}
+.hima-legend{display:flex;gap:9px 15px;flex-wrap:wrap;border-top:1px solid #dce7ed;padding:12px 0;font-size:.82rem;color:#436373}
+.hima-legend div{display:flex;align-items:center;gap:6px}.hima-legend i{width:13px;height:13px;border-radius:3px;border:1px solid #8999a2;display:inline-block;flex:0 0 auto}
+.hima-under{padding:12px 15px;border-radius:12px;border-left:4px solid #d78c54;background:#fff4e6;font-size:.92rem}
+.hima-dive-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;margin:17px 0}
+.hima-verified-photo{border-radius:16px;border:1px solid #cbdbe3;overflow:hidden;background:white;margin:0}
+.hima-verified-photo img{display:block;width:100%;height:265px;object-fit:cover}
+.hima-verified-photo figcaption{padding:14px 16px}
+.hima-verified-photo p{font-size:.93rem}
+.hima-station,.hima-exercise{border:1px solid #c8dce2;background:white;border-radius:16px;padding:17px;margin-top:15px}
+.hima-station h3,.hima-exercise h3{margin:0 0 8px}
+.hima-station-nav button{font-size:.9rem;background:#e7f3f6;color:#28586d}
+.hima-station-nav button[aria-pressed=true]{background:#205c73;color:white}
+.hima-station-response{background:#e6f2f9;border-radius:11px;color:#274e64;padding:11px 13px;margin:8px 0}
+.hima-q{border-bottom:1px solid #e2eaee;padding:13px 0}.hima-q:last-of-type{border-bottom:none}
+.hima-q label{display:block;margin-bottom:7px}.hima-q select{width:100%;border:1px solid #b6cdd8;padding:9px;border-radius:9px;background:#fff}
+.hima-task-feedback{display:block;border-left:4px solid #3b8a7e;background:#e9f8f2;border-radius:0 8px 8px 0;padding:9px;margin-top:8px;font-size:.89rem}
+.hima-task-feedback.bad{border-left-color:#ba6542;background:#fff1e6}
+.hima-science{margin-top:14px;background:#f7fafb}
+@media(max-width:700px){.hima-header{display:block}.hima-accuracy{display:block;max-width:max-content;margin:12px 0}.hima-dive-grid{grid-template-columns:1fr}.hima-verified-photo img{height:220px}.hima-overflow{border:2px solid #c5dbe5}}
+@media(prefers-reduced-motion:reduce){.hima-geo-layer{transition:none}}
 </style></head><body>
 <header class="hero" id="top"><div class="wrap"><div class="eyebrow">ГЕОГРАФІЯ • УРОК №16 • 17 ЛИСТОПАДА 2026</div><h1>Земля в русі: від глибинних структур до гір і океанів</h1><p>11-А та 11-Б · § 10 · Географічний простір Землі. Сьогодні читаємо рельєф як слід тривалої геологічної історії, а не як випадкову сукупність гір і рівнин.</p><div class="chips"><span class="chip">35 хвилин + домашня робота</span><span class="chip">9 географічних практикумів</span><span class="chip">Фото NASA / ESA</span><span class="chip">Атлас реальних карт</span><span class="chip">Реальні картографічні джерела</span><span class="chip">10 завдань /10</span></div></div></header>
 <nav class="nav"><div class="wrap"><a href="#problem">Гіпотеза</a><a href="#atlas-live">Атлас</a><a href="#models">Модель</a><a href="#geo-model">Симулятор</a><a href="#evidence">Карти й докази</a><a href="#photoexp">Фотодокази</a><a href="#cases">Кейси</a><a href="#ukraine-lab">Україна</a><a href="#theory">Пояснення</a><a href="#geo-training">Тренажери</a><a href="#missions">Підсумок</a><a href="#home">Домашнє + тест</a></div></nav>
@@ -78,7 +116,163 @@
 <div class="geo-note"><b>Завдання до карт:</b> не просто подивитися, а з’ясувати, який рельєф утворюється в кожній конкретній тектонічній обстановці. Дані USGS про землетруси змінюються з часом; карта окремого тижня не є повним описом тектоніки Землі.</div>
 </section>
 
-<section id="models"><div class="kicker">4–9 хв • Геолабораторія</div><h2>Керована модель взаємодії плит</h2><p>Змініть режим межі плит, передбачте форму рельєфу й зіставте з відомим географічним об’єктом. <strong>Увага:</strong> модель схематична, не відтворює географічні координати чи фізично точні масштаби.</p><div class="options" id="modes"><button type="button" aria-pressed="true" data-mode="collide">Зіткнення континентів</button><button type="button" aria-pressed="false" data-mode="subduct">Субдукція</button><button type="button" aria-pressed="false" data-mode="spread">Розходження</button><button type="button" aria-pressed="false" data-mode="stable">Давня платформа</button></div><div class="diagram"><svg viewBox="0 0 880 235" role="img" aria-label="Схема взаємодії літосферних плит"><rect x="0" y="0" width="880" height="235" rx="15" fill="#d5eefa"/><rect x="0" y="150" width="880" height="85" fill="#dca16e"/><path id="surface" d="M0 150 L240 150 L370 98 L440 38 L510 98 L640 150 L880 150" stroke="#70452f" stroke-width="5" fill="#ad7855" stroke-linejoin="round"/><path id="edge" d="M0 150 L240 150 L370 98 L440 38 L510 98 L640 150 L880 150" stroke="#fff6e9" stroke-width="2" fill="none"/><text x="440" y="25" text-anchor="middle" id="svg-label" font-size="24" font-weight="900" fill="#183d4a">ГІМАЛАЇ</text><text x="440" y="207" text-anchor="middle" font-size="17" fill="#5f3a2b">СХЕМАТИЧНИЙ ПОПЕРЕЧНИЙ РОЗРІЗ</text></svg></div><p id="model-result" class="callout">Зіткнення двох континентальних плит: кора зминається, потовщується і піднімається. Приклад — Гімалаї. Але їхня фактична висота залежить і від ерозії.</p><label class="field">Яка форма найбільш імовірна після тривалого зіткнення континентів?<select id="model-answer"><option value="">Виберіть</option><option value="a">Складчасті гори</option><option value="b">Абісальна рівнина без деформацій</option><option value="c">Тільки дельта річки</option></select></label><button onclick="showCheck('model-answer','a','model-feedback','Так, стискання і потовщення кори породжують горотворення; та висота також залежить від денудації.','Ні: подумайте про стискання та потовщення кори.')">Перевірити прогноз</button><div class="hint" id="model-feedback"></div></section>
+<section id="models"><div class="kicker">4–9 хв • Геолабораторія</div><h2>Що приховано під Гімалаями? Досліджуйте геологічні структури</h2><p>Почніть із розгорнутого гімалайського розрізу: вмикайте й вимикайте шари, простежте насуви та звірте схему з реальним знімком NASA. Інші три режими нижче залишено для порівняння типів меж плит. <strong>Схематичні розрізи не є картами точних координат.</strong></p><div class="options" id="modes"><button type="button" aria-pressed="true" data-mode="collide">Зіткнення континентів</button><button type="button" aria-pressed="false" data-mode="subduct">Субдукція</button><button type="button" aria-pressed="false" data-mode="spread">Розходження</button><button type="button" aria-pressed="false" data-mode="stable">Давня платформа</button></div>
+<div class="himalaya-studio" id="himalaya-studio">
+  <div class="hima-header">
+    <div><span class="hima-eyebrow">ГІМАЛАЇ · ІНТЕРАКТИВНИЙ ГЕОЛОГІЧНИЙ РОЗРІЗ</span><h3>Від Індо-Гангської рівнини до Тибетського плато</h3>
+    <p>Південь → північ. Зіткнення Індії та Євразії відбувається не в точці: між ними розташований складний пояс деформованих порід, насувів і потовщеної кори.</p></div>
+    <span class="hima-accuracy">НАУКОВО ОБҐРУНТОВАНА СХЕМА · БЕЗ МАСШТАБУ</span>
+  </div>
+  <div class="hima-switches" role="group" aria-label="Керування шарами геологічного розрізу">
+    <button type="button" data-hima-layer="strata" aria-pressed="true"><span class="hima-dot" style="background:#f2c99d"></span> Породи та складки</button>
+    <button type="button" data-hima-layer="faults" aria-pressed="true"><span class="hima-dot" style="background:#d44c3c"></span> Насуви та шви</button>
+    <button type="button" data-hima-layer="kinematic" aria-pressed="true"><span class="hima-dot" style="background:#30acb9"></span> Напрямки руху</button>
+    <button type="button" data-hima-layer="crust" aria-pressed="true"><span class="hima-dot" style="background:#bdacff"></span> Глибинна будова</button>
+  </div>
+  <div class="hima-overflow">
+  <svg class="hima-section" viewBox="0 0 1120 620" role="img" aria-labelledby="hima-graph-title hima-graph-desc">
+    <title id="hima-graph-title">Гімалаї: детальний концептуальний тектонічний розріз</title>
+    <desc id="hima-graph-desc">Південь зліва, північ справа. На поверхні Індо-Гангська рівнина, Передгімалаї, Малі й Великі Гімалаї, Тибетське плато. Під поверхнею Індійська континентальна літосфера рухається в бік Євразії вздовж головного Гімалайського насуву; осадові і метаморфічні породи зім’яті в складки і насунуті одна на одну, кора потовщена. Позначені MFT, MBT, MCT, IYSZ.</desc>
+    <defs>
+      <linearGradient id="hs-sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7ddee"/><stop offset="1" stop-color="#f5eee0"/></linearGradient>
+      <linearGradient id="hs-mantle" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7b6e86"/><stop offset="1" stop-color="#513c60"/></linearGradient>
+      <linearGradient id="hs-india" x1="0" x2=".8" y1="0" y2="1"><stop stop-color="#e6cda8"/><stop offset="1" stop-color="#b58663"/></linearGradient>
+      <linearGradient id="hs-tibet" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e5e1c2"/><stop offset="1" stop-color="#a6ac96"/></linearGradient>
+      <pattern id="hs-stipple" width="13" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="1.15" fill="#5e433d" opacity=".3"/><circle cx="10" cy="11" r=".8" fill="#86594b" opacity=".4"/></pattern>
+      <pattern id="hs-hatch" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><path d="M0 0 V15" stroke="#6c668a" stroke-width="3" opacity=".22"/></pattern>
+      <clipPath id="hs-clip-crust"><path d="M0 266 L145 266 L240 251 L288 228 L337 225 L380 206 L430 177 L467 145 L487 158 L504 120 L527 145 L542 116 L569 166 L606 192 L646 183 L684 179 L725 181 L767 176 L800 178 L832 172 L874 178 L920 180 L970 178 L1020 185 L1120 187 L1120 508 C905 508 792 512 721 503 C618 474 510 447 412 404 C321 370 213 343 0 342 Z"/></clipPath>
+      <marker id="hs-arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L9 4 L0 8Z" fill="#12a1b4"/></marker>
+      <marker id="hs-thrust" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#cb493f"/></marker>
+    </defs>
+
+    <rect x="0" y="0" width="1120" height="620" fill="#f9fcfd"/>
+    <path d="M0 0H1120V325H0Z" fill="url(#hs-sky)"/>
+    <g fill="#ffffff" opacity=".23"><path d="M45 80Q140 38 225 77L265 94Q174 73 68 119Z"/><path d="M750 80Q905 42 1025 65L1060 83Q880 72 780 110Z"/></g>
+    <text x="38" y="45" fill="#1d5c77" font-size="18" letter-spacing="4" font-weight="900">ПІВДЕНЬ · ІНДІЯ</text>
+    <text x="1082" y="45" text-anchor="end" fill="#1d5c77" font-size="18" letter-spacing="4" font-weight="900">ПІВНІЧ · ТИБЕТ</text>
+    <g class="hima-geo-layer" data-layer="crust">
+      <path d="M0 322 L1120 322 L1120 620L0 620Z" fill="url(#hs-mantle)"/>
+      <path d="M0 390 Q235 381 433 422 Q620 480 805 532 Q1000 548 1120 548 V620 H0Z" fill="#493a5c" opacity=".45"/>
+      <g stroke="#d7c6dd" stroke-width="2" opacity=".24">
+       <path d="M0 570Q120 520 230 565T490 570T740 566T1120 570" fill="none"/>
+       <path d="M0 596Q130 566 300 590T620 590T1120 597" fill="none"/>
+      </g>
+      <path d="M0 266L145 266L240 251L288 228L337 225L380 206L430 177L467 145L487 158L504 120L527 145L542 116L569 166L606 192L646 183L684 179L725 181L767 176L800 178L832 172L874 178L920 180L970 178L1020 185L1120 187 L1120 507 C950 513 806 524 700 495 C570 449 489 422 390 385 C243 350 110 335 0 340 Z" fill="url(#hs-tibet)"/>
+      <path d="M0 266L145 266L240 251L288 228L337 225L380 206L430 177L467 145L487 158L504 120L527 145L542 116L569 166L606 192L646 183L684 179L725 181L767 176L800 178L832 172L874 178L920 180L970 178L1020 185L1120 187 L1120 507 C950 513 806 524 700 495 C570 449 489 422 390 385 C243 350 110 335 0 340 Z" fill="url(#hs-hatch)" opacity=".75"/>
+      <path d="M0 286L190 286Q260 307 330 325C440 346 540 361 658 430C740 475 842 500 1120 515V561C970 558 800 541 689 491C550 425 460 386 312 352Q150 323 0 318Z" fill="url(#hs-india)" stroke="#865a40" stroke-width="2.4"/>
+      <path d="M0 320 Q230 317 335 357 Q550 412 695 495 Q890 545 1120 563" stroke="#e8ccaa" stroke-width="4" fill="none" opacity=".65"/>
+      <path d="M0 344 C170 345 270 351 410 392 C554 432 653 488 771 518 C896 554 1028 562 1120 563" stroke="#c2a7c3" stroke-width="4" stroke-dasharray="12 9" fill="none"/>
+      <text x="55" y="365" fill="#fff5de" font-size="17" font-weight="800">МОХО: ПІДОШВА КОРИ</text>
+      <text x="85" y="505" fill="#ecddf3" font-size="19" font-weight="900">ЛІТОСФЕРНА МАНТІЯ</text>
+      <text x="905" y="474" fill="#4b5367" font-size="16" font-weight="900">ПОТОВЩЕНА КОРА</text>
+    </g>
+
+    <g clip-path="url(#hs-clip-crust)" class="hima-geo-layer" data-layer="strata">
+      <path d="M0 265 H215 C262 265 276 250 311 232 C340 215 353 234 366 245 Q386 265 408 221 Q439 158 459 219 Q477 255 499 199 Q523 160 544 216 Q579 256 603 208 Q650 171 675 208L750 230 Q945 234 1120 223 L1120 300 Q900 303 728 307 C682 296 651 274 620 283 Q580 318 550 284 Q521 244 500 299 Q470 324 447 270 Q418 227 399 289 Q362 332 339 272 Q317 247 281 296 Q240 324 0 305Z" fill="#ecbe8d" stroke="#af7250" stroke-width="3"/>
+      <path d="M0 302 H210Q261 306 292 282 Q322 252 338 286 Q358 337 384 290 Q415 235 433 303 Q451 347 478 290 Q511 227 529 312 Q548 350 574 300 Q610 266 632 314 Q675 347 734 321 L1120 310 V354 Q900 360 750 366 C665 363 632 336 602 367 Q570 395 547 345 Q516 290 493 359 Q465 408 435 351 Q410 295 389 372 Q356 408 327 344 Q302 310 279 365 Q228 389 0 352Z" fill="#d9a876" stroke="#99613f" stroke-width="3"/>
+      <path d="M0 352 H205Q274 359 301 344 Q340 314 366 370 Q391 420 427 352 Q458 291 482 391 Q510 442 539 371 Q568 333 600 392 Q675 450 740 410L1120 393V475Q920 485 780 464Q630 433 570 446Q480 456 405 430Q265 392 0 380Z" fill="#aa8370" stroke="#6c5b54" stroke-width="3"/>
+      <g fill="none" stroke="#805448" stroke-width="2.8" opacity=".8">
+        <path d="M155 275 Q264 284 293 260Q326 214 345 274Q371 316 400 256Q432 196 448 264Q478 310 504 251Q530 208 548 278Q578 321 611 269"/>
+        <path d="M180 309 Q271 332 302 300Q327 272 348 312Q371 355 405 315Q433 275 451 338Q471 381 504 318Q531 272 552 349Q579 385 613 329"/>
+        <path d="M220 355Q273 378 313 340Q340 307 359 368Q385 402 415 351Q445 325 464 394Q489 420 514 370Q542 333 568 405"/>
+      </g>
+      <path d="M0 264 L180 267 C226 253 251 260 270 240 L322 248 C354 228 382 231 410 201 L450 214 L482 175 L511 181 L543 173L579 197 L608 222L660 234L735 219L1120 210V238L685 260L600 247L540 240L485 235L430 266L387 276L350 292L300 281L258 297L0 291Z" fill="url(#hs-stipple)" opacity=".8"/>
+    </g>
+
+    <!-- multi-crest mountain silhouette, not a single triangular mountain -->
+    <path d="M0 266 L145 266L190 260L240 251L260 235L279 241L288 228L308 229L320 220L337 225L353 214L365 217L380 206L390 210L405 193L415 197L430 177L438 183L453 159L467 145L477 161L487 158L499 130L504 120L513 142L527 145L535 127L542 116L552 145L561 139L569 166L581 168L593 179L606 192L624 186L646 183L684 179L725 181L767 176L800 178L832 172L874 178L920 180L970 178L1020 185L1120 187" stroke="#334a5b" stroke-width="5" stroke-linejoin="round" fill="none"/>
+    <path d="M430 177L467 145L477 161L499 130L504 120L513 142L527 145L542 116L561 139L569 166" stroke="#f8f8f4" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" fill="none" opacity=".9"/>
+    <path d="M450 170L468 151L475 164M487 159L505 126L517 146M527 146L543 124L559 146" stroke="#8ca8b6" stroke-width="3" fill="none"/>
+    <g stroke="#aa9a7c" opacity=".45" fill="none" stroke-width="2"><path d="M770 195Q890 199 1030 197"/><path d="M805 208Q950 212 1100 202"/></g>
+
+    <g class="hima-geo-layer" data-layer="faults">
+      <!-- MHT basal décollement dipping northwards -->
+      <path d="M238 267C365 270 440 317 536 351S694 423 770 448S951 475 1120 476" stroke="#a73232" stroke-width="8" opacity=".13" fill="none"/>
+      <path id="hs-MHT" d="M238 267C365 270 440 317 536 351S694 423 770 448S951 475 1120 476" stroke="#ce443c" stroke-width="4.5" fill="none"/>
+      <g stroke="#cc453e" stroke-width="4" stroke-linecap="round" fill="none">
+        <path d="M243 266L239 237"/><path d="M344 278L335 246"/><path d="M452 317L459 282"/><path d="M590 377L615 349"/><path d="M745 441L764 413"/><path d="M893 469L907 436"/>
+        <path d="M273 260L341 228"/><path d="M355 245L411 205"/><path d="M455 215L522 176"/>
+      </g>
+      <g fill="#a33331" stroke="#fff7ec" stroke-width="1.6">
+        <circle cx="248" cy="260" r="6"/><circle cx="344" cy="230" r="6"/><circle cx="437" cy="184" r="6"/><circle cx="799" cy="178" r="6"/>
+      </g>
+      <g font-size="17" font-weight="900" fill="#a93630">
+        <text x="205" y="211">MFT</text><text x="305" y="192">MBT</text><text x="388" y="146">MCT</text>
+        <text x="770" y="143">IYSZ</text><text x="708" y="438">MHT</text>
+      </g>
+      <text x="785" y="458" font-size="15" font-weight="800" fill="#85312d">ГОЛОВНИЙ ГІМАЛАЙСЬКИЙ НАСУВ</text>
+    </g>
+    <g class="hima-geo-layer" data-layer="kinematic" fill="none">
+      <path d="M85 388C185 397 243 410 335 428" stroke="#19abc0" stroke-width="7" marker-end="url(#hs-arrow)"/>
+      <path d="M525 489C600 512 665 529 722 536" stroke="#19abc0" stroke-width="6" marker-end="url(#hs-arrow)"/>
+      <path d="M979 257 C918 251 857 253 805 253" stroke="#19abc0" stroke-width="5" marker-end="url(#hs-arrow)" stroke-dasharray="11 9"/>
+      <text x="50" y="423" fill="#ecfaff" font-weight="900" font-size="19">РУХ ІНДІЇ ↗</text>
+      <text x="872" y="286" fill="#15788b" font-size="17" font-weight="850">УКОРОЧЕННЯ КОРИ</text>
+    </g>
+    <g font-size="17" fill="#21485a" font-weight="850" text-anchor="middle">
+      <text x="121" y="201">Індо-Гангська</text><text x="121" y="220">рівнина</text>
+      <text x="302" y="126">Передгімалаї</text>
+      <text x="420" y="88">Малі Гімалаї</text>
+      <text x="536" y="72">Великі Гімалаї</text>
+      <text x="893" y="115" font-size="22">ТИБЕТСЬКЕ ПЛАТО</text>
+    </g>
+    <g fill="#f9f2ea" font-size="17" font-weight="850">
+      <text x="50" y="302">ІНДІЙСЬКА КОНТИНЕНТАЛЬНА</text><text x="50" y="322">КОРА (ПІДСУВАННЯ)</text>
+      <text x="780" y="350" fill="#4b5860">ЄВРАЗІЙСЬКА КОРА</text>
+    </g>
+    <g font-size="16" fill="#fdf7fa" opacity=".85"><text x="975" y="604" text-anchor="end">ВЕРТИКАЛЬНИЙ МАСШТАБ УМОВНИЙ • ГЛИБИНИ НЕ ПРОПОРЦІЙНІ</text></g>
+    <rect x="0" y="0" width="1120" height="620" rx="3" fill="none" stroke="#9ab3bf" stroke-width="2"/>
+  </svg>
+  </div>
+  <p class="hima-caption">Авторська інтерпретаційна схема за описами геологічних структур центральних Гімалаїв (MFT, MBT, MCT, MHT, IYSZ). <b>Геологічні розрізи не тотожні всьому гірському пасму:</b> співвідношення структур і швидкості руху змінюються вздовж його довжини. Породи, кути падіння й висоти тут ілюстративні, без точного масштабу.</p>
+  <div class="hima-legend">
+    <div><i style="background:#d6ab7f"></i> Індійська континентальна кора</div>
+    <div><i style="background:#c4c7ad"></i> Потовщена кора/Гімалаї — Тибет</div>
+    <div><i style="background:#775e81"></i> Літосферна мантія</div>
+    <div><i style="background:#ce443c"></i> Насуви (MHT, MFT, MBT, MCT)</div>
+    <div><i style="background:#1baabb"></i> Напрямки руху</div>
+  </div>
+  <div class="hima-under" role="note">
+    <b>Ключ до схеми:</b> MFT — Головний фронтальний насув; MBT — Головний крайовий насув; MCT — Головний центральний насув; MHT — Головний Гімалайський насув (глибинний); IYSZ — Індо-Ярлунгський шов, слід колишнього океану Тетіс.
+  </div>
+  <div class="hima-dive-grid">
+    <figure class="hima-verified-photo"><img loading="lazy" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/1000/1216/misr_himalaya_nadir.jpg" alt="Справжній супутниковий знімок NASA MISR: зліва Тибетське плато, у центрі сніжні гімалайські хребти, справа розчленовані схили та Індо-Гангська рівнина; північ на знімку ліворуч"/><figcaption><b>Реальне спостереження NASA MISR</b><p>На знімку північ — ліворуч. Знайдіть три різні зони: Тибетське плато, Гімалаї та Індо-Гангську рівнину.</p><a href="https://science.nasa.gov/earth/earth-observatory/3d-view-of-the-himalaya-1216/" target="_blank" rel="noopener">Оригінал NASA / GSFC / JPL ↗</a></figcaption></figure>
+    <div class="hima-verified-photo" style="padding:18px"><b>Модель висот ASTER ≠ геологічний розріз</b>
+    <p>NASA порівняла радарну модель SRTM і стереоскопічну ASTER. Високі, круті вершини в SRTM іноді виглядають неприродно згладженими через складність радарних вимірювань.</p>
+    <p>Це важлива відмінність: <b>супутник вимірює поверхню, а геологічну будову вивчають додатковими методами</b> — сейсмікою, GPS-геодезією, геологічними спостереженнями.</p>
+    <a href="https://science.nasa.gov/earth/earth-observatory/himalayan-topography-39160/" target="_blank" rel="noopener">Порівняти реальні моделі висот NASA ASTER та SRTM ↗</a>
+    <a href="https://earth.google.com/web/search/Mount+Everest" target="_blank" rel="noopener" style="display:block;margin-top:11px">Дослідити 3D-рельєф Евересту в Google Earth ↗</a>
+    </div>
+  </div>
+  <div class="hima-station" id="hima-station">
+    <h3>Розшифруйте розріз: від породи до процесу</h3><p>Оберіть позначку. Для кожного об’єкта пояснення відкривається <em>на тій самій схемі</em>, а не в окремому тексті підручника.</p>
+    <div class="hima-station-nav" role="group" aria-label="Частини геологічного розрізу">
+      <button type="button" data-hima-point="MHT">Глибинний насув MHT</button>
+      <button type="button" data-hima-point="FOLD">Складки й насувні пластини</button>
+      <button type="button" data-hima-point="MOHO">Потовщення кори</button>
+      <button type="button" data-hima-point="PLATEAU">Тибетське плато</button>
+      <button type="button" data-hima-point="SUTURE">Шов давнього океану</button>
+    </div>
+    <div class="hima-station-response" id="hima-point-result" aria-live="polite">Почніть із MHT: знайдіть червону лінію під усім гірським поясом. Звідки й куди рухається Індійська плита?</div>
+  </div>
+  <div class="hima-exercise">
+    <h3>Перевірте знання: чотири змістові вправи</h3>
+    <div class="hima-q"><label for="hima-q-1"><b>1.</b> На розрізі ви бачите MHT. Який процес він показує?</label><select id="hima-q-1"><option value="">Обрати відповідь</option><option value="a">Підсування Індійської континентальної кори під зону Гімалаїв</option><option value="b">Накопичення алювію річкою Ганг</option><option value="c">Утворення хребта на межі розходження океанічних плит</option></select><div class="hima-task-feedback" id="hima-qf-1" hidden></div></div>
+    <div class="hima-q"><label for="hima-q-2"><b>2.</b> Чому в межах Гімалаїв і Тибету кора потовщена?</label><select id="hima-q-2"><option value="">Обрати відповідь</option><option value="a">Через підвищену густоту населення</option><option value="b">Через горизонтальне стискання, насування й деформацію континентальних порід</option><option value="c">Тільки через вітрові відклади</option></select><div class="hima-task-feedback" id="hima-qf-2" hidden></div></div>
+    <div class="hima-q"><label for="hima-q-3"><b>3.</b> Чому на NASA MISR Гімалаї так різко відрізняються від Тибетського плато?</label><select id="hima-q-3"><option value="">Обрати відповідь</option><option value="a">Плато є широкою високою поверхнею, а гірський пояс — різко розчленованим рельєфом</option><option value="b">Тибетське плато лежить на рівні океану</option><option value="c">Всі відмінності зумовлені кольором супутникового знімка</option></select><div class="hima-task-feedback" id="hima-qf-3" hidden></div></div>
+    <div class="hima-q"><label for="hima-q-4"><b>4.</b> Яку інформацію НЕ можна достовірно отримати лише з фотографії NASA MISR?</label><select id="hima-q-4"><option value="">Обрати відповідь</option><option value="a">Наявність снігу на вершинах і форма долин</option><option value="b">Наявність контрасту між плато, горами та рівниною</option><option value="c">Точну форму й глибину головного Гімалайського насуву MHT</option></select><div class="hima-task-feedback" id="hima-qf-4" hidden></div></div>
+    <button type="button" id="hima-check">Перевірити 4 вправи</button>
+    <p id="hima-score" class="hima-station-response" aria-live="polite">Після перевірки отримаєте пояснення до кожної відповіді.</p>
+  </div>
+  <details class="hima-science"><summary>Для охочих: що наука вимірює, а що ще досліджує?</summary>
+    <p>За геодезичними вимірюваннями скорочення поперек центрального Гімалайського поясу становить приблизно <b>15–20 мм на рік</b>, хоча відносний рух Індії й Євразії в цілому більший і змінюється вздовж дуги. Це різні величини, їх не можна механічно ототожнювати.</p>
+    <p>Дослідження показують, що ширина, глибина, сегментація насувів і внутрішня будова Тибету складні та не всюди однакові. Цей розріз показує основну фізичну ідею, а не замінює сейсмічну томографію.</p>
+    <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014465" target="_blank" rel="noopener">GPS-дослідження деформацій Індії та Євразії (Journal of Geophysical Research) ↗</a>
+    <p><a href="https://psgt.earth.lsa.umich.edu/chapter/TectonicVignettes/Himalayas%20Tibet.pdf" target="_blank" rel="noopener">Науковий геологічний розріз Гімалаїв (університетський матеріал, Figure 21.2.3) ↗</a></p>
+  </details>
+</div>
+<div id="other-boundary-diagram" hidden><div class="diagram"><svg viewBox="0 0 880 235" role="img" aria-label="Схема взаємодії літосферних плит"><rect x="0" y="0" width="880" height="235" rx="15" fill="#d5eefa"/><rect x="0" y="150" width="880" height="85" fill="#dca16e"/><path id="surface" d="M0 150 L240 150 L370 98 L440 38 L510 98 L640 150 L880 150" stroke="#70452f" stroke-width="5" fill="#ad7855" stroke-linejoin="round"/><path id="edge" d="M0 150 L240 150 L370 98 L440 38 L510 98 L640 150 L880 150" stroke="#fff6e9" stroke-width="2" fill="none"/><text x="440" y="25" text-anchor="middle" id="svg-label" font-size="24" font-weight="900" fill="#183d4a">ГІМАЛАЇ</text><text x="440" y="207" text-anchor="middle" font-size="17" fill="#5f3a2b">СХЕМАТИЧНИЙ ПОПЕРЕЧНИЙ РОЗРІЗ</text></svg></div></div>
+<p id="model-result" class="callout">Зіткнення двох континентальних плит: кора зминається, потовщується і піднімається. Приклад — Гімалаї. Але їхня фактична висота залежить і від ерозії.</p><label class="field">Яка форма найбільш імовірна після тривалого зіткнення континентів?<select id="model-answer"><option value="">Виберіть</option><option value="a">Складчасті гори</option><option value="b">Абісальна рівнина без деформацій</option><option value="c">Тільки дельта річки</option></select></label><button onclick="showCheck('model-answer','a','model-feedback','Так, стискання і потовщення кори породжують горотворення; та висота також залежить від денудації.','Ні: подумайте про стискання та потовщення кори.')">Перевірити прогноз</button><div class="hint" id="model-feedback"></div></section>
 
 <section id="geo-model">
 <div class="kicker">Модель 2 • Вимірюємо взаємодію процесів</div>
@@ -173,7 +367,7 @@
 const $=id=>document.getElementById(id);
 function showCheck(id,correct,out,yes,no){let ok=$(id).value===correct;$(out).textContent=ok?yes:no;$(out).classList.add('on')}
 const modes={collide:['M0 150 L240 150 L370 98 L440 38 L510 98 L640 150 L880 150','ГІМАЛАЇ','Зіткнення двох континентальних плит: кора зминається, потовщується і піднімається. Приклад — Гімалаї. Але їхня фактична висота залежить і від ерозії.'],subduct:['M0 150 L230 150 L320 185 L400 170 L460 75 L510 100 L600 145 L880 150','АНДИ','Океанічна плита занурюється під континентальну: поблизу формуються жолоб, складчасті гори, вулканічний пояс. Приклад — Анди.'],spread:['M0 150 L250 150 L350 180 L420 195 L460 195 L530 180 L630 150 L880 150','РИФТ','Плити розходяться, кора розтягується: утворюються рифтові западини. У океані — серединно-океанічний хребет, на континенті — рифт.'],stable:['M0 150 L190 149 L300 138 L440 142 L590 130 L720 145 L880 150','ПЛАТФОРМА','Платформа часто відповідає рівнинній території, але може мати височини та плоскогір’я: вертикальні рухи й ерозія змінюють сучасну висоту.']};
-document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));let d=modes[b.dataset.mode];$('surface').setAttribute('d',d[0]);$('edge').setAttribute('d',d[0]);$('svg-label').textContent=d[1];$('model-result').textContent=d[2]}));
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));let d=modes[b.dataset.mode];const hima=b.dataset.mode==='collide';$('himalaya-studio').hidden=!hima;$('other-boundary-diagram').hidden=hima;$('surface').setAttribute('d',d[0]);$('edge').setAttribute('d',d[0]);$('svg-label').textContent=d[1];$('model-result').textContent=d[2]}));
 $('verify-evidence').addEventListener('click',()=>{let a=[...document.querySelectorAll('#evidence-choices input:checked')].map(x=>x.value).sort().join('');$('evidence-feedback').textContent=a==='ac'?'Правильно: збіг конвергентної межі та сейсмо-вулканічної активності дає два незалежні аргументи.':'Спробуйте відділити тектонічні докази від загальних ознак території. Треба рівно два.';$('evidence-feedback').classList.add('on')});
 function cerCheck(){let vals=['cer-a','cer-b','cer-c'].map(k=>$(k).value.trim());$('cer-feedback').textContent=vals.every(v=>v.length>=25)?'Структура CER заповнена. Перевірте самі, чи доказ конкретний, а пояснення встановлює причинний зв’язок.':'Заповніть усі три частини (хоча б по одному змістовному реченню), додайте конкретну карту або приклад.';$('cer-feedback').classList.add('on')}
 const test=[
@@ -265,5 +459,43 @@ box.textContent=ok?'Так. Саме тому давні гори можуть �
 });
 updateRelief();
 })();
-</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global">
+/* Detailed Himalaya studio: independently switchable geology layers and 4 formative checks. */
+(function(){
+const layers=document.querySelectorAll('[data-hima-layer]');
+layers.forEach(btn=>btn.addEventListener('click',()=>{
+ const on=btn.getAttribute('aria-pressed')!=='true';
+ btn.setAttribute('aria-pressed',String(on));
+ document.querySelectorAll('.hima-geo-layer[data-layer="'+btn.dataset.himaLayer+'"]').forEach(el=>el.classList.toggle('hima-dim',!on));
+}));
+const notes={
+MHT:'MHT — це головний глибинний Гімалайський насув (Main Himalayan Thrust). Індійська континентальна кора підсувається під гірський пояс і південний Тибет. Саме з цією системою пов’язана значна частина накопичення тектонічної деформації і великих землетрусів.',
+FOLD:'У зоні стискання шари гірських порід згинаються і накладаються один на один по насувах. На схемі це виділено смугами різних кольорів і складчастими лініями. MFT, MBT і MCT — різні насувні структури, а не три однакові гори.',
+MOHO:'Унаслідок зіткнення континентів кора в зоні Гімалаїв і Тибетського плато потовщується, місцями до приблизно 70 км, на відміну від типової континентальної кори близько 30–40 км. Підняття поверхні підтримує ізостатична рівновага. Пунктирна лінія внизу умовно показує підошву кори.',
+PLATEAU:'Тибетське плато — широка високопіднята область на північ від стрімкого Гімалайського пасма. Супутникова фотографія NASA дає змогу побачити різницю між широким плато і розчленованими високими вершинами; причину підняття допомагають з’ясувати глибинні геофізичні дослідження.',
+SUTURE:'IYSZ — Індо-Ярлунгський шов. Він зберігає геологічний слід закриття океану Тетіс між Індією та Азією. Це не сучасний океанічний рифт: шов — зона зіткнення, яка об’єднує різні породи та тектонічні елементи.'
+};
+document.querySelectorAll('[data-hima-point]').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('[data-hima-point]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+ document.getElementById('hima-point-result').textContent=notes[btn.dataset.himaPoint];
+}));
+const feedback=[
+['a','Правильно. На MHT Індійська континентальна кора підсувається на північ під гірський пояс. Це не розходження океанічних плит.'],
+['b','Правильно. Скорочення та потовщення кори пов’язані з горизонтальним стисканням, насувами і складчастістю.'],
+['a','Правильно. Плато має широкі високі поверхні, а Гімалаї — круто розчленовані хребти. Обидві області значно підняті над рівнем моря.'],
+['c','Правильно. Супутниковий знімок показує поверхню, але не може самостійно визначити точну геометрію глибинного MHT. Для цього потрібні геофізичні методи.']
+];
+document.getElementById('hima-check')?.addEventListener('click',()=>{
+ let result=0,answered=0;
+ feedback.forEach(([expected,msg],i)=>{
+  const value=document.getElementById('hima-q-'+(i+1)).value;
+  const out=document.getElementById('hima-qf-'+(i+1));
+  const correct=value===expected;if(value)answered++;if(correct)result++;
+  out.hidden=false;out.classList.toggle('bad',!correct);
+  out.textContent=(!value?'Не вибрано відповіді. ':correct?'✓ ':'Потрібно повторити цей елемент. ')+msg;
+ });
+ document.getElementById('hima-score').textContent='Практикум Гімалаїв: '+result+'/4. Виконано '+answered+'/4. Використайте шари та NASA-знімок для повторної перевірки.';
+});
+})();
+</script>
 </body></html>
