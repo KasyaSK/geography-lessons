@@ -97,3 +97,32 @@ $('#quiz').onsubmit=e=>{e.preventDefault();let s=0;qs.forEach((x,i)=>{let a=docu
   [h,id,num,time,comment,note,print].forEach(x=>card.append(x));out.append(card);$("#quiz").querySelector('button[type=submit]').disabled=true;out.scrollIntoView({block:"start",behavior:"smooth"});
  };
 })();
+
+(function initKidsRedesign(){
+ const buttons=[...document.querySelectorAll("[data-power]")];
+ const panel=document.getElementById("powerOutput");
+ const contents={
+  water:{emoji:"🌊",title:"Вода — скульптор долин",text:"Річки розмивають береги, переносять пісок і відкладають його там, де течія слабшає. Так утворюються яри, річкові коси й долини.",bg:"#e6f6ff",edge:"#2fabe0"},
+  wind:{emoji:"💨",title:"Вітер — мандрівник із піском",text:"Вітер піднімає дрібні частинки, переносить їх, а потім відкладає. Так виростають піщані дюни, які поступово змінюють форму.",bg:"#fff1ce",edge:"#e8a83a"},
+  ice:{emoji:"🧊",title:"Мороз ламає, а льодовик шліфує",text:"Вода в тріщині може замерзати й розширювати її. А рухомі льодовики дряпають породи, переносять уламки та залишають широкі долини.",bg:"#efedff",edge:"#9072db"},
+  gravity:{emoji:"⛰️",title:"Сила тяжіння тягне породи вниз",text:"Якщо схил втрачає стійкість, ґрунт і каміння можуть сповзти чи обвалитися. Після сильних дощів слід особливо уважно ставитися до нових тріщин і нахилених дерев.",bg:"#fff0f5",edge:"#df7d9c"}
+ };
+ function activatePower(key){
+  const p=contents[key];if(!p||!panel)return;
+  for(const b of buttons){const active=b.dataset.power===key;b.classList.toggle("is-selected",active);b.setAttribute("aria-pressed",active?"true":"false")}
+  panel.style.background=p.bg;panel.style.borderLeftColor=p.edge;
+  panel.replaceChildren();
+  const icon=document.createElement("div");icon.className="power-output-icon";icon.textContent=p.emoji;
+  const box=document.createElement("div"),strong=document.createElement("strong"),text=document.createElement("p");
+  strong.textContent=p.title;text.textContent=p.text;box.append(strong,text);panel.append(icon,box);
+ }
+ buttons.forEach(b=>b.addEventListener("click",()=>activatePower(b.dataset.power)));
+ const details=document.getElementById("more-adventures");
+ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{
+  const hash=a.getAttribute("href").slice(1),target=document.getElementById(hash);
+  if(details&&target&&details.contains(target))details.open=true;
+ }));
+ if(details&&window.location.hash){const target=document.getElementById(window.location.hash.slice(1));if(target&&details.contains(target))details.open=true;}
+ // Old link #quiz still points to a form that is hidden before the student fills the gate; use the test-section anchor instead.
+ document.querySelectorAll('a[href="#quiz"]').forEach(a=>a.setAttribute("href","#test-section"));
+})();
