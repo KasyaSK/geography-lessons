@@ -138,6 +138,42 @@ body.large section h2{font-size:clamp(2.2rem,4vw,3.4rem)}
 body.large .hero .lead{font-size:1.4rem}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{body{background:#fff;font-size:12pt}nav,.no-print,button,.map,.video{display:none!important}.hero{background:white;color:#000;padding:0}.hero .lead,.hero h1,.hero h1 span{color:#000}.hero-preview{display:none}section.card-section{box-shadow:none;break-inside:avoid;border:1px solid #ccc}.status{border:1px solid #ccc}#quizResult[hidden]{display:none!important}}
+
+/* VISUAL_EXPANSION_2026_11_19 */
+.vp-section{border-top-color:#e79c4d!important}
+.vp-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin:22px 0}
+.vp-tile,.vp-case{border:2px solid #d4e6f1;border-radius:22px;background:#fff;overflow:hidden;box-shadow:0 11px 25px #16527e1a;transition:transform .16s ease,box-shadow .16s ease}
+.vp-tile:hover,.vp-case:hover{transform:translateY(-2px);box-shadow:0 15px 29px #16527e27}
+.vp-frame{background:linear-gradient(130deg,#e7f5ff,#fff1e1);height:207px;position:relative}
+.vp-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.vp-frame img[hidden]{display:none}
+.vp-fallback{padding:24px;text-align:center;color:#3d6480;font-weight:800}
+.vp-body{padding:16px 18px 20px}
+.vp-country{color:#17649a;font-size:.77rem;text-transform:uppercase;letter-spacing:.06em;font-weight:950}
+.vp-tile h3,.vp-case h3{font-family:"Rubik","Nunito",sans-serif;font-size:1.14rem;margin:8px 0 9px;color:#1b4e73}
+.vp-tile p{font-size:.95rem;line-height:1.48;margin:9px 0}
+.vp-question{background:#eff8ff;border-left:4px solid #4a9acd;border-radius:9px;padding:11px!important;font-size:.92rem!important}
+.vp-credit{font-size:.79rem!important;margin-top:12px!important}
+.vp-filter{display:flex;flex-wrap:wrap;gap:11px;margin:20px 0 12px}
+.vp-filter-btn{background:#ecf6fe;color:#1a5b87;border:2px solid #c5dcec;min-height:48px}
+.vp-filter-btn span{background:#fff;color:#15466f;border-radius:99px;padding:3px 7px;margin-left:4px}
+.vp-filter-btn[aria-pressed="true"]{color:#fff;background:#166baf;border-color:#166baf;box-shadow:0 8px 18px #135c9935}
+.vp-tile[hidden]{display:none!important}
+.vp-disclaimer{font-size:.91rem;background:#fff3e6;border-left:5px solid #dd9246;border-radius:12px;padding:14px 17px}
+.vp-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin:18px 0}
+.vp-case .vp-frame{height:230px}
+.vp-case p{font-size:.97rem}
+.vp-case label{font-size:.91rem;display:block;margin:12px 0 6px}
+.vp-case select,.vp-case textarea{font-size:.95rem;min-height:49px}
+.vp-case textarea{min-height:82px}
+.vp-visual-models{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.vp-visual-models svg{display:block;width:100%;height:auto;max-height:270px;background:#fff;border:1px solid #dbe5ed;border-radius:15px;margin:11px 0}
+.vp-visual-models h3{font-size:1.11rem}
+@media(max-width:980px){.vp-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.vp-cases{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.vp-gallery,.vp-cases,.vp-visual-models{grid-template-columns:1fr}.vp-frame{height:216px}.vp-case .vp-frame{height:220px}.vp-body{padding:15px}.vp-filter-btn{flex:1}}
+@media(prefers-reduced-motion:reduce){.vp-tile,.vp-case{transition:none}.vp-tile:hover,.vp-case:hover{transform:none}}
+@media print{.vp-gallery{grid-template-columns:repeat(2,1fr)}.vp-tile,.vp-case{break-inside:avoid;box-shadow:none}.vp-section button{display:none}}
+
 </style>
 </head>
 <body>
@@ -153,7 +189,7 @@ body.large .hero .lead{font-size:1.4rem}
 <div class="tile"><b>Рішення</b><small>Спочатку дані — потім висновок. Не навпаки.</small></div>
 </div></div></header>
 <nav aria-label="Навігація практичною"><div class="w">
-<a href="#start">01 · Гіпотеза</a><a href="#numbers">02 · Дані</a><a href="#atlas">03 · Карта</a><a href="#simulator">04 · Симулятор</a><a href="#audit">05 · Перевірка</a><a href="#report">06 · Висновок</a><a href="#home">Тест і Д/З</a><a href="#evidence-video">Відео</a>
+<a href="#start">01 · Гіпотеза</a><a href="#numbers">02 · Дані</a><a href="#atlas">03 · Карта</a><a href="#simulator">04 · Симулятор</a><a href="#audit">05 · Перевірка</a><a href="#report">06 · Висновок</a><a href="#visual-gallery">Фотоатлас</a><a href="#visual-cases">Фотоаналіз</a><a href="#home">Тест і Д/З</a><a href="#evidence-video">Відео</a>
 <button type="button" id="largeFont" aria-pressed="false" title="Збільшити шрифт">Аа +</button>
 </div></nav>
 <main class="w">
@@ -196,6 +232,33 @@ body.large .hero .lead{font-size:1.4rem}
 <div class="callout warn"><strong>Виклик:</strong> чи дозволяє факт «Ломбардія має 906 500 працівників» зробити висновок, що вся Італія промислово потужніша за Німеччину? Наведіть два різні пояснення, чому такий висновок був би некоректним.</div>
 <textarea id="limitsNumbers" placeholder="Перший аргумент... Другий аргумент... Яких даних бракує?..."></textarea>
 </section>
+
+<section class="card-section vp-section" id="visual-gallery" data-visual-update="VISUAL_EXPANSION_2026_11_19">
+<span class="k">Великий промисловий фотоатлас • додатковий дослідницький матеріал</span>
+<h2>📸 Промисловість, яку можна побачити</h2>
+<p class="sub">13 документальних зображень із конкретними регіонами, підприємствами та галузями. Фото — <b>джерело для спостереження й гіпотези</b>, але не доказ обсягу експорту чи продуктивності. Знайдіть для кожного два чинники розміщення та поясніть один невидимий на фото показник.</p>
+<div class="vp-filter" role="group" aria-label="Вибрати країну для фотогалереї">
+<button type="button" class="vp-filter-btn" data-filter="all" aria-pressed="true">🌍 Усі виробництва <span>13</span></button>
+<button type="button" class="vp-filter-btn" data-filter="de" aria-pressed="false">🇩🇪 Німеччина <span>6</span></button>
+<button type="button" class="vp-filter-btn" data-filter="it" aria-pressed="false">🇮🇹 Італія <span>7</span></button>
+</div>
+<div class="vp-gallery" id="vp-gallery">
+<article class="vp-tile" data-geo="de"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LudwigshafenBASF2017-07-29-12-44-06.jpg?width=800" alt="Людвігсгафен · BASF: Хімічний комплекс: технологічні зв’язки між виробництвами, енергія, трубопроводи, логістика." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:LudwigshafenBASF2017-07-29-12-44-06.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇩🇪 Німеччина</div><h3>Людвігсгафен · BASF</h3><p>Хімічний комплекс: технологічні зв’язки між виробництвами, енергія, трубопроводи, логістика.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чому концентрація процесів може зменшувати витрати й одночасно підсилювати ризики?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:LudwigshafenBASF2017-07-29-12-44-06.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="de"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dampfturbine%20Laeufer01.jpg?width=800" alt="Турбіна Siemens · машинобудування: Інженер складає парову турбіну на заводі Siemens у Німеччині. Складне обладнання і кваліфікована праця." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Dampfturbine_Laeufer01.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇩🇪 Німеччина</div><h3>Турбіна Siemens · машинобудування</h3><p>Інженер складає парову турбіну на заводі Siemens у Німеччині. Складне обладнання і кваліфікована праця.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чому для такого виробництва знання й компетенції важливіші за близькість до руди?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Dampfturbine_Laeufer01.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="de"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20image%20of%20the%20Eurogate%20and%20Burchardkai%20container%20terminals%20(view%20from%20the%20southeast).jpg?width=800" alt="Гамбург · контейнерні термінали: Сучасна аерофотографія портових терміналів, 2024. Порт як транспортний вузол міжнародних ланцюгів." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Eurogate_and_Burchardkai_container_terminals_(view_from_the_southeast).jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇩🇪 Німеччина</div><h3>Гамбург · контейнерні термінали</h3><p>Сучасна аерофотографія портових терміналів, 2024. Порт як транспортний вузол міжнародних ланцюгів.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Які галузі отримують вигоду від морського вузла, навіть якщо розміщені далеко від моря?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Eurogate_and_Burchardkai_container_terminals_(view_from_the_southeast).jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="de"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/2382%20port%20of%20Duisburg.jpg?width=800" alt="Дуйсбург · внутрішній порт: Рейнська транспортна система Рурського району — річкові шляхи, вантажі й індустріальна спадщина." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:2382_port_of_Duisburg.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇩🇪 Німеччина</div><h3>Дуйсбург · внутрішній порт</h3><p>Рейнська транспортна система Рурського району — річкові шляхи, вантажі й індустріальна спадщина.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чому річкові порти можуть залишатися важливими після зміни старої важкої промисловості?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:2382_port_of_Duisburg.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="de"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/BMW-HQ-PLANT-BMWWELT2.jpg?width=800" alt="Мюнхен · комплекс BMW: Заводсько-адміністративний комплекс BMW (фото 2006 року). Автомобільний регіон у зв’язку з наукою і послугами." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:BMW-HQ-PLANT-BMWWELT2.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇩🇪 Німеччина</div><h3>Мюнхен · комплекс BMW</h3><p>Заводсько-адміністративний комплекс BMW (фото 2006 року). Автомобільний регіон у зв’язку з наукою і послугами.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чи можна за фото будівель оцінити продуктивність виробництва? Яких даних бракує?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:BMW-HQ-PLANT-BMWWELT2.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="de"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bundesarchiv%20B%20145%20Bild-F027644-0004%2C%20M%C3%BCnchen%2C%20BMW%20Autowerk.jpg?width=800" alt="Мюнхен · автомобільний цех у минулому: Історичний знімок заводу BMW із Федерального архіву Німеччини. Ілюструє розвиток промислової організації." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Bundesarchiv_B_145_Bild-F027644-0004%2C_M%C3%BCnchen%2C_BMW_Autowerk.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇩🇪 Німеччина · архів</div><h3>Мюнхен · автомобільний цех у минулому</h3><p>Історичний знімок заводу BMW із Федерального архіву Німеччини. Ілюструє розвиток промислової організації.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Що змінилося б сьогодні через роботизацію? Чому архівне фото не характеризує сучасну продуктивність?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Bundesarchiv_B_145_Bild-F027644-0004%2C_M%C3%BCnchen%2C_BMW_Autowerk.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fiat%20Mirafiori.jpg?width=800" alt="Турин · Fiat Mirafiori: Великий автомобільний комплекс Турина — приклад індустріальної історії П’ємонту." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Fiat_Mirafiori.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія</div><h3>Турин · Fiat Mirafiori</h3><p>Великий автомобільний комплекс Турина — приклад індустріальної історії П’ємонту.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чому зосередження автопрому могло сформувати ринок спеціалізованих кадрів?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Fiat_Mirafiori.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari%20Werke.JPG?width=800" alt="Маранелло · Ferrari: Виробничий майданчик Ferrari: інженерія, дизайн, вузька ринкова спеціалізація й впізнаваний бренд." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Ferrari_Werke.JPG" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія</div><h3>Маранелло · Ferrari</h3><p>Виробничий майданчик Ferrari: інженерія, дизайн, вузька ринкова спеціалізація й впізнаваний бренд.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чи доводить висока ціна продукту більший обсяг виробництва в регіоні?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Ferrari_Werke.JPG">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamborghini%2C%20Sant'Agata%20Bolognese%2C%20Bologna.jpg?width=800" alt="Сант’Агата-Болоньєзе · Lamborghini: Завод Lamborghini біля Болоньї — приклад транспортного машинобудування Емілії-Романьї." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Lamborghini%2C_Sant'Agata_Bolognese%2C_Bologna.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія</div><h3>Сант’Агата-Болоньєзе · Lamborghini</h3><p>Завод Lamborghini біля Болоньї — приклад транспортного машинобудування Емілії-Романьї.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Які постачальники та компетенції необхідні для виробництва складного автомобіля?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Lamborghini%2C_Sant'Agata_Bolognese%2C_Bologna.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parmigiano%20reggiano%20factory.jpg?width=800" alt="Модена · харчова переробка: Реальне виробництво сиру Parmigiano Reggiano. Сировина, знання, стандарти, територіальна ідентичність." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Parmigiano_reggiano_factory.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія</div><h3>Модена · харчова переробка</h3><p>Реальне виробництво сиру Parmigiano Reggiano. Сировина, знання, стандарти, територіальна ідентичність.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чому географічне походження продукту може бути частиною його економічної спеціалізації?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Parmigiano_reggiano_factory.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Photo%20Interior%20of%20a%20textile%20factory%201960%20-%20Touring%20Club%20Italiano%2006-3271.01.jpg?width=800" alt="Мілан · текстильна фабрика 1960 року: Історична світлина текстильної промисловості Мілана: технології, робоча сила та довга промислова традиція." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Photo_Interior_of_a_textile_factory_1960_-_Touring_Club_Italiano_06-3271.01.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія · архів</div><h3>Мілан · текстильна фабрика 1960 року</h3><p>Історична світлина текстильної промисловості Мілана: технології, робоча сила та довга промислова традиція.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Які сучасні дані потрібні, щоб перевірити, чи збереглася така спеціалізація зараз?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/wiki/File:Photo_Interior_of_a_textile_factory_1960_-_Touring_Club_Italiano_06-3271.01.jpg">Фото, автор і ліцензія • Wikimedia Commons</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://incronaca.unibo.it/archivio/2025/lindustria-tiene-ancora-ma-si-interroga-sul-futuro/%40%40images/553c092f-a30d-4983-b3a8-9950987b8ea8.png" alt="Болонья · IMA та пакувальні машини: Реальний цех виробника машин для пакування. Приклад спеціалізації територіальних мереж Емілії-Романьї." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://incronaca.unibo.it/archivio/2025/06/17/lindustria-tiene-ancora-ma-si-interroga-sul-futuro" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія</div><h3>Болонья · IMA та пакувальні машини</h3><p>Реальний цех виробника машин для пакування. Приклад спеціалізації територіальних мереж Емілії-Романьї.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Що на фото вказує на інженерну складність, а чого не видно про експорт?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://incronaca.unibo.it/archivio/2025/06/17/lindustria-tiene-ancora-ma-si-interroga-sul-futuro">Фото, автор і ліцензія • Università di Bologna, 2025</a></p></div></article>
+<article class="vp-tile" data-geo="it"><div class="vp-frame"><img loading="lazy" src="https://hfgnext.s3.eu-west-3.amazonaws.com/img/4YL7Q000000PNoNWAW-interview2.jpg" alt="Венето · текстильні верстати: Сучасне ткацьке виробництво Rubelli у Венеції: поєднання технології, навичок і дизайну." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://www.homofaber.com/en/artisans/rubelli-weaving-italy" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div><div class="vp-body"><div class="vp-country">🇮🇹 Італія</div><h3>Венето · текстильні верстати</h3><p>Сучасне ткацьке виробництво Rubelli у Венеції: поєднання технології, навичок і дизайну.</p><p class="vp-question"><b>🧠 Дослідіть:</b> Чому унікальність продукції може бути важливішою за її масовість?</p><p class="vp-credit"><a target="_blank" rel="noopener noreferrer" href="https://www.homofaber.com/en/artisans/rubelli-weaving-italy">Фото, автор і ліцензія • Homo Faber / Rubelli</a></p></div></article>
+</div>
+<p class="vp-disclaimer">Знімки датовані різними роками; два позначено як <b>архівні</b>. Не використовуйте їх для оцінювання поточного обсягу виробництва. Якщо зовнішній сервер блокує фотографію, з’явиться посилання на першоджерело.</p>
+</section>
 <section class="card-section" id="atlas">
 <span class="k">9–14 хв · Географічна експертиза</span><h2>📍 Коли виробництво залежить від території</h2>
 <p class="sub">Карта не показує конкурентоспроможність автоматично. Вона допомагає дослідити вузли, транспортні коридори, центри науки та концентрацію працівників. Порівняйте два типи промислової організації.</p>
@@ -215,6 +278,48 @@ body.large .hero .lead{font-size:1.4rem}
 <div class="two"><div class="panel"><h3>Місія А · просторовий ланцюг</h3><p>Оберіть <b>Штутгарт або Вольфсбург</b>. Поясніть: район → галузь → два чинники розміщення → можливий ризик.</p><textarea id="geoGermany" placeholder="Район → галузь → чинники → ризик..."></textarea></div>
 <div class="panel orange"><h3>Місія Б · контраст</h3><p>Оберіть <b>Болонью або Турин</b>. Знайдіть одну подібність і одну відмінність щодо обраного німецького центру.</p><textarea id="geoItaly" placeholder="Район → галузь → схожість → відмінність..."></textarea></div></div>
 <div class="callout"><b>Важлива межа:</b> транспортні маршрути на карті існують реально, проте сам їхній вигляд не дає значень витрат, інтенсивності поставок чи продуктивності підприємств. Ці дані треба дослідити окремо.</div>
+</section>
+
+<section class="card-section vp-section" id="visual-cases" data-visual-update="VISUAL_EXPANSION_2026_11_19">
+<span class="k">Фотоекспертиза • станція поглиблення</span>
+<h2>🔎 Фотографія → гіпотеза → перевірка доказами</h2>
+<p>Три випадки, три різні механізми. Спочатку подивіться на фотографію, потім оберіть пояснення. Після вибору система не просто оцінить відповідь, а вкаже <b>яких статистичних чи просторових даних бракує</b>.</p>
+<div class="vp-cases">
+<article class="vp-case">
+<div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/LudwigshafenBASF2017-07-29-12-44-06.jpg?width=800" alt="Людвігсгафен · BASF: Хімічний комплекс: технологічні зв’язки між виробництвами, енергія, трубопроводи, логістика." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:LudwigshafenBASF2017-07-29-12-44-06.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div>
+<div class="vp-body"><div class="vp-country">Кейс А · Німеччина • хімія</div><h3>Де вигода від промислової концентрації?</h3><p>На фото — інтегрований виробничий комплекс BASF. Що найкраще пояснює вигоду його розміщення?</p>
+<label for="vp-caseA">Оберіть обґрунтування</label><select id="vp-caseA"><option value="">— оберіть —</option><option value="1">Спільна інфраструктура, трубопроводи, потоки сировини, утилізація тепла</option><option value="2">Чим більший завод на фото, тим завжди більший прибуток</option><option value="3">Великому заводу не потрібні транспорт і кадри</option></select>
+<label for="vp-caseAtext">Який один показник перевірить Вашу гіпотезу?</label><textarea id="vp-caseAtext" placeholder="Дані про витрати, ефективність, енергоспоживання, постачання..."></textarea></div></article>
+<article class="vp-case">
+<div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lamborghini%2C%20Sant'Agata%20Bolognese%2C%20Bologna.jpg?width=800" alt="Сант’Агата-Болоньєзе · Lamborghini: Завод Lamborghini біля Болоньї — приклад транспортного машинобудування Емілії-Романьї." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Lamborghini%2C_Sant'Agata_Bolognese%2C_Bologna.jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div>
+<div class="vp-body"><div class="vp-country">Кейс Б · Італія • автомобілебудування</div><h3>Чому завод не існує окремо від регіону?</h3><p>На фото — комплекс Lamborghini в Емілії-Романьї. Що потрібно з’ясувати перед висновком про промисловий кластер?</p>
+<label for="vp-caseB">Оберіть обґрунтування</label><select id="vp-caseB"><option value="">— оберіть —</option><option value="1">Наявність одного відомого заводу достатня, щоби довести економічну перевагу всієї Італії</option><option value="2">Потрібна карта виробників компонентів, постачальників, інженерних установ та зв’язків між ними</option><option value="3">Точно достатньо порівняти зовнішній вигляд заводських будівель</option></select>
+<label for="vp-caseBtext">Яке джерело додасте до фото?</label><textarea id="vp-caseBtext" placeholder="Карта промислового округу, статистика фірм, транспортні зв’язки..."></textarea></div></article>
+<article class="vp-case">
+<div class="vp-frame"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial%20image%20of%20the%20Eurogate%20and%20Burchardkai%20container%20terminals%20(view%20from%20the%20southeast).jpg?width=800" alt="Гамбург · контейнерні термінали: Сучасна аерофотографія портових терміналів, 2024. Порт як транспортний вузол міжнародних ланцюгів." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="vp-fallback" hidden>🖼️ Фото тимчасово недоступне.<p><a href="https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Eurogate_and_Burchardkai_container_terminals_(view_from_the_southeast).jpg" target="_blank" rel="noopener noreferrer">Відкрити оригінал</a></p></div></div>
+<div class="vp-body"><div class="vp-country">Кейс В · Німеччина • морська логістика</div><h3>Порт — це не просто красиві крани</h3><p>На фото — Гамбург, міжнародний контейнерний вузол. Чому географія порту має значення для промисловості?</p>
+<label for="vp-caseC">Оберіть обґрунтування</label><select id="vp-caseC"><option value="">— оберіть —</option><option value="1">Порт створює доступ до торгових маршрутів та сировини, але необхідно перевірити обсяг і структуру вантажів</option><option value="2">Один порт автоматично робить усі регіони країни однаково індустріальними</option><option value="3">Порти використовують виключно для туризму</option></select>
+<label for="vp-caseCtext">Яких даних не видно з висоти?</label><textarea id="vp-caseCtext" placeholder="Вантажообіг, частка перевезень, зв’язок з конкретними заводами..."></textarea></div></article>
+</div>
+<button type="button" class="action" id="vp-check" style="margin-top:18px">Перевірити три фотоаналізи</button>
+<div class="status" id="vp-feedback" aria-live="polite">Оберіть по одному поясненню для кожної фотографії.</div>
+<div class="vp-visual-models">
+<div class="panel"><h3>🏭 Схема 1: концентрований індустріальний вузол</h3>
+<svg viewBox="0 0 510 220" role="img" aria-label="Авторська схема великого промислового вузла з заводом, постачальниками, енергією та ринками; не географічна карта">
+<defs><marker id="vparrowA" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#2369ae"/></marker></defs>
+<rect x="193" y="75" rx="16" width="130" height="69" fill="#174f83"/><text x="258" y="104" font-size="16" fill="white" text-anchor="middle" font-weight="800">Основний</text><text x="258" y="125" font-size="16" fill="white" text-anchor="middle">завод</text>
+<g fill="#e1f4ff" stroke="#73b3d8" stroke-width="2"><rect x="7" y="15" width="158" height="50" rx="12"/><rect x="346" y="15" width="158" height="50" rx="12"/><rect x="7" y="158" width="158" height="50" rx="12"/><rect x="346" y="158" width="158" height="50" rx="12"/></g>
+<g fill="#1c4d74" font-size="15" font-weight="700" text-anchor="middle"><text x="86" y="45">Постачальники</text><text x="425" y="45">Кадри й наука</text><text x="86" y="188">Енергія</text><text x="425" y="188">Транспорт/ринок</text></g>
+<g stroke="#2369ae" stroke-width="3" fill="none" marker-end="url(#vparrowA)"><path d="M165 50 L193 84"/><path d="M346 50 L322 83"/><path d="M165 179 L198 136"/><path d="M322 134 L346 181"/></g>
+</svg><p class="small">Авторська <strong>схема механізму</strong>, а не карта розташування реальних заводів. Обговоріть: яка перевага вузла може стати вразливістю?</p></div>
+<div class="panel orange"><h3>🕸 Схема 2: мережа спеціалізованих підприємств</h3>
+<svg viewBox="0 0 510 220" role="img" aria-label="Авторська схема мережі малих і середніх компаній, постачальників, наукових центрів та експорту; не географічна карта">
+<g stroke="#cd784e" stroke-width="4" opacity=".8"><path d="M125 60L258 42L396 65L420 175L270 184L100 174Z"/><path d="M125 60L270 184L396 65L100 174L258 42L420 175"/></g>
+<g fill="#fff2e6" stroke="#c77953" stroke-width="2"><rect x="32" y="30" width="165" height="48" rx="12"/><rect x="188" y="15" width="135" height="51" rx="12"/><rect x="328" y="36" width="162" height="48" rx="12"/><rect x="21" y="152" width="169" height="53" rx="12"/><rect x="197" y="160" width="143" height="48" rx="12"/><rect x="340" y="152" width="165" height="53" rx="12"/></g>
+<g fill="#7c4429" text-anchor="middle" font-size="15" font-weight="700"><text x="114" y="59">Деталі й вузли</text><text x="255" y="46">Дизайн</text><text x="409" y="66">Збірка</text><text x="105" y="184">Обладнання</text><text x="268" y="189">Наука</text><text x="422" y="183">Експорт</text></g>
+</svg><p class="small">Авторська <strong>схема кооперації</strong> промислового округу. Обговоріть: чи означає багато фірм нижчу конкурентоспроможність?</p></div>
+</div>
+<div class="callout warn"><strong>Географічне застереження:</strong> фотографія не показує статистичний рік, продуктивність або масштаби експорту. Схеми демонструють принципи організації виробництва, але не є точними картами регіонів. Обов’язково підкріплюйте висновки картою, статистикою або профільним дослідженням.</div>
 </section>
 <section class="card-section" id="simulator">
 <span class="k">14–22 хв · Інтерактивна економіко-географічна модель</span><h2>🎛️ Де розмістити нове виробництво?</h2>
@@ -357,7 +462,7 @@ var reportIds=["common","difference","claim","evidence1","evidence2","reasoning"
 var reportLabels=["Дві спільні риси","Дві відмінності","Теза","Числовий доказ","Просторовий доказ","Причинне пояснення","Контраргумент","Межі висновку"];
 function reportContent(){var lines=["ПРАКТИЧНА РОБОТА №21 — ПРОМИСЛОВА СПЕЦІАЛІЗАЦІЯ ДВОХ КРАЇН ЄВРОПИ",
 "Ім'я та прізвище: "+val("studentName"),"Клас: "+$("studentClass").value,"Дата: "+new Date().toLocaleString("uk-UA"),"",
-"СТАРТОВА ГІПОТЕЗА:",val("hypothesis"),"",
+"СТАРТОВА ГІПОТЕЗА:",val("hypothesis"),"", "ФОТОАНАЛІЗ А — додатковий доказ:",val("vp-caseAtext"),"", "ФОТОАНАЛІЗ Б — додатковий доказ:",val("vp-caseBtext"),"", "ФОТОАНАЛІЗ В — додатковий доказ:",val("vp-caseCtext"),"",
 "АНАЛІЗ ОБМЕЖЕНЬ СТАТИСТИКИ:",val("limitsNumbers"),"",
 "НІМЕЧЧИНА — КАРТОГРАФІЧНИЙ ВИСНОВОК:",val("geoGermany"),"",
 "ІТАЛІЯ — КАРТОГРАФІЧНИЙ ВИСНОВОК:",val("geoItaly"),"",
@@ -402,4 +507,29 @@ $("quizBody").addEventListener("submit",function(ev){ev.preventDefault();var sco
 })();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+
+<script id="vp-interactions">
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var controls=document.querySelectorAll("[data-filter]");
+controls.forEach(function(btn){btn.addEventListener("click",function(){
+ var v=btn.dataset.filter;
+ controls.forEach(function(b){b.setAttribute("aria-pressed",String(b===btn))});
+ document.querySelectorAll(".vp-tile[data-geo]").forEach(function(tile){tile.hidden=(v!=="all"&&tile.dataset.geo!==v)});
+})});
+var answers={"vp-caseA":"1","vp-caseB":"2","vp-caseC":"1"};
+$("vp-check").addEventListener("click",function(){
+var chosen=0,correct=0;
+Object.keys(answers).forEach(function(id){var v=$(id).value;if(v){chosen++;if(v===answers[id])correct++}});
+var msg="Ваші обґрунтування: "+correct+"/3; заповнено: "+chosen+"/3. ";
+msg+="А — інтеграція виробничих потоків може бути економічно важливою, але рентабельність з фото не визначити. ";
+msg+="Б — кластер підтверджують зв'язки підприємств, а не наявність одного бренду. ";
+msg+="В — роль порту обґрунтовують даними вантажопотоків та транспортних зв'язків. ";
+var explanations=["vp-caseAtext","vp-caseBtext","vp-caseCtext"].filter(function(id){return $(id).value.trim().length>26}).length;
+msg+="Письмові пояснення з достатнім обсягом: "+explanations+"/3. Їхню якість перевіряє вчитель.";
+$("vp-feedback").textContent=msg;$("vp-feedback").classList.toggle("good",chosen===3&&correct===3);
+});
+})();
+</script>
 </body></html>
