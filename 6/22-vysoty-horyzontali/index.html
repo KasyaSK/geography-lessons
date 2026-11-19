@@ -1,2 +1,424 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»"><title>Урок 22 — Абсолютна і відносна висота. Горизонталі</title><link rel="stylesheet" href="style.css"></head><body><header class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">⛰️ 6 клас • урок 22 • §19 • ГР1 + ГР2</span><h1>Абсолютна і відносна висота. Горизонталі</h1><p class="lead">Як перетворити об’ємний рельєф на плоску карту — і не втратити висоту? Спочатку читаємо докази, потім формулюємо правила.</p><div class="badges"><span>🗺️ топографія</span><span>📏 практична робота</span><span>🧠 7 інтерактивів</span><span>✅ тест /10</span></div></div><figure class="hero-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Topographic_map_example.png" alt="Фрагмент топографічної карти з горизонталями"><figcaption>Топографічна карта: горизонталі з’єднують точки однакової абсолютної висоти.</figcaption></figure></div></header><main class="wrap"><section class="card mission"><h2>🎯 Місія топографа</h2><p>Визначити висоту точок, відновити форму схилу за горизонталями та довести, де рельєф крутіший.</p><div class="goals"><div><b>Розрізню</b><span>абсолютну й відносну висоту</span></div><div><b>Читаю</b><span>горизонталі та шкалу висот</span></div><div><b>Обчислюю</b><span>перевищення між точками</span></div><div><b>Доводжу</b><span>форму й крутість схилу</span></div></div></section><section class="card"><div class="section-head"><span>01</span><div><h2>Що означає число висоти?</h2><p>Оберіть правильне пояснення для точки A = 214 м.</p></div></div><div class="choices" id="heightMeaning"><button data-answer="wrong">214 м над найближчою річкою</button><button data-answer="right">214 м над середнім рівнем моря</button><button data-answer="wrong">214 м вище сусідньої точки</button></div><div id="heightFeedback" class="feedback"></div><p class="small">Абсолютну висоту відлічують від прийнятого нульового рівня — середнього рівня моря.</p></section><section class="card evidence"><div class="section-head"><span>02</span><div><h2>Реальний рельєф → карта</h2><p>Порівняйте супутникове/рельєфне зображення з топографічним способом подання висоти.</p></div></div><div class="photo-grid"><figure><img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/150000/150038/himalaya_oli_2022305_lrg.jpg" alt="Супутниковий вигляд Гімалаїв"><figcaption>NASA Earth Observatory / Landsat: Гімалаї — реальний складний рельєф.</figcaption></figure><figure><img src="assets/contours-lab.svg" alt="Навчальна схема горизонталей"><figcaption>Локальна модель: однаковий крок висоти, але різна густота горизонталей.</figcaption></figure></div><div class="choices" id="slopeChoice"><button data-answer="right">Де горизонталі ближче одна до одної — схил крутіший</button><button data-answer="wrong">Де горизонталі ближче — абсолютна висота обов’язково більша</button><button data-answer="wrong">Відстань між горизонталями не має значення</button></div><div id="slopeFeedback" class="feedback"></div></section><section class="card"><div class="section-head"><span>03</span><div><h2>Тренажер: абсолютна чи відносна?</h2></div></div><div class="scenario" id="typeQuiz"><div><b>Вершина 1545 м над рівнем моря</b><select data-ok="abs"><option value="">оберіть</option><option value="abs">абсолютна</option><option value="rel">відносна</option></select></div><div><b>Вершина на 420 м вище долини</b><select data-ok="rel"><option value="">оберіть</option><option value="abs">абсолютна</option><option value="rel">відносна</option></select></div><div><b>Берег озера 98 м над рівнем моря</b><select data-ok="abs"><option value="">оберіть</option><option value="abs">абсолютна</option><option value="rel">відносна</option></select></div></div><button id="checkTypes">Перевірити</button><div id="typeFeedback" class="feedback"></div></section><section class="card"><div class="section-head"><span>04</span><div><h2>Обчисліть перевищення</h2><p>Точка A має абсолютну висоту <b>360 м</b>, точка B — <b>145 м</b>. Яка відносна висота A щодо B?</p></div></div><div class="calc"><input id="relInput" type="number" placeholder="відповідь, м"><button id="checkRel">Перевірити</button><div id="relFeedback" class="feedback"></div></div><details><summary>Потрібен алгоритм?</summary><p>Відносна висота = більша абсолютна висота − менша абсолютна висота.</p></details></section><section class="card"><div class="section-head"><span>05</span><div><h2>Практична робота: читаємо горизонталі</h2><p>Крок горизонталей на схемі — 20 м. Визначте висоту точки X і крутіший схил.</p></div></div><img class="diagram" src="assets/profile-lab.svg" alt="Схема пагорба з горизонталями і точками"><div class="practice"><label>Висота X, м <input id="xHeight" type="number"></label><label>Крутіший схил <select id="steep"><option value="">оберіть</option><option value="west">західний</option><option value="east">східний</option></select></label><button id="checkPractice">Перевірити практичну</button><div id="practiceFeedback" class="feedback"></div></div></section><section class="card"><div class="section-head"><span>06</span><div><h2>Шкала висот і глибин</h2><p>Фізична карта показує висоту й глибину кольорами, але колір читають лише разом із легендою.</p></div></div><div class="scale"><div><span class="sw low"></span><b>0–200 м</b><small>низовини</small></div><div><span class="sw mid"></span><b>200–500 м</b><small>височини</small></div><div><span class="sw high"></span><b>500–2000 м</b><small>гори</small></div><div><span class="sw peak"></span><b>&gt;2000 м</b><small>високі гори</small></div><div><span class="sw sea"></span><b>нижче 0 м</b><small>глибини океану — за окремою шкалою</small></div></div><div class="claim"><b>Перевірте твердження:</b> «Темно-коричневий колір завжди означає найкрутіший схил». <button id="claimCheck">Оцінити</button><div id="claimFeedback" class="feedback"></div></div></section><section class="card"><div class="section-head"><span>07</span><div><h2>Коротке відео: contour lines</h2><p>Під час перегляду знайдіть два правила: як горизонталі показують висоту і як — крутість.</p></div></div><div class="video"><iframe src="https://www.youtube.com/embed/CoVcRxza8nI" title="Contour lines and topographic maps" allowfullscreen></iframe></div></section><section class="card theory"><div class="section-head"><span>08</span><div><h2>Тепер — теорія</h2><p>Узагальнюємо після роботи з моделями.</p></div></div><div class="theory-grid"><article><h3>Абсолютна висота</h3><p>Висота точки над середнім рівнем моря.</p></article><article><h3>Відносна висота</h3><p>Перевищення однієї точки над іншою; різниця їх абсолютних висот.</p></article><article><h3>Горизонталь</h3><p>Лінія на карті або плані, що з’єднує точки з однаковою абсолютною висотою.</p></article><article><h3>Крутість схилу</h3><p>Чим менша відстань між сусідніми горизонталями, тим крутіший схил.</p></article></div></section><section class="card challenge"><div class="section-head"><span>09</span><div><h2>Доказове завдання</h2></div></div><p>Учень каже: «Точка P лежить на горизонталі 300 м, а Q — на 260 м, тому P на 40 м вище Q. А схил біля P точно крутіший, бо P вище».</p><textarea id="proof" placeholder="Що в міркуванні правильне? Що не доведено? Який картографічний доказ потрібен?"></textarea><button class="check" data-target="proofHint">Показати критерії сильної відповіді</button><div class="feedback" id="proofHint">Сильна відповідь: різниця висот 40 м визначена правильно. Але більша абсолютна висота не доводить більшу крутість. Для крутості треба порівняти <b>відстань між сусідніми горизонталями</b>.</div></section><section class="card cer"><h2>🧾 CER-підсумок</h2><p><b>Питання:</b> як за топографічною картою довести, що один схил крутіший за інший?</p><label>Claim — твердження<textarea id="claim"></textarea></label><label>Evidence — доказ<textarea id="evidence"></textarea></label><label>Reasoning — пояснення<textarea id="reasoning"></textarea></label></section><section class="card homework"><h2>🏠 Домашнє завдання</h2><p><b>§19.</b> Знайдіть на фізичній карті одну низовину, одну височину й одну гірську територію. Для кожної запишіть діапазон висот за легендою. Додатково: поясніть, чому за фізичною картою не завжди можна точно визначити крутість схилу.</p><div class="source-links"><a target="_blank" rel="noopener" href="https://lms.e-school.net.ua/">Електронна платформа підручників →</a><a target="_blank" rel="noopener" href="https://www.openstreetmap.org/">OpenStreetMap →</a></div></section><section class="card test"><div class="section-head"><span>10</span><div><h2>Фінальний тест — 10 балів</h2><p>Спочатку введіть дані учня.</p></div></div><div class="identity"><input id="firstName" placeholder="Ім’я"><input id="lastName" placeholder="Прізвище"><select id="className"><option value="">Клас</option><option>6-А</option><option>6-Б</option><option>6-В</option><option>6</option></select><button id="unlockTest">Відкрити тест</button></div><div id="testLock" class="lock">🔒 Тест заблоковано.</div><form id="quiz" hidden><div id="quizQuestions"></div><button type="submit">Завершити тест</button></form><div id="quizResult" class="resultbox"></div></section></main><footer><div class="wrap">Скринченко К.А. • Василівський ліцей «Сузір’я»</div></footer><script src="script.js"></script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
+<meta name="description" content="Практична робота №6, географія 6-А: абсолютна і відносна висота, горизонталі, шкала висот та глибин. Фотодокази, реальні карти, тренажери, власний профіль рельєфу та тест 10/10.">
+<title>РЕЛЬЄФ LAB | Географія 6-А · Практична №6</title>
+<style>
+:root{--ink:#153953;--muted:#527184;--bg:#f4f8f8;--blue:#166cae;--teal:#067f75;--orange:#ea8453;--yellow:#f8c85f;--line:#d6e5e7;--shadow:0 16px 40px #1c446615}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;color:var(--ink);font:500 17px/1.59 system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 0% 16%,#d9f4f0 0,transparent 25%),radial-gradient(circle at 96% 48%,#ffefd9 0,transparent 30%),var(--bg)}
+h1,h2,h3{line-height:1.15;letter-spacing:-.04em}
+h1{font-size:clamp(3.2rem,8vw,6.3rem);font-weight:950;letter-spacing:-.067em;margin:15px 0}
+h2{font-size:clamp(1.7rem,3.4vw,2.65rem);margin:0 0 13px}
+h3{font-size:1.2rem;margin:0 0 10px}
+p{margin:8px 0 16px}a{color:#086b9c;text-underline-offset:3px}
+button,select,textarea,input{font:inherit}
+button{min-height:45px;padding:11px 16px;border:2px solid transparent;border-radius:13px;background:#126e87;color:white;cursor:pointer;font-weight:850;line-height:1.25}
+button:hover{filter:brightness(.96);transform:translateY(-1px)}
+button.secondary{background:#e8f6f1;color:#096e6a;border-color:#a6d3ca}
+button.cream{background:#fff1dc;color:#784419;border-color:#f4d29f}
+button.selected,[aria-pressed="true"]{background:#e1f4ee!important;color:#0e6359!important;border-color:#119882!important}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+input:not([type=radio]):not([type=checkbox]):not([type=range]),textarea,select{width:100%;border:2px solid #b9d2d9;background:white;color:#153953;border-radius:12px;padding:10px 13px;min-height:46px}
+textarea{min-height:105px;resize:vertical}
+input[type=range]{width:100%;accent-color:#176ca4;min-height:40px}
+input[type=radio],input[type=checkbox]{width:20px;height:20px;min-width:20px;accent-color:#127f79;margin:2px 4px 0 0}
+:focus-visible{outline:3px solid #f6a04f;outline-offset:3px}
+.wrap{width:min(1170px,calc(100% - 32px));margin:auto}
+.kicker{display:inline-block;border:1px solid #ffefa7a8;border-radius:99px;color:#fff4bc;letter-spacing:.11em;text-transform:uppercase;font-size:.76rem;font-weight:900;padding:7px 11px}
+.hero{color:white;background:linear-gradient(124deg,#0b385a,#087f8c 63%,#6bb89a);position:relative;overflow:hidden}
+.hero:before{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:52px 52px;opacity:.3}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:25px;padding:53px 0 64px}
+.hero h1 em{font-style:normal;color:#ffda86}
+.hero p{font-size:1.12rem;color:#e6f5f4;max-width:640px}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin:23px 0}
+.pills span{border:1px solid #ffffff72;background:#ffffff13;border-radius:99px;padding:8px 11px;font-weight:750;font-size:.87rem}
+.hero-view{background:#fff;border:6px solid #fff;border-radius:24px;box-shadow:0 23px 60px #0a2d4270;overflow:hidden;transform:rotate(2deg)}
+.hero-view img{width:100%;height:300px;object-fit:cover;display:block}
+.hero-view figcaption{padding:10px 14px;font-size:.77rem;color:#37566a}
+.hero-view .fallback{min-height:260px;display:grid;place-items:center;background:repeating-linear-gradient(45deg,#e3efd6 0 15px,#d2e5d0 15px 30px);color:#365a57;font-size:1.4rem;font-weight:900}
+nav{position:sticky;top:0;z-index:20;background:#fffffff0;backdrop-filter:blur(13px);border-bottom:1px solid #d6e5e7;box-shadow:0 6px 17px #14334c0c}
+.navrow{display:flex;align-items:center;gap:6px;overflow:auto;padding:8px 0}
+nav a{white-space:nowrap;text-decoration:none;font-size:.85rem;font-weight:850;color:#235468;padding:10px 12px;border-radius:11px}
+nav a:hover{background:#e9f5f3}
+main{padding:26px 0 65px}
+.section{background:white;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:clamp(19px,3.1vw,36px);margin:22px 0;scroll-margin-top:85px}
+.section:nth-child(3n+2){border-top:7px solid var(--teal)}.section:nth-child(3n){border-top:7px solid var(--orange)}.section:nth-child(3n+1){border-top:7px solid var(--blue)}
+.sectionTop{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:11px}
+.eyebrow{font-size:.78rem;text-transform:uppercase;color:#136b83;font-weight:900;letter-spacing:.13em}
+.time{background:#e8f3f4;color:#226078;border-radius:40px;padding:5px 12px;font-size:.8rem;font-weight:850;white-space:nowrap}
+.lead{font-size:1.09rem;color:#496677;max-width:850px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.panel{border:1px solid #d8e8e7;border-radius:18px;background:#f0f8f7;padding:20px;min-width:0}
+.panel.warm{background:#fff4e6;border-color:#f3dfc5}
+.panel.blue{background:#eef7ff;border-color:#cee3f2}
+.panel.violet{background:#f4efff;border-color:#e2d7ef}
+.panel p:last-child{margin-bottom:0}
+.mini{font-size:.84rem;color:#587083}
+.tag{font-size:.79rem;color:#0e6962;background:#e3f4eb;border-radius:30px;padding:5px 10px;font-weight:900}
+.lessonGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}
+.lessonGrid div{border-radius:14px;background:#ecf6f6;padding:15px}
+.lessonGrid b{display:block;font-size:1.7rem;color:#067f78}
+figure{margin:0}
+.photoGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.photo{border:1px solid #d1e3e5;border-radius:18px;overflow:hidden;background:#f3f7f6}
+.photo img{width:100%;height:220px;object-fit:cover;display:block}
+.photo figcaption{padding:12px 15px;font-size:.9rem}
+.photo .fallback{display:none;min-height:210px;background:#e4f1e9;padding:18px;align-items:center;justify-content:center;text-align:center;font-size:1.07rem;font-weight:900}
+.photo h3{margin:0 0 5px}
+.photo .source{display:block;font-size:.75rem;color:#4f7281;margin-top:6px}
+.chiprow{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.fact{border-left:5px solid #e4a151;background:#fff7e8;padding:16px 18px;border-radius:0 12px 12px 0;margin:16px 0}
+.callout{border-left:5px solid #139384;background:#eaf7f2;padding:15px 18px;border-radius:0 12px 12px 0;margin:16px 0}
+.feedback{margin-top:12px;border-radius:13px;padding:12px 15px;background:#e7f6ed;color:#126b5d;border:1px solid #c7e6d5;font-size:.94rem;font-weight:750}
+.feedback:empty{display:none}.feedback.error{color:#a64133;background:#fff0e9;border-color:#f0cdbb}
+.feedback.warn{color:#885a2d;background:#fff4dd;border-color:#f2daa9}
+.choices{display:grid;gap:9px}
+.choices button{width:100%;text-align:left;background:#f7fbff;color:#244e68;border:2px solid #c6dce5}
+.mapbox{background:#fbfaf1;border:1px solid #cedacc;border-radius:18px;padding:10px;overflow:hidden}
+#contourSVG{width:100%;height:auto;display:block;touch-action:manipulation}
+.contourTarget{fill:none;stroke:transparent;stroke-width:18;cursor:pointer}
+.contourTarget:focus{stroke:#f4ad31bb;outline:none}
+.contourLine{fill:none;stroke:#a35a2d;stroke-width:3;pointer-events:none}
+.contourG:hover .contourLine{stroke:#0c8073;stroke-width:4.4}
+.contourLabel{fill:#6a3c29;font-size:16px;font-weight:900;pointer-events:none}
+.mapPoint{cursor:pointer}
+.mapPoint:focus{outline:3px solid #f8b24b}
+.mapKey{font-size:.83rem;color:#456677}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.station{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 12px;border-bottom:1px solid #dbe6e7}
+.station b{font-size:1rem}
+.station select{width:155px;max-width:55%}
+#profileSvg,#slopeSvg{width:100%;height:auto;max-height:300px;display:block}
+.calcbox{padding:17px;border:1px solid #dbe8ee;border-radius:17px;background:#f8fbfd}
+.calcbox h3{min-height:38px}
+.resultNumber{font-size:2.4rem;font-weight:950;color:#126e81}
+.progress{height:12px;background:#dfeaf0;border-radius:30px;overflow:hidden}
+.progress span{display:block;background:linear-gradient(90deg,#1d9b8b,#efa658);height:100%;width:0}
+.legend{height:28px;background:linear-gradient(90deg,#366ab8 0%,#6cb7e0 20%,#b3e090 40%,#f0d779 60%,#c88c57 80%,#805332 100%);border-radius:8px;margin:10px 0}
+.spectrum{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;font-size:.76rem;text-align:center}
+.legenditem{padding:8px 4px;border:1px solid #e1e8eb;border-radius:9px;background:#fafcfd;font-weight:800}
+.video{aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:16px;background:#dbe9eb}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.theory{background:#f2f9f8;border:1px solid #d9ede9;border-radius:17px;padding:16px}
+.theory h3{color:#0e736c}
+.cergrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+label{font-weight:750}
+label small{display:block;font-size:.83rem;color:#667c86;font-weight:500}
+.question{border:1px solid #d7e5e9;background:#fbfdfe;border-radius:17px;padding:18px;margin:14px 0}
+.question strong{display:block;margin-bottom:10px}
+.question label{display:flex;align-items:flex-start;gap:8px;margin:9px 0;font-weight:550}
+.question select{margin:4px 0 9px}
+.hidden{display:none!important}
+.result{border:3px solid #12917c;border-radius:22px;padding:26px;background:#f0f9f3}
+.result strong{color:#0d7866}
+.sources{font-size:.82rem;color:#546e79;margin-top:16px}
+footer{background:#16465e;color:#fff;padding:26px;text-align:center}
+footer a{color:#fff}
+@media(max-width:900px){.hero-inner,.grid2{grid-template-columns:1fr}.hero-view{transform:none;max-width:600px}.photoGrid,.grid3,.cergrid{grid-template-columns:repeat(2,minmax(0,1fr))}.lessonGrid,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:570px){.photoGrid,.grid3,.cergrid,.lessonGrid,.grid4{grid-template-columns:1fr}.sectionTop{align-items:flex-start}.hero-view img{height:240px}button{width:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button:hover{transform:none}}
+@media print{nav,.noPrint,button,.video{display:none!important}body{background:#fff}.section{box-shadow:none;break-inside:avoid}.result{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero" id="start"><div class="wrap hero-inner">
+ <div>
+ <span class="kicker">Географія · 6-А · урок №22 · 20.11.2026</span>
+ <h1>РЕЛЬЄФ <em>LAB</em><br>Таємниця горизонталей</h1>
+ <p>Ви — команда картографів. Маєте побудувати профіль гори, перевірити безпеку маршруту та розшифрувати карту, навіть коли гори «заховані» в лініях.</p>
+ <div class="pills"><span>⛰ Практична робота №6</span><span>📏 §19</span><span>🧪 9 лабораторій</span><span>🗺️ Справжні карти</span><span>✅ Тест /10</span></div>
+ </div>
+ <figure class="hero-view">
+ <img src="../../02-metody-geografichnyh-doslidzhen/assets/topographic-map.png" alt="Справжній фрагмент топографічної карти з горизонталями" data-fallback="assets/contours-lab.svg">
+ <div class="fallback">🗺️ Топографічна карта — горизонталі та висоти</div>
+ <figcaption>Реальне топографічне картографічне зображення з навчальних матеріалів репозиторію. На інших етапах Ви збудуєте власну модель.</figcaption>
+ </figure>
+</div></header>
+<nav aria-label="Навігація уроком"><div class="wrap navrow">
+<a href="#mission">Місія</a><a href="#photos">Фото</a><a href="#topomap">Карта-шари</a><a href="#altitude">Висоти</a><a href="#profile">Профіль</a><a href="#route">Маршрут</a><a href="#legend">Шкала</a><a href="#theory">Пояснення</a><a href="#test">Тест</a>
+</div></nav>
+<main class="wrap">
+<section class="section" id="mission">
+<div class="sectionTop"><span class="eyebrow">00 · Стартова місія</span><span class="time">0–3 хв</span></div>
+<h2>Як дізнатися, що перед Вами крутий схил, коли у Вас лише карта?</h2>
+<div class="grid2">
+<div><p>Припустімо, два маршрути ведуть до однієї вершини. Один коротший, але небезпечніший; інший довший, зате пологіший. На плані немає фотографій — лише коричневі лінії.</p>
+<div class="fact"><b>Висуньте гіпотезу:</b> як такі лінії можуть допомогти визначити форму та крутість схилу?</div>
+<textarea id="hypothesis" placeholder="Я припускаю, що ..." aria-label="Перша гіпотеза"></textarea></div>
+<div class="panel">
+<h3>Сьогодні Ви навчитеся</h3>
+<div class="lessonGrid"><div><b>01</b>відрізняти абсолютну висоту від відносної</div><div><b>02</b>читати горизонталі й бергштрихи</div><div><b>03</b>будувати профіль рельєфу</div><div><b>04</b>використовувати шкалу висот і глибин</div></div>
+<p class="mini">Результати навчання за КТП: ГР1 + ГР2. Практична №6: визначення абсолютних і відносних висот за планом місцевості та фізичними картами.</p>
+</div>
+</div></section>
+<section class="section" id="photos">
+<div class="sectionTop"><span class="eyebrow">01 · Фото як джерело</span><span class="time">3–7 хв</span></div>
+<h2>Три рельєфи. Чи однаково їх показала б карта?</h2>
+<p class="lead">Порівняйте реальні знімки. Фото допомагає побачити форму рельєфу, але не дає точних висот усіх точок — для цього потрібні вимірювання й карта.</p>
+<div class="photoGrid">
+ <figure class="photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Carpathian_National_Nature_Park-2023-13.jpg?width=900" data-fallback="../../03-dzherela-geografichnoi-informatsii-sposterezhennia/assets/europe-satellite.jpg" alt="Реальний ландшафт Чорногори, Українські Карпати"><div class="fallback">⛰ Українські Карпати: справжній гірський рельєф</div><figcaption><h3>🇺🇦 Карпати</h3>Знайдіть на фото гребінь, схил і пониження. Де приблизно пройшли б горизонталі?<span class="source"><a href="https://commons.wikimedia.org/wiki/File:Carpathian_National_Nature_Park-2023-13.jpg" target="_blank" rel="noopener">Фото: Wikimedia Commons / Maxim Gavrilyuk, ліцензія на сторінці</a></span></figcaption></figure>
+ <figure class="photo"><img loading="lazy" src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011478/s1-1024.jpg" data-fallback="../../02-metody-geografichnyh-doslidzhen/assets/earth-from-space.jpg" alt="Супутниковий знімок Евересту, NASA"><div class="fallback">🏔️ Орбітальний вигляд Гімалаїв</div><figcaption><h3>🛰 Еверест з орбіти</h3>Виділяються хребти й льодовики. Чого не можна точно виміряти за одним фото без масштабу?<span class="source"><a href="https://svs.gsfc.nasa.gov/11478" target="_blank" rel="noopener">Зображення: NASA Scientific Visualization Studio</a></span></figcaption></figure>
+ <figure class="photo"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Grand_Canyon_from_an_airplane.jpg/1280px-Grand_Canyon_from_an_airplane.jpg" data-fallback="../../02-metody-geografichnyh-doslidzhen/assets/field-survey.jpg" alt="Справжній аерознімок Великого каньйону"><div class="fallback">🏜️ Великий каньйон: схили та ущелини</div><figcaption><h3>🏜 Великий каньйон</h3>Порівняйте форму схилів з Карпатами. Чим на плані позначили б круті стінки?<span class="source"><a href="https://commons.wikimedia.org/wiki/File:Grand_Canyon_from_an_airplane.jpg" target="_blank" rel="noopener">Фото: Wikimedia Commons / Gerard M. Foley, умови на сторінці</a></span></figcaption></figure>
+</div>
+<div class="grid2" style="margin-top:16px">
+<div class="panel warm"><h3>🧠 Фото-детектив</h3><p>Що стане надійнішим доказом різниці абсолютних висот двох вершин?</p><div id="photoQuestion" class="choices"><button data-correct="0">Лише їхній колір на фотографії</button><button data-correct="1">Висотні позначки на точній топографічній карті або виміряні координати з висотами</button><button data-correct="0">Кількість хмар над вершинами</button></div><div id="photoFeedback" class="feedback" aria-live="polite"></div></div>
+<div class="panel blue"><h3>Справжній картографічний зразок</h3><img style="width:100%;max-height:185px;object-fit:cover;border-radius:12px" src="../../02-metody-geografichnyh-doslidzhen/assets/topographic-map.png" data-fallback="assets/profile-lab.svg" alt="Фрагмент справжньої топографічної карти"><p class="mini">Карта з локального репозиторію завантажується без залежності від фотохостингу. Для аналізу її числові позначки читайте у вихідних одиницях.</p></div>
+</div></section>
+<section class="section" id="topomap">
+<div class="sectionTop"><span class="eyebrow">02 · Дослідна топографічна карта</span><span class="time">7–13 хв</span></div>
+<h2>Горизонталі: увімкніть шар і знайдіть вершину</h2>
+<p class="lead">Інтерактивна <b>авторська схема</b> пагорба. Висоти в метрах, висота першої горизонталі — 100 м, крок — 20 м. На сході лінії розміщено ближче, ніж на заході. Натискайте на лінії та точки.</p>
+<div class="grid2">
+<div class="mapbox"><svg id="contourSVG" viewBox="0 0 650 470" role="img" aria-label="Інтерактивна схематична топографічна карта пагорба, де сходом є правий бік"><defs><pattern id="gr" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" fill="none" stroke="#a2cab4" stroke-width="1" opacity=".35"/></pattern></defs><rect width="650" height="470" rx="13" fill="#ebf1d3"/><rect width="650" height="470" fill="url(#gr)"/><text x="25" y="28" fill="#37625d" font-weight="800" font-size="16">НАВЧАЛЬНА СХЕМА · КРОК 20 м</text><text x="570" y="30" fill="#37625d" font-weight="900" font-size="17">Пн ↑</text><text x="33" y="447" fill="#527a6d" font-size="15">Захід ←</text><text x="517" y="447" fill="#527a6d" font-size="15">→ Схід</text><g id="contourLayers"></g><g id="mapPointGroup">
+<g class="mapPoint" tabindex="0" role="button" data-point="A" aria-label="Точка А, висота 120 метрів"><circle cx="207" cy="227" r="15" fill="#176eb0" stroke="#fff" stroke-width="4"/><text x="183" y="194" fill="#0b3c62" font-size="21" font-weight="950">А</text></g>
+<g class="mapPoint" tabindex="0" role="button" data-point="B" aria-label="Точка Б, висота 180 метрів"><circle cx="459" cy="227" r="15" fill="#e07e4c" stroke="#fff" stroke-width="4"/><text x="445" y="198" fill="#853e1d" font-size="21" font-weight="950">Б</text></g>
+</g></svg>
+<div class="mini">Лівий схил довший і пологіший; правий — коротший і крутіший. Геометрію авторської схеми створено для вправ, не для вимірювання реальної місцевості.</div>
+</div>
+<div class="panel">
+<h3>🧩 Панель географа</h3>
+<div class="chiprow"><button id="toggleLabels" aria-pressed="false" class="secondary">🏷️ Показати висоти</button><button id="toggleSlope" aria-pressed="false" class="secondary">📐 Показати крутий схил</button></div>
+<p><b>Обраний об’єкт:</b> <span id="mapReadout" class="tag">Оберіть горизонталь чи точку</span></p>
+<div class="callout">Горизонталь з’єднує точки однакової <b>абсолютної висоти</b>. Менший проміжок між сусідніми лініями за однакового кроку висот означає крутіший схил.</div>
+<h3>Станція перевірки</h3>
+<label>Абсолютна висота точки А, м<input id="pointA" type="number" inputmode="numeric" placeholder="Введіть висоту"></label>
+<label>Абсолютна висота точки Б, м<input id="pointB" type="number" inputmode="numeric" placeholder="Введіть висоту"></label>
+<label>Який схил крутіший?<select id="steepSide"><option value="">Оберіть</option><option value="west">Західний</option><option value="east">Східний</option><option value="equal">Однакові</option></select></label>
+<button id="checkMap">Перевірити три відповіді</button><div id="mapFeedback" class="feedback" aria-live="polite"></div>
+</div>
+</div>
+<div class="grid2" style="margin-top:15px">
+<div class="panel warm"><h3>🧭 Бергштрих: куди вниз?</h3><p><b>Бергштрих</b> — коротка риска на горизонталі, що показує напрям зниження схилу. На цій горі від вершини до західного краю напрям униз — ліворуч, до східного — праворуч.</p><div id="bergChoices" class="choices"><button data-correct="0">Бергштрих завжди вказує на північ</button><button data-correct="1">Бергштрих спрямований у бік зниження рельєфу</button><button data-correct="0">Бергштрих показує назву гори</button></div><div id="bergFeedback" class="feedback"></div></div>
+<div class="panel blue"><h3>🗺️ Джерело для дорослої карти</h3><p>Відкрийте реальні топографічні карти Геологічної служби США. На них горизонталі можуть мати висоти у <b>футах</b>, а не в метрах — перевіряйте легенду.</p><a href="https://ngmdb.usgs.gov/topoview/" target="_blank" rel="noopener">Відкрити USGS topoView (реальні топографічні карти)</a><p class="mini">Визначте місце, де лінії густіші, та обґрунтуйте, чому схил там крутіший. Сервіс потребує інтернету.</p></div>
+</div>
+</section>
+<section class="section" id="altitude">
+<div class="sectionTop"><span class="eyebrow">03 · Математична лабораторія</span><span class="time">13–18 хв</span></div>
+<h2>Абсолютна ≠ відносна. Порахуйте самостійно!</h2>
+<div class="grid2">
+<div class="panel blue"><h3>Дві точки над рівнем моря</h3><svg viewBox="0 0 520 235" role="img" aria-label="Схема двох висот над рівнем моря" style="width:100%;height:auto"><rect x="0" y="174" width="520" height="61" fill="#b1def0"/><path d="M0 174H520" stroke="#127cb3" stroke-width="4"/><path d="M18 174L120 119 203 130 289 30 353 108 422 135 502 174" fill="#b8d7a1" stroke="#7ba079" stroke-width="3"/><line x1="286" y1="29" x2="286" y2="174" stroke="#e47a43" stroke-width="3" stroke-dasharray="8 6"/><line x1="120" y1="119" x2="120" y2="174" stroke="#167db5" stroke-width="3" stroke-dasharray="8 6"/><text x="290" y="23" fill="#b65826" font-size="18" font-weight="800">A = 460 м</text><text x="48" y="111" fill="#1c6594" font-size="18" font-weight="800">Б = 175 м</text><text x="320" y="200" fill="#124c72" font-size="17" font-weight="800">Рівень моря = 0 м</text></svg><p><b>Абсолютна висота</b> — щодо прийнятого нуля висот. <b>Перевищення</b> точки A над Б = 460 – 175 = 285 м.</p></div>
+<div class="panel warm"><h3>🧮 Калькулятор-практикум</h3><p>Визначте перевищення для трьох прикладів. Зверніть увагу, що <b>перевищення A над Б</b> може мати від’ємний знак, якщо А нижче за Б.</p>
+<div id="calcCases"></div><button id="checkCalcs">Перевірити обчислення</button><button class="secondary" id="newCalcs">Інші приклади</button><div id="calcFeedback" class="feedback" aria-live="polite"></div></div>
+</div>
+<div class="grid3" style="margin-top:16px">
+<div class="panel"><h3>🟢 Базовий рівень</h3><p>Над рівнем моря 60 м. Це абсолютна чи відносна висота? Чому?</p></div>
+<div class="panel"><h3>🟡 Достатній рівень</h3><p>Точки 170 м і 310 м. Укажіть перевищення та поясніть дію віднімання.</p></div>
+<div class="panel"><h3>🔴 Високий рівень</h3><p>Одна точка — на 15 м нижче нульового рівня, друга — на 45 м вище. Знайдіть різницю, поясніть знак і одиницю.</p></div></div>
+</section>
+<section class="section" id="profile">
+<div class="sectionTop"><span class="eyebrow">04 · Конструктор профілю рельєфу</span><span class="time">18–24 хв</span></div>
+<h2>Із ліній на карті — у справжній профіль висот</h2>
+<p class="lead">Рухаємося по навчальному маршруту від західного підніжжя до східного. Дані висот подано в таблиці: частину значень знайдіть, використавши закономірність горизонталей. Оберіть висоти станцій — графік намалюється після перевірки.</p>
+<div class="grid2">
+<div class="panel"><h3>📍 Станції маршруту</h3><p class="mini">Довжина відрізка між сусідніми станціями — умовно однакова, тому графік ілюструє хід висоти, а не точний профіль місцевості.</p><div id="profileStations"></div><button id="checkProfile">Побудувати і перевірити профіль</button><div id="profileFeedback" class="feedback"></div></div>
+<div class="panel blue"><h3>📈 Рельєф з'явиться тут</h3><svg id="profileSvg" viewBox="0 0 700 325" role="img" aria-label="Авторська координатна сітка для профілю рельєфу"><rect width="700" height="325" rx="12" fill="#f7fbff"/><g id="profileAxes"></g><g id="profileCurve"></g></svg><p class="mini">Вертикальна шкала — у метрах; показує висоту, а не нахил у градусах. Точки розміщені через однакові умовні горизонтальні відстані.</p><p class="fact">Чому профіль допомагає побачити різницю між західним і східним схилом? Які дані потрібні для точного вимірювання довжини підйому?</p></div>
+</div>
+</section>
+<section class="section" id="route">
+<div class="sectionTop"><span class="eyebrow">05 · Прокладіть маршрут</span><span class="time">24–28 хв</span></div>
+<h2>Що складніше: +120 метрів за 300 чи за 800?</h2>
+<div class="grid2">
+<div class="panel"><h3>Експеримент зі схилом</h3><p>Оберіть маршрут і простежте, як змінюється підйом на кожні 100 метрів горизонтальної відстані.</p>
+<div class="chiprow"><button class="secondary routeButton" data-route="long" aria-pressed="false">🌳 Маршрут А · 800 м</button><button class="secondary routeButton" data-route="short" aria-pressed="false">🪨 Маршрут Б · 300 м</button></div>
+<svg id="slopeSvg" viewBox="0 0 620 265" aria-label="Схематичний розріз схилу, форму визначає вибраний маршрут"><rect x="0" y="0" width="620" height="265" rx="12" fill="#e8f4fa"/><path id="slopeGround" fill="#add6a0" stroke="#4a957a" stroke-width="4"/><path id="slopeGuide" stroke="#ea8553" stroke-dasharray="7 7" stroke-width="3" fill="none"/><text id="slopeText" x="24" y="33" font-size="21" fill="#265473" font-weight="850">Оберіть маршрут</text></svg>
+<p><b>Підйом:</b> +120 м у двох варіантах. <b>Горизонтальна відстань:</b> різна.</p>
+<p id="slopeMath" class="feedback">Натисніть на маршрут, щоб розрахувати підйом на 100 м.</p></div>
+<div class="panel warm"><h3>⚖️ Прийміть рішення</h3><p>За інших однакових умов і лише за критерієм крутості який маршрут менш крутий?</p>
+<div id="routeChoices" class="choices"><button data-correct="1">А: 120 м підйому на 800 м горизонтальної відстані</button><button data-correct="0">Б: 120 м підйому на 300 м горизонтальної відстані</button><button data-correct="0">Обидва схили мають однакову крутість, бо висота підйому однакова</button></div>
+<div id="routeFeedback" class="feedback"></div><div class="fact"><b>Межа висновку:</b> менш крутий не завжди означає безпечніший! Для планування реального походу важливі погода, довжина шляху, покриття, небезпечні ділянки та інші чинники.</div></div>
+</div></section>
+<section class="section" id="legend">
+<div class="sectionTop"><span class="eyebrow">06 · Шкала висот і глибин</span><span class="time">28–30 хв</span></div>
+<h2>Читаємо колір правильно — за легендою</h2>
+<p class="lead">На фізичній карті кольорами часто показують <b>абсолютні висоти на суходолі</b> та <b>глибини під рівнем моря</b>. Але значення кольорів визначаються легендою конкретної карти.</p>
+<div class="grid2">
+<div class="panel blue"><h3>🎚️ Навчальна шкала</h3><p class="mini">Зразок: умовні інтервали для тренування, а не універсальна легенда всіх карт.</p><div class="legend"></div><div class="spectrum"><span>море</span><span>до 200 м</span><span>200–500 м</span><span>500–1000 м</span><span>1000–2000 м</span><span>понад 2000 м</span></div>
+<label for="landHeight">Висота над рівнем моря: <b id="landHeightValue">500 м</b></label><input type="range" min="0" max="4000" step="100" id="landHeight" value="500"/>
+<p id="landReadout" class="feedback"></p>
+<label for="seaDepth">Глибина нижче рівня моря: <b id="seaDepthValue">1000 м</b></label><input type="range" min="0" max="9000" step="500" id="seaDepth" value="1000"/>
+<p id="seaReadout" class="feedback"></p></div>
+<div class="panel"><h3>🇺🇦 Реальна фізична карта України</h3><img src="../../02-metody-geografichnyh-doslidzhen/assets/physical-ukraine.jpg" data-fallback="../../10-masshtab-ta-ioho-vydy/assets/ukraine-topomap-scale.png" loading="lazy" style="display:block;width:100%;max-height:260px;object-fit:contain;background:#fff;border-radius:12px" alt="Реальна фізична карта України із кольоровими висотними поясами"/><p class="mini">Зображення з навчальних матеріалів репозиторію. Знайдіть Карпати, Причорноморську низовину, Кримські гори.</p><div id="legendChoices" class="choices"><button data-correct="0">Будь-який зелений колір на всіх картах означає рівно 100 м</button><button data-correct="1">Щоб визначити висоту за кольором, порівнюю відтінок з легендою саме цієї карти</button><button data-correct="0">Коричневе означає небезпечний обрив</button></div><div id="legendFeedback" class="feedback"></div></div>
+</div>
+</section>
+<section class="section" id="theory">
+<div class="sectionTop"><span class="eyebrow">07 · Від дослідження до правил</span><span class="time">30–33 хв</span></div>
+<h2>Шість правил, які тепер Ви можете довести</h2>
+<div class="grid3">
+<article class="theory"><h3>1. Абсолютна висота</h3><p>Висота точки над прийнятим нульовим рівнем, пов’язаним із середнім рівнем моря. Може бути від’ємною.</p></article>
+<article class="theory"><h3>2. Відносна висота</h3><p>Перевищення однієї точки над іншою: відніміть їхні абсолютні висоти в заданому порядку.</p></article>
+<article class="theory"><h3>3. Горизонталь</h3><p>Лінія, що з’єднує точки з однаковою абсолютною висотою. Підписи показують висоти, крок перерізу — різницю між сусідніми горизонталями.</p></article>
+<article class="theory"><h3>4. Крутість схилу</h3><p>Коли крок висот однаковий, менша горизонтальна відстань між горизонталями свідчить про крутіший схил.</p></article>
+<article class="theory"><h3>5. Бергштрих</h3><p>Коротка риска перпендикулярно до горизонталі, яка вказує напрям зниження рельєфу.</p></article>
+<article class="theory"><h3>6. Шкала висот і глибин</h3><p>Пояснює, яким діапазонам висот на суші й глибин на морі відповідають кольори фізичної карти.</p></article>
+</div>
+<div class="grid2" style="margin-top:17px">
+<div><h3>🎬 Українське відео: висоти та горизонталі</h3><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/fgcBy0DwsY8" title="Географія, 6 клас: абсолютна і відносна висота місцевості (Рішельєвський дистанційний)" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p><a href="https://www.youtube.com/watch?v=fgcBy0DwsY8" target="_blank" rel="noopener">Відкрити відео окремо</a>. Для уроку перегляньте фрагмент до 2–3 хв, за потреби зупиніть.</p></div>
+<div class="panel warm"><h3>Завдання за відео</h3><p><b>До перегляду:</b> поясніть, чи має висота 300 м однаковий зміст у фразах «над рівнем моря» та «над долиною».</p><p><b>Після:</b> запишіть правило відносної висоти й назвіть умову, за якою можна порівнювати крутість схилів за густотою горизонталей.</p><h3>🎬 Друге пояснення українською</h3><p><a href="https://www.youtube.com/watch?v=ypo1fapAUAo" target="_blank" rel="noopener">«Абсолютна і відносна висота місцевості» — «Географія ПРОСТО»</a>. Це додаткове відео для домашнього повторення.</p></div>
+</div></section>
+<section class="section" id="cer">
+<div class="sectionTop"><span class="eyebrow">08 · Географічний висновок</span><span class="time">33–35 хв</span></div><h2>Карта — доказ, а не просто малюнок</h2><p>Учень каже: «Вершина вища на 100 м, отже її схил обов’язково крутіший». Визначте помилку.</p>
+<div id="mythChoices" class="choices"><button data-correct="0">Так: вища вершина завжди має крутіший схил</button><button data-correct="1">Ні: висота вершини і крутість схилу — різні характеристики; потрібна горизонтальна відстань між рівнями</button><button data-correct="0">Ні: для крутості достатньо назви гори</button></div><p class="feedback" id="mythFeedback"></p>
+<h3>Твердження — доказ — пояснення (CER)</h3>
+<div class="cergrid"><label>Твердження<textarea id="cerClaim" placeholder="Крутість схилу визначається ..."></textarea></label><label>Доказ<textarea id="cerEvidence" placeholder="На схемі видно, що ..."></textarea></label><label>Пояснення<textarea id="cerReason" placeholder="Це означає ... тому що ..."></textarea></label></div>
+<button id="checkCer">Перевірити повноту висновку</button><div id="cerFeedback" class="feedback"></div>
+</section>
+<section class="section" id="homework">
+<div class="sectionTop"><span class="eyebrow">09 · Домашнє завдання</span><span class="time">Після уроку</span></div>
+<h2>Завершіть практичну роботу №6</h2>
+<div class="grid2"><div class="panel"><h3>Обов’язкове</h3><p><b>§19</b> (Запотоцький С. П. та ін., «Географія», 6 клас, 2023). На фізичній карті України визначте висоти трьох різних форм рельєфу за легендою; виконайте тест унизу сторінки.</p><a href="https://mybook.dniprorada.gov.ua/uploads/LzvTafZGlF6-klas-geografia-zapotockyi-2023.pdf" target="_blank" rel="noopener">Відкрити електронний підручник (PDF)</a><p class="mini">Це підручник, зазначений у Вашому КТП, а не випадкове видання.</p></div><div class="panel warm"><h3>На вибір</h3><p><b>Базовий:</b> 2 приклади абсолютної та відносної висоти.</p><p><b>Достатній:</b> розв’яжіть 2 задачі на перевищення й поясніть вибір крутішого схилу за горизонталями.</p><p><b>Високий:</b> запропонуйте маршрут за картою, обґрунтуйте його за крутістю та назвіть два додаткові чинники безпеки.</p></div></div>
+<p class="fact"><b>Для «Мрії»:</b> §19. Завершити практичну роботу №6: визначити абсолютну й відносну висоту та прочитати горизонталі за картою.</p>
+</section>
+<section class="section" id="test">
+<div class="sectionTop"><span class="eyebrow">10 · Самоперевірка</span><span class="time">Окремо від 35 хв</span></div>
+<h2>ГЕО-ТЕСТ · 10 запитань / 10 балів</h2>
+<p>Тест прихований, доки Ви не введете своє ім’я, прізвище й клас. Чотири ситуаційні питання, два з множинним вибором, відповідність, послідовність, достатність доказів та аргументація.</p>
+<div id="gate" class="panel blue">
+<div class="grid2"><label>Ім’я та прізвище<input id="studentName" autocomplete="name" placeholder="Наприклад: Марія Петренко"></label><label>Клас<select id="studentClass"><option value="">Оберіть клас</option><option>6-А</option><option>6-Б</option></select></label></div>
+<div class="chiprow"><button id="startTest">Почати тест</button><span class="mini">Без автоматичного надсилання на сервер</span></div><div id="gateFeedback" class="feedback error"></div>
+</div>
+<div id="quiz" class="hidden"><div id="questions"></div><button id="finishTest">Завершити та перевірити</button><p id="quizFeedback" class="feedback error"></p></div>
+<div id="testResult" class="result hidden" aria-live="polite"></div>
+</section>
+<div class="sources">
+Матеріали та перевірені джерела: <a href="https://ngmdb.usgs.gov/topoview/" target="_blank" rel="noopener">USGS topoView</a> · <a href="https://svs.gsfc.nasa.gov/11478" target="_blank" rel="noopener">NASA SVS</a> · <a href="https://commons.wikimedia.org/wiki/File:Carpathian_National_Nature_Park-2023-13.jpg" target="_blank" rel="noopener">Wikimedia Commons — Карпати</a> · <a href="https://lms.e-school.net.ua/courses/course-v1%3AUIED%2BGeography-NUSH-6th%2B2022/courseware/d5537fd6d02643eea913a978ce8a0d19/2e60efa1d74e424992a6eb38a46904c0/" target="_blank" rel="noopener">ВШО — тематичний урок</a>. Усі схеми з умовними даними позначені як навчальні.
+</div>
+</main>
+<footer>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я» · Географія 6 класу · 2026–2027</footer>
+<script>
+(function(){
+"use strict";
+const el=id=>document.getElementById(id);
+const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function feedback(id,text,ok){const out=el(id);out.textContent=text;out.className='feedback'+(ok===false?' error':ok==='warn'?' warn':'');}
+document.querySelectorAll('img[data-fallback]').forEach(img=>{
+ img.addEventListener('error',()=>{const alt=img.dataset.fallback;if(!img.dataset.tried && alt){img.dataset.tried='1';img.src=alt;return;}img.style.display='none';const fallback=img.parentElement.querySelector('.fallback');if(fallback)fallback.style.display='flex';});
+});
+function choice(id,output,description){document.querySelectorAll('#'+id+' button').forEach(b=>{
+b.addEventListener('click',()=>{const good=b.dataset.correct==='1';document.querySelectorAll('#'+id+' button').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});feedback(output,(good?'✓ Правильно. ':'Спробуйте ще раз. ')+description,good);});
+});}
+choice('photoQuestion','photoFeedback','Числове перевищення треба встановлювати за висотними позначками, вимірюваннями або надійними цифровими даними, не за кольором фото.');
+choice('bergChoices','bergFeedback','Бергштрихи вказують напрям зниження схилу, а не північний напрям.');
+choice('routeChoices','routeFeedback','На маршруті А підйом 120 м припадає на 800 м, тобто 15 м на 100 м. На Б — 40 м на 100 м.');
+choice('legendChoices','legendFeedback','Легенда визначає, яке значення мають кольори саме цієї фізичної карти.');
+choice('mythChoices','mythFeedback','Самої абсолютної висоти вершини недостатньо для висновку про крутість; порівнюйте зміну висоти на горизонтальній відстані.');
+const levels=[100,120,140,160,180];
+const rings=[
+{cx:338,cy:228,rx:232,ry:171},{cx:387,cy:228,rx:178,ry:144},
+{cx:420,cy:228,rx:127,ry:112},{cx:443,cy:228,rx:72,ry:79},{cx:459,cy:228,rx:28,ry:42}
+];
+const fillColors=['#d9e4af','#c5dca1','#e2d997','#d6bd85','#c69470'];
+const layer=el('contourLayers');
+rings.forEach((r,i)=>{
+const x=r.cx-r.rx, y=r.cy;
+const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+g.classList.add('contourG');
+g.setAttribute('role','button');g.setAttribute('tabindex','0');
+g.setAttribute('aria-label','Горизонталь '+levels[i]+' метрів');
+g.innerHTML='<ellipse cx="'+r.cx+'" cy="'+r.cy+'" rx="'+r.rx+'" ry="'+r.ry+'" fill="'+fillColors[i]+'" stroke="none"/><ellipse class="contourLine" cx="'+r.cx+'" cy="'+r.cy+'" rx="'+r.rx+'" ry="'+r.ry+'"/><ellipse class="contourTarget" cx="'+r.cx+'" cy="'+r.cy+'" rx="'+r.rx+'" ry="'+r.ry+'"/><text class="contourLabel" x="'+(x+8)+'" y="'+(y-7)+'" style="display:none">'+levels[i]+' м</text>';
+function read(){el('mapReadout').textContent='Горизонталь '+levels[i]+' м: усі її точки мають таку саму абсолютну висоту.';}
+g.addEventListener('click',read);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();read();}});
+layer.appendChild(g);
+});
+const contourLabels=[...document.querySelectorAll('.contourLabel')];
+el('toggleLabels').addEventListener('click',function(){let show=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',String(show));contourLabels.forEach(n=>n.style.display=show?'':'none');this.textContent=show?'🏷️ Приховати підписи':'🏷️ Показати висоти';});
+const slopeMark=document.createElementNS('http://www.w3.org/2000/svg','g');
+slopeMark.innerHTML='<path d="M564 131L575 162 M565 202L581 230 M567 286L578 312" stroke="#c54a28" stroke-width="6" stroke-linecap="round"/><text x="483" y="373" fill="#9b3e22" font-size="20" font-weight="900">КРУТІШИЙ СХИЛ →</text>';
+slopeMark.style.display='none';layer.appendChild(slopeMark);
+el('toggleSlope').addEventListener('click',function(){let show=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',String(show));slopeMark.style.display=show?'':'none';this.textContent=show?'📐 Приховати підказку':'📐 Показати крутий схил';});
+document.querySelectorAll('.mapPoint').forEach(p=>{const fn=()=>el('mapReadout').textContent=p.dataset.point==='A'?'Точка А на горизонталі 120 м.':'Точка Б на горизонталі 180 м.';p.addEventListener('click',fn);p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});});
+el('checkMap').addEventListener('click',()=>{let a=el('pointA').value.trim(),b=el('pointB').value.trim(),s=el('steepSide').value;if(!a||!b||!s){feedback('mapFeedback','Заповніть обидві висоти та напрям крутішого схилу.','warn');return;}const correct=Number(a)===120&&Number(b)===180&&s==='east';feedback('mapFeedback',correct?'✓ 3/3. Точка А — 120 м, Б — 180 м; східний схил крутіший, бо горизонталі зібрані щільніше.':'Перевірте підписи горизонталей. Точки стоять на коричневих лініях. Для крутості порівняйте проміжки між ними на заході та сході.',correct);});
+let caseSet=0;
+const cases=[
+[{a:460,b:175},{a:240,b:390},{a:-15,b:45}],
+[{a:850,b:620},{a:70,b:-20},{a:125,b:125}],
+[{a:2061,b:1041},{a:-40,b:15},{a:130,b:410}]
+];
+function renderCases(){el('calcCases').innerHTML=cases[caseSet].map((c,i)=>'<div style="margin:10px 0"><label>Ситуація '+(i+1)+': А = '+c.a+' м, Б = '+c.b+' м. Перевищення А над Б (зі знаком):<input type="number" inputmode="numeric" data-calc="'+i+'" aria-label="Відповідь '+(i+1)+' в метрах"></label></div>').join('');el('calcFeedback').textContent='';}
+el('newCalcs').addEventListener('click',()=>{caseSet=(caseSet+1)%cases.length;renderCases();});
+el('checkCalcs').addEventListener('click',()=>{const values=[...document.querySelectorAll('[data-calc]')].map(i=>i.value.trim());if(values.some(x=>x==='')){feedback('calcFeedback','Заповніть усі три поля. Якщо А нижче Б, відповідь від’ємна.','warn');return;}let hits=values.filter((v,i)=>Number(v)===cases[caseSet][i].a-cases[caseSet][i].b).length;feedback('calcFeedback',hits+'/3. '+(hits===3?'Правильно! Перевищення А над Б = висота А мінус висота Б.':'Перевірте порядок віднімання: А − Б. Знак відповіді має значення.'),hits===3);});
+renderCases();
+const stationNames=['А','Б','В','Г','Д','Е','Є'];
+const stationHeights=[100,120,140,160,180,160,100];
+function drawProfile(show){
+const axes=el('profileAxes');const c=el('profileCurve');
+axes.innerHTML='<path d="M60 28V260H664" stroke="#6c92a7" stroke-width="3"/>'+
+[100,120,140,160,180].map(h=>{let y=255-(h-80)*2;return '<line x1="60" x2="650" y1="'+y+'" y2="'+y+'" stroke="#d1e0e9" stroke-dasharray="6 6"/><text x="11" y="'+(y+6)+'" fill="#456477" font-size="17">'+h+'</text>';}).join('')+
+stationNames.map((s,i)=>'<text x="'+(62+i*94)+'" y="297" fill="#39536b" font-size="19" font-weight="800">'+s+'</text>').join('')+
+'<text x="11" y="21" fill="#345670" font-size="15">м</text>';
+if(!show){c.innerHTML='<text x="126" y="155" font-size="18" fill="#6f8797">Заповніть висоти, щоб побачити профіль</text>';return;}
+let pts=stationHeights.map((h,i)=>(66+i*94)+','+(255-(h-80)*2));
+c.innerHTML='<polygon points="66,260 '+pts.join(' ')+' 630,260" fill="#bbdfa2" opacity=".7"/><polyline points="'+pts.join(' ')+'" stroke="#168f7c" stroke-width="5" fill="none" stroke-linejoin="round"/>'+
+stationHeights.map((h,i)=>'<circle cx="'+(66+i*94)+'" cy="'+(255-(h-80)*2)+'" r="6" fill="#e38a53" stroke="#fff" stroke-width="2"/><text x="'+(56+i*94)+'" y="'+(243-(h-80)*2)+'" fill="#0c6073" font-size="16" font-weight="800">'+h+'</text>').join('');
+}
+el('profileStations').innerHTML=stationNames.map((n,i)=>'<div class="station"><div><b>'+n+'</b> · відрізок '+(i+1)+'</div><select aria-label="Висота станції '+n+'" data-station="'+i+'"><option value="">Висота, м</option>'+[100,120,140,160,180,200].map(h=>'<option value="'+h+'">'+h+' м</option>').join('')+'</select></div>').join('');
+el('checkProfile').addEventListener('click',()=>{let values=[...document.querySelectorAll('[data-station]')].map(s=>s.value);if(values.some(x=>!x)){feedback('profileFeedback','Заповніть усі сім станцій, потім побудуйте профіль.','warn');return;}let correct=values.every((x,i)=>Number(x)===stationHeights[i]);if(correct){drawProfile(true);feedback('profileFeedback','✓ Профіль побудовано! Ви бачите, як висота зростає від 100 до 180 м, а тоді знижується. У реальних вимірюваннях потрібні відстані між точками.',true);}else{drawProfile(false);feedback('profileFeedback','Поки що висоти не збігаються з послідовністю горизонталей. Рухайтеся від краю 100 м до вершини 180 м з кроком 20 м, після вершини спускайтеся.',false);}});
+drawProfile(false);
+document.querySelectorAll('.routeButton').forEach(b=>b.addEventListener('click',()=>{let short=b.dataset.route==='short';document.querySelectorAll('.routeButton').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});let startX=short?370:90;el('slopeGround').setAttribute('d','M0 235L'+startX+' 235L550 60L620 60V265H0Z');el('slopeGuide').setAttribute('d','M'+startX+' 235L550 60');el('slopeText').textContent=short?'Маршрут Б · 120 м / 300 м':'Маршрут А · 120 м / 800 м';el('slopeMath').innerHTML=short?'<b>120 ÷ 300 × 100 = 40 м</b> підйому на кожні 100 м горизонтально. Більш крутий схил.':'<b>120 ÷ 800 × 100 = 15 м</b> підйому на кожні 100 м горизонтально. Менш крутий схил.';}));
+document.querySelector('.routeButton[data-route="long"]').click();
+function updateLegend(){let h=Number(el('landHeight').value),d=Number(el('seaDepth').value);el('landHeightValue').textContent=h+' м';el('seaDepthValue').textContent=d+' м';el('landReadout').textContent=h===0?'0 м: нульовий рівень у цій навчальній шкалі.':h<200?'0–200 м: у нашому прикладі позначені зеленими відтінками.':h<500?'200–500 м: умовні жовто-зелені відтінки.':h<2000?'500–2000 м: у нашій легенді коричневі відтінки.':'Понад 2000 м: темніші коричневі відтінки у цій навчальній легенді.';el('seaReadout').textContent=d===0?'0 м: рівень води.':'Глибина '+d+' м нижче рівня моря. На реальних картах зі збільшенням глибини часто темнішають сині відтінки.';}
+['landHeight','seaDepth'].forEach(id=>el(id).addEventListener('input',updateLegend));updateLegend();
+el('checkCer').addEventListener('click',()=>{const ids=['cerClaim','cerEvidence','cerReason'];let text=ids.map(id=>el(id).value.trim());let ok=text.every(t=>t.length>=18);feedback('cerFeedback',ok?'Структура повна. Перевірте логіку: доказ має бути конкретним і справді підтверджувати твердження.':'Заповніть усі три частини — твердження, конкретний доказ із карти та пояснення. Мінімум одне змістовне речення в кожній.',ok);});
+const Q=[
+{q:'1. На плані відмічені висоти А = 250 м і Б = 175 м. На скільки метрів А вища за Б?',options:['75 м','425 м','175 м','25 м'],answer:0,why:'250 − 175 = 75 м.'},
+{q:'2. Точка розташована на висоті −20 м, інша на +35 м. Яке перевищення другої над першою?',options:['15 м','55 м','−55 м','35 м'],answer:1,why:'35 − (−20) = 55 м.'},
+{q:'3. Горизонталі на схилі А проходять щільніше, ніж на Б, за того самого кроку висот. Висновок?',options:['А крутіший','Б крутіший','А обов’язково вищий','На обох схилах однакова крутість'],answer:0,why:'Зближення горизонталей свідчить про більший підйом за меншу горизонтальну відстань.'},
+{q:'4. Потрібно знайти на фізичній карті абсолютну висоту місцевості за кольором. Насамперед...',options:['Перевірити легенду та шкалу висот','Порівняти колір із кольором річки','Порахувати населені пункти','Виміряти довжину підпису'],answer:0,why:'Значення відтінків задає легенда конкретної карти.'},
+{q:'5. Оберіть ДВА правильні твердження про абсолютну висоту.',type:'multi',options:['Може бути нижче нульового рівня','Визначається щодо прийнятого нульового рівня висот','Завжди є різницею висот двох найближчих точок','Завжди більша за відносну висоту'],answer:[0,1],why:'Абсолютну висоту співвідносять із нульовим рівнем; можливі від’ємні значення.'},
+{q:'6. Оберіть ДВА докази, що схил може бути крутішим.',type:'multi',options:['За однакової зміни висоти горизонтальна відстань менша','На топографічній карті з однаковим кроком горизонталі зближені','Колір на фотографії темніший','Вершина має більшу абсолютну висоту сама по собі'],answer:[0,1],why:'Крутість визначається співвідношенням підйому та горизонтальної відстані.'},
+{q:'7. Установіть відповідність «термін — зміст».',type:'match',pairs:[['Горизонталь','Лінія однакової абсолютної висоти'],['Бергштрих','Риска у напрямі зниження схилу'],['Шкала висот і глибин','Діапазони значень, показані кольорами']],why:'Поняття мають різні функції у читанні плану та фізичної карти.'},
+{q:'8. Встановіть логічну послідовність побудови профілю за картою.',type:'order',steps:['Позначити лінію розрізу та її перетини з горизонталями','Визначити висоти й горизонтальні відстані','Нанести точки на осі та з’єднати їх профілем'],why:'Починаємо з даних карти, переводимо їх у висоти та відстані, потім будуємо графік.'},
+{q:'9. Два туристичні шляхи піднімаються на 120 м. Яких даних бракує, щоб порівняти крутість?',options:['Горизонтальних відстаней, на яких відбувається підйом','Назв обох маршрутів','Кольору рюкзаків','Кількості фотографій'],answer:0,why:'Однаковий підйом не означає однакову крутість без даних про горизонтальну відстань.'},
+{q:'10. Який висновок має правильну логіку «твердження — доказ — пояснення»?',options:['Схил крутий, бо він красивий','На топографічній карті поблизу маршруту Б горизонталі щільніші за однакового кроку висот, тому підйом на тій самій горизонтальній відстані тут більший','Вершина 900 м, значить усі її схили крутіші за інші','Схил пологий, тому що зелений'],answer:1,why:'Висновок поєднує спостереження на карті й причинне пояснення.'}
+];
+let name='',klass='';
+el('startTest').addEventListener('click',()=>{
+ const val=el('studentName').value.trim().replace(/\s+/g,' ');
+ const words=val.split(' '),cl=el('studentClass').value;
+ const regex=/^[А-ЯІЇЄҐа-яіїєґ’'\-]+$/u;
+ if(words.length<2||words.some(w=>!regex.test(w))||!cl){feedback('gateFeedback','Потрібні ім’я і прізвище (два слова без цифр) та клас.',false);return;}
+ name=val;klass=cl;el('gate').classList.add('hidden');el('quiz').classList.remove('hidden');
+ el('questions').innerHTML=Q.map((q,i)=>{
+ let content='';
+ if(q.type==='match'){content=q.pairs.map((p,j)=>'<label style="display:block">'+escapeHTML(p[0])+'<select data-match="'+j+'"><option value="">Оберіть відповідність</option>'+[2,0,1].map(k=>'<option value="'+k+'">'+escapeHTML(q.pairs[k][1])+'</option>').join('')+'</select></label>').join('');}
+ else if(q.type==='order'){content=q.steps.map((step,j)=>'<label style="display:block">Крок '+(j+1)+'<select data-order="'+j+'"><option value="">Оберіть дію</option>'+[1,2,0].map(k=>'<option value="'+k+'">'+escapeHTML(q.steps[k])+'</option>').join('')+'</select></label>').join('');}
+ else {content=q.options.map((o,k)=>'<label><input type="'+(q.type==='multi'?'checkbox':'radio')+'" name="q'+i+'" value="'+k+'">'+escapeHTML(o)+'</label>').join('');}
+ return '<div class="question" data-question="'+i+'"><strong>'+escapeHTML(q.q)+'</strong>'+content+'<div class="mini" id="explanation'+i+'"></div></div>';
+ }).join('');
+ el('quiz').scrollIntoView({behavior:'smooth'});
+});
+el('finishTest').addEventListener('click',()=>{
+ let score=0,empty=0;
+ Q.forEach((q,i)=>{
+ const root=document.querySelector('[data-question="'+i+'"]');let ok=false;
+ if(q.type==='match'||q.type==='order'){
+ const chosen=[...root.querySelectorAll('select')].map(x=>x.value);
+ empty+=Number(chosen.some(x=>!x));ok=chosen.every((x,j)=>Number(x)===j);
+ }else{
+ const chosen=[...root.querySelectorAll('input:checked')].map(x=>Number(x.value));empty+=Number(chosen.length===0);
+ ok=q.type==='multi'?chosen.length===q.answer.length&&q.answer.every(v=>chosen.includes(v)):chosen.length===1&&chosen[0]===q.answer;
+ }
+ root.dataset.ok=ok?'1':'0';if(ok)score++;
+ });
+ if(empty && !confirm('Є '+empty+' запитань без відповіді. Завершити тест?'))return;
+ Q.forEach((q,i)=>{el('explanation'+i).textContent=(document.querySelector('[data-question="'+i+'"]').dataset.ok==='1'?'✓ ':'✕ ')+q.why;});
+ const now=new Date();el('quiz').classList.add('hidden');el('testResult').classList.remove('hidden');
+ el('testResult').innerHTML='<h2>🏔️ Картка результату</h2><p><strong>'+escapeHTML(name)+'</strong> · '+escapeHTML(klass)+'</p><p>Географія · Практична робота №6 · Горизонталі та висоти</p><p class="resultNumber">'+score+' / 10 <small>('+score*10+'%)</small></p><div class="progress"><span style="width:'+(score*10)+'%"></span></div><p>'+(score===10?'Відмінно!':score>=8?'Дуже добре.':score>=5?'Є прогалини, повторіть лабораторії.':'Поверніться до практичних завдань та перевірте помилки.')+'</p><p>'+now.toLocaleString('uk-UA')+'</p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b> Сторінка нічого не надсилає автоматично.</p><div class="chiprow"><button onclick="window.print()">Друкувати</button><button id="retryTest" class="secondary">Повторити тест</button></div>';
+ el('retryTest').addEventListener('click',()=>{
+ if(!confirm('Повторити тест? Ім’я та клас збережуться.'))return;
+ document.querySelectorAll('#quiz input').forEach(i=>i.checked=false);
+ document.querySelectorAll('#quiz select').forEach(i=>i.value='');
+ document.querySelectorAll('#quiz .mini').forEach(x=>x.textContent='');
+ el('testResult').classList.add('hidden');el('quiz').classList.remove('hidden');el('quiz').scrollIntoView({behavior:'smooth'});
+ });
+ el('testResult').scrollIntoView({behavior:'smooth'});
+});
+})();
+</script>
 </body></html>
