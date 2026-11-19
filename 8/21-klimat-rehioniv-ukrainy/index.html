@@ -5,7 +5,7 @@
 <meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»">
 <meta name="description" content="8 клас, урок 21. Регіональні відмінності клімату України: справжні карти, фото регіонів, дослідження, симулятори, коефіцієнт зволоження та тест /10.">
 <title>Кліматичний атлас України | 8 клас • Урок 21</title>
-<style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><style>
 :root{--navy:#152c4a;--text:#203651;--muted:#5c7089;--paper:#f7fbff;--sky:#e5f6ff;--azure:#087bcc;--mint:#008879;--sun:#ffa72e;--coral:#f46b65;--violet:#725ac6;--line:#d8e8f2;--shadow:0 20px 55px rgba(29,71,116,.10)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;font:16px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,#dbf4ff 0,#f1faff 700px,#f7fbff 1100px)}a{color:#056eab}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ef8e26;outline-offset:3px}button,input,select,textarea{font:inherit}button{cursor:pointer;min-height:44px;border:0;border-radius:14px;padding:10px 16px;font-weight:800}input,select,textarea{width:100%;border:1.5px solid #b8d1e0;border-radius:12px;padding:12px;background:#fff;color:var(--text)}textarea{min-height:92px;resize:vertical}label{font-weight:650}.shell{width:min(1220px,calc(100% - 32px));margin:auto}
 .hero{position:relative;overflow:hidden;min-height:540px;padding:54px 0 64px;background:radial-gradient(ellipse at 78% 24%,#ffef96 0,#ffdf8c 13%,transparent 34%),linear-gradient(123deg,#27adf4 0%,#77cfff 40%,#cceefe 75%,#fff5d8 100%)}.hero:after{content:"";position:absolute;bottom:-68px;left:-8%;width:120%;height:110px;border-radius:50%;background:#f7fbff;transform:rotate(-2deg)}.sky-lines{position:absolute;inset:0;pointer-events:none;opacity:.22;background:repeating-radial-gradient(ellipse at 88% 40%,transparent 0 28px,#fff 29px 31px,transparent 32px 60px)}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.14fr .86fr;align-items:center;gap:30px}.tag{display:inline-block;padding:7px 13px;border-radius:999px;background:#fff;color:#0871b2;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;font-weight:900;box-shadow:0 4px 15px #1267a322}.hero h1{font-size:clamp(2.8rem,6.2vw,5.8rem);line-height:.99;letter-spacing:-.055em;color:#123860;margin:19px 0 20px}.hero h1 em{font-style:normal;color:#fff;text-shadow:0 4px 24px #0878c875}.lead{font-size:1.12rem;max-width:650px;font-weight:550;color:#19496a}.hero-art{position:relative;isolation:isolate}.hero-art>img{width:100%;aspect-ratio:1.12/1;object-fit:cover;border:10px solid #fff;border-radius:38px;box-shadow:0 25px 65px #15578955;transform:rotate(2deg)}.float{position:absolute;padding:10px 16px;border-radius:18px;background:#fff;font-weight:900;box-shadow:0 12px 28px #17477244}.float.one{top:-12px;left:-25px;transform:rotate(-6deg);color:#0f7aaf}.float.two{bottom:9px;right:-12px;transform:rotate(5deg);color:#bd5940}.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.stats span{font-weight:850;font-size:.84rem;background:#fff9;padding:8px 12px;border:1px solid #fff;border-radius:14px}
@@ -20,6 +20,112 @@ main{padding-bottom:55px}.section{margin:26px auto;padding:clamp(20px,3vw,36px);
 .gallery-tile{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.geo-photo .photo-visual{overflow:hidden;position:relative;aspect-ratio:1.36;background:linear-gradient(135deg,#e7f5ff,#d7f4de)}.geo-photo .photo-visual img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}.geo-photo:hover .photo-visual img{transform:scale(1.035)}.geo-photo .photobody p{font-size:.9rem;line-height:1.48}.geo-photo .photobody h3{margin:9px 0 4px}.image-error{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:15px;font-size:.93rem;font-weight:850;color:#315b75;background:linear-gradient(135deg,#e6f4ff,#fff5dc)}
 .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}.case-card{border:1px solid #d5e6f4;background:#f8fcff;border-radius:19px;padding:17px}.case-card h3{font-size:1.1rem}.case-card .choice{font-size:.92rem}.case-card .answered{font-weight:850}.progress-outer{height:16px;border-radius:999px;background:#d2e8f3;overflow:hidden}.progress-inner{height:100%;background:linear-gradient(90deg,#169ca8,#f8b941);transition:width .2s ease}
 @media(max-width:900px){.gallery-tile{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.gallery-tile,.case-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.gallery-tile,.case-grid{grid-template-columns:1fr}}
+
+/* DESIGN_REFRESH_2026_11_19 | Atlas edition: playful, readable and accessible */
+body{
+ --reading-size:19px;--h2-size:clamp(2.05rem,3.35vw,2.95rem);
+ font-family:"Nunito","Trebuchet MS",system-ui,sans-serif;
+ font-size:var(--reading-size);line-height:1.66;
+ background:radial-gradient(ellipse at 5% 17%,#e3f7ff 0,transparent 31%),radial-gradient(ellipse at 94% 60%,#fff2d2 0,transparent 31%),#f3f9ff;
+ color:#17334d;
+}
+body.large-type{--reading-size:22px;--h2-size:clamp(2.35rem,3.7vw,3.4rem)}
+.hero{
+ background:radial-gradient(circle at 86% 23%,#fff2a8 0,#ffdc79 13%,transparent 29%),linear-gradient(123deg,#31b7f4 0%,#9be1ff 47%,#fff0cc 100%);
+ padding:clamp(46px,6vw,85px) 0 83px;min-height:520px;
+}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.25;
+ background:radial-gradient(ellipse 120px 24px at 15% 23%,white 0 98%,transparent 100%),radial-gradient(ellipse 190px 29px at 60% 14%,white 0 98%,transparent 100%),radial-gradient(ellipse 110px 26px at 87% 68%,white 0 98%,transparent 100%);}
+.hero h1,.section h2,.section h3,.metric,.result-score{font-family:"Rubik","Nunito","Trebuchet MS",sans-serif}
+.hero h1{font-size:clamp(3.25rem,6.2vw,6.6rem);letter-spacing:-.055em;line-height:1.025;text-wrap:balance;color:#093e6e;text-shadow:0 4px 20px #ffffffa0}
+.hero h1 em{font-weight:900;color:#5839bd;text-shadow:1px 3px 0 #fff,0 12px 24px #fff7}
+.hero .lead{font-size:clamp(1.18rem,1.85vw,1.43rem);font-weight:750;line-height:1.5;color:#143f5e}
+.hero .tag{font-size:.92rem;padding:10px 17px;border:2px solid #ffffffea;background:#fff;border-radius:99px;color:#075a88}
+.hero .stats{gap:11px;margin-top:25px}
+.hero .stats span{font-size:.97rem;font-weight:900;padding:10px 15px;background:#ffffffef;color:#154e73;border-radius:17px;box-shadow:0 7px 18px #0d77a321}
+.hero-art>img{border:12px solid #fff;border-radius:38px;box-shadow:0 25px 62px #0a518753}
+.hero .float{font-size:1.05rem;border:2px solid #fff;box-shadow:0 9px 19px #0e4d7440}
+nav{border-bottom:2px solid #b7e8fa;box-shadow:0 6px 24px #26769c18;background:#fffefaf2}
+nav .shell{gap:7px;padding:11px 0}
+nav a{font-size:.98rem;font-weight:900;padding:10px 14px;border-radius:14px;color:#134d75}
+nav a:hover,nav a:focus-visible{background:#d9f4ff;color:#075c98}
+main{padding-bottom:65px}
+.section{
+ position:relative;margin:31px auto;
+ border:2px solid #d7ebf5;border-top:7px solid #27b5d9;border-radius:30px;
+ padding:clamp(24px,3.6vw,46px);
+ background:#fff;box-shadow:0 18px 40px #244d7b13;
+}
+.section:nth-of-type(3n+2){border-top-color:#ffb23e}
+.section:nth-of-type(3n){border-top-color:#8f71de}
+.section h2{font-size:var(--h2-size);color:#123f65;line-height:1.17;letter-spacing:-.04em;text-wrap:balance;margin:11px 0 23px}
+.section h3{font-size:clamp(1.2rem,2vw,1.52rem);line-height:1.3;color:#1a506f;font-weight:800}
+.eyebrow{font-size:.93rem;letter-spacing:.08em;font-weight:900;color:#076d92}
+.sub{font-size:1.08rem;color:#395d77;line-height:1.65}
+.panel,.case-card,.quiz-question{border:2px solid #dcecf6;border-radius:24px;padding:clamp(16px,2vw,25px);box-shadow:0 9px 23px #094f7d0c}
+.panel{background:linear-gradient(155deg,#f2faff,#eaf4ff)}
+.panel.sun{background:linear-gradient(135deg,#fff3cc,#fffaf0);border-color:#ffdda1}
+.panel.rain{background:linear-gradient(135deg,#ddf6ff,#e1faee);border-color:#9edce8}
+.panel.danger{background:linear-gradient(135deg,#fff0e8,#fff6f4);border-color:#ffcebc}
+.panel.violet{background:linear-gradient(135deg,#eee7ff,#fbf7ff);border-color:#d8c9ff}
+.quote{font-size:clamp(1.27rem,2vw,1.64rem);line-height:1.4;color:#234677}
+.photocard,.geo-photo{border:2px solid #d2e9f3;border-radius:25px;box-shadow:0 14px 30px #125d8f16;transition:transform .18s ease,box-shadow .18s ease;overflow:hidden}
+.photocard:hover,.geo-photo:hover{transform:translateY(-3px);box-shadow:0 19px 39px #125d8f24}
+.photocard img{height:210px}
+.photobody{padding:20px}
+.photobody p,.case-card p{font-size:1.02rem}
+.geo-photo .photo-visual{aspect-ratio:1.38}
+.geo-photo .photobody p{font-size:.99rem;line-height:1.55}
+.gallery-tile{gap:20px}
+.badges span,.badge,.exampletag{font-size:.96rem;padding:7px 12px;font-weight:900;border-radius:99px;background:#dcf2ff;color:#115b8e}
+.steps span{font-size:1rem;padding:17px 8px;border-radius:17px}
+button,.btn{font-family:"Nunito",system-ui,sans-serif;font-size:1.025rem;font-weight:900;min-height:50px;border-radius:16px;padding:12px 20px;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+button:hover,.btn:hover{transform:translateY(-1px)}
+button.primary,.btn{background:linear-gradient(130deg,#0e84cf,#1265ba);color:white;box-shadow:0 5px 16px #075d9950}
+button.green{background:linear-gradient(130deg,#028b78,#056d80);color:white}
+button.light{border:2px solid #badbea;background:#eaf7ff;color:#12547b}
+button.selected{background:#174bac;color:white}
+input,select,textarea{font-family:"Nunito",sans-serif;font-size:1.03rem;min-height:49px;border:2px solid #bad8e9;border-radius:15px;padding:13px 15px}
+input[type="radio"],input[type="checkbox"]{min-height:0}
+label{font-weight:800}
+.choice{border:2px solid #d0e4f2;border-radius:15px;padding:13px 16px;margin:9px 0;background:#fff;font-size:1.04rem;line-height:1.35}
+.choice:hover{background:#e5f6ff;border-color:#41a4d6}
+.task{border-left-width:7px;border-radius:16px;padding:18px 21px;background:#e9f7ff}
+.notice,.feedback,.revealed,.mini-note{border-radius:18px;padding:16px 20px;font-size:1rem}
+.mapframe{border:3px solid #a9dbef;border-radius:24px;box-shadow:0 9px 24px #31739117}
+.mapnote,.mapnote a{font-size:1rem}
+.stat-table th,.stat-table td{font-size:.98rem;padding:14px}
+.quiz-question{background:#f5faff;margin:18px 0}
+.quiz-question legend{font-size:1.18rem}
+.quiz-question .opt{min-height:46px;align-items:center;border-radius:12px;padding:10px 12px}
+.quiz-question .opt:hover{background:#e7f5ff}
+.quiz-question .opt input{margin-top:0}
+.source-line,.pic figcaption,.metric-note,.mini-note,.foot,.geo-photo .photobody .source-line{font-size:.92rem}
+.quiz-result{border:3px solid #14a3cb;padding:24px}
+.result-score{font-size:4rem}
+.font-switch{white-space:nowrap;flex:none;position:sticky;right:0;min-height:46px;margin-left:auto;padding:8px 12px;background:#174f97;color:#fff;border:2px solid #fff;box-shadow:0 5px 15px #12496b37;font-size:.95rem}
+.font-switch[aria-pressed="true"]{background:#e97d20;color:#fff}
+body.large-type .section h3{font-size:clamp(1.45rem,2.2vw,1.85rem)}
+body.large-type .hero .lead{font-size:1.55rem}
+@media(max-width:700px){
+ body{--reading-size:17.5px;--h2-size:clamp(1.8rem,5.7vw,2.4rem)}
+ body.large-type{--reading-size:20px;--h2-size:clamp(2rem,6vw,2.65rem)}
+ .hero{padding:38px 0 67px;min-height:0}
+ .hero h1{font-size:clamp(2.7rem,9.3vw,4.5rem)}
+ .hero .lead{font-size:1.13rem}
+ .hero .stats span{font-size:.9rem}
+ .hero-art{max-width:100%}
+ .section{padding:21px 18px;margin:18px auto;border-radius:25px}
+ nav a{padding:9px 11px;font-size:.9rem}
+ .grid3,.grid4{grid-template-columns:1fr}
+ .gallery-tile,.case-grid{grid-template-columns:1fr}
+ .photocard img{height:210px}
+ .steps span{font-size:.92rem}
+ .font-switch{font-size:.9rem}
+}
+@media(prefers-reduced-motion:reduce){.photocard,.geo-photo,button,.btn{transition:none}.photocard:hover,.geo-photo:hover,button:hover,.btn:hover{transform:none}}
+@media print{body{background:white;font-size:12pt}.hero{background:white!important}.section{box-shadow:none}.font-switch{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -30,7 +136,7 @@ main{padding-bottom:55px}.section{margin:26px auto;padding:clamp(20px,3vw,36px);
 <div class="stats"><span>📚 Урок №21 • §20</span><span>⏱ 35 хвилин + домашня лабораторія</span><span>🗺 Справжні карти УкрГМІ</span><span>🔬 6 дослідницьких механік</span></div>
 <p class="small"><strong>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</strong></p>
 </div><div class="hero-art"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carpathians%20in%20Ukraine.JPG?width=900" alt="Фотографія Українських Карпат" loading="eager"><span class="float one">🌧 Карпати — багато опадів</span><span class="float two">☀️ Степ — дефіцит вологи</span></div></div></header>
-<nav aria-label="Розділи уроку"><div class="shell"><a href="#start">Старт</a><a href="#photos">Фотоекспедиція</a><a href="#photobank">Фотоархів</a><a href="#field-expedition">Кейси</a><a href="#atlas">Атлас</a><a href="#lab">Дослідження</a><a href="#sim">Симулятор</a><a href="#theory">Пояснення</a><a href="#videos">Відео</a><a href="#quiz">Тест /10</a><a href="#home">Д/З</a></div></nav>
+<nav aria-label="Розділи уроку"><div class="shell"><a href="#start">Старт</a><a href="#photos">Фотоекспедиція</a><a href="#photobank">Фотоархів</a><a href="#field-expedition">Кейси</a><a href="#atlas">Атлас</a><a href="#lab">Дослідження</a><a href="#sim">Симулятор</a><a href="#theory">Пояснення</a><a href="#videos">Відео</a><a href="#quiz">Тест /10</a><a href="#home">Д/З</a><button type="button" class="font-switch" id="font-switch" aria-pressed="false" title="Змінити розмір шрифту">Аа +</button></div></nav>
 <main class="shell">
 <section id="start" class="section"><span class="eyebrow">00–03 хв • Географічна загадка</span><h2>Дві області — одна країна. Чому такі контрасти?</h2>
 <div class="grid2"><div><p class="quote">«Якщо в обох місцях випало по 500 мм опадів, то в обох однаково волого». Це правда?</p><textarea id="hyp" aria-label="Ваша початкова гіпотеза" placeholder="Моя гіпотеза: так / ні, тому що ..."></textarea><p class="small muted">Після обчислення коефіцієнта зволоження повернемося до гіпотези.</p></div><div class="panel sun"><h3>🎯 Ваша місія</h3><p>Визначити, як змінюються температура, опади й континентальність України; пояснити роль Атлантики, широти, рельєфу та моря; довести висновок двома незалежними показниками.</p><div class="badges"><span>Ізотерми</span><span>Ізогієти</span><span>Випаровуваність</span><span>Коефіцієнт зволоження</span></div></div></div></section>
@@ -201,4 +307,8 @@ $("evidence-check").addEventListener("click",function(){let vals=Array.from(docu
 $("battle-check").addEventListener("click",function(){let v=$("battle-choice").value;$("battle-feedback").textContent=v==="b"?"Вірно. У Б: K=500/900≈0,56. У А: K=500/400=1,25. Опади однакові, але випаровуваність відрізняється.":v?"Ні. Обчисліть K=P/E для обох умовних територій і порівняйте.":"Виберіть висновок."});
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-</body></html>
+<script id="readability-switch-script">
+(function(){var b=document.getElementById("font-switch");if(!b)return;
+b.addEventListener("click",function(){var up=document.body.classList.toggle("large-type");b.setAttribute("aria-pressed",String(up));b.textContent=up?"Аа −":"Аа +";b.title=up?"Повернути звичайний шрифт":"Збільшити шрифт";});
+})();
+</script></body></html>
