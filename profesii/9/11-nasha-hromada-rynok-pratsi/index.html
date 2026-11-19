@@ -314,6 +314,101 @@ $('quiz-start').addEventListener('click',()=>{if(!validName($('student-name').va
 $('quizform').addEventListener('submit',e=>{e.preventDefault();let score=0,missing=[];questions.forEach((q,i)=>{let values=[];if(q.kind==='one'||q.kind==='multi')values=[...document.querySelectorAll('[name="q'+i+'"]:checked')].map(x=>x.value);else values=(q.kind==='match'?q.pairs:q.steps).map((_,j)=>document.querySelector('[name="q'+i+'-'+j+'"]').value);if(values.length===0||values.some(v=>v===''))missing.push(i+1);if(gradeAnswer(q,values))score++;});if(missing.length){$('quiz-error').textContent='Заповніть завдання: '+missing.join(', ')+'.';return;}$('quiz-error').textContent='';$('quizform').hidden=true;$('result').hidden=false;$('result-student').textContent=$('student-name').value.trim();$('result-meta').textContent=$('student-class').value+' · Урок №11 · '+new Date().toLocaleString('uk-UA');$('result-score').textContent=score+' / 10';$('result-text').textContent=score>=9?'Ви впевнено розрізняєте дані, джерела й висновки.':score>=6?'Основи опановано. Повторіть відмінність між кількістю установ і працівників.':'Поверніться до кейсу з вибіркою та правил перевірки джерел.';$('result').scrollIntoView({block:'start',behavior:'smooth'});});
 $('print-result').addEventListener('click',()=>window.print());
 $('retry').addEventListener('click',()=>{if(!confirm('Почати тест заново? Попередній результат зникне.'))return;$('quizform').reset();$('result').hidden=true;$('quizform').hidden=false;$('quizform').scrollIntoView({block:'start'});});
+
+// CAREER CITY 09 additional real-data laboratories and ethical local-source inquiry
+document.querySelectorAll('img[data-remote-photo]').forEach(img=>{
+img.addEventListener('error',()=>{
+img.style.display='none';
+const card=img.closest('.photoCard');
+if(card){const fallback=card.querySelector('.photoFallback');if(fallback)fallback.style.display='flex';}
+else {const placeholder=document.createElement('div');placeholder.className='photoFallback';placeholder.style.cssText='display:flex;min-height:200px;align-items:center;justify-content:center;background:#dceef3;padding:18px;font-weight:900;color:#2a5485';placeholder.textContent='📷 Фото джерела тимчасово недоступне';img.parentElement.insertBefore(placeholder,img.nextSibling);}
+},{once:true});
+});
+function newChoiceLab(rootId,feedbackId,explain){
+const root=$(rootId);
+root.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
+const correct=button.dataset.correct==='1';
+root.querySelectorAll('button').forEach(b=>{b.classList.toggle('selected',b===button);b.setAttribute('aria-pressed',String(b===button));});
+$(feedbackId).textContent=(correct?'✅ Вірно! ':'🔎 Не зовсім. ')+explain;
+}));
+}
+newChoiceLab('photoDetect','photoDetectFeedback','Фотографія події доводить, що вона відбулася, але не показує статистику подальшого працевлаштування.');
+newChoiceLab('statInterpret','statInterpretFeedback','Джерело стосується укомплектованих вакансій ДСЗ по Україні за січень–червень 2026 року.');
+const realVacancyData=[
+{name:'Продавці продуктів',full:'Продавці продовольчих товарів',count:6.7,skill:'Комунікація, уважність, організація торгівлі'},
+{name:'Водії',full:'Водії автотранспортних засобів',count:6.2,skill:'Дотримання правил, відповідальність, орієнтування'},
+{name:'Кухарі',full:'Кухарі',count:3.3,skill:'Технологія приготування, санітарія, планування'},
+{name:'Бухгалтери',full:'Бухгалтери',count:2.7,skill:'Облік, точність, робота з даними'},
+{name:'Охоронники',full:'Охоронники',count:2.4,skill:'Спостереження, регламенти, безпека'},
+{name:'Адміністратори',full:'Адміністратори',count:2.2,skill:'Організація роботи, комунікація, документи'}
+];
+let reverseBars=false;
+function renderRealBars(){
+const rows=[...realVacancyData].sort((a,b)=>reverseBars?a.count-b.count:b.count-a.count);
+const holder=$('filledVacanciesBars');holder.innerHTML='';
+rows.forEach(item=>{
+const line=document.createElement('button');line.type='button';line.className='realBar';line.style.cssText='width:100%;background:transparent;border:0;color:#304f80;cursor:pointer;text-align:left;box-shadow:none;padding:3px 0;min-height:42px';
+line.setAttribute('aria-label',item.full+': '+item.count.toLocaleString('uk-UA')+' тисяч укомплектованих вакансій');
+line.innerHTML='<strong>'+safe(item.name)+'</strong><span class="track"><span class="fill" style="width:'+(item.count/6.7*100).toFixed(1)+'%"></span></span><span class="num">'+item.count.toLocaleString('uk-UA')+' тис.</span>';
+line.addEventListener('click',()=>{$('barReadout').textContent='📊 '+item.full+': '+item.count.toLocaleString('uk-UA')+' тис. укомплектованих вакансій за січень–червень 2026 р. Корисні навички: '+item.skill+'.';});
+holder.appendChild(line);
+});
+}
+$('sortBars').addEventListener('click',()=>{reverseBars=!reverseBars;renderRealBars();});
+renderRealBars();
+$('checkStatDifference').addEventListener('click',()=>{
+const value=$('statDifference').value.trim().replace(',','.');
+if(!value){$('statDiffFeedback').textContent='Введіть число в тисячах вакансій.';return;}
+const good=Math.abs(Number(value)-(6.7-3.3))<0.001;
+$('statDiffFeedback').textContent=good?'✅ 6,7 − 3,3 = 3,4 тис. укомплектованих вакансій. Це 3400 вакансій.':'Підказка: з 6,7 тис. продавців відніміть 3,3 тис. кухарів. Не плутайте тисячі з одиницями.';
+});
+const jobCases=[
+{title:'Вакансія 1 · Кухар у кафе',text:'«Кафе “Смак”. Графік 5/2, 09:00–17:00; обов’язки: підготовка продуктів, дотримання санітарних вимог. Оплата та умови уточнюються на співбесіді. Є контакт роботодавця й опис закладу». Яку інформацію треба з’ясувати насамперед?',choices:['Точний розмір оплати, оформлення, умови та вимоги','Чи подобається мені колір логотипу','Чи є в кафе фотозона'],right:0,explain:'Вакансія може бути реальною, але без уточнення зарплати, оформлення та умов її ще не можна оцінити повністю.'},
+{title:'Вакансія 2 · Онлайн-підробіток',text:'«Без досвіду! 4000 грн на день. Внесіть 500 грн за доступ до вакансії й надішліть фото банківської картки з обох боків».',choices:['Надіслати, адже зарплата висока','Не платити, не надавати даних та перевірити або повідомити про шахрайство','Спочатку попросити надіслати емодзі'],right:1,explain:'Плата за доступ до роботи та вимога банківських даних — серйозні ознаки шахрайства.'},
+{title:'Вакансія 3 · Технік з обладнання',text:'«Сервісна компанія шукає техніка для діагностики обладнання. Потрібна відповідна освіта, вміння читати схеми, дотримуватися правил безпеки». Що це говорить про професію?',choices:['Професія не вимагає навчання','Навички та кваліфікація мають значення; потрібно дізнатися шлях навчання','Робота підходить усім без підготовки'],right:1,explain:'Оголошення демонструє конкретні професійні вимоги, з якими можна співвіднести освітню траєкторію.'},
+{title:'Вакансія 4 · Адміністратор послуг',text:'«Потрібні комунікація, робота з документами, базові цифрові навички, уміння вирішувати звернення клієнтів». Як перевірити свої здібності?',choices:['Написати “я добре спілкуюся” і не шукати доказів','Спробувати організувати шкільну подію та зберегти план, результати й відгуки','Вибрати найкрасивішу назву посади'],right:1,explain:'Малий проєкт допомагає перевірити навички за реальною діяльністю, а не лише за самооцінкою.'},
+{title:'Вакансія 5 · Порівняння двох оголошень',text:'«Оголошення А: 20 000 грн, 40 год/тиждень. Б: 24 000 грн, 60 год/тиждень. Для навчального порівняння вважаємо, що інших умов немає». Що варто обчислити?',choices:['Дохід на годину (а потім перевірити інші умови)','Взяти Б, бо сума більша','Взяти А, бо буквеною назвою красивіше'],right:0,explain:'А: 20 000/(40×4)=125 грн/год. Б: 24 000/(60×4)=100 грн/год. Це умовні числа; справжні вакансії мають інші чинники й реальні календарні тижні.'}
+];
+let jobIndex=0,jobScore=0,jobAnswered=false;
+function renderJob(){
+const item=jobCases[jobIndex];$('jobIndex').textContent='Картка '+(jobIndex+1)+' із '+jobCases.length;
+$('jobScore').textContent=jobScore+' правильних';$('jobTitle').textContent=item.title;$('jobText').textContent=item.text;
+$('jobChoices').innerHTML='';jobAnswered=false;$('nextJob').disabled=true;$('jobFeedback').textContent='';
+item.choices.forEach((value,i)=>{
+const b=document.createElement('button');b.textContent=String.fromCharCode(65+i)+'. '+value;b.type='button';
+b.addEventListener('click',()=>{
+if(jobAnswered)return;jobAnswered=true;const good=i===item.right;if(good)jobScore++;
+[...$('jobChoices').querySelectorAll('button')].forEach((other,j)=>{other.disabled=true;other.classList.toggle('selected',j===item.right);other.classList.toggle('incorrect',j===i&&!good);});
+$('jobFeedback').textContent=(good?'✅ Хороше рішення. ':'🔎 Перевірте умови. ')+item.explain;
+$('jobScore').textContent=jobScore+' правильних';$('nextJob').disabled=false;$('nextJob').textContent=jobIndex===jobCases.length-1?'Почати нову спробу ↻':'Наступна вакансія →';
+});$('jobChoices').appendChild(b);
+});
+}
+$('nextJob').addEventListener('click',()=>{if(!jobAnswered)return;
+if(jobIndex===jobCases.length-1){jobIndex=0;jobScore=0;}else jobIndex++;
+renderJob();
+});
+renderJob();
+const communityNeeds={
+education:{title:'📚 Освіта',prof:['Учитель або вчителька','Фахівець цифрових платформ','Психолог','Технік комп’ютерної підтримки'],comment:'Потрібна комбінація педагогічних, цифрових та підтримувальних компетентностей.'},
+water:{title:'💧 Водопостачання',prof:['Інженер мереж','Оператор водопідготовки','Лаборант контролю води','Слюсар ремонтної бригади'],comment:'Інфраструктура потребує проєктування, контролю якості та технічного обслуговування.'},
+health:{title:'🩺 Медицина',prof:['Сімейний лікар','Медична сестра','Лаборант','Адміністратор запису'],comment:'Надання медичних послуг — спільна робота різних спеціалістів.'},
+business:{title:'🛍️ Місцевий бізнес',prof:['Підприємець','Бухгалтер','Логіст','Маркетолог'],comment:'Навіть невелика справа створює попит на фінанси, постачання та комунікацію.'}
+};
+document.querySelectorAll('#communityNeeds button').forEach(b=>b.addEventListener('click',()=>{
+const data=communityNeeds[b.dataset.need];
+document.querySelectorAll('#communityNeeds button').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});
+$('communityNeedResult').textContent=data.title+': '+data.prof.join(' → ')+'. '+data.comment+' Це сценарій можливих потреб, не підтверджена кількість вакансій.';
+}));
+function updateCommunityPriorities(){
+const x=Number($('priorityEducation').value),y=Number($('priorityHealth').value),z=Number($('priorityBuild').value);
+$('priorityEducationV').textContent=x;$('priorityHealthV').textContent=y;$('priorityBuildV').textContent=z;
+const metrics=[{name:'Освіта',value:x,roles:'учителі, цифрові фахівці'},{name:'Медицина',value:y,roles:'медики, лаборанти'},{name:'Інфраструктура',value:z,roles:'інженери, техніки'}].sort((a,b)=>b.value-a.value);
+const max=metrics[0];
+$('priorityOutput').innerHTML='<b>У вашому сценарії найвищий пріоритет:</b> '+safe(max.name)+' ('+max.value+'/10). <b>Можливі професії:</b> '+safe(max.roles)+'. <p><small>Це змінна модель думки учня, а не статистичний рейтинг громади.</small></p>';
+}
+['priorityEducation','priorityHealth','priorityBuild'].forEach(id=>$(id).addEventListener('input',updateCommunityPriorities));updateCommunityPriorities();
+
 drawBars();renderPins();
 })();</script>
 </body></html>
