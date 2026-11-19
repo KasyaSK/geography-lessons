@@ -260,5 +260,163 @@ const Q=[
 let student='',cl='';
 $('startQuiz').addEventListener('click',()=>{let n=$('studentName').value.trim().replace(/\s+/g,' '),c=$('studentClass').value,re=/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/u;if(n.split(' ').length<2||!n.split(' ').every(x=>re.test(x))||!c){$('gateError').textContent='Введіть ім’я та прізвище без цифр, а також клас.';return;}student=n;cl=c;$('identityGate').classList.add('hidden');$('quizArea').classList.remove('hidden');$('quizQuestions').innerHTML=Q.map((v,i)=>{let o='';if(v.t==='match'){o=v.pairs.map((pair,j)=>'<label>'+esc(pair[0])+'<select data-match="'+j+'"><option value="">Оберіть</option>'+[1,2,0].map(k=>'<option value="'+k+'">'+esc(v.pairs[k][1])+'</option>').join('')+'</select></label>').join('');}else if(v.t==='order'){o=v.steps.map((x,j)=>'<label>Крок '+(j+1)+'<select data-order="'+j+'"><option value="">Оберіть</option>'+[2,0,1].map(k=>'<option value="'+k+'">'+esc(v.steps[k])+'</option>').join('')+'</select></label>').join('');}else{o=v.o.map((x,j)=>'<label><input name="q'+i+'" type="'+(v.t==='multi'?'checkbox':'radio')+'" value="'+j+'">'+esc(x)+'</label>').join('');}return '<div class="question" data-q="'+i+'"><strong>'+esc(v.q)+'</strong>'+o+'<p class="mini" id="explain'+i+'"></p></div>';}).join('');$('quizArea').scrollIntoView({behavior:'smooth'});});
 $('submitQuiz').addEventListener('click',()=>{let score=0,missing=0;Q.forEach((v,i)=>{let e=document.querySelector('[data-q="'+i+'"]'),correct=false;if(v.t==='match'||v.t==='order'){let a=[...e.querySelectorAll('select')].map(x=>x.value);if(a.some(x=>!x))missing++;correct=a.every((x,j)=>+x===j);}else{let a=[...e.querySelectorAll('input:checked')].map(x=>+x.value);if(!a.length)missing++;correct=v.t==='multi'?a.length===v.a.length&&v.a.every(x=>a.includes(x)):a.length===1&&a[0]===v.a;}e.dataset.ok=correct?'1':'0';if(correct)score++;});if(missing&&!confirm('Пропущено '+missing+' запитань. Завершити тест?'))return;Q.forEach((v,i)=>$('explain'+i).textContent=(document.querySelector('[data-q="'+i+'"]').dataset.ok==='1'?'✓ ':'✕ ')+v.why);$('quizArea').classList.add('hidden');$('resultCard').classList.remove('hidden');$('resultCard').innerHTML='<h2>Результат · Портфоліо 2.0</h2><p><b>'+esc(student)+'</b>, '+esc(cl)+'</p><p style="font-size:2.7rem;font-weight:900">'+score+'/10 <small>('+score*10+'%)</small></p><div class="meter"><span style="width:'+score*10+'%"></span></div><p>'+(score===10?'Відмінно!':score>=8?'Дуже добре!':score>=5?'Основу засвоєно, повторіть частину матеріалу.':'Радимо повернутися до доказів і SMART-цілей.')+'</p><p>'+new Date().toLocaleString('uk-UA')+'</p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b> Результат не надсилається автоматично.</p><button onclick="window.print()">Роздрукувати</button> <button id="retry" class="secondary">Пройти ще раз</button>';$('retry').addEventListener('click',()=>{if(confirm('Повторити тест, зберігши введене ім’я?')){document.querySelectorAll('#quizArea input').forEach(x=>x.checked=false);document.querySelectorAll('#quizArea select').forEach(x=>x.value='');document.querySelectorAll('#quizArea .mini').forEach(x=>x.textContent='');$('resultCard').classList.add('hidden');$('quizArea').classList.remove('hidden');}});$('resultCard').scrollIntoView({behavior:'smooth'});});
+
+// CAREER LAB interactive cases, evidence, realistic micro-experiments and resilient photos
+document.querySelectorAll('img[data-fallback-picture]').forEach(img=>{
+  img.addEventListener('error',()=>{
+    img.style.display='none';
+    let tile=img.closest('.photoTile');
+    if(tile){let alt=tile.querySelector('.photoAlt');if(alt)alt.style.display='flex';}
+    else {const replacement=document.createElement('div');replacement.className='photoAlt';replacement.style.cssText='display:flex;height:205px;align-items:center;justify-content:center;background:linear-gradient(115deg,#c6f4e6,#dee5ff);padding:18px;text-align:center;color:#265b70;font-weight:900;border-radius:13px';replacement.textContent='📷 Реальний проєкт української молоді · фото можна переглянути за джерелом нижче';img.parentElement.insertBefore(replacement,img.nextSibling);}
+  },{once:true});
+});
+function pickCareerChoice(rootID,feedID,message){
+ const root=$(rootID),feed=$(feedID);
+ root.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
+   const good=button.dataset.good==='true';
+   root.querySelectorAll('button').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button));});
+   feed.textContent=(good?'✅ Правильно. ':'🔁 Зверніть увагу: ')+message;
+   feed.classList.toggle('bad',!good);
+ }));
+}
+pickCareerChoice('photoProofChoices','photoProofFeedback','Сильний доказ має описувати Ваш внесок, конкретні дії та результат, який можна перевірити.');
+pickCareerChoice('videoChoices','videoFeedback','Справжня профорієнтація — це перевірка інтересу через знайомство з роботою та маленькі практичні спроби, а не остаточний вирок одного тесту.');
+const careerCases=[
+  {
+    title:'🎨 Кейс 1 · Дизайнерська команда',
+    story:'Шкільна бібліотека замовила афішу. Ви запропонували красивий макет, але на телефоні дрібний текст не читається. Що робите?',
+    choices:[
+      'Залишаю як є — головне, що мені подобається',
+      'Перевіряю читабельність, збільшую текст, показую другий варіант учням',
+      'Прибираю текст зовсім, щоб залишилася тільки картинка'
+    ],
+    correct:1,
+    why:'Дизайн оцінюють за завданням та потребами користувачів. Тестування і наступна версія — доказ навички.'
+  },
+  {
+    title:'🧪 Кейс 2 · Молодий дослідник',
+    story:'Ви перевіряєте, як освітленість впливає на проростання насіння. Два досліди дали різні результати. Що запишете в портфоліо?',
+    choices:[
+      'Візьму тільки красивий результат, решту приховаю',
+      'Запишу умови, обидва результати та припущення, що треба перевірити',
+      'Висновок зроблю ще до порівняння умов'
+    ],
+    correct:1,
+    why:'Науковий підхід вимагає чесно описувати дані та обмеження. Невдалий дослід теж може навчити.'
+  },
+  {
+    title:'🤖 Кейс 3 · Прототип робота',
+    story:'Ваша команда створила маленький робот, але після першого запуску датчик працює неправильно. Яку дію краще описати в портфоліо?',
+    choices:[
+      '«Робот працює ідеально», хоча це неправда',
+      '«Ми нічого не вміємо», і видалити проєкт',
+      'Описати несправність, можливу причину, спосіб перевірки та наступну версію'
+    ],
+    correct:2,
+    why:'Інженерна навичка проявляється у пошуку причин помилок, тестуванні й покращеннях.'
+  },
+  {
+    title:'🤝 Кейс 4 · Команда організаторів',
+    story:'Під час шкільного заходу Ви відповідали за графік, а інша учениця — за оформлення. Команда отримала грамоту. Як чесно описати свою роботу?',
+    choices:[
+      '«Я створив/створила весь проєкт самостійно»',
+      '«Я узгодив/узгодила графік зустрічей і контролював/контролювала строки; додаю план як доказ»',
+      '«Отримав/отримала грамоту», без опису внеску'
+    ],
+    correct:1,
+    why:'Портфоліо має показувати власну роль, а не привласнювати результати всієї команди.'
+  },
+  {
+    title:'🎥 Кейс 5 · Відеоредактор',
+    story:'Ви створили коротке відео для шкільної події. Глядачі сказали, що звук надто тихий. Як довести професійний розвиток?',
+    choices:[
+      'Додати в портфоліо перший і виправлений варіанти з поясненням, що змінилося',
+      'Не зважати на зауваження, адже відео вже змонтоване',
+      'Написати, що критика завжди безглузда'
+    ],
+    correct:0,
+    why:'Порівняння версій та використання якісного зворотного зв’язку — сильний доказ розвитку навички.'
+  }
+];
+let careerCaseIndex=0, careerCaseScore=0,careerCaseAnswered=false;
+function renderCareerCase(){
+ const c=careerCases[careerCaseIndex];
+ $('caseIndex').textContent='Кейс '+(careerCaseIndex+1)+' з '+careerCases.length;
+ $('caseScore').textContent='Успішних рішень: '+careerCaseScore;
+ $('caseTitle').textContent=c.title;
+ $('caseStory').textContent=c.story;
+ $('caseChoices').innerHTML='';
+ c.choices.forEach((answer,i)=>{
+   const b=document.createElement('button');b.type='button';b.textContent=String.fromCharCode(65+i)+'. '+answer;
+   b.addEventListener('click',()=>{
+     if(careerCaseAnswered)return;
+     careerCaseAnswered=true;
+     const good=i===c.correct;if(good)careerCaseScore++;
+     [...$('caseChoices').querySelectorAll('button')].forEach((other,j)=>{other.disabled=true;other.classList.toggle('active',j===c.correct);other.classList.toggle('wrong',j===i&&!good);});
+     $('caseFeedback').textContent=(good?'✅ Професійне рішення! ':'🔎 Досвід з помилок теж цінний. ')+c.why;
+     $('caseScore').textContent='Успішних рішень: '+careerCaseScore;
+     $('nextCase').disabled=false;
+     $('nextCase').textContent=careerCaseIndex===careerCases.length-1?'Пройти кейси знову ↻':'Наступний кейс →';
+   });
+   $('caseChoices').appendChild(b);
+ });
+ $('caseFeedback').textContent='';
+ $('nextCase').disabled=true;
+ careerCaseAnswered=false;
+}
+$('nextCase').addEventListener('click',()=>{
+ if(!careerCaseAnswered)return;
+ if(careerCaseIndex===careerCases.length-1){
+   $('caseFeedback').textContent='Результат '+careerCaseScore+'/'+careerCases.length+'. Тренуйте не лише правильні відповіді, а й пояснення рішень.';
+   careerCaseIndex=0;careerCaseScore=0;
+ }else careerCaseIndex++;
+ renderCareerCase();
+});
+renderCareerCase();
+const selectedMatrix=new Set();
+document.querySelectorAll('#evidenceMatrix button').forEach((btn,i)=>{
+ btn.setAttribute('aria-pressed','false');
+ btn.addEventListener('click',()=>{
+   if(selectedMatrix.has(i))selectedMatrix.delete(i);else selectedMatrix.add(i);
+   btn.classList.toggle('active',selectedMatrix.has(i));
+   btn.setAttribute('aria-pressed',String(selectedMatrix.has(i)));
+   $('evidenceMatrixCount').textContent='Обрано: '+selectedMatrix.size+'/5';
+ });
+});
+$('checkEvidenceMatrix').addEventListener('click',()=>{
+ const buttons=[...document.querySelectorAll('#evidenceMatrix button')];
+ const strong=buttons.reduce((acc,b,i)=>acc+(selectedMatrix.has(i)&&b.dataset.strong==='1'?1:0),0);
+ const good=selectedMatrix.size===5&&strong===5;
+ $('evidenceMatrixFeedback').textContent=good?'✅ У Вашому мініпортфоліо 5 сильних доказів. Кожен описує реальну діяльність, яку можна підтвердити.':
+ 'Результат: '+strong+'/5 сильних доказів серед '+selectedMatrix.size+' вибраних. Оберіть рівно 5 артефактів з авторством, конкретною дією й результатом.';
+});
+const careerTracks={
+ design:{name:'Дизайн і комунікації',skill:'композиція, читабельність, увага до аудиторії',challenge:'Створіть 2 афіші одного шкільного заходу. Покажіть обидві версії двом людям і запитайте, що читається краще.',proof:'Дві афіші + пояснення 2 правок',source:'https://osvita.diia.gov.ua/profession-tree'},
+ tech:{name:'Техніка й програмування',skill:'логіка, перевірка гіпотез, прототипування',challenge:'Створіть маленький алгоритм / модель, що розв’язує побутове завдання. Перевірте щонайменше 3 випадки.',proof:'Схема або код + три перевірки + висновок',source:'https://osvita.diia.gov.ua/profession-tree'},
+ science:{name:'Наука й біотехнології',skill:'спостереження, метод, точність',challenge:'Проведіть безпечне дослідження проростання насіння за двох умов. Записуйте зміни й не вважайте один експеримент доказом для всіх рослин.',proof:'Таблиця спостережень + фото + обмеження',source:'https://man.gov.ua/'},
+ media:{name:'Медійні професії',skill:'сторителінг, монтаж, перевірка фактів',challenge:'Зніміть 30-секундне навчальне відео без персональних даних інших людей. Зробіть дві версії з різним звуком/титрами.',proof:'Дві версії відео + зворотний зв’язок',source:'https://osvita.diia.gov.ua/courses/digital-professions'},
+ society:{name:'Освіта й допомога людям',skill:'емпатія, пояснення, зворотний зв’язок',challenge:'Створіть одну коротку інструкцію для молодших школярів, попросіть двох людей її перевірити та уточніть незрозуміле.',proof:'Інструкція до/після + конкретні відгуки',source:'https://www.unicef.org/ukraine/'},
+ eco:{name:'Екологія та міське середовище',skill:'спостереження, аналіз даних, дизайн рішень',challenge:'Дослідіть проблему зайвого пакування на прикладі 10 товарів або предметів і запропонуйте дві конкретні альтернативи.',proof:'Таблиця з 10 спостереженнями + 2 рішення',source:'https://osvita.diia.gov.ua/profession-tree'}
+};
+let currentCareer='';
+document.querySelectorAll('#careerOptions button').forEach(b=>{
+b.addEventListener('click',()=>{
+ currentCareer=b.dataset.track;const t=careerTracks[currentCareer];
+ document.querySelectorAll('#careerOptions button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+ $('careerSprintPlan').innerHTML='<h3>🚀 Тест-драйв: '+escapeText(t.name)+'</h3><p><b>Навички:</b> '+escapeText(t.skill)+'</p><p><b>Завдання на 7 днів:</b> '+escapeText(t.challenge)+'</p><p><b>Доказ для портфоліо:</b> '+escapeText(t.proof)+'</p><p><a target="_blank" rel="noopener" href="'+t.source+'">Дослідити напрям детальніше ↗</a></p>';
+});
+});
+function escapeText(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('checkSprint').addEventListener('click',()=>{
+ const a=$('sprintAction').value.trim(),p=$('sprintArtifact').value.trim();
+ if(!currentCareer){$('sprintFeedback').textContent='Спочатку оберіть напрям професійного тест-драйву.';return;}
+ if(a.length<14||p.length<10){$('sprintFeedback').textContent='Сформулюйте конкретну дію та видимий результат. Наприклад: 2 афіші + відгуки.';return;}
+ $('sprintFeedback').textContent='✅ Ваш тест-драйв «'+careerTracks[currentCareer].name+'»: протягом тижня '+a+'. Доказ: '+p+'. Збережіть цей результат у власному портфоліо.';
+ // Pre-fill existing editable portfolio fields only when they are empty
+ if(!$('pInterest').value.trim())$('pInterest').value=careerTracks[currentCareer].name;
+ if(!$('pNext').value.trim())$('pNext').value=a+'. Доказ: '+p;
+ ['pInterest','pNext'].forEach(id=>$(id).dispatchEvent(new Event('input',{bubbles:true})));
+});
+
 })();
 </script></body></html>
