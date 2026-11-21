@@ -50,6 +50,208 @@
 .personal-compass p{font-size:14px;line-height:1.75;margin:8px 0;color:#d4d1db}
 .personal-compass strong{color:#f1dcac}
 @media(max-width:680px){.personal-compass{padding:18px}}
+
+/* ORACULUM VISUAL REFORGE — brighter book-like typography, larger touch controls */
+:root{--bg:#080e24;--bg2:#141b37;--ink:#fff5e9;--mute:#d4cbe0;--gold:#f3d19d;--violet:#c5aeff;--turquoise:#9ff0e9;--rose:#f4afc9;--paper:#1b2744;--line:rgba(237,206,161,.29)}
+body{font-size:18px;line-height:1.68;background:
+ radial-gradient(ellipse at 85% 7%,#29225e72 0%,transparent 35%),
+ radial-gradient(ellipse at 13% 39%,#114a5c47 0%,transparent 34%),
+ radial-gradient(ellipse at 76% 83%,#48234f30 0%,transparent 30%),#080e24}
+body:before{opacity:.33;background-size:130px 170px,203px 194px,181px 217px}
+#space{opacity:.62}
+p,.muted{color:#d9d1db}
+.shell{max-width:1320px}
+.topbar{height:92px}
+.brandtext{font-size:22px;letter-spacing:.09em}
+.brandtext small{font-size:10px;color:#c6b3cd}
+.brandmark{height:49px;width:49px;font-size:23px;box-shadow:0 0 24px #e4c27f18}
+.nav button{font-size:16px;padding:12px 18px}
+.eyebrow,.overline,.qnumber{font-size:13px;letter-spacing:.19em}
+.btn{font-size:18px;min-height:62px;padding:17px 28px;border-radius:14px}
+.btn.small{font-size:15px;min-height:48px}
+.tiny,.note,.setup-foot,.hero-note{font-size:14px}
+.hero{min-height:660px;grid-template-columns:1.12fr .88fr;gap:22px;padding:60px 0 74px}
+.hero h1{font-size:clamp(3.8rem,6.8vw,7rem);line-height:1.04;margin:20px 0 29px;text-shadow:0 12px 45px #050b20}
+.hero h1 em{background:linear-gradient(90deg,#ffe3a8,#ffaed6);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero .lead{font-size:clamp(1.2rem,2vw,1.43rem);line-height:1.75;max-width:660px}
+.hero-note{color:#c5b6cc}
+.orbis{max-width:515px;filter:drop-shadow(0 0 56px #6c5ac540);isolation:isolate}
+.orbis:before{inset:0;background:radial-gradient(circle,#173f5269 0%,#2b245750 31%,transparent 70%);box-shadow:0 0 155px #7869ce32}
+.celestial-core{position:absolute;inset:10%;height:80%;width:80%;z-index:2;filter:drop-shadow(0 0 17px #dec28a39)}
+.orbit-caption{position:absolute;bottom:-9%;width:100%;text-align:center;color:#d9cbb8;font-size:12px;letter-spacing:.2em;font-weight:750}
+.orbit-caption span{color:#efcb98;margin:0 8px}
+.orbittxt{font-size:12px}
+.orb-star{width:7px;height:7px;background:#ffe7c2}
+.stats{border-radius:20px;margin:28px 0 76px;box-shadow:0 15px 65px #01051e33}
+.stat{padding:26px 29px;background:linear-gradient(125deg,#192342,#141b34)}
+.stat b{font-size:41px}
+.stat span{font-size:16px;color:#dbd1dc}
+.trail .t{padding:29px;min-height:195px;border-radius:20px;background:linear-gradient(138deg,#273052,#131b35 76%);box-shadow:inset 0 1px #ffffff10,0 13px 25px #08091d42}
+.trail .t .tn{font-size:39px}
+.trail .t h3{font-size:25px}
+.trail .t p{font-size:17px}
+.section-head h2{font-size:clamp(2.45rem,4.2vw,3.5rem)}
+.setup-panel{max-width:740px;background:linear-gradient(130deg,#232743f1,#161e39df);border-color:#e1be8ca6;padding:34px;border-radius:24px}
+.setup-panel h2{font-size:32px!important}
+.field label{font-size:16px;color:#f0d5b2}
+.field input,.field select,.search-field,.filter-select{font-size:17px;min-height:58px;border-radius:12px;border-color:#aba0b69e}
+.zodiac-caption{font-size:16px}
+.quiz-wrap{padding-top:37px}
+.counter{font-size:16px}
+.counter b{font-size:22px}
+.progress{height:9px;margin:0 0 30px;box-shadow:inset 0 2px 8px #0008}
+.quiz-layout{grid-template-columns:.83fr 1.17fr;gap:34px}
+.scene{min-height:600px;border-radius:26px;border-color:#e2bf8b6e;background:radial-gradient(ellipse at 55% 20%,var(--tone-glow,#725b9b) 0%,transparent 45%),linear-gradient(170deg,#242c53 0%,#0b1329 100%)}
+.scene:after{inset:13px;border-radius:17px}
+.scene-head{padding:35px 36px}
+.scene-head .chapter{font-size:15px}
+.scene-head h2{font-size:clamp(2rem,3.1vw,2.7rem)}
+.scene-bottom{padding:35px}
+.scene-bottom p{font-size:22px;line-height:1.55;color:#eee1df}
+.question{padding:18px 3px}
+.qnumber{font-size:14px}
+.question h2{font-size:clamp(2.3rem,3.5vw,3.25rem);line-height:1.24;margin:22px 0 32px;color:#fff8ef}
+.options{gap:14px}
+.answer{min-height:100px;padding:20px 23px;border-radius:18px;gap:20px;border:1.5px solid #8e91b18a;background:linear-gradient(106deg,#273455ec,#1b2341eb);font-size:20px;line-height:1.48;font-weight:550;box-shadow:inset 0 1px #ffffff12,0 8px 21px #070a1d3a}
+.answer:hover{background:linear-gradient(110deg,#34466c,#2c2855);border-color:#eac990;transform:translateY(-2px)}
+.answer.chosen{background:linear-gradient(110deg,#5b4161,#3c385f);border:2px solid #f4d6a3;box-shadow:0 0 0 3px #f2c6881c,0 13px 36px #0005}
+.ans-symbol{width:48px;height:48px;font-size:25px;background:#0f1e37;border-color:#c4ab8ba8}
+.quiz-bottom .tip,.micro{font-size:15px;color:#ccc4d2}
+.chapter-intro p{font-size:clamp(1.4rem,2.3vw,1.8rem)}
+.result-hero .pre{font-size:15px}
+.result-hero h1{font-size:clamp(3rem,6vw,6rem)}
+.result-card{padding:37px;border-radius:21px}
+.result-card h3{font-size:31px}
+.result-card p,.guide-portrait{font-size:19px;line-height:1.75}
+.result-card .quote{font-size:22px}
+.ax-head{font-size:16px}
+.ax-labels,.count{font-size:14px}
+.alt h3{font-size:24px}
+.alt p,.result-notes p{font-size:17px}
+.result-notes strong{font-size:18px}
+.guide-section{background:linear-gradient(135deg,#27294a,#16283c 65%,#2d2141);border-color:#d3ae777d;border-radius:25px;padding:34px}
+.guide-section .guide-title{font-size:clamp(2.3rem,4.3vw,3.7rem)}
+.guide-grid{gap:20px}
+.guide-card{background:linear-gradient(150deg,#1e2945,#151d36);border-color:#bda88c67;border-radius:19px;padding:26px}
+.guide-card h3{font-size:29px}
+.guide-card li{font-size:18px;line-height:1.7}
+.guide-ritual{padding:24px}
+.guide-ritual strong{font-size:19px}
+.guide-ritual p{font-size:18px}
+.guide-disclaimer{font-size:14px!important}
+.personal-compass{padding:30px;border-radius:23px}
+.personal-compass h3{font-size:29px}
+.personal-compass p{font-size:18px}
+.catalog-intro p{font-size:19px;line-height:1.8}
+.catalog-grid{gap:18px}
+.type-tile{min-height:310px;padding:25px;border-radius:19px;background:linear-gradient(140deg,#242b49,#131e39)}
+.type-tile .idx{font-size:13px}
+.type-tile .tile-sigil{font-size:33px;margin:12px 0}
+.type-tile h3{font-size:24px}
+.type-tile p{font-size:16px;line-height:1.5}
+.mini-guides span{font-size:14px;line-height:1.55}
+.modal-card{max-width:960px;padding:38px;border-radius:25px}
+.modal-card h2{font-size:43px}
+.modal-card p{font-size:18px}
+.modal-card .guide-card li{font-size:17px}
+.modal-card .guide-card h3{font-size:27px}
+.modal-close{min-width:48px;height:48px;font-size:22px}
+@media(max-width:1060px){
+.hero{grid-template-columns:1fr 0.86fr}
+.quiz-layout{grid-template-columns:.8fr 1.2fr;gap:20px}
+.answer{font-size:18px;min-height:92px}
+}
+@media(max-width:940px){
+.hero{grid-template-columns:1fr;gap:25px;min-height:0}
+.orbis{max-width:420px}
+.quiz-layout{grid-template-columns:1fr}
+.scene{min-height:310px}
+.scene svg{height:84%;width:50%;top:9%}
+.scene-head h2{max-width:55%;font-size:35px}
+.scene-bottom{max-width:66%}
+.scene-bottom p{font-size:19px}
+.question{padding:15px 0}
+.answer{font-size:20px}
+}
+@media(max-width:630px){
+body{font-size:17.5px;line-height:1.62}
+.shell{padding:0 16px}
+.topbar{height:78px}
+.brandtext{font-size:17px}
+.brandtext small{font-size:8px;letter-spacing:.1em}
+.brandmark{width:39px;height:39px}
+.nav button{font-size:14px;padding:9px 10px}
+.hero{padding-top:17px;gap:14px}
+.hero h1{font-size:clamp(3.2rem,12.2vw,5.1rem);line-height:1.04}
+.hero .lead{font-size:18px;line-height:1.65}
+.hero-note{font-size:13.5px}
+.orbis{max-width:min(315px,82vw);margin:10px auto 12px}
+.orbit-caption{font-size:9px;letter-spacing:.12em;bottom:-9%}
+.orbittxt{font-size:11px}
+.hero-actions .btn{font-size:18px}
+.stats{margin:23px 0 49px}
+.stat{padding:17px 8px}
+.stat b{font-size:34px}
+.stat span{font-size:13px;line-height:1.25;display:block}
+.trail .t{padding:24px;min-height:0}
+.trail .t h3{font-size:23px}
+.trail .t p{font-size:17px}
+.setup-panel{padding:23px}
+.setup-panel h2{font-size:28px!important}
+.field label{font-size:16px}
+.quiz-wrap{padding-top:20px}
+.counter{font-size:14px}
+.counter b{font-size:19px}
+.scene{min-height:270px;border-radius:20px}
+.scene-head{padding:25px}
+.scene-head h2{font-size:29px;max-width:58%}
+.scene-head .chapter{font-size:12px}
+.scene-bottom{padding:21px;max-width:73%}
+.scene-bottom p{font-size:17px}
+.scene svg{opacity:.72}
+.question h2{font-size:clamp(2rem,8.1vw,2.5rem);line-height:1.22;margin:18px 0 26px}
+.qnumber{font-size:13px}
+.options{gap:13px}
+.answer{min-height:91px;font-size:18px;line-height:1.43;padding:15px 16px;gap:14px;border-radius:15px}
+.ans-symbol{width:40px;height:40px;font-size:22px}
+.quiz-bottom .tip,.micro{font-size:13.5px}
+.chapter-intro{min-height:600px}
+.chapter-intro h1{font-size:clamp(3.1rem,12vw,4.6rem)}
+.chapter-intro p{font-size:21px}
+.result-hero h1{font-size:3.2rem}
+.result-card{padding:24px}
+.result-card h3{font-size:27px}
+.result-card p,.guide-portrait{font-size:17.5px}
+.result-card .quote{font-size:20px}
+.ax-head{font-size:15px}
+.ax-labels{font-size:12px}
+.guide-section{padding:23px 17px}
+.guide-section .guide-title{font-size:2.6rem}
+.guide-card{padding:21px}
+.guide-card h3{font-size:26px}
+.guide-card li{font-size:17px}
+.guide-ritual{padding:18px}
+.guide-ritual p{font-size:17px}
+.personal-compass{padding:22px}
+.personal-compass p{font-size:17px}
+.catalog-grid{grid-template-columns:1fr 1fr;gap:10px}
+.type-tile{min-height:296px;padding:15px}
+.type-tile h3{font-size:19px}
+.type-tile p{font-size:14.5px}
+.mini-guides span{font-size:12.5px}
+.modal-card{padding:20px}
+.modal-card h2{font-size:31px}
+.modal-card .guide-card li{font-size:16px}
+}
+@media(max-width:390px){
+.nav button{padding:8px 6px;font-size:13px}
+.hero h1{font-size:3rem}
+.answer{font-size:17.5px}
+.scene-head h2{font-size:26px}
+.catalog-grid{grid-template-columns:1fr}
+.type-tile{min-height:0}
+}
+
 </style></head><body><canvas id="space" aria-hidden="true"></canvas><div class="shell"><header class="topbar"><a href="#" class="brand" data-go="home" aria-label="На головну"><span class="brandmark">✦</span><span class="brandtext">ORACULUM <span style="color:#dcb785">64</span><small>АРХІВ НЕВИБРАНИХ ДОЛЬ</small></span></a><nav class="nav"><button data-go="home">Початок</button><button data-go="catalog">64 долі</button><button class="nav-special" data-go="quiz">Мій шлях</button></nav></header><main id="root"></main><footer class="foot"><span>ORACULUM / 64 · Авторська містична гра про характер</span><span>36 рішень · 6 осей · 64 можливі фінали · працює без інтернету</span></footer></div><div class="toast" id="toast" role="status" aria-live="polite"></div><div id="modal" class="hidden"></div>
 <script>
 'use strict';
@@ -67,7 +269,9 @@ function showToast(s){toastEl.textContent=s;toastEl.classList.add('show');setTim
 function sign(){return D.signs.find(x=>x[0]===state.sign)||D.signs[11];}
 function drawSky(){const cv=document.getElementById('space'),ctx=cv.getContext('2d');if(!ctx)return;const ratio=Math.min(window.devicePixelRatio||1,2),w=innerWidth,h=innerHeight;cv.width=w*ratio;cv.height=h*ratio;cv.style.width=w+'px';cv.style.height=h+'px';ctx.scale(ratio,ratio);const r=Math.random;let random=123;function rand(){random=(random*1664525+1013904223)>>>0;return random/4294967296;}const n=Math.min(175,Math.floor(w*h/6500));for(let i=0;i<n;i++){const x=rand()*w,y=rand()*h,rad=.4+rand()*1.5;ctx.beginPath();ctx.arc(x,y,rad,0,Math.PI*2);ctx.fillStyle=`rgba(255,238,222,${.2+rand()*.6})`;ctx.fill();}}
 window.addEventListener('resize',()=>drawSky(),{passive:true});drawSky();
-function astrolabe(){return `<div class="orbis" aria-hidden="true"><div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><span class="orbittxt n">AQUA · NOX</span><span class="orbittxt s">LXIV · DESTINIA</span><span class="orbittxt e">✦</span><span class="orbittxt w">✦</span><span class="orb-star a"></span><span class="orb-star b"></span><span class="orb-star c"></span><span class="orb-star d"></span><span class="glyph">${esc(sign()[1])}&#65038;</span></div>`;}
+function astrolabe(){const stars=Array.from({length:64},(_,i)=>{const a=(i*137.507764)*Math.PI/180;const r=49+Math.sqrt((i+1)/64)*105;const x=200+Math.cos(a)*r,y=200+Math.sin(a)*r;const size=i%9===0?3.2:i%5===0?2.3:1.55;return '<circle cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="'+size+'" fill="'+(i%6===0?'#a8edec':'#f4dcae')+'" opacity="'+(i%6===0?.96:.62)+'"/>';}).join('');
+const ray=Array.from({length:16},(_,i)=>{const a=i*Math.PI/8;const x1=200+Math.sin(a)*121,y1=200-Math.cos(a)*121,x2=200+Math.sin(a)*(i%2===0?166:148),y2=200-Math.cos(a)*(i%2===0?166:148);return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(i%2===0?'#edd3a4':'#a6cddd')+'" stroke-width="'+(i%2===0?1.5:.8)+'" opacity=".7"/>';}).join('');
+return '<div class="orbis" aria-label="Зоряний компас 64 можливих доль" role="img"><div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div><span class="orbittxt n">AQUA · NOX</span><span class="orbittxt s">LXIV · DESTINIA</span><span class="orbittxt e">✦</span><span class="orbittxt w">✦</span><span class="orb-star a"></span><span class="orb-star b"></span><span class="orb-star c"></span><span class="orb-star d"></span><svg class="celestial-core" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><defs><radialGradient id="coreLight"><stop stop-color="#1f5364" stop-opacity=".92"/><stop offset=".62" stop-color="#302b55" stop-opacity=".53"/><stop offset="1" stop-color="#070e21" stop-opacity="0"/></radialGradient><linearGradient id="goldCompass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2cf"/><stop offset=".55" stop-color="#e7ba80"/><stop offset="1" stop-color="#92d9d7"/></linearGradient></defs><circle cx="200" cy="200" r="185" fill="url(#coreLight)"/><circle cx="200" cy="200" r="160" stroke="#eccca0" opacity=".55" stroke-width="1.2" fill="none"/><circle cx="200" cy="200" r="131" stroke="#8dcdd4" opacity=".45" stroke-width="1" stroke-dasharray="3 7" fill="none"/>'+ray+stars+'<g transform="translate(200 200)"><path d="M0 -103 17 -22 103 0 17 22 0 103 -17 22 -103 0 -17 -22Z" fill="url(#goldCompass)" opacity=".9"/><path d="M0 -70 13 -16 70 0 13 16 0 70 -13 16 -70 0 -13 -16Z" fill="#17223e"/><path d="M-59 -59 0 -22 59 -59 22 0 59 59 0 22 -59 59 -22 0Z" stroke="#a5dfd9" stroke-width="1.5" fill="none" opacity=".8"/><circle r="46" fill="#101a32" stroke="#f1d6aa" stroke-width="2"/><circle r="39" fill="none" stroke="#91dad8" stroke-width=".7" stroke-dasharray="2 5"/><text x="0" y="12" text-anchor="middle" fill="#ffe2ac" font-family="Georgia,serif" font-size="39" font-weight="500">64</text></g></svg><div class="orbit-caption">АРХІВ МОЖЛИВИХ ДОЛЬ <span>✦</span> КОЖНА ЗОРЯ — ІНШИЙ ШЛЯХ</div></div>';}
 function home(){let resume=count()>0;return `<section class="hero"><div class="hero-copy"><div class="eyebrow">✧ нічний атлас характеру ✧</div><h1>Хто Ви <em>під</em><br>іншими зорями?</h1><p class="lead">Однієї ночі з неба зникли всі сузір'я. Залишилося тільки 64 можливі долі. Щоб знайти свою, потрібно пройти шість дивних місць і зробити 36 виборів. Вони не завжди будуть зручними.</p><div class="hero-actions"><button class="btn primary" data-start>${resume?'Продовжити подорож →':'Увійти в Архів →'}</button><button class="btn ghost" data-go="catalog">Поглянути на 64 долі</button></div><div class="hero-note">Жодних «правильних» відповідей. І жодного результату, написаного наперед.</div></div>${astrolabe()}</section><div class="stats"><div class="stat"><b>36</b><span>сюжетних виборів</span></div><div class="stat"><b>6</b><span>прихованих вимірів</span></div><div class="stat"><b>64</b><span>різні архетипи</span></div></div><section><div class="section-head"><div><div class="eyebrow">Шість порогів</div><h2>У дорозі буде дивно</h2></div></div><div class="trail"><div class="t"><div class="tn">I — II</div><h3>Лист і нічний потяг</h3><p>Перші знаки, дивні пасажири й запрошення, на яке немає простої відповіді.</p></div><div class="t"><div class="tn">III — IV</div><h3>Місто й ярмарок</h3><p>Суперечливі правила, чужі секрети та угоди, які змінюють не тільки власника.</p></div><div class="t"><div class="tn">V — VI</div><h3>Сад і обсерваторія</h3><p>Можливі майбутні, невідомі зорі й фінальний вибір між 64 шляхами.</p></div></div></section><section class="setup-panel" id="setup"><div class="eyebrow">Перед відкриттям дверей</div><h2 style="font-size:27px;margin:10px 0 17px">Кілька слів для Архіву</h2><div class="setup-grid"><div class="field"><label for="player">Ім’я мандрівника (необов’язково)</label><input id="player" maxlength="50" placeholder="Як Вас називати?" value="${esc(state.name)}" autocomplete="off"></div><div class="field"><label for="zodiac">Ваше сузір’я</label><select id="zodiac">${D.signs.map(x=>`<option value="${esc(x[0])}" ${x[0]===state.sign?'selected':''}>${x[1]} ${esc(x[0])}</option>`).join('')}</select></div></div><div class="zodiac-caption" id="zcaption">${esc(sign()[2])}</div><p class="setup-foot">Знак зодіаку додає образи до історії, але не визначає тип. Результат залежить тільки від відповідей.</p><button class="btn primary" data-start>${resume?'Повернутися до історії':'Розпочати історію'}</button></section><div class="note" style="margin-top:35px">Це авторська гра, натхненна астрологічною символікою та фантастикою. Вона не діагностує особистість і не передбачає майбутнє. Дані зберігаються лише у Вашому браузері.</div>`;}
 function sceneSVG(kind){const common=`<defs><radialGradient id="moong"><stop stop-color="#fff1cd"/><stop offset="1" stop-color="#be9b84"/></radialGradient><linearGradient id="metal" x1="0" x2="1"><stop stop-color="#e2c39b"/><stop offset="1" stop-color="#876f9f"/></linearGradient></defs><circle cx="313" cy="95" r="46" fill="url(#moong)" opacity=".92"/><g fill="#f3d5b1">${Array.from({length:25},(_,i)=>`<circle cx="${20+(i*83)%404}" cy="${20+(i*i*21)%250}" r="${i%4===0?1.9:1}" opacity="${i%3===0?.85:.5}"/>`).join('')}</g>`;
 let s='';if(kind==='letter')s=`<path d="M60 300 220 170 380 300Z" fill="#342e4a" stroke="#c3a37e" stroke-width="2"/><rect x="88" y="220" width="260" height="145" rx="6" fill="#e9cba3" stroke="#f5e3ca" stroke-width="3" transform="rotate(-7 220 290)"/><path d="M89 222 220 300 348 222" stroke="#967b75" stroke-width="3" fill="none"/><circle cx="220" cy="281" r="26" fill="#a44561" stroke="#de9c84" stroke-width="3"/><path d="m206 284 12-19 16 25-24-8" stroke="#ffe0ad" stroke-width="2" fill="none"/>`;
