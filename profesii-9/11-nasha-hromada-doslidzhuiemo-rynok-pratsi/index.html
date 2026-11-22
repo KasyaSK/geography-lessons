@@ -1,65 +1,403 @@
 <!doctype html>
-<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Скринченко К.А. — Василівський ліцей «Сузір’я»"><meta name="description" content="9 клас. Курс «Професії». Дослідження ринку праці громади, справжні джерела 2026, навчальні дані, інтерактиви, мініпроєкт і тест /10."><title>Професії • 9 клас • Наша громада: досліджуємо ринок праці</title>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>9 клас • Професії • Наша громада: досліджуємо ринок праці</title>
 <style>
-:root{--ink:#24314e;--muted:#64738f;--blue:#2459d3;--pink:#e94d8e;--mint:#00a48c;--sun:#f3b43e;--line:#dbe4f3}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(120deg,#f5f4ff 0%,#f7fbff 55%,#fffaf2);color:var(--ink);font:16px/1.66 system-ui,-apple-system,"Segoe UI",sans-serif}button,select,input,textarea{font:inherit}button{border:0;border-radius:14px;background:#2857cc;color:white;min-height:46px;padding:10px 18px;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #153f9a}button.secondary{box-shadow:none;background:#e9efff;color:#173c92;border:1px solid #cbdafa}button:active{transform:translateY(2px);box-shadow:none}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #ffba48;outline-offset:2px}input:not([type=range]):not([type=radio]):not([type=checkbox]),select,textarea{background:white;color:#24314e;border:1.6px solid #c8d4e6;border-radius:12px;padding:11px;min-height:45px;max-width:100%}textarea{width:100%;min-height:95px}input[type=range]{width:100%;accent-color:#e94d8e}.wrap{width:min(1140px,calc(100% - 30px));margin:auto}.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#192458 10%,#304cc4 55%,#9f4bb7);color:#fff;padding:60px 0 50px}.hero:before{content:"";position:absolute;width:430px;height:430px;right:-110px;top:-130px;border:60px solid #ffffff14;border-radius:50%}.hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.hero h1{font-size:clamp(2.65rem,5vw,4.9rem);letter-spacing:-.06em;line-height:1.06;margin:16px 0}.hero p{color:#e2e8ff;font-size:1.12rem}.pill{display:inline-flex;background:#ffffff26;border:1px solid #ffffff6c;border-radius:100px;padding:7px 13px;font-size:.85rem;font-weight:900;letter-spacing:.03em}.hero-photo{width:100%;border-radius:24px;object-fit:cover;height:300px;box-shadow:12px 16px 0 #ffffff24}.hero small{display:block;color:#d7dbf5;margin-top:7px}.nav{position:sticky;top:0;z-index:10;display:flex;gap:8px;overflow:auto;padding:10px max(15px,calc((100vw - 1140px)/2));background:#fffffff0;backdrop-filter:blur(12px);border-bottom:1px solid #e4e6f3;white-space:nowrap}.nav a{color:#20458d;text-decoration:none;background:#eff2ff;border-radius:80px;padding:8px 12px;font-size:.84rem;font-weight:850}.section{padding:35px 0 10px;scroll-margin-top:80px}.kicker{text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;color:#8a479d;font-weight:950}.section h2{font-size:clamp(1.95rem,4vw,3.0rem);line-height:1.18;letter-spacing:-.04em;margin:6px 0 13px}.lead{font-size:1.13rem;color:#526685;max-width:73ch}.card{background:#fff;border:1.8px solid #dee4f3;border-radius:24px;padding:23px;margin:15px 0;box-shadow:0 12px 30px #27345e11}.card h3{font-size:1.35rem;color:#233568;margin:0 0 13px;line-height:1.3}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.highlight{background:#fff3cd;padding:12px 15px;border-left:5px solid #f0b43c;border-radius:10px}.green{background:#e8faf5;border-left-color:#15a78f}.danger{background:#fff0f2;border-left-color:#e75470}.source{border:1px dashed #cdd8e9;border-radius:14px;padding:15px;background:#fbfcff}.source a{font-weight:900}.eyebrow{display:inline-block;background:#eaf0ff;color:#2952b1;padding:4px 10px;border-radius:99px;font-weight:900;font-size:.8rem}.big-stat{font-weight:950;font-size:clamp(2.35rem,5vw,3.7rem);letter-spacing:-.05em;color:#d3427d;line-height:1}.small{font-size:.86rem;color:#647591}.tools{display:flex;gap:8px;flex-wrap:wrap}.tools a{background:#e9f2ff;border-radius:13px;padding:10px 13px;color:#1745a0;font-weight:900;text-decoration:none}.barrow{display:grid;grid-template-columns:120px 1fr 35px;gap:8px;align-items:center;margin:13px 0}.track{height:20px;background:#e9eef9;border-radius:9px;overflow:hidden}.fill{background:linear-gradient(90deg,#2b5cc9,#dd5895);height:100%;border-radius:9px}.lab{background:#f8faff;border-radius:20px;padding:16px;margin:15px 0}.data-table{width:100%;border-collapse:collapse;font-size:.92rem}.data-table th,.data-table td{text-align:left;border-bottom:1px solid #dee8f2;padding:9px 8px;vertical-align:top}.data-table th{background:#edf1ff;color:#243e76}.scroll{overflow:auto}.formrow{display:flex;flex-wrap:wrap;gap:10px;align-items:end}.formrow label{flex:1 1 200px}.formrow select{display:block;width:100%;margin-top:5px}.result{border-radius:15px;background:#edf6ff;padding:14px;margin-top:14px;min-height:30px}.mini{padding:12px 15px;border-radius:15px;border:1px solid #dce5f0;background:#fafcff;margin:10px 0}.mini strong{color:#194ead}.choice{display:block;margin:9px 0;padding:10px 12px;border:1px solid #dbe4f4;border-radius:10px;background:#f9fbff}.choice input{accent-color:#2857cc}.video{aspect-ratio:16/9;width:100%;border:0;border-radius:18px;background:#20325d}.feature-img{width:100%;height:190px;object-fit:cover;border-radius:15px}.q{margin:13px 0;padding:16px;border:1px solid #dce6f2;border-radius:15px;background:white}.q legend{font-weight:900}.q label{display:block;background:#f9fbff;padding:9px;border-radius:9px;margin:8px 0;border:1px solid #e6eafa}.q select{display:block;width:100%;margin:5px 0}.reveal{padding:13px;background:#f2f8ff;border-radius:10px;margin-top:10px;min-height:18px}#quiz,#scorecard{display:none}#scorecard{padding:24px;border:3px solid #8db4fa;border-radius:24px;background:linear-gradient(135deg,#ecf6ff,#fff5f9)}#scoreValue{font-size:3.3rem;font-weight:950;color:#2350bc}.footer{background:#1b2659;color:#ecf1ff;margin-top:45px;padding:31px 0}@media(max-width:770px){.hero-inner,.grid,.grid3{grid-template-columns:1fr}.hero{padding:40px 0}.hero-photo{height:220px}.card{padding:17px}.barrow{grid-template-columns:86px 1fr 28px;font-size:.83rem}.section{padding:24px 0 10px}.hero h1{font-size:3rem}}@media print{header,.nav,button,iframe{display:none!important}#scorecard{display:block!important}body{background:white}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-</style></head><body>
-<header id="top" class="hero"><div class="wrap hero-inner"><div><span class="pill">9-А · КУРС «ПРОФЕСІЇ» · УРОК №11</span><h1>Де працює наша громада?</h1><p>Дослідницький урбанлаб: вакансії, роботодавці, професійні навички, безпечне працевлаштування і власний прогноз.</p><span class="pill">23 листопада 2026 · 35 хвилин</span><p class="small" style="color:#e1e7ff">Завдання за КТП: дослідити структуру локального ринку праці та сфери зайнятості.</p></div><div><img class="hero-photo" src="https://www.golos.com.ua/images_article/orig/2025/08/010825/Maidanc.jpg" alt="Реальна фотографія консультацій Державної служби зайнятості на ярмарку вакансій, Запорізький обласний центр" loading="eager"><small>Фото: «Голос України», ярмарок вакансій; Запорізький центр зайнятості</small></div></div></header>
-<nav class="nav" aria-label="Навігація"><a href="#problem">Проблема</a><a href="#sources">Реальні дані</a><a href="#simulator">Лабораторія</a><a href="#decision">Рішення</a><a href="#fieldwork">Польове дослідження</a><a href="#theory">Теорія</a><a href="#homework">Тест</a></nav>
+:root{
+  --bg:#f4f8ff;--paper:#ffffff;--ink:#1f2d47;--muted:#60708f;--line:#dbe7ff;
+  --blue:#2f6cf7;--cyan:#21b7d7;--pink:#ff5f92;--violet:#7b61ff;--yellow:#ffcc4d;--green:#1fa971;--orange:#ff8b3e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);line-height:1.58;background:
+radial-gradient(circle at 0 0,#dff0ff 0,transparent 20rem),
+radial-gradient(circle at 100% 0,#ffe7f3 0,transparent 18rem),
+linear-gradient(180deg,#f6f9ff,#fffdf8)}
+a{color:#1857d7;text-underline-offset:3px}
+.wrap{width:min(1180px,calc(100% - 24px));margin:auto}
+.hero{padding:26px 0 18px}
+.heroBox{display:grid;grid-template-columns:1.25fr .95fr;gap:20px;align-items:center;padding:26px;border-radius:30px;background:linear-gradient(135deg,#2f6cf7,#4c80ff 42%,#7aa2ff 70%,#57d0f5 100%);color:#fff;box-shadow:0 24px 50px rgba(47,108,247,.2)}
+.badge{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);font-weight:800;font-size:.9rem;letter-spacing:.02em}
+h1{font-size:clamp(2rem,4vw,3.4rem);line-height:1.04;margin:12px 0}
+.hero p{margin:0 0 10px;font-size:1.06rem}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pills span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);font-weight:700}
+.heroBtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.heroBtns a{display:inline-block;padding:12px 16px;border-radius:16px;background:#fff;color:#1851c7;text-decoration:none;font-weight:900;box-shadow:0 4px 0 rgba(0,0,0,.08)}
+.heroArt{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.statTile{padding:16px;border-radius:22px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2)}
+.statTile b{display:block;font-size:2rem;line-height:1.05}
+.statTile small{display:block;opacity:.92;margin-top:6px}
+nav{position:sticky;top:0;z-index:30;border-top:1px solid rgba(255,255,255,.6);border-bottom:1px solid var(--line);background:rgba(255,255,255,.86);backdrop-filter:blur(10px)}
+.navIn{display:flex;gap:8px;overflow:auto;padding:10px 0}
+.navIn a{white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:800;border:1px solid var(--line);background:#fafcff;padding:10px 14px;border-radius:999px}
+section{margin:18px 0;padding:20px;border-radius:26px;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 32px rgba(70,102,160,.08)}
+.kicker{display:inline-block;padding:7px 11px;border-radius:999px;background:#eef4ff;color:#1e59d1;font-size:.84rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+h2{font-size:clamp(1.45rem,3vw,2.2rem);line-height:1.12;margin:12px 0 8px}
+.lead{font-size:1.05rem;color:var(--muted)}
+.grid2,.grid3,.grid4{display:grid;gap:16px}
+.grid2{grid-template-columns:repeat(2,1fr)}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.grid4{grid-template-columns:repeat(4,1fr)}
+.card{padding:16px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,#ffffff,#fbfdff)}
+.card h3{margin:0 0 8px;font-size:1.14rem}
+.note{margin-top:10px;padding:14px 16px;border-radius:18px;background:#f8fbff;border-left:6px solid var(--blue)}
+.note.good{background:#eefbf5;border-left-color:var(--green)}
+.note.warn{background:#fff8ee;border-left-color:var(--orange)}
+.small{font-size:.94rem;color:var(--muted)}
+.metric{font-size:2.05rem;font-weight:1000;line-height:1.05;margin-bottom:4px;color:#144fc3}
+.metric small{font-size:.95rem;color:var(--muted);font-weight:800}
+.sourceTag{display:inline-block;margin-top:8px;padding:5px 9px;border-radius:999px;background:#eef5ff;font-size:.82rem;font-weight:800;color:#2158c6}
+img.photo{width:100%;height:215px;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
+iframe.video{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;background:#000}
+button,input,textarea,select{font:inherit}
+button{appearance:none;border:0;border-radius:15px;padding:11px 15px;background:var(--blue);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #164dbd}
+button:hover{filter:brightness(.98)}
+.subbtn{background:#edf4ff;color:#1952c3;box-shadow:none;border:1px solid #d3e1ff}
+textarea,input,select{width:100%;padding:11px 12px;border-radius:14px;border:1px solid #c8d9fb;background:#fff}
+.feedback{margin-top:12px;padding:12px 14px;border-radius:16px;background:#f8fbff;border:1px solid var(--line);min-height:52px}
+.choices{display:grid;gap:10px}
+.choices label{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:16px;background:#fbfdff;border:1px solid var(--line)}
+.tableWrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{border:1px solid var(--line);padding:10px 12px;vertical-align:top}
+th{background:#f3f7ff}
+.good{color:#127a50}.bad{color:#b23b52}
+.skillPills{display:flex;flex-wrap:wrap;gap:8px}
+.skillPills button{background:#fff;color:var(--ink);border:2px solid #d6e5ff;box-shadow:none}
+.skillPills button.on{background:#eef5ff;color:#164fbf;border-color:#72a6ff}
+.result{padding:14px;border-radius:18px;background:#f8fbff;border:1px dashed #b7cdfc;margin-top:10px}
+.bar{height:14px;background:#e9f1ff;border-radius:999px;overflow:hidden}
+.bar>b{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#2f6cf7,#62c8ff)}
+.timeline{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.bullet{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2f6cf7,#68c7ff);color:#fff;font-weight:1000}
+.quizbox{display:none}
+.q{padding:12px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:0}
+.q label{display:block;padding:6px 0}
+.scoreBox{display:none;margin-top:12px;padding:18px;border-radius:22px;border:2px solid var(--blue);background:#eef5ff}
+.score{font-size:2.1rem;font-weight:1000;color:#174fc0}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{display:inline-block;padding:10px 12px;border-radius:14px;background:#eef5ff;border:1px solid #d6e4ff;text-decoration:none;font-weight:700}
+.footer{padding:18px 0 34px;color:var(--muted);text-align:center}
+@media (max-width: 940px){.heroBox,.grid2,.grid3,.grid4,.heroArt{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="heroBox">
+      <div>
+        <span class="badge">9 клас • Курс за вибором «Професії» • Урок №11</span>
+        <h1>Наша громада: <br>досліджуємо ринок праці</h1>
+        <p>Сьогодні ви не просто «слухачі», а <b>команда дослідників</b>. Ваше завдання — з'ясувати, які професії потрібні, де шукати достовірні дані, що таке <b>реальний попит</b> і як це пов’язано з <b>власним вибором</b>.</p>
+        <div class="pills">
+          <span>📊 реальні дані</span><span>🧭 профорієнтація</span><span>🏙️ локальний ринок праці</span><span>🎯 чіткі завдання</span><span>🎬 відео українською</span>
+        </div>
+        <div class="heroBtns">
+          <a href="#facts">Почати з фактів</a>
+          <a href="#mission">Виконати місію</a>
+          <a href="#quiz">Перейти до тесту</a>
+        </div>
+      </div>
+      <div class="heroArt">
+        <div class="statTile"><b>225 тис.</b><small>пропозицій роботи на Єдиному порталі вакансій станом на 1.10.2026</small></div>
+        <div class="statTile"><b>31 тис. грн</b><small>середньомісячна зарплата штатних працівників у січні–серпні 2026</small></div>
+        <div class="statTile"><b>173 тис.</b><small>шукачів роботи на 1.10.2026, з них 92 тис. зареєстрованих безробітних</small></div>
+        <div class="statTile"><b>302 тис.</b><small>осіб забезпечено зайнятістю за сприяння ДСЗ у січні–вересні 2026</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav><div class="wrap navIn">
+  <a href="#facts">Факти</a><a href="#barometer">Барометр професій</a><a href="#skills">Навички ↔ професії</a><a href="#videos">Відео</a><a href="#mission">Дослідницька місія</a><a href="#vacancies">Вакансії</a><a href="#portfolio">Мій висновок</a><a href="#quiz">Тест /10</a>
+</div></nav>
+
 <main class="wrap">
-<section class="section" id="problem"><span class="kicker">0–3 хв · Точка старту</span><h2>Вакансій багато. А роботи — вистачає?</h2><p class="lead">Чому в одному регіоні може бути багато вакансій, але люди продовжують шукати роботу? Чому одна й та сама професія потрібна в різних громадах по-різному?</p><div class="card"><h3>Задайте гіпотезу</h3><textarea id="firstHyp" placeholder="Я думаю, що кількість вакансій не дорівнює кількості працевлаштованих людей, бо..."></textarea><p class="small">У фіналі повернемося до Вашої гіпотези: що треба виміряти, щоб її перевірити?</p></div></section>
-<section class="section" id="sources"><span class="kicker">3–10 хв · Живі джерела</span><h2>Три вікна в реальний ринок праці</h2><div class="grid3">
-<div class="card"><span class="eyebrow">Статистика України · 2026</span><div class="big-stat">225 тис.</div><p>Пропозицій роботи на Єдиному порталі вакансій <b>станом на 1 жовтня 2026 року</b>, за оглядом Державної служби зайнятості.</p><p class="small">Це вакансії, а не кількість працевлаштованих, і це загальноукраїнський показник, а не дані лише Вашої громади.</p><a href="https://dcz.gov.ua/stat/stattrend" target="_blank" rel="noopener">Перевірити дату й джерело →</a></div>
-<div class="card"><span class="eyebrow">Пошук актуальних оголошень</span><h3>Єдиний портал вакансій</h3><p>Можна обрати область, громаду, назву професії, вид зайнятості та інші фільтри. Дані змінюються щодня.</p><a href="https://www.dcz.gov.ua/job" target="_blank" rel="noopener">Відкрити реальний портал →</a><p class="small">Учнівське завдання: знайдіть не зарплату «з реклами», а вимоги та формат зайнятості.</p></div>
-<div class="card"><span class="eyebrow">Регіональне джерело</span><h3>Запорізький центр зайнятості</h3><p>Публікує огляди зайнятості, попиту за професіями та статистичні звіти для Запорізької області.</p><a href="https://zap.dcz.gov.ua/analitics/all" target="_blank" rel="noopener">Аналітичні матеріали області →</a><p class="small">Окремо порівняйте локальну, обласну й всеукраїнську ситуації.</p></div></div>
-<div class="card"><h3>Важлива географія нашого дослідження</h3><p>Для учнів Василівської громади «місцевий ринок праці» може охоплювати <b>роботу за місцем фактичного проживання, у Запорізькій області, в інших містах України та дистанційно</b>. Через війну й переміщення людей дані громади можуть бути неповними. У роботі потрібно прямо вказати, <b>яку територію</b> досліджено.</p><div class="tools"><a href="https://www.openstreetmap.org/#map=8/47.84/35.14" target="_blank" rel="noopener">🗺️ Карта Запорізької області</a><a href="https://www.dcz.gov.ua/job" target="_blank" rel="noopener">🔎 Шукати вакансії</a><a href="https://zap.dcz.gov.ua/userSearch/vacancy" target="_blank" rel="noopener">📋 Запорізькі вакансії</a></div></div>
-<div class="card"><h3>Експертиза джерел</h3><p>Які три джерела варто поєднати, щоби дослідити поточні вакансії й тенденції?</p><div id="sourceChoices"><label class="choice"><input type="checkbox" value="a"> Офіційний портал актуальних вакансій із датами</label><label class="choice"><input type="checkbox" value="b"> Статистика служби зайнятості за кілька місяців</label><label class="choice"><input type="checkbox" value="c"> Перевірений сайт конкретного роботодавця</label><label class="choice"><input type="checkbox" value="d"> Анонімний допис «усім платять по 80 тисяч» без посилання</label><label class="choice"><input type="checkbox" value="e"> Один коментар в соцмережі без дати</label></div><button id="checkSources">Перевірити джерела</button><div class="reveal" id="sourceFeedback" aria-live="polite"></div></div>
+<section id="facts">
+  <span class="kicker">1. Реальні дані</span>
+  <h2>Що зараз відбувається на ринку праці?</h2>
+  <p class="lead">Ці картки спираються на офіційну аналітику Державної служби зайнятості України й потрібні не для «зубріння», а для вміння <b>читати дані</b>.</p>
+  <div class="grid4">
+    <div class="card"><div class="metric">225 <small>тис.</small></div><h3>Пропозиції роботи</h3><p>На Єдиному порталі вакансій ДСЗ станом на 1 жовтня 2026 року налічувалося 225 тисяч пропозицій роботи.</p><span class="sourceTag">Джерело: ДСЗ</span></div>
+    <div class="card"><div class="metric">31 <small>тис. грн</small></div><h3>Середня зарплата</h3><p>Середньомісячний розмір зарплати штатних працівників у січні–серпні 2026 року становив 31 тисячу гривень.</p><span class="sourceTag">Джерело: ДСЗ / Держстат</span></div>
+    <div class="card"><div class="metric">79 <small>тис. грн</small></div><h3>Найвища оплата</h3><p>Найвищий середній рівень оплати праці був у сфері інформації та телекомунікації.</p><span class="sourceTag">Джерело: ДСЗ / Держстат</span></div>
+    <div class="card"><div class="metric">81%</div><h3>Частка жінок</h3><p>Серед безробітних, які перебували на обліку, частка жінок зросла до 81%.</p><span class="sourceTag">Джерело: ДСЗ</span></div>
+  </div>
+  <div class="note good"><b>Важливо:</b> «популярна професія» ≠ «хороша для мене». Для усвідомленого вибору треба поєднати <b>дані ринку праці</b>, <b>власні інтереси</b> і <b>свої компетентності</b>.</div>
+  <div class="card" style="margin-top:16px">
+    <h3>Міні-виклик «Прочитай дані правильно»</h3>
+    <div class="choices" id="factChoices">
+      <label><input type="radio" name="fact"> Якщо на порталі 225 тис. вакансій, то будь-яку професію легко здобути без навчання.</label>
+      <label><input type="radio" name="fact" value="ok"> Дані показують попит, але для працевлаштування ще потрібні знання, навички й відповідність вимогам.</label>
+      <label><input type="radio" name="fact"> Якщо зарплата в ІТ найвища, то всі мають обрати тільки цю сферу.</label>
+    </div>
+    <p><button id="checkFact">Перевірити</button></p>
+    <div class="feedback" id="factFeedback">Оберіть твердження, яке правильно пояснює дані.</div>
+  </div>
 </section>
-<section class="section" id="simulator"><span class="kicker">10–18 хв · Інтерактивна лабораторія</span><h2>Побудуйте зріз ринку праці</h2><div class="highlight"><b>Навчальна модель, а НЕ реальні вакансії!</b> Усі посади, суми оплати і кількості нижче створені лише для тренування фільтрів та обчислень. Для реального висновку переходьте за посиланнями на офіційні джерела вище.</div>
-<div class="card"><div class="formrow"><label>Територія<select id="region"><option value="all">Усі варіанти</option><option value="Запоріжжя">Запоріжжя</option><option value="Дніпро">Дніпро</option><option value="Дистанційно">Дистанційна робота</option></select></label><label>Сфера<select id="sector"><option value="all">Усі сфери</option><option>Освіта</option><option>Послуги</option><option>Виробництво</option><option>Медицина</option><option>ІТ і дизайн</option></select></label></div><div class="grid"><div><h3>Навчальна структура пропозицій</h3><div id="bars"></div></div><div><h3>Вибірка після фільтра</h3><div class="big-stat" id="count">0</div><p id="median" style="font-weight:850"></p><p class="small">Медіана — середнє за порядком значення (або середнє двох центральних), стійкіше до дуже великих випадкових зарплат.</p></div></div><div class="scroll"><table class="data-table"><thead><tr><th>Посада (умовна)</th><th>Територія</th><th>Сфера</th><th>Оплата (умовна)</th></tr></thead><tbody id="vacancyRows"></tbody></table></div><div id="filterInterpretation" class="result"></div></div>
-<div class="grid"><div class="card"><h3>Пастка середнього</h3><p>На навчальному прикладі зарплати становлять 16, 18, 20, 22 і 90 тис. грн. Чи справедливо сказати, що <b>«типова оплата — 33,2 тис.»</b>?</p><div class="tools"><button data-stat="median">Ні: медіана 20</button><button data-stat="mean">Так: середня 33,2</button></div><div class="reveal" id="statFeedback" aria-live="polite"></div></div><div class="card"><h3>Одна вакансія ≠ одна людина</h3><p>Оголошення може дублюватися, бути закритим, пропонувати кілька місць або лишатися без відгуків. А частина роботи взагалі не потрапляє на сайти.</p><div class="highlight">Висновок: кількість знайдених вакансій показує <b>частину попиту</b> на працівників, але не є повною картиною ринку праці.</div></div></div>
+
+<section id="barometer">
+  <span class="kicker">2. Барометр професій</span>
+  <h2>Які професії затребувані в Запорізькій області?</h2>
+  <p class="lead">Нижче — адаптована таблиця за матеріалами Запорізького обласного центру зайнятості. Це хороший приклад того, як виглядає <b>регіональний зріз</b> ринку праці.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Актуальні професії</h3>
+      <ul>
+        <li>електромонтер з ремонту та обслуговування електроустаткування</li>
+        <li>слюсар з ремонту колісних транспортних засобів</li>
+        <li>слюсар-ремонтник</li>
+        <li>токар</li>
+        <li>бухгалтер</li>
+        <li>кухар</li>
+        <li>вантажник</li>
+        <li>водій автотранспортних засобів</li>
+        <li>агент з постачання / продавець-консультант</li>
+      </ul>
+      <span class="sourceTag">Джерело: Запорізький ОЦЗ, «Барометр професій»</span>
+    </div>
+    <div class="card">
+      <h3>Є можливість працевлаштування</h3>
+      <ul>
+        <li>вчитель закладу загальної середньої освіти</li>
+        <li>касир торговельного залу</li>
+        <li>лаборант хімічного аналізу</li>
+        <li>пекар</li>
+        <li>продавець продовольчих товарів</li>
+        <li>електрогазозварник</li>
+        <li>двірник / маляр / комірник</li>
+      </ul>
+      <span class="sourceTag">Джерело: Запорізький ОЦЗ, «Барометр професій»</span>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Завдання за програмою: знайди закономірність</h3>
+    <p>Що спільного в більшості затребуваних професій регіону?</p>
+    <div class="choices" id="barometerTask">
+      <label><input type="radio" name="baro"> Усі вони потребують лише творчих здібностей.</label>
+      <label><input type="radio" name="baro" value="ok"> Багато з них пов’язані з практичними навичками, технічним обслуговуванням, торгівлею, транспортом і сервісом.</label>
+      <label><input type="radio" name="baro"> Усі вони працюють лише онлайн.</label>
+    </div>
+    <p><button id="checkBarometer">Перевірити</button></p>
+    <div class="feedback" id="barometerFeedback">Прочитай список і подумай, до яких сфер належать ці професії.</div>
+  </div>
 </section>
-<section class="section" id="decision"><span class="kicker">18–23 хв · Рішення з компромісами</span><h2>Не тільки зарплата: як обирати?</h2><p class="lead">Змінюйте вагу критеріїв — і переможець зміниться. Це модель кар'єрного вибору з <b>умовними оцінками</b>, а не порада щодо конкретної вакансії.</p>
-<div class="card"><div class="grid3"><label>Важливість безпеки <b id="safeValue">5</b><input type="range" min="1" max="5" value="5" id="safeWeight"></label><label>Важливість навчання <b id="learnValue">4</b><input type="range" min="1" max="5" value="4" id="learnWeight"></label><label>Важливість оплати <b id="payValue">3</b><input type="range" min="1" max="5" value="3" id="payWeight"></label></div><div id="rankings" class="lab"></div><p class="small">Кожна альтернатива отримала умовну оцінку 1–5 за кожним критерієм. Підсумок = сума (вага × оцінка). Це допомагає навчитися пояснювати компроміс, а не обчислює «найкращу професію» об'єктивно.</p><textarea id="tradeoff" placeholder="Я змінив/змінила вагу ... і тому ... . Але модель не враховує ..."></textarea></div></section>
-<section class="section" id="fieldwork"><span class="kicker">23–28 хв · Мініпроєкт громади</span><h2>Справжнє дослідження: 3 вакансії</h2><p class="lead">Відкрийте джерело вакансій та оберіть <b>три актуальні оголошення</b> на різні посади. Не надсилайте особисті дані, телефони, адреси чи власне резюме. Завдання — дослідження, а не реальне працевлаштування.</p><div class="card"><div class="grid3"><div><label>Вакансія 1: професія<input id="job1" placeholder="Назва професії" style="width:100%"></label><p><input id="skill1" placeholder="Потрібна навичка" style="width:100%"></p></div><div><label>Вакансія 2: професія<input id="job2" placeholder="Назва професії" style="width:100%"></label><p><input id="skill2" placeholder="Потрібна навичка" style="width:100%"></p></div><div><label>Вакансія 3: професія<input id="job3" placeholder="Назва професії" style="width:100%"></label><p><input id="skill3" placeholder="Потрібна навичка" style="width:100%"></p></div></div><div class="formrow"><label>Територія дослідження<input id="geoResearch" placeholder="Запоріжжя / Дніпро / віддалена" style="width:100%"></label><label>Джерело та дата<input id="srcResearch" placeholder="Державна служба зайнятості, 23.11.2026" style="width:100%"></label></div><p><label>Мій висновок: які дві компетентності повторюються? Якого доказу бракує?<textarea id="finalResearch" placeholder="У моїй вибірці ... Доказом є ... Але я не можу стверджувати ..."></textarea></label></p><button id="makeResearch">Зібрати картку дослідження</button><div id="researchCard" class="result" aria-live="polite"></div><p class="small">Урок працює і без інтернету: у такому випадку заповніть форму за навчальною таблицею вище, підписавши «умовні дані». До остаточного домашнього дослідження знайдіть справжні оголошення.</p></div>
-<div class="grid"><div class="card"><h3>Жива професія: електромонтер</h3><img class="feature-img" src="https://www.rv.gov.ua/storage/app/resources/resize/820_360_0_0_auto/img_01c34e116e4c6ebeacd90b493eb5d686.png" alt="Практичне навчання електриків у релокованому Бахмутському училищі" loading="lazy"><p>Навчання електриків у релокованому закладі освіти. Які навички тут не можна перевірити лише тестом?</p><a href="https://www.rv.gov.ua/news/u-relokovanomu-v-hoshchu-bakhmutskomu-uchylyshchi-vidkryly-tsentr-dlia-elektrykiv" target="_blank" rel="noopener">Реальний репортаж →</a></div><div class="card"><h3>Жива професія: зварник</h3><img class="feature-img" src="https://cdn4.suspilne.media/images/8262e9c399ebcfeb.png" alt="Центр сучасних зварювальних технологій у Кропивницькому" loading="lazy"><p>Освітній центр зі сучасним обладнанням. Чому попит на практичну спеціальність не завжди означає просте працевлаштування?</p><a href="https://suspilne.media/kropyvnytskiy/1243756-mozut-navcatis-ucni-ta-bezrobitni-u-kropivnickomu-zavivsa-centr-sucasnih-zvaruvalnih-tehnologij/" target="_blank" rel="noopener">Реальний репортаж →</a></div></div>
+
+<section id="skills">
+  <span class="kicker">3. Навички та професії</span>
+  <h2>Які навички потрібні роботодавцям?</h2>
+  <p class="lead">Оберіть навички — і подивіться, які професії можуть із ними поєднуватися. Це не «пророцтво», а інструмент для роздумів.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Обери свої сильні сторони</h3>
+      <div class="skillPills" id="skillPills">
+        <button type="button" data-s="tech">🔧 люблю техніку</button>
+        <button type="button" data-s="people">🗣️ люблю спілкування</button>
+        <button type="button" data-s="numbers">📊 дружу з числами</button>
+        <button type="button" data-s="care">💛 люблю допомагати</button>
+        <button type="button" data-s="order">🧩 люблю порядок</button>
+        <button type="button" data-s="hands">🛠️ люблю працювати руками</button>
+      </div>
+      <p style="margin-top:12px"><button id="showMatches">Підібрати приклади професій</button></p>
+      <div class="feedback" id="skillFeedback">Оберіть 2–4 навички й натисніть кнопку.</div>
+    </div>
+    <div class="card">
+      <h3>Пояснення для учня</h3>
+      <p><b>Ринок праці</b> показує, що потрібно економіці зараз. <b>Профорієнтація</b> показує, що підходить саме тобі. Гарний вибір народжується там, де ці дві речі <b>зустрічаються</b>.</p>
+      <div class="result" id="matchResult">Тут з’являться приклади професій і коротке пояснення.</div>
+    </div>
+  </div>
 </section>
-<section class="section" id="theory"><span class="kicker">28–33 хв · Точні поняття</span><h2>Що важливо не переплутати</h2><div class="grid"><div class="card"><h3>Ринок праці</h3><p>Система відносин між людьми, які пропонують свою працю, роботодавцями, які наймають працівників, та інституціями, що регулюють зайнятість. <b>Попит на працю</b> формують роботодавці; <b>пропозицію праці</b> — люди, які можуть і готові працювати.</p><h3>Вакансія</h3><p>Незайняте робоче місце або пропозиція роботодавця. Число опублікованих оголошень не тотожне числу реально доступних робочих місць.</p><h3>Компетентність</h3><p>Поєднання знань, умінь, ставлень і здатності застосовувати їх у практичних ситуаціях.</p></div><div class="card"><h3>Чинники попиту</h3><p>Потреби людей, розміщення підприємств, інфраструктура, міграції, технології, сезонність і безпекова ситуація.</p><h3>Зарплата і доступність</h3><p>Порівнювати треба не лише оголошену суму, а й умови праці, транспорт, час, вимоги до підготовки, безпеку й можливість навчання.</p><h3>Обмеження даних</h3><p>Дані відкритих вакансій не показують увесь неформальний сегмент, не охоплюють всіх роботодавців, швидко змінюються й можуть містити повтори. Позначайте дату та територію.</p></div></div>
-<div class="card"><h3>Короткі відео українською — з конкретними завданнями</h3><div class="grid"><div><iframe class="video" src="https://www.youtube-nocookie.com/embed/1QoytCY0ops?start=99&end=205" loading="lazy" title="Як знайти роботу? Dovidka.info (фрагмент)" allowfullscreen></iframe><p class="small">Dovidka.info, від 01:39, короткий фрагмент: знайдіть два способи перевірити вакансію.</p><a href="https://www.youtube.com/watch?v=1QoytCY0ops&t=99s" target="_blank" rel="noopener">Повне відео →</a></div><div><iframe class="video" src="https://www.youtube-nocookie.com/embed/YUNd78ID8wQ" loading="lazy" title="Як змінився ринок праці Запоріжжя? МТМ, 2026" allowfullscreen></iframe><p class="small">МТМ, Запоріжжя, 2026. Порівняйте дату сюжету й актуальність даних. На уроці достатньо 2 хвилин фрагмента.</p><a href="https://www.youtube.com/watch?v=YUNd78ID8wQ" target="_blank" rel="noopener">Відкрити відео →</a></div></div></div>
-<div class="card"><h3>Детектор ризиків</h3><p>Умовний «роботодавець» обіцяє високу оплату без навичок, просить переказати гроші наперед і не називає юридичну особу. Яка дія безпечна?</p><div class="tools"><button id="dangerStop">Не надсилати гроші, перевірити роботодавця</button><button id="dangerPay" class="secondary">Переказати аванс для «реєстрації»</button></div><div class="reveal" id="dangerFeedback" aria-live="polite"></div><div class="highlight danger">Неповнолітні досліджують вакансії лише як навчальні приклади. Не вводьте особисті дані, не переказуйте кошти та не погоджуйтеся на небезпечні «пробні завдання».</div></div>
+
+<section id="videos">
+  <span class="kicker">4. Відео українською</span>
+  <h2>Коротко, змістовно, по темі</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Як правильно обрати професію?</h3>
+      <iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/PWmFDQD7YzU" title="Профорієнтація для підлітків" allowfullscreen></iframe>
+      <div class="note">Після перегляду: назви <b>2 помилки</b>, яких треба уникати під час вибору професії.</div>
+    </div>
+    <div class="card">
+      <h3>Куди вступати випускнику?</h3>
+      <iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/6OGyJHxU7bY" title="Поради профорієнтологині" allowfullscreen></iframe>
+      <div class="note">Після перегляду: випиши <b>3 поради</b> для дев’ятикласника щодо вибору траєкторії після 9 класу.</div>
+    </div>
+    <div class="card">
+      <h3>Як обрати професію?</h3>
+      <iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/L7NWhZXqGTM" title="Як обрати професію" allowfullscreen></iframe>
+      <div class="note">Після перегляду: заповни фразу «Мені підходить професія, якщо...».</div>
+    </div>
+    <div class="card">
+      <h3>Спецурок для 9–11 класів</h3>
+      <iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/aBQ4Q2Aavy0" title="Спецурок як обрати майбутню професію" allowfullscreen></iframe>
+      <div class="note">Після перегляду: назви одну думку, з якою ти згоден(на), і одну, яку хочеш перевірити додатково.</div>
+    </div>
+  </div>
 </section>
-<section class="section" id="homework"><span class="kicker">33–35 хв · CER + домашнє</span><h2>Картка дослідника та тест</h2><div class="card"><h3>Підсумок за CER</h3><p><b>Твердження:</b> які професії потрібні у Вашій вибірці? <b>Доказ:</b> конкретні оголошення, дата, територія. <b>Пояснення:</b> які чинники могли спричинити попит? <b>Обмеження:</b> чого три вакансії ще не доводять?</p><div class="mini"><b>Домашнє:</b> опрацювати конспект і джерела, обов'язково переглянути <a href="https://www.youtube.com/watch?v=1QoytCY0ops" target="_blank" rel="noopener">українське відео Dovidka.info «Як знайти роботу?»</a>; пройти тест /10; доповнити мініпроєкт трьома реальними оголошеннями за бажанням або завданням учителя. <b>Скриншот картки результату — надіслати вчителю.</b></div><div class="mini"><b>Рівень 1:</b> зіставити три вакансії за сферою та вимогою. <b>Рівень 2:</b> пояснити відмінність двох територій за трьома показниками. <b>Рівень 3:</b> побудувати аргументований прогноз і назвати два обмеження.</div></div>
-<div id="identityGate" class="card"><h3>🔐 Вхід до тесту</h3><p>10 завдань: дані, логіка, ризики, відповідності, причинні послідовності.</p><label>Ім'я та прізвище<input style="width:100%;display:block" id="fullName" placeholder="Олена Шевченко" autocomplete="name"></label><p><label>Клас <select id="classSelect"><option value="">Оберіть клас</option><option>9-А</option><option>9-Б</option><option>9</option></select></label></p><button id="begin">Розпочати тест</button><p id="nameError" class="reveal" aria-live="polite"></p></div>
-<div id="quiz" class="card"><h3>Фінальна перевірка · 10 балів</h3><div id="quizBody"></div><button id="finish">Завершити та перевірити</button></div>
-<div id="scorecard"><span class="kicker">Результат дослідження</span><h3 id="resultName"></h3><div id="scoreValue"></div><p id="resultMeta"></p><p id="resultComment"></p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p><button onclick="window.print()">Друкувати</button> <button id="retry" class="secondary">Повторити тест</button><details><summary>Після завершення — пояснення до завдань</summary><div id="feedback"></div></details></div></section></main>
-<footer class="footer"><div class="wrap"><b>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</b><p>Дані Державної служби зайнятості перевірено 22.11.2026. Статистика і репортажі мають дати та посилання. Навчальні вакансії й рейтинги — умовні. Зовнішні фото/відео/портали потребують мережі; тренажери та тест працюють без неї.</p></div></footer>
+
+<section id="mission">
+  <span class="kicker">5. Головна місія уроку</span>
+  <h2>Досліджуємо ринок праці нашої громади</h2>
+  <p class="lead">Саме це відповідає темі уроку в програмі: визначити <b>сфери зайнятості</b>, <b>основних роботодавців</b> і зрозуміти, які професії можуть бути затребуваними в громаді.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>Паспорт дослідження</h3>
+      <label><b>1. Назва громади / міста</b><input id="community" placeholder="Наприклад: Василівська громада / Запоріжжя / інша"></label>
+      <label><b>2. Три важливі сфери зайнятості</b><textarea id="spheres" placeholder="Приклад: торгівля, транспорт, освіта"></textarea></label>
+      <label><b>3. Три роботодавці або типи установ</b><textarea id="employers" placeholder="Наприклад: лікарня, школа, магазини, комунальні служби, СТО, пекарня"></textarea></label>
+      <label><b>4. Дві професії, які можуть бути потрібні саме тут</b><textarea id="neededJobs" placeholder="Наприклад: кухар, бухгалтер, водій"></textarea></label>
+      <p><button id="buildPassport">Скласти висновок</button></p>
+      <div class="feedback" id="passportFeedback">Заповніть усі поля, щоб отримати короткий аналітичний висновок.</div>
+    </div>
+    <div class="card">
+      <h3>Алгоритм дослідника</h3>
+      <div class="timeline">
+        <div class="step"><div class="bullet">1</div><div><b>Знайди джерело</b><br><span class="small">Офіційні сайти ДСЗ, місцеві сайти громад, сторінки закладів і підприємств.</span></div></div>
+        <div class="step"><div class="bullet">2</div><div><b>Визнач сферу</b><br><span class="small">Освіта, медицина, торгівля, транспорт, комунальні послуги, промисловість тощо.</span></div></div>
+        <div class="step"><div class="bullet">3</div><div><b>Назви роботодавця</b><br><span class="small">Не лише «потрібні люди», а хто саме може наймати працівників.</span></div></div>
+        <div class="step"><div class="bullet">4</div><div><b>Спробуй пояснити попит</b><br><span class="small">Чому ця професія потрібна? Які навички для неї важливі?</span></div></div>
+      </div>
+      <div class="note warn"><b>Ключова думка:</b> хороше дослідження не закінчується списком професій. Треба ще пояснити, <b>чому</b> вони потрібні саме у твоїй громаді.</div>
+    </div>
+  </div>
+</section>
+
+<section id="vacancies">
+  <span class="kicker">6. Вакансія під мікроскопом</span>
+  <h2>Що треба вміти «читати» у вакансії?</h2>
+  <div class="grid3">
+    <div class="card">
+      <img class="photo" src="https://images.unsplash.com/photo-1581091215367-59ab6dcef10d?auto=format&fit=crop&w=1200&q=80" alt="Працівник у майстерні">
+      <h3>Електромонтер</h3>
+      <p><b>Що робить:</b> обслуговує та ремонтує електроустаткування.</p>
+      <p><b>Що важливо:</b> уважність, технічне мислення, дотримання правил безпеки.</p>
+      <p class="small">Професія входить до числа актуальних у регіональному барометрі.</p>
+    </div>
+    <div class="card">
+      <img class="photo" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Кухар на кухні">
+      <h3>Кухар</h3>
+      <p><b>Що робить:</b> готує страви, працює за технологічними картами, дотримується санітарних вимог.</p>
+      <p><b>Що важливо:</b> охайність, швидкість, відповідальність, практичність.</p>
+      <p class="small">Кухар стабільно входить до потрібних професій.</p>
+    </div>
+    <div class="card">
+      <img class="photo" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80" alt="Працівниця з документами">
+      <h3>Бухгалтер</h3>
+      <p><b>Що робить:</b> працює з документами, звітністю, обліком, цифрами.</p>
+      <p><b>Що важливо:</b> уважність, точність, аналітичне мислення, відповідальність.</p>
+      <p class="small">Професія часто присутня в переліках затребуваних.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Практичне завдання: порівняй три професії</h3>
+    <div class="tableWrap">
+      <table>
+        <thead><tr><th>Критерій</th><th>Електромонтер</th><th>Кухар</th><th>Бухгалтер</th></tr></thead>
+        <tbody>
+          <tr><td>Переважний тип діяльності</td><td>Технічна, практична</td><td>Сервісна, практична</td><td>Аналітична, документальна</td></tr>
+          <tr><td>Потрібні навички</td><td>уважність, технічність</td><td>акуратність, швидкість</td><td>точність, робота з числами</td></tr>
+          <tr><td>Що може підійти мені?</td><td><input id="cmp1" placeholder="1–2 слова"></td><td><input id="cmp2" placeholder="1–2 слова"></td><td><input id="cmp3" placeholder="1–2 слова"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><button id="checkCompare">Сформувати підсумок</button></p>
+    <div class="feedback" id="compareFeedback">Заповніть останній рядок, щоб отримати короткий висновок.</div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <span class="kicker">7. Висновок для портфоліо</span>
+  <h2>Що я забираю з цього уроку?</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Мій короткий висновок</h3>
+      <label><b>Яка сфера мене зацікавила найбільше?</b><textarea id="p1" placeholder="Наприклад: транспорт, освіта, кулінарія, бухгалтерія"></textarea></label>
+      <label><b>Які навички в ній особливо важливі?</b><textarea id="p2" placeholder="2–4 навички"></textarea></label>
+      <label><b>Що я можу зробити вже зараз, щоб перевірити свій інтерес?</b><textarea id="p3" placeholder="Наприклад: подивитись інтерв’ю з фахівцем, спробувати мікрозавдання, знайти коледж/ліцей"></textarea></label>
+      <p><button id="makeConclusion">Скласти текст</button></p>
+      <div class="feedback" id="portfolioFeedback">Заповніть 3 поля, щоб отримати готовий міні-висновок.</div>
+    </div>
+    <div class="card">
+      <h3>Корисні офіційні ресурси</h3>
+      <div class="links">
+        <a href="https://vpn.dcz.gov.ua/job" target="_blank" rel="noopener">Єдиний портал вакансій ДСЗ</a>
+        <a href="https://profi.dcz.gov.ua/" target="_blank" rel="noopener">Платформа профорієнтації ДСЗ</a>
+        <a href="https://dcz.gov.ua/stat/stattrend" target="_blank" rel="noopener">Статистика ринку праці</a>
+        <a href="https://zap.dcz.gov.ua/publikaciya/barometr-profesiy-27" target="_blank" rel="noopener">Барометр професій (Запорізька обл.)</a>
+      </div>
+      <div class="note good">Це ті джерела, з якими учні реально можуть працювати під час уроку або вдома — без «вигаданої статистики».</div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <span class="kicker">8. Підсумковий тест</span>
+  <h2>Перевір себе /10</h2>
+  <div class="card" id="gate">
+    <div class="grid2">
+      <label><b>Ім’я та прізвище</b><input id="studentName" placeholder="Наприклад: Марія Шевченко"></label>
+      <label><b>Клас</b><select id="studentClass"><option value="">Оберіть</option><option>9-А</option><option>9-Б</option><option>9</option></select></label>
+    </div>
+    <p><button id="startQuiz">Відкрити тест</button></p>
+    <div class="feedback" id="gateFeedback">Після введення ПІБ та класу відкриється тест.</div>
+  </div>
+
+  <div class="card quizbox" id="quizBox"><div id="questions"></div><p><button id="submitQuiz">Завершити й оцінити</button></p><div class="feedback" id="quizFeedback"></div></div>
+
+  <div class="scoreBox" id="scoreBox">
+    <div id="rName" style="font-weight:900;font-size:1.2rem"></div>
+    <div class="score" id="rScore"></div>
+    <div id="rComment"></div>
+    <p><b>Зробіть скриншот результату.</b></p>
+    <details><summary><b>Пояснення до відповідей</b></summary><div id="explain"></div></details>
+    <p style="margin-top:14px"><button class="subbtn" id="retry">Пройти ще раз</button></p>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Домашнє завдання</h3>
+    <p><b>Обов’язково:</b> завершити міні-дослідження ринку праці своєї громади: назвати <b>3 сфери зайнятості</b>, <b>3 роботодавців</b> і <b>2 професії</b>, які можуть бути потрібні. Посилатися хоча б на <b>одне офіційне джерело</b>.</p>
+    <p><b>За бажанням:</b> пройти профорієнтаційне тестування на платформі ДСЗ та коротко записати, що збіглося з вашими уявленнями, а що — ні.</p>
+  </div>
+</section>
+</main>
+
+<div class="footer wrap">Урок для 9 класу • курс за вибором «Професії» • тема: «Наша громада: досліджуємо ринок праці»</div>
+
 <script>
-(function(){
-const $=id=>document.getElementById(id);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const A=['Освіта','Послуги','Виробництво','Медицина','ІТ і дизайн'];
-$('checkSources').onclick=function(){const s=Array.from(document.querySelectorAll('#sourceChoices input:checked')).map(x=>x.value).sort().join('');$('sourceFeedback').textContent=s==='abc'?'Добір обґрунтований: поточні вакансії, часові зміни та підтвердження роботодавця доповнюють одне одного.':'Потрібні джерела з автором, датою та можливістю перевірки. Анонімний коментар — не статистика.'};
-const jobs=[['Вихователь','Запоріжжя','Освіта',17500],['Учитель математики','Дніпро','Освіта',21000],['Адміністратор','Запоріжжя','Послуги',16500],['Логіст','Дніпро','Послуги',24000],['Електромонтер','Запоріжжя','Виробництво',23500],['Оператор верстатів','Дніпро','Виробництво',27000],['Медична сестра','Запоріжжя','Медицина',19500],['Фельдшер','Дніпро','Медицина',22000],['Графічний дизайнер','Дистанційно','ІТ і дизайн',26000],['Інженер-програміст','Дистанційно','ІТ і дизайн',38000],['Репетитор','Дистанційно','Освіта',19000],['Менеджер підтримки','Дистанційно','Послуги',20500]];
-function updateLab(){let r=$('region').value,s=$('sector').value;let d=jobs.filter(j=>(r==='all'||j[1]===r)&&(s==='all'||j[2]===s));$('count').textContent=d.length+' / '+jobs.length;let z=d.map(x=>x[3]).sort((a,b)=>a-b);let med=z.length?(z.length%2?z[(z.length-1)/2]:(z[z.length/2-1]+z[z.length/2])/2):null;$('median').textContent=med===null?'Немає значень для медіани':'Умовна медіана: '+med.toLocaleString('uk-UA')+' грн';$('vacancyRows').innerHTML=d.map(j=>'<tr>'+j.map((v,k)=>'<td>'+esc(k===3?v.toLocaleString('uk-UA')+' грн':v)+'</td>').join('')+'</tr>').join('')||'<tr><td colspan="4">За цими умовними фільтрами вакансій немає.</td></tr>';$('bars').innerHTML=A.map((a,i)=>{let c=d.filter(j=>j[2]===a).length;return '<div class="barrow"><span>'+esc(a)+'</span><div class="track"><div class="fill" style="width:'+(d.length?Math.round(c/d.length*100):0)+'%"></div></div><b>'+c+'</b></div>'}).join('');$('filterInterpretation').textContent='Поточна навчальна вибірка: '+d.length+' оголошень. '+(d.length?'Порівняйте найбільшу групу з іншою територією.':'Спробуйте скинути один фільтр.')+' Це не репрезентативні дані ринку праці.'}
-$('region').onchange=updateLab;$('sector').onchange=updateLab;updateLab();
-document.querySelectorAll('[data-stat]').forEach(b=>b.onclick=function(){$('statFeedback').textContent=this.dataset.stat==='median'?'Саме так! Середня ≈33,2 тис. через одне дуже велике значення, а медіана =20 тис. Показник обирають під питання дослідження.':'Середнє математично 33,2 тис., але воно не описує типову вакансію в цій вибірці. Медіана — 20 тис.'});
-const alt=[{name:'Безпечна стажувальна програма',scores:[5,5,2]},{name:'Далека робота з високою оплатою',scores:[2,3,5]},{name:'Робота з навчанням у своєму місті',scores:[4,4,3]}];
-function rank(){const w=[+$('safeWeight').value,+$('learnWeight').value,+$('payWeight').value];['safeValue','learnValue','payValue'].forEach((id,i)=>$(id).textContent=w[i]);const res=alt.map(x=>({name:x.name,raw:x.scores.map((v,i)=>v*w[i]),total:x.scores.reduce((s,v,i)=>s+v*w[i],0)})).sort((a,b)=>b.total-a.total);$('rankings').innerHTML=res.map((x,i)=>'<div class="mini"><strong>'+(i+1)+'. '+esc(x.name)+'</strong> — '+x.total+' балів <small>(безпека '+x.raw[0]+' + навчання '+x.raw[1]+' + оплата '+x.raw[2]+')</small></div>').join('')+'<p class="small">Змініть хоча б два повзунки та запишіть, чому рейтинг змінився.</p>'}['safeWeight','learnWeight','payWeight'].forEach(id=>$(id).oninput=rank);rank();
-$('makeResearch').onclick=function(){const names=[1,2,3].map(i=>$('job'+i).value.trim()),skills=[1,2,3].map(i=>$('skill'+i).value.trim());$('researchCard').innerHTML='<b>Мініпроєкт: '+esc($('geoResearch').value||'територію не зазначено')+'</b><p>Джерело: '+esc($('srcResearch').value||'не вказано')+'</p>'+names.map((n,i)=>'<p>'+(i+1)+'. '+esc(n||'—')+' · вимога: '+esc(skills[i]||'—')+'</p>').join('')+'<p><b>CER:</b> '+esc($('finalResearch').value||'Напишіть власний висновок та обмеження.')+'</p><small>Ця картка не передає дані на сервер. Зробіть скриншот після перевірки.</small>'};
-$('dangerStop').onclick=()=>$('dangerFeedback').textContent='Правильно. Не надсилайте аванс, перевіряйте компанію, а щодо праці неповнолітніх радьтеся з дорослими та перевіряйте законні умови.';$('dangerPay').onclick=()=>$('dangerFeedback').textContent='Небезпечно. Вимога передоплати «за доступ до роботи» — серйозна ознака шахрайства.';
-const Q=[
-{t:'single',q:'На порталі знайшли 420 вакансій у місті. Чи означає це, що 420 людей уже працевлаштовано?',o:['Так, кожна вакансія — працевлаштована людина','Ні, це частина попиту, а не підсумок найму','Так, якщо сайт офіційний','Ні, тому що в місті нікому працювати'],a:1,e:'Вакансія — пропозиція роботи, а не факт працевлаштування.'},
-{t:'single',q:'У двох регіонах однакова кількість вакансій. Який показник допоможе побачити різницю в структурі попиту?',o:['Розподіл вакансій за професійними групами','Площа на шкільній карті','Кількість пам’ятників','Колір прапора області'],a:0,e:'Структура за професіями показує, яких спеціалістів потребують.'},
-{t:'single',q:'Учень бачить оплату 20, 21, 22, 23, 90 тис. грн (умовні значення). Що краще описує типове значення?',o:['Максимум 90','Медіана 22','Сума 176','Середня 35,2 завжди краща'],a:1,e:'Медіана стійкіша до поодинокого дуже високого значення.'},
-{t:'single',q:'Василівська громада досліджує можливості людей, які переїхали. Який просторовий підхід доцільніший?',o:['Брати вакансії лише одного населеного пункту','Врахувати місця фактичного проживання та дистанційний формат','Брати лише вакансії іншої країни','Відкинути територіальний критерій'],a:1,e:'Географія ринку праці має враховувати релокацію та дистанційну зайнятість.'},
-{t:'multi',q:'Що треба фіксувати для перевірюваної вибірки вакансій?',o:['Дата пошуку','Територія і формат роботи','Лише вподобаний колір оголошення','Вимоги до компетентностей'],a:[0,1,3],e:'Дата, простір і вимоги роблять дані порівнюваними.'},
-{t:'multi',q:'Які сигнали потребують додаткової перевірки перед будь-яким відгуком?',o:['Вимагають передоплату','Не називають роботодавця','Є чіткий офіційний сайт компанії','Обіцяють високу зарплату без умов і вимог'],a:[0,1,3],e:'Передоплата, анонімність і нереалістичні обіцянки — ризики.'},
-{t:'match',q:'Установіть відповідність понять і прикладів.',p:['Попит на працю','Пропозиція праці','Компетентність'],o:['Учень уміє працювати з таблицями й перевіряти дані','Підприємство шукає електромонтера','Люди шукають роботу'],a:[1,2,0],e:'Попит — з боку роботодавця; пропозиція — з боку працівників; компетентність — здатність діяти.'},
-{t:'order',q:'Упорядкуйте етапи дослідження ринку праці.',o:['Сформулювати висновок з обмеженнями','Визначити територію та запитання','Зібрати оголошення з датами','Згрупувати й порівняти дані'],a:[1,2,3,0],e:'Територія/питання → збір → аналіз → висновок з обмеженнями.'},
-{t:'single',q:'У статті за 2024 рік названо «найпопулярнішу професію». Якого доказу бракує для висновку про листопад 2026?',o:['Актуальних даних за той самий регіон','Фото автора','Кількості районів на карті','Відомостей про кольори логотипів'],a:0,e:'Потрібна співставна за територією та датою статистика.'},
-{t:'single',q:'Який CER-висновок науково коректніший?',o:['Три вакансії електриків доводять, що всі повинні стати електриками','У нашій датованій вибірці три вакансії електриків; це підтверджує попит у вибірці, але не оцінює увесь ринок','Один високий оклад означає, що всі так отримують','Віддалена робота означає відсутність ризиків'],a:1,e:'Коректний CER обмежує висновок конкретною вибіркою.'}
-];
-function render(){const root=$('quizBody');root.innerHTML='';Q.forEach((q,i)=>{let h='<fieldset class="q"><legend>'+(i+1)+'. '+esc(q.q)+'</legend>';if(q.t==='single'||q.t==='multi'){q.o.forEach((o,j)=>h+='<label><input type="'+(q.t==='multi'?'checkbox':'radio')+'" name="q'+i+'" value="'+j+'"> '+esc(o)+'</label>')}else{for(let k=0;k<3+(q.t==='order'?1:0);k++){h+='<label>'+(q.t==='match'?esc(q.p[k]):'Крок '+(k+1))+'<select name="q'+i+'-'+k+'"><option value="">Оберіть</option>';q.o.forEach((o,j)=>h+='<option value="'+j+'">'+esc(o)+'</option>');h+='</select></label>'}}h+='</fieldset>';root.insertAdjacentHTML('beforeend',h)})}
-function nameValid(s){let p=s.trim().split(/\s+/);return p.length>=2&&p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/u.test(x))}
-$('begin').onclick=function(){if(!nameValid($('fullName').value)||!$('classSelect').value){$('nameError').textContent='Потрібні ім’я, прізвище й клас (без цифр у ПІБ).';return}$('identityGate').style.display='none';$('quiz').style.display='block';render();$('quiz').scrollIntoView({behavior:'smooth'})};
-$('finish').onclick=function(){let score=0,miss=false,expl=[];Q.forEach((q,i)=>{let chosen=Array.from(document.querySelectorAll('[name="q'+i+'"]:checked')).map(x=>+x.value).sort((a,b)=>a-b);let sl=Array.from(document.querySelectorAll('select[name^="q'+i+'-"]')).map(x=>x.value===''?null:+x.value),ok=false;if(q.t==='single'){let a=document.querySelector('[name="q'+i+'"]:checked');if(!a)miss=true;ok=!!a&&+a.value===q.a}else if(q.t==='multi'){if(!chosen.length)miss=true;ok=JSON.stringify(chosen)===JSON.stringify(q.a)}else{if(sl.includes(null))miss=true;ok=JSON.stringify(sl)===JSON.stringify(q.a)}if(ok)score++;expl.push('<p><b>Завдання '+(i+1)+': '+(ok?'зараховано':'не зараховано')+'</b>. '+esc(q.e)+'</p>')});if(miss&&!window.confirm('Є пропущені відповіді. Завершити тест?'))return;$('resultName').textContent=$('fullName').value.trim()+' · '+$('classSelect').value;$('scoreValue').textContent=score+' / 10';$('resultMeta').textContent='Наша громада: досліджуємо ринок праці · '+score*10+'% · '+new Date().toLocaleString('uk-UA');$('resultComment').textContent=score===10?'Відмінно: пояснюєте дані й межі висновку.':score>=8?'Добре: перевірте пояснення до окремих питань.':score>=5?'Поверніться до джерел і тренажера.':'Повторіть поняття і пройдіть тест знову.';$('feedback').innerHTML=expl.join('');$('quiz').style.display='none';$('scorecard').style.display='block';$('scorecard').scrollIntoView({behavior:'smooth'})};
-$('retry').onclick=function(){if(!window.confirm('Повторити тест? ПІБ і клас не будуть змінені.'))return;$('scorecard').style.display='none';$('quiz').style.display='block';render();$('quiz').scrollIntoView({behavior:'smooth'})};
+(()=>{'use strict';
+const $=id=>document.getElementById(id); const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+$('checkFact').onclick=()=>{const el=document.querySelector('input[name="fact"]:checked');$('factFeedback').innerHTML=!el?'Спочатку оберіть відповідь.':el.value==='ok'?'✅ Правильно! Дані ринку праці показують попит, але не замінюють уміння, навчання й особистий вибір.':'❗ Це хибний висновок. Ринок праці не працює за принципом «одне число = готове рішення».'};
+$('checkBarometer').onclick=()=>{const el=document.querySelector('input[name="baro"]:checked');$('barometerFeedback').innerHTML=!el?'Оберіть варіант.':el.value==='ok'?'✅ Так! Списки барометра показують помітний попит на практичні, технічні, сервісні та транспортні професії.':'❗ Подумайте ще раз: чи справді всі професії зі списку творчі або онлайн?'};
+const selected=new Set(); document.querySelectorAll('#skillPills button').forEach(btn=>btn.onclick=()=>{const k=btn.dataset.s; selected.has(k)?selected.delete(k):selected.add(k); btn.classList.toggle('on');});
+$('showMatches').onclick=()=>{if(selected.size<2){$('skillFeedback').textContent='Оберіть принаймні 2 навички.';return}
+ const s=[...selected]; let jobs=[]; if(s.includes('tech')&&s.includes('hands')) jobs.push('електромонтер, слюсар-ремонтник, токар'); if(s.includes('people')&&s.includes('care')) jobs.push('вчитель, вихователь, адміністратор, фахівець сервісу'); if(s.includes('numbers')&&s.includes('order')) jobs.push('бухгалтер, економіст, оператор обліку'); if(s.includes('people')&&s.includes('order')) jobs.push('агент з постачання, продавець-консультант, менеджер з продажу'); if(s.includes('hands')&&s.includes('care')) jobs.push('кухар, медичний персонал, майстер сервісу'); jobs=[...new Set(jobs)]; $('matchResult').innerHTML=jobs.length?'<b>Можливі професійні напрями:</b> '+jobs.join('; ')+'.<br><br><b>Пояснення:</b> ти позначив(ла) навички, які збігаються з вимогами до цих видів діяльності. Наступний крок — перевірити, чи подобається тобі сам зміст роботи.':'Спробуй іншу комбінацію навичок.'; $('skillFeedback').textContent='Готово! Прочитай результат праворуч.';};
+$('buildPassport').onclick=()=>{const c=$('community').value.trim(), s=$('spheres').value.trim(), e=$('employers').value.trim(), n=$('neededJobs').value.trim(); $('passportFeedback').innerHTML=(c&&s&&e&&n)?`✅ <b>Короткий висновок:</b> у/в <b>${esc(c)}</b> важливими сферами зайнятості є ${esc(s)}. Серед роботодавців або типів установ можна назвати ${esc(e)}. Це означає, що місцевий ринок праці може потребувати таких працівників, як ${esc(n)}. Наступний крок — перевірити ці припущення на офіційних сайтах і в актуальних вакансіях.`:'Заповніть усі поля — це і є міні-дослідження за темою уроку.';};
+$('checkCompare').onclick=()=>{const a=$('cmp1').value.trim(),b=$('cmp2').value.trim(),c=$('cmp3').value.trim();$('compareFeedback').innerHTML=(a&&b&&c)?`✅ Порівняння готове. Ви визначили власну реакцію на три різні типи професій: технічну (${esc(a)}), сервісну (${esc(b)}) та аналітичну (${esc(c)}). Це допомагає не просто дивитися на назву професії, а співвідносити її з власними сильними сторонами.`:'Заповніть усі три клітинки останнього рядка.';};
+$('makeConclusion').onclick=()=>{const a=$('p1').value.trim(),b=$('p2').value.trim(),c=$('p3').value.trim();$('portfolioFeedback').innerHTML=(a&&b&&c)?`✅ <b>Готовий міні-текст:</b> «Після уроку мене найбільше зацікавила сфера <b>${esc(a)}</b>. У ній важливі такі навички: ${esc(b)}. Щоб перевірити, наскільки цей напрям мені підходить, я можу вже зараз ${esc(c)}.»`:'Заповніть усі три поля.';};
+const quiz=[
+ {t:'single',q:'Що найкраще описує ринок праці?',o:['Місце, де продають лише ручну працю','Система попиту роботодавців і пропозиції працівників','Список модних професій у соцмережах','Тільки сайт із вакансіями'],a:1,e:'Ринок праці — це система взаємодії роботодавців і працівників.'},
+ {t:'single',q:'Скільки пропозицій роботи було на Єдиному порталі вакансій ДСЗ станом на 1.10.2026?',o:['22,5 тис.','225 тис.','2,25 млн','92 тис.'],a:1,e:'За даними ДСЗ — 225 тисяч.'},
+ {t:'single',q:'Яка середньомісячна зарплата штатних працівників у січні–серпні 2026 року?',o:['20 тис. грн','25 тис. грн','31 тис. грн','79 тис. грн'],a:2,e:'Середнє значення — 31 тис. грн.'},
+ {t:'single',q:'У якій сфері оплата праці була найвищою?',o:['Освіта','Охорона здоров’я','Інформація та телекомунікації','Мистецтво і спорт'],a:2,e:'Найвищий показник — у сфері інформації та телекомунікації.'},
+ {t:'multi',q:'Оберіть професії, які згадуються серед актуальних у Запорізькій області.',o:['Електромонтер','Слюсар-ремонтник','Токар','Кухар'],a:[0,1,2,3],e:'Усі ці професії названі в барометрі.'},
+ {t:'single',q:'Що є кращим джерелом для дослідження ринку праці громади?',o:['Випадковий коментар у соцмережі','Офіційний сайт Державної служби зайнятості','Чутки від знайомих','Рекламний ролик без фактів'],a:1,e:'Для навчального дослідження краще спиратися на офіційні джерела.'},
+ {t:'match',q:'Установіть відповідність між навичкою і професією.',pairs:['робота з числами','любов до техніки','любов до людей'],opts:['бухгалтер','електромонтер','адміністратор / сервіс'],a:[0,1,2],e:'Кожна професія вимагає своєї групи навичок.'},
+ {t:'order',q:'Розташуйте кроки дослідження громади в логічному порядку.',steps:['знайти джерело','визначити сфери зайнятості','назвати роботодавців','зробити висновок про професії'],a:[0,1,2,3],e:'Саме так будується невелике дослідження.'},
+ {t:'single',q:'Чому не можна вибирати професію лише за рівнем зарплати?',o:['Бо зарплата взагалі не має значення','Бо важливі також інтереси, здібності, зміст роботи й умови праці','Бо всі професії мають однакову зарплату','Бо зарплата завжди таємна'],a:1,e:'Усвідомлений вибір враховує і ринок, і особистість.'},
+ {t:'single',q:'Яке формулювання найкраще відповідає темі уроку?',o:['Просто виписати 20 професій','Дослідити сфери зайнятості, роботодавців і попит на професії у своїй громаді','Знайти одну професію з найбільшою зарплатою','Запам’ятати назви вакансій без пояснення'],a:1,e:'Саме дослідження локального ринку праці є ядром цього уроку.'}
+ ];
+ function validName(v){const p=v.trim().split(/\s+/).filter(Boolean); return p.length>=2 && p.every(x=>/^[А-ЯІЇЄҐа-яіїєґ'’\-]+$/u.test(x));}
+ function renderQuiz(){let h='';quiz.forEach((q,i)=>{h+=`<div class="q"><b>${i+1}. ${esc(q.q)}</b>`; if(q.t==='single'||q.t==='multi'){q.o.forEach((opt,j)=>h+=`<label><input type="${q.t==='multi'?'checkbox':'radio'}" name="q${i}" value="${j}"> ${esc(opt)}</label>`);} else if(q.t==='match'){q.pairs.forEach((pair,j)=>{h+=`<label>${esc(pair)}<select name="q${i}-${j}"><option value="">Оберіть</option>`;q.opts.forEach((opt,k)=>h+=`<option value="${k}">${esc(opt)}</option>`);h+='</select></label>';});} else {q.steps.forEach((_,j)=>{h+=`<label>Крок ${j+1}<select name="q${i}-${j}"><option value="">Оберіть</option>`;q.steps.forEach((step,k)=>h+=`<option value="${k}">${esc(step)}</option>`);h+='</select></label>';});} h+='</div>';}); $('questions').innerHTML=h; }
+ $('startQuiz').onclick=()=>{if(!validName($('studentName').value)||!$('studentClass').value){$('gateFeedback').textContent='Введіть ім’я, прізвище та оберіть клас.';return;} $('quizBox').style.display='block'; $('scoreBox').style.display='none'; $('gate').style.display='none'; $('quizBox').dataset.name=$('studentName').value.trim(); $('quizBox').dataset.class=$('studentClass').value; renderQuiz();};
+ $('submitQuiz').onclick=()=>{let score=0,missing=false,exp=[]; quiz.forEach((q,i)=>{let ok=false;if(q.t==='single'){const el=document.querySelector(`input[name="q${i}"]:checked`); if(!el) missing=true; ok=el&&Number(el.value)===q.a;} else if(q.t==='multi'){const vals=[...document.querySelectorAll(`input[name="q${i}"]:checked`)].map(x=>Number(x.value)).sort((a,b)=>a-b); if(!vals.length) missing=true; ok=JSON.stringify(vals)===JSON.stringify(q.a);} else {const vals=[...document.querySelectorAll(`[name^="q${i}-"]`)].map(x=>x.value===''?null:Number(x.value)); if(vals.includes(null)) missing=true; ok=JSON.stringify(vals)===JSON.stringify(q.a);} if(ok) score++; exp.push(`<p><b>${i+1}. ${esc(q.q)}</b><br>${ok?'✅ Правильно.':'❌ Помилка.'} ${esc(q.e)}</p>`);}); if(missing){$('quizFeedback').textContent='Дайте відповіді на всі завдання.'; return;} $('quizBox').style.display='none'; $('scoreBox').style.display='block'; $('rName').textContent=$('quizBox').dataset.name+' • '+$('quizBox').dataset.class; $('rScore').textContent=score+'/10'; $('rComment').textContent=score===10?'Відмінно! Ви дуже добре розібралися з темою.':score>=8?'Дуже добре! Матеріал засвоєно, залишилося відшліфувати деталі.':score>=6?'Добре. Основу теми зрозуміло, але деякі моменти варто повторити.':'Поверніться до карток, барометра професій і дослідницької місії — це допоможе зміцнити розуміння теми.'; $('explain').innerHTML=exp.join('');};
+ $('retry').onclick=()=>{$('scoreBox').style.display='none'; $('quizBox').style.display='block'; renderQuiz();};
 })();
-</script></body></html>
+</script>
+</body>
+</html>
