@@ -134,6 +134,68 @@
     .heroBox,.grid2,.grid3,.grid4,.videoGrid,.shipPanel,.compassPanel{grid-template-columns:1fr}
     .gallery{grid-template-columns:1fr}
   }
+
+/* Експедиція 5 клас: реальні докази та діючі лабораторії */
+:root{--violet:#7856cc;--mint:#0f9b9b}
+.real-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:15px 0}
+.real-photo{border:1.5px solid #d5e6f3;background:white;border-radius:20px;padding:11px;min-width:0;box-shadow:0 9px 25px #1b507615}
+.real-photo img{display:block;width:100%;height:205px;object-fit:cover;background:#d7e6f5;border-radius:14px}
+.real-photo h3{margin:9px 0 5px;font-size:1.15rem}
+.real-photo figcaption{font-size:.86rem;color:#536b7b;line-height:1.5}
+.real-photo a{font-weight:850}
+.lab-section{background:linear-gradient(140deg,#ffffff,#f6fffc);border-radius:26px;border:2px solid #cdeee8;padding:clamp(16px,3vw,29px);margin:24px 0;box-shadow:0 15px 35px #0b5c5112;scroll-margin-top:80px}
+.lab-section:nth-child(odd){border-color:#d4d9fc;background:linear-gradient(145deg,#fff,#f8f7ff)}
+.lab-tag{display:inline-block;border:1px solid #bce3d9;border-radius:99px;background:#e7faf2;color:#137268;font-size:.78rem;letter-spacing:.035em;font-weight:950;padding:6px 11px}
+.lab-section h2{font-size:clamp(1.8rem,4vw,2.7rem);color:#1e3f5c;line-height:1.16;margin:10px 0}
+.lab-section h3{color:#175878}
+.lab-section .card{min-width:0}
+.lab-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.lab-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lab-btn{background:#0a8890;color:white;border:0;border-radius:14px;padding:12px 17px;cursor:pointer;font-weight:900;font:inherit;font-weight:900;min-height:45px}
+.lab-btn:hover{filter:brightness(.94)}
+.lab-btn.secondary{background:#dff5f2;color:#09635c}
+.lab-input{width:100%;font:inherit;min-height:44px;border:2px solid #bed6e8;border-radius:13px;background:#fff;padding:9px 11px;margin-top:6px;color:#1a3952}
+.lab-label{display:block;font-weight:800;color:#345a6e;margin:12px 0}
+.lab-feedback{border-radius:14px;background:#e8f7f2;border-left:5px solid #3aab9a;padding:11px 14px;margin:13px 0;font-weight:750;min-height:45px}
+.lab-feedback.error{background:#fff0ed;border-left-color:#de795f}
+.lab-feedback.warn{background:#fff7e8;border-left-color:#ecad54}
+.lab-progress{height:15px;background:#d8e7f1;border-radius:99px;overflow:hidden}
+.lab-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#189f93,#a4cb64);transition:width .25s}
+.lab-dots{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.lab-dots span{display:grid;place-items:center;width:30px;height:30px;background:#e9eff5;color:#5e7d91;border-radius:50%;font-weight:900}
+.lab-dots span.done{background:#199b7e;color:white}
+.lab-mission{border-left:5px solid #159b86;padding:14px;margin:14px 0;background:#f7fcfa;border-radius:0 13px 13px 0}
+.lab-mission.done{border-left-color:#75a83c;background:#effbe6}
+.lab-choices{display:grid;gap:9px}
+.lab-choices label{display:flex;align-items:start;gap:7px;cursor:pointer;background:white;padding:11px;border:1px solid #d5e5ec;border-radius:12px}
+.lab-choices input{accent-color:#0c927b}
+.globe-stage{position:relative;height:375px;max-height:56vw;min-height:290px;background:radial-gradient(circle at 52% 48%,#214a8d,#07182e 65%,#060d1b);border-radius:20px;overflow:hidden}
+.globe-stage canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.globe-stage canvas:active{cursor:grabbing}
+.globe-fallback{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.globe-fallback .sphere{width:245px;height:245px;border-radius:50%;background-image:url('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');background-size:auto 100%;background-position:50% center;box-shadow:inset -44px -6px 45px #031425d9,inset 5px 5px 20px #f0faff30,0 0 45px #219def55;border:2px solid #65b2fa44}
+.globe-caption{color:#dbe8ff;font-size:.83rem;position:absolute;left:15px;bottom:11px;z-index:2;background:#071a2cc9;padding:6px 10px;border-radius:11px}
+.globe-controls{display:flex;gap:8px;flex-wrap:wrap;margin:11px 0}
+.globe-controls button{flex:1 1 135px}
+.orbit-explain{font-size:.84rem;background:#eaf7ff;border-radius:13px;padding:12px}
+.lunar-model{width:100%;height:auto;background:#101a34;border-radius:16px}
+.lunar-model text{font-size:16px;fill:#f4f8ff;font-family:system-ui,sans-serif;font-weight:800}
+.lunar-model #moonOrb{transition:transform .2s}
+.route-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;max-width:465px;margin:auto;padding:12px;background:#eaf5ec;border-radius:18px;border:1px solid #b5d9c2}
+.route-grid button{aspect-ratio:1;min-height:0;min-width:0;border-radius:13px;background:#fff;font-size:clamp(1.25rem,3vw,2rem);color:#155977;border:2px solid #b9d9d6;cursor:pointer;padding:0}
+.route-grid button.current{background:#ffdb87;border-color:#ed9c36}
+.route-grid button.selected{border-color:#008b7b;box-shadow:0 0 0 3px #3de5c69e}
+.route-grid button.success{background:#c9f5d8}
+.route-nav{font-weight:850;text-align:center;color:#176b7b;padding:6px}
+.earth-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}
+.earth-comparison img{width:100%;max-height:310px;object-fit:contain;border-radius:16px;background:#0d1931}
+.photo-challenge{display:grid;gap:10px;margin:14px 0}
+.photo-challenge>div{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:12px;border:1px solid #d8e9ef;border-radius:14px;padding:11px;background:#fff}
+.photo-challenge select{width:100%;border:2px solid #c7dddf;border-radius:11px;padding:9px;font:inherit}
+.lab-inline-info{background:#fff8df;border-left:5px solid #ffbe4d;padding:12px 15px;border-radius:0 13px 13px 0;margin:13px 0}
+.lab-model-image{width:100%;height:225px;object-fit:contain;border-radius:16px;background:#091c36}
+@media(max-width:900px){.real-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.real-gallery,.lab-cols,.lab-three,.earth-comparison{grid-template-columns:1fr}.photo-challenge>div{grid-template-columns:1fr}.real-photo img{height:225px}.globe-stage{height:340px;max-height:none}}
 </style>
 </head>
 <body>
@@ -157,7 +219,7 @@
         </div>
       </div>
       <div class="center">
-        <img class="earthPhoto" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Blue_Marble_2002.png" alt="Земля з космосу, фото NASA">
+        <img class="earthPhoto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/800px-The_Blue_Marble_4463x4163.jpg" alt="Земля з космосу, фото NASA">
         <div class="small" style="margin-top:8px;color:#e8f0ff">Реальне фото Землі з космосу</div>
       </div>
     </div>
@@ -179,7 +241,7 @@
 
 <main class="wrap">
 
-<section id="start">
+<section id="start"><div class="lab-inline-info"><b>📷 Нові інтерактивні лабораторії:</b> <a href="#photo-lab">Фотодокази NASA</a> · <a href="#earth3d">Об'ємний глобус</a> · <a href="#eclipse-model">Затемнення</a> · <a href="#map-adventure">Карта скарбів</a> · <a href="#evidence-quest">Науковий висновок</a>.</div>
   <span class="kicker">1. Старт уроку</span>
   <h2>Що ти думаєш про форму Землі?</h2>
   <p class="lead">Спочатку скажи свою думку. Потім ми перевіримо її за допомогою справжніх доказів.</p>
@@ -194,33 +256,16 @@
   <div class="note good"><b>Головна мета уроку:</b> зрозуміти, <b>чому</b> ми вважаємо Землю кулястою, і навчитися визначати <b>основні напрямки</b> на глобусі й карті.</div>
 </section>
 
-<section id="proofs">
+<div class="card" style="margin:18px 0;background:#f2fffb;border:2px solid #bce6d8"><b>🔬 Дослідницькі лабораторії: <span id="photoLabDone">0</span>/5 пройдено</b><div class="lab-progress"><span id="photoLabProgress"></span></div><div id="photoLabDots" class="lab-dots" aria-label="Прогрес досліджень"></div><p class="small">Виконуйте лабораторії у своєму темпі. Це навчальні тренажери; остаточна перевірка знань — у тесті наприкінці.</p></div><section id="proofs">
   <span class="kicker">2. Докази кулястості</span>
   <h2>Що справді доводить форму Землі?</h2>
   <p class="lead">Не все, що звучить красиво, є доказом. Знайди справжні докази серед прикладів.</p>
   <div class="gallery">
     <div class="evidence">
       <div class="miniTag">Доказ 1</div>
-      <div class="model">
-        <svg viewBox="0 0 260 180" aria-label="Земля з космосу">
-          <defs>
-            <radialGradient id="g1" cx="35%" cy="30%">
-              <stop offset="0%" stop-color="#82d3ff"/>
-              <stop offset="70%" stop-color="#2f82ff"/>
-              <stop offset="100%" stop-color="#0d3d93"/>
-            </radialGradient>
-          </defs>
-          <rect width="260" height="180" rx="20" fill="#0b183d"/>
-          <circle cx="130" cy="90" r="58" fill="url(#g1)"/>
-          <path d="M100 62c16-6 30 4 35 12 10 3 12 14 6 22-7 10-18 14-27 13-9 9-28 11-36 2-10-11-9-28-2-38 7-10 14-7 24-11z" fill="#59ba68"/>
-          <path d="M159 102c13-3 25 5 27 16 3 14-9 29-24 32-16 4-31-4-33-17-3-16 12-27 30-31z" fill="#58bd69"/>
-          <circle cx="110" cy="72" r="5" fill="#dff7ff" opacity=".7"/>
-          <circle cx="155" cy="77" r="7" fill="#dff7ff" opacity=".6"/>
-          <circle cx="171" cy="117" r="5" fill="#dff7ff" opacity=".6"/>
-        </svg>
-      </div>
+      <div class="model"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/500px-The_Blue_Marble_4463x4163.jpg" loading="lazy" alt="Справжня фотографія кулястої Землі з Apollo 17" style="width:100%;height:175px;object-fit:contain;background:#0a1733;border-radius:15px"><small>NASA, Apollo 17, 1972</small></div>
       <strong>Фото Землі з космосу</strong>
-      <div class="small">Супутники та космічні апарати показують Землю цілком.</div>
+      <div class="small">Apollo 17 сфотографував Землю цілком 1972 року. Це справжній космічний фотодоказ.</div>
       <label><input type="checkbox" data-proof="a"> Це справжній доказ</label>
     </div>
     <div class="evidence">
@@ -441,6 +486,107 @@
       <div class="videoTask"><b>Після перегляду:</b> скажи, де північ, якщо ти стоїш обличчям на схід.</div>
     </div>
   </div>
+</section>
+
+
+<section class="lab-section" id="photo-lab">
+<span class="lab-tag">📷 Лабораторія справжніх фотодоказів • 5–9 хв</span>
+<h2>Це не малюнки. Так Земля виглядає на справжніх фотографіях!</h2>
+<p class="lead"><b>Роздивіться деталі.</b> Далі треба буде розрізнити, де справжня фотографія, де навчальна модель, а де зображення, складене з багатьох вимірювань. Це різні типи наукової інформації.</p>
+<div class="real-gallery">
+<figure class="real-photo"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/800px-The_Blue_Marble_4463x4163.jpg" alt="Реальна кольорова фотографія цілого диска Землі з Аполлона-17: видно Африку, океан і білі хмари"><h3>① «Блакитна кулька»</h3><figcaption><b>Фото, 7 грудня 1972 року.</b> Екіпаж Apollo 17 сфотографував цілу освітлену Землю. <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-from-apollo-17-1133/" target="_blank" rel="noopener">NASA — оригінал та опис</a>.</figcaption></figure>
+<figure class="real-photo"><img loading="lazy" src="https://eol.jsc.nasa.gov/DatabaseImages/ESC/large/ISS046/ISS046-E-33886.JPG" alt="Реальний вигляд земного горизонту та тонкої блакитної атмосфери з Міжнародної космічної станції"><h3>② Блакитний обрій</h3><figcaption><b>Фото, 4 лютого 2016 року.</b> Знімок ISS046-E-33886 з МКС: видно горизонт та атмосферу. <a href="https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?frame=33886&amp;mission=ISS046&amp;roll=E" target="_blank" rel="noopener">NASA JSC — оригінал</a>.</figcaption></figure>
+<figure class="real-photo"><img loading="lazy" src="https://eol.jsc.nasa.gov/DatabaseImages/ESC/large/ISS069/ISS069-E-18445.JPG" alt="Фото Землі й Місяця з МКС, видима атмосфера та вигин планети"><h3>③ Земля та Місяць</h3><figcaption><b>Фото, 8 червня 2023 року.</b> Астронавт зафіксував Місяць над земним обрієм. <a href="https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?frame=18445&amp;mission=ISS069&amp;roll=E" target="_blank" rel="noopener">NASA JSC — оригінал</a>.</figcaption></figure>
+<figure class="real-photo"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NASA_Earthrise_AS08-14-2383_Apollo_8_1968-12-24.jpg/640px-NASA_Earthrise_AS08-14-2383_Apollo_8_1968-12-24.jpg" alt="Справжня фотографія «Схід Землі» над сірим горизонтом Місяця з Аполлона-8"><h3>④ Схід Землі</h3><figcaption><b>Фото Apollo 8, 24 грудня 1968 року.</b> Земля над поверхнею Місяця. <a href="https://science.nasa.gov/resource/apollo-8s-iconic-earthrise/" target="_blank" rel="noopener">NASA — оригінал</a>.</figcaption></figure>
+<figure class="real-photo"><img loading="lazy" src="https://storage.noirlab.edu/media/archives/images/screen/Rob-IMG_5572-CC.jpg" alt="Справжня фотографія червоного Місяця під час повного місячного затемнення 2022 року"><h3>⑤ Місячне затемнення</h3><figcaption><b>Фото, 15–16 травня 2022 року.</b> Місяць перебуває в тіні Землі, частина сонячного світла проходить через атмосферу. <a href="https://noirlab.edu/public/images/Rob-IMG_5572-CC/" target="_blank" rel="noopener">NOIRLab — джерело</a>.</figcaption></figure>
+<figure class="real-photo"><img loading="lazy" src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011472/s1_1024.jpg" alt="Наукова комп'ютерна схема NASA: як утворюється тінь Землі та чому відбувається місячне затемнення"><h3>⑥ Пояснювальна схема NASA</h3><figcaption><b>Модель, НЕ фотографія.</b> Видно, як тінь Землі потрапляє на Місяць. <a href="https://svs.gsfc.nasa.gov/11472" target="_blank" rel="noopener">NASA SVS — наукова візуалізація</a>.</figcaption></figure>
+</div>
+<div class="lab-mission" id="photoMission"><h3>🔎 Мінігра: «Фото чи модель?»</h3>
+<p>У кожному рядку оберіть <b>тип зображення</b>. Чи це справжній знімок із камери, чи створена вченими модель? Це допоможе не плутати спостереження з поясненнями.</p>
+<div class="photo-challenge" id="photoClassify"></div><button class="lab-btn" id="checkPhotoClassify" type="button">Перевірити фотодокази</button>
+<div class="lab-feedback" id="photoClassifyFeedback" aria-live="polite">Порівняйте підписи під фото та схемою, потім дайте чотири відповіді.</div></div>
+</section>
+
+<section class="lab-section" id="earth3d">
+<span class="lab-tag">🌍 Лабораторія 3D • 9–13 хв</span>
+<h2>Покрутіть справжній глобус! Земля не плаский кружечок</h2>
+<p class="lead">Це <b>об'ємна комп'ютерна модель Землі</b> з фактичним зображенням її поверхні, створеним із супутникових спостережень. <b>Потягніть мишею</b> або пальцем, щоб повернути глобус. Кнопки працюють і без миші.</p>
+<div class="lab-cols">
+<div class="card">
+<div class="globe-stage" id="globeStage">
+<div class="globe-fallback" id="globeFallback"><div class="sphere" id="globeFallbackSphere" role="img" aria-label="Резервне зображення об'ємної Землі"></div></div>
+<div class="globe-caption" id="globeStatus">🌍 Обертайте модель. Якщо 3D не завантажиться, доступний резервний глобус.</div>
+</div>
+<div class="globe-controls"><button class="lab-btn" id="globeLeft" type="button">↶ Повернути на захід</button><button class="lab-btn" id="globeRight" type="button">Повернути на схід ↷</button><button class="lab-btn secondary" id="globePause" type="button">⏸ Зупинити рух</button></div>
+<label class="lab-label" for="globeLatitude">Нахиліть Землю: <b id="globeLatText">0°</b> <input type="range" id="globeLatitude" min="-60" max="60" value="0"></label>
+<p class="mini">Реальне забарвлення поверхні — композит NASA Blue Marble, а <b>форма й освітлення — математична 3D-модель</b>. Модель не є прямою трансляцією із супутника.</p>
+</div>
+<div class="card"><h3>🧠 Досліджуйте, а не просто обертайте!</h3>
+<ol><li>Поверніть глобус і знайдіть великий океан.</li><li>Знайдіть Африку або Європу.</li><li>Нахиліть модель: чи бачите Ви з одного боку цілу поверхню Землі?</li><li>Зупиніть обертання й перевірте дві гіпотези.</li></ol>
+<div class="lab-mission" id="globeMission">
+<label class="lab-label">1. Чому не видно всі материки Землі одночасно?<select class="lab-input" data-ganswer="half"><option value="">Оберіть</option><option value="half">Видно лише звернену до спостерігача частину кулястої поверхні</option><option value="invisible">Решта материків зникає на ніч</option><option value="ocean">Інших материків немає</option></select></label>
+<label class="lab-label">2. Що показує модель, а не оригінальна одинична фотографія?<select class="lab-input" data-ganswer="model"><option value="">Оберіть</option><option value="model">Можна довільно обертати Землю й змінювати положення спостерігача</option><option value="time">Країни переміщуються по планеті щохвилини</option></select></label>
+<button type="button" class="lab-btn" id="checkGlobe3d">Перевірити висновки</button><div class="lab-feedback" id="globe3dFeedback" aria-live="polite">Поверніть Землю й оберіть відповіді.</div></div>
+</div></div>
+<p class="lab-inline-info">🧭 Зовнішній справжній інтерактивний ресурс: <a href="https://science.nasa.gov/learn/heat/resource/earth-3d-model/" target="_blank" rel="noopener"><b>NASA Earth 3D Model</b></a> — можна порівняти цю навчальну модель з моделлю на офіційному сайті NASA.</p>
+</section>
+
+<section class="lab-section" id="eclipse-model">
+<span class="lab-tag">🌘 Лабораторія світла й тіні • 13–17 хв</span>
+<h2>Впіймайте місячне затемнення</h2>
+<p>Коли <b>Земля опиняється між Сонцем і Місяцем</b>, її тінь може потрапити на Місяць. Рухайте Місяць у моделі. Ви зможете відстежити, коли він входить у тінь. <b>Схема умовна, масштаби і відстані не збережені.</b></p>
+<div class="lab-cols"><div class="card">
+<svg class="lunar-model" viewBox="0 0 650 300" aria-label="Схематична модель місячного затемнення: Сонце ліворуч, Земля посередині, Місяць рухається до її тіні">
+<defs><radialGradient id="sun5"><stop stop-color="#fff5be"/><stop offset=".6" stop-color="#ffe76d"/><stop offset="1" stop-color="#ff9f39"/></radialGradient><radialGradient id="earth5"><stop stop-color="#5bc9eb"/><stop offset="1" stop-color="#1542a0"/></radialGradient></defs>
+<circle cx="66" cy="144" r="50" fill="url(#sun5)"/><text x="65" y="225" text-anchor="middle">СОНЦЕ</text>
+<polygon points="309,95 610,115 610,174 309,192" fill="#212943" opacity=".95" stroke="#9ca7d2" stroke-width="1"/>
+<polygon points="309,70 610,88 610,199 309,221" fill="#3d4368" opacity=".24"/>
+<g><circle cx="295" cy="145" r="48" fill="url(#earth5)"/><path d="M267 116Q311 102 315 136Q327 168 277 171Z" fill="#55bd9e"/><text x="295" y="231" text-anchor="middle">ЗЕМЛЯ</text></g>
+<g id="moonOrb" transform="translate(0 0)"><circle cx="505" cy="74" r="28" fill="#cececf" stroke="#fff" stroke-width="2"/><path d="M489 63L502 54L508 67L520 73L505 92L492 79Z" fill="#999"/><text x="505" y="48" text-anchor="middle">МІСЯЦЬ</text></g>
+<text x="458" y="263" text-anchor="middle" fill="#b8c9ec">ТІНЬ ЗЕМЛІ →</text>
+</svg>
+<label class="lab-label" for="eclipseMove">Перемістіть Місяць у тінь: <span id="eclipseMoveText">Поза тінню</span><input id="eclipseMove" type="range" min="0" max="100" value="0"></label><div id="eclipseFeedback" class="lab-feedback">Спробуйте перемістити Місяць у середину темної ділянки.</div>
+</div><div class="card">
+<img class="lab-model-image" src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011472/s1_1024.jpg" loading="lazy" alt="Наукова модель NASA: Сонце створює конус тіні Землі, в який потрапляє Місяць">
+<p class="mini">Наукова ілюстрація NASA SVS, а не фотографія: <a href="https://svs.gsfc.nasa.gov/11472" target="_blank" rel="noopener">оригінал</a>.</p>
+<div class="lab-mission" id="eclipseMission"><h3>🎯 Де повинна бути Земля?</h3>
+<label class="lab-label"><select class="lab-input" id="eclipseAnswer"><option value="">Виберіть положення</option><option value="between">Між Сонцем і Місяцем</option><option value="moon">Позаду Місяця та Сонця</option><option value="far">Будь-де, це не впливає</option></select></label>
+<button type="button" class="lab-btn" id="checkEclipse">Перевірити пояснення</button><div class="lab-feedback" id="eclipseAnswerFeedback">З'ясуйте, хто відкидає тінь на Місяць.</div></div>
+</div></div></section>
+
+<section class="lab-section" id="map-adventure">
+<span class="lab-tag">🗺️ Місія орієнтування • 19–24 хв</span>
+<h2>Шукаємо скарб на карті: жодних усних відповідей!</h2>
+<p><b>Північ — угорі</b>, південь — унизу, схід — праворуч, захід — ліворуч. Уявіть, що Ви стоїте на шкільному подвір'ї (🏫). Читайте маршрут <b>по одному кроку</b> та натискайте клітинки. Кожна клітинка — один крок.</p>
+<div class="lab-cols"><div class="card"><div class="route-nav">⬆ ПН · північ</div><div class="route-grid" id="treasureGrid" role="group" aria-label="Карта 5 на 5 клітинок, натискайте клітинки для пересування"></div>
+<div class="route-nav">⬅ ЗХ · захід &nbsp;&nbsp;|&nbsp;&nbsp; СХ · схід ➡</div><div class="route-nav">⬇ ПД · південь</div>
+<p class="mini">Карта умовна, як у грі. У реальній географічній карті верх зазвичай означає північ, якщо карту не повернуто та немає іншого покажчика напрямків.</p></div>
+<div class="card"><h3>📍 Ваше завдання</h3><p id="treasurePrompt">Завантажуємо маршрут…</p><div class="lab-feedback" id="treasureFeedback">Натискайте клітинки за завданням.</div>
+<p><button type="button" id="treasureNext" class="lab-btn secondary">Наступний маршрут</button></p>
+<div class="lab-inline-info">✅ Спробуйте визначати напрямки, коли початкову точку змінено. Це набагато корисніше, ніж просто запам'ятати чотири стрілки.</div>
+</div></div>
+<div class="lab-mission" id="directionMission"><h3>🧭 Спробуйте без підказок</h3>
+<div class="lab-three"><label class="lab-label">1. Ви дивитеся на північ. Праворуч — це…<select class="lab-input" data-direction="east"><option value="">Оберіть</option><option value="east">Схід</option><option value="west">Захід</option><option value="south">Південь</option></select></label>
+<label class="lab-label">2. Ви дивитеся на схід. Позаду Вас…<select class="lab-input" data-direction="west"><option value="">Оберіть</option><option value="west">Захід</option><option value="north">Північ</option><option value="south">Південь</option></select></label>
+<label class="lab-label">3. Ви дивитеся на південь. Ліворуч — це…<select class="lab-input" data-direction="east"><option value="">Оберіть</option><option value="west">Захід</option><option value="east">Схід</option><option value="north">Північ</option></select></label></div>
+<button type="button" id="checkDirectionsExtra" class="lab-btn">Перевірити три відповіді</button><div class="lab-feedback" id="directionExtraFeedback">Подумайте, куди Ви повернетеся тілом, і лише потім обирайте.</div></div>
+</section>
+
+<section class="lab-section" id="evidence-quest">
+<span class="lab-tag">🔬 Дослідницький фініш • 24–28 хв</span><h2>Який доказ сильніший? Вчимося мислити як науковці</h2>
+<div class="lab-cols"><div class="card">
+<h3>Дві версії про Землю</h3>
+<p><b>Версія А:</b> «Земля плоска, бо поверхня мого подвір'я виглядає рівною».</p>
+<p><b>Версія Б:</b> «Земля має приблизно кулясту форму: це підтверджують фотографії з космосу, спостереження горизонту й місячних затемнень».</p>
+<div class="lab-mission" id="evidenceMission"><label class="lab-label">1. Яка версія спирається на кілька незалежних спостережень?<select class="lab-input" data-evidence="b"><option value="">Оберіть</option><option value="a">А</option><option value="b">Б</option></select></label>
+<label class="lab-label">2. Чому рівне подвір'я не доводить, що вся Земля пласка?<select class="lab-input" data-evidence="small"><option value="">Оберіть</option><option value="small">Ми бачимо надто малу ділянку величезної поверхні</option><option value="all">Подвір'я — окрема планета</option></select></label>
+<button type="button" id="checkEvidence" class="lab-btn">Перевірити доказову логіку</button><div class="lab-feedback" id="evidenceFeedback">Зіставте масштаб спостережень та кількість незалежних доказів.</div>
+</div></div>
+<div class="card"><h3>🌎 Куля чи ідеальна куля?</h3><p>Для 5 класу достатньо говорити <b>«майже куля»</b>. Насправді Земля трохи сплюснута біля полюсів: її екваторіальний радіус приблизно на <b>21 км більший</b> за полярний.</p>
+<div class="earth-comparison"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/500px-The_Blue_Marble_4463x4163.jpg" alt="Реальна фотографія Землі майже кулястої форми" loading="lazy"><div class="card" style="display:grid;place-items:center;background:#eef8ff"><svg viewBox="0 0 260 265" style="width:100%;max-width:240px" aria-label="Порівняння кулі й сильно перебільшено сплюснутого еліпсоїда"><ellipse cx="130" cy="132" rx="101" ry="101" fill="#49bde2" stroke="#216b9e" stroke-width="3"/><ellipse id="ellipsoid" cx="130" cy="132" rx="101" ry="101" fill="#4db68c" opacity=".55" stroke="#0e8462" stroke-width="3"/><text x="130" y="251" text-anchor="middle" font-size="16" fill="#34546c">Навчальна модель</text></svg></div></div>
+<label class="lab-label">Наскільки перебільшити сплюснутість у моделі? <b id="squashLabel">0%</b><input id="squashSlider" type="range" min="0" max="40" value="0"></label>
+<p class="mini">Важливо: збільшена сплюснутість — <b>навчальне перебільшення для наочності</b>. Так насправді Земля не виглядає. Її природна різниця радіусів дуже невелика щодо розміру планети.</p></div>
+</div>
 </section>
 
 <section id="practice">
@@ -731,6 +877,102 @@
     renderQuiz();
     $('quizFeedback').textContent = '';
   });
+})();
+</script>
+
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const mark=(id,correct,total,explain)=>{
+ const el=$(id),parent=el?.closest('.lab-mission');if(!el)return;
+ const success=correct===total;
+ el.className='lab-feedback'+(success?'':' error');
+ el.textContent=(success?'✅ Усі відповіді правильні! ':'Поки що '+correct+'/'+total+'. ')+explain;
+ if(parent){parent.classList.toggle('done',success);if(success)completed.add(parent.id);else completed.delete(parent.id);}
+ updateLabProgress();
+};
+const completed=new Set();
+const missions=['photoMission','globeMission','eclipseMission','directionMission','evidenceMission'];
+function updateLabProgress(){
+ const n=completed.size;const doneEl=$('photoLabDone');if(doneEl)doneEl.textContent=n;
+ const bar=$('photoLabProgress');if(bar)bar.style.width=(n/missions.length*100)+'%';
+ const dots=$('photoLabDots');if(dots)dots.innerHTML=missions.map((m,i)=>'<span class="'+(completed.has(m)?'done':'')+'">'+(i+1)+'</span>').join('');
+}
+const classTasks=[
+ ['① Apollo 17 (1972)','photo'],['② Земний горизонт з МКС (2016)','photo'],
+ ['④ «Схід Землі» Apollo 8 (1968)','photo'],['⑥ Схема тіні від NASA','model']
+];
+$('photoClassify').innerHTML=classTasks.map((item,i)=>'<div><b>'+item[0]+'</b><select data-photo="'+i+'" aria-label="Тип зображення '+(i+1)+'"><option value="">Фото чи модель?</option><option value="photo">Реальна фотографія</option><option value="model">Наукова модель або схема</option><option value="map">Географічна карта</option></select></div>').join('');
+$('checkPhotoClassify').onclick=()=>{
+ const sels=[...document.querySelectorAll('[data-photo]')];
+ if(sels.some(x=>!x.value)){$('photoClassifyFeedback').textContent='Спочатку оберіть тип для кожного з чотирьох зображень.';return;}
+ let hit=0;sels.forEach((s,i)=>{const good=s.value===classTasks[i][1];if(good)hit++;s.style.borderColor=good?'#1ca77a':'#e08461';});
+ mark('photoClassifyFeedback',hit,4,'Справжні фото зроблені камерами; схему сонячного світла і тіні створили вчені для пояснення процесу.');
+};
+$('checkGlobe3d').onclick=()=>{
+ const s=[...document.querySelectorAll('[data-ganswer]')];if(s.some(x=>!x.value)){$('globe3dFeedback').textContent='Оберіть обидві відповіді.';return;}
+ const hits=s.filter(x=>x.value===x.dataset.ganswer).length;mark('globe3dFeedback',hits,2,'На кулястій планеті одночасно видно лише повернену до нас частину поверхні.');
+};
+$('checkEclipse').onclick=()=>{
+ const v=$('eclipseAnswer').value;
+ if(!v){$('eclipseAnswerFeedback').textContent='Спочатку оберіть відповідь.';return;}
+ mark('eclipseAnswerFeedback',Number(v==='between'),1,'Під час місячного затемнення Земля перебуває між Сонцем і Місяцем.');
+};
+$('checkDirectionsExtra').onclick=()=>{
+ const s=[...document.querySelectorAll('[data-direction]')];if(s.some(x=>!x.value)){$('directionExtraFeedback').textContent='Оберіть усі три напрямки.';return;}
+ const hits=s.filter(x=>x.value===x.dataset.direction).length;
+ s.forEach(x=>x.style.borderColor=x.value===x.dataset.direction?'#22a075':'#e08362');
+ mark('directionExtraFeedback',hits,3,'Уявляйте, куди ви повернуті: правий і лівий боки змінюються разом із вами.');
+};
+$('checkEvidence').onclick=()=>{
+ const s=[...document.querySelectorAll('[data-evidence]')];if(s.some(x=>!x.value)){$('evidenceFeedback').textContent='Дайте дві відповіді.';return;}
+ const hits=s.filter(x=>x.value===x.dataset.evidence).length;mark('evidenceFeedback',hits,2,'Наука спирається на незалежні спостереження. Невелика ділянка поверхні виглядає пласкою навіть на кулі.');
+};
+function updateEclipse(){
+ const value=Number($('eclipseMove').value);
+ const y=74+value*1.18;
+ $('moonOrb').setAttribute('transform','translate(0 '+(y-74)+')');
+ const inShadow=Math.abs(y-145)<29;
+ $('eclipseMoveText').textContent=inShadow?'Місяць у тіні Землі':'Місяць поза центральною тінню';
+ $('eclipseFeedback').textContent=inShadow?'🌘 Саме так! Центральна тінь Землі перекриває Місяць. У реальності потрібно також, щоб він був у правильному положенні на орбіті.':'Поки Місяць не входить у центральну тінь Землі. Посуньте повзунок до середини.';
+}
+$('eclipseMove').addEventListener('input',updateEclipse);updateEclipse();
+$('squashSlider').addEventListener('input',()=>{
+ const v=Number($('squashSlider').value);
+ $('ellipsoid').setAttribute('ry',String(101*(1-v/100)));
+ $('squashLabel').textContent=v+'% (дуже перебільшено)';
+});
+const destinations=[
+ {x:3,y:1,label:'🌳 Парк',route:'Від школи (центр) ідіть на 1 клітинку на північ, а потім на 1 клітинку на схід.'},
+ {x:1,y:3,label:'📚 Бібліотека',route:'Від школи ідіть на 1 клітинку на південь, а потім на 1 клітинку на захід.'},
+ {x:4,y:2,label:'💎 Скарб',route:'Від школи ідіть на 2 клітинки на схід.'},
+ {x:2,y:0,label:'🔭 Обсерваторія',route:'Від школи ідіть на 2 клітинки на північ.'},
+ {x:0,y:2,label:'⛲ Фонтан',route:'Від школи ідіть на 2 клітинки на захід.'},
+ {x:4,y:4,label:'🚀 Космодром',route:'Від школи ідіть на 2 клітинки на південь і на 2 клітинки на схід.'}
+];
+let routeIndex=0;
+function drawTreasure(){
+ const grid=$('treasureGrid');
+ grid.innerHTML='';
+ for(let y=0;y<5;y++)for(let x=0;x<5;x++){
+  const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Клітинка: стовпчик '+(x+1)+', рядок '+(y+1));
+  b.textContent=x===2&&y===2?'🏫':x===0&&y===0?'🌲':x===4&&y===0?'🌞':x===0&&y===4?'🌻':x===4&&y===4?'⭐':'·';
+  if(x===2&&y===2)b.classList.add('current');
+  b.onclick=()=>{
+    grid.querySelectorAll('button').forEach(btn=>btn.classList.remove('selected','success'));
+    b.classList.add('selected');
+    const d=destinations[routeIndex],good=d.x===x&&d.y===y;
+    if(good){b.classList.add('success');$('treasureFeedback').className='lab-feedback';$('treasureFeedback').textContent='✅ Знайдено: '+d.label+'! Прочитайте наступний маршрут.';}
+    else{$('treasureFeedback').className='lab-feedback error';$('treasureFeedback').textContent='Трохи не туди! Знайдіть школу в центрі та відрахуйте клітинки у вказаних напрямках.';}
+  };grid.appendChild(b);
+ }
+ $('treasurePrompt').textContent='Місія '+(routeIndex+1)+'/6: '+destinations[routeIndex].route;
+ $('treasureFeedback').className='lab-feedback';$('treasureFeedback').textContent='Почніть із клітинки 🏫 посередині. Кожна клітинка — один крок.';
+}
+$('treasureNext').onclick=()=>{routeIndex=(routeIndex+1)%destinations.length;drawTreasure();};
+drawTreasure();
+updateLabProgress();
 })();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
