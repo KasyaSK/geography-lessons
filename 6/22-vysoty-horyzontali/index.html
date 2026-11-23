@@ -125,6 +125,26 @@ footer a{color:#fff}
 @media(max-width:570px){.photoGrid,.grid3,.cergrid,.lessonGrid,.grid4{grid-template-columns:1fr}.sectionTop{align-items:flex-start}.hero-view img{height:240px}button{width:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button:hover{transform:none}}
 @media print{nav,.noPrint,button,.video{display:none!important}body{background:#fff}.section{box-shadow:none;break-inside:avoid}.result{break-inside:avoid}}
+
+/* Практична №6: експедиція через гору */
+.expeditionSteps{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0}
+.expeditionSteps span{display:inline-flex;align-items:center;gap:9px;background:#e8f6fc;border:1px solid #b7deed;border-radius:999px;padding:8px 13px;font-weight:800;color:#15556f}
+.expeditionSteps b{display:grid;place-items:center;border-radius:50%;width:26px;height:26px;background:#138e9c;color:#fff}
+.expeditionMap{width:100%;height:auto;max-height:400px;display:block;margin:12px 0;border-radius:16px;border:1px solid #cde6ef}
+.expeditionHint{cursor:pointer;font-weight:850;color:#0b716c;padding:8px 0}
+.expeditionStation{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #d5e5e7;border-radius:13px;margin:8px 0;padding:9px 12px;background:#fff}
+.expeditionStation div{min-width:0}
+.expeditionStation b{font-size:1.12rem}
+.expeditionStation small{display:block;font-size:.83rem;font-weight:500;color:#587889}
+.expeditionStation select{width:165px;max-width:54%}
+.expeditionFixed{white-space:nowrap;padding:7px 11px;border-radius:999px;background:#e8f5ee;color:#147452;font-weight:900}
+.expeditionStation[data-status="correct"]{border-color:#30a877;background:#effbf4}
+.expeditionStation[data-status="wrong"]{border-color:#e1a17b;background:#fff3ec}
+.expeditionProgress{height:13px;border-radius:999px;background:#dbe8ed;margin-top:16px;overflow:hidden}
+#expeditionProgressBar{height:100%;width:0;background:linear-gradient(90deg,#128f87,#77d0a4);transition:width .22s}
+#expeditionQuestions label{display:block;font-weight:750;margin:8px 0 5px}
+@media(max-width:570px){.expeditionStation select{max-width:60%;width:135px}.expeditionSteps span{font-size:.85rem}}
+
 </style>
 </head>
 <body>
@@ -213,58 +233,64 @@ footer a{color:#fff}
 <div class="panel"><h3>🔴 Високий рівень</h3><p>Одна точка — на 15 м нижче нульового рівня, друга — на 45 м вище. Знайдіть різницю, поясніть знак і одиницю.</p></div></div>
 </section>
 <section class="section" id="profile">
-<div class="sectionTop"><span class="eyebrow">04 · Експедиція через гору</span><span class="time">14–18 хв</span></div>
-<h2>⛰️ Побудуйте «портрет гори» за висотами!</h2>
-<p class="lead"><b>Ви — картографи експедиції.</b> Уявіть, що команда проходить через невелику гору із заходу на схід. На маршруті є <b>7 зупинок: А → Б → В → Г → Д → Е → Є</b>. На кожній зупинці потрібно визначити висоту над рівнем моря. Потім комп'ютер з'єднає точки й покаже форму схилів — це і є <b>профіль рельєфу</b>.</p>
-<div class="callout"><b>Мета:</b> не вгадати числа, а зрозуміти, як гора виглядає збоку та чому один зі схилів може бути крутішим за інший. <b>Це навчальна модель:</b> відстані між зупинками умовно однакові, а не виміряні на справжній топографічній карті.</div>
-<div class="grid2">
-<div class="panel">
-<h3>🗺️ Карта експедиції: що вже відомо?</h3>
-<svg viewBox="0 0 680 255" role="img" aria-label="Схема гори: А 100 метрів, Б, В і Г треба визначити, вершина Д 180 метрів, Е 160 метрів, Є 100 метрів" style="display:block;width:100%;height:auto;background:#eaf6ff;border-radius:15px;margin-bottom:14px">
-<defs><linearGradient id="expeditionTerrain" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#bbdda1"/><stop offset="1" stop-color="#e6f2b2"/></linearGradient></defs>
-<path d="M0 212 L55 195 L140 173 L225 146 L312 117 L399 72 L482 117 L574 192 L680 209 L680 254 L0 254Z" fill="url(#expeditionTerrain)" stroke="#6aaf76" stroke-width="3"/>
-<path d="M35 202L100 185L186 160L271 132L356 91L441 132L526 184" fill="none" stroke="#c17b42" stroke-width="5" stroke-dasharray="9 8"/>
-<g fill="#fdfefe" stroke="#2166a8" stroke-width="3">
-<circle cx="35" cy="202" r="8"/><circle cx="100" cy="185" r="8"/><circle cx="186" cy="160" r="8"/><circle cx="271" cy="132" r="8"/><circle cx="356" cy="91" r="8"/><circle cx="441" cy="132" r="8"/><circle cx="526" cy="184" r="8"/>
+<div class="sectionTop"><span class="eyebrow">04 · Гірська експедиція: інтерактивна практична</span><span class="time">14–19 хв</span></div>
+<h2>⛰️ Місія «Намалюй гору, якої ще не бачиш!»</h2>
+<p class="lead"><b>Уявіть:</b> дослідницька команда перетинає гору із заходу на схід. У вас є карта з горизонталями, але немає малюнка гори збоку. <b>Побудуйте його самі!</b> Ви дізнаєтеся висоти трьох невідомих зупинок, складете профіль рельєфу й з’ясуєте, з якого боку гора крутіша.</p>
+<div class="expeditionSteps" aria-label="Три етапи роботи"><span><b>1</b> Прочитай карту</span><span><b>2</b> Відкрий висоти</span><span><b>3</b> Знайди крутий схил</span></div>
+<div class="panel blue">
+<h3>🗺️ Крок 1. Прочитайте карту згори</h3>
+<p>Коричневі лінії — <b>горизонталі</b>: кожна показує місця однакової висоти. Їхній крок — <b>20 метрів</b>. Пунктир — шлях експедиції. Позначки <b>А → Б → В → Г → Д → Е → Є</b> — місця вимірювання висоти.</p>
+<svg viewBox="0 0 760 340" class="expeditionMap" role="img" aria-label="Схематична карта гори з п'ятьма замкненими горизонталями 100, 120, 140, 160 і 180 метрів та маршрутом А, Б, В, Г, Д, Е, Є">
+<rect width="760" height="340" rx="18" fill="#e6f7fa"/>
+<path d="M60 170C60 89 189 45 360 52C506 35 622 87 634 170C629 258 510 306 355 286C185 310 60 250 60 170Z" fill="#daeac0" stroke="#946344" stroke-width="3"/>
+<path d="M145 170C152 101 247 77 382 84C503 78 595 125 601 170C594 244 487 279 374 258C247 275 149 239 145 170Z" fill="#cde4a7" stroke="#946344" stroke-width="3"/>
+<path d="M229 170C230 122 297 112 400 111C489 115 564 135 569 170C564 219 482 246 391 226C302 232 230 215 229 170Z" fill="#e7df9f" stroke="#946344" stroke-width="3"/>
+<path d="M313 170C319 135 356 131 421 129C478 132 533 143 537 170C527 209 477 216 415 209C355 211 317 195 313 170Z" fill="#e5c187" stroke="#946344" stroke-width="3"/>
+<path d="M393 170C393 155 405 147 431 147C461 147 478 155 480 170C474 187 457 192 430 191C409 190 394 181 393 170Z" fill="#bc9467" stroke="#946344" stroke-width="3"/>
+<path d="M80 170H664" stroke="#1b5fa8" stroke-width="5" stroke-dasharray="12 11" fill="none"/>
+<g font-family="system-ui,sans-serif" font-size="19" font-weight="850" text-anchor="middle">
+<g fill="#fff" stroke="#24569d" stroke-width="3"><circle cx="80" cy="170" r="15"/><circle cx="166" cy="170" r="15"/><circle cx="252" cy="170" r="15"/><circle cx="336" cy="170" r="15"/><circle cx="435" cy="170" r="15"/><circle cx="530" cy="170" r="15"/><circle cx="615" cy="170" r="15"/></g>
+<g fill="#1e4d77"><text x="80" y="145">А</text><text x="166" y="145">Б</text><text x="252" y="145">В</text><text x="336" y="145">Г</text><text x="435" y="140">Д</text><text x="530" y="145">Е</text><text x="615" y="145">Є</text></g>
+<g font-size="16" fill="#173f66"><text x="80" y="205">100 м</text><text x="166" y="205">?</text><text x="252" y="205">?</text><text x="336" y="205">?</text><text x="435" y="204">180 м</text><text x="530" y="205">160 м</text><text x="615" y="205">100 м</text></g>
+<g font-size="16" fill="#694123"><text x="82" y="95">100 м</text><text x="170" y="88">120 м</text><text x="270" y="110">140 м</text><text x="342" y="133">160 м</text><text x="435" y="174">180 м</text></g>
 </g>
-<g font-family="system-ui,Arial,sans-serif" text-anchor="middle" font-weight="800" font-size="22" fill="#18466c">
-<text x="35" y="173">А</text><text x="100" y="154">Б</text><text x="186" y="129">В</text><text x="271" y="99">Г</text><text x="356" y="54">Д</text><text x="441" y="101">Е</text><text x="526" y="153">Є</text>
-</g>
-<g font-family="system-ui,Arial,sans-serif" text-anchor="middle" font-weight="750" font-size="16" fill="#1f557e">
-<text x="35" y="230">100 м</text><text x="100" y="207">? м</text><text x="186" y="184">? м</text><text x="271" y="157">? м</text><text x="356" y="113">180 м</text><text x="441" y="157">160 м</text><text x="526" y="208">100 м</text>
-</g>
-<text x="615" y="31" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="18" fill="#1e6a9c">Захід → Схід</text>
+<text x="45" y="326" font-family="system-ui,sans-serif" font-weight="800" font-size="17" fill="#24608e">← ЗАХІД</text>
+<text x="647" y="326" font-family="system-ui,sans-serif" font-weight="800" font-size="17" fill="#24608e">СХІД →</text>
 </svg>
-<p><b>Відомі висоти:</b> А = <b>100 м</b>; Д (вершина) = <b>180 м</b>; Е = <b>160 м</b>; Є = <b>100 м</b>.</p>
-<p><b>Знайдіть висоти Б, В і Г.</b> На західному схилі, від А до вершини Д, кожна наступна зупинка <b>на 20 м вище</b> за попередню.</p>
-<details><summary style="cursor:pointer;font-weight:850;color:#0b716c">💡 Потрібна підказка? Натисніть</summary><p>Після А = 100 м додайте 20 м, щоб отримати Б. Потім до висоти Б додайте ще 20 м, щоб знайти В. І так само визначте Г. Перевірте: до вершини Д = 180 м має залишитися один крок у 20 м.</p></details>
-</div>
-<div class="panel">
-<h3>🧩 4 кроки до власного профілю</h3>
-<ol style="padding-left:23px">
-<li><b>Прочитайте схему</b> й знайдіть сім точок маршруту.</li>
-<li><b>Установіть висоти.</b> Для А, Д, Е та Є візьміть готові значення; для Б, В, Г обчисліть, додаючи по 20 м.</li>
-<li><b>Оберіть висоти</b> в семи випадаючих списках нижче та натисніть кнопку «Побудувати і перевірити профіль».</li>
-<li><b>Дослідіть графік:</b> визначте найвищу точку й порівняйте лівий (західний) та правий (східний) схили.</li>
-</ol>
-<div class="fact"><b>Як виглядає профіль?</b> Це не карта зверху, а ніби <b>малюнок гори збоку</b>. По вертикалі показано висоту (у метрах), по горизонталі — послідовність точок маршруту.</div>
-</div>
+<div class="fact"><b>Дивись, як читати карту:</b> А — на горизонталі <b>100 м</b>, вершина Д — <b>180 м</b>. Ідучи від А до Д, щоразу перетинаємо горизонталь <b>на 20 м вище</b>. На східному боці горизонталі зближуються: там спуск крутіший.</div>
+<details><summary class="expeditionHint">💡 Не розумію горизонталей — покажіть приклад</summary><p>Уявіть, що гора — це багатоповерховий будинок, а кожна горизонталь — новий «поверх»: 100 → 120 → 140 → 160 → 180 м. Усі точки на одній горизонталі мають однакову висоту. Подивіться також на інтерактивну карту вище в уроці.</p></details>
+<p class="mini"><b>Важливо:</b> це навчальна схема для тренування, не справжня топографічна карта. Між контрольними точками шлях подано рівними умовними кроками, щоб зручно вчитися будувати графік.</p>
 </div>
 <div class="grid2" style="margin-top:16px">
-<div class="panel warm"><h3>📍 Заповніть 7 зупинок експедиції</h3><p class="mini">Оберіть висоту для кожної точки. Значення не потрібно вписувати вручну — натисніть на список і виберіть число в метрах.</p><div id="profileStations"></div><button id="checkProfile">📈 Побудувати і перевірити профіль</button><div id="profileFeedback" class="feedback" aria-live="polite"></div></div>
-<div class="panel blue"><h3>📈 Ваш профіль гори з'явиться тут</h3><svg id="profileSvg" viewBox="0 0 700 325" role="img" aria-label="Координатна сітка для профілю рельєфу"><rect width="700" height="325" rx="12" fill="#f7fbff"/><g id="profileAxes"></g><g id="profileCurve"></g></svg>
-<p class="mini">Вертикальна вісь — абсолютна висота, м. Точки розташовані через однакові умовні горизонтальні відстані.</p>
-<div class="callout"><b>Маленька експедиційна загадка:</b> Ви піднімаєтеся від А до Д і спускаєтеся від Д до Є. Висота на початку й наприкінці однакова — 100 м. Але який схил крутіший? Зверніть увагу на кількість однакових відрізків маршруту.</div>
-</div></div>
-<div class="panel" style="margin-top:16px">
-<h3>🔎 Станція дослідників: 3 запитання за готовим графіком</h3>
-<ol>
-<li><b>Вершина:</b> яка точка найвища і яка її абсолютна висота?</li>
-<li><b>Підйом:</b> на скільки метрів Ви піднялися від А (100 м) до вершини Д?</li>
-<li><b>Крутизна:</b> на якому боці гори — західному (А → Д) чи східному (Д → Є) — висота змінюється швидше за однакову відстань? <b>Чому?</b></li>
-</ol>
-<div class="fact"><b>Що здати:</b> ① скриншот правильно побудованого графіка; ② три короткі відповіді. Наприклад, правильний формат: «Найвища точка — …, її висота — … м». Усе завдання можна виконати онлайн без малювання графіка в зошиті.</div>
-<details><summary style="cursor:pointer;font-weight:850;color:#0b716c">✅ Самоперевірка після виконання: як міркувати?</summary><p>Підйом = висота вершини мінус висота початку маршруту. Для крутизни порівнюйте, на скільки метрів змінюється висота за один однаковий відрізок шляху. Тут західний схил має чотири відрізки на підйом до вершини, а східний — лише два для спуску до початкової висоти.</p></details>
+<div class="panel warm">
+<h3>📍 Крок 2. Відкрийте три невідомі висоти</h3>
+<p><b>Тільки три числа!</b> Решта висот уже відомі. Оберіть висоти точок <b>Б, В і Г</b> за підписами горизонталей. Коли ви змінюєте число — графік праворуч змінюється теж.</p>
+<div id="profileStations" aria-label="Сім контрольних точок маршруту"></div>
+<div class="expeditionProgress"><div id="expeditionProgressBar" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"></div></div>
+<p id="profilePreviewStatus" class="mini" aria-live="polite">Заповнено 0 із 3 невідомих висот.</p>
+<button id="checkProfile" type="button">✅ Перевірити висоти й завершити профіль</button>
+<div id="profileFeedback" class="feedback" aria-live="polite"></div>
+<details><summary class="expeditionHint">🧮 Потрібна підказка для Б, В, Г?</summary><p>Починайте з А = 100 м. Для кожної наступної горизонталі додайте <b>20 м</b>. Перша невідома точка Б розташована на наступній горизонталі. Для В додайте ще 20 м, для Г — ще 20 м.</p></details>
+</div>
+<div class="panel">
+<h3>📈 Ваш живий профіль рельєфу</h3>
+<p class="mini"><b>Горизонтально:</b> зупинки А → Є. <b>Вертикально:</b> висота над рівнем моря (метри). Профіль з'єднуватиме тільки ті сусідні точки, висоти яких ви вже визначили.</p>
+<svg id="profileSvg" viewBox="0 0 700 325" role="img" aria-label="Інтерактивний графік висот уздовж маршруту"><rect width="700" height="325" rx="12" fill="#f7fbff"/><g id="profileAxes"></g><g id="profileCurve"></g></svg>
+<div class="callout"><b>Цікавинка:</b> карта показує гору <b>згори</b>, а профіль — наче ви розрізали гору величезним ножем і подивилися <b>збоку</b>. На справжніх планах для точного профілю ще вимірюють горизонтальні відстані.</div>
+</div>
+</div>
+<div class="panel" id="expeditionQuestions" style="display:none;margin-top:16px">
+<h3>🔎 Крок 3. Перевірте, чи зрозуміли ви власний графік</h3>
+<p>Ваш профіль готовий. Тепер дайте <b>чотири короткі відповіді</b> — усе перевіряється автоматично. Якщо є помилка, спробуйте ще раз.</p>
+<div class="grid2">
+<div><label for="expPeak">1. Яка точка найвища?</label><select id="expPeak"><option value="">Оберіть точку</option><option value="А">А</option><option value="В">В</option><option value="Д">Д</option><option value="Є">Є</option></select></div>
+<div><label for="expRise">2. На скільки метрів піднялася команда від А до Д?</label><input id="expRise" type="number" min="0" step="1" inputmode="numeric" placeholder="Запишіть число в метрах"></div>
+<div><label for="expSlope">3. Де гора крутіша?</label><select id="expSlope"><option value="">Оберіть схил</option><option value="west">Західний (А → Д)</option><option value="east">Східний (Д → Є)</option><option value="same">Обидва однакові</option></select></div>
+<div><label for="expWhy">4. Який доказ це підтверджує?</label><select id="expWhy"><option value="">Оберіть пояснення</option><option value="height">Там найбільша висота вершини</option><option value="correct">За два однакові кроки висота зменшується на 80 м, тоді як на іншому схилі зростає на 80 м за чотири кроки</option><option value="color">Бо карта на цьому боці темніша</option></select></div>
+</div>
+<p><button type="button" id="checkExpedition">🏁 Перевірити висновки</button></p>
+<div id="expeditionAnswerFeedback" class="feedback" aria-live="polite"></div>
+<div class="fact"><b>📤 Для практичної роботи:</b> зробіть <b>один скриншот</b>, на якому видно побудований профіль і перевірку відповідей (за потреби — два скриншоти). Перемальовувати графік у зошит не потрібно.</div>
 </div>
 </section>
 <section class="section" id="route">
@@ -392,20 +418,72 @@ el('checkCalcs').addEventListener('click',()=>{const values=[...document.querySe
 renderCases();
 const stationNames=['А','Б','В','Г','Д','Е','Є'];
 const stationHeights=[100,120,140,160,180,160,100];
-function drawProfile(show){
-const axes=el('profileAxes');const c=el('profileCurve');
-axes.innerHTML='<path d="M60 28V260H664" stroke="#6c92a7" stroke-width="3"/>'+
-[100,120,140,160,180].map(h=>{let y=255-(h-80)*2;return '<line x1="60" x2="650" y1="'+y+'" y2="'+y+'" stroke="#d1e0e9" stroke-dasharray="6 6"/><text x="11" y="'+(y+6)+'" fill="#456477" font-size="17">'+h+'</text>';}).join('')+
-stationNames.map((s,i)=>'<text x="'+(62+i*94)+'" y="297" fill="#39536b" font-size="19" font-weight="800">'+s+'</text>').join('')+
-'<text x="11" y="21" fill="#345670" font-size="15">м</text>';
-if(!show){c.innerHTML='<text x="126" y="155" font-size="18" fill="#6f8797">Заповніть висоти, щоб побачити профіль</text>';return;}
-let pts=stationHeights.map((h,i)=>(66+i*94)+','+(255-(h-80)*2));
-c.innerHTML='<polygon points="66,260 '+pts.join(' ')+' 630,260" fill="#bbdfa2" opacity=".7"/><polyline points="'+pts.join(' ')+'" stroke="#168f7c" stroke-width="5" fill="none" stroke-linejoin="round"/>'+
-stationHeights.map((h,i)=>'<circle cx="'+(66+i*94)+'" cy="'+(255-(h-80)*2)+'" r="6" fill="#e38a53" stroke="#fff" stroke-width="2"/><text x="'+(56+i*94)+'" y="'+(243-(h-80)*2)+'" fill="#0c6073" font-size="16" font-weight="800">'+h+'</text>').join('');
+const profileFixed={0:100,4:180,5:160,6:100};
+const profilePickOptions=[100,120,140,160,180,200];
+function getStudentProfile(){
+ return stationNames.map((name,i)=>Object.prototype.hasOwnProperty.call(profileFixed,i)?profileFixed[i]:(el('expStation'+i).value===''?null:Number(el('expStation'+i).value)));
 }
-el('profileStations').innerHTML=stationNames.map((n,i)=>'<div class="station"><div><b>'+n+'</b> · точка '+(i+1)+'</div><select aria-label="Висота станції '+n+'" data-station="'+i+'"><option value="">Висота, м</option>'+[100,120,140,160,180,200].map(h=>'<option value="'+h+'">'+h+' м</option>').join('')+'</select></div>').join('');
-el('checkProfile').addEventListener('click',()=>{let values=[...document.querySelectorAll('[data-station]')].map(s=>s.value);if(values.some(x=>!x)){feedback('profileFeedback','Заповніть усі сім станцій, потім побудуйте профіль.','warn');return;}let correct=values.every((x,i)=>Number(x)===stationHeights[i]);if(correct){drawProfile(true);feedback('profileFeedback','✓ Чудово! Ви побудували профіль гори: А = 100 м → вершина Д = 180 м → Є = 100 м. Підйом від А до Д становить 80 м. За рівних відстаней між зупинками східний схил крутіший: спуск на 80 м за два відрізки проти підйому на 80 м за чотири.',true);}else{drawProfile(false);feedback('profileFeedback','Перевірте дані: А = 100 м, Д = 180 м, Е = 160 м, Є = 100 м. Для Б, В, Г послідовно додавайте по 20 м, починаючи від А. Виправте лише неточні значення й натисніть кнопку ще раз.',false);}});
-drawProfile(false);
+function drawProfile(values){
+ const axes=el('profileAxes'),layer=el('profileCurve');
+ const x=i=>66+i*94,y=h=>255-(h-80)*2;
+ axes.innerHTML='<path d="M56 24V260H662" fill="none" stroke="#557f9c" stroke-width="3"/>'+
+ [100,120,140,160,180].map(v=>'<line x1="56" x2="656" y1="'+y(v)+'" y2="'+y(v)+'" stroke="#ccdee8" stroke-dasharray="6 6"/><text x="8" y="'+(y(v)+5)+'" font-size="16" font-weight="750" fill="#426782">'+v+'</text>').join('')+
+ stationNames.map((n,i)=>'<text x="'+x(i)+'" y="293" font-size="20" font-weight="850" text-anchor="middle" fill="#274d66">'+n+'</text>').join('')+
+ '<text x="8" y="20" fill="#345670" font-size="15">м</text>';
+ const segments=[];
+ for(let i=0;i<values.length-1;i++){
+  if(values[i]!==null&&values[i+1]!==null){
+   segments.push('<line x1="'+x(i)+'" y1="'+y(values[i])+'" x2="'+x(i+1)+'" y2="'+y(values[i+1])+'" stroke="#139282" stroke-width="6" stroke-linecap="round"/>');
+  }
+ }
+ layer.innerHTML=segments.join('')+values.map((v,i)=>{
+  if(v===null)return'<circle cx="'+x(i)+'" cy="240" r="7" fill="none" stroke="#a8becb" stroke-width="3" stroke-dasharray="3 3"/>';
+  return'<circle cx="'+x(i)+'" cy="'+y(v)+'" r="8" fill="'+(i in profileFixed?'#2784c5':'#f39749')+'" stroke="#fff" stroke-width="3"/>'+
+  '<text x="'+x(i)+'" y="'+(y(v)-15)+'" font-size="17" font-weight="850" text-anchor="middle" fill="#215878">'+v+'</text>';
+ }).join('');
+}
+el('profileStations').innerHTML=stationNames.map((name,i)=>{
+ const known=Object.prototype.hasOwnProperty.call(profileFixed,i);
+ return '<div class="expeditionStation" data-status="idle" id="expStationWrap'+i+'"><div><b>'+name+'</b><small>'+(
+ i===0?'Початок маршруту':i===4?'Вершина гори':i===5?'Східний схил':i===6?'Кінець маршруту':'Знайдіть горизонталь на карті')+
+ '</small></div>'+(known?'<span class="expeditionFixed">'+profileFixed[i]+' м ✓</span>':
+ '<select id="expStation'+i+'" data-exp-station="'+i+'" aria-label="Висота точки '+name+'"><option value="">? висота</option>'+
+ profilePickOptions.map(v=>'<option value="'+v+'">'+v+' м</option>').join('')+'</select>')+'</div>';
+}).join('');
+function updateProfilePreview(){
+ const vals=getStudentProfile();
+ const filled=[1,2,3].filter(i=>vals[i]!==null).length;
+ el('profilePreviewStatus').textContent='Заповнено '+filled+' із 3 невідомих висот. '+(filled===3?'Тепер перевірте вибір.':'Знайдіть Б, В та Г за горизонталями.');
+ el('expeditionProgressBar').style.width=(filled/3*100)+'%';
+ el('expeditionProgressBar').setAttribute('aria-valuenow',String(filled));
+ el('expeditionQuestions').style.display='none';
+ document.querySelectorAll('[data-exp-station]').forEach(s=>el('expStationWrap'+s.dataset.expStation).dataset.status='idle');
+ el('profileFeedback').textContent='';
+ drawProfile(vals);
+}
+document.querySelectorAll('[data-exp-station]').forEach(s=>s.addEventListener('change',updateProfilePreview));
+updateProfilePreview();
+el('checkProfile').addEventListener('click',()=>{
+ const vals=getStudentProfile();
+ const missing=[1,2,3].filter(i=>vals[i]===null);
+ if(missing.length){feedback('profileFeedback','Потрібно визначити три невідомі висоти: Б, В і Г. Зараз бракує '+missing.length+' відповідей.','warn');return;}
+ let hits=0;
+ [1,2,3].forEach(i=>{const good=vals[i]===stationHeights[i];if(good)hits++;el('expStationWrap'+i).dataset.status=good?'correct':'wrong';});
+ if(hits<3){feedback('profileFeedback','Правильно '+hits+' із 3 висот. Помаранчевим виділено точки, які треба перевірити за горизонталями. Не забудьте: крок висоти — 20 м.',false);return;}
+ drawProfile(stationHeights);
+ feedback('profileFeedback','✅ Усі три висоти правильні! Ви побудували профіль від А через вершину Д до Є. Переходьте до останньої станції нижче.',true);
+ el('expeditionQuestions').style.display='block';
+ el('expeditionQuestions').scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+el('checkExpedition').addEventListener('click',()=>{
+ const p=el('expPeak').value,raw=el('expRise').value.trim(),s=el('expSlope').value,why=el('expWhy').value;
+ if(!p||raw===''||!s||!why){feedback('expeditionAnswerFeedback','Дайте відповіді на всі чотири запитання, потім натисніть кнопку перевірки.','warn');return;}
+ const hits=Number(p==='Д')+Number(Number(raw)===80)+Number(s==='east')+Number(why==='correct');
+ const description=hits===4?'✅ 4/4! Ви виконали місію картографа: вершина Д = 180 м, підйом від А дорівнює 80 м, східний схил крутіший. Зробіть скриншот результату.':
+ hits+'/4. Перевірте графік і порівняйте кількість однакових відрізків на підйомі та спуску. Правильний висновок має спиратися на зміну висоти, а не колір карти.';
+ feedback('expeditionAnswerFeedback',description,hits===4);
+});
+
 document.querySelectorAll('.routeButton').forEach(b=>b.addEventListener('click',()=>{let short=b.dataset.route==='short';document.querySelectorAll('.routeButton').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});let startX=short?370:90;el('slopeGround').setAttribute('d','M0 235L'+startX+' 235L550 60L620 60V265H0Z');el('slopeGuide').setAttribute('d','M'+startX+' 235L550 60');el('slopeText').textContent=short?'Маршрут Б · 120 м / 300 м':'Маршрут А · 120 м / 800 м';el('slopeMath').innerHTML=short?'<b>120 ÷ 300 × 100 = 40 м</b> підйому на кожні 100 м горизонтально. Більш крутий схил.':'<b>120 ÷ 800 × 100 = 15 м</b> підйому на кожні 100 м горизонтально. Менш крутий схил.';}));
 document.querySelector('.routeButton[data-route="long"]').click();
 function updateLegend(){let h=Number(el('landHeight').value),d=Number(el('seaDepth').value);el('landHeightValue').textContent=h+' м';el('seaDepthValue').textContent=d+' м';el('landReadout').textContent=h===0?'0 м: нульовий рівень у цій навчальній шкалі.':h<200?'0–200 м: у нашому прикладі позначені зеленими відтінками.':h<500?'200–500 м: умовні жовто-зелені відтінки.':h<2000?'500–2000 м: у нашій легенді коричневі відтінки.':'Понад 2000 м: темніші коричневі відтінки у цій навчальній легенді.';el('seaReadout').textContent=d===0?'0 м: рівень води.':'Глибина '+d+' м нижче рівня моря. На реальних картах зі збільшенням глибини часто темнішають сині відтінки.';}
