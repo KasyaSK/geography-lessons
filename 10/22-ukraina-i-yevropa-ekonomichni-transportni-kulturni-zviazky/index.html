@@ -3,9 +3,47 @@
 <style>
 :root{--ink:#1b2a45;--muted:#526682;--paper:#f6f9ff;--blue:#1e56d8;--sky:#dcecff;--yellow:#ffc44d;--teal:#008d93;--line:#d7e3f0;--plum:#7443a6}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(160deg,#eef7ff,#faf9ff 39%,#fffaf1);color:var(--ink);font:17px/1.62 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}a{color:#1654b8;text-underline-offset:3px}a:hover{color:#0b408c}button,textarea,input,select{font:inherit}button{min-height:44px;border:0;border-radius:13px;padding:10px 16px;background:#2455ce;color:#fff;font-weight:850;cursor:pointer;box-shadow:0 3px 0 #17409d}button:hover{background:#1d48b3}button:active{transform:translateY(2px);box-shadow:none}.subbtn{background:#edf3ff;color:#20418e;border:1px solid #c3d4fa;box-shadow:none}.subbtn:hover{background:#e0ecff}button:focus-visible,a:focus-visible,textarea:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f5a623;outline-offset:2px}input[type=text],select,textarea{border:1.5px solid #b9cde8;border-radius:12px;padding:10px;background:#fff;color:var(--ink);min-height:45px;max-width:100%}input[type=range]{width:100%;accent-color:var(--teal);cursor:pointer}input[type=radio],input[type=checkbox]{accent-color:#2058c1;width:16px;height:16px}textarea{width:100%;min-height:95px}h1,h2,h3,h4{line-height:1.16;letter-spacing:-.026em}h1{font-size:clamp(2.7rem,6vw,5.4rem);letter-spacing:-.055em;margin:.5rem 0}h2{font-size:clamp(1.9rem,4vw,3rem);margin:.3rem 0 .8rem}h3{font-size:1.34rem;margin:.4rem 0 .75rem}p{margin:.6rem 0 1rem}.wrap{width:min(1170px,calc(100% - 32px));margin:auto}.hero{background:linear-gradient(115deg,#102b70 2%,#1758a2 54%,#077e8c);color:white;overflow:hidden;position:relative}.hero:before{position:absolute;content:"";width:530px;height:530px;border-radius:50%;border:85px solid #ffffff14;right:-260px;top:-170px}.herogrid{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center;padding:56px 0 40px;position:relative}.hero strong{color:#ffe096}.hero .intro{font-size:1.18rem;color:#e6efff;max-width:65ch}.hero img{width:100%;height:360px;object-fit:cover;border-radius:25px;box-shadow:15px 17px 0 #ffffff21}.hero small{display:block;color:#dce8ff;margin-top:10px}.eyebrow,.tiny-tag{display:inline-block;font-weight:950;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}.eyebrow{background:#ffffff26;border:1px solid #ffffff60;border-radius:50px;padding:7px 13px}.tiny-tag{color:var(--teal)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.actions a{display:inline-block;text-decoration:none;background:#ffda6c;color:#15315c;font-weight:900;border-radius:13px;padding:12px 16px}.nav{position:sticky;z-index:100;top:0;background:#ffffffed;backdrop-filter:blur(13px);border-bottom:1px solid #d7e4f2;box-shadow:0 6px 13px #102a5d09}.navinner{display:flex;gap:8px;overflow-x:auto;padding:11px 0;scrollbar-width:thin}.nav a{text-decoration:none;white-space:nowrap;background:#eaf2ff;color:#16458f;font-size:.83rem;font-weight:900;border-radius:99px;padding:8px 12px}.section{padding:37px 0 10px;scroll-margin-top:76px}.introsec{color:var(--muted);font-size:1.12rem;max-width:78ch}.card{padding:22px;border-radius:22px;background:white;border:1.7px solid #dbe5f2;box-shadow:0 14px 32px #10295710;margin:15px 0}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.card .card{box-shadow:none}.note{padding:13px 17px;border-radius:13px;border-left:5px solid var(--yellow);background:#fff6d9;margin:14px 0}.note.good{border-left-color:#18a186;background:#e9faf5}.note.bad{border-left-color:#d45a71;background:#fff0f3}.chip{display:inline-block;border-radius:999px;background:#e9f4ff;color:#1d5aa6;font-size:.78rem;font-weight:900;padding:4px 10px}.metric{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:950;line-height:1.1;color:#176eb1;letter-spacing:-.05em}.metric small{font-size:.7rem}.photo{height:210px;width:100%;object-fit:cover;border-radius:15px;background:#eaf0fb}.photo.large{height:280px}.source{font-size:.82rem;color:#526682}.linkbox{display:flex;flex-wrap:wrap;gap:9px;margin:13px 0}.linkbox a{padding:10px 12px;background:#ecf5ff;border:1px solid #c2e0f7;border-radius:12px;text-decoration:none;font-weight:850;font-size:.92rem}.videoframe{width:100%;border:0;aspect-ratio:16/9;background:#182e4a;border-radius:16px}.videoimg{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;background:#132a54}.vtime{display:inline-block;color:#fff;background:#3157af;padding:4px 9px;font-size:.8rem;border-radius:8px;font-weight:900}.slide{border:1px solid #d8e6f5;border-radius:14px;padding:11px;margin:10px 0;background:#f8fbff}.minihead{font-weight:900;color:#254e9a}.mapframe{width:100%;height:340px;border:0;border-radius:14px;background:#e7f2ff}.schemacaption{font-size:.82rem;color:#6a7892}.feedback{margin-top:12px;padding:12px;border-left:5px solid #4089c5;border-radius:9px;background:#f0f7ff;min-height:30px}.barrow{display:grid;grid-template-columns:108px 1fr 54px;gap:10px;align-items:center;margin:14px 0;font-size:.9rem;font-weight:750}.bar{height:18px;border-radius:9px;background:#edf2fa;overflow:hidden}.bar b{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#408fcb,#6b5ace)}.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.formgrid select{display:block;width:100%}.routecard{border:2px solid #c8daef;border-radius:18px;background:#f6faff;padding:16px}.routecard b{color:#17488d}.routebadges{display:flex;flex-wrap:wrap;gap:9px}.routebadges span{background:#fff;border:1px solid #cdddeb;border-radius:10px;padding:6px 8px;font-weight:800}.wide{width:100%}.tradeblocks{display:flex;gap:12px;flex-wrap:wrap}.tradeblocks button{flex:1 1 150px}.factgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.level{border:1px solid #d8e3f3;border-top:4px solid #467acb;padding:15px;border-radius:16px;background:white}.level strong{color:#244ca1}.details summary{cursor:pointer;font-weight:900;color:#2458a5;padding:11px;background:#f0f6ff;border-radius:12px}.details p{padding:5px 15px}.q{border:1px solid #dce6f3;border-radius:15px;margin:12px 0;padding:14px;background:#fff}.q legend{font-weight:900;line-height:1.4;margin-bottom:7px}.q label{display:block;border:1px solid #e3eaf6;background:#f8faff;border-radius:10px;padding:8px 11px;margin:9px 0;cursor:pointer}.q select{display:block;width:100%;margin:5px 0}.q input{vertical-align:middle}.result{border-radius:24px;border:3px solid #6daee8;background:linear-gradient(115deg,#eaf9ff,#fff9e7);padding:23px;margin:17px 0}.score{font-size:3.7rem;font-weight:950;color:#1b62c0}#quiz,#result{display:none}.footer{padding:32px 0 45px;color:#dce9ff;background:#192a5a;margin-top:46px}.footer a{color:#fff2ae}@media(max-width:880px){.herogrid,.grid3,.grid4{grid-template-columns:repeat(2,1fr)}.hero img{height:300px}.formgrid{grid-template-columns:1fr 1fr}}@media(max-width:690px){.herogrid,.grid2,.grid3,.grid4,.formgrid,.factgrid{grid-template-columns:1fr}.hero img{height:250px}.herogrid{padding:37px 0}.card{padding:17px}.section{padding:27px 0 6px}.hero h1{font-size:2.8rem}.barrow{grid-template-columns:86px 1fr 48px}.photo{height:220px}}@media print{.nav,button,iframe,.videoframe,.hero,.linkbox{display:none!important}body{background:white}.section{page-break-inside:avoid}.result{display:block!important}#quiz{display:none!important}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* 2026 interactive mission laboratory */
+.lab26-progressbox{border:2px solid #7db5f6;background:linear-gradient(125deg,#f5faff,#fffcf2)}
+.lab26-progress{height:16px;background:#dce9fb;border-radius:30px;overflow:hidden;margin:14px 0}
+.lab26-progress span{display:block;height:100%;background:linear-gradient(90deg,#1e64dc,#18b1a0);transition:width .25s}
+.lab26-marks{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
+.lab26-marks span{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#e4edf6;color:#5b7792;font-weight:900}
+.lab26-marks span.done{background:#1eae8f;color:#fff}
+.lab26-mission{border-left:7px solid #307de9}
+.lab26-mission.lab26-completed{border-left-color:#21a780;background:linear-gradient(120deg,#f6fffc,#fff)}
+.lab26-title{display:flex;gap:14px;align-items:center;margin:0 0 14px}
+.lab26-title h3{margin:5px 0 0}
+.lab26-number{display:grid;place-items:center;flex-shrink:0;width:52px;height:52px;border-radius:15px;color:#fff;font-weight:950;font-size:1.5rem;background:linear-gradient(135deg,#155fcd,#8a66ef)}
+.lab26-fields{margin:15px 0;gap:13px}
+.lab26-fields label{display:flex;flex-direction:column;gap:6px;font-weight:800;line-height:1.42}
+.lab26-fields input,.lab26-fields select{width:100%;min-width:0}
+.lab26-facts{display:grid;gap:12px;margin:15px 0}
+.lab26-facts>div{display:grid;grid-template-columns:1fr auto;gap:6px}
+.lab26-facts .lab26-bar{grid-column:1/-1}
+.lab26-bar{height:16px;border-radius:999px;background:#edf4fc;overflow:hidden}
+.lab26-bar span{display:block;height:100%;background:linear-gradient(90deg,#3488e0,#64d5c3);border-radius:999px;transition:width .3s}
+.lab26-months{display:flex;flex-wrap:wrap;gap:7px}
+.lab26-months button{box-shadow:none;padding:9px;font-size:.85rem}
+.lab26-months button.active{background:#174eb8;color:#fff}
+.lab26-month-display{border:1px solid #d4e4f3;border-radius:17px;background:#f5faff;padding:18px;margin:12px 0}
+.lab26-month-display strong{display:block;font-size:3rem;line-height:1.1;color:#1659c5}
+.lab26-month-display .lab26-bar{margin-top:12px}
+.lab26-donut{display:flex;justify-content:space-between;gap:8px;background:linear-gradient(90deg,#f4d76f 0% 45.3%,#7ed1bf 45.3% 100%);border-radius:16px;padding:13px;color:#153b5c;flex-wrap:wrap}
+.lab26-donut span{font-size:.93rem;background:#fff9;border-radius:10px;padding:8px}
+.lab26-donut b{font-size:1.6rem;display:block}
+.lab26-spotlight{background:linear-gradient(115deg,#f2faff,#fff8e9);border:2px solid #c1ddf6}
+.lab26-figure{margin:0;min-width:0;border:1px solid #dce6f1;background:#fff;border-radius:17px;padding:8px}
+.lab26-figure img{width:100%;height:205px;object-fit:cover;border-radius:12px;background:#ddecf5}
+.lab26-figure figcaption{padding:10px 5px 7px;font-size:.84rem;color:#526781;line-height:1.45}
+.lab26-spotlight .lab26-figure img{height:280px}
+.lab26-evidence{background:#eff9f5;border-radius:14px;border:1px solid #bae4cf;padding:14px}
+@media(max-width:690px){.lab26-title{align-items:flex-start}.lab26-figure img{height:230px}}
+
 </style></head><body>
 <header class="hero" id="top"><div class="wrap herogrid"><div><span class="eyebrow">ГЕОГРАФІЯ · 10-А / 10-Б · УРОК №22 · 23.11.2026</span><h1>Україна ↔ Європа.<br>Як працюють <strong>живі зв'язки?</strong></h1><p class="intro">Ви — аналітична команда, яка має провести вантаж, знайти вузьке місце, прочитати реальну карту, перевірити цифри та спроєктувати культурний обмін.</p><div class="actions"><a href="#maps">Почати з карт</a><a href="#videos">Відкрити відеолабораторію</a><a href="#homework">Тест /10</a></div><p class="source" style="color:#e2edff">§8 за КТП · 35 хвилин базового маршруту + додаткова дослідницька робота</p></div><figure><img src="https://transport.ec.europa.eu/sites/default/files/styles/oe_theme_ratio_3_2_medium/avportal/P-061113/00-23.jpg?itok=VIqhnWKt" alt="Реальна світлина: вантажівка проходить прикордонний контроль у Європі. Фото Єврокомісії"><figcaption><small>Справжня фотографія: Європейська комісія, дорожні перевезення через кордон.</small></figcaption></figure></div></header>
-<nav class="nav" aria-label="Навігація уроком"><div class="wrap navinner"><a href="#challenge">Старт</a><a href="#maps">Справжні карти</a><a href="#trade">Торгівля</a><a href="#videos">7 відео українською</a><a href="#route">Логістичний штаб</a><a href="#culture">Культура</a><a href="#theory">Теорія</a><a href="#homework">Тест /10</a></div></nav>
+<nav class="nav" aria-label="Навігація уроком"><div class="wrap navinner"><a href="#challenge">Старт</a><a href="#maps">Справжні карти</a><a href="#trade">Торгівля</a><a href="#mission26">🎮 Місії 2026</a><a href="#atlas26">🗺️ Карта-пошук</a><a href="#photolab26">📷 Фотодокази</a><a href="#people26">🎓 Erasmus+</a><a href="#videos">7 відео українською</a><a href="#route">Логістичний штаб</a><a href="#culture">Культура</a><a href="#theory">Теорія</a><a href="#homework">Тест /10</a></div></nav>
 <main class="wrap">
 <section class="section" id="challenge"><span class="tiny-tag">0–3 хв · Проблема</span><h2>Що важливіше: сусідство чи зв'язки?</h2><p class="introsec">Два міста можуть бути близькими на карті, але майже не взаємодіяти. Інші розділені тисячами кілометрів — проте щодня обмінюються товарами, технологіями й культурою. Як вимірюють силу європейських зв'язків України?</p><div class="card"><label for="hyp"><b>Ваша гіпотеза до аналізу джерел</b></label><textarea id="hyp" placeholder="На мою думку, найсильніший зв'язок між Україною та Європою — ... , тому що ..."></textarea><div class="note"><b>Місія уроку:</b> довести або спростувати свою гіпотезу щонайменше трьома різними доказами: картографічним, статистичним і людським/культурним.</div></div></section>
 <section class="section" id="maps"><span class="tiny-tag">3–10 хв · Просторова лабораторія</span><h2>Не одна стрілка, а система коридорів</h2><p class="introsec">Усі карти нижче — справжні матеріали профільних установ. Вони відрізняються масштабом, призначенням і датою. Завдання учнів — перевірити, що саме можна довести кожною з них.</p>
@@ -15,7 +53,153 @@
 <section class="section" id="trade"><span class="tiny-tag">10–16 хв · Дослідження чисел</span><h2>Хто кому і що постачає?</h2><p class="introsec">Не плутайте вартість товарів у євро, їхню масу в тоннах, географічні напрямки і кількість робочих місць. Це різні показники, навіть якщо всі стосуються однієї економіки.</p>
 <div class="grid3"><div class="card"><span class="chip">Єврокомісія · 2025</span><div class="metric">€68,2 <small>млрд</small></div><b>Торгівля товарами Україна — ЄС</b><p>Вартість двостороннього товарообігу за 2025 рік. Не включає всі культурні й освітні обміни.</p></div><div class="card"><span class="chip">Єврокомісія · 2025</span><div class="metric">€21,7 <small>млрд</small></div><b>Імпорт ЄС з України</b><p>Для України — це експорт до ринку Євросоюзу.</p></div><div class="card"><span class="chip">Єврокомісія · 2025</span><div class="metric">€46,5 <small>млрд</small></div><b>Експорт ЄС в Україну</b><p>Для України — імпорт із країн Євросоюзу. Дані пояснюють напрямок, а не автоматично оцінюють користь.</p></div></div>
 <div class="grid2"><div class="card"><h3>Побудуйте графік — вибір показника</h3><div class="barrow"><span>ЄС ← Україна</span><div class="bar"><b style="width:46.7%"></b></div><strong>21,7</strong></div><div class="barrow"><span>ЄС → Україна</span><div class="bar"><b style="width:100%;background:linear-gradient(90deg,#e6b84b,#ee7b85)"></b></div><strong>46,5</strong></div><p class="source">млрд євро, 2025. Дві категорії з однієї методики обліку, Єврокомісія.</p><h3>Міні-калькулятор балансу</h3><button id="balanceCheck">Розрахувати різницю та зробити висновок</button><div class="feedback" id="balanceFeedback" aria-live="polite"></div></div><div class="card"><h3>Відокремте експортні товари</h3><p>За даними Єврокомісії, серед основних груп <b>експорту України до ЄС</b> — олії, зернові, чорні метали, насіння олійних, руди. Спробуйте не сплутати їх з узагальненими прикладами імпорту.</p><div id="tradeChoices"><label class="slide"><input type="checkbox" value="oil"> Олії рослинного походження</label><label class="slide"><input type="checkbox" value="grain"> Зернові культури</label><label class="slide"><input type="checkbox" value="steel"> Чорні метали</label><label class="slide"><input type="checkbox" value="cars"> Легкові автомобілі як головна названа в джерелі група експорту України</label><label class="slide"><input type="checkbox" value="seeds"> Насіння олійних</label></div><button id="checkTrade">Перевірити вибір</button><div class="feedback" id="tradeFeedback" aria-live="polite"></div></div></div>
-<div class="grid3"><div class="card"><img class="photo" src="https://images.euronews.com/articles/stories/09/54/46/22/1920x1280_cmsv2_47551141-d7a6-50ec-9c4d-c0fad7ec5a6d-9544622.jpg" alt="Реальна світлина перевалки зерна біля вантажного судна в Дунайському регіоні" loading="lazy"><h3>Зерно на експорт</h3><p>Яку частину вартості створюють вирощування, перевезення, перевалка, перероблення та продаж?</p><p class="source">Фото Euronews, листопад 2025.</p></div><div class="card"><img class="photo" src="https://cfts.org.ua/imglib/.thumbs/ac12e1ec092a48fe130602b4e2d8d40d_700_0_0.jpg" alt="Реальна європейська колія 1435 мм Чоп — Ужгород" loading="lazy"><h3>Євроколія в Україні</h3><p>Чому стандарт колії — географічний і економічний чинник?</p><p class="source">Фото ЦТС, відкриття Чоп—Ужгород, 2025.</p></div><div class="card"><img class="photo" src="https://pbs.twimg.com/media/GX5DC92WoAAeYwv.jpg" alt="Польський пасажирський поїзд та український залізничний транспорт на станції Рава-Руська" loading="lazy"><h3>Залізничний кордон</h3><p>Де виникає пересадка й чому різні мережі все одно можуть працювати разом?</p><p class="source">Фото Укрзалізниці, станція Рава-Руська.</p></div></div><p class="note good">Останнє число про «Шляхи солідарності» в уроці беремо як датований зріз: приблизно <b>235 млн т українського експорту накопиченим підсумком від травня 2022 до серпня 2026 року</b>. Це не вантаж за один місяць і не товарообіг у євро. <a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-august-2026-2026-10-12_en" target="_blank" rel="noopener">Джерело ЄК (12.10.2026)</a>.</p></section>
+<div class="grid3"><div class="card"><img class="photo" src="https://images.euronews.com/articles/stories/09/54/46/22/1920x1280_cmsv2_47551141-d7a6-50ec-9c4d-c0fad7ec5a6d-9544622.jpg" alt="Реальна світлина перевалки зерна біля вантажного судна в Дунайському регіоні" loading="lazy"><h3>Зерно на експорт</h3><p>Яку частину вартості створюють вирощування, перевезення, перевалка, перероблення та продаж?</p><p class="source">Фото Euronews, листопад 2025.</p></div><div class="card"><img class="photo" src="https://cfts.org.ua/imglib/.thumbs/ac12e1ec092a48fe130602b4e2d8d40d_700_0_0.jpg" alt="Реальна європейська колія 1435 мм Чоп — Ужгород" loading="lazy"><h3>Євроколія в Україні</h3><p>Чому стандарт колії — географічний і економічний чинник?</p><p class="source">Фото ЦТС, відкриття Чоп—Ужгород, 2025.</p></div><div class="card"><img class="photo" src="https://pbs.twimg.com/media/GX5DC92WoAAeYwv.jpg" alt="Польський пасажирський поїзд та український залізничний транспорт на станції Рава-Руська" loading="lazy"><h3>Залізничний кордон</h3><p>Де виникає пересадка й чому різні мережі все одно можуть працювати разом?</p><p class="source">Фото Укрзалізниці, станція Рава-Руська.</p></div></div><p class="note good"><b>Оновлення 19.11.2026:</b> «Шляхами солідарності» вивезено близько <b>245 млн тонн</b> українських товарів накопиченим підсумком з травня 2022 до жовтня 2026 року (приблизно 111 млн т аграрних і 134 млн т неаграрних). У серпневому зрізі було 235 млн т. <b>Це не місячний експорт і не товарообіг у євро.</b> <a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-october-2026-2026-11-19_en" target="_blank" rel="noopener">Джерело ЄК, 19.11.2026</a>.</p></section>
+
+<section class="section" id="mission26">
+<span class="tiny-tag">ЛАБОРАТОРІЯ 2026 · 8 автономних місій · без усних відповідей</span>
+<h2>📊 Не слухай цифри — <span style="color:#2475bb">працюй із ними!</span></h2>
+<p class="introsec">Тут немає оцінки «за активність у розмові». Є факти, дати, карти й завдання, в яких кожен працює самостійно. <b>Кожна місія має 2–4 відповіді, автоматичну перевірку, пояснення і свій доказ.</b> Для уроку 35 хв виконайте місії <b>1, 2, 4, 5</b>; решту — для закріплення та домашнього дослідження.</p>
+<div class="card lab26-progressbox">
+<div class="grid2"><div><span class="chip">ПРОГРЕС ЛАБОРАТОРІЇ</span><p class="metric"><span id="lab26ProgressCount">0</span><small> / 8 місій</small></p><p class="source">Завершено після правильної перевірки. Дані зберігаються тільки в цьому браузері.</p></div><div><div class="lab26-progress"><span id="lab26ProgressBar" style="width:0%"></span></div><div id="lab26MissionMarks" class="lab26-marks" aria-label="Виконані місії"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div><button type="button" id="lab26Summary" class="subbtn">📋 Показати мій звіт</button></div></div><div class="feedback" id="lab26SummaryText" style="display:none"></div>
+</div>
+<div class="grid4 lab26-stats">
+<div class="card"><span class="chip">2025 · Єврокомісія</span><div class="metric">€68,2 <small>млрд</small></div><b>Загальний товарообіг Україна — ЄС</b><p class="source">Лише товари за 2025 рік, не послуги</p></div>
+<div class="card"><span class="chip">2025 · Єврокомісія</span><div class="metric">€21,7 <small>млрд</small></div><b>Український експорт до ЄС</b><p class="source">Із погляду ЄС — імпорт з України</p></div>
+<div class="card"><span class="chip">2025 · Єврокомісія</span><div class="metric">€46,5 <small>млрд</small></div><b>Український імпорт із ЄС</b><p class="source">Із погляду ЄС — експорт в Україну</p></div>
+<div class="card"><span class="chip">Жовтень 2026 · Єврокомісія</span><div class="metric">245 <small>млн т</small></div><b>Вивезено «Шляхами солідарності»</b><p class="source">Накопичений підсумок з травня 2022, не лише за жовтень</p></div>
+</div>
+<div class="card lab26-mission" id="lab26-1" data-lab26="1">
+<div class="lab26-title"><span class="lab26-number">01</span><div><span class="chip">ОБОВ'ЯЗКОВО · 3 хв</span><h3>Детектив цифр: де експорт, а де імпорт?</h3></div></div>
+<p>У 2025 році ЄС придбав українських товарів на <b>€21,7 млрд</b>, а Україна придбала європейських товарів на <b>€46,5 млрд</b>. Згадайте: <b>експорт</b> — продаж за кордон, <b>імпорт</b> — купівля з-за кордону.</p>
+<div class="lab26-facts"><div><b>Україна → ЄС</b><span>€21,7 млрд</span><div class="lab26-bar"><span style="width:46.7%;background:#25ab9b"></span></div></div><div><b>ЄС → Україна</b><span>€46,5 млрд</span><div class="lab26-bar"><span style="width:100%;background:#f6ac37"></span></div></div></div>
+<div class="grid3 lab26-fields">
+<label>1. Скільки разом товарів обміняли сторони, млрд €?<input inputmode="decimal" type="number" step="0.1" data-answer="68.2" data-mode="number" placeholder="Наприклад: 12,5"></label>
+<label>2. Який торговельний баланс України з ЄС, млрд €? (експорт − імпорт)<input inputmode="decimal" type="number" step="0.1" data-answer="-24.8" data-mode="number" placeholder="Вкажіть знак − або +"></label>
+<label>3. Що таке €46,5 млрд з погляду України?<select data-answer="import"><option value="">Виберіть</option><option value="import">Імпорт з ЄС</option><option value="export">Експорт до ЄС</option><option value="services">Торгівля послугами</option></select></label>
+</div><button class="lab26-check" data-check="1">Перевірити 3 відповіді</button><div class="feedback lab26-feedback" aria-live="polite"></div>
+<details class="details"><summary>💡 Підказка до обчислення</summary><p>Товарообіг — це <b>сума</b> двох потоків, а торговельний баланс — <b>різниця</b>: експорт України мінус імпорт України. Негативний баланс не дорівнює «немає торгівлі».</p></details>
+<p class="source">Джерело: <a href="https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/ukraine_en" target="_blank" rel="noopener">Єврокомісія, DG TRADE, показники 2025 року</a>.</p>
+</div>
+<div class="grid2">
+<div class="card lab26-mission" id="lab26-2" data-lab26="2">
+<div class="lab26-title"><span class="lab26-number">02</span><div><span class="chip">ОБОВ'ЯЗКОВО · 3 хв</span><h3>Машина часу: 235 → 240 → 245</h3></div></div>
+<p>Єврокомісія щомісяця публікує <b>накопичений</b> підсумок товарів, вивезених «Шляхами солідарності» з травня 2022 року. Натисніть місяць і дослідіть, як змінюється цифра.</p>
+<div class="lab26-months"><button type="button" data-month="0" class="subbtn">Серпень 2026</button><button type="button" data-month="1" class="subbtn">Вересень 2026</button><button type="button" data-month="2" class="subbtn">Жовтень 2026</button></div>
+<div class="lab26-month-display"><strong id="lab26Tonnage">235</strong><span>млн тонн, накопичений обсяг експорту</span><div class="lab26-bar"><span id="lab26MonthBar" style="width:95.9%"></span></div></div>
+<div class="lab26-fields">
+<label>1. Наскільки збільшився накопичений підсумок між серпнем і жовтнем, млн т?<input type="number" inputmode="numeric" data-answer="10" data-mode="number" placeholder="Обчисліть різницю"></label>
+<label>2. Що означає число 245 млн т?<select data-answer="accum"><option value="">Виберіть</option><option value="oct">Лише експорт за жовтень</option><option value="accum">Усі вивезені цими коридорами товари з травня 2022 до жовтня 2026</option><option value="eu">Усі товари, продані саме до ЄС за 2025 рік</option></select></label>
+</div><button class="lab26-check" data-check="2">Перевірити 2 відповіді</button><div class="feedback lab26-feedback"></div>
+<p class="source"><a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-august-2026-2026-10-12_en" target="_blank" rel="noopener">Серпень</a> · <a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-september-2026-2026-10-19_en" target="_blank" rel="noopener">Вересень</a> · <a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-october-2026-2026-11-19_en" target="_blank" rel="noopener">Жовтень, звіт 19.11.2026</a>.</p>
+</div>
+<div class="card lab26-mission" id="lab26-3" data-lab26="3">
+<div class="lab26-title"><span class="lab26-number">03</span><div><span class="chip">ДОДАТКОВО · 3 хв</span><h3>Тонни ≠ євро. Сортуємо правильно</h3></div></div>
+<p>Із <b>245 млн тонн</b> накопиченого експорту «Шляхами солідарності» до жовтня 2026 року приблизно <b>111 млн т</b> — аграрні товари, а <b>134 млн т</b> — неаграрні (руда, сталь тощо). У грошах це інший показник!</p>
+<div class="lab26-donut" role="img" aria-label="111 із 245 млн тонн аграрні товари, 134 із 245 млн тонн неаграрні товари"><span><b>111</b> аграрні</span><span><b>134</b> неаграрні</span></div>
+<div class="lab26-fields">
+<label>1. Якої групи вивезли більше?<select data-answer="non"><option value="">Виберіть</option><option value="agr">Аграрної</option><option value="non">Неаграрної</option><option value="same">Порівну</option></select></label>
+<label>2. Різниця між групами, млн тонн?<input type="number" inputmode="numeric" data-answer="23" data-mode="number" placeholder="Відніміть"></label>
+<label>3. Чи можна €335 млрд вартості перевезень додати до 245 млн тонн?<select data-answer="no"><option value="">Виберіть</option><option value="yes">Так, це одна величина</option><option value="no">Ні, одиниці вимірювання несумісні</option></select></label>
+</div><button class="lab26-check" data-check="3">Перевірити 3 відповіді</button><div class="feedback lab26-feedback"></div>
+<p class="source">Єврокомісія, 19.11.2026: <a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-october-2026-2026-11-19_en" target="_blank" rel="noopener">245 млн т експорту, €335 млрд сукупної вартості імпорту й експорту коридорами</a> (різні одиниці).</p>
+</div>
+</div>
+<div class="card lab26-spotlight">
+<div class="grid2">
+<div><span class="chip">СВІТЛИНА 2025 · РЕАЛЬНИЙ ПРОЄКТ</span><h3>Чому між 1520 і 1435 лише 85 мм, але це велика проблема?</h3>
+<p>5 вересня 2025 року Європейська комісія повідомила про відкриття <b>22-кілометрової</b> європейської колії <b>Чоп — Ужгород</b>. Вартість проєкту — <b>€28,6 млн</b>, включно з іншими роботами. Українська ширина колії — 1520 мм, стандартна європейська — 1435 мм.</p>
+<p class="source">Джерело: <a href="https://transport.ec.europa.eu/news-events/news/new-eu-funded-railway-line-brings-ukraine-even-closer-eu-2025-09-05_en" target="_blank" rel="noopener">Єврокомісія, 05.09.2025</a>.</p></div>
+<figure class="lab26-figure"><img src="https://mindev.gov.ua/storage/app/uploads/public/68d/ac9/bdd/68dac9bddfdb2108689319.jpg" loading="lazy" alt="Реальне фото презентації двох типів залізничної колії, позначених 1520 мм і 1435 мм"><figcaption>Реальне фото Міністерства розвитку: порівняння колії 1520 і 1435 мм. <a href="https://mindev.gov.ua/news/alona-shkrum-prezentuvala-ievrokomisartsi-marti-kos-pershu-ievrokoliiu-v-ukraini" target="_blank" rel="noopener">Відкрити оригінал</a>.</figcaption></figure>
+</div></div>
+<div class="card lab26-mission" id="lab26-4" data-lab26="4">
+<div class="lab26-title"><span class="lab26-number">04</span><div><span class="chip">ОБОВ'ЯЗКОВО · 3 хв</span><h3>Інженерний квест: знайди вузьке місце</h3></div></div>
+<div class="grid3 lab26-fields">
+<label>1. Різниця ширини колії 1520 і 1435 мм?<input type="number" inputmode="numeric" data-answer="85" data-mode="number" placeholder="У міліметрах"></label>
+<label>2. Скільки кілометрів має ділянка Чоп — Ужгород?<input type="number" inputmode="numeric" data-answer="22" data-mode="number" placeholder="У кілометрах"></label>
+<label>3. Чому різниця колій має значення?<select data-answer="logistics"><option value="">Виберіть</option><option value="color">Бо колія іншого кольору</option><option value="logistics">Потрібне технічне рішення для сумісності рухомого складу та маршрутів</option><option value="north">Бо так змінюється напрям півночі</option></select></label>
+</div><button class="lab26-check" data-check="4">Перевірити інженерний квест</button><div class="feedback lab26-feedback"></div>
+</div>
+</section>
+
+<section class="section" id="atlas26">
+<span class="tiny-tag">ГЕОГРАФІЧНА РОЗВІДКА · РЕАЛЬНА КАРТА</span><h2>🗺️ Знайди країну на карті — перевір знання сам</h2>
+<p class="introsec">Дослідіть прикордоння на <b>реальній карті OpenStreetMap</b>. Знайдіть кордони, міста й дороги. Після цього пройдіть завдання на чотири конкретні переходи. Якщо карта не завантажилася, <a href="https://www.openstreetmap.org/#map=7/48.6/22.6" target="_blank" rel="noopener">відкрийте її окремо</a>.</p>
+<div class="card"><iframe class="mapframe" title="Реальна інтерактивна карта західного прикордоння України, OpenStreetMap" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=19.0%2C46.4%2C27.2%2C51.1&amp;layer=mapnik"></iframe><p class="source">© OpenStreetMap contributors. Можна збільшувати карту, перетягувати й досліджувати підписи місцевості. Актуальна карта не означає актуальної пропускної здатності пункту пропуску.</p></div>
+<div class="card lab26-mission" id="lab26-5" data-lab26="5">
+<div class="lab26-title"><span class="lab26-number">05</span><div><span class="chip">ОБОВ'ЯЗКОВО · 4 хв</span><h3>Чотири переходи — чотири країни</h3></div></div>
+<p>Кожна назва в першому стовпчику — <b>реальний прикордонний перехід</b>. Знайдіть, через яку сусідню країну проходить сполучення. Скористайтеся картою вище.</p>
+<div class="grid2 lab26-fields">
+<label><b>Ягодин — Дорогуськ</b><select data-answer="pl"><option value="">Обрати країну</option><option value="sk">Словаччина</option><option value="pl">Польща</option><option value="ro">Румунія</option><option value="hu">Угорщина</option></select></label>
+<label><b>Ужгород — Вишнє-Нємецьке</b><select data-answer="sk"><option value="">Обрати країну</option><option value="hu">Угорщина</option><option value="sk">Словаччина</option><option value="pl">Польща</option><option value="ro">Румунія</option></select></label>
+<label><b>Чоп — Загонь</b><select data-answer="hu"><option value="">Обрати країну</option><option value="ro">Румунія</option><option value="pl">Польща</option><option value="hu">Угорщина</option><option value="sk">Словаччина</option></select></label>
+<label><b>Порубне — Сірет</b><select data-answer="ro"><option value="">Обрати країну</option><option value="sk">Словаччина</option><option value="ro">Румунія</option><option value="hu">Угорщина</option><option value="pl">Польща</option></select></label>
+</div><button class="lab26-check" data-check="5">Перевірити країни</button><div class="feedback lab26-feedback"></div>
+<details class="details"><summary>💡 Як шукати швидше?</summary><p>Збільшіть карту до заходу України. Дослідіть три області: Волинську, Закарпатську, Чернівецьку. Назви сусідніх країн і міст допоможуть знайти пари.</p></details>
+</div>
+<div class="card lab26-mission" id="lab26-6" data-lab26="6">
+<div class="lab26-title"><span class="lab26-number">06</span><div><span class="chip">ДОДАТКОВО · 4 хв</span><h3>Чому дані за червень і жовтень 2026 року різняться?</h3></div></div>
+<p><b>Червень 2026:</b> за оглядом Ради ЄС, приблизно <b>90%</b> експорту українського зерна й олійних проходило через Чорне море. <b>Жовтень 2026:</b> за новим звітом Єврокомісії, приблизно <b>90%</b> цього місячного потоку проходило «Шляхами солідарності».</p>
+<div class="grid2">
+<div class="lab26-month-display"><b>ЧЕРВЕНЬ 2026</b><div class="metric">≈90%</div><p>через Чорне море</p><div class="lab26-bar"><span style="width:90%;background:#3d7ccc"></span></div></div>
+<div class="lab26-month-display"><b>ЖОВТЕНЬ 2026</b><div class="metric">≈90%</div><p>«Шляхами солідарності»</p><div class="lab26-bar"><span style="width:90%;background:#f2a536"></span></div></div>
+</div>
+<div class="grid2 lab26-fields">
+<label>1. Який висновок справді доведений цими даними?<select data-answer="shift"><option value="">Виберіть</option><option value="same">Співвідношення маршрутів весь рік було сталим</option><option value="shift">Між двома датами частка транспортних маршрутів суттєво змінилася</option><option value="no">Експорт зерна припинився</option></select></label>
+<label>2. Чи доводять ці два числа конкретну причину зміни?<select data-answer="need"><option value="">Виберіть</option><option value="known">Так, вони однозначно називають одну причину</option><option value="need">Ні, для пояснення причин треба перевірити додаткові джерела</option></select></label>
+</div><button class="lab26-check" data-check="6">Перевірити висновки</button><div class="feedback lab26-feedback"></div>
+<p class="source">Два датовані джерела: <a href="https://www.consilium.europa.eu/en/policies/ukraine-solidarity-supporting-ukraine-trade/" target="_blank" rel="noopener">Рада ЄС, зріз за червень 2026</a> та <a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-october-2026-2026-11-19_en" target="_blank" rel="noopener">ЄК, жовтень 2026</a>. Не плутайте частку <b>за місяць</b> з часткою <b>за всі роки</b>.</p>
+</div>
+</section>
+
+<section class="section" id="photolab26">
+<span class="tiny-tag">ФОТОДОКАЗИ · СПРАВЖНІ ЗОБРАЖЕННЯ</span><h2>📷 Чотири фотографії. Що вони реально доводять?</h2>
+<p class="introsec">Реальна фотографія цінна не красою, а контекстом. Визначте <b>який факт можна підтвердити зображенням і його джерелом</b>, а який висновок був би перебільшенням.</p>
+<div class="grid4">
+<figure class="lab26-figure"><img loading="lazy" src="https://www.dbcargo.com/resource/image/7587646/4%3A3/968/726/90ddcb171d5f4e6cc75da1ab184b51c5/58C5E5A0A7CE16E9173E84C00022B740/DB217995.jpg" alt="Справжній вантажний потяг DB Cargo з написом про підтримку України"><figcaption><b>А · Залізниця</b><br>Вантажний потяг DB Cargo, підтримка України. <a href="https://www.dbcargo.com/rail-de-en/logistics-news/Model-locomotives-for-Ukraine-fundraising-campaign-7587638" target="_blank" rel="noopener">DB Cargo</a>.</figcaption></figure>
+<figure class="lab26-figure"><img loading="lazy" src="https://images.euronews.com/articles/stories/09/54/46/22/1920x1280_cmsv2_47551141-d7a6-50ec-9c4d-c0fad7ec5a6d-9544622.jpg" alt="Фотографія перевалки зерна у транспортному порту"><figcaption><b>Б · Товар</b><br>Перевалка зерна. Фото Euronews, 2025; використано для аналізу ланцюга постачання.</figcaption></figure>
+<figure class="lab26-figure"><img loading="lazy" src="https://mindev.gov.ua/storage/app/uploads/public/68d/ac9/bdd/68dac9bddfdb2108689319.jpg" alt="Демонстрація колії 1520 і 1435 міліметрів"><figcaption><b>В · Стандарт</b><br>Різні стандарти колії, фото Міністерства розвитку, 2025.</figcaption></figure>
+<figure class="lab26-figure"><img loading="lazy" src="https://lpnu.ua/sites/default/files/2024/10/23/news/28941/imks-2024-10-09-143131-t.jpg" alt="Учасники міжнародного молодіжного освітнього обміну"><figcaption><b>Г · Люди</b><br>Молодіжний обмін Erasmus+, фото Львівської політехніки, 2024.</figcaption></figure>
+</div>
+<div class="card lab26-mission" id="lab26-7" data-lab26="7">
+<div class="lab26-title"><span class="lab26-number">07</span><div><span class="chip">ДОДАТКОВО · 4 хв</span><h3>Не вигадуй висновків з фотографій</h3></div></div>
+<div class="grid2 lab26-fields">
+<label><b>Фото А.</b> Що підтверджує зображення?<select data-answer="freight"><option value="">Виберіть</option><option value="freight">Існують залізничні ініціативи й матеріальна інфраструктура для підтримки України</option><option value="sum">Точну суму експорту України за 2026 рік</option></select></label>
+<label><b>Фото Б.</b> Яке поняття ілюструє?<select data-answer="supply"><option value="">Виберіть</option><option value="supply">Логістичний ланцюг від виробника до транспорту</option><option value="salary">Середню зарплату робітників ЄС</option></select></label>
+<label><b>Фото В.</b> Яке запитання можна дослідити?<select data-answer="gauge"><option value="">Виберіть</option><option value="gauge">Чому стандарти колії впливають на сумісність залізниць?</option><option value="seas">Чому Чорне море глибоке?</option></select></label>
+<label><b>Фото Г.</b> Який тип зв'язків представлений?<select data-answer="education"><option value="">Виберіть</option><option value="trade">Товарна торгівля зерном</option><option value="education">Освітня та культурна співпраця</option></select></label>
+</div><button class="lab26-check" data-check="7">Перевірити 4 фотодокази</button><div class="feedback lab26-feedback"></div>
+</div>
+</section>
+
+<section class="section" id="people26">
+<span class="tiny-tag">ОСВІТА, КУЛЬТУРА, ТЕХНОЛОГІЇ · ДАНІ 2026</span>
+<h2>🎓 Що отримує Україна від міжнародної освіти?</h2>
+<div class="grid2">
+<div class="card">
+<span class="chip">Єврокомісія, травень 2026</span><div class="metric">52 000+</div><p>Українців скористалися академічною мобільністю Erasmus+ від 2022 року до дати публікації звіту.</p>
+<div class="metric">€210 <small>млн+</small></div><p>Залучені кошти для підтримки проєктів за участю українських організацій і учасників — це <b>не</b> гроші, роздані кожному студенту.</p>
+<p class="source"><a href="https://erasmus-plus.ec.europa.eu/pl/whats-new/news/building-resilience-and-human-capital-for-ukraines-european-future" target="_blank" rel="noopener">Erasmus+, Європейська комісія, 12.05.2026</a>.</p>
+</div>
+<div class="card"><span class="chip">Реальний проєкт · 2023–2027</span><h3>DigiUni: цифрові університети</h3><p>Проєкт із партнерами в Україні розвиває цифрове навчальне середовище та доступ до курсів.</p><div class="lab26-evidence"><b>Планові цілі проєкту</b><p>Підготувати понад <b>100 нових курсів</b>, навчити <b>600 викладачів</b> працювати з цифровим контентом, надати доступ до пілотних курсів <b>5000+ студентів</b>. Це саме <b>цілі</b>, а не підтверджений результат на листопад 2026.</p></div>
+<p class="source"><a href="https://erasmus-networks.ec.europa.eu/book-page/country-page-ukraine" target="_blank" rel="noopener">Erasmus Networks Platform, проєкт DigiUni</a>.</p>
+</div>
+</div>
+<div class="card lab26-mission" id="lab26-8" data-lab26="8">
+<div class="lab26-title"><span class="lab26-number">08</span><div><span class="chip">ДОДАТКОВО · 3 хв</span><h3>Вчений-аналітик: факт, мета чи вигадка?</h3></div></div>
+<div class="grid3 lab26-fields">
+<label>1. Що означає «52 000+ учасників мобільності»?<select data-answer="people"><option value="">Виберіть</option><option value="people">Люди, що брали участь у мобільності в межах програми за вказаний період</option><option value="all">Усі студенти України</option><option value="eu">Скільки людей приїхало з ЄС на роботу в Україну</option></select></label>
+<label>2. «100+ нових курсів» у DigiUni — це…<select data-answer="goal"><option value="">Виберіть</option><option value="done">Доведений підсумок 2026 року</option><option value="goal">Оголошена ціль проєкту</option><option value="trade">Торговельний баланс</option></select></label>
+<label>3. Який висновок відповідає темі уроку?<select data-answer="ties"><option value="">Виберіть</option><option value="ties">Зв'язки України з Європою включають не лише товари, а й освіту, дослідження та обмін знаннями</option><option value="only">Міжнародні зв'язки — лише вантажні перевезення</option></select></label>
+</div><button class="lab26-check" data-check="8">Перевірити 3 відповіді</button><div class="feedback lab26-feedback"></div>
+</div>
+<div class="card" style="border:2px solid #b0d6f4">
+<h3>🎯 Фінішний висновок без виступу перед класом</h3><p>Напишіть <b>два-три речення</b> за схемою «твердження → число або факт із датою → пояснення». Оберіть власну тему: <b>торгівля, логістика, євроколія або Erasmus+</b>. Це не тест на красномовство — оцінюється точність доказу.</p>
+<textarea id="lab26CER" rows="3" placeholder="Наприклад: Україна тісно пов'язана з європейським ринком, тому що... За даними ... за 2025 рік ... Це свідчить про ..."></textarea>
+<button type="button" id="lab26CERCheck" class="subbtn">Перевірити структуру мого висновку</button><div id="lab26CERFeedback" class="feedback"></div>
+<div class="note good"><b>Як здати:</b> завершіть чотири обов'язкові місії, збережіть скриншот прогресу й пройдіть підсумковий тест /10 нижче. Додаткові місії можна виконувати вдома для закріплення. Жодного обов'язкового усного виступу.</div>
+</div>
+</section>
+
 <section class="section" id="videos"><span class="tiny-tag">Відеолабораторія · 7 українськомовних матеріалів</span><h2>Не дивіться пасивно. Перевіряйте твердження!</h2><p class="introsec">Для основного 35-хвилинного уроку достатньо двох позначених фрагментів загальною тривалістю до 5 хв. Інші відео — на вибір для групових станцій, домашньої роботи або поглиблення. У кожному є предметне запитання.</p>
 <div class="grid2">
 <div class="card"><span class="chip">01 · УРОК · 2 хв</span><h3>Україна в системі глобальних економічних відносин</h3><iframe class="videoframe" src="https://www.youtube-nocookie.com/embed/i2S2xpjseWA?start=45&end=165" loading="lazy" title="Всеукраїнська школа онлайн: Україна в системі глобальних економічних відносин" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><p><b>Всеукраїнська школа онлайн, 2022.</b> Знайдіть дві форми економічних зв'язків, що не тотожні торгівлі товарами.</p><a href="https://www.youtube.com/watch?v=i2S2xpjseWA&t=45s" target="_blank" rel="noopener">Відкрити відео окремо</a></div>
@@ -50,7 +234,7 @@
 <div class="card" id="quiz"><h3>Перевірка знань та географічного мислення</h3><div id="questions"></div><button id="submitQuiz">Завершити та оцінити /10</button><div class="feedback" id="quizFeedback" aria-live="polite"></div></div>
 <div id="result" class="result"><p class="tiny-tag">Підсумкова картка результату</p><h3 id="rName"></h3><div class="score" id="rScore"></div><p id="rMeta"></p><p id="rComment"></p><p><b>Зробіть скриншот цієї картки та надішліть учителю.</b></p><button onclick="window.print()">Роздрукувати</button> <button class="subbtn" id="retry">Пройти повторно</button><details class="details"><summary>Пояснення правильних і помилкових рішень</summary><div id="explanations"></div></details></div>
 </section>
-<section class="section" id="sources"><span class="tiny-tag">Верифікація · дані й датування</span><h2>Звідки взято факти та ілюстрації?</h2><div class="card"><div class="linkbox"><a href="https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/ukraine_en" target="_blank" rel="noopener">Єврокомісія: торгівля з Україною</a><a href="https://transport.ec.europa.eu/ukraine/eu-ukraine-solidarity-lanes_uk" target="_blank" rel="noopener">Єврокомісія: Шляхи солідарності</a><a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-august-2026-2026-10-12_en" target="_blank" rel="noopener">Єврокомісія: показники на серпень 2026</a><a href="https://www.osw.waw.pl/en/publikacje/osw-commentary/2024-02-26/running-european-tracks-modernising-rail-network-western" target="_blank" rel="noopener">OSW: мапи транспортних коридорів</a><a href="https://erasmusplus.org.ua/baza-proyektiv/" target="_blank" rel="noopener">Національний Erasmus+ офіс</a><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a></div><p class="source">Часові ряди та політична/воєнна ситуація швидко змінюються. Станом на листопад 2026 року не можна механічно переносити історичні частки морських перевезень на поточні маршрути. Авторські симуляції позначені як умовні. Фотографії з ЄК, OSW, ЦТС, Укрінформу, Суспільного, Львівської політехніки та інших названих джерел належать їхнім правовласникам і завантажуються з відповідних сайтів.</p></div></section>
+<section class="section" id="sources"><span class="tiny-tag">Верифікація · дані й датування</span><h2>Звідки взято факти та ілюстрації?</h2><div class="card"><div class="linkbox"><a href="https://policy.trade.ec.europa.eu/eu-trade-relationships-country-and-region/countries-and-regions/ukraine_en" target="_blank" rel="noopener">Єврокомісія: торгівля з Україною</a><a href="https://transport.ec.europa.eu/ukraine/eu-ukraine-solidarity-lanes_uk" target="_blank" rel="noopener">Єврокомісія: Шляхи солідарності</a><a href="https://transport.ec.europa.eu/news-events/news/solidarity-lanes-latest-figures-october-2026-2026-11-19_en" target="_blank" rel="noopener">Єврокомісія: показники на жовтень 2026</a><a href="https://www.osw.waw.pl/en/publikacje/osw-commentary/2024-02-26/running-european-tracks-modernising-rail-network-western" target="_blank" rel="noopener">OSW: мапи транспортних коридорів</a><a href="https://erasmusplus.org.ua/baza-proyektiv/" target="_blank" rel="noopener">Національний Erasmus+ офіс</a><a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a></div><p class="source">Часові ряди та політична/воєнна ситуація швидко змінюються. Станом на листопад 2026 року не можна механічно переносити історичні частки морських перевезень на поточні маршрути. Авторські симуляції позначені як умовні. Фотографії з ЄК, OSW, ЦТС, Укрінформу, Суспільного, Львівської політехніки та інших названих джерел належать їхнім правовласникам і завантажуються з відповідних сайтів.</p></div></section>
 </main><footer class="footer"><div class="wrap"><b>Автор: Скринченко К.А. • Василівський ліцей «Сузір’я»</b><p>Географія · 10-А і 10-Б · Урок 22. Усі механіки виконуються у браузері без відправлення даних. Зовнішні карти, відео й фотоджерела потребують інтернету.</p></div></footer>
 <script>
 (function(){'use strict';
@@ -89,4 +273,74 @@ $('submitQuiz').onclick=()=>{let score=0,missing=false,ex=[];Q.forEach((q,i)=>{l
 $('retry').onclick=()=>{if(!window.confirm('Пройти тест знову? Ім’я та клас збережуться, старий результат буде замінено.'))return;$('result').style.display='none';$('quiz').style.display='block';render();$('quiz').scrollIntoView({behavior:'smooth'})};
 })();
 </script><script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+
+<script>
+(()=>{
+'use strict';
+const byId=id=>document.getElementById(id);
+const labCards=[...document.querySelectorAll('.lab26-mission')];
+let done=[];
+try{const stored=JSON.parse(localStorage.getItem('geo10lab2026done')||'[]');if(Array.isArray(stored))done=stored.filter(x=>Number.isInteger(x)&&x>=1&&x<=8);}catch(e){}
+const finished=new Set(done);
+function refresh(){
+byId('lab26ProgressCount').textContent=finished.size;
+byId('lab26ProgressBar').style.width=(finished.size/8*100)+'%';
+[...byId('lab26MissionMarks').children].forEach((el,i)=>el.classList.toggle('done',finished.has(i+1)));
+labCards.forEach(card=>card.classList.toggle('lab26-completed',finished.has(Number(card.dataset.lab26))));
+try{localStorage.setItem('geo10lab2026done',JSON.stringify([...finished]));}catch(e){}
+}
+refresh();
+labCards.forEach(card=>{
+ const btn=card.querySelector('.lab26-check');
+ btn.addEventListener('click',()=>{
+  const inputs=[...card.querySelectorAll('[data-answer]')];
+  const missing=inputs.filter(el=>el.value.trim()==='');
+  const out=card.querySelector('.lab26-feedback');
+  if(missing.length){out.textContent='Спочатку дайте відповіді на всі '+inputs.length+' запитання цієї місії.';out.className='feedback lab26-feedback';return;}
+  let correct=0;
+  inputs.forEach(el=>{
+   const value=el.value.trim();
+   const ok=el.dataset.mode==='number'?Math.abs(Number(value.replace(',','.'))-Number(el.dataset.answer))<0.01:value===el.dataset.answer;
+   if(ok)correct++;
+   el.style.borderColor=ok?'#24a67a':'#e07c6a';
+   el.setAttribute('aria-invalid',String(!ok));
+  });
+  const n=Number(card.dataset.lab26);
+  if(correct===inputs.length){
+   finished.add(n);
+   out.textContent='✅ '+correct+'/'+inputs.length+'. Усі відповіді правильні! Місію '+n+' завершено. Можна переходити далі.';
+   out.className='feedback lab26-feedback';
+  }else{
+   finished.delete(n);
+   out.textContent='Зараз '+correct+'/'+inputs.length+'. Перевірте поля з помаранчевою рамкою. Зверніться до пояснення, карти або джерела в цьому блоці й спробуйте ще.';
+   out.className='feedback lab26-feedback';
+  }
+  refresh();
+ });
+});
+const months=[{name:'Серпень 2026',val:235},{name:'Вересень 2026',val:240},{name:'Жовтень 2026',val:245}];
+document.querySelectorAll('[data-month]').forEach(btn=>btn.addEventListener('click',()=>{
+ const m=months[Number(btn.dataset.month)];
+ byId('lab26Tonnage').textContent=m.val;
+ byId('lab26MonthBar').style.width=(m.val/245*100).toFixed(1)+'%';
+ document.querySelectorAll('[data-month]').forEach(el=>el.classList.toggle('active',el===btn));
+}));
+document.querySelector('[data-month="0"]').click();
+byId('lab26Summary').addEventListener('click',()=>{
+ const out=byId('lab26SummaryText');
+ out.style.display='block';
+ out.textContent='Виконано '+finished.size+' із 8 місій: '+([...finished].sort((a,b)=>a-b).join(', ')||'поки жодної')+'. Для 35-хвилинного уроку рекомендовано місії 1, 2, 4, 5. Результат є тренувальним, а не офіційною оцінкою. Для виставлення балів пройдіть окремий підсумковий тест /10.';
+});
+byId('lab26CERCheck').addEventListener('click',()=>{
+ const v=byId('lab26CER').value.trim();
+ const out=byId('lab26CERFeedback');
+ const hasYear=/(2025|2026)/.test(v);
+ const hasFigures=/\d/.test(v);
+ if(v.length<75){out.textContent='Напишіть щонайменше 2–3 змістовні речення. Потрібні теза, конкретний доказ і пояснення, а не просто назва теми.';return;}
+ if(!hasFigures||!hasYear){out.textContent='Додайте до висновку числовий факт і його рік (2025 або 2026), а також поясніть, чому він підтверджує вашу думку.';return;}
+ out.textContent='✅ Структура за довжиною, датою й числовим доказом виглядає повною. Перед здачею самостійно перевірте правильність факту в джерелі та логічний зв’язок із висновком. Це перевірка форми, а не автоматична оцінка змісту.';
+});
+})();
+</script>
+
 </body></html>
