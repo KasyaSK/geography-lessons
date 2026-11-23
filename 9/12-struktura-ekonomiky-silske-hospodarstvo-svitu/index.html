@@ -16,6 +16,13 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 .photo{width:100%;height:185px;object-fit:cover;border-radius:15px;background:#eaf1f2;display:block}.photo.big{height:250px}.photo-caption{font-size:.82rem;color:#5c717e;margin-top:8px}.realmap{display:block;width:100%;max-height:570px;object-fit:contain;background:#e8f2f2;border-radius:16px}.mapframe{width:100%;height:400px;border:0;border-radius:16px}.video{width:100%;aspect-ratio:16/9;border:0;border-radius:15px;background:#09273a}.linkbar{display:flex;flex-wrap:wrap;gap:8px}.linkbar a{font-weight:800;background:#eaf5ff;border-radius:11px;padding:9px 11px;text-decoration:none;border:1px solid #cce4ee}.badge{display:inline-block;border-radius:99px;padding:5px 10px;background:#fff0cb;color:#7a5309;font-weight:900;font-size:.82rem}.sectorrow{margin:10px 0}.sectors{display:flex;overflow:hidden;height:30px;border-radius:11px;background:#eaeef3}.sectors div{height:100%;transition:width .2s}.sectorlegend{display:flex;flex-wrap:wrap;gap:10px;font-size:.88rem;font-weight:850;margin:10px 0}.sectorlegend i{width:12px;height:12px;display:inline-block;margin-right:5px;border-radius:3px}.wide{width:100%}.statline{display:flex;justify-content:space-between;gap:12px;font-weight:850;margin:6px 0}.thinbar{height:16px;background:#e4eff3;border-radius:50px;overflow:hidden}.thinbar b{height:100%;display:block;background:#15a58c;border-radius:50px}.progress{height:16px;background:#dfede8;border-radius:50px;overflow:hidden}.progress span{display:block;width:0%;height:100%;background:linear-gradient(90deg,#08a18b,#ffd35a);transition:width .2s}.tiny{font-size:.79rem;color:#607987}.quizq{border-bottom:1px solid #dde8eb;padding:13px 0}.quizq:last-child{border-bottom:0}.quizq strong{display:block;font-size:1.05rem;margin-bottom:8px}.quizq label{display:flex;gap:10px;align-items:start;padding:8px 10px;margin:7px 0;border-radius:12px;border:1px solid #dce9eb;background:#f8fbfc}.quizq select{max-width:100%;margin:7px 0}.quizScore{font-size:3rem;font-weight:1000;color:#096e73}.footer{padding:26px;color:#def1ee;background:#14424a;text-align:center}.footer a{color:#fff2b3}
 @media(max-width:950px){.hero-grid{grid-template-columns:1fr 1fr}.grid4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:720px){.hero-grid,.grid2,.grid3,.grid4,.twoCols,.threeCols{grid-template-columns:1fr}.hero-photo img{height:230px}.hero h1{font-size:3rem}.section{margin:16px 0}.photo{height:190px}.mapframe{height:310px}}@media print{nav,button,.video,iframe{display:none!important}.section{break-inside:avoid;box-shadow:none}body{background:white}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}html{scroll-behavior:auto}}
+
+.group-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:11px 0}
+.group-options button{font-size:.88rem;padding:8px 5px;min-height:42px;border:1.5px solid #badbd1;background:#eff8f6;color:#176258;box-shadow:none}
+.group-options button[aria-pressed="true"]{background:#0b8073;color:#fff;border-color:#0b8073}
+.group-options button.bad{background:#fff0e7;color:#98452d;border-color:#e7aa90}
+.group-options button.correct{background:#e5f9ed;color:#116d48;border-color:#51b98a}
+@media(max-width:720px){.group-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -73,6 +80,18 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 <div class="taskfields twoCols"><label>1. На скільки млрд доларів ВВП Індії перевищував ВВП Франції? (округліть до десятих)<input type="number" step="0.1" data-auto="600.4" placeholder="Ваше число"></label>
 <label>2. Чи випливає з більшого загального ВВП, що кожен житель Індії багатший?<select data-auto="no"><option value="">Оберіть</option><option value="yes">Так, автоматично</option><option value="no">Ні, ще треба врахувати чисельність населення та інші показники</option></select></label></div>
 <button type="button" class="checkSimple">Перевірити обчислення й висновок</button><div class="answer">Пам'ятайте: номінальний ВВП країни ≠ ВВП на одну особу.</div></div>
+<div class="card" id="countryGrouping" style="border:2px solid #89c9b9;background:linear-gradient(125deg,#f1fff8,#fffaf1);margin:20px 0">
+<span class="kicker">Практична робота · без усного опитування</span>
+<h3>🧩 Групуємо країни за трьома чіткими критеріями</h3>
+<p><b>Завдання за КТП:</b> не просто подивіться на діаграму, а <b>самостійно утворіть групи країн</b>. Натисніть на назви країн, які відповідають умові. Країна може належати до кількох груп, бо кожна умова вимірює інший показник.</p>
+<div class="grid3">
+<div class="card"><h3>Група А · Аграрна частка</h3><p class="mini">Оберіть усі країни, де у 2024 році сільське господарство, лісове господарство й рибальство формували <b>10% ВВП або більше</b>.</p><div class="group-options" data-group="agr" aria-label="Групування за часткою сільського господарства"></div></div>
+<div class="card"><h3>Група Б · Перевага послуг</h3><p class="mini">Оберіть усі країни, де у 2024 році <b>послуги формували щонайменше 60% ВВП</b>.</p><div class="group-options" data-group="srv" aria-label="Групування за часткою послуг"></div></div>
+<div class="card"><h3>Група В · Обсяг економіки</h3><p class="mini">Оберіть усі країни, у яких номінальний ВВП у 2024 році <b>перевищував $2000 млрд</b> (не $2000 на особу).</p><div class="group-options" data-group="gdp" aria-label="Групування за обсягом ВВП"></div></div>
+</div>
+<p><button type="button" id="checkGroups">Перевірити всі три групи</button></p><div class="answer" id="groupFeedback" aria-live="polite">Уважно порівнюйте числа й межі критеріїв. Деякі країни потрапляють у кілька груп.</div>
+<details><summary>Чому ми не називаємо ці групи «багатими» або «бідними»?</summary><p>Це класифікація за <b>показниками</b>, а не рейтинг добробуту. Переважання послуг, високий ВВП країни й висока частка агросектору описують різні аспекти економіки. Для висновків про рівень життя потрібні доходи на одну особу, ціни, освіта, здоров’я та інші дані.</p></details>
+</div>
 <div class="mission" data-mission="4"><h3><span class="mission-no">04</span> Хто працює в сільському господарстві?</h3><p>Тут два <b>різні показники за один рік (2024)</b>: частка сільського господарства у ВВП та частка всіх зайнятих працівників у сільському господарстві. Частки зайнятості — оцінки <b>МОП (ILO)</b>, тому їх слід читати як модельну статистику.</p>
 <div class="grid2">
 <div class="card tint"><h3>🇮🇳 Індія, 2024</h3><div class="statline"><span>Частка у ВВП</span><b>17,6%</b></div><div class="thinbar"><b style="width:17.6%"></b></div><div class="statline"><span>Частка зайнятих</span><b>≈42,4%</b></div><div class="thinbar"><b style="width:42.4%;background:#ea9b3c"></b></div></div>
@@ -212,6 +231,41 @@ function setCountry(){
  $('sectorMetrics').innerHTML=parts.map(x=>'<div class="card"><span class="stat" style="font-size:1.7rem;color:'+countryColors[x[0]]+'">'+nfmt(x[1])+'%</span><p class="mini">'+esc(x[2])+'</p></div>').join('');
 }
 $('countryPick').addEventListener('change',setCountry);setCountry();
+
+const groupingCountryList=[
+ ['UA','🇺🇦 Україна'],['FR','🇫🇷 Франція'],['IN','🇮🇳 Індія'],
+ ['BR','🇧🇷 Бразилія'],['ET','🇪🇹 Ефіопія'],['VN',"🇻🇳 В'єтнам"]
+];
+const groupSets={
+ agr:groupingCountryList.filter(c=>sectorCountries[c[0]].a>=10).map(c=>c[0]),
+ srv:groupingCountryList.filter(c=>sectorCountries[c[0]].s>=60).map(c=>c[0]),
+ gdp:groupingCountryList.filter(c=>sectorCountries[c[0]].gdp>2000).map(c=>c[0])
+};
+document.querySelectorAll('.group-options').forEach(group=>{
+ group.innerHTML=groupingCountryList.map(c=>'<button type="button" data-country="'+c[0]+'" aria-pressed="false">'+esc(c[1])+'</button>').join('');
+ group.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{
+  const next=btn.getAttribute('aria-pressed')!=='true';
+  btn.setAttribute('aria-pressed',String(next));btn.classList.remove('bad','correct');
+  $('groupFeedback').textContent='Позначте країни в кожній групі, потім перевірте всі три умови.';
+ }));
+});
+$('checkGroups').addEventListener('click',()=>{
+ let hits=0;let groupHits=0;const all=[...document.querySelectorAll('.group-options')];
+ all.forEach(group=>{
+  const expected=new Set(groupSets[group.dataset.group]);let errors=0;
+  group.querySelectorAll('button').forEach(btn=>{
+   const pressed=btn.getAttribute('aria-pressed')==='true';
+   const correct=pressed===expected.has(btn.dataset.country);
+   btn.classList.toggle('bad',!correct);btn.classList.toggle('correct',correct);
+   if(correct)hits++;else errors++;
+  });
+  if(errors===0)groupHits++;
+ });
+ const out=$('groupFeedback');
+ if(groupHits===3){out.className='answer ok';out.textContent='✅ 3/3 групи складено правильно! Ви використали три різні критерії. Поміркуйте, чому Індія входить одразу до груп А і В, але не до групи Б.';}
+ else{out.className='answer bad';out.textContent='Правильно складено '+groupHits+'/3 груп. Правильних окремих рішень '+hits+'/18. Помаранчевим показано вибори, які не відповідають критерію. Порівняйте значення в таблиці Світового банку вище.';}
+});
+
 const jobs=[
 ['Вирощування пшениці','I','ag'],['Виробництво хліба на хлібозаводі','II','factory'],['Доставка хліба до магазину','III','deliver'],
 ['Вилов риби','I','fish'],['Видобування залізної руди','I','ore'],['Виробництво комбайна на заводі','II','tractor'],
