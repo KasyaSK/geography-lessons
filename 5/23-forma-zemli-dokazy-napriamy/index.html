@@ -497,7 +497,7 @@
 <figure class="real-photo"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/The_Blue_Marble_4463x4163.jpg/800px-The_Blue_Marble_4463x4163.jpg" alt="Реальна кольорова фотографія цілого диска Землі з Аполлона-17: видно Африку, океан і білі хмари"><h3>① «Блакитна кулька»</h3><figcaption><b>Фото, 7 грудня 1972 року.</b> Екіпаж Apollo 17 сфотографував цілу освітлену Землю. <a href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-from-apollo-17-1133/" target="_blank" rel="noopener">NASA — оригінал та опис</a>.</figcaption></figure>
 <figure class="real-photo"><img loading="lazy" src="https://eol.jsc.nasa.gov/DatabaseImages/ESC/large/ISS046/ISS046-E-33886.JPG" alt="Реальний вигляд земного горизонту та тонкої блакитної атмосфери з Міжнародної космічної станції"><h3>② Блакитний обрій</h3><figcaption><b>Фото, 4 лютого 2016 року.</b> Знімок ISS046-E-33886 з МКС: видно горизонт та атмосферу. <a href="https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?frame=33886&amp;mission=ISS046&amp;roll=E" target="_blank" rel="noopener">NASA JSC — оригінал</a>.</figcaption></figure>
 <figure class="real-photo"><img loading="lazy" src="https://eol.jsc.nasa.gov/DatabaseImages/ESC/large/ISS069/ISS069-E-18445.JPG" alt="Фото Землі й Місяця з МКС, видима атмосфера та вигин планети"><h3>③ Земля та Місяць</h3><figcaption><b>Фото, 8 червня 2023 року.</b> Астронавт зафіксував Місяць над земним обрієм. <a href="https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?frame=18445&amp;mission=ISS069&amp;roll=E" target="_blank" rel="noopener">NASA JSC — оригінал</a>.</figcaption></figure>
-<figure class="real-photo"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NASA_Earthrise_AS08-14-2383_Apollo_8_1968-12-24.jpg/640px-NASA_Earthrise_AS08-14-2383_Apollo_8_1968-12-24.jpg" alt="Справжня фотографія «Схід Землі» над сірим горизонтом Місяця з Аполлона-8"><h3>④ Схід Землі</h3><figcaption><b>Фото Apollo 8, 24 грудня 1968 року.</b> Земля над поверхнею Місяця. <a href="https://science.nasa.gov/resource/apollo-8s-iconic-earthrise/" target="_blank" rel="noopener">NASA — оригінал</a>.</figcaption></figure>
+<figure class="real-photo"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/NASA_Earthrise_AS08-14-2383_Apollo_8_1968-12-24.jpg?width=640" alt="Справжня фотографія «Схід Землі» над сірим горизонтом Місяця з Аполлона-8"><h3>④ Схід Землі</h3><figcaption><b>Фото Apollo 8, 24 грудня 1968 року.</b> Земля над поверхнею Місяця. <a href="https://science.nasa.gov/resource/apollo-8s-iconic-earthrise/" target="_blank" rel="noopener">NASA — оригінал</a>.</figcaption></figure>
 <figure class="real-photo"><img loading="lazy" src="https://storage.noirlab.edu/media/archives/images/screen/Rob-IMG_5572-CC.jpg" alt="Справжня фотографія червоного Місяця під час повного місячного затемнення 2022 року"><h3>⑤ Місячне затемнення</h3><figcaption><b>Фото, 15–16 травня 2022 року.</b> Місяць перебуває в тіні Землі, частина сонячного світла проходить через атмосферу. <a href="https://noirlab.edu/public/images/Rob-IMG_5572-CC/" target="_blank" rel="noopener">NOIRLab — джерело</a>.</figcaption></figure>
 <figure class="real-photo"><img loading="lazy" src="https://svs.gsfc.nasa.gov/vis/a010000/a011400/a011472/s1_1024.jpg" alt="Наукова комп'ютерна схема NASA: як утворюється тінь Землі та чому відбувається місячне затемнення"><h3>⑥ Пояснювальна схема NASA</h3><figcaption><b>Модель, НЕ фотографія.</b> Видно, як тінь Землі потрапляє на Місяць. <a href="https://svs.gsfc.nasa.gov/11472" target="_blank" rel="noopener">NASA SVS — наукова візуалізація</a>.</figcaption></figure>
 </div>
@@ -973,6 +973,90 @@ function drawTreasure(){
 $('treasureNext').onclick=()=>{routeIndex=(routeIndex+1)%destinations.length;drawTreasure();};
 drawTreasure();
 updateLabProgress();
+})();
+</script>
+
+<script>
+(()=>{
+'use strict';
+const stage=document.getElementById('globeStage');
+const sphere=document.getElementById('globeFallbackSphere');
+const fallback=document.getElementById('globeFallback');
+const status=document.getElementById('globeStatus');
+if(!stage||!sphere)return;
+let angle=0,latitude=0,autoplay=!window.matchMedia('(prefers-reduced-motion: reduce)').matches,control3d=null;
+function fallbackDraw(){sphere.style.backgroundPosition=((50+angle*16)%100+100)%100+'% center';sphere.style.transform='rotateX('+latitude+'deg)';}
+function rotate(delta){angle+=delta;fallbackDraw();if(control3d)control3d.rotate(delta);}
+document.getElementById('globeLeft').addEventListener('click',()=>rotate(-.43));
+document.getElementById('globeRight').addEventListener('click',()=>rotate(.43));
+document.getElementById('globePause').addEventListener('click',e=>{
+ autoplay=!autoplay;e.currentTarget.textContent=autoplay?'⏸ Зупинити рух':'▶ Автообертання';
+});
+document.getElementById('globeLatitude').addEventListener('input',e=>{
+ latitude=Number(e.target.value);document.getElementById('globeLatText').textContent=latitude+'°';
+ fallbackDraw();if(control3d)control3d.tilt(latitude*Math.PI/180);
+});
+let dragged=false,startX=0,startY=0;
+sphere.addEventListener('pointerdown',e=>{dragged=true;startX=e.clientX;startY=e.clientY;sphere.setPointerCapture(e.pointerId);});
+sphere.addEventListener('pointermove',e=>{
+ if(!dragged||control3d)return;
+ const dx=e.clientX-startX,dy=e.clientY-startY;startX=e.clientX;startY=e.clientY;
+ rotate(dx*.008);latitude=Math.max(-65,Math.min(65,latitude+dy*.5));
+ document.getElementById('globeLatitude').value=latitude;document.getElementById('globeLatText').textContent=Math.round(latitude)+'°';fallbackDraw();
+});
+sphere.addEventListener('pointerup',()=>dragged=false);
+fallback.style.pointerEvents='auto';sphere.style.touchAction='none';fallbackDraw();
+import('https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js').then(THREE=>{
+ const scene=new THREE.Scene();
+ const w=stage.clientWidth||400,h=stage.clientHeight||375;
+ const camera=new THREE.PerspectiveCamera(37,w/h,.1,100);
+ camera.position.set(0,0,5.6);
+ const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+ renderer.setSize(w,h);
+ renderer.outputColorSpace=THREE.SRGBColorSpace;
+ renderer.setClearColor(0,0);
+ const group=new THREE.Group();scene.add(group);
+ const geometry=new THREE.SphereGeometry(1.52,64,48);
+ const material=new THREE.MeshStandardMaterial({roughness:.93,metalness:0});
+ const earth=new THREE.Mesh(geometry,material);group.add(earth);
+ const atmosphere=new THREE.Mesh(new THREE.SphereGeometry(1.555,64,48),new THREE.MeshBasicMaterial({color:0x68b9ff,transparent:true,opacity:.055,side:THREE.BackSide}));group.add(atmosphere);
+ scene.add(new THREE.AmbientLight(0xc0d8ff,1.55));
+ const sunlight=new THREE.DirectionalLight(0xffffff,2.7);sunlight.position.set(4,2,6);scene.add(sunlight);
+ const loader=new THREE.TextureLoader();
+ loader.setCrossOrigin('anonymous');
+ loader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',texture=>{
+  texture.colorSpace=THREE.SRGBColorSpace;
+  material.map=texture;material.needsUpdate=true;
+  stage.appendChild(renderer.domElement);
+  fallback.style.display='none';
+  status.textContent='🌍 Справжня об’ємна модель: тягніть глобус мишею або пальцем!';
+  let down=false,px=0,py=0;
+  renderer.domElement.addEventListener('pointerdown',e=>{down=true;px=e.clientX;py=e.clientY;renderer.domElement.setPointerCapture(e.pointerId);});
+  renderer.domElement.addEventListener('pointermove',e=>{
+   if(!down)return;
+   const dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;
+   angle+=dx*.009;latitude=Math.max(-65,Math.min(65,latitude+dy*.45));
+   document.getElementById('globeLatitude').value=latitude;document.getElementById('globeLatText').textContent=Math.round(latitude)+'°';
+  });
+  renderer.domElement.addEventListener('pointerup',()=>{down=false});
+  control3d={rotate:()=>{},tilt:()=>{}};
+  function animate(){
+   if(autoplay)angle+=.0018;
+   earth.rotation.y=angle;group.rotation.x=latitude*Math.PI/180;
+   renderer.render(scene,camera);
+   requestAnimationFrame(animate);
+  }
+  animate();
+  const resize=()=>{
+   if(!stage.isConnected)return;
+   const newW=stage.clientWidth||400,newH=stage.clientHeight||375;
+   camera.aspect=newW/newH;camera.updateProjectionMatrix();renderer.setSize(newW,newH);
+  };
+  if(typeof ResizeObserver!=='undefined'){new ResizeObserver(resize).observe(stage);}
+  window.addEventListener('resize',resize);
+ },undefined,()=>{status.textContent='Не вдалося завантажити текстуру 3D — показуємо резервний глобус. Кнопки й повзунок працюють.';});
+}).catch(()=>{status.textContent='На цьому пристрої 3D не завантажилося — доступний резервний глобус. Кнопки й повзунок працюють.';});
 })();
 </script>
 <script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
