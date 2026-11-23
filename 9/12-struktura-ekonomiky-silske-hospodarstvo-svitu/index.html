@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Скринченко Каріна Андріївна · Василівський ліцей «Сузір’я»">
+<meta name="description" content="9 клас, географія, урок №12: практична робота з групування країн за економічними показниками, структура зайнятості та сільське господарство світу. Реальні дані WDI/ILO/FAO 2024–2026, тематичні карти, 10 інтерактивних станцій, тест /12.">
+<title>ГЕОЕКОНОМІКА LAB • Урок №12 · 9 клас</title>
+<style>
+:root{--ink:#193348;--soft:#596f7d;--green:#087f72;--blue:#1459c8;--orange:#f48c41;--yellow:#ffcb55;--lime:#bbde87;--pink:#ff6b8e;--bg:#f6faf9;--line:#d8e6e5}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:77px}body{margin:0;background:radial-gradient(circle at 2% 7%,#ddf7f0 0,transparent 20rem),radial-gradient(circle at 95% 29%,#fff0db 0,transparent 26rem),var(--bg);color:var(--ink);font:500 17px/1.62 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:#165cc2;text-underline-offset:3px}a:hover{text-decoration-thickness:2px}button,input,select,textarea{font:inherit}button{background:var(--green);color:#fff;cursor:pointer;border:0;padding:12px 16px;border-radius:14px;font-weight:850;min-height:45px;transition:transform .12s,filter .12s}button:hover{filter:brightness(.94);transform:translateY(-1px)}button:disabled{cursor:not-allowed;opacity:.55}button.secondary{background:#e8f4f2;color:#07675e;border:1px solid #badbd7}input:not([type=radio]):not([type=checkbox]):not([type=range]),select,textarea{width:100%;border:1.5px solid #bcd5d6;border-radius:13px;padding:10px 12px;min-height:43px;background:#fff;color:var(--ink)}input[type=number]{min-width:0}input[type=radio],input[type=checkbox]{accent-color:var(--green);height:18px;width:18px;vertical-align:middle}textarea{min-height:95px}summary{cursor:pointer;font-weight:850;padding:10px 0;color:#126d67}details p{margin:4px 0 12px}:focus-visible{outline:3px solid #fba337;outline-offset:3px}
+.wrap{width:min(1180px,calc(100% - 28px));margin:auto}.hero{color:white;background:linear-gradient(120deg,#123e53,#097f73 58%,#56b596);position:relative;overflow:hidden}.hero::before{content:"";position:absolute;inset:0;opacity:.14;background-image:linear-gradient(90deg,white 1px,transparent 1px),linear-gradient(white 1px,transparent 1px);background-size:47px 47px}.hero-grid{display:grid;grid-template-columns:1.13fr .87fr;gap:26px;align-items:center;position:relative;padding:39px 0 42px}.hero h1{font-size:clamp(2.7rem,6.5vw,5.6rem);font-weight:950;letter-spacing:-.065em;line-height:1.04;margin:14px 0}.hero h1 em{font-style:normal;color:#ffdb70}.hero p{font-size:1.1rem;color:#e6fff7;max-width:57ch}.hero-meta{display:flex;gap:9px;flex-wrap:wrap}.hero-meta span,.hero-kicker{border:1px solid #ffffff66;background:#ffffff25;color:#fff;padding:7px 11px;border-radius:99px;font-size:.84rem;font-weight:800}.hero-kicker{letter-spacing:.04em}.hero-photo{position:relative;margin:0}.hero-photo img{width:100%;height:360px;object-fit:cover;border-radius:26px;border:7px solid #fff;box-shadow:16px 18px 0 #ffffff22}.hero-photo figcaption{font-size:.8rem;color:#e9fff5;margin-top:9px}.hero-cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.hero-cta a{background:#ffe38d;color:#19364b;text-decoration:none;border-radius:13px;padding:10px 13px;font-weight:900}
+nav{position:sticky;top:0;z-index:25;background:#fffef6ef;backdrop-filter:blur(10px);border-bottom:1px solid #d0e7df;box-shadow:0 6px 16px #1749550d}.nav-inner{display:flex;gap:6px;overflow:auto;padding:10px 0;scrollbar-width:thin}.nav-inner a{flex-shrink:0;white-space:nowrap;background:#eaf5f2;color:#1e595a;border-radius:50px;padding:8px 11px;text-decoration:none;font-size:.83rem;font-weight:850}
+main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);background:#fff;border:1.5px solid var(--line);border-radius:26px;box-shadow:0 15px 37px #1c4c4a0a;scroll-margin-top:75px}.section:nth-child(3n+1){border-top:7px solid #169d89}.section:nth-child(3n+2){border-top:7px solid #f4a049}.section:nth-child(3n){border-top:7px solid #5c92d8}h2{font-size:clamp(1.7rem,3.5vw,2.65rem);line-height:1.16;letter-spacing:-.045em;margin:9px 0 13px}h3{font-size:1.27rem;line-height:1.24;letter-spacing:-.025em;margin:4px 0 10px}p{margin:8px 0 14px}.eyebrow{color:#08776f;font-size:.84rem;font-weight:950;text-transform:uppercase;letter-spacing:.09em}.lead{font-size:1.06rem;color:#496777}.grid2,.grid3,.grid4{display:grid;gap:15px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}.card{border:1.5px solid #d9e6ea;border-radius:19px;background:linear-gradient(175deg,#fff,#fbfefd);padding:17px;min-width:0}.card.tint{background:#edf9f5;border-color:#bfe7d8}.card.warm{background:#fff7eb;border-color:#f0d7b5}.card.blue{background:#f1f7ff;border-color:#ccdff5}.mini{font-size:.86rem;color:var(--soft);line-height:1.5}.kicker{font-size:.76rem;font-weight:900;display:inline-block;background:#e5f5f0;color:#177c70;border-radius:999px;padding:5px 9px}.stat{color:#086e78;font-weight:950;font-size:clamp(1.7rem,4vw,2.75rem);line-height:1.2}.stat small{font-size:.55em}.note{border-left:6px solid #e7a14a;background:#fff8e9;border-radius:0 13px 13px 0;padding:13px 16px;margin:12px 0}.note.good{background:#edfaf2;border-left-color:#26a679}.answer{background:#f1f8f8;border-left:5px solid #4f9fa2;border-radius:0 12px 12px 0;padding:12px 15px;margin:13px 0;min-height:45px;font-weight:700}.answer.bad{background:#fff2ed;border-left-color:#dc8058}.answer.ok{background:#ecfbef;border-left-color:#149f69}.choices{display:grid;gap:9px}.choices label{display:flex;align-items:center;gap:9px;background:#f5faf9;border:1px solid #d4e5e7;border-radius:12px;padding:10px 12px;cursor:pointer}.mission{border:2px solid #d7e9e6;border-radius:19px;padding:17px;margin:17px 0;background:linear-gradient(145deg,#fff,#f9fefa)}.mission h3{display:flex;align-items:center;gap:11px}.mission-no{display:inline-grid;place-items:center;border-radius:12px;background:linear-gradient(120deg,#087b74,#39b393);color:white;width:42px;height:42px;font-size:1.3rem;font-weight:950;flex-shrink:0}.mission.completed{border-color:#28ae81;background:#f3fff9}.taskfields{display:grid;gap:12px;margin:11px 0}.taskfields label{display:grid;gap:5px;font-weight:800;font-size:.95rem}.twoCols{grid-template-columns:repeat(2,minmax(0,1fr))}.threeCols{grid-template-columns:repeat(3,minmax(0,1fr))}
+.photo{width:100%;height:185px;object-fit:cover;border-radius:15px;background:#eaf1f2;display:block}.photo.big{height:250px}.photo-caption{font-size:.82rem;color:#5c717e;margin-top:8px}.realmap{display:block;width:100%;max-height:570px;object-fit:contain;background:#e8f2f2;border-radius:16px}.mapframe{width:100%;height:400px;border:0;border-radius:16px}.video{width:100%;aspect-ratio:16/9;border:0;border-radius:15px;background:#09273a}.linkbar{display:flex;flex-wrap:wrap;gap:8px}.linkbar a{font-weight:800;background:#eaf5ff;border-radius:11px;padding:9px 11px;text-decoration:none;border:1px solid #cce4ee}.badge{display:inline-block;border-radius:99px;padding:5px 10px;background:#fff0cb;color:#7a5309;font-weight:900;font-size:.82rem}.sectorrow{margin:10px 0}.sectors{display:flex;overflow:hidden;height:30px;border-radius:11px;background:#eaeef3}.sectors div{height:100%;transition:width .2s}.sectorlegend{display:flex;flex-wrap:wrap;gap:10px;font-size:.88rem;font-weight:850;margin:10px 0}.sectorlegend i{width:12px;height:12px;display:inline-block;margin-right:5px;border-radius:3px}.wide{width:100%}.statline{display:flex;justify-content:space-between;gap:12px;font-weight:850;margin:6px 0}.thinbar{height:16px;background:#e4eff3;border-radius:50px;overflow:hidden}.thinbar b{height:100%;display:block;background:#15a58c;border-radius:50px}.progress{height:16px;background:#dfede8;border-radius:50px;overflow:hidden}.progress span{display:block;width:0%;height:100%;background:linear-gradient(90deg,#08a18b,#ffd35a);transition:width .2s}.tiny{font-size:.79rem;color:#607987}.quizq{border-bottom:1px solid #dde8eb;padding:13px 0}.quizq:last-child{border-bottom:0}.quizq strong{display:block;font-size:1.05rem;margin-bottom:8px}.quizq label{display:flex;gap:10px;align-items:start;padding:8px 10px;margin:7px 0;border-radius:12px;border:1px solid #dce9eb;background:#f8fbfc}.quizq select{max-width:100%;margin:7px 0}.quizScore{font-size:3rem;font-weight:1000;color:#096e73}.footer{padding:26px;color:#def1ee;background:#14424a;text-align:center}.footer a{color:#fff2b3}
+@media(max-width:950px){.hero-grid{grid-template-columns:1fr 1fr}.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.hero-grid,.grid2,.grid3,.grid4,.twoCols,.threeCols{grid-template-columns:1fr}.hero-photo img{height:230px}.hero h1{font-size:3rem}.section{margin:16px 0}.photo{height:190px}.mapframe{height:310px}}@media print{nav,button,.video,iframe{display:none!important}.section{break-inside:avoid;box-shadow:none}body{background:white}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap hero-grid">
+<div><span class="hero-kicker">9-А · 9-Б · Географія · урок №12 · §14 · 2026/27</span>
+<h1>ГЕОЕКОНОМІКА <em>LAB</em></h1>
+<p>Які країни живуть із промисловості та послуг? Чому виробництво зерна зосереджено в одних місцях, а рис вирощують в інших? Сьогодні — не пасивна лекція, а <b>економічна розвідка світу</b>.</p>
+<div class="hero-meta"><span>📊 Світовий банк • 2024</span><span>🌾 FAOSTAT • 2024</span><span>🗺️ Реальні карти</span><span>🧪 10 станцій</span><span>✅ Підсумковий тест /12</span></div>
+<div class="hero-cta"><a href="#route">Почати урок</a><a href="#practical">Практична робота</a><a href="#crops">Сільське господарство</a><a href="#quiz">Фінальний тест</a></div>
+</div>
+<figure class="hero-photo"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=85" alt="Справжня фотографія сільськогосподарського ландшафту" loading="eager"><figcaption>Фото сільськогосподарського ландшафту: Unsplash. Чому на фотографії можна бачити господарську діяльність, але не можна визначити ВВП країни?</figcaption></figure>
+</div></header>
+<nav aria-label="Навігація уроком"><div class="wrap nav-inner"><a href="#route">⏱️ Маршрут</a><a href="#sectors">🏭 Сектори</a><a href="#practical">📊 Країни</a><a href="#employment">👷 Зайнятість</a><a href="#crops">🌾 Культури</a><a href="#atlas">🗺️ Атлас</a><a href="#farm">🚜 Агролабораторія</a><a href="#videos">🎬 Відео</a><a href="#quiz">✅ Тест</a></div></nav>
+<main class="wrap">
+<section class="section" id="route">
+<span class="eyebrow">Головне — навчитися досліджувати</span><h2>Місія уроку: від цифр економіки до реальних полів</h2>
+<div class="grid3">
+<div class="card tint"><span class="kicker">0–10 хв</span><h3>Економічна розвідка</h3><p>Визначаємо сектори економіки та порівнюємо структуру виробництва в різних країнах.</p></div>
+<div class="card warm"><span class="kicker">10–23 хв</span><h3>Географія врожаю</h3><p>Досліджуємо поля, клімат, сільськогосподарські культури й світову карту врожаїв.</p></div>
+<div class="card blue"><span class="kicker">23–35 хв</span><h3>Агрономічні рішення</h3><p>Приймаємо рішення за даними, проходимо тест, доводимо висновок, а не вгадуємо.</p></div>
+</div>
+<div class="note good"><b>За КТП:</b> урок №12 охоплює <b>практичну роботу «Групування країн за показниками обсягів виробництва товарів і послуг, структурою виробництва і зайнятості населення»</b> та початок теми <b>«Сільське господарство як вид економічної діяльності. Чинники розвитку й розміщення, зональність світового сільського господарства, найбільші країни-виробники зернових і технічних культур»</b>. Підручник Гільберг, Довгань, Савчук (2026), §14.</div>
+<div class="card"><div class="grid2"><div><h3>Ваш прогрес</h3><div class="stat"><span id="completedN">0</span> / 10</div><p class="mini">Станції зараховуються тільки після правильної перевірки. Працюйте самостійно — усних відповідей не потрібно.</p></div><div><div class="progress" aria-label="Прогрес уроку"><span id="progressBar"></span></div><div id="missionDots" style="display:flex;gap:5px;flex-wrap:wrap;margin-top:11px"></div><button id="resetProgress" class="secondary" type="button">Очистити прогрес (за бажанням)</button></div></div></div>
+</section>
+<section class="section" id="sectors"><span class="eyebrow">Станція 1 · Теорія + тренажер</span><h2>Три сектори економіки: хто що створює?</h2>
+<div class="grid3">
+<div class="card tint"><div class="stat">I</div><h3>Первинний сектор</h3><p>Отримує ресурси з природи: <b>сільське господарство, лісове господарство, рибальство, видобування сировини</b>.</p><p class="mini">Приклад: аграрій виростив пшеницю; гірник видобув руду.</p></div>
+<div class="card blue"><div class="stat">II</div><h3>Вторинний сектор</h3><p>Переробляє сировину та створює матеріальні вироби: <b>машинобудування, харчова промисловість, будівництво</b>.</p><p class="mini">Приклад: завод виготовив трактор; пекарня спекла хліб.</p></div>
+<div class="card warm"><div class="stat">III</div><h3>Третинний сектор</h3><p>Надає <b>послуги</b>: транспорт, торгівля, освіта, медицина, банківські та цифрові послуги.</p><p class="mini">Приклад: логіст перевіз зерно; лікар надав допомогу.</p></div>
+</div>
+<div class="mission" data-mission="1"><h3><span class="mission-no">01</span> Розподіліть професії за секторами</h3><p>Не потрібно перетягувати картки. Для кожного прикладу оберіть сектор. Після перевірки помилки підсвітяться — виправте й повторіть.</p><div id="jobTask" class="taskfields twoCols"></div><button type="button" id="checkJobs">Перевірити класифікацію</button><div class="answer" id="jobFeedback" aria-live="polite">Установіть сектор для всіх восьми видів діяльності.</div></div>
+<div class="note"><b>Важлива відмінність:</b> у статистиці Світового банку група «Agriculture, forestry, and fishing» охоплює сільське, лісове господарство й рибальство. Видобувну діяльність там зазвичай відносять до <b>industry</b>. Отже, ширші шкільні сектори економіки й групи в конкретній таблиці ВВП <b>не завжди збігаються один до одного</b>.</div>
+</section>
+<section class="section" id="practical"><span class="eyebrow">Практична робота · станції 2, 3, 4</span><h2>Дослідіть шість реальних економік світу</h2>
+<p class="lead">В основі таблиці — <b>World Development Indicators, таблиця 4.2 Світового банку, показники за 2024 рік</b>. Частка — відсоток у створеному ВВП, а не частка зайнятих людей. Для частини країн сума трьох часток не дорівнює 100% через особливості обліку чистих податків на продукти.</p>
+<div class="card">
+<div class="grid2">
+<div><label for="countryPick"><b>Виберіть країну для дослідження</b></label><select id="countryPick"><option value="UA">🇺🇦 Україна</option><option value="FR">🇫🇷 Франція</option><option value="IN">🇮🇳 Індія</option><option value="BR">🇧🇷 Бразилія</option><option value="ET">🇪🇹 Ефіопія</option><option value="VN">🇻🇳 В'єтнам</option></select></div>
+<div><span class="kicker">ВВП країни, 2024, поточні долари США</span><div id="countryGDP" class="stat">—</div><p class="mini">Порівнюйте показники за <b>один рік</b>, але не ототожнюйте розмір ВВП із добробутом кожного жителя.</p></div>
+</div>
+<h3 id="countryName">Розподіл доданої вартості за секторами</h3>
+<div class="sectorrow"><div class="sectors" id="sectorBars"></div><div class="sectorlegend" id="sectorLegend"></div></div>
+<div class="grid4" id="sectorMetrics"></div>
+<p class="mini">Дані: Світовий банк, <a href="https://wdi.worldbank.org/table/4.2" target="_blank" rel="noopener">WDI 4.2 (Structure of value added), 2024</a>. Групи: сільське/лісове господарство й рибальство; промисловість (уключно з будівництвом); послуги; залишкова частка (переважно чисті податки на продукти). Не додавайте «manufacturing» до «industry» вдруге — це її складова.</p>
+</div>
+<div class="mission" data-mission="2"><h3><span class="mission-no">02</span> Прочитайте структуру економіки</h3><p><b>Завдання:</b> оберіть країну, натисніть на її назву й прочитайте відповідний показник у діаграмі. На основі чисел із таблиці визначте країни.</p>
+<div class="taskfields threeCols">
+<label>1. Де сільське господарство формувало <b>34,8%</b> ВВП?<select data-auto="ET"><option value="">Оберіть</option><option value="FR">Франція</option><option value="ET">Ефіопія</option><option value="BR">Бразилія</option></select></label>
+<label>2. Де послуги становили <b>70,9%</b> ВВП?<select data-auto="FR"><option value="">Оберіть</option><option value="IN">Індія</option><option value="FR">Франція</option><option value="VN">В'єтнам</option></select></label>
+<label>3. Де промисловість (з будівництвом) формувала <b>37,5%</b> ВВП?<select data-auto="VN"><option value="">Оберіть</option><option value="VN">В'єтнам</option><option value="UA">Україна</option><option value="FR">Франція</option></select></label>
+</div><button class="checkSimple" type="button">Перевірити 3 відповіді</button><div class="answer">Усі відповіді містяться на діаграмі — не потрібно шукати навмання.</div></div>
+<div class="mission" data-mission="3"><h3><span class="mission-no">03</span> Обсяг ≠ частка: пастка для аналітика</h3>
+<div class="grid3"><div class="card"><b>Індія</b><div class="stat">$3760,8 <small>млрд</small></div><p class="mini">ВВП у 2024 році</p></div><div class="card"><b>Франція</b><div class="stat">$3160,4 <small>млрд</small></div><p class="mini">ВВП у 2024 році</p></div><div class="card"><b>Ефіопія</b><div class="stat">$149,7 <small>млрд</small></div><p class="mini">ВВП у 2024 році</p></div></div>
+<div class="taskfields twoCols"><label>1. На скільки млрд доларів ВВП Індії перевищував ВВП Франції? (округліть до десятих)<input type="number" step="0.1" data-auto="600.4" placeholder="Ваше число"></label>
+<label>2. Чи випливає з більшого загального ВВП, що кожен житель Індії багатший?<select data-auto="no"><option value="">Оберіть</option><option value="yes">Так, автоматично</option><option value="no">Ні, ще треба врахувати чисельність населення та інші показники</option></select></label></div>
+<button type="button" class="checkSimple">Перевірити обчислення й висновок</button><div class="answer">Пам'ятайте: номінальний ВВП країни ≠ ВВП на одну особу.</div></div>
+<div class="mission" data-mission="4"><h3><span class="mission-no">04</span> Хто працює в сільському господарстві?</h3><p>Тут два <b>різні показники за один рік (2024)</b>: частка сільського господарства у ВВП та частка всіх зайнятих працівників у сільському господарстві. Частки зайнятості — оцінки <b>МОП (ILO)</b>, тому їх слід читати як модельну статистику.</p>
+<div class="grid2">
+<div class="card tint"><h3>🇮🇳 Індія, 2024</h3><div class="statline"><span>Частка у ВВП</span><b>17,6%</b></div><div class="thinbar"><b style="width:17.6%"></b></div><div class="statline"><span>Частка зайнятих</span><b>≈42,4%</b></div><div class="thinbar"><b style="width:42.4%;background:#ea9b3c"></b></div></div>
+<div class="card warm"><h3>🇧🇷 Бразилія, 2024</h3><div class="statline"><span>Частка у ВВП</span><b>5,8%</b></div><div class="thinbar"><b style="width:5.8%"></b></div><div class="statline"><span>Частка зайнятих</span><b>≈7,7%</b></div><div class="thinbar"><b style="width:7.7%;background:#ea9b3c"></b></div></div></div>
+<div class="taskfields twoCols">
+<label>1. У якій країні більша частка зайнятих у сільському господарстві?<select data-auto="IN"><option value="">Оберіть</option><option value="BR">Бразилія</option><option value="IN">Індія</option></select></label>
+<label>2. Яка частка зайнятих у с/г Індії перевищує частку агросектору у ВВП, у <b>відсоткових пунктах</b>? (42,4 − 17,6)<input type="number" step="0.1" data-auto="24.8" placeholder="Результат"></label>
+<label>3. Який висновок коректний?<select data-auto="careful"><option value="">Оберіть</option><option value="simple">Більше працівників — завжди більше ВВП на працівника</option><option value="careful">Частка зайнятих і частка у ВВП можуть сильно відрізнятися; без додаткових даних не можна точно обчислити продуктивність окремого працівника</option></select></label>
+</div><button type="button" class="checkSimple">Перевірити аналітичні висновки</button><div class="answer">Пояснюйте показник, а не лише назву країни.</div><p class="mini"><b>Джерела:</b> ВВП — <a href="https://wdi.worldbank.org/table/4.2" target="_blank" rel="noopener">World Bank, 2024</a>; зайнятість — <a href="https://ourworldindata.org/grapher/share-of-employment-in-agriculture" target="_blank" rel="noopener">ILO modelled estimates (2026), Our World in Data</a>, значення за 2024 рік (округлено). Методики та охоплення категорій відрізняються — це важливо для інтерпретації.</p>
+</div>
+<div class="note"><b>Висновок до практичної роботи:</b> економічні країни відрізняються не лише <b>розміром ВВП</b>, а й <b>структурою створення вартості</b> та <b>розподілом працівників</b>. Кілька чисел не дозволяють однозначно назвати країну «багатою» або «бідною» без додаткових показників.</div>
+</section>
+<section class="section" id="worldmap"><span class="eyebrow">Тематична карта: перевір факти на карті</span><h2>Картографічна лабораторія Світового банку</h2>
+<div class="grid2"><div class="card"><h3>Частка сільського господарства у ВВП</h3><iframe class="mapframe" loading="lazy" title="Інтерактивна світова карта частки сільського господарства у ВВП, Our World in Data" src="https://ourworldindata.org/grapher/agriculture-share-gdp?tab=map&time=2024"></iframe><p class="mini">Дослідіть, як змінюється показник у регіонах світу. Якщо вбудована карта не відкривається, <a href="https://ourworldindata.org/grapher/agriculture-share-gdp?tab=map&time=2024" target="_blank" rel="noopener">відкрийте повнорозмірну карту</a>.</p></div>
+<div class="card"><h3>Частка зайнятих у сільському господарстві</h3><iframe class="mapframe" loading="lazy" title="Інтерактивна світова карта зайнятості в сільському господарстві, Our World in Data" src="https://ourworldindata.org/grapher/share-of-employment-in-agriculture?tab=map&time=2024"></iframe><p class="mini">Спробуйте порівняти Індію, Францію, Ефіопію. Для показника зайнятості використані оцінки МОП. <a href="https://ourworldindata.org/grapher/share-of-employment-in-agriculture?tab=map&time=2024" target="_blank" rel="noopener">Відкрити окремо</a>.</p></div></div>
+<div class="mission" data-mission="5"><h3><span class="mission-no">05</span> Картографічний детектив</h3><div class="taskfields twoCols">
+<label>1. Яка карта краще показує, скільки людей працює у сільському господарстві?<select data-auto="jobs"><option value="">Оберіть</option><option value="gdp">Частка агросектору у ВВП</option><option value="jobs">Частка зайнятих в агросекторі</option></select></label>
+<label>2. Чому ці карти можуть відрізнятися?<select data-auto="different"><option value="">Оберіть</option><option value="different">Вони вимірюють різні речі — виробництво й працю</option><option value="error">Одна з карт обов’язково неправильна</option></select></label></div>
+<button type="button" class="checkSimple">Перевірити відповідь</button><div class="answer">Не плутайте частку працівників і частку виробленої вартості.</div></div>
+</section>
+<section class="section" id="crops"><span class="eyebrow">Станції 6–8 · Сільське господарство світу</span><h2>🌾 Чому один урожай вирощують у степу, а інший — у мусонній Азії?</h2>
+<div class="grid2">
+<div class="card tint"><h3>Чинники розміщення</h3><p><b>Природні:</b> температура, сума опадів, тривалість вегетації, ґрунти, рельєф, водні ресурси.</p><p><b>Суспільні:</b> кількість і кваліфікація працівників, техніка, зрошення, дороги, близькість переробки й ринку збуту, доступ до капіталу.</p><div class="note good"><b>Зональність:</b> певні культури більш поширені в кліматичних поясах, де для них сприятливі тепло й волога. Але технології й зрошення можуть частково змінювати ці межі.</div></div>
+<div class="card blue"><h3>Що означають групи культур?</h3><p><b>Зернові:</b> пшениця, рис, кукурудза, ячмінь — для зерна.</p><p><b>Технічні:</b> соняшник, соя, ріпак (олійні); цукровий буряк, тростина (цукроносні); бавовник (волокниста); чай і кава (тонізуючі).</p><p><b>Інші:</b> картопля, овочі, фрукти. Деякі класифікації перетинаються залежно від призначення культури.</p></div></div>
+<div class="grid3">
+<figure class="card"><img class="photo" loading="lazy" src="https://images.unsplash.com/photo-1501436513145-30f24e19fcc4?auto=format&fit=crop&w=1000&q=75" alt="Пшеничне поле у сезон вирощування"><figcaption class="photo-caption"><b>Пшениця:</b> поширена в помірному поясі; значення мають сезонні температури та ґрунти. Фото: Unsplash (ілюстрація, не вимірювання врожайності).</figcaption></figure>
+<figure class="card"><img class="photo" loading="lazy" src="https://i.natgeofe.com/n/fed98383-05ee-45d8-81cb-7005f7c13f19/28009.jpg" alt="Реальне фото терасованих рисових полів на Філіппінах"><figcaption class="photo-caption"><b>Рис:</b> приклад терас і керування водою на Філіппінах. Фото National Geographic. <a href="https://whc.unesco.org/en/list/722/" target="_blank" rel="noopener">UNESCO: тераси Іфугао</a>.</figcaption></figure>
+<figure class="card"><img class="photo" loading="lazy" src="https://www.portaldoagronegocio.com.br/img/cache/cover/storage/images/notices/5f5b765e6e7c7.jpg" alt="Реальна фотографія полів цукрової тростини і бавовнику в Бразилії"><figcaption class="photo-caption"><b>Технічні культури:</b> цукрова тростина та бавовник — різні види сировини. Фото: Portal do Agronegócio.</figcaption></figure>
+</div>
+<div class="mission" data-mission="6"><h3><span class="mission-no">06</span> Зернові чи технічні? Розподіліть 10 культур</h3><p>Для кожної культури оберіть її шкільну групу. Деякі технічні культури також використовують у їжу — зверніть увагу на основне призначення сировини.</p><div id="cropSort" class="taskfields twoCols"></div><button type="button" id="cropCheck">Перевірити групи культур</button><div class="answer" id="cropFeedback">Оберіть тип для всіх 10 культур.</div></div>
+<div class="mission" data-mission="7"><h3><span class="mission-no">07</span> Розшифруйте агрокліматичний пояс</h3><p>Зіставте умови вирощування та найхарактернішу культуру з чотирьох запропонованих. Це <b>типові</b> поєднання, а не правило «інша культура тут не виросте».</p>
+<div class="taskfields twoCols">
+<label>🌾 Помірні широти, родючі ґрунти, виражений сезон росту:<select data-auto="wheat"><option value="">Оберіть</option><option value="wheat">Пшениця</option><option value="palm">Олійна пальма</option><option value="rice">Рис на заливних полях</option><option value="cocoa">Какао</option></select></label>
+<label>🍚 Висока температура, багато води, зрошувані або заливні поля:<select data-auto="rice"><option value="">Оберіть</option><option value="wheat">Пшениця</option><option value="rice">Рис</option><option value="olive">Олива</option><option value="beet">Цукровий буряк</option></select></label>
+<label>🌴 Постійно теплий, вологий екваторіальний пояс:<select data-auto="palm"><option value="">Оберіть</option><option value="rye">Жито</option><option value="palm">Олійна пальма</option><option value="wheat">Пшениця</option><option value="beet">Цукровий буряк</option></select></label>
+<label>🍇 Тепле сухе літо, м'яка волога зима, Середземномор'я:<select data-auto="olive"><option value="">Оберіть</option><option value="rice">Заливний рис</option><option value="olive">Олива або виноград</option><option value="palm">Олійна пальма</option><option value="rye">Жито</option></select></label>
+</div><button type="button" class="checkSimple">Перевірити зональність</button><div class="answer">Зіставляйте рослину з вимогами до тепла й вологи.</div></div>
+<div class="card warm"><h3>📊 FAO: що справді виробили у світі в 2024 році?</h3>
+<div class="grid3">
+<div><div class="stat">3,1 <small>млрд т</small></div><p>зернових культур (усіх разом, не лише пшениці)</p></div>
+<div><div class="stat">1,2 <small>млрд т</small></div><p>олійних культур (сукупна група FAO)</p></div>
+<div><div class="stat">2,2 <small>млрд т</small></div><p>цукрових культур (тростина, буряк та ін.)</p></div>
+</div>
+<div class="note"><b>Дати мають значення:</b> ці числа охоплюють <b>2024 рік</b>, а підсумки FAOSTAT оприлюднено <b>31.12.2025</b>. Не порівнюйте тонни врожаю з доларами ВВП без перерахунку одиниць. <a href="https://www.fao.org/statistics/highlights-archive/highlights-detail/agricultural-production-statistics-2010-2024/en" target="_blank" rel="noopener">Першоджерело FAO</a>.</div>
+</div>
+<div class="mission" data-mission="8"><h3><span class="mission-no">08</span> Рейтинг виробників і рахунок за FAOSTAT</h3>
+<div class="grid2">
+<div class="card"><h3>Пшениця, 2024 · млн т</h3><div class="statline"><span>Китай</span><span>≈140</span></div><div class="thinbar"><b style="width:100%"></b></div><div class="statline"><span>Індія</span><span>≈113</span></div><div class="thinbar"><b style="width:80.7%"></b></div></div>
+<div class="card"><h3>Кукурудза, 2024 · млн т</h3><div class="statline"><span>США</span><span>≈378</span></div><div class="thinbar"><b style="width:100%;background:#f2a341"></b></div><div class="statline"><span>Китай</span><span>≈295</span></div><div class="thinbar"><b style="width:78%;background:#f2a341"></b></div><div class="statline"><span>Бразилія</span><span>≈115</span></div><div class="thinbar"><b style="width:30.4%;background:#f2a341"></b></div></div></div>
+<div class="taskfields twoCols">
+<label>1. На скільки млн т Китай виробив більше пшениці, ніж Індія? (140 − 113)<input type="number" step="1" data-auto="27" placeholder="Ваш результат"></label>
+<label>2. Хто найбільший із наведених виробників кукурудзи?<select data-auto="US"><option value="">Оберіть</option><option value="CN">Китай</option><option value="BR">Бразилія</option><option value="US">США</option></select></label>
+<label>3. Чому не слід називати найбільшого <b>виробника</b> автоматично найбільшим експортером?<select data-auto="home"><option value="">Оберіть</option><option value="home">Велика частина врожаю може споживатися всередині країни</option><option value="same">Виробництво й експорт завжди однакові</option></select></label></div>
+<button type="button" class="checkSimple">Перевірити порівняння</button><div class="answer">Пам'ятайте: виробництво ≠ експорт.</div><p class="mini">Дані FAOSTAT 2024, заокруглено: <a href="https://geopolitics.tools/food/wheat" target="_blank" rel="noopener">пшениця</a>, <a href="https://geopolitics.tools/food/maize" target="_blank" rel="noopener">кукурудза</a>. Єдина методика обліку потрібна для точних порівнянь.</p>
+</div>
+</section>
+<section class="section" id="atlas"><span class="eyebrow">Реальна карта · FAO / Crop Monitor</span><h2>🗺️ Де насправді вирощують пшеницю, рис, сою та кукурудзу?</h2>
+<p class="lead">Карта нижче — не вигадана схема «за кольорами країн», а <b>реальне тематичне зображення сільськогосподарських площ</b> з міжнародної системи Crop Monitor / GEOGLAM. Вона показує поширення <b>посівних площ</b>, а не валовий урожай у тоннах.</p>
+<div class="card"><img class="realmap" src="https://images.squarespace-cdn.com/content/v1/636c12f7f9c2561de642a866/beee4a67-7b08-4caf-b028-a9feb9c3f9cf/CM4AMIS%2Bmask%2Bfigure.jpg" loading="lazy" alt="Реальні карти поширення основних культур: кукурудза, соя, озима й яра пшениця та рис; Crop Monitor GEOGLAM"><p class="mini">Джерело: <a href="https://www.cropmonitor.org/" target="_blank" rel="noopener">GEOGLAM Crop Monitor</a>, глобальні маски сільськогосподарських культур. Збільшіть зображення або відкрийте <a href="https://images.squarespace-cdn.com/content/v1/636c12f7f9c2561de642a866/beee4a67-7b08-4caf-b028-a9feb9c3f9cf/CM4AMIS%2Bmask%2Bfigure.jpg" target="_blank" rel="noopener">повну карту</a>.</p></div>
+<div class="grid2"><div class="card"><h3>Географічні особливості</h3><p><b>Пшениця:</b> великі посівні райони помірного поясу Євразії, Північної Америки та інших материків.</p><p><b>Рис:</b> особливо поширений у мусонній і вологій Азії.</p><p><b>Кукурудза:</b> значні площі в США, Китаї, Бразилії та інших країнах різних широт.</p><p><b>Соя:</b> важливі зони в Америці й Азії.</p></div>
+<div class="card warm"><h3>Наукове дослідження FAO GAEZ</h3><p>Карта, де культура росте сьогодні, — не те саме, що карта її <b>потенційної придатності</b>. Система FAO Global Agro-Ecological Zones вивчає ґрунти, клімат, воду, придатність і потенційну врожайність для багатьох культур.</p><div class="linkbar"><a href="https://www.fao.org/gaez/gaezv4/en" target="_blank" rel="noopener">FAO GAEZ v4: дослідження</a><a href="https://www.fao.org/faostat/en/#data/QCL" target="_blank" rel="noopener">FAOSTAT: виробництво культур</a></div></div></div>
+</section>
+<section class="section" id="farm"><span class="eyebrow">Станції 9–10 · Ви керуєте агрорішеннями</span><h2>🚜 Плануємо врожай: не фантазія, а географічні чинники</h2>
+<div class="mission" data-mission="9"><h3><span class="mission-no">09</span> Виберіть культуру для регіону</h3><p>Уявіть, що Ви консультуєте фермерську команду. <b>Обирайте найвідповіднішу культуру для зазначених умов</b>. Це навчальна модель, а не прогноз фактичної врожайності чи дозвіл на вирощування.</p>
+<div class="grid2 taskfields">
+<label>🌾 <b>Ферма А.</b> Помірно тепле літо, родючий чорнозем, без достатньої води для заливних полів:<select data-auto="wheat"><option value="">Оберіть культуру</option><option value="rice">Заливний рис</option><option value="wheat">Пшениця</option><option value="palm">Олійна пальма</option></select></label>
+<label>🍚 <b>Ферма Б.</b> Постійно теплий сезон, можливість підтримувати водний режим рисових полів:<select data-auto="rice"><option value="">Оберіть культуру</option><option value="rice">Рис</option><option value="rye">Жито</option><option value="beet">Цукровий буряк</option></select></label>
+<label>🌻 <b>Ферма В.</b> Теплий сезон у помірній зоні, доступ до переробки олійних культур:<select data-auto="sun"><option value="">Оберіть культуру</option><option value="sun">Соняшник</option><option value="palm">Олійна пальма</option><option value="coffee">Кава</option></select></label>
+<label>🌴 <b>Ферма Г.</b> Вологі тропіки без прохолодної зими, тривалий теплий період:<select data-auto="palm"><option value="">Оберіть культуру</option><option value="wheat">Озима пшениця</option><option value="palm">Олійна пальма</option><option value="beet">Цукровий буряк</option></select></label></div>
+<button type="button" class="checkSimple">Перевірити вибір агронома</button><div class="answer">Які природні й суспільні чинники Ви використали?</div>
+<details><summary>Навіщо нам ці вправи?</summary><p>Вони тренують зв'язок «умови → властивості культури → господарське рішення». У реальній роботі також перевіряють ґрунтову карту, доступність води, господарські ризики й економіку виробництва.</p></details>
+</div>
+<div class="mission" data-mission="10"><h3><span class="mission-no">10</span> Мініферма: розрахуйте врожай і не переплутайте одиниці</h3><p><b>Умовна навчальна задача, не статистика конкретного господарства.</b> Ферма має 160 га землі під пшеницею. Змодельована врожайність становить 5,2 т/га.</p>
+<div class="grid2"><div class="card tint"><label for="yieldSlider"><b>Змінюйте навчальну врожайність</b> (т/га): <b id="yieldValue">5,2</b></label><input type="range" id="yieldSlider" min="2" max="8" step="0.2" value="5.2" style="width:100%;accent-color:#148c80"><div class="stat" id="yieldEstimate">832 т</div><p class="mini">Модельний валовий збір = площа (га) × врожайність (т/га).</p></div>
+<div class="card warm"><h3>Що змінює результат?</h3><p>Погода, родючість ґрунтів, водозабезпеченість, сорт, техніка, добрива, втрати врожаю, хвороби.</p><p><b>Реальна статистика врожайності</b> потребує визначених року, території й культури.</p></div></div>
+<div class="taskfields twoCols">
+<label>1. Скільки тонн пшениці зберуть із 160 га за врожайності <b>5,2 т/га</b>?<input type="number" step="1" data-auto="832" placeholder="У тоннах"></label>
+<label>2. Які одиниці має правильна відповідь?<select data-auto="t"><option value="">Оберіть</option><option value="ha">Гектари</option><option value="t">Тонни</option><option value="perc">Відсотки</option></select></label>
+<label>3. Чи можна стверджувати, що за такої моделі вся Україна отримала такий самий урожай?<select data-auto="no"><option value="">Оберіть</option><option value="yes">Так, це офіційна статистика</option><option value="no">Ні, це лише розрахунок для умовної ферми</option></select></label>
+</div><button type="button" class="checkSimple">Перевірити урожай</button><div class="answer">Підставляйте у відповідь саме задані значення, не поточне значення повзунка.</div></div>
+</section>
+<section class="section" id="videos"><span class="eyebrow">Відеолабораторія українською</span><h2>🎬 Не дивіться пасивно: перевірте, що зрозуміли</h2>
+<div class="grid2">
+<div class="card"><h3>Pi-stacja UA · «Сільське господарство світу»</h3><iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/qKMljY0yuDo" allowfullscreen title="Український відеоурок: Сільське господарство світу, Pi-stacja UA"></iframe><p class="mini">Для основного уроку: від 01:21 — пшениця, рис, кукурудза; від 06:12 — технічні культури. Відео українською; повний фільм — для поглиблення.</p><div class="linkbar"><a href="https://www.youtube.com/watch?v=qKMljY0yuDo&t=81s" target="_blank" rel="noopener">Відкрити з 01:21</a><a href="https://www.youtube.com/watch?v=qKMljY0yuDo&t=372s" target="_blank" rel="noopener">З 06:12</a></div></div>
+<div class="card"><h3>Географія ПРОСТО · «Сільське господарство світу»</h3><iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/Aa8_sQJTHHU" allowfullscreen title="Український відеоурок про сільське господарство світу"></iframe><p class="mini">01:11 — зернові, 03:26 — технічні культури. Класифікації пояснено на прикладах.</p><div class="linkbar"><a href="https://www.youtube.com/watch?v=Aa8_sQJTHHU&t=71s" target="_blank" rel="noopener">Відкрити з 01:11</a><a href="https://www.youtube.com/watch?v=Aa8_sQJTHHU&t=206s" target="_blank" rel="noopener">З 03:26</a></div></div></div>
+<div class="card"><h3>Два запитання після перегляду</h3><div class="choices" id="videoChoices">
+<label><input type="radio" name="video1" value="yes"> Правильно: пшениця, рис і кукурудза належать до зернових культур.</label>
+<label><input type="radio" name="video1" value="no"> Неправильно: пшениця, рис і кукурудза належать до технічних волокнистих культур.</label></div>
+<p><button id="videoCheck">Перевірити розуміння відео</button></p><div id="videoFeedback" class="answer">Оберіть правильне твердження.</div>
+</div></section>
+<section class="section" id="quiz"><span class="eyebrow">Підсумкова перевірка · 12 балів</span><h2>✅ Фінальний географічний тест</h2>
+<p class="lead">12 завдань, по одному балу кожне. Після завершення ви побачите оцінку й пояснення до відповідей. Для зарахування потрібно вказати прізвище, ім'я і клас. Тест не надсилає особисті дані на сторонній сервер — вчитель отримує скриншот результату.</p>
+<div class="card" id="quizGate"><div class="grid2 taskfields"><label>Ваше ім'я та прізвище<input id="qName" autocomplete="name" type="text" placeholder="Наприклад: Марія Шевченко"></label><label>Клас<select id="qClass"><option value="">Оберіть</option><option>9-А</option><option>9-Б</option><option>9</option></select></label></div><button id="startQuiz" type="button">Відкрити тест /12</button><div id="gateFeedback" class="answer">Укажіть прізвище та ім'я (не лише одне слово), оберіть клас.</div></div>
+<div class="card" id="quizArea" style="display:none"><div id="quizQuestions"></div><button id="finishQuiz">Завершити тест</button><div class="answer" id="quizWarnings"></div></div>
+<div class="card" id="quizResults" style="display:none"><h3>Ваш навчальний результат</h3><b id="qrName"></b><div class="quizScore" id="qrScore">—</div><p id="qrMessage"></p><p id="qrTimestamp"></p><div class="note good"><b>Що здати:</b> скриншот результату, на якому видно ваше ім'я, клас і бал, та висновок до практичної роботи (4–6 речень). Не забудьте зазначити джерела показників.</div><details><summary>Пояснення до всіх 12 завдань</summary><div id="qrExplanations"></div></details><button id="retryQuiz" class="secondary">Пройти ще раз</button></div>
+</section>
+<section class="section" id="home"><span class="eyebrow">Підсумок і домашнє завдання</span><h2>Що повинно залишитися після уроку?</h2>
+<div class="grid2">
+<div class="card"><h3>Міні-висновок практичної роботи</h3><p>Напишіть <b>4–6 речень</b>, у яких:</p><ol><li>Назвіть дві порівнювані країни.</li><li>Наведіть по одному числовому показнику за 2024 рік із таблиці Світового банку.</li><li>Поясніть, чому структура економіки цих країн різниться.</li><li>Зазначте, що треба дослідити додатково, щоб оцінити рівень життя людей.</li></ol><p><b>Надішліть:</b> скриншот тесту, скриншот проходження інтерактивних станцій і цей висновок.</p></div>
+<div class="card warm"><h3>Домашня робота</h3><p><b>§14.</b> Повторити первинний, вторинний і третинний сектори економіки та чинники розміщення сільського господарства. Закінчити станції 1–10 і підсумковий тест.</p><p><b>За бажанням:</b> оберіть пшеницю, рис або кукурудзу, знайдіть у FAOSTAT два основні райони виробництва та коротко поясніть, які агрокліматичні чинники їм сприяють.</p></div></div>
+<div class="note good"><b>Чому це важливо?</b> Одне й те саме господарське явище можна описати <b>часткою в економіці</b>, <b>кількістю зайнятих</b>, <b>масою врожаю</b> або <b>розташуванням на карті</b>. Вміння не плутати ці показники — головний результат уроку.</div></section>
+<section class="section" id="sources"><span class="eyebrow">Перевірка даних і посилання</span><h2>Першоджерела та дати</h2>
+<div class="linkbar">
+<a href="https://wdi.worldbank.org/table/4.2" target="_blank" rel="noopener">Світовий банк: структура ВВП, 2024</a>
+<a href="https://ourworldindata.org/grapher/share-of-employment-in-agriculture" target="_blank" rel="noopener">МОП / World Bank: зайнятість, 2024</a>
+<a href="https://www.fao.org/statistics/highlights-archive/highlights-detail/agricultural-production-statistics-2010-2024/en" target="_blank" rel="noopener">FAOSTAT: статистика 2024</a>
+<a href="https://www.fao.org/faostat/en/#data/QCL" target="_blank" rel="noopener">FAOSTAT: культури</a>
+<a href="https://www.cropmonitor.org/" target="_blank" rel="noopener">GEOGLAM Crop Monitor</a>
+<a href="https://www.fao.org/gaez/gaezv4/en" target="_blank" rel="noopener">FAO GAEZ: агрокліматична придатність</a>
+<a href="https://whc.unesco.org/en/list/722/" target="_blank" rel="noopener">UNESCO: тераси Іфугао</a>
+<a href="https://www.youtube.com/watch?v=qKMljY0yuDo" target="_blank" rel="noopener">Pi-stacja UA: відео</a>
+</div><p class="mini">Навчальна сторінка містить датовану статистику: основні економічні та виробничі порівняння — за 2024 рік, оприлюднені в 2025–2026 роках. Практичні сценарії та врожайність умовної ферми — моделі, а не факт про конкретне господарство. Світлини й картографічні матеріали завантажуються із сайтів відповідних правовласників; іноді зовнішній сайт може обмежувати вбудовування. У такому разі відкрийте посилання на джерело.</p></section>
+</main>
+<footer class="footer"><div class="wrap">«ГЕОЕКОНОМІКА LAB» · Географія 9 клас · урок №12 · §14 · КТП 2026/2027 · Василівський ліцей «Сузір’я» · <a href="#route">До початку уроку</a></div></footer>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sectorCountries={
+ UA:{n:'Україна',gdp:190.8,a:7.3,i:19.0,s:60.4},
+ FR:{n:'Франція',gdp:3160.4,a:1.3,i:17.2,s:70.9},
+ IN:{n:'Індія',gdp:3760.8,a:17.6,i:25.2,s:48.0},
+ BR:{n:'Бразилія',gdp:2185.8,a:5.8,i:20.9,s:59.2},
+ ET:{n:'Ефіопія',gdp:149.7,a:34.8,i:25.4,s:37.5},
+ VN:{n:"В'єтнам",gdp:476.3,a:12.0,i:37.5,s:42.4}
+};
+const countryColors={a:'#14a78e',i:'#f4aa4c',s:'#518fe3',other:'#d9e3ef'};
+function nfmt(v){return Number(v).toLocaleString('uk-UA',{maximumFractionDigits:1,minimumFractionDigits:1});}
+function setCountry(){
+ const c=sectorCountries[$('countryPick').value],other=Math.max(0,100-c.a-c.i-c.s);
+ $('countryName').textContent=c.n+' · структура створення ВВП у 2024 році';
+ $('countryGDP').textContent='$'+nfmt(c.gdp)+' млрд';
+ const parts=[['a',c.a,'Сільське господарство, лісове, рибальство'],['i',c.i,'Промисловість, у тому числі будівництво'],['s',c.s,'Послуги'],['other',other,'Залишок у ВВП (переважно чисті податки на продукти)']];
+ $('sectorBars').innerHTML=parts.map(x=>'<div title="'+esc(x[2])+': '+nfmt(x[1])+'%" style="width:'+x[1]+'%;background:'+countryColors[x[0]]+'"></div>').join('');
+ $('sectorLegend').innerHTML=parts.map(x=>'<span><i style="background:'+countryColors[x[0]]+'"></i>'+esc(x[2])+': '+nfmt(x[1])+'%</span>').join('');
+ $('sectorMetrics').innerHTML=parts.map(x=>'<div class="card"><span class="stat" style="font-size:1.7rem;color:'+countryColors[x[0]]+'">'+nfmt(x[1])+'%</span><p class="mini">'+esc(x[2])+'</p></div>').join('');
+}
+$('countryPick').addEventListener('change',setCountry);setCountry();
+const jobs=[
+['Вирощування пшениці','I','ag'],['Виробництво хліба на хлібозаводі','II','factory'],['Доставка хліба до магазину','III','deliver'],
+['Вилов риби','I','fish'],['Видобування залізної руди','I','ore'],['Виробництво комбайна на заводі','II','tractor'],
+['Робота лікаря','III','health'],['Робота програміста в ІТ-компанії','III','it']
+];
+const types=[['I','I — первинний'],['II','II — вторинний'],['III','III — третинний']];
+$('jobTask').innerHTML=jobs.map((job,i)=>'<label><b>'+esc(job[0])+'</b><select data-job="'+i+'"><option value="">Оберіть сектор</option>'+types.map(t=>'<option value="'+t[0]+'">'+t[1]+'</option>').join('')+'</select></label>').join('');
+const crops=[
+['Пшениця','зернова'],['Рис','зернова'],['Кукурудза','зернова'],['Ячмінь','зернова'],
+['Соняшник','технічна'],['Соя','технічна'],['Бавовник','технічна'],['Цукровий буряк','технічна'],
+['Картопля','інша'],['Яблуня','інша']
+];
+const cropTypes=[['зернова','Зернова'],['технічна','Технічна'],['інша','Інша (овочева, плодова, бульбоплідна)']];
+$('cropSort').innerHTML=crops.map((x,i)=>'<label><b>'+esc(x[0])+'</b><select data-crop="'+i+'"><option value="">Оберіть групу</option>'+cropTypes.map(t=>'<option value="'+t[0]+'">'+t[1]+'</option>').join('')+'</select></label>').join('');
+let completed=new Set();
+try{completed=new Set(JSON.parse(localStorage.getItem('geo9l12done')||'[]').filter(x=>Number.isInteger(x)&&x>=1&&x<=10));}catch(e){}
+function updateProgress(){
+ $('completedN').textContent=completed.size;
+ $('progressBar').style.width=(completed.size*10)+'%';
+ $('missionDots').innerHTML=[1,2,3,4,5,6,7,8,9,10].map(n=>'<span style="width:29px;height:29px;border-radius:50%;display:grid;place-items:center;font-weight:950;background:'+(completed.has(n)?'#13a37c':'#e6edeb')+';color:'+(completed.has(n)?'#fff':'#66808a')+'">'+n+'</span>').join('');
+ document.querySelectorAll('.mission[data-mission]').forEach(c=>c.classList.toggle('completed',completed.has(Number(c.dataset.mission))));
+ try{localStorage.setItem('geo9l12done',JSON.stringify([...completed]));}catch(e){}
+}
+updateProgress();
+function gradeMission(card,hits,total){
+ const no=Number(card.dataset.mission),fb=card.querySelector('.answer');
+ if(hits===total){completed.add(no);fb.className='answer ok';fb.textContent='✅ '+hits+'/'+total+'. Усі відповіді правильні. Станція '+no+' завершена!';}
+ else{completed.delete(no);fb.className='answer bad';fb.textContent='Зараз '+hits+'/'+total+'. Зверніть увагу на поля з помаранчевою рамкою: скористайтеся поясненням і виправте.';}
+ updateProgress();
+}
+function mark(el,ok){el.style.borderColor=ok?'#26a67c':'#df8459';el.setAttribute('aria-invalid',String(!ok));}
+function checkAuto(card){
+ const fields=[...card.querySelectorAll('[data-auto]')],answer=card.querySelector('.answer');
+ if(fields.some(x=>x.value==='')){answer.textContent='Заповніть усі поля цієї станції.';answer.className='answer';return}
+ let hits=0;fields.forEach(el=>{const actual=el.type==='number'?Number(el.value):el.value;const exp=el.type==='number'?Number(el.dataset.auto):el.dataset.auto;const good=el.type==='number'?Math.abs(actual-exp)<.05:actual===exp;if(good)hits++;mark(el,good)});
+ gradeMission(card,hits,fields.length);
+}
+document.querySelectorAll('.checkSimple').forEach(b=>b.addEventListener('click',()=>checkAuto(b.closest('.mission'))));
+$('checkJobs').addEventListener('click',()=>{
+ const fields=[...document.querySelectorAll('[data-job]')];
+ if(fields.some(x=>!x.value)){$('jobFeedback').textContent='Оберіть сектор для всіх 8 видів діяльності.';return;}
+ const hits=fields.filter(s=>{const ok=s.value===jobs[Number(s.dataset.job)][1];mark(s,ok);return ok}).length;
+ gradeMission(document.querySelector('.mission[data-mission="1"]'),hits,fields.length);
+});
+$('cropCheck').addEventListener('click',()=>{
+ const fields=[...document.querySelectorAll('[data-crop]')];
+ if(fields.some(x=>!x.value)){$('cropFeedback').textContent='Оберіть групу для всіх 10 культур.';return;}
+ const hits=fields.filter(s=>{const ok=s.value===crops[Number(s.dataset.crop)][1];mark(s,ok);return ok}).length;
+ gradeMission(document.querySelector('.mission[data-mission="6"]'),hits,fields.length);
+});
+$('yieldSlider').addEventListener('input',()=>{
+ const v=Number($('yieldSlider').value);
+ $('yieldValue').textContent=nfmt(v);
+ $('yieldEstimate').textContent=nfmt(160*v)+' т';
+});
+$('videoCheck').addEventListener('click',()=>{
+ const x=document.querySelector('input[name=video1]:checked');
+ $('videoFeedback').textContent=!x?'Оберіть твердження.':x.value==='yes'?'✅ Вірно! Пшениця, рис і кукурудза — зернові. Поясніть самостійно, які відмінності потрібної кількості води у рису й пшениці.':'❗ Ні. Три названі рослини належать до зернових культур.';
+});
+$('resetProgress').addEventListener('click',()=>{
+ if(!window.confirm('Видалити позначки завершених станцій на цьому пристрої?'))return;
+ completed.clear();updateProgress();
+});
+document.querySelectorAll('.mission select,.mission input').forEach(e=>e.addEventListener('change',()=>{
+ const card=e.closest('.mission'); if(!card)return;
+ const no=Number(card.dataset.mission); completed.delete(no); e.style.borderColor='';updateProgress();
+}));
+const quiz=[
+{q:'Що означає «первинний сектор економіки» у широкій шкільній класифікації?',t:'one',o:['Надання освітніх послуг','Отримання природних ресурсів та їх використання як сировини','Виробництво готових автомобілів'],a:1,e:'Первинний сектор пов’язаний із безпосереднім залученням природних ресурсів.'},
+{q:'Чим займається вторинний сектор?',t:'one',o:['Переробляє сировину, виробляє готову продукцію та здійснює будівництво','Надає лише послуги','Тільки продає готові товари'],a:0,e:'Виробництво промислових товарів і будівництво — ключові приклади вторинного сектору.'},
+{q:'У якій країні, за WDI 2024, агросектор формував 34,8% ВВП?',t:'one',o:['Франція','Ефіопія','Бразилія'],a:1,e:'У 2024 році частка становила 34,8% в Ефіопії.'},
+{q:'Що показує частка послуг у ВВП?',t:'one',o:['Частку працівників у сервісі','Внесок послуг у створення вартості економіки','Кількість готелів'],a:1,e:'Частка у ВВП вимірює додану вартість, не чисельність працівників.'},
+{q:'В Індії у 2024 агросектор давав 17,6% ВВП, а в ньому працювали ≈42,4% зайнятих. Який висновок обґрунтований?',t:'one',o:['Ці два показники різні за змістом і можуть сильно відрізнятися','Кожен аграрій отримує 17,6% зарплати','Треба додати відсотки й отримати урожай'],a:0,e:'Розподіл працівників і розподіл доданої вартості — різні статистичні величини.'},
+{q:'Оберіть усі зернові культури.',t:'multi',o:['Пшениця','Рис','Соняшник','Кукурудза'],a:[0,1,3],e:'Пшениця, рис і кукурудза — зернові; соняшник — олійна технічна культура.'},
+{q:'Оберіть усі технічні культури.',t:'multi',o:['Бавовник','Цукровий буряк','Ріпак','Яблуня'],a:[0,1,2],e:'Бавовник — волокнистий, буряк — цукроносний, ріпак — олійний; яблуня — плодова культура.'},
+{q:'Для яких умов найбільш характерні заливні поля рису?',t:'one',o:['Мало води й холодна мерзлота','Тривалий теплий сезон і можливість забезпечити водний режим','Лише пустеля без зрошення'],a:1,e:'Водозабезпеченість і тепло мають велике значення для традиційного вирощування рису.'},
+{q:'Які два показники слід порівнювати, щоб встановити різницю між структурами зайнятості?',t:'one',o:['Частки зайнятих за видами економічної діяльності','Тільки площу країни','Різницю часових поясів'],a:0,e:'Для структури зайнятості потрібно знати, який відсоток людей працює в кожній діяльності.'},
+{q:'За FAO, світове виробництво зернових у 2024 році було близько…',t:'one',o:['3,1 млрд т','3,1 млн т','31 тис. т'],a:0,e:'FAOSTAT: приблизно 3,1 млрд тонн зернових у 2024 році.'},
+{q:'Яке твердження щодо найбільших виробників зерна правильне?',t:'one',o:['Велике виробництво автоматично означає найбільший експорт','Країна може багато вирощувати й багато споживати всередині держави','Виробництво вимірюють лише доларами'],a:1,e:'Виробництво й експорт не тотожні: внутрішній ринок теж використовує врожай.'},
+{q:'Ферма має 160 га і модельну врожайність 5,2 т/га. Який валовий збір?',t:'one',o:['30,8 т','165,2 т','832 т'],a:2,e:'160 × 5,2 = 832 т. Це навчальна модель.'}
+];
+function quizRender(){
+ $('quizQuestions').innerHTML=quiz.map((q,i)=>'<div class="quizq"><strong>'+(i+1)+'. '+esc(q.q)+'</strong>'+q.o.map((opt,j)=>'<label><input type="'+(q.t==='multi'?'checkbox':'radio')+'" name="quiz'+i+'" value="'+j+'"> '+esc(opt)+'</label>').join('')+'</div>').join('');
+}
+function validFullName(v){return v.trim().split(/\s+/).filter(Boolean).length>=2 && v.trim().length>=5;}
+$('startQuiz').addEventListener('click',()=>{
+ if(!validFullName($('qName').value)||!$('qClass').value){$('gateFeedback').textContent='Потрібні прізвище та ім’я (два слова) і вибраний клас.';return;}
+ quizRender();$('quizGate').style.display='none';$('quizArea').style.display='block';$('quizWarnings').textContent='Виконайте всі 12 завдань, потім натисніть кнопку завершення.'; $('quizArea').scrollIntoView({behavior:'smooth'});
+});
+$('finishQuiz').addEventListener('click',()=>{
+ let score=0,explain=[],missing=0;
+ quiz.forEach((q,i)=>{
+  const v=[...document.querySelectorAll('[name="quiz'+i+'"]:checked')].map(x=>Number(x.value)).sort((a,b)=>a-b);
+  if(!v.length)missing++;
+  const ok=q.t==='one'?v.length===1&&v[0]===q.a:JSON.stringify(v)===JSON.stringify(q.a);
+  if(ok)score++;
+  explain.push('<p><b>№'+(i+1)+': '+(ok?'правильно':'потребує повторення')+'</b>. '+esc(q.e)+'</p>');
+ });
+ if(missing){$('quizWarnings').textContent='Є пропущені завдання: '+missing+'. Спочатку дайте відповіді на всі 12 запитань.';return;}
+ $('qrName').textContent=$('qName').value.trim()+' • '+$('qClass').value;
+ $('qrScore').textContent=score+' / 12';
+ $('qrMessage').textContent=score>=11?'Матеріал засвоєно: ви вмієте застосовувати дані для висновків.':score>=8?'Основи засвоєно. Перевірте пояснення і поверніться до помилкових завдань.':score>=5?'Потрібно ще потренувати групування країн і розміщення культур.':'Почніть із секторів економіки та агрокліматичних зон, потім повторіть тест.';
+ $('qrTimestamp').textContent='Результат отримано '+new Date().toLocaleString('uk-UA')+'.';
+ $('qrExplanations').innerHTML=explain.join('');
+ $('quizArea').style.display='none';$('quizResults').style.display='block';$('quizResults').scrollIntoView({behavior:'smooth'});
+});
+$('retryQuiz').addEventListener('click',()=>{
+ $('quizResults').style.display='none';$('quizArea').style.display='block';quizRender();$('quizArea').scrollIntoView({behavior:'smooth'});
+});
+})();
+</script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+</body>
+</html>
