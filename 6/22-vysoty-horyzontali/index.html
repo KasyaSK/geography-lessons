@@ -213,12 +213,58 @@ footer a{color:#fff}
 <div class="panel"><h3>🔴 Високий рівень</h3><p>Одна точка — на 15 м нижче нульового рівня, друга — на 45 м вище. Знайдіть різницю, поясніть знак і одиницю.</p></div></div>
 </section>
 <section class="section" id="profile">
-<div class="sectionTop"><span class="eyebrow">04 · Конструктор профілю рельєфу</span><span class="time">14–18 хв</span></div>
-<h2>Із ліній на карті — у справжній профіль висот</h2>
-<p class="lead">Рухаємося по навчальному маршруту від західного підніжжя до східного. Дані висот подано в таблиці: частину значень знайдіть, використавши закономірність горизонталей. Оберіть висоти станцій — графік намалюється після перевірки.</p>
+<div class="sectionTop"><span class="eyebrow">04 · Експедиція через гору</span><span class="time">14–18 хв</span></div>
+<h2>⛰️ Побудуйте «портрет гори» за висотами!</h2>
+<p class="lead"><b>Ви — картографи експедиції.</b> Уявіть, що команда проходить через невелику гору із заходу на схід. На маршруті є <b>7 зупинок: А → Б → В → Г → Д → Е → Є</b>. На кожній зупинці потрібно визначити висоту над рівнем моря. Потім комп'ютер з'єднає точки й покаже форму схилів — це і є <b>профіль рельєфу</b>.</p>
+<div class="callout"><b>Мета:</b> не вгадати числа, а зрозуміти, як гора виглядає збоку та чому один зі схилів може бути крутішим за інший. <b>Це навчальна модель:</b> відстані між зупинками умовно однакові, а не виміряні на справжній топографічній карті.</div>
 <div class="grid2">
-<div class="panel"><h3>📍 Станції маршруту</h3><p class="mini">Довжина відрізка між сусідніми станціями — умовно однакова, тому графік ілюструє хід висоти, а не точний профіль місцевості.</p><div id="profileStations"></div><button id="checkProfile">Побудувати і перевірити профіль</button><div id="profileFeedback" class="feedback"></div></div>
-<div class="panel blue"><h3>📈 Рельєф з'явиться тут</h3><svg id="profileSvg" viewBox="0 0 700 325" role="img" aria-label="Авторська координатна сітка для профілю рельєфу"><rect width="700" height="325" rx="12" fill="#f7fbff"/><g id="profileAxes"></g><g id="profileCurve"></g></svg><p class="mini">Вертикальна шкала — у метрах; показує висоту, а не нахил у градусах. Точки розміщені через однакові умовні горизонтальні відстані.</p><p class="fact">Чому профіль допомагає побачити різницю між західним і східним схилом? Які дані потрібні для точного вимірювання довжини підйому?</p></div>
+<div class="panel">
+<h3>🗺️ Карта експедиції: що вже відомо?</h3>
+<svg viewBox="0 0 680 255" role="img" aria-label="Схема гори: А 100 метрів, Б, В і Г треба визначити, вершина Д 180 метрів, Е 160 метрів, Є 100 метрів" style="display:block;width:100%;height:auto;background:#eaf6ff;border-radius:15px;margin-bottom:14px">
+<defs><linearGradient id="expeditionTerrain" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#bbdda1"/><stop offset="1" stop-color="#e6f2b2"/></linearGradient></defs>
+<path d="M0 212 L55 195 L140 173 L225 146 L312 117 L399 72 L482 117 L574 192 L680 209 L680 254 L0 254Z" fill="url(#expeditionTerrain)" stroke="#6aaf76" stroke-width="3"/>
+<path d="M35 202L100 185L186 160L271 132L356 91L441 132L526 184" fill="none" stroke="#c17b42" stroke-width="5" stroke-dasharray="9 8"/>
+<g fill="#fdfefe" stroke="#2166a8" stroke-width="3">
+<circle cx="35" cy="202" r="8"/><circle cx="100" cy="185" r="8"/><circle cx="186" cy="160" r="8"/><circle cx="271" cy="132" r="8"/><circle cx="356" cy="91" r="8"/><circle cx="441" cy="132" r="8"/><circle cx="526" cy="184" r="8"/>
+</g>
+<g font-family="system-ui,Arial,sans-serif" text-anchor="middle" font-weight="800" font-size="22" fill="#18466c">
+<text x="35" y="173">А</text><text x="100" y="154">Б</text><text x="186" y="129">В</text><text x="271" y="99">Г</text><text x="356" y="54">Д</text><text x="441" y="101">Е</text><text x="526" y="153">Є</text>
+</g>
+<g font-family="system-ui,Arial,sans-serif" text-anchor="middle" font-weight="750" font-size="16" fill="#1f557e">
+<text x="35" y="230">100 м</text><text x="100" y="207">? м</text><text x="186" y="184">? м</text><text x="271" y="157">? м</text><text x="356" y="113">180 м</text><text x="441" y="157">160 м</text><text x="526" y="208">100 м</text>
+</g>
+<text x="615" y="31" font-family="system-ui,Arial,sans-serif" font-weight="800" font-size="18" fill="#1e6a9c">Захід → Схід</text>
+</svg>
+<p><b>Відомі висоти:</b> А = <b>100 м</b>; Д (вершина) = <b>180 м</b>; Е = <b>160 м</b>; Є = <b>100 м</b>.</p>
+<p><b>Знайдіть висоти Б, В і Г.</b> На західному схилі, від А до вершини Д, кожна наступна зупинка <b>на 20 м вище</b> за попередню.</p>
+<details><summary style="cursor:pointer;font-weight:850;color:#0b716c">💡 Потрібна підказка? Натисніть</summary><p>Після А = 100 м додайте 20 м, щоб отримати Б. Потім до висоти Б додайте ще 20 м, щоб знайти В. І так само визначте Г. Перевірте: до вершини Д = 180 м має залишитися один крок у 20 м.</p></details>
+</div>
+<div class="panel">
+<h3>🧩 4 кроки до власного профілю</h3>
+<ol style="padding-left:23px">
+<li><b>Прочитайте схему</b> й знайдіть сім точок маршруту.</li>
+<li><b>Установіть висоти.</b> Для А, Д, Е та Є візьміть готові значення; для Б, В, Г обчисліть, додаючи по 20 м.</li>
+<li><b>Оберіть висоти</b> в семи випадаючих списках нижче та натисніть кнопку «Побудувати і перевірити профіль».</li>
+<li><b>Дослідіть графік:</b> визначте найвищу точку й порівняйте лівий (західний) та правий (східний) схили.</li>
+</ol>
+<div class="fact"><b>Як виглядає профіль?</b> Це не карта зверху, а ніби <b>малюнок гори збоку</b>. По вертикалі показано висоту (у метрах), по горизонталі — послідовність точок маршруту.</div>
+</div>
+</div>
+<div class="grid2" style="margin-top:16px">
+<div class="panel warm"><h3>📍 Заповніть 7 зупинок експедиції</h3><p class="mini">Оберіть висоту для кожної точки. Значення не потрібно вписувати вручну — натисніть на список і виберіть число в метрах.</p><div id="profileStations"></div><button id="checkProfile">📈 Побудувати і перевірити профіль</button><div id="profileFeedback" class="feedback" aria-live="polite"></div></div>
+<div class="panel blue"><h3>📈 Ваш профіль гори з'явиться тут</h3><svg id="profileSvg" viewBox="0 0 700 325" role="img" aria-label="Координатна сітка для профілю рельєфу"><rect width="700" height="325" rx="12" fill="#f7fbff"/><g id="profileAxes"></g><g id="profileCurve"></g></svg>
+<p class="mini">Вертикальна вісь — абсолютна висота, м. Точки розташовані через однакові умовні горизонтальні відстані.</p>
+<div class="callout"><b>Маленька експедиційна загадка:</b> Ви піднімаєтеся від А до Д і спускаєтеся від Д до Є. Висота на початку й наприкінці однакова — 100 м. Але який схил крутіший? Зверніть увагу на кількість однакових відрізків маршруту.</div>
+</div></div>
+<div class="panel" style="margin-top:16px">
+<h3>🔎 Станція дослідників: 3 запитання за готовим графіком</h3>
+<ol>
+<li><b>Вершина:</b> яка точка найвища і яка її абсолютна висота?</li>
+<li><b>Підйом:</b> на скільки метрів Ви піднялися від А (100 м) до вершини Д?</li>
+<li><b>Крутизна:</b> на якому боці гори — західному (А → Д) чи східному (Д → Є) — висота змінюється швидше за однакову відстань? <b>Чому?</b></li>
+</ol>
+<div class="fact"><b>Що здати:</b> ① скриншот правильно побудованого графіка; ② три короткі відповіді. Наприклад, правильний формат: «Найвища точка — …, її висота — … м». Усе завдання можна виконати онлайн без малювання графіка в зошиті.</div>
+<details><summary style="cursor:pointer;font-weight:850;color:#0b716c">✅ Самоперевірка після виконання: як міркувати?</summary><p>Підйом = висота вершини мінус висота початку маршруту. Для крутизни порівнюйте, на скільки метрів змінюється висота за один однаковий відрізок шляху. Тут західний схил має чотири відрізки на підйом до вершини, а східний — лише два для спуску до початкової висоти.</p></details>
 </div>
 </section>
 <section class="section" id="route">
@@ -357,8 +403,8 @@ let pts=stationHeights.map((h,i)=>(66+i*94)+','+(255-(h-80)*2));
 c.innerHTML='<polygon points="66,260 '+pts.join(' ')+' 630,260" fill="#bbdfa2" opacity=".7"/><polyline points="'+pts.join(' ')+'" stroke="#168f7c" stroke-width="5" fill="none" stroke-linejoin="round"/>'+
 stationHeights.map((h,i)=>'<circle cx="'+(66+i*94)+'" cy="'+(255-(h-80)*2)+'" r="6" fill="#e38a53" stroke="#fff" stroke-width="2"/><text x="'+(56+i*94)+'" y="'+(243-(h-80)*2)+'" fill="#0c6073" font-size="16" font-weight="800">'+h+'</text>').join('');
 }
-el('profileStations').innerHTML=stationNames.map((n,i)=>'<div class="station"><div><b>'+n+'</b> · відрізок '+(i+1)+'</div><select aria-label="Висота станції '+n+'" data-station="'+i+'"><option value="">Висота, м</option>'+[100,120,140,160,180,200].map(h=>'<option value="'+h+'">'+h+' м</option>').join('')+'</select></div>').join('');
-el('checkProfile').addEventListener('click',()=>{let values=[...document.querySelectorAll('[data-station]')].map(s=>s.value);if(values.some(x=>!x)){feedback('profileFeedback','Заповніть усі сім станцій, потім побудуйте профіль.','warn');return;}let correct=values.every((x,i)=>Number(x)===stationHeights[i]);if(correct){drawProfile(true);feedback('profileFeedback','✓ Профіль побудовано! Ви бачите, як висота зростає від 100 до 180 м, а тоді знижується. У реальних вимірюваннях потрібні відстані між точками.',true);}else{drawProfile(false);feedback('profileFeedback','Поки що висоти не збігаються з послідовністю горизонталей. Рухайтеся від краю 100 м до вершини 180 м з кроком 20 м, після вершини спускайтеся.',false);}});
+el('profileStations').innerHTML=stationNames.map((n,i)=>'<div class="station"><div><b>'+n+'</b> · точка '+(i+1)+'</div><select aria-label="Висота станції '+n+'" data-station="'+i+'"><option value="">Висота, м</option>'+[100,120,140,160,180,200].map(h=>'<option value="'+h+'">'+h+' м</option>').join('')+'</select></div>').join('');
+el('checkProfile').addEventListener('click',()=>{let values=[...document.querySelectorAll('[data-station]')].map(s=>s.value);if(values.some(x=>!x)){feedback('profileFeedback','Заповніть усі сім станцій, потім побудуйте профіль.','warn');return;}let correct=values.every((x,i)=>Number(x)===stationHeights[i]);if(correct){drawProfile(true);feedback('profileFeedback','✓ Чудово! Ви побудували профіль гори: А = 100 м → вершина Д = 180 м → Є = 100 м. Підйом від А до Д становить 80 м. За рівних відстаней між зупинками східний схил крутіший: спуск на 80 м за два відрізки проти підйому на 80 м за чотири.',true);}else{drawProfile(false);feedback('profileFeedback','Перевірте дані: А = 100 м, Д = 180 м, Е = 160 м, Є = 100 м. Для Б, В, Г послідовно додавайте по 20 м, починаючи від А. Виправте лише неточні значення й натисніть кнопку ще раз.',false);}});
 drawProfile(false);
 document.querySelectorAll('.routeButton').forEach(b=>b.addEventListener('click',()=>{let short=b.dataset.route==='short';document.querySelectorAll('.routeButton').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});let startX=short?370:90;el('slopeGround').setAttribute('d','M0 235L'+startX+' 235L550 60L620 60V265H0Z');el('slopeGuide').setAttribute('d','M'+startX+' 235L550 60');el('slopeText').textContent=short?'Маршрут Б · 120 м / 300 м':'Маршрут А · 120 м / 800 м';el('slopeMath').innerHTML=short?'<b>120 ÷ 300 × 100 = 40 м</b> підйому на кожні 100 м горизонтально. Більш крутий схил.':'<b>120 ÷ 800 × 100 = 15 м</b> підйому на кожні 100 м горизонтально. Менш крутий схил.';}));
 document.querySelector('.routeButton[data-route="long"]').click();
