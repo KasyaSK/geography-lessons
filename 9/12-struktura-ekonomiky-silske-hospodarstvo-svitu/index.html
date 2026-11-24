@@ -115,7 +115,7 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 <div class="solo-controls"><label>Показник для ранжування<select id="soloSort"><option value="gdp">Обсяг ВВП, млрд дол. США</option><option value="a">Частка агросектору, % ВВП</option><option value="i">Частка промисловості, % ВВП</option><option value="s">Частка послуг, % ВВП</option><option value="emp">Частка зайнятих у с/г, % (2 країни)</option></select></label><label>Порядок<select id="soloOrder"><option value="desc">Від найбільшого</option><option value="asc">Від найменшого</option></select></label></div>
 <div class="solo-data"><table><caption class="mini">Порівняльна статистична таблиця. «—» означає: показник не включено до цього навчального набору, а не нуль.</caption><thead><tr><th>Країна</th><th>ВВП, млрд $</th><th>Агросектор, %</th><th>Промисловість, %</th><th>Послуги, %</th><th>Зайняті в агросекторі, %</th></tr></thead><tbody id="soloRows"></tbody></table></div>
 <div class="solo-prompt"><b>Класифікація економік.</b> Використайте сортування таблиці та застосуйте одночасно кілька критеріїв. Умовні пороги нижче — правила цієї вправи, не офіційна класифікація країн.</div><div class="solo-quiz">
-<label>1А. Яка країна має аграрну частку понад 10%, а послуги формують меншу частку ВВП, ніж агросектор і промисловість разом, при цьому ВВП перевищує 1000 млрд $?<select id="soloQ1"><option value="">Оберіть</option><option value="UA">Україна</option><option value="FR">Франція</option><option value="IN">Індія</option><option value="BR">Бразилія</option><option value="ET">Ефіопія</option><option value="VN">В’єтнам</option></select></label>
+<label>1А. Яка країна має аграрну частку понад 10%, а послуги формують більшу частку ВВП, ніж агросектор і промисловість разом, при цьому ВВП перевищує 1000 млрд $?<select id="soloQ1"><option value="">Оберіть</option><option value="UA">Україна</option><option value="FR">Франція</option><option value="IN">Індія</option><option value="BR">Бразилія</option><option value="ET">Ефіопія</option><option value="VN">В’єтнам</option></select></label>
 <label>1Б. Яка країна має найвищу частку промисловості серед тих, чий ВВП менший за 1000 млрд $?<select id="soloQ2"><option value="">Оберіть</option><option value="UA">Україна</option><option value="FR">Франція</option><option value="IN">Індія</option><option value="BR">Бразилія</option><option value="ET">Ефіопія</option><option value="VN">В’єтнам</option></select></label>
 <label>1В. Скільки країн одночасно мають більше половини ВВП у послугах та аграрну частку менше 10%?<input id="soloT1" type="number" step="1"></label>
 <label>1Г. Для України обчисліть залишкову частку ВВП: 100% мінус сума трьох секторів (в. п.).<input id="soloT2" type="number" step="0.1"></label></div>
@@ -474,15 +474,12 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 <button type="button" class="checkSimple">Перевірити вибір агронома</button><div class="answer">Які природні й суспільні чинники Ви використали?</div>
 <details><summary>Навіщо нам ці вправи?</summary><p>Вони тренують зв'язок «умови → властивості культури → господарське рішення». У реальній роботі також перевіряють ґрунтову карту, доступність води, господарські ризики й економіку виробництва.</p></details>
 </div>
-<div class="mission" data-mission="10"><h3><span class="mission-no">10</span> Мініферма: розрахуйте врожай і не переплутайте одиниці</h3><p><b>Умовна навчальна задача, не статистика конкретного господарства.</b> Ферма має 160 га землі під пшеницею. Змодельована врожайність становить 5,2 т/га.</p>
-<div class="grid2"><div class="card tint"><label for="yieldSlider"><b>Змінюйте навчальну врожайність</b> (т/га): <b id="yieldValue">5,2</b></label><input type="range" id="yieldSlider" min="2" max="8" step="0.2" value="5.2" style="width:100%;accent-color:#148c80"><div class="stat" id="yieldEstimate">832 т</div><p class="mini">Модельний валовий збір = площа (га) × врожайність (т/га).</p></div>
-<div class="card warm"><h3>Що змінює результат?</h3><p>Погода, родючість ґрунтів, водозабезпеченість, сорт, техніка, добрива, втрати врожаю, хвороби.</p><p><b>Реальна статистика врожайності</b> потребує визначених року, території й культури.</p></div></div>
-<div class="taskfields twoCols">
-<label>1. Скільки тонн пшениці зберуть із 160 га за врожайності <b>5,2 т/га</b>?<input type="number" step="1" data-auto="832" placeholder="У тоннах"></label>
-<label>2. Які одиниці має правильна відповідь?<select data-auto="t"><option value="">Оберіть</option><option value="ha">Гектари</option><option value="t">Тонни</option><option value="perc">Відсотки</option></select></label>
-<label>3. Чи можна стверджувати, що за такої моделі вся Україна отримала такий самий урожай?<select data-auto="no"><option value="">Оберіть</option><option value="yes">Так, це офіційна статистика</option><option value="no">Ні, це лише розрахунок для умовної ферми</option></select></label>
-</div><button type="button" class="checkSimple">Перевірити урожай</button><div class="answer">Підставляйте у відповідь саме задані значення, не поточне значення повзунка.</div></div>
-</section>
+<div class="mission" data-mission="10"><h3><span class="mission-no">10</span> Мініферма: порівняйте господарські рішення</h3><p>Навчальна модель. Ферма має 160 га під пшеницею. За звичайного сезону врожайність 5,2 т/га; після посухи — на 25% нижча. Зрошення відновлює 0,8 т/га, але охоплює лише 60 га. Зібране зерно втрачає 5% маси під час зберігання.</p><div class="taskfields twoCols">
+<label>1. Валовий збір після посухи без зрошення, т.<input type="number" step="0.1" data-auto="624"></label>
+<label>2. Валовий збір зі зрошенням частини площі, т.<input type="number" step="0.1" data-auto="672"></label>
+<label>3. Кількість придатного для продажу зерна після втрат за сценарієм зі зрошенням, т.<input type="number" step="0.1" data-auto="638.4"></label>
+<label>4. Яких даних бракує, щоб оцінити економічну доцільність зрошення?<select data-auto="cost"><option value="">Оберіть</option><option value="area">Лише площі ферми</option><option value="cost">Ціни зерна, вартості води, енергії та обладнання</option><option value="yield">Лише врожайності до посухи</option></select></label>
+<label>5. Обґрунтуйте рішення щодо зрошення: назвіть очікуваний додатковий урожай і один можливий ризик.<textarea rows="3"></textarea></label></div><button type="button" class="checkSimple">Перевірити розрахунки</button><div class="answer">Порівнюйте сценарії. Відкрите пояснення перевіряє вчитель.</div></div></section>
 <section class="section" id="videos"><span class="eyebrow">Відеолабораторія українською</span><h2>🎬 Не дивіться пасивно: перевірте, що зрозуміли</h2>
 <div class="grid2">
 <div class="card"><h3>Pi-stacja UA · «Сільське господарство світу»</h3><iframe class="video" loading="lazy" src="https://www.youtube-nocookie.com/embed/qKMljY0yuDo" allowfullscreen title="Український відеоурок: Сільське господарство світу, Pi-stacja UA"></iframe><p class="mini">Для основного уроку: від 01:21 — пшениця, рис, кукурудза; від 06:12 — технічні культури. Відео українською; повний фільм — для поглиблення.</p><div class="linkbar"><a href="https://www.youtube.com/watch?v=qKMljY0yuDo&t=81s" target="_blank" rel="noopener">Відкрити з 01:21</a><a href="https://www.youtube.com/watch?v=qKMljY0yuDo&t=372s" target="_blank" rel="noopener">З 06:12</a></div></div>
@@ -625,11 +622,6 @@ $('cropCheck').addEventListener('click',()=>{
  if(fields.some(x=>!x.value)){$('cropFeedback').textContent='Оберіть групу для всіх 10 культур.';return;}
  const hits=fields.filter(s=>{const ok=s.value===crops[Number(s.dataset.crop)][1];mark(s,ok);return ok}).length;
  gradeMission(document.querySelector('.mission[data-mission="6"]'),hits,fields.length);
-});
-$('yieldSlider').addEventListener('input',()=>{
- const v=Number($('yieldSlider').value);
- $('yieldValue').textContent=nfmt(v);
- $('yieldEstimate').textContent=nfmt(160*v)+' т';
 });
 $('videoCheck').addEventListener('click',()=>{
  const x=document.querySelector('input[name=video1]:checked');
