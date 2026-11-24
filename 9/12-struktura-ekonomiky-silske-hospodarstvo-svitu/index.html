@@ -107,7 +107,7 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 </div>
 <div class="solo-controls"><label>Прізвище та ім'я для звіту<input id="soloName" autocomplete="name" placeholder="Наприклад: Іваненко Марія"></label><label>Клас<select id="soloClass"><option value="">Оберіть</option><option>9-А</option><option>9-Б</option></select></label></div>
 <div class="solo-progress" role="progressbar" aria-label="Прогрес самоперевірки" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="soloProgress"><span id="soloProgressFill"></span></div>
-<p class="solo-note" id="soloProgressText" aria-live="polite">0 із 8 автоматично перевірюваних критеріїв виконано. Неправильні відповіді можна виправляти.</p>
+<p class="solo-note" id="soloProgressText" aria-live="polite">0 із 9 автоматично перевірюваних критеріїв виконано. Неправильні відповіді можна виправляти.</p>
 
 <article class="solo-step" id="soloData">
 <span class="solo-kicker">Станція 01 • Читання таблиці • 5 хв</span><h3>Шість країн, три сектори й дві різні величини</h3>
@@ -526,8 +526,6 @@ $('retryQuiz').addEventListener('click',()=>{
 });
 })();
 </script>
-<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
-
 <script>
 (function(){
 'use strict';
@@ -574,6 +572,9 @@ $s('soloReset').addEventListener('click',function(){if(!confirm('Стерти л
 restore();sortTable();drawBars();drawMap();model();updateStatus();
 })();
 </script>
+<script src="https://kasyask.github.io/geography-lessons/assets/textbook-access.js?v=20260911-ebook" data-textbook-access="global"></script>
+
+
 
 </body>
 </html>
