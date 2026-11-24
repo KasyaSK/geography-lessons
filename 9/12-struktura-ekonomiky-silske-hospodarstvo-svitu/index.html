@@ -78,7 +78,7 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 .solo-noprint{}
 @media(max-width:690px){.solo-quiz,.solo-model-grid{grid-template-columns:1fr}.solo-country-grid{grid-template-columns:repeat(2,1fr)}.solo-step{padding:15px}.solo-bar{grid-template-columns:93px 1fr 70px;gap:6px}}
 @media(prefers-reduced-motion:reduce){.solo-fill,.solo-progress>span{transition:none}}
-@media print{.solo-noprint,.solo-check,.solo-actions{display:none!important}.solo-step{break-inside:avoid;box-shadow:none}.solo-lab{background:white!important}}
+@media print{header.hero,nav,footer.footer,main>.section:not(#soloLab){display:none!important}.solo-noprint,.solo-check,.solo-actions{display:none!important}.solo-step{break-inside:avoid;box-shadow:none}.solo-lab{background:white!important}}
 
 </style>
 </head>
@@ -187,8 +187,8 @@ main{padding:10px 0 44px}.section{margin:22px 0;padding:clamp(19px,3vw,32px);bac
 </article>
 </section>
 
-<section class="section" id="route">
-<span class="eyebrow">Головне — навчитися досліджувати</span><h2>Місія уроку: від цифр економіки до реальних полів</h2>
+<section class="section" id="route"><div class="note good"><b>ДОДАТКОВИЙ МАРШРУТ.</b> Обов’язковою самостійною роботою на 35 хвилин є сім станцій <a href="#soloLab">цифрової лабораторії вище</a> та персональний HTML-звіт. Нижче — ще 10 станцій, реальні тематичні карти, україномовні відео і тест /12 для поглиблення або завершення вдома.</div>
+<span class="eyebrow">Головне — навчитися досліджувати</span><h2>Розширена місія: від цифр економіки до реальних полів</h2>
 <div class="grid3">
 <div class="card tint"><span class="kicker">0–10 хв</span><h3>Економічна розвідка</h3><p>Визначаємо сектори економіки та порівнюємо структуру виробництва в різних країнах.</p></div>
 <div class="card warm"><span class="kicker">10–23 хв</span><h3>Географія врожаю</h3><p>Досліджуємо поля, клімат, сільськогосподарські культури й світову карту врожаїв.</p></div>
