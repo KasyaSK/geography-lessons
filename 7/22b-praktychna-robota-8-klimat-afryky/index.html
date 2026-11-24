@@ -41,39 +41,90 @@
 @media(max-width:850px){.map-editor{grid-template-columns:1fr}.editor-controls{position:static}.map-journey{grid-template-columns:1fr}.map-instructions{grid-template-columns:1fr}}
 @media print{body.map-print nav,body.map-print header,body.map-print footer,body.map-print section:not(#contour-lab){display:none!important}body.map-print #contour-lab .editor-controls,body.map-print #contour-lab .map-actionbar,body.map-print #contour-lab .map-instructions{display:none!important}body.map-print #contour-lab{margin:0;box-shadow:none;border:0}body.map-print .map-editor{display:block}body.map-print .map-stage-scroll{max-width:160mm;margin:auto}}
 
+
+/* Український картографічний атлас • авторські тематичні шари на Natural Earth */
+.ua-atlas-map{width:100%;max-width:920px;margin:13px auto;border:2px solid #c3e6ef;border-radius:17px;overflow:hidden;box-shadow:0 10px 26px #24608114;background:#e8f7ff}
+.ua-atlas-map svg{display:block;width:100%;height:auto}
+.ua-atlas-map-wide{max-width:920px}
+.ua-atlas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ua-atlas-card{border:2px solid #d4e9f4;border-radius:18px;padding:17px;background:#f9fdff;min-width:0}
+.ua-atlas-card h3{color:#0c5b8e}
+.ua-map-legend{display:flex;flex-wrap:wrap;gap:9px;margin:10px 0 15px}
+.ua-map-legend span{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;background:#edf7ff;border-radius:30px;font-weight:750}
+.ua-map-legend i{display:inline-block;width:16px;height:16px;border-radius:50%}
+.ua-map-check{background:#fff3dc;border-left:5px solid #ee913e;padding:15px;border-radius:12px}
+.ua-map-focus{background:#e0f6ff;padding:13px;border-radius:12px}
+.ua-atlas-caption{font-size:.83rem;color:#506d86}
+#reference-maps .ua-atlas-map text,#atlas .ua-atlas-map text{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+#reference-maps details{margin-top:10px}
+.ua-atlas-map svg text{paint-order:stroke;stroke:#fcfcf9;stroke-width:4;stroke-linejoin:round}
+@media(max-width:820px){.ua-atlas-grid{grid-template-columns:1fr}}
+
 </style></head><body>
 <header id="top"><div class="eyebrow">Лабораторія клімату • географія 7-Б</div><h1>АФРИКА:<br>розшифруйте клімат</h1><p>Практична робота №8. Кліматичні пояси, кліматограми й чинники формування клімату. Ви — кліматологічна команда: карта → числа → пояснення → висновок.</p><div class="tags"><span class="tag">24 листопада 2026</span><span class="tag">35 хвилин</span><span class="tag">§ 22</span><span class="tag">Практична робота</span></div></header>
 <nav aria-label="Розділи"><a href="#problem">Старт</a><a href="#atlas">Атлас</a><a href="#reference-maps">Тематичні карти</a><a href="#contour-lab">✏️ Малюємо на карті</a><a href="#graph">Кліматограми</a><a href="#investigate">Дослідження</a><a href="#theory">Пояснення</a><a href="#home">Д/З і тест</a></nav>
 <main>
 <section id="problem"><div class="meta">00–03 хв • Гіпотеза</div><h2>Чому біля одного тропіка бувають і пустелі, і зелені узбережжя?</h2><p>В Африці на тих самих широтах умови зволоження можуть суттєво різнитися. Запишіть гіпотезу: які <strong>два чинники</strong> могли це спричинити?</p><textarea id="hypothesis" placeholder="Я припускаю, що... тому що..."></textarea><div class="highlight">Наприкінці поверніться до цієї гіпотези. Правильна відповідь має ґрунтуватися на карті та кліматограмі, а не на інтуїції.</div></section>
-<section id="atlas"><div class="meta">03–08 хв • Робота з реальною картою</div><h2>Атлас кліматичних контрастів Африки</h2><figure><img class="mapimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Koppen-Geiger_Map_v2_Africa_1991%E2%80%932020.svg/1280px-Koppen-Geiger_Map_v2_Africa_1991%E2%80%932020.svg.png" alt="Наукова карта класифікації кліматів Африки Köppen–Geiger 1991–2020 з легендою" loading="lazy"><figcaption class="source">РЕАЛЬНА карта: Köppen–Geiger, кліматичні норми 1991–2020; Beck та співавт., 2023. <a href="https://commons.wikimedia.org/wiki/File:Koppen-Geiger_Map_v2_Africa_1991%E2%80%932020.svg" target="_blank" rel="noopener">Відкрити першоджерело</a>. Ця детальна наукова класифікація не тотожна шкільним кліматичним поясам.</figcaption></figure>
-<div class="cols"><div class="card"><h3>Завдання А • Читайте легенду</h3><p>Знайдіть на карті <strong>басейн Конго</strong>, <strong>Сахару</strong>, <strong>Наміб</strong> і <strong>узбережжя Середземного моря</strong>. Які позначки (Af, BWh, Csa…) відповідають цим районам?</p><button data-check="map-answer">Показати орієнтири перевірки</button><div id="map-answer" class="panel" hidden>Конго — переважно Af (вологий екваторіальний). Сахара та Наміб — переважно BWh (жаркий пустельний). Узбережжя північного заходу — середземноморські типи Csa/Csb поруч з іншими типами. Перевіряйте конкретну точку, не весь регіон одним кольором.</div></div><div class="card"><h3>Завдання Б • Одна широта — різний клімат</h3><p>Порівняйте південно-західне і південно-східне узбережжя Африки. Залучіть <strong>Бенгельську й Мозамбіцьку/Агульясову течії</strong> та напрям вітрів.</p><button data-check="coast-answer">Показати механізм</button><div id="coast-answer" class="panel" hidden>Холодна Бенгельська течія сприяє сухості й туманам Намібії; на східне узбережжя надходить тепліше вологе морське повітря. Це не універсальне правило «холодна течія = пустеля»: враховують тиск, вітер і рельєф.</div></div></div><p class="source">Додатковий географічний атлас: <a href="https://www.usgs.gov/centers/eros/science/climate" target="_blank" rel="noopener">USGS: клімат Західної Африки та переміщення ITCZ</a>. Перевірте розміщення поясів у шкільному атласі.</p></section>
-
-<section id="reference-maps">
- <div class="meta">08–12 хв • 4 тематичні карти — 4 докази</div>
- <h2>🗺️ Атлас дослідника: подивіться, як карти пояснюють одна одну</h2>
- <p>Це <strong>реальні опубліковані картографічні джерела</strong> або наукові схеми. Класифікація Кеппена—Гейгера на попередній карті не тотожна шкільній схемі кліматичних поясів. Порівнюйте карти: <strong>широта → рух повітря → течії → рельєф → клімат</strong>.</p>
- <div class="map-journey">
-  <article class="map-source"><div class="map-station">Станція 1 · Висоти</div><h3>Фізичний рельєф: де повітря змушене підніматися?</h3>
-  <img loading="lazy" src="https://capacity4dev.europa.eu/sites/default/files/images/1420206777_afretep_srtm500.png" alt="Карта реальних висот Африки за SRTM, із легендою">
-  <p><strong>Дослідження:</strong> знайдіть Атлас, Ефіопське нагір’я та Драконові гори. Позначте їх на контурній карті. Як різні експозиції схилів можуть змінювати опади?</p><p class="source">Дані: SRTM, опрацьована карта <a href="https://capacity4dev.europa.eu/groups/afretep/info/processed-gis-data_en" target="_blank" rel="noopener">Capacity4dev / Європейська комісія</a>.</p>
-  <details><summary>Перевірте пояснення</summary>Підйом вологого повітря на навітряних схилах може сприяти опадам. Висота також впливає на температуру, але сама по собі не визначає опади.</details></article>
-  <article class="map-source"><div class="map-station">Станція 2 · Сезонність</div><h3>ITCZ: де переміщується зона тропічних дощів?</h3>
-  <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/ITCZ_Africa.png?width=1000" alt="Наукова схема сезонних змін ITCZ, тропічного дощового поясу та приземних вітрів Африки">
-  <p><strong>Дослідження:</strong> прослідкуйте річне зміщення зони конвергенції та повітряних потоків. Чому сезон дощів у Сахелі не збігається із середземноморським?</p><p class="source">Наукова схема: <a href="https://commons.wikimedia.org/wiki/File:ITCZ_Africa.png" target="_blank" rel="noopener">Wikimedia Commons, ITCZ Africa</a> (адаптація досліджень Dezfuli). Мова підписів оригіналу — англійська.</p>
-  <details><summary>Перевірте пояснення</summary>Зона інтенсивної конвекції сезонно переміщується за поясом максимального нагрівання, формуючи вологі й сухі сезони в багатьох частинах тропічної Африки.</details></article>
-  <article class="map-source"><div class="map-station">Станція 3 · Океанічні течії</div><h3>Холодна Бенгельська і тепла Агульясова</h3>
-  <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Benguela_and_Agulhas_Currents.jpg?width=1100" alt="Реальна картосхема Бенгельської й Агульясової течій поблизу півдня Африки">
-  <p><strong>Дослідження:</strong> знайдіть західне та східне узбережжя Південної Африки. Чому узбережжя Намібії може бути сухим, навіть коли поряд океан?</p><p class="source">Авторська картографічна робота: <a href="https://commons.wikimedia.org/wiki/File:Benguela_and_Agulhas_Currents.jpg" target="_blank" rel="noopener">Wikimedia Commons — Benguela and Agulhas Currents</a>. Розміщення Канарської, Гвінейської та Мозамбіцької течій уточніть за <a href="https://commons.wikimedia.org/wiki/File:Corrientes-oceanicas.png" target="_blank" rel="noopener">глобальною картою течій</a>.</p>
-  <details><summary>Перевірте пояснення</summary>Холодна Бенгельська течія сприяє стійкій стратифікації нижніх шарів атмосфери; сама наявність океану не гарантує достатніх опадів.</details></article>
-  <article class="map-source"><div class="map-station">Станція 4 · Контрольна карта</div><h3>Кліматичні області за Кеппеном—Гейгером</h3>
-  <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Koppen-Geiger_Map_v2_Africa_1991%E2%80%932020.svg/1280px-Koppen-Geiger_Map_v2_Africa_1991%E2%80%932020.svg.png" alt="Реальна карта кліматичної класифікації Африки з легендою Köppen-Geiger за 1991–2020">
-  <p><strong>Дослідження:</strong> порівняйте Конго, Сахару, Наміб і північний захід Африки. Чому на карті більше типів клімату, ніж у шкільній схемі кліматичних поясів?</p><p class="source">Beck та співавт., 2023; <a href="https://commons.wikimedia.org/wiki/File:Koppen-Geiger_Map_v2_Africa_1991%E2%80%932020.svg" target="_blank" rel="noopener">наукова класифікація 1991–2020</a>.</p>
-  <details><summary>Перевірте пояснення</summary>Шкільні кліматичні пояси пояснюють широтні закономірності, тоді як система Кеппена—Гейгера деталізує поєднання температури й опадів.</details></article>
+<section id="atlas">
+ <div class="meta">03–08 хв • Кліматична карта українською</div>
+ <h2>Атлас клімату Африки: де вологіше, а де посушливіше?</h2>
+ <p>Розгляньте авторську <strong>навчальну карту зон зволоження українською</strong>, створену на географічній основі Natural Earth. Область кожного кольору показана <em>орієнтовно</em>; вона не замінює точну кліматичну карту з ізогієтами. Звіряйте об’єкти зі шкільним фізичним атласом.</p>
+ <div class="ua-atlas-map" data-ua-map="moisture" role="img" aria-label="Карта зон зволоження Африки, підписи українською"></div>
+ <div class="ua-map-legend"><span><i style="background:#087b81"></i> Вологі території</span><span><i style="background:#edaf47"></i> Посушливі території</span><span><i style="background:#df895c"></i> Пустельні райони</span></div>
+ <div class="cols">
+ <div class="card"><h3>Завдання А · Доказ за картою</h3><p>Знайдіть <strong>басейн Конго</strong>, <strong>Сахару</strong>, <strong>Наміб</strong>, <strong>Калахарі</strong>. Які райони найсухіші, а які найвологіші? Чи достатньо лише широти для пояснення контрасту?</p><button data-check="map-answer">Перевірити</button><div id="map-answer" class="panel" hidden>Басейн Конго має вологі екваторіальні умови, значні частини Сахари та Намібі — пустельні. Калахарі охоплює різні посушливі області: не вся територія є піщаною пустелею. Широти недостатньо: потрібні циркуляція повітря, течії та рельєф.</div></div>
+ <div class="card"><h3>Завдання Б · Течія чи рельєф?</h3><p>На однакових широтах порівняйте південно-західне й південно-східне узбережжя. Знайдіть відмінності на карті течій нижче. Що впливає на опади?</p><button data-check="coast-answer">Перевірити</button><div id="coast-answer" class="panel" hidden>Бенгельська холодна течія й атмосферна циркуляція сприяють посушливості Намібії. Теплі води біля південно-східного узбережжя, панівні потоки та орографічне підняття повітря створюють інші умови зволоження. Течія — лише один із чинників.</div></div>
  </div>
- <p class="map-note"><strong>Картографічна перевірка:</strong> порівняйте щонайменше дві карти для кожного висновку. Наприклад, карта течій пояснює частину механізму посушливості Намібії, а карта клімату підтверджує просторовий результат.</p>
+ <p class="ua-atlas-caption">Географічна основа: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth 1:110m</a>. Для перевірки реальних обрисів і рельєфу — <a href="https://www.geneza.ua/sites/default/files/ebooks/%D0%93%D1%96%D0%BB%D1%8C%D0%B1%D0%B5%D1%80%D0%B3_%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84_%D0%9F_7_%28047-23%29_S.pdf" target="_blank" rel="noopener">український підручник географії 7 класу, фізична карта Африки</a>. Тематичні кольори — навчальне узагальнення, не виміряні ізогієти.</p>
 </section>
-
+<section id="reference-maps">
+ <div class="meta">08–13 хв • Картографічна лабораторія: всі підписи українською</div>
+ <h2>🗺️ Чотири карти, які пояснюють клімат Африки</h2>
+ <p>Усі картографічні підписи українською. Основу карт створено з <strong>географічних даних Natural Earth</strong>; шари клімату, рельєфу та вітрів є <strong>авторськими навчальними узагальненнями</strong>, а не точними результатами супутникових вимірювань. Зміст зіставляйте з <a href="https://www.geneza.ua/sites/default/files/ebooks/%D0%93%D1%96%D0%BB%D1%8C%D0%B1%D0%B5%D1%80%D0%B3_%D0%93%D0%B5%D0%BE%D0%B3%D1%80%D0%B0%D1%84_%D0%9F_7_%28047-23%29_S.pdf" target="_blank" rel="noopener">українським шкільним атласом у підручнику</a>.</p>
+ <article class="ua-atlas-card">
+ <div class="map-station">Карта №1 • Обов’язкова для практичної роботи</div>
+ <h3>🌊 Океанічні течії біля берегів Африки — велика карта українською</h3>
+ <p>Порівняйте <strong>сині холодні</strong> та <strong>червоні теплі</strong> течії. Стрілка показує <strong>напрямок руху води</strong>. Позначення є узагальненою схемою головних потоків, а не картою швидкостей течій.</p>
+ <div class="ua-atlas-map ua-atlas-map-wide" data-ua-map="currents" role="img" aria-label="Карта океанічних течій Африки з українськими назвами й правильними напрямками стрілок"></div>
+ <div class="ua-map-legend"><span><i style="background:#176dd3"></i> Холодні течії</span><span><i style="background:#e44c43"></i> Теплі течії</span><span>➜ Вістря стрілки — напрям течії</span></div>
+ <div class="cols">
+ <div class="card"><h3>Маршрут «4 стрілки»</h3><p>На контурній карті самостійно нанесіть: <strong>Канарську</strong> (на південний захід), <strong>Бенгельську</strong> (на північ), <strong>Гвінейську</strong> (на схід), <strong>Мозамбіцьку</strong> (на південь). Додатково — <strong>Агульясову</strong> (на південь і південний захід).</p></div>
+ <div class="card"><h3>Географічний детектив</h3><p>Покажіть на карті, які течії можуть допомогти пояснити сухість <strong>Намібу</strong> та <strong>узбережжя Сахари</strong>. Назвіть ще один чинник посушливості, крім течій.</p><details><summary>Показати перевірку</summary>Холодна Бенгельська течія впливає на узбережжя Намібії; холодна Канарська — на північно-західне узбережжя. Важливі також пояси тиску, панівні вітри та особливості рельєфу.</details></div>
+ </div>
+ <p class="ua-atlas-caption">Напрями течій звірено за <a href="https://os.copernicus.org/articles/14/273/2018/" target="_blank" rel="noopener">Ocean Science: система Бенгельської течії</a>, <a href="https://soer.environment.gov.za/soer/UploadLibraryImages/UploadDocuments/270324153153_SAE%202023%20Final%20Report_27%20March%202024.pdf" target="_blank" rel="noopener">національним екологічним оглядом ПАР</a>, а також <a href="https://commons.wikimedia.org/wiki/File:Africa_Ocean_Currents_Map-sr.svg" target="_blank" rel="noopener">географічною схемою океанічних течій Африки</a>. Напрями показано умовними лініями, не траєкторіями окремих частинок води.</p>
+ </article>
+ <div class="ua-atlas-grid" style="margin-top:17px">
+  <article class="ua-atlas-card">
+   <div class="map-station">Карта №2 • Широтна закономірність</div>
+   <h3>🌤️ Кліматичні пояси</h3>
+   <div class="ua-atlas-map" data-ua-map="belts" role="img" aria-label="Кліматичні пояси Африки, підписи українською"></div>
+   <p>Позначте екваторіальний, два субекваторіальні, два тропічні та субтропічні крайні райони. Порівняйте з екватором і тропіками.</p>
+   <details><summary>Чому межі не прямі?</summary>Впливають рельєф, циркуляція повітря, близькість океану та течії. Кольорові смуги на цій схемі — орієнтири, а не точні межі кліматичних поясів.</details>
+  </article>
+  <article class="ua-atlas-card">
+   <div class="map-station">Карта №3 • Циркуляція атмосфери</div>
+   <h3>💨 Пасати та зона тропічних дощів</h3>
+   <div class="ua-atlas-map" data-ua-map="winds" role="img" aria-label="Схема пасатів і сезонного зміщення міжтропічної зони конвергенції"></div>
+   <p>Північно-східні пасати переважно прямують до південного заходу, південно-східні — до північного заходу. Покажіть на карті, де сходяться повітряні потоки.</p>
+   <details><summary>Чому в Сахелі різні сезони?</summary>Область інтенсивних конвективних дощів зміщується протягом року. Сезонний рух зони конвергенції узагальнено, оскільки її фактичне положення змінюється щодня.</details>
+  </article>
+  <article class="ua-atlas-card">
+   <div class="map-station">Карта №4 • Рельєф і зволоження</div>
+   <h3>⛰️ Гори, нагір’я та кліматичні контрасти</h3>
+   <div class="ua-atlas-map" data-ua-map="relief" role="img" aria-label="Головні форми рельєфу Африки з українськими назвами"></div>
+   <p>Знайдіть Атлаські та Драконові гори, Ефіопське нагір’я й Східно-Африканське плоскогір’я. Чому навітряні схили часто вологіші?</p>
+   <details><summary>Яка тут межа висновку?</summary>Рельєф визначає умови підйому повітря та температуру з висотою, але реальні опади залежать ще й від доступної вологи та напрямку вітру.</details>
+  </article>
+  <article class="ua-atlas-card">
+   <div class="map-station">Карта №5 • Самоперевірка</div>
+   <h3>🧭 Знайдіть п’ять об’єктів</h3>
+   <div class="ua-map-focus"><strong>Порівняйте всі карти:</strong> 1) Сахара, 2) басейн Конго, 3) узбережжя Намібії, 4) Мозамбіцька протока, 5) Ефіопське нагір’я. Назвіть відповідний географічний чинник для кожного об’єкта та наведіть один доказ.</div>
+   <p>Мета — не переписувати назви, а пояснювати причинний зв’язок <strong>місце → чинник → характер клімату</strong>.</p>
+   <p class="ua-atlas-caption">Окремий матеріал для перевірки з українськими позначеннями: <a href="https://naurok.com.ua/uploads/files/3744/17240/17518_images/25.jpg" target="_blank" rel="noopener">навчальна карта течій (українською)</a>.</p>
+  </article>
+ </div>
+ <div class="ua-map-check"><strong>Після аналізу карт:</strong> відкрийте редактор контурної карти нижче та <strong>самостійно</strong> намалюйте кліматичні пояси, пасати й течії. Не копіюйте схематичні межі буквально: звіряйте з підручником. Готову роботу завантажте як PNG.</div>
+</section>
 <section id="contour-lab">
  <div class="meta">12–25 хв • Велика практична робота №8 · власна контурна карта</div>
  <h2>🎨 КОНТУРНА КАРТА АФРИКИ — МАЛЮЙТЕ ПРЯМО ТУТ</h2>
@@ -137,7 +188,7 @@
   <label><input type="checkbox"> <span><strong>2. Пояси:</strong> екваторіальний (один), субекваторіальні (два), тропічні (два), субтропічні (крайня північ і південь).</span></label>
   <label><input type="checkbox"> <span><strong>3. Межі:</strong> обведіть орієнтовні кордони поясів за шкільним атласом, а не строго по паралелях.</span></label>
   <label><input type="checkbox"> <span><strong>4. Пасати:</strong> північно-східний (стрілки до південного заходу) і південно-східний (стрілки до північного заходу).</span></label>
-  <label><input type="checkbox"> <span><strong>5. Течії:</strong> холодні Канарська, Бенгельська (сині); теплі Гвінейська, Мозамбіцька (червоні). Керуйтеся картою течій.</span></label>
+  <label><input type="checkbox"> <span><strong>5. Течії:</strong> холодні Канарська (на південний захід), Бенгельська (на північ) — синім; Гвінейська (на схід), Мозамбіцька (на південь), Агульясова (на південний захід) — червоним. Керуйтеся картою течій.</span></label>
   <label><input type="checkbox"> <span><strong>6. Зволоження:</strong> басейн Конго — вологий; Сахара, Наміб, Калахарі — посушливі (Калахарі не всюди пустеля).</span></label>
   <label><input type="checkbox"> <span><strong>7. Рельєф:</strong> Атлас, Ефіопське нагір’я, Драконові гори, Східно-Африканське плоскогір’я.</span></label>
   <label><input type="checkbox"> <span><strong>8. Підписи:</strong> додайте назву карти, умовні позначення та своє ім'я і прізвище.</span></label>
@@ -349,4 +400,100 @@ document.querySelectorAll("[data-check]").forEach(btn=>btn.addEventListener("cli
   load();updateChecks();
 })();
 </script>
-</body></html>
+
+<script>
+/* UA maps: base geography from existing inline Natural Earth SVG; map overlays are pedagogical approximations. */
+(function(){
+"use strict";
+const NS="http://www.w3.org/2000/svg",base=document.getElementById("africa-basemap");
+if(!base)return;
+const X=lon=>(lon+27)/91*850,Y=lat=>(41-lat)/79*870,P=(lon,lat)=>[X(lon),Y(lat)];
+const xy=(lon,lat)=>P(lon,lat).map(x=>Math.round(x*10)/10).join(" ");
+const textAt=(lon,lat,t,size,fill="#213f4c",weight=750,anchor="middle")=>{const p=P(lon,lat);return '<text x="'+p[0].toFixed(1)+'" y="'+p[1].toFixed(1)+'" text-anchor="'+anchor+'" fill="'+fill+'" font-size="'+size+'" font-weight="'+weight+'">'+t+'</text>';};
+const pathPts=pts=>"M"+pts.map(p=>xy(p[0],p[1])).join(" L");
+function oceanPath(pts,cl,label,tx,ty,side){
+ return '<path d="'+pathPts(pts)+'" fill="none" stroke="'+cl+'" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ua-'+(side==="cold"?"cold":"warm")+'-arrow)"/>'+textAt(tx,ty,label,20,cl,850,"start");
+}
+const defs='<defs><marker id="ua-cold-arrow" markerWidth="5" markerHeight="5" refX="3.3" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L5 2.5 L0 5 Z" fill="#176dd3"/></marker><marker id="ua-warm-arrow" markerWidth="5" markerHeight="5" refX="3.3" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L5 2.5 L0 5 Z" fill="#e44c43"/></marker><marker id="ua-wind-arrow" markerWidth="5" markerHeight="5" refX="3.3" refY="2.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L5 2.5 L0 5 Z" fill="#147e94"/></marker></defs>';
+const currents=defs+
+ oceanPath([[-17,34],[-18,29],[-20,23],[-23,16]],"#176dd3","Канарська",-26,27,"cold")+
+ oceanPath([[-8,3],[-2,3],[4,4],[9,4]],"#e44c43","Гвінейська",-21,0,"warm")+
+ oceanPath([[10.3,-34],[10,-30],[10.6,-25],[11,-20],[10.5,-17]],"#176dd3","Бенгельська",-23,-24,"cold")+
+ oceanPath([[42,-13],[42,-17],[41,-21],[39,-25]],"#e44c43","Мозамбіцька",46,-20,"warm")+
+ oceanPath([[34,-26],[33.8,-30],[31,-33],[27,-35],[23,-36]],"#e44c43","Агульясова",32,-37,"warm")+
+ textAt(-10,36,"Атлантичний океан",16,"#2e788e",650)+textAt(47,12,"Індійський океан",16,"#2e788e",650)+
+ textAt(9,-24,"НАМІБ",17,"#9d542e",850)+textAt(21,-2,"КОНГО",18,"#1b5c55",800)+
+ '<rect x="18" y="690" width="240" height="99" rx="13" fill="#ffffffdd" stroke="#cce5ef"/>'+
+ '<line x1="35" x2="85" y1="722" y2="722" stroke="#176dd3" stroke-width="7"/><text x="100" y="727" fill="#194d70" font-size="18" font-weight="700">Холодні</text>'+
+ '<line x1="35" x2="85" y1="760" y2="760" stroke="#e44c43" stroke-width="7"/><text x="100" y="765" fill="#93413b" font-size="18" font-weight="700">Теплі</text>';
+// The northern/southern bands are only broad zonal references, not exact thematic polygons.
+const belts=defs+
+ '<rect x="0" y="'+Y(37).toFixed(1)+'" width="850" height="'+(Y(30)-Y(37)).toFixed(1)+'" fill="#a56fb8" opacity=".15"/>'+
+ '<rect x="0" y="'+Y(30).toFixed(1)+'" width="850" height="'+(Y(13)-Y(30)).toFixed(1)+'" fill="#df9142" opacity=".17"/>'+
+ '<rect x="0" y="'+Y(13).toFixed(1)+'" width="850" height="'+(Y(4)-Y(13)).toFixed(1)+'" fill="#e6ce37" opacity=".19"/>'+
+ '<rect x="0" y="'+Y(4).toFixed(1)+'" width="850" height="'+(Y(-4)-Y(4)).toFixed(1)+'" fill="#168c62" opacity=".25"/>'+
+ '<rect x="0" y="'+Y(-4).toFixed(1)+'" width="850" height="'+(Y(-14)-Y(-4)).toFixed(1)+'" fill="#e6ce37" opacity=".19"/>'+
+ '<rect x="0" y="'+Y(-14).toFixed(1)+'" width="850" height="'+(Y(-30)-Y(-14)).toFixed(1)+'" fill="#df9142" opacity=".17"/>'+
+ '<rect x="0" y="'+Y(-30).toFixed(1)+'" width="850" height="'+(Y(-36)-Y(-30)).toFixed(1)+'" fill="#a56fb8" opacity=".15"/>'+
+ textAt(19,34,"Субтропічний",17,"#704283",850)+textAt(22,24,"Тропічний",18,"#9f4b1e",850)+
+ textAt(19,9,"Субекваторіальний",16,"#856710",850)+
+ textAt(23,0,"Екваторіальний",17,"#057451",850)+
+ textAt(22,-10,"Субекваторіальний",16,"#856710",850)+textAt(23,-25,"Тропічний",18,"#9f4b1e",850)+
+ textAt(19,-34,"Субтропічний",17,"#704283",850)+
+ '<text x="20" y="825" font-size="15" font-weight="650" fill="#6c5684">Кольорові пояси — наближені широтні орієнтири</text>';
+const winds=defs+
+ '<path d="M 12 '+Y(8)+' Q 390 '+Y(12)+' 800 '+Y(4)+'" stroke="#30a99d" stroke-width="4" stroke-dasharray="12 9" opacity=".8" fill="none"/>'+
+ '<path d="M 12 '+Y(-5)+' Q 390 '+Y(-10)+' 800 '+Y(-2)+'" stroke="#30a99d" stroke-width="4" stroke-dasharray="12 9" opacity=".65" fill="none"/>'+
+ '<path d="M '+xy(-9,26)+' L '+xy(-15,12)+'" fill="none" stroke="#147e94" stroke-width="8" marker-end="url(#ua-wind-arrow)"/>'+
+ '<path d="M '+xy(38,23)+' L '+xy(29,9)+'" fill="none" stroke="#147e94" stroke-width="8" marker-end="url(#ua-wind-arrow)"/>'+
+ '<path d="M '+xy(45,-22)+' L '+xy(30,-7)+'" fill="none" stroke="#147e94" stroke-width="8" marker-end="url(#ua-wind-arrow)"/>'+
+ '<path d="M '+xy(10,-30)+' L '+xy(0,-17)+'" fill="none" stroke="#147e94" stroke-width="8" marker-end="url(#ua-wind-arrow)"/>'+
+ textAt(15,29,"Північно-східні",16,"#0b6577",800)+textAt(15,26,"пасати",18,"#0b6577",800)+
+ textAt(17,-25,"Південно-східні",16,"#0b6577",800)+textAt(17,-28,"пасати",18,"#0b6577",800)+
+ textAt(0,2,"Зона сходження повітряних потоків",14,"#087b78",780)+
+ textAt(4,38,"Сезонна схема руху повітря",17,"#31586a",750);
+const relief=defs+
+ textAt(-3,31,"Атлаські гори",17,"#5b502d",800)+
+ textAt(17,26,"САХАРА",24,"#a2602e",850)+
+ textAt(39,9,"Ефіопське",16,"#655035",800)+textAt(39,6.5,"нагір’я",16,"#655035",800)+
+ textAt(18,-2,"басейн Конго",18,"#097f76",850)+
+ textAt(33,-7,"Східно-",17,"#5f492e",800)+textAt(33,-9.5,"Африканське",16,"#5f492e",800)+textAt(33,-12,"плоскогір’я",16,"#5f492e",800)+
+ textAt(23,-21,"Калахарі",18,"#b27a35",800)+textAt(13,-24,"Наміб",17,"#a66a36",850)+
+ textAt(28,-29,"Драконові",16,"#5a5136",850)+textAt(28,-31,"гори",16,"#5a5136",850)+
+ ['-6,31','38,9','29,-29'].map(s=>{let v=s.split(',').map(Number),p=P(v[0],v[1]);return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="7" fill="#946d45" stroke="#fff" stroke-width="2"/>';}).join("")+
+ '<text x="16" y="826" font-size="15" fill="#6a644d" font-weight="700">Орієнтири місць, не цифрова модель висот</text>';
+const moist=defs+
+ '<ellipse cx="'+X(16)+'" cy="'+Y(23)+'" rx="250" ry="158" fill="#e78a52" opacity=".3"/>'+
+ '<ellipse cx="'+X(19)+'" cy="'+Y(-2)+'" rx="135" ry="88" fill="#2aa89b" opacity=".25"/>'+
+ '<ellipse cx="'+X(13)+'" cy="'+Y(-24)+'" rx="55" ry="91" fill="#e6ad36" opacity=".38"/>'+
+ '<ellipse cx="'+X(23)+'" cy="'+Y(-23)+'" rx="95" ry="68" fill="#e6ad36" opacity=".25"/>'+
+ textAt(19,25,"САХАРА",27,"#9f4b25",850)+textAt(20,-2,"Басейн Конго",19,"#087b70",850)+
+ textAt(12,-24,"Наміб",18,"#af642b",850)+textAt(23,-21,"Калахарі",19,"#9e6225",800)+
+ textAt(4,36,"Зони зволоження: навчальна схема",18,"#345b70",750);
+function render(el,theme){
+ const svg=base.cloneNode(true);
+ // Remove interactive hints (not part of reference atlas), IDs (avoid duplicates) and English country tooltips.
+ const hints=svg.querySelector("#geo-hints");if(hints)hints.remove();
+ svg.querySelectorAll("title").forEach(x=>x.remove());
+ svg.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));
+ svg.removeAttribute("id");svg.removeAttribute("height");svg.removeAttribute("width");
+ svg.setAttribute("aria-label",theme==="currents"?"Океанічні течії Африки — українські назви і напрямки":theme==="belts"?"Кліматичні пояси Африки — українська навчальна схема":theme==="winds"?"Пасати і зона тропічних дощів Африки":"Рельєф Африки — навчальна схема з українськими назвами");
+ const g=document.createElementNS(NS,"g");
+ g.setAttribute("class","ua-thematic-overlays");g.innerHTML={currents,belts,winds,relief,moisture:moist}[theme]||"";
+ svg.appendChild(g);el.appendChild(svg);
+}
+document.querySelectorAll("[data-ua-map]").forEach(el=>render(el,el.dataset.uaMap));
+// Optional exact-current reference for students drawing on the existing contour map.
+// Hidden by default so the children still draw their own answers.
+const countries=base.querySelector("#geo-countries");
+const hints=base.querySelector("#geo-hints");
+if(hints){
+ let sub=document.createElementNS(NS,"g");sub.id="ua-ocean-hints";sub.style.display="none";sub.innerHTML=currents;
+ hints.parentElement.appendChild(sub);
+ let toggle=document.createElement("label");toggle.className="map-source";toggle.innerHTML='<input id="ua-currents-toggle" type="checkbox"> Показати на контурній карті підказки течій (тільки для перевірки)';
+ const check=document.getElementById("map-hints");if(check&&check.closest("label"))check.closest("label").after(toggle);
+ toggle.querySelector("input").addEventListener("change",ev=>sub.style.display=ev.target.checked?"":"none");
+}
+// External images are no longer required for atlas display; all five maps render from the embedded geographic base.
+})();
+</script></body></html>
