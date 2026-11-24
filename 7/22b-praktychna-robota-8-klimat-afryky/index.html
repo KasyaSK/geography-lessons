@@ -477,9 +477,9 @@ function render(el,theme){
  svg.querySelectorAll("title").forEach(x=>x.remove());
  svg.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));
  svg.removeAttribute("id");svg.removeAttribute("height");svg.removeAttribute("width");
- svg.setAttribute("aria-label",theme==="currents"?"Океанічні течії Африки — українські назви і напрямки":theme==="belts"?"Кліматичні пояси Африки — українська навчальна схема":theme==="winds"?"Пасати і зона тропічних дощів Африки":"Рельєф Африки — навчальна схема з українськими назвами");
+ svg.setAttribute("aria-label",({currents:"Океанічні течії Африки — українські назви й напрямки",belts:"Кліматичні пояси Африки — українська навчальна схема",winds:"Пасати та сезонна зона сходження повітря Африки",relief:"Рельєф Африки — українська навчальна схема",moisture:"Основні райони зволоження Африки — навчальна схема"})[theme]||"Тематична карта Африки українською");
  const g=document.createElementNS(NS,"g");
- g.setAttribute("class","ua-thematic-overlays");g.innerHTML={currents,belts,winds,relief,moisture:moist}[theme]||"";
+ g.setAttribute("class","ua-thematic-overlays");const overlay={currents,belts,winds,relief,moisture:moist}[theme]||"";g.innerHTML=overlay.replaceAll("ua-cold-arrow","ua-cold-arrow-"+theme).replaceAll("ua-warm-arrow","ua-warm-arrow-"+theme).replaceAll("ua-wind-arrow","ua-wind-arrow-"+theme);
  svg.appendChild(g);el.appendChild(svg);
 }
 document.querySelectorAll("[data-ua-map]").forEach(el=>render(el,el.dataset.uaMap));
@@ -488,7 +488,7 @@ document.querySelectorAll("[data-ua-map]").forEach(el=>render(el,el.dataset.uaMa
 const countries=base.querySelector("#geo-countries");
 const hints=base.querySelector("#geo-hints");
 if(hints){
- let sub=document.createElementNS(NS,"g");sub.id="ua-ocean-hints";sub.style.display="none";sub.innerHTML=currents;
+ let sub=document.createElementNS(NS,"g");sub.id="ua-ocean-hints";sub.style.display="none";sub.innerHTML=currents.replaceAll("ua-cold-arrow","ua-cold-arrow-hints").replaceAll("ua-warm-arrow","ua-warm-arrow-hints").replaceAll("ua-wind-arrow","ua-wind-arrow-hints");
  hints.parentElement.appendChild(sub);
  let toggle=document.createElement("label");toggle.className="map-source";toggle.innerHTML='<input id="ua-currents-toggle" type="checkbox"> Показати на контурній карті підказки течій (тільки для перевірки)';
  const check=document.getElementById("map-hints");if(check&&check.closest("label"))check.closest("label").after(toggle);
