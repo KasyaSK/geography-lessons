@@ -407,6 +407,8 @@ document.querySelectorAll("[data-check]").forEach(btn=>btn.addEventListener("cli
 "use strict";
 const NS="http://www.w3.org/2000/svg",base=document.getElementById("africa-basemap");
 if(!base)return;
+// Нейтралізувати англомовні підказки назв країн у вихідній контурній карті.
+base.querySelectorAll("title").forEach(node=>node.remove());
 const X=lon=>(lon+27)/91*850,Y=lat=>(41-lat)/79*870,P=(lon,lat)=>[X(lon),Y(lat)];
 const xy=(lon,lat)=>P(lon,lat).map(x=>Math.round(x*10)/10).join(" ");
 const textAt=(lon,lat,t,size,fill="#213f4c",weight=750,anchor="middle")=>{const p=P(lon,lat);return '<text x="'+p[0].toFixed(1)+'" y="'+p[1].toFixed(1)+'" text-anchor="'+anchor+'" fill="'+fill+'" font-size="'+size+'" font-weight="'+weight+'">'+t+'</text>';};
