@@ -1,0 +1,70 @@
+name: Cache mountains lesson photos
+on:
+  push:
+    paths:
+      - '.github/workflows/cache-mountains-lesson-photos.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Download and validate source photographs
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request,urlopen
+          from PIL import Image
+          from io import BytesIO
+          import re,time
+          from html import unescape
+          lesson=Path('6/24-relef-suhodolu-hory')
+          html=(lesson/'index.html').read_text()
+          entries=re.findall(r'<img src="([^"]+)" data-fallback="([^"]+)" data-local="([^"]+)"',html)
+          assert len(entries)==9, len(entries)
+          failures=[]
+          for thumb,original,local in entries:
+              target=lesson/local
+              target.parent.mkdir(exist_ok=True)
+              if target.exists():
+                  try:
+                      with Image.open(target) as check: check.verify()
+                      print('Already cached',target)
+                      continue
+                  except Exception: pass
+              for url in dict.fromkeys([thumb,original]):
+                  try:
+                      req=Request(unescape(url),headers={'User-Agent':'GeographyLessonsSchoolPhotoCache/1.0 (https://github.com/KasyaSK/geography-lessons; educational use)','Accept':'image/*'})
+                      with urlopen(req,timeout=22) as resp:
+                          blob=resp.read(35_000_001)
+                      if len(blob)>35_000_000: raise ValueError('Too large')
+                      with Image.open(BytesIO(blob)) as im:
+                          im.load()
+                          im.thumbnail((1500,1000))
+                          im.convert('RGB').save(target,'JPEG',quality=86,optimize=True)
+                      with Image.open(target) as check: check.verify()
+                      print('VALID',target,target.stat().st_size)
+                      break
+                  except Exception as exc:
+                      print('Download attempt failed',url,exc)
+                      time.sleep(2)
+              else:
+                  failures.append(local)
+              time.sleep(1)
+          print('Uncached:',failures)
+          PY
+      - name: Save checked image assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 6/24-relef-suhodolu-hory/assets
+          if git diff --cached --quiet; then echo 'No new assets'; exit 0; fi
+          git commit -m "Cache verified mountains lesson photographs"
+          git pull --rebase origin main
+          git push origin HEAD:main
